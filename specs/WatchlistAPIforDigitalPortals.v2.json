@@ -1,0 +1,1114 @@
+{
+  "swagger": "2.0",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/watchlist/create": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint creates a new watchlist.",
+        "summary": "Create watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/delete": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint deletes a watchlist.",
+        "summary": "The endpoint deletes a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always empty."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/list": {
+      "get": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "description": "The endpoint lists all watchlist of a user.",
+        "summary": "List watchlists.",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "name",
+                      "amount"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of watchlist.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "string"
+                      },
+                      "amount": {
+                        "description": "Number of watched positions.",
+                        "x-sortable": true,
+                        "type": "number",
+                        "format": "int32"
+                      }
+                    }
+                  },
+                  "maxItems": 100
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "name",
+                "-name",
+                "amount",
+                "-amount"
+              ]
+            },
+            "maxItems": 2,
+            "uniqueItems": true,
+            "default": [
+              "name"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ]
+      }
+    },
+    "/watchlist/modify": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint renames a watchlist.",
+        "summary": "Rename a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name",
+                    "nameNew"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    },
+                    "nameNew": {
+                      "description": "New name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "nameNew"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/create": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint adds a new position in a watchlist.",
+        "summary": "Add position in watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name",
+                    "notation",
+                    "additionalData"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    },
+                    "notation": {
+                      "description": "Identifier of the notation",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "additionalData": {
+                      "description": "Additional data to the watched position.",
+                      "type": "string",
+                      "x-trim": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "notation"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Position id.",
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true
+                      }
+                    }
+                  },
+                  "description": "This attribute is always null."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/delete": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint deletes a position in a watchlist.",
+        "summary": "Add position in watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name",
+                    "id"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    },
+                    "id": {
+                      "description": "Position id.",
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/list": {
+      "get": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "description": "The endpoint lists the positions of a watchlist.",
+        "summary": "List positions of watchlist.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of watchlist",
+            "type": "string",
+            "x-trim": false,
+            "minLength": 1,
+            "exclusiveMinimum": false,
+            "maxLength": 100,
+            "exclusiveMaximum": false,
+            "required": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "id",
+                "-id",
+                "notation",
+                "-notation"
+              ]
+            },
+            "maxItems": 2,
+            "uniqueItems": true,
+            "default": [
+              "id"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "notation",
+                      "additionalData"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Position id.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true
+                      },
+                      "notation": {
+                        "description": "Identifier of the notation.",
+                        "x-sortable": true,
+                        "type": "string",
+                        "format": "id64",
+                        "x-positive": true
+                      },
+                      "additionalData": {
+                        "description": "Additional data to the watched position.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "maxItems": 100
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/modify": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "The endpoint modifies a position in a watchlist. All properties except the position id are modifiable by the endpoint.",
+        "summary": "Add position in watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name",
+                    "id",
+                    "notation",
+                    "additionalData"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of watchlist",
+                      "type": "string",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    },
+                    "id": {
+                      "description": "Position id.",
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true
+                    },
+                    "notation": {
+                      "description": "Identifier of the notation",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "additionalData": {
+                      "description": "Additional data to the watched position.",
+                      "type": "string",
+                      "x-trim": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Prime Developer Trial",
+    "version": "v1"
+  },
+  "host": "api-sandbox.factset.com",
+  "x-interface-version": 1,
+  "x-documenter-version": "5.27.0",
+  "x-api-version": "2.0.0",
+  "responses": {
+    "ErrorResponse": {
+      "description": "Generic error response for all errors (400 ... 599 error codes)",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/definitions/ErrorMetaObject"
+          },
+          "errors": {
+            "$ref": "#/definitions/ErrorObject"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorMetaObject": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/StatusObject"
+        }
+      }
+    },
+    "ErrorObject": {
+      "type": "array",
+      "description": "The errors member contains additional information about a failed request.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "string",
+            "description": "A human-readable, unstructured explanation specific to this occurrence of the failure."
+          },
+          "encryptedDetails": {
+            "type": "string",
+            "description": "Base64-encoded, internal details about the error, in addition to \"details\"."
+          },
+          "type": {
+            "type": "number",
+            "format": "int32",
+            "description": "Internal error type of the Foundation API protocol."
+          },
+          "attribute": {
+            "type": "array",
+            "description": "For a validation error, a reference to the request parameter that failed validation; otherwise, an empty array.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Element of the path denoting the request parameter."
+                },
+                "index": {
+                  "type": "number",
+                  "format": "int32",
+                  "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
+                }
+              },
+              "x-property-sort": [
+                "name",
+                "index"
+              ]
+            }
+          }
+        },
+        "x-property-sort": [
+          "detail",
+          "encryptedDetails",
+          "type",
+          "attribute"
+        ]
+      }
+    },
+    "AttributesMember": {
+      "type": "array",
+      "description": "Limit the attributes returned in the response to the specified set.",
+      "items": {
+        "type": "string",
+        "maxLength": 100,
+        "exclusiveMaximum": false
+      },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "LanguageMember": {
+      "type": "string",
+      "format": "isoLanguage",
+      "description": "ISO 639-1 code of the language.",
+      "maxLength": 2,
+      "minLength": 2,
+      "exclusiveMinimum": false,
+      "exclusiveMaximum": false
+    },
+    "StatusObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "number",
+          "format": "int32",
+          "description": "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1)."
+        }
+      },
+      "description": "The status member contains the status code of the response.",
+      "required": [
+        "code"
+      ]
+    },
+    "SubscriptionMember": {
+      "type": "object",
+      "properties": {
+        "minimumInterval": {
+          "type": "number",
+          "format": "int32",
+          "description": "Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.",
+          "minimum": 0,
+          "exclusiveMinimum": false,
+          "maximum": 5000,
+          "exclusiveMaximum": false,
+          "default": 0
+        }
+      },
+      "description": "Object defining the subscription attributes.",
+      "required": [
+        "minimumInterval"
+      ],
+      "x-property-sort": [
+        "minimumInterval"
+      ]
+    },
+    "CursorBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        },
+        "next": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+        },
+        "previous": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ]
+    },
+    "OffsetBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal"
+      ]
+    },
+    "PartialOutputObject": {
+      "type": "object",
+      "properties": {
+        "isPartial": {
+          "type": "boolean",
+          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
+        }
+      },
+      "description": "Object denoting that the endpoint response is possibly incomplete.",
+      "required": [
+        "isPartial"
+      ],
+      "x-property-sort": [
+        "isPartial"
+      ]
+    }
+  },
+  "basePath": "/wealth/v1",
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

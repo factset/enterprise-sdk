@@ -1,0 +1,864 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: http://www.factset.com/api
+  description: |
+    FactSet ETF data feeds provide complete and accurate security, fund and reference data across the universe of exchange-traded products. Data is sourced from ETF providers across the globe and includes more than 100 unique data points, resulting in comprehensive coverage to help you evaluate and construct ETFs, analyze potential trades, and perform fund research.<p> FactSet Reference and Analytics data uses FactSet's FCS, which categorizes exchange-traded products using a rules-based system that is derived from seven core classifications. This system evaluates the asset class, economic development level, and geographical region as described in each fund's prospectus and marketing materials. ETF exposure details are presented on successively granular levels-  category, then focus, and then niche.</p> <p>Moreover, FactSet ETF Reference data captures over 100 unique data points and provides market-specific data if you wish to solely focus on U.S., Canadian, Australian, New Zealand, Singapore, Hong Kong or European exchanges. All data points are grouped in one of two levels, either as a Fund or as a Listing. However, FactSet ETF Analytics data is primarily available for U.S.-domiciled ETFs. A subset of reference data items are provided for European-domiciled funds. For a full breakout of regional availability and history, see Formula Definitions and Calculations.</p>
+  license:
+    name: License Information
+    url: http://www.factset.com/api/license.html
+  termsOfService: http://www.factset.com/api/terms.html
+  title: FactSet Exchange Traded Funds API
+  version: 1.0.0
+servers:
+- description: Production Server
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /factset-etf/v1/reference:
+    get:
+      description: |
+        Returns reference data items for Exchange Traded Funds.
+      operationId: getEtfReferenceData
+      parameters:
+      - description: |
+          The list of ETF identifiers. Accepted identifer types include FactSet Permanent Ids, Tickers, CUSIP, SEDOL, ISIN. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          $ref: '#/components/schemas/ids'
+        style: form
+      - description: |
+          List of individdual data items for Exchange Traded Funds. By default only the fsymId and requestId are returned. To fetch a list of all available data items, use the **/metrics** endpoint.
+        explode: false
+        in: query
+        name: metrics
+        required: false
+        schema:
+          $ref: '#/components/schemas/metrics'
+        style: form
+      - description: |
+          Groupings of `metrics` data items. Supply a list of categories below to return collections of data items in response.
+          |category|description|
+          |---|---|
+          |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+          |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+          |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+          |COUNTERPARTY|Credit and Swap Counterparty details|
+          |CREATE_REDEEM|Creation and Redemption Sizes|
+          |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+          |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+          |DOCUMENTATION|Details surrounding reporting information.|
+          |GEARING|Leverage factors, inverse flags, and more.|
+          |HEDGE|Hedging Information|
+          |RISK|CIFSC Risk Ratings|
+          |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+          |STATUS|Actively Managed Flags|
+          |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+          |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+          |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+        explode: false
+        in: query
+        name: categories
+        required: false
+        schema:
+          $ref: '#/components/schemas/categories'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ETF Reference Data:
+                  $ref: '#/components/examples/EtfReferenceDataResponse'
+              schema:
+                $ref: '#/components/schemas/EtfReferenceDataResponse'
+          description: ETF Reference Data Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return reference data for an ETF.
+      tags:
+      - Reference
+      x-accepts: application/json
+    post:
+      description: |
+        Returns reference data items for a list of Exchange Traded Funds.
+      operationId: getEtfReferenceDataForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ETF Reference Data Metrics Request:
+                $ref: '#/components/examples/EtfReferenceDataMetricsRequest'
+              ETF Reference Data Category Request:
+                $ref: '#/components/examples/EtfReferenceDataCategoryRequest'
+            schema:
+              $ref: '#/components/schemas/EtfReferenceDataRequest'
+        description: Request object for Exchange Traded Funds
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ETF Reference Data:
+                  $ref: '#/components/examples/EtfReferenceDataResponse'
+              schema:
+                $ref: '#/components/schemas/EtfReferenceDataResponse'
+          description: ETF Reference Data Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Fetch Reference Data for a large list of ETF securities.
+      tags:
+      - Reference
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-etf/v1/metrics:
+    get:
+      description: |
+        Returns a list of available metrics that can be used in the `metrics` parameter of related endpoints. Leave _category_ blank to request all available items.
+      operationId: getEtfMetrics
+      parameters:
+      - description: |
+          The available categories that can be used to select collections of metrics for use within the ETF endpoints.
+          |category|description|
+          |---|---|
+          |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+          |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+          |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+          |COUNTERPARTY|Credit and Swap Counterparty details|
+          |CREATE_REDEEM|Creation and Redemption Sizes|
+          |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+          |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+          |DOCUMENTATION|Details surrounding reporting information.|
+          |GEARING|Leverage factors, inverse flags, and more.|
+          |HEDGE|Hedging Information|
+          |RISK|CIFSC Risk Ratings|
+          |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+          |STATUS|Actively Managed Flags|
+          |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+          |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+          |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+        explode: false
+        in: query
+        name: category
+        required: false
+        schema:
+          $ref: '#/components/schemas/category'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricsResponse'
+          description: Metrics Response
+      summary: Available ETF metrics
+      tags:
+      - Data Items
+      x-accepts: application/json
+components:
+  examples:
+    EtfReferenceDataMetricsRequest:
+      description: ETF Reference Data Metrics Request
+      value:
+        ids:
+        - EQAL-US
+        metrics:
+        - factsetEntityId
+        - name
+        - launchDate
+        - fundCurrency
+    EtfReferenceDataCategoryRequest:
+      description: ETF Refernece Data Category Request
+      value:
+        ids:
+        - EQAL-US
+        categories:
+        - REFERENCE
+    MetricsRequest:
+      description: Metrics Request
+      value:
+        category: REFERENCE
+    EtfReferenceDataResponse:
+      description: ETF Reference Data Response
+      value:
+        data:
+        - requestId: EQAL-US
+          fsymId: Q09R75-S
+          factsetEntityId: 0F1QFW-E
+          name: Invesco Russell 1000 Equal Weight ETF
+          launchDate: 2014-12-23
+          eftBrandName: Invesco
+          fundCurrency: USD
+          issuerFactsetEntityId: 0033W4-E
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-etf/v1/{endpoint}
+        message: 'The date parameter ''startDate'' must be in the following date format:
+          YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /factset-etf/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /factset-etf/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-etf/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /factset-etf/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-etf/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /factset-etf/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-etf /v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /factset-etf/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-etf/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-etf/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    ids:
+      description: |
+        The list of ETF identifiers. Accepted identifer types include FactSet Permanent Ids, Tickers, CUSIP, SEDOL, ISIN. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        $ref: '#/components/schemas/ids'
+      style: form
+    metrics:
+      description: |
+        List of individdual data items for Exchange Traded Funds. By default only the fsymId and requestId are returned. To fetch a list of all available data items, use the **/metrics** endpoint.
+      explode: false
+      in: query
+      name: metrics
+      required: false
+      schema:
+        $ref: '#/components/schemas/metrics'
+      style: form
+    categories:
+      description: |
+        Groupings of `metrics` data items. Supply a list of categories below to return collections of data items in response.
+        |category|description|
+        |---|---|
+        |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+        |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+        |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+        |COUNTERPARTY|Credit and Swap Counterparty details|
+        |CREATE_REDEEM|Creation and Redemption Sizes|
+        |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+        |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+        |DOCUMENTATION|Details surrounding reporting information.|
+        |GEARING|Leverage factors, inverse flags, and more.|
+        |HEDGE|Hedging Information|
+        |RISK|CIFSC Risk Ratings|
+        |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+        |STATUS|Actively Managed Flags|
+        |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+        |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+        |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+      explode: false
+      in: query
+      name: categories
+      required: false
+      schema:
+        $ref: '#/components/schemas/categories'
+      style: form
+    category:
+      description: |
+        The available categories that can be used to select collections of metrics for use within the ETF endpoints.
+        |category|description|
+        |---|---|
+        |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+        |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+        |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+        |COUNTERPARTY|Credit and Swap Counterparty details|
+        |CREATE_REDEEM|Creation and Redemption Sizes|
+        |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+        |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+        |DOCUMENTATION|Details surrounding reporting information.|
+        |GEARING|Leverage factors, inverse flags, and more.|
+        |HEDGE|Hedging Information|
+        |RISK|CIFSC Risk Ratings|
+        |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+        |STATUS|Actively Managed Flags|
+        |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+        |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+        |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+      explode: false
+      in: query
+      name: category
+      required: false
+      schema:
+        $ref: '#/components/schemas/category'
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+    EtfReferenceDataResponse:
+      content:
+        application/json:
+          examples:
+            ETF Reference Data:
+              $ref: '#/components/examples/EtfReferenceDataResponse'
+          schema:
+            $ref: '#/components/schemas/EtfReferenceDataResponse'
+      description: ETF Reference Data Response
+    MetricsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MetricsResponse'
+      description: Metrics Response
+  schemas:
+    EtfReferenceDataRequest:
+      example:
+        ids:
+        - EQAL-US
+        - VEUR-GB
+        metrics:
+        - factsetEntityId
+        - name
+        - launchDate
+        categories:
+        - null
+        - null
+      properties:
+        ids:
+          description: List of ETF identifiers.
+          example:
+          - EQAL-US
+          - VEUR-GB
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: ids
+          type: array
+        metrics:
+          description: |
+            List of data items for Exchange Traded Funds. To fetch a list of all available data items, use the **/metrics** endpoint.
+          example:
+          - factsetEntityId
+          - name
+          - launchDate
+          items:
+            type: string
+          title: metrics
+          type: array
+        categories:
+          description: |
+            Selects the ETF metrics by category -
+              |category|description|
+              |---|---|
+              |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+              |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+              |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+              |COUNTERPARTY|Credit and Swap Counterparty details|
+              |CREATE_REDEEM|Creation and Redemption Sizes|
+              |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+              |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+              |DOCUMENTATION|Details surrounding reporting information.|
+              |GEARING|Leverage factors, inverse flags, and more.|
+              |HEDGE|Hedging Information|
+              |RISK|CIFSC Risk Ratings|
+              |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+              |STATUS|Actively Managed Flags|
+              |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+              |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+              |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+          items:
+            $ref: '#/components/schemas/category'
+          title: categories
+          type: array
+      required:
+      - ids
+      title: ETF Reference Data Request
+      type: object
+    EtfReferenceDataResponse:
+      example:
+        data:
+        - requestId: requestId
+          fsymId: fsymId
+        - requestId: requestId
+          fsymId: fsymId
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EtfReferenceData'
+          type: array
+      title: ETF Reference Data Response
+      type: object
+    EtfReferenceData:
+      additionalProperties: true
+      description: Reference data items for a ETF security.
+      example:
+        requestId: requestId
+        fsymId: fsymId
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+      required:
+      - fsymId
+      - requestId
+      title: ETF Reference Data
+      type: object
+    MetricsResponse:
+      example:
+        data:
+        - metric: name
+          dataType: DATE
+          name: Fund name
+        - metric: name
+          dataType: DATE
+          name: Fund name
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the metrics that can be requested from the Exchange Traded Funds APIs.
+          items:
+            $ref: '#/components/schemas/Metric'
+          type: array
+      title: Metrics Response
+      type: object
+    Metric:
+      example:
+        metric: name
+        dataType: DATE
+        name: Fund name
+      properties:
+        metric:
+          description: |
+            Metric identifier to be used as `metrics` input in _ETF_ endpoints.
+          example: name
+          type: string
+        name:
+          description: Plain text name of the metric.
+          example: Fund name
+          type: string
+        category:
+          $ref: '#/components/schemas/category'
+        dataType:
+          description: |
+            The data type for the metric. Each dataType is defined below -
+              * **DATE** - date format expressed in YYYY-MM-DD.
+              * **DOUBLE** - A double is a FactSet data type, similar to a float or an integer. A double represents numeric data but provides for a greater amount of decimal precision than the float data type. Double values have up to 15 digits of precision, while float values have up to 7 digits (integers have up to 10 digits).
+              * **INTEGER** - An integer is a whole number or zero (i.e., integers do not include decimals). Integers can be positive or negative.
+              * **STRING** - A string value is an ASCII character. A string is a sequence of ASCII characters. String value and text value are synonymous. Function will hold data for multiple time-periods, as well as for many companies (i.e., two-dimensional value). The STRING_ARRAY function returns data using a vertical orientation (e.g., down a column)
+          enum:
+          - DATE
+          - DOUBLE
+          - INTEGER
+          - STRING
+          type: string
+      required:
+      - metric
+      title: Metric Object
+      type: object
+    ids:
+      description: List of ETF identifiers.
+      example:
+      - EQAL-US
+      - VEUR-GB
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: ids
+      type: array
+    metrics:
+      description: |
+        List of data items for Exchange Traded Funds. To fetch a list of all available data items, use the **/metrics** endpoint.
+      example:
+      - factsetEntityId
+      - name
+      - launchDate
+      items:
+        type: string
+      title: metrics
+      type: array
+    categories:
+      description: |
+        Selects the ETF metrics by category -
+          |category|description|
+          |---|---|
+          |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark|
+          |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.|
+          |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.|
+          |COUNTERPARTY|Credit and Swap Counterparty details|
+          |CREATE_REDEEM|Creation and Redemption Sizes|
+          |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.|
+          |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains|
+          |DOCUMENTATION|Details surrounding reporting information.|
+          |GEARING|Leverage factors, inverse flags, and more.|
+          |HEDGE|Hedging Information|
+          |RISK|CIFSC Risk Ratings|
+          |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details|
+          |STATUS|Actively Managed Flags|
+          |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.|
+          |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.|
+          |TAX|Tax Types, distribution takes, K1 Flags, and more.|
+      items:
+        $ref: '#/components/schemas/category'
+      title: categories
+      type: array
+    category:
+      description: |
+        Filters the list of ETF metrics by major category - |---|---| |category|description| |BENCHMARK_DETAILS|description|
+      enum:
+      - BENCHMARK_DETAILS
+      - CLASSIFICATION
+      - COSTS_FEES
+      - COUNTERPARTY
+      - CREATE_REDEEM
+      - DESCRIPTIVE
+      - DISTRIBUTIONS
+      - DOCUMENTATION
+      - GEARING
+      - HEDGE
+      - RISK
+      - SERVICE_PROVIDERS
+      - STATUS
+      - STRATEGY
+      - STRUCTURE
+      - TAX
+      title: category
+      type: string
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-etf/v1/references
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

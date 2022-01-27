@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.OFDB",
+  "projectName": "fds.sdk.OFDB",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - OFDB",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/OFDB",
+  "httpUserAgent": "fds-sdk/python/OFDB/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

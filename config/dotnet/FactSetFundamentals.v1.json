@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.FactSetFundamentals",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{1d0a079a-c04a-5bbd-800e-f4203488d4ed}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - FactSet Fundamentals",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentals/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

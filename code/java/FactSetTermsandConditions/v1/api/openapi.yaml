@@ -1,0 +1,4244 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: http://www.factset.com/api
+  description: |
+    The FactSet Terms & Conditions API exposes Terms & Conditions data for Fixed Income Corporate, Governement & Agency securities. The FactSet Corporate Government & Agency Terms & Conditions library provides descriptive data on the issue level, such as offering details, redemption information, and coupon schedules. Issuer level data is also available. Coverage is global and includes corporate, sovereign, and agency issues.
+  license:
+    name: License Information
+    url: http://www.factset.com/api/license.html
+  termsOfService: http://www.factset.com/api/terms.html
+  title: FactSet Terms & Conditions API
+  version: 1.0.0
+servers:
+- description: Production Server
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Select specific Terms & Conditions fields for a list of Fixed Income
+    Security identifiers.
+  name: Terms & Conditions
+- description: Fetch the Fixed Income Issue Details, such as Amount Outstanding, Change,
+    and Type.
+  name: Issue Size
+- description: Coupon History and Schedules
+  name: Coupons
+- description: Covenant Details and Negative Covenants
+  name: Covenants
+- description: Redemption Prices
+  name: Redemptions
+- description: Agency Details
+  name: Agents
+- description: Use of Proceeds raised from Fixed Income Issues
+  name: Use of Proceeds
+- description: Lead Underwriter Details
+  name: Underwriters
+- description: Convertible Details, History, and Triggers
+  name: Convertibles
+paths:
+  /factset-terms-and-conditions/v1/terms-and-conditions:
+    get:
+      description: |
+        Returns Terms and Conditions data items for the Fixed Income security. Includes items for Conditional Redemptions, Redemption Options, Security Details, and Coupon Details.
+        Use the `fields` parameter to request specific items only or request an entire category of items to fetch all available fields matching that category(s).
+        <p>*For T&C data related to Agency, Coupon History, Issue Size, Negative Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds, please use respective endpoints optimized for that content.*</p>
+      operationId: getTermsAndConditions
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      - description: List of data items for Terms and Conditions. For a full list
+          of available fields, definitions, and category assignments, use the `/fields`
+          endpoint.
+        example:
+        - principalAmt
+        - issueDesc
+        - denomMin
+        - maturityDate
+        explode: false
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          Selects the Fixed Income metrics by major category. Use the `/fields` endpoint to get a list of all fields associated with each category.
+            * **SECURITY_DETAILS** = Detailed information about the security.
+            * **COUPON_DETAILS** = Coupon details.
+            * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+            * **REDEMPTION_OPTIONS** = Redemption options.
+        explode: false
+        in: query
+        name: categories
+        required: false
+        schema:
+          items:
+            enum:
+            - SECURITY_DETAILS
+            - COUPON_DETAILS
+            - CONVERTIBLE_FEATURES
+            - REDEMPTION_OPTIONS
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Terms And Conditions:
+                  $ref: '#/components/examples/fixedIncomeTermsAndConditionsResponse'
+              schema:
+                $ref: '#/components/schemas/termsAndConditionsResponse'
+          description: Terms And Conditions Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return select Terms and Conditions items for a Fixed Income security.
+      tags:
+      - Terms & Conditions
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Terms and Conditions data items for the Fixed Income security. Includes reference items for Conditional Redemptions, Redemption Options, Security Details, Convertible Features, and Coupon Details.
+        Use the `fields` parameter to request specific items only or request an entire category of items to fetch all available fields matching that category(s).
+        <p>*For T&C data related to Agency, Coupon History, Issue Size, Negative Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds, please use respective endpoints optimized for that content.*</p>
+      operationId: getTermsAndConditionsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Fixed Income Terms And Conditions Item Request:
+                $ref: '#/components/examples/FixedIncomeTermsAndConditionsRequest'
+              Fixed Income Terms And Conditions Category Request:
+                $ref: '#/components/examples/FixedIncomeTermsAndConditionsCategoryRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsRequest'
+        description: Request object for Terms And Conditions
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Terms And Conditions:
+                  $ref: '#/components/examples/fixedIncomeTermsAndConditionsResponse'
+                Fixed Income Coupon Details:
+                  $ref: '#/components/examples/FixedIncomeCouponDetailsResponse'
+                Fixed Income Redemption Options:
+                  $ref: '#/components/examples/FixedIncomeRedemptionOptionsResponse'
+                Fixed Income Security Details:
+                  $ref: '#/components/examples/FixedIncomeSecurityDetailsResponse'
+              schema:
+                $ref: '#/components/schemas/termsAndConditionsResponse'
+          description: Terms and Conditions Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Terms and Conditions for a list of Fixed Income securities.
+      tags:
+      - Terms & Conditions
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/fields:
+    get:
+      description: |
+        Returns a list of available fields that can be used in the `fields`
+        parameter of the **/terms-and-conditions** endpoint.
+        Leave _category_ blank to request all available items.
+        Make Note, this does not represent all available fields within the Terms and Conditions API and all other endpoints.
+      operationId: getTermsAndConditionsFields
+      parameters:
+      - description: |
+          Filters the list of Fixed Income metrics by major category -
+            * **SECURITY_DETAILS** = Detailed information about the security.
+            * **COUPON_DETAILS** = Coupon details.
+            * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+            * **REDEMPTION_OPTIONS** = Redemption options.
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          enum:
+          - SECURITY_DETAILS
+          - COUPON_DETAILS
+          - CONVERTIBLE_FEATURES
+          - REDEMPTION_OPTIONS
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fieldsResponse'
+          description: Terms And Conditions Fields Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Available fields for /terms-and-conditions endpoint
+      tags:
+      - Terms & Conditions
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/issue-size:
+    get:
+      description: |
+        Returns Issue Size data for the Fixed Income security.
+      operationId: getIssueSize
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeIssueSizeResponse'
+              schema:
+                $ref: '#/components/schemas/issueSizeResponse'
+          description: Issue Size Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Issue Size data for a list of Fixed Income securities.
+      tags:
+      - Issue Size
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Issue Size data for a list of Fixed Income securities.
+      operationId: getIssueSizeForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Issue Size.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeIssueSizeResponse'
+              schema:
+                $ref: '#/components/schemas/issueSizeResponse'
+          description: Issue Size Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Issue Size data for a large list of Fixed Income securities.
+      tags:
+      - Issue Size
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/coupon-history:
+    get:
+      description: |
+        Returns historical Coupon information for the Fixed Income security.
+      operationId: getCouponHistory
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Coupon History:
+                  $ref: '#/components/examples/fixedIncomeCouponHistoryResponse'
+              schema:
+                $ref: '#/components/schemas/couponHistoryResponse'
+          description: Coupon History Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return historical Coupon information for a Fixed Income security.
+      tags:
+      - Coupons
+      x-accepts: application/json
+    post:
+      description: |
+        Returns historical Coupon information for a list of Fixed Income securities.
+      operationId: getCouponHistoryForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Coupon History.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Coupon History:
+                  $ref: '#/components/examples/fixedIncomeCouponHistoryResponse'
+              schema:
+                $ref: '#/components/schemas/couponHistoryResponse'
+          description: Coupon History Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return historical Coupon information for a list of Fixed Income securities.
+      tags:
+      - Coupons
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/coupon-schedules:
+    get:
+      description: |
+        Returns Coupon Schedules information for the Fixed Income security.
+      operationId: getCouponSchedules
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponSchedulesResponse'
+          description: Coupon Schedules Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Coupon Sechedules for a Fixed Income security.
+      tags:
+      - Coupons
+      x-accepts: application/json
+    post:
+      description: |
+        Returns historical Coupon Schedules information for a list of Fixed Income securities.
+      operationId: getCouponSchedulesForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Coupon Schedules.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponSchedulesResponse'
+          description: Coupon Schedules Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Coupon Schedules information for a list of Fixed Income securities.
+      tags:
+      - Coupons
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/covenant-details:
+    get:
+      description: |
+        Returns Covenant Details for the Fixed Income security.
+      operationId: getCovenantDetails
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Covenant Details:
+                  $ref: '#/components/examples/fixedIncomeCovenantDetailsResponse'
+              schema:
+                $ref: '#/components/schemas/covenantDetailsResponse'
+          description: Convenant Details Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Covenant Details for a Fixed Income security.
+      tags:
+      - Covenants
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Covenant Details for a list of Fixed Income securities.
+      operationId: getCovenantDetailsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Covenant Details.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Covenant Details:
+                  $ref: '#/components/examples/fixedIncomeCovenantDetailsResponse'
+              schema:
+                $ref: '#/components/schemas/covenantDetailsResponse'
+          description: Convenant Details Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Covenant Details for a list of Fixed Income securities.
+      tags:
+      - Covenants
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/redemption-prices:
+    get:
+      description: |
+        Returns Redemption Prices for the Fixed Income security.
+      operationId: getFixedIncomeRedemptionPrices
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Filters the list of Redemption Prices Categories -
+            * **CALL** = Call prices.
+            * **PUT** = Put prices.
+            * **SF** = Sinking Fund prices.
+        explode: true
+        in: query
+        name: categories
+        required: true
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - CALL
+          - PUT
+          - SF
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Redemption Prices:
+                  $ref: '#/components/examples/fixedIncomeRedemptionPricesResponse'
+                Fixed Income Sinking Fund Redemption Prices:
+                  $ref: '#/components/examples/FixedIncomeSinkingFundPricesResponse'
+              schema:
+                $ref: '#/components/schemas/redemptionPricesResponse'
+          description: Fixed Income Negative Redemption Prices Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Redemption Prices for a Fixed Income security.
+      tags:
+      - Redemptions
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Redemption Prices for a list of Fixed Income securities.
+      operationId: getFixedIncomeRedemptionPricesForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Fixed Income Redemption Prices Request:
+                $ref: '#/components/examples/fixedIncomeRedemptionPricesRequest'
+            schema:
+              $ref: '#/components/schemas/redemptionPricesRequest'
+        description: Request object for Fixed Income Redemption Prices.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Redemption Prices:
+                  $ref: '#/components/examples/fixedIncomeRedemptionPricesResponse'
+                Fixed Income Sinking Fund Redemption Prices:
+                  $ref: '#/components/examples/FixedIncomeSinkingFundPricesResponse'
+              schema:
+                $ref: '#/components/schemas/redemptionPricesResponse'
+          description: Fixed Income Negative Redemption Prices Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Redemption Prices for a list of Fixed Income securities.
+      tags:
+      - Redemptions
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/agents:
+    get:
+      description: |
+        Returns Agents data items for the Fixed Income security.
+      operationId: getAgents
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Agents:
+                  $ref: '#/components/examples/fixedIncomeAgentsResponse'
+                Fixed Income Guarantors:
+                  $ref: '#/components/examples/FixedIncomeGuarantorsResponse'
+              schema:
+                $ref: '#/components/schemas/agentsResponse'
+          description: Agents Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Agents items for a Fixed Income security.
+      tags:
+      - Agents
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Agents data items for a list of Fixed Income securities.
+      operationId: getAgentsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Agents.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Agents:
+                  $ref: '#/components/examples/fixedIncomeAgentsResponse'
+                Fixed Income Guarantors:
+                  $ref: '#/components/examples/FixedIncomeGuarantorsResponse'
+              schema:
+                $ref: '#/components/schemas/agentsResponse'
+          description: Agents Resopnse
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Agents items for a list of Fixed Income securities.
+      tags:
+      - Agents
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/lead-underwriters:
+    get:
+      description: |
+        Returns Lead Underwriters for the Fixed Income security.
+      operationId: getLeadUnderwriters
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Lead Underwriters:
+                  $ref: '#/components/examples/fixedIncomeLeadUnderwritersResponse'
+              schema:
+                $ref: '#/components/schemas/leadUnderwritersResponse'
+          description: Lead Underwriters Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Lead Underwriters for a Fixed Income security.
+      tags:
+      - Underwriters
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Lead Underwriters for a list of Fixed Income securities.
+      operationId: getLeadUnderwritersForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Fixed Income Lead Underwriters Request:
+                $ref: '#/components/examples/fixedIncomeLeadUnderwritersRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Lead Underwriters.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Lead Underwriters:
+                  $ref: '#/components/examples/fixedIncomeLeadUnderwritersResponse'
+              schema:
+                $ref: '#/components/schemas/leadUnderwritersResponse'
+          description: Lead Underwriters Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Lead Underwriters for a list of Fixed Income securities.
+      tags:
+      - Underwriters
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/use-of-proceeds:
+    get:
+      description: |
+        Returns Use of Proceeds for the Fixed Income security.
+      operationId: getFixedIncomeUseOfProceeds
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Use of Proceeds:
+                  $ref: '#/components/examples/fixedIncomeUseOfProceedsResponse'
+              schema:
+                $ref: '#/components/schemas/useOfProceedsResponse'
+          description: Fixed Income Use of Proceeds Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Use of Proceeds for a Fixed Income security.
+      tags:
+      - Use of Proceeds
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Use of Proceeds for a list of Fixed Income securities.
+      operationId: getFixedIncomeUseOfProceedsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Fixed Income Use of Proceeds Request:
+                $ref: '#/components/examples/FixedIncomeUseOfProceedsRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Use of Proceeds.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Use of Proceeds:
+                  $ref: '#/components/examples/fixedIncomeUseOfProceedsResponse'
+              schema:
+                $ref: '#/components/schemas/useOfProceedsResponse'
+          description: Fixed Income Use of Proceeds Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Use of Proceeds for a list of Fixed Income securities.
+      tags:
+      - Use of Proceeds
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/convertible-details:
+    get:
+      description: |
+        Returns Convertible Details for a list of securities, such as -
+          * Convertible Currency
+          * Convertible Effective Date
+          * Convertible Notice Days Max and Min
+          * Convertible Payment Form
+          * Convertible Payment Details
+          * Convertible Payment Form Election
+          * Convertible Price Method
+          * Convertible Type
+          * Convertibles Ratio
+          * More
+      operationId: getConvertibleDetails
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Convertible Details Response:
+                  $ref: '#/components/examples/fixedIncomeConvertibleDetailsResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleDetailsResponse'
+          description: Convertible Details Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible Details for a list of Convertible Fixed Income securities.
+      tags:
+      - Convertibles
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Convertible Details for a list of securities, such as -
+          * Convertible Currency
+          * Convertible Effective Date
+          * Convertible Notice Days Max and Min
+          * Convertible Payment Form
+          * Convertible Payment Details
+          * Convertible Payment Form Election
+          * Convertible Price Method
+          * Convertible Type
+          * Convertibles Ratio
+          * More
+      operationId: getConvertibleDetailsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Convertible Details.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Convertible Details Response:
+                  $ref: '#/components/examples/fixedIncomeConvertibleDetailsResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleDetailsResponse'
+          description: Convertible Details Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible Details data for a large list of Fixed Income securities.
+      tags:
+      - Convertibles
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/convertible-history:
+    get:
+      description: |
+        Returns Convertible History data for the Fixed Income security, including - * Convertibles Price * Convertibles Effective Date
+      operationId: getConvertibleHistory
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Convertible History:
+                  $ref: '#/components/examples/fixedIncomeConvertibleHistoryResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleHistoryResponse'
+          description: Convertible History Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible History data for a list of Fixed Income securities.
+      tags:
+      - Convertibles
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Convertible History data for a list of Fixed Income securities.
+      operationId: getConvertibleHistoryForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Issue Size.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeConvertibleHistoryResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleHistoryResponse'
+          description: Convertible History Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible History data for a large list of Fixed Income securities.
+      tags:
+      - Convertibles
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-terms-and-conditions/v1/convertible-triggers:
+    get:
+      description: |
+        Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description.
+      operationId: getConvertibleTriggers
+      parameters:
+      - description: |
+          List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+          **ID LIMIT = 250** *per request*.
+        example:
+        - 30231GBJ
+        - 88579EAA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Convertible Triggers:
+                  $ref: '#/components/examples/fixedIncomeConvertibleTriggersResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleTriggersResponse'
+          description: Convertible Triggers Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible Triggers data for a list of Fixed Income securities.
+      tags:
+      - Convertibles
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description.
+      operationId: getConvertibleTriggersForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        description: Request object for Fixed Income Issue Size.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Convertible Triggers:
+                  $ref: '#/components/examples/fixedIncomeConvertibleTriggersResponse'
+              schema:
+                $ref: '#/components/schemas/convertibleTriggersResponse'
+          description: Convertible Triggers Response
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return Convertible Trigger data for a large list of Fixed Income securities.
+      tags:
+      - Convertibles
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    FixedIncomeTermsAndConditionsRequest:
+      description: Fixed Income Terms And Conditions Data Item Request
+      value:
+        ids:
+        - 30231GBJ
+        fields:
+        - maturityDate
+        - principalAmt
+        - denomMin
+        - issueDesc
+    FixedIncomeTermsAndConditionsCategoryRequest:
+      description: Fixed Income Terms And Conditions Category Request
+      value:
+        ids:
+        - 30231GBJ
+        categories:
+        - SECURITY_DETAILS
+    FixedIncomeAgentsRequest:
+      description: Fixed Income Agents Request
+      value:
+        ids:
+        - 30231GBJ
+    FixedIncomeCovenantDetailsRequest:
+      description: Fixed Income Covenant Details Request
+      value:
+        ids:
+        - 00107TAA
+    FixedIncomeIssueSizeRequest:
+      description: Fixed Income Issue Size Request
+      value:
+        ids:
+        - W71259AA
+    fixedIncomeRedemptionPricesRequest:
+      description: Fixed Income Redemption Prices Request
+      value:
+        ids:
+        - 88579EAA
+        categories:
+        - CALL
+        - PUT
+    fixedIncomeLeadUnderwritersRequest:
+      description: Fixed Income Lead Underwriters Request
+      value:
+        ids:
+        - 88579EAA
+    FixedIncomeUseOfProceedsRequest:
+      description: Fixed Income Use of Proceeds Request
+      value:
+        ids:
+        - W7519AAG
+    FixedIncomeConvertibleRequest:
+      description: Fixed Income Convertible Request
+      value:
+        ids:
+        - 90138VAA
+        - E0002VAA
+    metricsRequest:
+      description: Metrics Request
+      value:
+        category: SECURITY_DETAILS
+    fixedIncomeAgentsResponse:
+      description: Fixed Income Agents Response
+      value:
+        data:
+        - requestId: 30231GBJ
+          fsymId: QB23QR-S
+          agentEntityId: 05FBK7-E
+          agentCommAmt: 62.6
+          agentName: Morgan Stanley & Co. LLC
+          agentType: Joint Book-Running Manager
+        - requestId: 30231GBJ
+          fsymId: QB23QR-S
+          agentEntityId: 0044MT-E
+          agentCommAmt: 7
+          agentName: BNP Paribas Securities Corp.
+          agentType: Co-Lead Manager
+        - requestId: 30231GBJ
+          fsymId: QB23QR-S
+          agentEntityId: 002J6J-E
+          agentCommAmt: 7
+          agentName: Deutsche Bank Securities Inc.
+          agentType: Co-Lead Manager
+    fixedIncomeCovenantDetailsResponse:
+      description: Fixed Income Covenant Details Response
+      value:
+        data:
+        - requestId: 00107TAA
+          fsymId: J537XV-S
+          finCovType: Fixed Charge Coverage Ratio
+          finCovDesc: 'The Fixed Charge Coverage Ratio would be at least 2.5 : 1'
+        - requestId: 00107TAA
+          fsymId: J537XV-S
+          finCovType: Debt to EBITDA Ratio
+          finCovDesc: |
+            "Indebtedness" means, with respect to any specified Person, whether or not contingent:
+            (1) all indebtedness of such Person in respect of borrowed money;
+            (2) all obligations of such Person evidenced by bonds, notes, debentures or similar instruments;
+            (3) all obligations of such Person in respect of banker's acceptances, letters of credit or similar instruments;
+            (4) all Capital Lease Obligations and Attributable Debt of such Person;
+            (5) all obligations of such Person in respect of the deferred and unpaid balance of the purchase price of any property
+            or services, which purchase price is due more than six months after the date of placing such property in service
+            or taking delivery and title thereto or the completion of such services;
+            (6) all Hedging Obligations of such Person to the extent they appear as a liability on the balance sheet
+            of such Person prepared in accordance with U.S. GAAP;
+            (7) all Disqualified Stock issued by such Person, valued at the greater of its voluntary
+            or involuntary liquidation preference and its maximum fixed repurchase price plus accrued dividends;
+            or (8) all Preferred Stock issued by a Subsidiary of such Person, valued at the greater of its voluntary
+            or involuntary liquidation preference and its maximum fixed repurchase price plus accrued dividends;
+            (9) all Indebtedness of others secured by a Lien on any asset of the specified Person;
+            (10) to the extent not otherwise included, the Guarantee by the specified Person of any Indebtedness of any other Person.
+    FixedIncomeGuarantorsResponse:
+      description: Fixed Income Guarantors Response
+      value:
+        data:
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          agentEntityId: 0LX3GN-E
+          agentCommAmt: null
+          agentName: Radisson Hospitality Belgium BVBA/SPRL
+          agentType: Guarantor
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          agentEntityId: 0LX3GP-E
+          agentCommAmt: null
+          agentName: Radisson Hotel Management & Development A/S
+          agentType: Guarantor
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          agentEntityId: 0LT6BW-E
+          agentCommAmt: null
+          agentName: Radisson Hotels ApS Danmark Ltd.
+          agentType: Guarantor
+    fixedIncomeNegativeCovenantsResponse:
+      description: Fixed Income Negative Covenants Response
+      value:
+        data:
+        - requestId: 00102JAA
+          fsymId: Q6B8MX-S
+          covenantLvl: Borrower
+          covenantType: Liens
+        - requestId: 00102JAA
+          fsymId: Q6B8MX-S
+          covenantLvl: Borrower
+          covenantType: Stock Issuance
+        - requestId: 00102JAA
+          fsymId: Q6B8MX-S
+          covenantLvl: Subsidiary
+          covenantType: Liens
+    fixedIncomeRedemptionPricesResponse:
+      description: Fixed Income Redemption Prices Response
+      value:
+        data:
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2034-12-15
+          catagory: CALL
+          minAmt: null
+          price: 105
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2035-12-15
+          catagory: CALL
+          minAmt: null
+          price: 104.5
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2036-12-15
+          catagory: CALL
+          minAmt: null
+          price: 104
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2018-12-15
+          catagory: PUT
+          minAmt: null
+          price: 100
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2019-12-15
+          catagory: PUT
+          minAmt: null
+          price: 100
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2020-12-15
+          catagory: PUT
+          minAmt: null
+          price: 100
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          date: 2021-12-15
+          catagory: PUT
+          minAmt: null
+          price: 100
+    FixedIncomeSinkingFundPricesResponse:
+      description: Fixed Income Sinking Fund Prices Response
+      value:
+        data:
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2019-05-01
+          category: SF
+          minAmt: 7.5
+          price: 100
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2019-11-01
+          category: SF
+          minAmt: 7.5
+          price: 100
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2020-05-01
+          category: SF
+          minAmt: 7.5
+          price: 100
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2020-11-01
+          category: SF
+          minAmt: 7.5
+          price: 100
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2021-05-01
+          category: SF
+          minAmt: 7.5
+          price: 100
+        - requestId: 28226BAH
+          fsymId: JXJLW4-S
+          date: 2024-01-31
+          category: SF
+          minAmt: 7.5
+          price: 100
+    fixedIncomeCouponHistoryResponse:
+      description: Fixed Income Coupon Details Response
+      value:
+        data:
+        - requestId: ES0265936007
+          fsymId: Q2KW45-S
+          date: 2019-01-18
+          couponBasketFlag: null
+          couponEffPmtDate: 2020-01-18
+          couponFormula: null
+          couponInitResetDate: null
+          couponLink: null
+          couponMargin: null
+          couponMinFloatRate: null
+          couponStructSubCode: null
+          couponTypeStruct: Fixed Rate
+          couponVarPmtFlag: false
+          underlyingIndex: null
+        - requestId: ES0265936007
+          fsymId: Q2KW45-S
+          date: 2024-01-18
+          couponBasketFlag: false
+          couponEffPmtDate: 2025-01-18
+          couponFormula: '{EUR Swap - 5Y} + 5.927%'
+          couponInitResetDate: 2025-01-18
+          couponLink: Interest Rate Linked
+          couponMargin: 592.7
+          couponMinFloatRate: null
+          couponStructSubCode: null
+          couponTypeStruct: Floating
+          couponVarPmtFlag: false
+          underlyingIndex: EUR Swap - 5Y
+    fixedIncomeCouponSchedulesResponse:
+      description: Fixed Income Coupon Schedules Response
+      value:
+        data:
+        - requestId: ES0265936007
+          fsymId: Q2KW45-S
+          date: 2019-01-18
+    fixedIncomeIssueSizeResponse:
+      description: Fixed Income Issue Size Response
+      value:
+        data:
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          outAmtEffDate: 2020-09-01
+          outAmtCurrency: EUR
+          outAmt: 0
+          outAmtChange: 250
+          outAmtChangePrice: 103.438
+          outAmtChangeType: Balance of Issue Called
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          outAmtEffDate: 2018-07-06
+          outAmtCurrency: EUR
+          outAmt: 250
+          outAmtChange: 250
+          outAmtChangePrice: 99.473
+          outAmtChangeType: Initial Offering
+    fixedIncomeTermsAndConditionsResponse:
+      description: Fixed Income Terms And Conditions Response after requesting `principalAmt`,`maturityDate`,`denomMin`,and
+        `issueDesc`.
+      value:
+        data:
+        - requestId: 30231GBJ
+          issueDesc: $1,000,000,000 3.294% Notes due 2027
+          maturityDate: 2027-03-19
+          fsymId: D39KPF-S
+          denomMin: 2000
+          principalAmt: 1000
+        - requestId: 88579EAA
+          issueDesc: $62,326,000 Floating Rate Notes due December 15, 2044
+          maturityDate: 2044-12-15
+          fsymId: BG7Z0W-S
+          denomMin: 1000
+          principalAmt: 1000
+    FixedIncomeCouponDetailsResponse:
+      description: Fixed Income Coupon Details Response
+      value:
+        data:
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          businessCalendar: null
+          businessDay: null
+          coupon: null
+          couponChange: null
+          couponCurrency: EUR
+    FixedIncomeRedemptionOptionsResponse:
+      description: Fixed Income Redemption Options Response
+      value:
+        data:
+        - requestId: W71259AA
+          fsymId: BJHY14-S
+          basketDesc: null
+          basketFlag: null
+          callFreq: null
+          callNextDate: null
+          callNextPrice: null
+    FixedIncomeSecurityDetailsResponse:
+      description: Fixed Income Security Details Response
+      value:
+        data:
+        - requestId: 00206RAU
+          fsymId: QB23QR-S
+    fixedIncomeLeadUnderwritersResponse:
+      description: Fixed Income Lead Underwriters Response
+      value:
+        data:
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          factsetLeadUwritrEntityId: 007GC3-E
+        - requestId: 88579EAA
+          fsymId: BG7Z0W-S
+          factsetLeadUwritrEntityId: 002Y4H-E
+    fixedIncomeUseOfProceedsResponse:
+      description: Fixed Income Use of Proceeds Response
+      value:
+        data:
+        - requestId: W7519AAG
+          fsymId: WLB9DF-S
+          useOfProceeds: Potential Future Mergers & Acquisitions
+        - requestId: W7519AAG
+          fsymId: WLB9DF-S
+          useOfProceeds: Refinance
+        - requestId: W7519AAG
+          fsymId: WLB9DF-S
+          useOfProceeds: General Corporate Purposes
+        - requestId: W7519AAG
+          fsymId: WLB9DF-S
+          useOfProceeds: Investment in Marketable Securities
+    fixedIncomeConvertibleDetailsResponse:
+      description: Fixed Income Convertible Details Response
+      value:
+        data:
+        - convCurr: USD
+          convEffDate: 2025-08-01
+          convEndDate: 2026-01-29
+          convFrequency: Continuous on Schedule
+          convId: 28654
+          convIdentification: Whole or Part
+          convNoticeDaysMax: null
+          convNoticeDaysMin: null
+          convPayForm: Cash or Physical or (Physical and Cash)
+          convPayFormDet: null
+          convPayFormElect: By Issuer
+          convPremChgControl: null
+          convPriceMethod: Fixed
+          convRatio: 18.3574
+          convRatioDesc: null
+          convType: Optional by Holder
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convCurr: USD
+          convEffDate: 2021-01-26
+          convEndDate: 2025-07-31
+          convFrequency: Continuous on Schedule
+          convId: 29550
+          convIdentification: Whole or Part
+          convNoticeDaysMax: null
+          convNoticeDaysMin: null
+          convPayForm: Cash or Physical or (Physical and Cash)
+          convPayFormDet: null
+          convPayFormElect: By Issuer
+          convPremChgControl: null
+          convPriceMethod: Fixed
+          convRatio: 18.3574
+          convRatioDesc: null
+          convType: Triggered Optional
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convCurr: USD
+          convEffDate: 2021-01-26
+          convEndDate: 2026-01-30
+          convFrequency: Continuous on Schedule
+          convId: 29551
+          convIdentification: Whole or Part
+          convNoticeDaysMax: null
+          convNoticeDaysMin: null
+          convPayForm: Cash or Physical or (Physical and Cash)
+          convPayFormDet: null
+          convPayFormElect: By Issuer
+          convPremChgControl: null
+          convPriceMethod: Variable
+          convRatio: 18.3574
+          convRatioDesc: null
+          convType: Triggered Optional
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convCurr: USD
+          convEffDate: 2021-07-01
+          convEndDate: 2025-07-31
+          convFrequency: Continuous on Schedule
+          convId: 29549
+          convIdentification: Whole or Part
+          convNoticeDaysMax: null
+          convNoticeDaysMin: null
+          convPayForm: Cash or Physical or (Physical and Cash)
+          convPayFormDet: null
+          convPayFormElect: By Issuer
+          convPremChgControl: null
+          convPriceMethod: Fixed
+          convRatio: 18.3574
+          convRatioDesc: null
+          convType: Triggered Optional
+          fsymId: SMH439-S
+          requestId: 90138VAA
+    fixedIncomeConvertibleHistoryResponse:
+      description: Fixed Income Convertible History Response
+      value:
+        data:
+        - convEffDate: 2025-08-01
+          convPrice: 54.47
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convEffDate: 2021-01-26
+          convPrice: 54.47
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convEffDate: 2021-01-26
+          convPrice: 54.47
+          fsymId: SMH439-S
+          requestId: 90138VAA
+        - convEffDate: 2021-07-01
+          convPrice: 54.47
+          fsymId: SMH439-S
+          requestId: 90138VAA
+    fixedIncomeConvertibleTriggersResponse:
+      description: Fixed Income Convertible Triggers Response
+      value:
+        data:
+        - convTriggerEvent: Price of Convertible Instrument
+          convTriggerEventDesc: null
+          fsymId: SMH439-S
+          requestId: 90138VAA
+          triggerId: 21161
+        - convTriggerEvent: Announced Redemption
+          convTriggerEventDesc: null
+          fsymId: SMH439-S
+          requestId: 90138VAA
+          triggerId: 21162
+        - convTriggerEvent: Distribution of Entitlements
+          convTriggerEventDesc: null
+          fsymId: SMH439-S
+          requestId: 90138VAA
+          triggerId: 21163
+        - convTriggerEvent: Fundamental Change
+          convTriggerEventDesc: Make-Whole
+          fsymId: SMH439-S
+          requestId: 90138VAA
+          triggerId: 21164
+        - convTriggerEvent: Commodity Price Performance
+          convTriggerEventDesc: null
+          fsymId: SMH439-S
+          requestId: 90138VAA
+          triggerId: 21160
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-terms-and-conditions/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    ids:
+      description: |
+        List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+        **ID LIMIT = 250** *per request*.
+      example:
+      - 30231GBJ
+      - 88579EAA
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 250
+        minItems: 1
+        type: array
+      style: form
+    fields:
+      description: List of data items for Terms and Conditions. For a full list of
+        available fields, definitions, and category assignments, use the `/fields`
+        endpoint.
+      example:
+      - principalAmt
+      - issueDesc
+      - denomMin
+      - maturityDate
+      explode: false
+      in: query
+      name: fields
+      required: false
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
+    categoriesCurrent:
+      description: |
+        Selects the Fixed Income metrics by major category. Use the `/fields` endpoint to get a list of all fields associated with each category.
+          * **SECURITY_DETAILS** = Detailed information about the security.
+          * **COUPON_DETAILS** = Coupon details.
+          * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+          * **REDEMPTION_OPTIONS** = Redemption options.
+      explode: false
+      in: query
+      name: categories
+      required: false
+      schema:
+        items:
+          enum:
+          - SECURITY_DETAILS
+          - COUPON_DETAILS
+          - CONVERTIBLE_FEATURES
+          - REDEMPTION_OPTIONS
+          type: string
+        type: array
+      style: form
+    categoriesRedemption:
+      description: |
+        Filters the list of Redemption Prices Categories -
+          * **CALL** = Call prices.
+          * **PUT** = Put prices.
+          * **SF** = Sinking Fund prices.
+      explode: true
+      in: query
+      name: categories
+      required: true
+      schema:
+        default: ALL
+        enum:
+        - ALL
+        - CALL
+        - PUT
+        - SF
+        type: string
+      style: form
+    category:
+      description: |
+        Filters the list of Fixed Income metrics by major category -
+          * **SECURITY_DETAILS** = Detailed information about the security.
+          * **COUPON_DETAILS** = Coupon details.
+          * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+          * **REDEMPTION_OPTIONS** = Redemption options.
+      explode: true
+      in: query
+      name: category
+      required: false
+      schema:
+        enum:
+        - SECURITY_DETAILS
+        - COUPON_DETAILS
+        - CONVERTIBLE_FEATURES
+        - REDEMPTION_OPTIONS
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    termsAndConditionsRequest:
+      properties:
+        ids:
+          description: |
+            List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+            **ID LIMIT = 250** *per request*.
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        fields:
+          description: List of Terms and Conditions data items.
+          items:
+            type: string
+          type: array
+        categories:
+          description: |
+            Selects the Fixed Income metrics by major category -
+            * **SECURITY_DETAILS** = Detailed information about the security.
+            * **COUPON_DETAILS** = Coupon details.
+            * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+            * **REDEMPTION_OPTIONS** = Redemption options.
+          items:
+            enum:
+            - SECURITY_DETAILS
+            - COUPON_DETAILS
+            - CONVERTIBLE_FEATURES
+            - REDEMPTION_OPTIONS
+            type: string
+          type: array
+      required:
+      - ids
+      title: Terms and Conditions Request
+      type: object
+    termsAndConditionsResponse:
+      example:
+        data:
+        - requestId: requestId
+          fsymId: fsymId
+        - requestId: requestId
+          fsymId: fsymId
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/termsAndConditions'
+          type: array
+      title: Terms and Conditions Response
+      type: object
+    termsAndConditions:
+      additionalProperties: true
+      description: Terms And Conditions data items for a Fixed Income security.
+      example:
+        requestId: requestId
+        fsymId: fsymId
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+      required:
+      - fsymId
+      - requestId
+      title: Terms and Conditions
+      type: object
+    fieldsResponse:
+      example:
+        data:
+        - field: principalAmt
+          dataType: integer
+          name: Principal (or Face Value) Amount
+          category: SECURITY_DETAILS
+        - field: principalAmt
+          dataType: integer
+          name: Principal (or Face Value) Amount
+          category: SECURITY_DETAILS
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the metrics that can be requested from the Fixed Income APIs.
+          items:
+            $ref: '#/components/schemas/field'
+          type: array
+      title: Fields Response
+      type: object
+    field:
+      example:
+        field: principalAmt
+        dataType: integer
+        name: Principal (or Face Value) Amount
+        category: SECURITY_DETAILS
+      properties:
+        field:
+          description: |
+            Field identifier to be used as `fields` input in _Terms-and-Conditions_ endpoints.
+          example: principalAmt
+          type: string
+        name:
+          description: Plain text name of the field.
+          example: Principal (or Face Value) Amount
+          type: string
+        category:
+          description: Primary Category of field item, such as COUPON_DETAILS or SECURITY_DETAILS.
+          enum:
+          - CONVERTIBLE_FEATURES
+          - COUPON_DETAILS
+          - REDEMPTION_OPTIONS
+          - SECURITY_DETAILS
+          example: SECURITY_DETAILS
+          type: string
+        dataType:
+          description: |
+            The Data Type of the respective field, including -
+            * date
+            * string
+            * integer
+            * double
+          example: integer
+          type: string
+      title: Field Object
+      type: object
+    issueSizeResponse:
+      example:
+        data:
+        - outAmtCurrency: outAmtCurrency
+          outAmtChangePrice: 1.4658129805029452
+          outAmtEffDate: 2000-01-23
+          requestId: requestId
+          fsymId: fsymId
+          outAmtChange: 6.027456183070403
+          outAmt: 0.8008281904610115
+          outAmtChangeType: outAmtChangeType
+        - outAmtCurrency: outAmtCurrency
+          outAmtChangePrice: 1.4658129805029452
+          outAmtEffDate: 2000-01-23
+          requestId: requestId
+          fsymId: fsymId
+          outAmtChange: 6.027456183070403
+          outAmt: 0.8008281904610115
+          outAmtChangeType: outAmtChangeType
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/issueSize'
+          type: array
+      title: Issue Size Response
+      type: object
+    issueSize:
+      description: Issue Size Data Items for a Fixed Income security.
+      example:
+        outAmtCurrency: outAmtCurrency
+        outAmtChangePrice: 1.4658129805029452
+        outAmtEffDate: 2000-01-23
+        requestId: requestId
+        fsymId: fsymId
+        outAmtChange: 6.027456183070403
+        outAmt: 0.8008281904610115
+        outAmtChangeType: outAmtChangeType
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        outAmtEffDate:
+          description: Amount Outstanding Effective Date (out_amt_eff_date)
+          format: date
+          type: string
+        outAmtCurrency:
+          description: Amount Outstanding Currency
+          type: string
+        outAmt:
+          description: Amount Outstanding
+          format: double
+          type: number
+        outAmtChange:
+          description: Amount Outstanding Action Amount
+          format: double
+          type: number
+        outAmtChangePrice:
+          description: Price - Amount Outstanding Action
+          format: double
+          type: number
+        outAmtChangeType:
+          description: Amount Outstanding Action Type
+          type: string
+      required:
+      - date
+      - fsymId
+      - requestId
+      title: Issue Size
+      type: object
+    couponHistoryResponse:
+      example:
+        data:
+        - date: 2000-01-23
+          couponEffPmtDate: 2000-01-23
+          couponResetFreq: couponResetFreq
+          couponMinFloatRate: 6.027456183070403
+          fsymId: fsymId
+          couponStructSubCode: couponStructSubCode
+          couponMargin: 0.8008281904610115
+          couponLink: couponLink
+          requestId: requestId
+          couponTypeStruct: couponTypeStruct
+          couponBasketFlag: true
+          couponVarPmtFlag: true
+          underlyingIndex: underlyingIndex
+          couponFormula: couponFormula
+          couponInitResetDate: 2000-01-23
+        - date: 2000-01-23
+          couponEffPmtDate: 2000-01-23
+          couponResetFreq: couponResetFreq
+          couponMinFloatRate: 6.027456183070403
+          fsymId: fsymId
+          couponStructSubCode: couponStructSubCode
+          couponMargin: 0.8008281904610115
+          couponLink: couponLink
+          requestId: requestId
+          couponTypeStruct: couponTypeStruct
+          couponBasketFlag: true
+          couponVarPmtFlag: true
+          underlyingIndex: underlyingIndex
+          couponFormula: couponFormula
+          couponInitResetDate: 2000-01-23
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/couponHistory'
+          type: array
+      title: Coupon History Response
+      type: object
+    couponHistory:
+      description: Coupon History for a Fixed Income security.
+      example:
+        date: 2000-01-23
+        couponEffPmtDate: 2000-01-23
+        couponResetFreq: couponResetFreq
+        couponMinFloatRate: 6.027456183070403
+        fsymId: fsymId
+        couponStructSubCode: couponStructSubCode
+        couponMargin: 0.8008281904610115
+        couponLink: couponLink
+        requestId: requestId
+        couponTypeStruct: couponTypeStruct
+        couponBasketFlag: true
+        couponVarPmtFlag: true
+        underlyingIndex: underlyingIndex
+        couponFormula: couponFormula
+        couponInitResetDate: 2000-01-23
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        date:
+          description: Coupon Accrual Date
+          format: date
+          type: string
+        couponBasketFlag:
+          description: Coupon Basket Flag
+          type: boolean
+        couponEffPmtDate:
+          description: Effective Payment Date
+          format: date
+          type: string
+        couponFormula:
+          description: Coupon Formula
+          type: string
+        couponInitResetDate:
+          description: First Coupon Reset Date
+          format: date
+          type: string
+        couponResetFreq:
+          description: Coupon Reset Frequency
+          type: string
+        couponLink:
+          description: Coupon Link
+          type: string
+        couponMargin:
+          description: Margin
+          format: double
+          type: number
+        couponMinFloatRate:
+          description: Coupon Minimum-Floating Rate
+          format: double
+          type: number
+        couponStructSubCode:
+          description: Coupon Structure Sub Code
+          type: string
+        couponTypeStruct:
+          description: Coupon Type
+          type: string
+        couponVarPmtFlag:
+          description: Variable Coupon Payments
+          type: boolean
+        underlyingIndex:
+          description: Underlying Index
+          type: string
+      title: Coupon History
+      type: object
+    couponSchedulesResponse:
+      example:
+        data:
+        - couponRate: 0.8008281904610115
+          requestId: requestId
+          fsymId: fsymId
+          couponEffDate: 2000-01-23
+        - couponRate: 0.8008281904610115
+          requestId: requestId
+          fsymId: fsymId
+          couponEffDate: 2000-01-23
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/couponSchedules'
+          type: array
+      title: Coupon Schedules Response
+      type: object
+    couponSchedules:
+      description: Coupon Schedules for a Fixed Income security.
+      example:
+        couponRate: 0.8008281904610115
+        requestId: requestId
+        fsymId: fsymId
+        couponEffDate: 2000-01-23
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        couponEffDate:
+          description: Coupon Effective Date
+          format: date
+          type: string
+        couponRate:
+          description: Coupon Rate
+          format: double
+          type: number
+      title: Coupon Schedules
+      type: object
+    agentsResponse:
+      example:
+        data:
+        - agentType: agentType
+          requestId: requestId
+          fsymId: fsymId
+          agentName: agentName
+          agentEntityId: agentEntityId
+          agentCommAmt: 0.8008281904610115
+        - agentType: agentType
+          requestId: requestId
+          fsymId: fsymId
+          agentName: agentName
+          agentEntityId: agentEntityId
+          agentCommAmt: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/agent'
+          type: array
+      title: Agents Response
+      type: object
+    agent:
+      description: Agent Data Items for a Fixed Income security.
+      example:
+        agentType: agentType
+        requestId: requestId
+        fsymId: fsymId
+        agentName: agentName
+        agentEntityId: agentEntityId
+        agentCommAmt: 0.8008281904610115
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        agentEntityId:
+          description: FactSet Entity Identifier for the Agent.
+          type: string
+        agentCommAmt:
+          description: Agent Commitment Amount
+          format: double
+          type: number
+        agentName:
+          description: Agent Name
+          type: string
+        agentType:
+          description: Role of the agent
+          type: string
+      required:
+      - agentEntityId
+      - fsymId
+      - requestId
+      title: Agent
+      type: object
+    covenantDetailsResponse:
+      example:
+        data:
+        - finCovDesc: finCovDesc
+          finCovType: finCovType
+          requestId: requestId
+          fsymId: fsymId
+        - finCovDesc: finCovDesc
+          finCovType: finCovType
+          requestId: requestId
+          fsymId: fsymId
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/covenantDetail'
+          type: array
+      title: Covenant Details Response
+      type: object
+    covenantDetail:
+      description: Covenant Detail for a Fixed Income security.
+      example:
+        finCovDesc: finCovDesc
+        finCovType: finCovType
+        requestId: requestId
+        fsymId: fsymId
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        finCovType:
+          description: Covenant Type
+          type: string
+        finCovDesc:
+          description: Description
+          type: string
+      title: Covenant Detail
+      type: object
+    negativeCovenantsResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/negativeCovenant'
+          type: array
+      title: Negative Covenants Response
+      type: object
+    negativeCovenant:
+      description: Negative Covenant for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        negCovenantLvl:
+          description: Negative Covenant Level
+          type: string
+        negCovenantType:
+          description: Negative Covenant Type
+          type: string
+      title: Negative Covenant
+      type: object
+    redemptionPricesRequest:
+      properties:
+        ids:
+          description: |
+            List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+            **ID LIMIT = 250** *per request*.
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+        categories:
+          description: |
+            Filters the list of Redemption Prices Categories -
+              * **CALL** = Call prices.
+              * **PUT** = Put prices.
+              * **SF** = Sinking Fund prices.
+          enum:
+          - ALL
+          - CALL
+          - PUT
+          - SF
+          type: string
+      required:
+      - categories
+      - ids
+      title: Redemption Prices Request
+      type: object
+    redemptionPricesResponse:
+      example:
+        data:
+        - date: 2000-01-23
+          requestId: requestId
+          price: 6.027456183070403
+          fsymId: fsymId
+          category: CALL
+          minAmt: 0.8008281904610115
+        - date: 2000-01-23
+          requestId: requestId
+          price: 6.027456183070403
+          fsymId: fsymId
+          category: CALL
+          minAmt: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/redemptionPrice'
+          type: array
+      title: Redemption Prices Response
+      type: object
+    redemptionPrice:
+      description: Redemption Price Data Items for a Fixed Income security.
+      example:
+        date: 2000-01-23
+        requestId: requestId
+        price: 6.027456183070403
+        fsymId: fsymId
+        category: CALL
+        minAmt: 0.8008281904610115
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        date:
+          description: Date of the Redemption Price.
+          format: date
+          type: string
+        category:
+          description: |
+            Redemption Price Category -
+            * **CALL** = Call prices.
+            * **PUT** = Put prices.
+            * **SF** = Sinking Fund prices.
+          enum:
+          - CALL
+          - PUT
+          - SF
+          type: string
+        minAmt:
+          description: Sinking Fund minimum amount.
+          format: double
+          type: number
+        price:
+          description: Redemption price for the category.
+          format: double
+          type: number
+      required:
+      - category
+      - date
+      - fsymId
+      - requestId
+      title: Redemption Price
+      type: object
+    leadUnderwritersResponse:
+      example:
+        data:
+        - factsetLeadUwritrEntityId: factsetLeadUwritrEntityId
+          requestId: requestId
+          fsymId: fsymId
+        - factsetLeadUwritrEntityId: factsetLeadUwritrEntityId
+          requestId: requestId
+          fsymId: fsymId
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/leadUnderwriter'
+          type: array
+      title: Lead Underwriters Response
+      type: object
+    leadUnderwriter:
+      description: Lead Underwriter for a Fixed Income security.
+      example:
+        factsetLeadUwritrEntityId: factsetLeadUwritrEntityId
+        requestId: requestId
+        fsymId: fsymId
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        factsetLeadUwritrEntityId:
+          description: FactSet Entity Id for Lead Underwriter.
+          type: string
+      title: Lead Underwriter
+      type: object
+    useOfProceedsResponse:
+      example:
+        data:
+        - requestId: requestId
+          fsymId: fsymId
+          useOfProceeds: useOfProceeds
+        - requestId: requestId
+          fsymId: fsymId
+          useOfProceeds: useOfProceeds
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/useOfProceeds'
+          type: array
+      title: Use of Proceeds Response
+      type: object
+    useOfProceeds:
+      description: Use of Proceeds for a Fixed Income security.
+      example:
+        requestId: requestId
+        fsymId: fsymId
+        useOfProceeds: useOfProceeds
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        useOfProceeds:
+          description: Use of proceeds.
+          type: string
+      title: Use of Proceeds
+      type: object
+    convertibleDetailsResponse:
+      example:
+        data:
+        - convPayFormDet: convPayFormDet
+          convRatio: 5.637376656633329
+          convRatioDesc: convRatioDesc
+          convIdentification: convIdentification
+          convPayForm: convPayForm
+          fsymId: fsymId
+          convEffDate: 2000-01-23
+          convPayFormElect: convPayFormElect
+          convType: convType
+          convId: 0
+          convNoticeDaysMin: 1
+          convPriceMethod: convPriceMethod
+          convEndDate: 2000-01-23
+          requestId: requestId
+          convPremChgControl: 5.962133916683182
+          convCurr: convCurr
+          convFrequency: convFrequency
+          convNoticeDaysMax: 6
+        - convPayFormDet: convPayFormDet
+          convRatio: 5.637376656633329
+          convRatioDesc: convRatioDesc
+          convIdentification: convIdentification
+          convPayForm: convPayForm
+          fsymId: fsymId
+          convEffDate: 2000-01-23
+          convPayFormElect: convPayFormElect
+          convType: convType
+          convId: 0
+          convNoticeDaysMin: 1
+          convPriceMethod: convPriceMethod
+          convEndDate: 2000-01-23
+          requestId: requestId
+          convPremChgControl: 5.962133916683182
+          convCurr: convCurr
+          convFrequency: convFrequency
+          convNoticeDaysMax: 6
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/convertibleDetails'
+          type: array
+      title: Convertible Details Response
+      type: object
+    convertibleDetails:
+      description: Convertible Details for a Fixed Income security.
+      example:
+        convPayFormDet: convPayFormDet
+        convRatio: 5.637376656633329
+        convRatioDesc: convRatioDesc
+        convIdentification: convIdentification
+        convPayForm: convPayForm
+        fsymId: fsymId
+        convEffDate: 2000-01-23
+        convPayFormElect: convPayFormElect
+        convType: convType
+        convId: 0
+        convNoticeDaysMin: 1
+        convPriceMethod: convPriceMethod
+        convEndDate: 2000-01-23
+        requestId: requestId
+        convPremChgControl: 5.962133916683182
+        convCurr: convCurr
+        convFrequency: convFrequency
+        convNoticeDaysMax: 6
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convCurr:
+          description: Convertible Currency
+          type: string
+        convEffDate:
+          description: Convertible Effective Date
+          format: date
+          type: string
+        convEndDate:
+          description: Convertible End Date
+          format: date
+          type: string
+        convFrequency:
+          description: Convertible Frequency
+          type: string
+        convId:
+          description: Convertible Type Id
+          type: integer
+        convIdentification:
+          description: Convertible Identification
+          type: string
+        convNoticeDaysMax:
+          description: Convertible Notice Max
+          type: integer
+        convNoticeDaysMin:
+          description: Convertible Notice Min
+          type: integer
+        convPayForm:
+          description: Convertible Payment Form
+          type: string
+        convPayFormDet:
+          description: Convertible Payment Form Detail
+          type: string
+        convPayFormElect:
+          description: Convertible Payment Form Election
+          type: string
+        convPremChgControl:
+          description: Convertible Premium Change Control
+          format: double
+          type: number
+        convPriceMethod:
+          description: Convertible Price Method
+          type: string
+        convRatio:
+          description: Convertibles Ratio
+          format: double
+          type: number
+        convRatioDesc:
+          description: Convertible Ratio Form Description
+          type: string
+        convType:
+          description: Convertible Type
+          type: string
+      title: Convertible Details
+      type: object
+    convertibleHistoryResponse:
+      example:
+        data:
+        - convUlyFsymId: convUlyFsymId
+          convRatio: 6.027456183070403
+          requestId: requestId
+          fsymId: fsymId
+          convEffDate: 2000-01-23
+          convPrice: 0.8008281904610115
+        - convUlyFsymId: convUlyFsymId
+          convRatio: 6.027456183070403
+          requestId: requestId
+          fsymId: fsymId
+          convEffDate: 2000-01-23
+          convPrice: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/convertibleHistory'
+          type: array
+      title: Convertible History Response
+      type: object
+    convertibleHistory:
+      description: Convertible Details for a Fixed Income security.
+      example:
+        convUlyFsymId: convUlyFsymId
+        convRatio: 6.027456183070403
+        requestId: requestId
+        fsymId: fsymId
+        convEffDate: 2000-01-23
+        convPrice: 0.8008281904610115
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convEffDate:
+          description: Convertible Effective Date
+          format: date
+          type: string
+        convPrice:
+          description: Convertibles Price
+          format: double
+          type: number
+        convRatio:
+          description: Convertibles Ratio
+          format: double
+          type: number
+        convUlyFsymId:
+          description: Convertibles Underlying FactSet Permanent Identifier
+          type: string
+      title: Convertible History
+      type: object
+    convertibleTriggersResponse:
+      example:
+        data:
+        - convTriggerEventDesc: convTriggerEventDesc
+          requestId: requestId
+          fsymId: fsymId
+          convTriggerEvent: convTriggerEvent
+          triggerId: 0
+        - convTriggerEventDesc: convTriggerEventDesc
+          requestId: requestId
+          fsymId: fsymId
+          convTriggerEvent: convTriggerEvent
+          triggerId: 0
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/convertibleTriggers'
+          type: array
+      title: Convertible Triggers Response
+      type: object
+    convertibleTriggers:
+      description: Convertible Triggers for a Fixed Income security.
+      example:
+        convTriggerEventDesc: convTriggerEventDesc
+        requestId: requestId
+        fsymId: fsymId
+        convTriggerEvent: convTriggerEvent
+        triggerId: 0
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convTriggerEvent:
+          description: Convertible Trigger Event
+          type: string
+        convTriggerEventDesc:
+          description: Convertible Trigger Event Description
+          type: string
+        triggerId:
+          description: Convertible Trigger Id
+          type: integer
+      title: Convertible Triggers
+      type: object
+    termsAndConditionsScalarRequest:
+      properties:
+        ids:
+          description: |
+            List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).
+
+            **ID LIMIT = 250** *per request*.
+          example:
+          - 30231GBJ
+          - 88579EAA
+          items:
+            type: string
+          maxItems: 250
+          minItems: 1
+          type: array
+      required:
+      - ids
+      title: General Ids Request
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-georev/v1/superRegion
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,0 +1,953 @@
+openapi: 3.0.1
+info:
+  description: "Allows for Provisioning and Entitlement of FactSet accounts. \n \n\
+    \ Authentication is provided via FactSet's [API Key System](https://developer.factset.com/authentication)\n\
+    \ \n Please note that the on-page \"Try it out\" features do not function. You\
+    \ must authorize against our API and make requests directly againt the endpoints.\n\
+    \ \n "
+  title: FactSet Procure to Pay API
+  version: 1S
+servers:
+- url: https://api.factset.com/procuretopay/provisioning/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Determine status of specific order by transactionCode
+  name: Order Status
+- description: Create and manage individuals
+  name: User Management
+- description: Manage individuals' entitlements
+  name: Entitlement Management
+paths:
+  /createIndividual:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createIndividual'
+      responses:
+        "202":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Accepted
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Provisions an individual for FactSet
+      tags:
+      - User Management
+      x-contentType: application/json
+      x-accepts: application/json; charset=utf-8,text/plain
+  /transactionStatus:
+    get:
+      parameters:
+      - description: Transaction Code to query
+        example: 7B27AA857B664F18AB4886A08A9A3D9C
+        explode: true
+        in: query
+        name: transactioncode
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/transactionStatus'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Check status of order by transactionCode
+      tags:
+      - Order Status
+      x-accepts: application/json; charset=utf-8,text/plain
+  /modifyIndividual:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/modifyIndividual'
+      responses:
+        "202":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Accepted
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Modifies an individual's attributes as determined by the uniqueId in
+        the body of the request. Please note that the uniqueId may not be changed.
+        Fields not changing may be passed as NULL but never empty.
+      tags:
+      - User Management
+      x-contentType: application/json
+      x-accepts: application/json; charset=utf-8,text/plain
+  /listIndividuals:
+    get:
+      parameters:
+      - description: <br>Optional, if =TRUE will return additional product array per
+          object with all productIds for all returned individuals.</br>
+        example: true
+        explode: true
+        in: query
+        name: includeProductIds
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/listIndividuals'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Lists all individuals with details at all locations.
+      tags:
+      - User Management
+      x-accepts: application/json; charset=utf-8,text/plain
+  /getIndividual:
+    get:
+      parameters:
+      - description: uniqueId to query
+        example: jdoe113901
+        explode: true
+        in: query
+        name: uniqueid
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/getIndividual'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Returns an individual's details by uniqueId
+      tags:
+      - User Management
+      x-accepts: application/json; charset=utf-8,text/plain
+  /cancelIndividual:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cancelIndividual'
+      responses:
+        "202":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Accepted
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Cancels an individual's serial and all productIds
+      tags:
+      - User Management
+      x-contentType: application/json
+      x-accepts: application/json; charset=utf-8,text/plain
+  /addProducts:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/manageProductIds'
+      responses:
+        "202":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Accepted
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Adds listed productIds to an individual
+      tags:
+      - Entitlement Management
+      x-contentType: application/json
+      x-accepts: application/json; charset=utf-8,text/plain
+  /removeProducts:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/manageProductIds'
+      responses:
+        "202":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Accepted
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Rate limit reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api.factset.com/procuretopay/provisioning/
+      summary: Removes listed productIds from an individual
+      tags:
+      - Entitlement Management
+      x-contentType: application/json
+      x-accepts: application/json; charset=utf-8,text/plain
+components:
+  responses:
+    AuthHeaders:
+      description: FactSet's request key header
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    throttleControl:
+      content:
+        text/plain:
+          example: Retry After X-Seconds
+          schema:
+            type: string
+      description: Rate limit reached
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "202Accepted":
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/inline_response_202'
+      description: Accepted
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "200Accepted":
+      content:
+        application/json; charset=utf-8:
+          schema:
+            properties:
+              transactioncode:
+                example: 492c81b9af7c4b0196e10061786a3594
+                type: string
+            type: object
+      description: OK
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "400BadRequest":
+      description: Bad Request
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "401Unauthenticated":
+      description: Unauthenticated
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "403Unauthorized":
+      description: Unauthorized
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    createIndividual:
+      example:
+        firstName: John
+        lastName: Doe
+        uniqueId: jdoe113901
+        roleId: "21"
+        email: jdoe@acme.com
+        assertionField: jdoe@acme.com
+        locationId: "1"
+      properties:
+        firstName:
+          format: nvarchar(250)
+          type: string
+        lastName:
+          format: nvarchar(250)
+          type: string
+        uniqueId:
+          description: A unique, constant reference to an individual/account. Used
+            for Future management of individual.
+          format: nvarchar(250)
+          type: string
+        roleId:
+          format: nvarchar(250)
+          type: string
+        email:
+          format: nvarchar(100)
+          type: string
+        assertionField:
+          description: A unique value passed as nameId in the SAML response
+          format: nvarchar(250)
+          type: string
+        locationId:
+          description: Your reference to a physical location.
+          format: nvarchar(250)
+          type: string
+      type: object
+    transactionStatus:
+      example:
+        currentStatus: 2
+        message: ""
+        username: SSO_000012UBP
+        serialNumber: "12345"
+        factsetId: john.doe@factset.net
+        errorId: ""
+      properties:
+        currentStatus:
+          format: int
+          type: integer
+        message:
+          format: nvarchar(500)
+          type: string
+        username:
+          format: nvarchar(20)
+          type: string
+        serialNumber:
+          format: nvarchar(20)
+          type: string
+        factsetId:
+          format: nvarchar(100)
+          type: string
+        errorId:
+          format: int
+          type: integer
+      type: object
+    modifyIndividual:
+      example:
+        firstName: John
+        lastName: Doe
+        uniqueID: jdoe113901
+        roleId: "21"
+        email: jdoe@acme.com
+        assertionfield: jdoe@acme.com
+        locationId: "1"
+      properties:
+        firstName:
+          format: nvarchar(250)
+          type: string
+        lastName:
+          format: nvarchar(250)
+          type: string
+        uniqueId:
+          format: nvarchar(250)
+          type: string
+        roleId:
+          format: nvarchar(250)
+          type: string
+        email:
+          format: nvarchar(100)
+          type: string
+        assertionField:
+          format: nvarchar(250)
+          type: string
+        locationId:
+          format: nvarchar(250)
+          type: string
+      type: object
+    listIndividuals:
+      example:
+      - username: SSO_000012UBP
+        serialNumber: "12345"
+        factsetId: john.doe@factset.net
+        productIds:
+        - "123"
+        - "456"
+        - "789"
+        firstName: John
+        lastName: Doe
+        uniqueId: jdoe113901
+        roleId: "21"
+        email: jdoe@acme.com
+        assertionField: jdoe@acme.com
+        locationId: "1"
+      - username: SSO_000012UBP
+        serialNumber: "12346"
+        factsetId: al.doe@factset.net
+        productIds:
+        - "123"
+        - "456"
+        - "1101"
+        firstName: Al
+        lastName: Doe
+        uniqueId: adoe998621
+        roleId: "22"
+        email: adoe@acme.com
+        assertionField: adoe@acme.com
+        locationId: "2"
+      items:
+        properties:
+          firstName:
+            format: nvarchar(250)
+            type: string
+          lastName:
+            format: nvarchar(250)
+            type: string
+          uniqueId:
+            format: nvarchar(250)
+            type: string
+          roleId:
+            format: nvarchar(100)
+            type: string
+          serialNumber:
+            format: nvarchar(20)
+            type: string
+          email:
+            format: nvarchar(100)
+            type: string
+          assertionField:
+            format: nvarchar(250)
+            type: string
+          locationId:
+            format: nvarchar(250)
+            type: string
+          productIds:
+            items:
+              format: nvarchar(20)
+              type: string
+            type: array
+        type: object
+      type: array
+    getIndividual:
+      example:
+        username: SSO_000012UBP
+        serialNumber: "12345"
+        factsetId: john.doe@factset.net
+        productIds:
+        - "123"
+        - "456"
+        - "789"
+        firstName: John
+        lastName: Doe
+        uniqueId: jdoe113901
+        roleId: "21"
+        email: jdoe@acme.com
+        assertionField: jdoe@acme.com
+        locationId: "1"
+      properties:
+        firstName:
+          format: nvarchar(250)
+          type: string
+        lastName:
+          format: nvarchar(250)
+          type: string
+        uniqueId:
+          description: A constant reference to an individual/account
+          format: nvarchar(250)
+          type: string
+        roleId:
+          format: nvarchar(100)
+          type: string
+        serialNumber:
+          format: nvarchar(20)
+          type: string
+        email:
+          format: nvarchar(100)
+          type: string
+        assertionField:
+          format: nvarchar(250)
+          type: string
+        locationId:
+          description: Your reference to a physical location
+          format: nvarchar(250)
+          type: string
+        productIds:
+          items:
+            format: nvarchar(20)
+            type: string
+          type: array
+      type: object
+    cancelIndividual:
+      example:
+        uniqueId: jdoe113901
+      properties:
+        uniqueId:
+          format: nvarchar(250)
+          type: string
+      type: object
+    manageProductIds:
+      example:
+        uniqueId: jdoe113901
+        productIds:
+        - "123"
+        - "4379"
+        - "103"
+      properties:
+        uniqueId:
+          format: nvarchar(250)
+          type: string
+        productIds:
+          items:
+            format: nvarchar(20)
+            type: string
+          type: array
+      type: object
+    inline_response_202:
+      example:
+        transactioncode: 492c81b9af7c4b0196e10061786a3594
+      properties:
+        transactioncode:
+          example: 492c81b9af7c4b0196e10061786a3594
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

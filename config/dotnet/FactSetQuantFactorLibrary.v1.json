@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.FactSetQuantFactorLibrary",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{529e07ba-4e38-5a42-84c7-0378f46f00a4}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - FactSet Quant Factor Library",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetQuantFactorLibrary/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

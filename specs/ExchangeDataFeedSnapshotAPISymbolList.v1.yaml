@@ -1,0 +1,1226 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  title: Exchange DataFeed Snapshot
+  description: >-
+    FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to
+    real-time and delayed global exchange data. Proprietary technology
+    normalizes over 200 global exchanges and 150+ data fields. Asset types
+    integrated include equities, futures, options, warrants, fixed income,
+    mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge
+    technology ensures reliability and provides scalability that allow
+    applications to request multiple items at a time. To simplify client-side
+    development an entire response can be placed in a matrix or table for
+    effortless integration into internal and external applications. Using
+    specified output formats (CSV, XML, JSON) receive all standard fields by
+    default or customize the list based on specific needs.</p></p>Below are the
+    current hosts:</p><p>Production: api.factset.com<p>Sandbox:
+    api-sandbox.factset.com</p>
+externalDocs:
+  description: OpenFactSet Marketplace Card
+  url: >-
+    https://open.factset.com/products/factset-exchange-datafeed-snapshot-api/en-us
+servers:
+  - url: https://api-sandbox.factset.com
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /DFSnapshot:
+    get:
+      summary: Request a snapshot of exchange data for a list of symbols.
+      operationId: get_DFSnapshot
+      tags:
+        - Snapshot
+      description: >
+
+        `ids` and `oc` are required parameters, but only one can be used based
+        on request. Use `ids` for regular snapshot requests, and `oc` for
+        requesting an option chain. 
+
+
+        **Try it Out** feature is available using a pre-recorded sandbox
+        environment. Follow Try it Out inscrutions on each parameter to develop
+        a request and view a sample server response.
+
+
+        '*You must be logged into the Developer Portal and obtain an **[API
+        Key](https://developer.factset.com/factset/api-key-listing)** for ''Try
+        it Out'' to receive a successful server response. Select **Authorize**
+        button or visit **[Authentication
+        Support](https://developer.factset.com/authentication)** for more
+        details.*'
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/oc'
+        - $ref: '#/components/parameters/fields'
+        - $ref: '#/components/parameters/sf'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/serv'
+        - $ref: '#/components/parameters/req_id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example:
+                Error:
+                  - 0
+                  - ''
+                FDS-USA:
+                  Key: FDS-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '291.7'
+                    '509':
+                      BID: '291.6'
+                    '609':
+                      ASK: '291.78'
+                Host: FactSet
+                IBM-USA:
+                  Key: IBM-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '140.84'
+                    '509':
+                      BID: '140.83'
+                    '609':
+                      ASK: '140.85'
+                Request ID: ''
+                Requested Fields: ASK,BID,LAST_Price
+                Requested Symbols: FDS-USA,IBM-USA,TSLA-USA
+                Service: ''
+                TSLA-USA:
+                  Key: TSLA-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '236.45'
+                    '509':
+                      BID: '236.43'
+                    '609':
+                      ASK: '236.5'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example: >-
+                <Response Service="FDS1"> <Request id="dfsvc-910e91">
+                <RequestedSymbols>IBM-USA</RequestedSymbols> <RequestedFields>
+                </RequestedFields> <Host>FactSet</Host> </Request> <Error
+                code="0" description=""> </Error>    <Records> <Record
+                req_sym="IBM-USA" key="IBM-USA:D" stale=""> <Fields> <Field
+                id="4" name="PRODUCT" value="9001"/> <Field id="8"
+                name="DESCRIPTION" value="International Business Machines
+                Corporation"/> <Field id="12" name="ISIN" value="US4592001014"/>
+                <Field id="14" name="CUSIP" value="459200101"/> <Field id="15"
+                name="SEDOL" value="2005973"/> <Field id="17" name="ISO_CODE"
+                value="USA"/> <Field id="20" name="EXCHANGE" value="11099"/>
+                <Field id="25" name="LAST_TICK" value="0"/> <Field id="29"
+                name="SHARES_OUTSTANDING" value="893.5228"/> <Field id="31"
+                name="LAST_VOL" value="0"/> <Field id="33" name="LAST_EXCH"
+                value="11100"/> <Field id="38" name="QUOTE_CONDITION"
+                value="0"/> <Field id="50" name="LAST_PRICE" value="143.12"/>
+                <Field id="62" name="PRICE_CURRENCY" value="USD"/> <Field
+                id="107" name="HIGH" value="0"/> <Field id="132" name="CVOL"
+                value="13"/> <Field id="135" name="MID_TIME" value="000000000"/>
+                <Field id="136" name="MID_DATE" value="00000000"/> <Field
+                id="155" name="OPEN_VOLUME" value="0"/> <Field id="158"
+                name="OPEN" value="0"/> <Field id="174" name="TRADE_CONDITION"
+                value=""/> <Field id="208" name="PREV_CLOSE" value="143.12"/>
+                <Field id="259" name="OFF_HOUR_CVOL" value="13"/> <Field
+                id="267" name="TRADE_COUNT" value="2"/> <Field id="269"
+                name="BLOCK_TRADE_COUNT" value="0"/> <Field id="271"
+                name="BLOCK_CVOL" value="0"/> <Field id="277"
+                name="SHORT_SALE_INDICATOR" value="0"/> <Field id="296"
+                name="BID_CLOSE_VOL" value="1123"/> <Field id="297"
+                name="ASK_CLOSE_VOL" value="33"/> <Field id="298"
+                name="OFFICIAL_BID_CLOSE_VOL" value="0"/> <Field id="299"
+                name="OFFICIAL_ASK_CLOSE_VOL" value="0"/> <Field id="307"
+                name="LOW" value="0"/> <Field id="341" name="TURNOVER"
+                value="1.86067"/> <Field id="383" name="LAST_TIME"
+                value="190000004"/> <Field id="384" name="LAST_DATE"
+                value="20210618"/> <Field id="385" name="BID_TIME"
+                value="043004013"/> <Field id="386" name="BID_DATE"
+                value="20210621"/> <Field id="387" name="ASK_TIME"
+                value="043004013"/> <Field id="388" name="ASK_DATE"
+                value="20210621"/> <Field id="389" name="GMT_OFFSET"
+                value="-240"/> <Field id="427" name="ORDER_LOT_SIZE"
+                value="100"/> <Field id="448" name="OFFICIAL_BID_CLOSE"
+                value="0"/> <Field id="476" name="OFFICIAL_ASK_CLOSE"
+                value="0"/> <Field id="495" name="BUY_IMBALANCE" value="0"/>
+                <Field id="496" name="SELL_IMBALANCE" value="0"/> <Field
+                id="505" name="BID_VOL" value="1"/> <Field id="506"
+                name="BID_EXCH" value="11011"/> <Field id="509" name="BID"
+                value="142"/> <Field id="518" name="BID_TICK" value="2"/> <Field
+                id="526" name="OFFICIAL_CLOSE" value="0"/> <Field id="528"
+                name="OFFBOOK_CUM_VOL" value="0"/> <Field id="530" name="VENUE"
+                value=""/> <Field id="531" name="EX_DATE_STATUS" value=""/>
+                <Field id="605" name="ASK_VOL" value="1"/> <Field id="606"
+                name="ASK_EXCH" value="11106"/> <Field id="609" name="ASK"
+                value="146.92"/> <Field id="633" name="PERIOD" value="PREMKT"/>
+                <Field id="635" name="AUTO_TRADE_CVOL" value="0"/> <Field
+                id="636" name="AUTO_TRADE_COUNT" value="0"/> <Field id="637"
+                name="AUTO_TRADE_VWAP" value="0"/> <Field id="648"
+                name="BID_CLOSE" value="143.12"/> <Field id="649"
+                name="ASK_CLOSE" value="143.13"/> <Field id="650"
+                name="MARKET_SEGMENT" value=""/> <Field id="651"
+                name="MARKET_SECTOR" value=""/> <Field id="652"
+                name="COUNTRY_CODE" value="USA"/> <Field id="662"
+                name="NET_CHANGE" value="0"/> <Field id="689"
+                name="MONEY_FLOW_DOWN" value="0"/> <Field id="690"
+                name="MONEY_FLOW_UP" value="0"/> <Field id="691"
+                name="BLOCK_MONEY_FLOW_DOWN" value="0"/> <Field id="692"
+                name="BLOCK_MONEY_FLOW_UP" value="0"/> <Field id="709"
+                name="AVG_30DAY_VOL" value="4.373532"/> <Field id="719"
+                name="AVG_5DAY_VOL" value="4.652241"/> <Field id="722"
+                name="FACTSET_INDUSTRY" value="Information Technology
+                Services"/> <Field id="723" name="FACTSET_SECTOR"
+                value="Technology Services"/> <Field id="724" name="HOMEPAGE"
+                value="http://www.ibm.com"/> <Field id="740" name="EXCH_NAME"
+                value="NYSE"/> <Field id="746" name="TOTAL_RETURN_3M"
+                value="12.28364"/> <Field id="747" name="TOTAL_RETURN_52W"
+                value="23.03027"/> <Field id="767" name="HIGH_52WEEK"
+                value="152.84"/> <Field id="768" name="LOW_52WEEK"
+                value="105.92"/> <Field id="769" name="OFF_HOUR_PRICE"
+                value="143.13"/> <Field id="776" name="SPECIAL_PRICE"
+                value="0"/> <Field id="780" name="VWAP" value="0"/> <Field
+                id="786" name="TOTAL_PUT_CVOL" value="0"/> <Field id="787"
+                name="CALL_VOLUME" value="0"/> <Field id="788"
+                name="OPEN_INTEREST_PUT" value="0"/> <Field id="789"
+                name="OPEN_INTEREST_CALL" value="0"/> <Field id="790"
+                name="PUT_CALL_RATIO_OPEN_INTEREST" value="0"/> <Field id="791"
+                name="PUT_CALL_RATIO_VOLUME" value="0"/> <Field id="815"
+                name="SETTLEMENT" value="0"/> <Field id="816"
+                name="PERCENT_CHANGE" value="0"/> <Field id="868"
+                name="TRADED_DATE" value="20210621"/> <Field id="892"
+                name="PREV_CLOSE_UNADJ" value="143.12"/> <Field id="896"
+                name="PREMKT_NET_CHANGE" value="0.00999999999999"/> <Field
+                id="897" name="PREMKT_PERCENT_CHANGE" value="0.00698714365566"/>
+                <Field id="912" name="TRADED_PRICE" value="143.13"/> <Field
+                id="916" name="TRADED_TIME" value="043004013"/> <Field id="918"
+                name="TRADED_VOL" value="12"/> <Field id="942" name="UP_VOLUME"
+                value="0"/> <Field id="943" name="DOWN_VOLUME" value="0"/>
+                <Field id="944" name="UNCHANGED_VOLUME" value="0"/> <Field
+                id="945" name="BUY_VOLUME" value="0"/> <Field id="946"
+                name="SELL_VOLUME" value="0"/> <Field id="947" name="MID_VOLUME"
+                value="13"/> <Field id="948" name="NASDAQ_BUY_IMBALANCE"
+                value="0"/> <Field id="949" name="NASDAQ_SELL_IMBALANCE"
+                value="0"/> <Field id="950" name="PREMKT_TURNOVER"
+                value="1.86067"/> <Field id="955" name="POSTMKT_TURNOVER"
+                value="0"/> <Field id="1010" name="VENDOR_SYMBOL" value="IBM"/>
+                <Field id="1019" name="PREMKT_PRICE" value="143.13"/> <Field
+                id="1045" name="HIGH_TIME" value="000000000"/> <Field id="1047"
+                name="OPEN_TIME" value="000000000"/> <Field id="1048"
+                name="LOW_TIME" value="000000000"/> <Field id="1049"
+                name="PREV_CLOSE_TIME" value="190000004"/> <Field id="1051"
+                name="PREV_CLOSE_DATE" value="20210618"/> <Field id="1061"
+                name="BID_CLOSE_TIME" value="000000000"/> <Field id="1062"
+                name="BID_CLOSE_DATE" value="20210618"/> <Field id="1063"
+                name="ASK_CLOSE_TIME" value="000000000"/> <Field id="1064"
+                name="ASK_CLOSE_DATE" value="20210618"/> <Field id="1065"
+                name="OFFICIAL_CLOSE_TIME" value="000000000"/> <Field id="1066"
+                name="OFFICIAL_CLOSE_DATE" value="00000000"/> <Field id="1073"
+                name="TIME" value="043004013"/> <Field id="1074" name="DATE"
+                value="20210621"/> <Field id="1075" name="PREMKT_TIME"
+                value="043004013"/> <Field id="1076" name="POSTMKT_TIME"
+                value="000000000"/> <Field id="1079" name="VWAP_NUMERATOR"
+                value="0"/> <Field id="1082" name="OFFICIAL_BID_CLOSE_TIME"
+                value="000000000"/> <Field id="1083"
+                name="OFFICIAL_ASK_CLOSE_TIME" value="000000000"/> <Field
+                id="1085" name="VWAP_CVOL" value="0"/> <Field id="1087"
+                name="UPPER_TRADING_BAND" value="0"/> <Field id="1093"
+                name="LOWER_TRADING_BAND" value="0"/> <Field id="1098"
+                name="TRADED_CONDITION" value="00 3 94"/> <Field id="1172"
+                name="PREV_CLOSE_2" value="145.6"/> <Field id="1176"
+                name="PREV_CLOSE_UNADJ_2" value="145.6"/> <Field id="1182"
+                name="FEED_CURRENCY" value="USD"/> <Field id="1184"
+                name="HALT_DESCRIPTION" value=""/> <Field id="1190"
+                name="COUNTRY_NAME" value="United States"/> <Field id="1216"
+                name="PRICE_1Y" value="122.470001"/> <Field id="1220"
+                name="HIGH_52WEEK_DATE" value="20210610"/> <Field id="1263"
+                name="XLT_PRICE" value="0"/> <Field id="1268" name="XLT_CVOL"
+                value="0"/> <Field id="1269" name="XLT_TRADE_COUNT" value="0"/>
+                <Field id="1270" name="XLT_TURNOVER" value="0"/> <Field
+                id="1274" name="XLT_UP_VOLUME" value="0"/> <Field id="1275"
+                name="XLT_DOWN_VOLUME" value="0"/> <Field id="1276"
+                name="XLT_MONEY_FLOW_UP" value="0"/> <Field id="1280"
+                name="XLT_MONEY_FLOW_DOWN" value="0"/> <Field id="1288"
+                name="UNOFFICIAL_PRICE" value="143.13"/> <Field id="1292"
+                name="UNOFFICIAL_VOLUME" value="12"/> <Field id="1295"
+                name="LOW_52WEEK_DATE" value="20201028"/> <Field id="1296"
+                name="PRICE_YEAR_END" value="125.879997"/> <Field id="1334"
+                name="UNOFFICIAL_CONDITION" value="00 3 94"/> <Field id="1335"
+                name="TRADE_LOT_SIZE" value="1"/> <Field id="1341"
+                name="AUTO_TURNOVER" value="0"/> <Field id="1345"
+                name="CLOSING_VOLUME" value="0"/> <Field id="1358"
+                name="CROSS_TRADE_VOLUME" value="0"/> <Field id="1359"
+                name="DARK_TRADE_VOLUME" value="0"/> <Field id="1363"
+                name="VWAP_10B_18" value="0"/> <Field id="1367"
+                name="VWAP_10B_18_CVOL" value="0"/> <Field id="1414"
+                name="HALT_REASON" value="0"/> <Field id="1416"
+                name="SHORT_SALE_VOLUME" value="0"/> <Field id="1480"
+                name="OPEN_AUCTION_VOLUME" value="0"/> <Field id="1481"
+                name="CLOSING_AUCTION_VOLUME" value="0"/> <Field id="1499"
+                name="TICK_SIZE" value="0.01"/> <Field id="1507"
+                name="TICK_GROUP" value=""/> <Field id="1508"
+                name="TICK_PILOT_EFF_DATE" value="00000000"/> <Field id="1517"
+                name="PRIMARY_MARKET" value="NYS"/> <Field id="1518"
+                name="INTRADAY_AUCTION_VOLUME" value="0"/> <Field id="1541"
+                name="SHORT_SALE_TURNOVER" value="0"/> <Field id="1621"
+                name="ISO_COUNTRY_EXCHANGE" value="USA"/> <Field id="1650"
+                name="UNOFFICIAL_EXCH" value="11011"/> <Field id="1729"
+                name="TRADE_COUNT_UP" value="0"/> <Field id="1730"
+                name="TRADE_COUNT_DOWN" value="0"/> <Field id="1731"
+                name="TRADE_COUNT_UNCHANGED" value="0"/> <Field id="1732"
+                name="YTD_HIGH" value="152.84"/> <Field id="1736" name="YTD_LOW"
+                value="117.36"/> <Field id="1740" name="YTD_HIGH_DATE"
+                value="20210610"/> <Field id="1741" name="YTD_LOW_DATE"
+                value="20210122"/> <Field id="1743" name="PREMKT_EXCH"
+                value="11011"/> <Field id="1744" name="POSTMKT_EXCH"
+                value="11106"/> <Field id="1751" name="FREF_SECURITY_TYPE"
+                value="SHARE"/> <Field id="1762" name="SECURITY_SUB_TYPE"
+                value=""/> <Field id="1765" name="QUOTE_DELETION_FLAG"
+                value="0"/> <Field id="1766" name="PREMKT_DATE"
+                value="20210621"/> <Field id="1767" name="POSTMKT_DATE"
+                value="20210618"/> <Field id="1820" name="BUY_ID" value=""/>
+                <Field id="1824" name="SELL_ID" value=""/> <Field id="1832"
+                name="PREMKT_VOL" value="12"/> <Field id="1836"
+                name="PREMKT_CVOL" value="13"/> <Field id="1840"
+                name="PREMKT_TRADE_QUANTITY" value="2"/> <Field id="1844"
+                name="PREMKT_BLOCK_CVOL" value="0"/> <Field id="1852"
+                name="PREMKT_BLOCK_NUM" value="0"/> <Field id="1860"
+                name="POSTMKT_VOL" value="0"/> <Field id="1864"
+                name="POSTMKT_CVOL" value="0"/> <Field id="1881"
+                name="POSTMKT_NET_CHANGE" value="0"/> <Field id="1882"
+                name="POSTMKT_PERCENT_CHANGE" value="0"/> <Field id="1896"
+                name="FINANCIAL_STATUS" value="4"/> <Field id="2029"
+                name="POSTMKT_PRICE" value="0"/> <Field id="2064"
+                name="POSTMKT_TRADE_QUANTITY" value="0"/> <Field id="2415"
+                name="POSTMKT_BLOCK_CVOL" value="0"/> <Field id="2416"
+                name="POSTMKT_BLOCK_NUM" value="0"/> <Field id="2800"
+                name="SECURITY_STATUS" value="20"/> <Field id="13129"
+                name="SECURITY_TYPE" value="1"/> </Fields> </Record>    
+                </Records>      </Responses>
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example: >-
+                REQ_SYM,KEY,ASK,BID,LAST_Price
+                FDS-USA,FDS-USA:D,291.12,291.01,291.06
+                IBM-USA,IBM-USA:D,140.72,140.7,140.7
+                TSLA-USA,TSLA-USA:D,235.73,235.61,235.69
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+    post:
+      summary: Snap exchange data. Use if URL lengh of 2,048 is exceeded.
+      operationId: post_DFSnapshot
+      tags:
+        - Snapshot
+      description: >-
+        Request Snapshot exchange data. Use POST when your URL length exceeds
+        2,048 characters.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/oc'
+        - $ref: '#/components/parameters/fields'
+        - $ref: '#/components/parameters/sf'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/serv'
+        - $ref: '#/components/parameters/req_id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example:
+                Error:
+                  - 0
+                  - ''
+                FDS-USA:
+                  Key: FDS-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '291.7'
+                    '509':
+                      BID: '291.6'
+                    '609':
+                      ASK_1: '291.78'
+                Host: FactSet
+                IBM-USA:
+                  Key: IBM-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '140.84'
+                    '509':
+                      BID: '140.83'
+                    '609':
+                      ASK: '140.85'
+                Request ID: ''
+                Requested Fields: ASK_1,BID_1,LAST_1
+                Requested Symbols: FDS-USA,IBM-USA,TSLA-USA
+                Service: ''
+                TSLA-USA:
+                  Key: TSLA-USA:D
+                  Stale: ''
+                  Fields:
+                    '50':
+                      LAST_Price: '236.45'
+                    '509':
+                      BID: '236.43'
+                    '609':
+                      ASK: '236.5'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example: >-
+                <Response Service="FDS1"> <Request id="dfsvc-910e91">
+                <RequestedSymbols>IBM-USA</RequestedSymbols> <RequestedFields>
+                </RequestedFields> <Host>FactSet</Host> </Request> <Error
+                code="0" description=""> </Error>    <Records> <Record
+                req_sym="IBM-USA" key="IBM-USA:D" stale=""> <Fields> <Field
+                id="4" name="PRODUCT" value="9001"/> <Field id="8"
+                name="DESCRIPTION" value="International Business Machines
+                Corporation"/> <Field id="12" name="ISIN" value="US4592001014"/>
+                <Field id="14" name="CUSIP" value="459200101"/> <Field id="15"
+                name="SEDOL" value="2005973"/> <Field id="17" name="ISO_CODE"
+                value="USA"/> <Field id="20" name="EXCHANGE" value="11099"/>
+                <Field id="25" name="LAST_TICK" value="0"/> <Field id="29"
+                name="SHARES_OUTSTANDING" value="893.5228"/> <Field id="31"
+                name="LAST_VOL" value="0"/> <Field id="33" name="LAST_EXCH"
+                value="11100"/> <Field id="38" name="QUOTE_CONDITION"
+                value="0"/> <Field id="50" name="LAST_PRICE" value="143.12"/>
+                <Field id="62" name="PRICE_CURRENCY" value="USD"/> <Field
+                id="107" name="HIGH" value="0"/> <Field id="132" name="CVOL"
+                value="13"/> <Field id="135" name="MID_TIME" value="000000000"/>
+                <Field id="136" name="MID_DATE" value="00000000"/> <Field
+                id="155" name="OPEN_VOLUME" value="0"/> <Field id="158"
+                name="OPEN" value="0"/> <Field id="174" name="TRADE_CONDITION"
+                value=""/> <Field id="208" name="PREV_CLOSE" value="143.12"/>
+                <Field id="259" name="OFF_HOUR_CVOL" value="13"/> <Field
+                id="267" name="TRADE_COUNT" value="2"/> <Field id="269"
+                name="BLOCK_TRADE_COUNT" value="0"/> <Field id="271"
+                name="BLOCK_CVOL" value="0"/> <Field id="277"
+                name="SHORT_SALE_INDICATOR" value="0"/> <Field id="296"
+                name="BID_CLOSE_VOL" value="1123"/> <Field id="297"
+                name="ASK_CLOSE_VOL" value="33"/> <Field id="298"
+                name="OFFICIAL_BID_CLOSE_VOL" value="0"/> <Field id="299"
+                name="OFFICIAL_ASK_CLOSE_VOL" value="0"/> <Field id="307"
+                name="LOW" value="0"/> <Field id="341" name="TURNOVER"
+                value="1.86067"/> <Field id="383" name="LAST_TIME"
+                value="190000004"/> <Field id="384" name="LAST_DATE"
+                value="20210618"/> <Field id="385" name="BID_TIME"
+                value="043004013"/> <Field id="386" name="BID_DATE"
+                value="20210621"/> <Field id="387" name="ASK_TIME"
+                value="043004013"/> <Field id="388" name="ASK_DATE"
+                value="20210621"/> <Field id="389" name="GMT_OFFSET"
+                value="-240"/> <Field id="427" name="ORDER_LOT_SIZE"
+                value="100"/> <Field id="448" name="OFFICIAL_BID_CLOSE"
+                value="0"/> <Field id="476" name="OFFICIAL_ASK_CLOSE"
+                value="0"/> <Field id="495" name="BUY_IMBALANCE" value="0"/>
+                <Field id="496" name="SELL_IMBALANCE" value="0"/> <Field
+                id="505" name="BID_VOL" value="1"/> <Field id="506"
+                name="BID_EXCH" value="11011"/> <Field id="509" name="BID"
+                value="142"/> <Field id="518" name="BID_TICK" value="2"/> <Field
+                id="526" name="OFFICIAL_CLOSE" value="0"/> <Field id="528"
+                name="OFFBOOK_CUM_VOL" value="0"/> <Field id="530" name="VENUE"
+                value=""/> <Field id="531" name="EX_DATE_STATUS" value=""/>
+                <Field id="605" name="ASK_VOL" value="1"/> <Field id="606"
+                name="ASK_EXCH" value="11106"/> <Field id="609" name="ASK"
+                value="146.92"/> <Field id="633" name="PERIOD" value="PREMKT"/>
+                <Field id="635" name="AUTO_TRADE_CVOL" value="0"/> <Field
+                id="636" name="AUTO_TRADE_COUNT" value="0"/> <Field id="637"
+                name="AUTO_TRADE_VWAP" value="0"/> <Field id="648"
+                name="BID_CLOSE" value="143.12"/> <Field id="649"
+                name="ASK_CLOSE" value="143.13"/> <Field id="650"
+                name="MARKET_SEGMENT" value=""/> <Field id="651"
+                name="MARKET_SECTOR" value=""/> <Field id="652"
+                name="COUNTRY_CODE" value="USA"/> <Field id="662"
+                name="NET_CHANGE" value="0"/> <Field id="689"
+                name="MONEY_FLOW_DOWN" value="0"/> <Field id="690"
+                name="MONEY_FLOW_UP" value="0"/> <Field id="691"
+                name="BLOCK_MONEY_FLOW_DOWN" value="0"/> <Field id="692"
+                name="BLOCK_MONEY_FLOW_UP" value="0"/> <Field id="709"
+                name="AVG_30DAY_VOL" value="4.373532"/> <Field id="719"
+                name="AVG_5DAY_VOL" value="4.652241"/> <Field id="722"
+                name="FACTSET_INDUSTRY" value="Information Technology
+                Services"/> <Field id="723" name="FACTSET_SECTOR"
+                value="Technology Services"/> <Field id="724" name="HOMEPAGE"
+                value="http://www.ibm.com"/> <Field id="740" name="EXCH_NAME"
+                value="NYSE"/> <Field id="746" name="TOTAL_RETURN_3M"
+                value="12.28364"/> <Field id="747" name="TOTAL_RETURN_52W"
+                value="23.03027"/> <Field id="767" name="HIGH_52WEEK"
+                value="152.84"/> <Field id="768" name="LOW_52WEEK"
+                value="105.92"/> <Field id="769" name="OFF_HOUR_PRICE"
+                value="143.13"/> <Field id="776" name="SPECIAL_PRICE"
+                value="0"/> <Field id="780" name="VWAP" value="0"/> <Field
+                id="786" name="TOTAL_PUT_CVOL" value="0"/> <Field id="787"
+                name="CALL_VOLUME" value="0"/> <Field id="788"
+                name="OPEN_INTEREST_PUT" value="0"/> <Field id="789"
+                name="OPEN_INTEREST_CALL" value="0"/> <Field id="790"
+                name="PUT_CALL_RATIO_OPEN_INTEREST" value="0"/> <Field id="791"
+                name="PUT_CALL_RATIO_VOLUME" value="0"/> <Field id="815"
+                name="SETTLEMENT" value="0"/> <Field id="816"
+                name="PERCENT_CHANGE" value="0"/> <Field id="868"
+                name="TRADED_DATE" value="20210621"/> <Field id="892"
+                name="PREV_CLOSE_UNADJ" value="143.12"/> <Field id="896"
+                name="PREMKT_NET_CHANGE" value="0.00999999999999"/> <Field
+                id="897" name="PREMKT_PERCENT_CHANGE" value="0.00698714365566"/>
+                <Field id="912" name="TRADED_PRICE" value="143.13"/> <Field
+                id="916" name="TRADED_TIME" value="043004013"/> <Field id="918"
+                name="TRADED_VOL" value="12"/> <Field id="942" name="UP_VOLUME"
+                value="0"/> <Field id="943" name="DOWN_VOLUME" value="0"/>
+                <Field id="944" name="UNCHANGED_VOLUME" value="0"/> <Field
+                id="945" name="BUY_VOLUME" value="0"/> <Field id="946"
+                name="SELL_VOLUME" value="0"/> <Field id="947" name="MID_VOLUME"
+                value="13"/> <Field id="948" name="NASDAQ_BUY_IMBALANCE"
+                value="0"/> <Field id="949" name="NASDAQ_SELL_IMBALANCE"
+                value="0"/> <Field id="950" name="PREMKT_TURNOVER"
+                value="1.86067"/> <Field id="955" name="POSTMKT_TURNOVER"
+                value="0"/> <Field id="1010" name="VENDOR_SYMBOL" value="IBM"/>
+                <Field id="1019" name="PREMKT_PRICE" value="143.13"/> <Field
+                id="1045" name="HIGH_TIME" value="000000000"/> <Field id="1047"
+                name="OPEN_TIME" value="000000000"/> <Field id="1048"
+                name="LOW_TIME" value="000000000"/> <Field id="1049"
+                name="PREV_CLOSE_TIME" value="190000004"/> <Field id="1051"
+                name="PREV_CLOSE_DATE" value="20210618"/> <Field id="1061"
+                name="BID_CLOSE_TIME" value="000000000"/> <Field id="1062"
+                name="BID_CLOSE_DATE" value="20210618"/> <Field id="1063"
+                name="ASK_CLOSE_TIME" value="000000000"/> <Field id="1064"
+                name="ASK_CLOSE_DATE" value="20210618"/> <Field id="1065"
+                name="OFFICIAL_CLOSE_TIME" value="000000000"/> <Field id="1066"
+                name="OFFICIAL_CLOSE_DATE" value="00000000"/> <Field id="1073"
+                name="TIME" value="043004013"/> <Field id="1074" name="DATE"
+                value="20210621"/> <Field id="1075" name="PREMKT_TIME"
+                value="043004013"/> <Field id="1076" name="POSTMKT_TIME"
+                value="000000000"/> <Field id="1079" name="VWAP_NUMERATOR"
+                value="0"/> <Field id="1082" name="OFFICIAL_BID_CLOSE_TIME"
+                value="000000000"/> <Field id="1083"
+                name="OFFICIAL_ASK_CLOSE_TIME" value="000000000"/> <Field
+                id="1085" name="VWAP_CVOL" value="0"/> <Field id="1087"
+                name="UPPER_TRADING_BAND" value="0"/> <Field id="1093"
+                name="LOWER_TRADING_BAND" value="0"/> <Field id="1098"
+                name="TRADED_CONDITION" value="00 3 94"/> <Field id="1172"
+                name="PREV_CLOSE_2" value="145.6"/> <Field id="1176"
+                name="PREV_CLOSE_UNADJ_2" value="145.6"/> <Field id="1182"
+                name="FEED_CURRENCY" value="USD"/> <Field id="1184"
+                name="HALT_DESCRIPTION" value=""/> <Field id="1190"
+                name="COUNTRY_NAME" value="United States"/> <Field id="1216"
+                name="PRICE_1Y" value="122.470001"/> <Field id="1220"
+                name="HIGH_52WEEK_DATE" value="20210610"/> <Field id="1263"
+                name="XLT_PRICE" value="0"/> <Field id="1268" name="XLT_CVOL"
+                value="0"/> <Field id="1269" name="XLT_TRADE_COUNT" value="0"/>
+                <Field id="1270" name="XLT_TURNOVER" value="0"/> <Field
+                id="1274" name="XLT_UP_VOLUME" value="0"/> <Field id="1275"
+                name="XLT_DOWN_VOLUME" value="0"/> <Field id="1276"
+                name="XLT_MONEY_FLOW_UP" value="0"/> <Field id="1280"
+                name="XLT_MONEY_FLOW_DOWN" value="0"/> <Field id="1288"
+                name="UNOFFICIAL_PRICE" value="143.13"/> <Field id="1292"
+                name="UNOFFICIAL_VOLUME" value="12"/> <Field id="1295"
+                name="LOW_52WEEK_DATE" value="20201028"/> <Field id="1296"
+                name="PRICE_YEAR_END" value="125.879997"/> <Field id="1334"
+                name="UNOFFICIAL_CONDITION" value="00 3 94"/> <Field id="1335"
+                name="TRADE_LOT_SIZE" value="1"/> <Field id="1341"
+                name="AUTO_TURNOVER" value="0"/> <Field id="1345"
+                name="CLOSING_VOLUME" value="0"/> <Field id="1358"
+                name="CROSS_TRADE_VOLUME" value="0"/> <Field id="1359"
+                name="DARK_TRADE_VOLUME" value="0"/> <Field id="1363"
+                name="VWAP_10B_18" value="0"/> <Field id="1367"
+                name="VWAP_10B_18_CVOL" value="0"/> <Field id="1414"
+                name="HALT_REASON" value="0"/> <Field id="1416"
+                name="SHORT_SALE_VOLUME" value="0"/> <Field id="1480"
+                name="OPEN_AUCTION_VOLUME" value="0"/> <Field id="1481"
+                name="CLOSING_AUCTION_VOLUME" value="0"/> <Field id="1499"
+                name="TICK_SIZE" value="0.01"/> <Field id="1507"
+                name="TICK_GROUP" value=""/> <Field id="1508"
+                name="TICK_PILOT_EFF_DATE" value="00000000"/> <Field id="1517"
+                name="PRIMARY_MARKET" value="NYS"/> <Field id="1518"
+                name="INTRADAY_AUCTION_VOLUME" value="0"/> <Field id="1541"
+                name="SHORT_SALE_TURNOVER" value="0"/> <Field id="1621"
+                name="ISO_COUNTRY_EXCHANGE" value="USA"/> <Field id="1650"
+                name="UNOFFICIAL_EXCH" value="11011"/> <Field id="1729"
+                name="TRADE_COUNT_UP" value="0"/> <Field id="1730"
+                name="TRADE_COUNT_DOWN" value="0"/> <Field id="1731"
+                name="TRADE_COUNT_UNCHANGED" value="0"/> <Field id="1732"
+                name="YTD_HIGH" value="152.84"/> <Field id="1736" name="YTD_LOW"
+                value="117.36"/> <Field id="1740" name="YTD_HIGH_DATE"
+                value="20210610"/> <Field id="1741" name="YTD_LOW_DATE"
+                value="20210122"/> <Field id="1743" name="PREMKT_EXCH"
+                value="11011"/> <Field id="1744" name="POSTMKT_EXCH"
+                value="11106"/> <Field id="1751" name="FREF_SECURITY_TYPE"
+                value="SHARE"/> <Field id="1762" name="SECURITY_SUB_TYPE"
+                value=""/> <Field id="1765" name="QUOTE_DELETION_FLAG"
+                value="0"/> <Field id="1766" name="PREMKT_DATE"
+                value="20210621"/> <Field id="1767" name="POSTMKT_DATE"
+                value="20210618"/> <Field id="1820" name="BUY_ID" value=""/>
+                <Field id="1824" name="SELL_ID" value=""/> <Field id="1832"
+                name="PREMKT_VOL" value="12"/> <Field id="1836"
+                name="PREMKT_CVOL" value="13"/> <Field id="1840"
+                name="PREMKT_TRADE_QUANTITY" value="2"/> <Field id="1844"
+                name="PREMKT_BLOCK_CVOL" value="0"/> <Field id="1852"
+                name="PREMKT_BLOCK_NUM" value="0"/> <Field id="1860"
+                name="POSTMKT_VOL" value="0"/> <Field id="1864"
+                name="POSTMKT_CVOL" value="0"/> <Field id="1881"
+                name="POSTMKT_NET_CHANGE" value="0"/> <Field id="1882"
+                name="POSTMKT_PERCENT_CHANGE" value="0"/> <Field id="1896"
+                name="FINANCIAL_STATUS" value="4"/> <Field id="2029"
+                name="POSTMKT_PRICE" value="0"/> <Field id="2064"
+                name="POSTMKT_TRADE_QUANTITY" value="0"/> <Field id="2415"
+                name="POSTMKT_BLOCK_CVOL" value="0"/> <Field id="2416"
+                name="POSTMKT_BLOCK_NUM" value="0"/> <Field id="2800"
+                name="SECURITY_STATUS" value="20"/> <Field id="13129"
+                name="SECURITY_TYPE" value="1"/> </Fields> </Record>    
+                </Records>      </Responses>
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/DFSnapshot_Response'
+              example: >-
+                REQ_SYM,KEY,ASK,BID,LAST_Price
+                FDS-USA,FDS-USA:D,291.12,291.01,291.06
+                IBM-USA,IBM-USA:D,140.72,140.7,140.7
+                TSLA-USA,TSLA-USA:D,235.73,235.61,235.69
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      description: >-
+        Requested symbols or securities. **Required** if not using `oc`. This is
+        a comma-seperated list with a maximum of 500. Each symbol can be a
+        FactSet Exchange Symbol, CUSIP, or SEDOL. This can be used in
+        combination with `chain` parameter to pull in a custom
+        portfolio.<P>**Try it out** - Choose one or multiple - IBM-USA,
+        BABA-USA, WALMEX-MX, 7203-TKS, VOD-LON, NPN-JSE, MABAX, NZF, SPY-USA,
+        AGG-USA, GLD-USA, AOR-USA, MNA-USA, UUP-USA, SP50-SPX, ESX-STX, XAO-ASX,
+        WD-MSX, NG00-USA, GC00-USA, CC00-USA, C00-USA, FC00-USA, ER00-USA,
+        EURUSD-FX1, USDMXN-FX1, AUDJPY-FX1, EURCZK-FX1, USDILS-FX1, USDZAR-FX1,
+        US10YY-TU1, FDS#190621C00145000-USA, FDS#190621P00145000-USA. *Leave
+        blank if you are trying the `oc` parameter*.</p>
+      name: ids
+      in: query
+      schema:
+        type: string
+      required: false
+    req_id:
+      name: req_id
+      in: query
+      description: >-
+        Request Identification String. Can be used by the application to keep
+        track of requests.  The id is not used by this service, however, it is
+        included in the XML response.<p> **Try it Out** - any value can be
+        passed through.</p>
+      required: false
+      schema:
+        type: string
+    format:
+      name: format
+      description: >-
+        The format of the output file.<p>**Try it Out** - All formats
+        available</p>
+      in: query
+      schema:
+        type: string
+        default: XML
+        enum:
+          - XML
+          - JSON
+          - CSV
+    fields:
+      description: >-
+        All available fields. This is a comma-seperated list (no spaces).
+        **Required** only when using `oc`. Otherwise, leave blank to return all
+        fields by default. See definitions for details on available field names
+        and Field ID #s. The Data Service Manual has complete reference.<p>**Try
+        it Out** - All fields available. Use either FID # or name. For `oc`,
+        recommend to use BID_1,ASK_1,STRIKE_PRICE.
+      name: fields
+      in: query
+      schema:
+        type: string
+    oc:
+      description: >-
+        Option Chain, accepts one underlying symbol for which the option chain
+        will be returned. **Required** if not using `ids`. <p>**Try it Out** -
+        Only available for BABA-USA</p>
+      name: oc
+      in: query
+      schema:
+        type: string
+    serv:
+      description: >
+        The Data Service that handles the request for the specified symbols.
+        Available live services are - 
+          * **FDS1** -Production Data Service
+          * **FDS_FUND** -Fundamental Data Service used for End-of-Day data.
+
+        **Try it Out** - use FDS1
+      name: serv
+      in: query
+      schema:
+        type: string
+        enum:
+          - FDS1
+          - FDS_FUND
+    sf:
+      description: >
+        Symbol Filters, ability to apply filtering to the result of an option
+        chain `oc` request based on available fields and values for the symbols.
+        `sf`=VALUE_[filter],[field],[value]
+          * **VALUE_MINMAX** -  Field value will be within specified interval. ex. - VALUE_MINMAX,BID_1,min,max
+          * **VALUE_EQUALS** - Field value will equal specified value. ex. - VALUE_EQUALS,BID_1,value
+          * **VALUE_NOT_EQUALS** - Field value will not equal specified value. ex. - VALUE_NOT_EQUALS,BID_1,value
+          
+          **Try it Out** - depends on fields used. Example - VALUE_MINMAX,STRIKE_PRICE,120,130 
+      name: sf
+      in: query
+      schema:
+        type: string
+    chain:
+      description: >-
+        Ability to retrieve a portfolio (OFDB) stored in FactSet. A chain
+        request makes two sets of requests. The first request retrieves a list
+        of symbols and the second makes the request for that list. The service
+        acts as f it has been passed a large list of symbols in the 'ids' query
+        parameter. Using both 'ids' and 'chain' in the same request will combine
+        the two lists of symbols together. They key follows the following
+        format: [PORTFOLIO NAME]-FCHAIN:P.<p>**Try it Out** - Not available for
+        try it out.
+      name: chain
+      in: query
+      schema:
+        type: string
+  schemas:
+    fields:
+      type: object
+      description: All available fields in service. FID = Field ID Number.
+      properties:
+        Exchange:
+          description: >-
+            Field ID # 20. Exchange ISO-Code. Enumeration in Data Service
+            Manual.
+          type: string
+        product:
+          description: >-
+            Field ID # 4. Product identifier. Enumeration in Data Service
+            Manual.
+          type: string
+        Bid:
+          description: 'Field ID # 509. Current bid price'
+          type: number
+        Bid_Date:
+          description: 'Field ID # 386. Current bid date'
+          type: string
+        Bid_Time:
+          description: 'Field ID # 385. Current bid time'
+          type: integer
+        Bid_Vol:
+          description: 'Field ID # 505. Current bid size'
+          type: integer
+        Bid_Tick:
+          description: >-
+            Field ID # 518. Current bid tick direction. Enumeration in Data
+            Service Manual.
+          type: string
+        Bid_Close:
+          description: 'Field ID # 648. Official Closing Bid'
+          type: number
+        Bid_Close_Date:
+          description: 'Field ID # 1062. Official Closing Bid Date'
+          type: string
+        Bid_Close_Vol:
+          description: 'Field ID # 296. Official Closing Bid Volume'
+          type: integer
+        Bid_Exch:
+          description: >-
+            Field ID # 506. Exchange of the current bid price. Enumeration in
+            Data Service Manual.
+          type: string
+        Ask:
+          description: 'Field ID # 609. Current ask price'
+          type: number
+        Ask_Date:
+          description: 'Field ID # 388. Current ask date'
+          type: string
+        Ask_Time:
+          description: 'Field ID # 387. Current ask time'
+          type: integer
+        Ask_Vol:
+          description: 'Field ID # 605. Current ask size'
+          type: integer
+        Ask_Close:
+          description: 'Field ID # 649. Official Closing ask'
+          type: number
+        Ask_Close_Date:
+          description: 'Field ID # 1064. Official Closing ask Date'
+          type: string
+        Ask_Close_Vol:
+          description: 'Field ID # 297. Official Closing ask Volume'
+          type: integer
+        Ask_Exch:
+          description: >-
+            Field ID # 606. Exchange of the current ask price.  Enumeration in
+            Data Service Manual.
+          type: string
+        Short_Sale_Indicator:
+          description: >-
+            Field ID # 277. Flag to indicate if a security is restricted from
+            being sold short
+          type: integer
+        Quote_Condition:
+          description: >-
+            Field ID # 38. Current Quote Condition.  Enumeration in Data Service
+            Manual.
+          type: string
+        Last_Price:
+          description: 'Field ID # 50. Official last trade price'
+          type: number
+        Last_Date:
+          description: 'Field ID # 384. Last Date'
+          type: string
+        Last_Time:
+          description: 'Field ID # 383. Official last traded time'
+          type: integer
+        Last_Vol:
+          description: 'Field ID # 31. Official last traded volume'
+          type: integer
+        Last_Tick:
+          description: >-
+            Field ID # 25. Official last tick. Enumeration in Data Service
+            Manual.
+          type: string
+        Official_Close:
+          description: 'Field ID # 526. Official Close/Close Range 1 Price'
+          type: number
+        Official_Close_Time:
+          description: 'Field ID # 1065. Official Close/Close Range 1 Time'
+          type: integer
+        Last_Exch:
+          description: >-
+            Field ID # 33. Official last traded exchange. Enumeration in Data
+            Service Manual.
+          type: string
+        Settlement:
+          description: 'Field ID # 815. Settle Price'
+          type: number
+        Traded_Price:
+          description: 'Field ID # 912. Last traded Price'
+          type: number
+        Traded_Date:
+          description: 'Field ID # 868. Last traded Date'
+          type: string
+        Traded_Time:
+          description: 'Field ID # 916. Last traded Time'
+          type: integer
+        Traded_Vol:
+          description: 'Field ID # 918. Last traded Volume'
+          type: integer
+        Traded_Condition:
+          description: 'Field ID # 1098. Last traded trade condition'
+          type: string
+        Net_Change:
+          description: 'Field ID # 662. Official last change'
+          type: number
+        Percent_Change:
+          description: 'Field ID # 816. Official last percentage change'
+          type: number
+        Premkt_Price:
+          description: 'Field ID # 1019. Unofficial last premarket trade price'
+          type: number
+        Premkt_Time:
+          description: 'Field ID # 1075. Unofficial last premarket traded time'
+          type: integer
+        Premkt_Vol:
+          description: 'Field ID # 1832. Unofficial last premarket traded volume'
+          type: integer
+        Premkt_CVol:
+          description: 'Field ID # 1836. Unofficial last premarket cumulative volume'
+          type: integer
+        Postmkt_Price:
+          description: 'Field ID # 2029. Unofficial last post market trade price'
+          type: number
+        Postmkt_Time:
+          description: 'Field ID # 1076. Unofficial last post market traded time'
+          type: integer
+        Postmkt_Vol:
+          description: 'Field ID # 1860. Unofficial last post market traded volume'
+          type: integer
+        Postmkt_Cvol:
+          description: 'Field ID # 1864. Unofficial last post market cumulative volume'
+          type: integer
+        Offbook_Cum_Vol:
+          description: 'Field ID # 528. Off Book Cumulative Volume'
+          type: integer
+        Official_Bid_Close:
+          description: 'Field ID # 448. The bid close price of today'
+          type: number
+        Official_Ask_Close:
+          description: 'Field ID # 476. The ask close price of today'
+          type: number
+        Mid_Date:
+          description: 'Field ID # 136. Current mid date'
+          type: string
+        Mid_Time:
+          description: 'Field ID # 135. Current mid price time'
+          type: integer
+        Cvol:
+          description: 'Field ID # 132. Cumulative volume'
+          type: integer
+        Turnover:
+          description: 'Field ID # 341. Turnover'
+          type: number
+        Vwap:
+          description: 'Field ID # 780. Volume Weighted Average Price'
+          type: number
+        Trade_Count:
+          description: 'Field ID # 267. Cumulative trade count'
+          type: integer
+        Block_Trade_Count:
+          description: 'Field ID # 269. Cumulative block count'
+          type: integer
+        Block_Cvol:
+          description: 'Field ID # 271. Cumulative block volume'
+          type: integer
+        Prev_Close:
+          description: 'Field ID # 208. Previous trading days Close'
+          type: number
+        Close_Date:
+          description: 'Field ID # 1051. Previous trading days Closing Date'
+          type: string
+        Prev_Close_Unadj:
+          description: 'Field ID # 892. Unadjusted Previous trading days Close'
+          type: number
+        Prev_Close_2:
+          description: 'Field ID # 1172. Previous trading days Close  late rollover[1]'
+          type: number
+        Prev_Close_Unadj_2:
+          description: >-
+            Field ID # 1176. Unadjusted Previous trading days Close  late
+            rollover
+          type: number
+        Lower_Trading_Band:
+          description: 'Field ID # 1093. Lower trading band'
+          type: number
+        Upper_Trading_Band:
+          description: 'Field ID # 1087. Upper trading band'
+          type: number
+        Buy_Imbalance:
+          description: 'Field ID # 495. NYSE buy imbalance'
+          type: integer
+        Sell_Imbalance:
+          description: 'Field ID # 496. NYSE sell imbalance'
+          type: integer
+        Nas_Buy_Imbalance:
+          description: 'Field ID # 948. NAS buy imbalance'
+          type: integer
+        Nas_Sell_Imbalance:
+          description: 'Field ID # 949. NAS sell imbalance'
+          type: integer
+        Open:
+          description: 'Field ID # 158. The Open Range 1 or Open Price'
+          type: number
+        High:
+          description: 'Field ID # 107. Current high for the day'
+          type: number
+        Low:
+          description: 'Field ID # 307. Current low for the day'
+          type: number
+        Venue:
+          description: 'Field ID # 530. Venue'
+          type: string
+        Buy_Id:
+          description: 'Field ID # 1820. Buy Id'
+          type: string
+        Sell_Id:
+          description: 'Field ID # 1824. Sell Id'
+          type: string
+        Auto_Trade_Vwap:
+          description: 'Field ID # 637. VWAP including only order book (automatic) trades'
+          type: number
+        Auto_Trade_Cvol:
+          description: >-
+            Field ID # 635. Cumulative Volume calculated on all automated
+            trading volumes for order-based segments
+          type: integer
+        Auto_Trade_Count:
+          description: >-
+            Field ID # 636. Trade Quantity including only order book (automatic)
+            trades
+          type: integer
+        Ex_Date_Status:
+          description: 'Field ID # 531. Ex-Date Status'
+          type: string
+        Premkt_Net_Change:
+          description: 'Field ID # 896. Net change in pre-market session(US stocks only)'
+          type: number
+        Premkt_Percent_Change:
+          description: 'Field ID # 897. Percent change in pre-market session(US stocks only)'
+          type: number
+        Closing_Vol:
+          description: 'Field ID # 1345. Volume of the closing trade'
+          type: integer
+        Primary_Market:
+          description: >-
+            Field ID # 1517. FactSet Exchange Code of primary market for
+            instrument. Determined by highest trading volume over a 3-day
+            calendar period
+          type: string
+        Iso_Country_Exchange:
+          description: 'Field ID # 1621. Three Letter Country Code from ISO-3166'
+          type: string
+        Premkt_Exch:
+          description: >-
+            Field ID # 1743. Premarket Exchange. Enumeration in Data Service
+            Manual. 
+          type: string
+        Postmkt_Exch:
+          description: >-
+            Field ID # 1744. Post Market Exchange. Enumeration in Data Service
+            Manual.
+          type: string
+        Fref_Security_type:
+          description: 'Field ID # 1751. The Security type returned by FREF_SECURITY_type'
+          type: string
+        Security_Sub_type:
+          description: >-
+            Field ID # 1762. Sub type of the security populated for funds right
+            now
+          type: string
+        Postmkt_Net_Change:
+          description: 'Field ID # 1881. Post Market Net Change'
+          type: number
+        Postmkt_Percent_Change:
+          description: 'Field ID # 1882. Post Market Percent Change. '
+          type: number
+        Isin:
+          description: 'Field ID # 12. ISIN'
+          type: string
+        Cusip:
+          description: 'Field ID # 14. CUSIP'
+          type: string
+        Sedol:
+          description: 'Field ID # 15. SEDOL'
+          type: string
+        description:
+          description: 'Field ID # 8. Security Description'
+          type: string
+        Shares_Outstanding:
+          description: 'Field ID # 29. Total number of shares outstanding'
+          type: number
+        Price_Currency:
+          description: 'Field ID # 62. Price currency code'
+          type: string
+        Security_Status:
+          description: >-
+            Field ID # 2800. Security Status or Halt Indicator. Enumeration in
+            Data manual
+          type: string
+        Gmt_Offset:
+          description: 'Field ID # 389. GMT Offset in Minutes'
+          type: integer
+        Market_Segment:
+          description: 'Field ID # 650. Market segment'
+          type: string
+        Market_Sector:
+          description: 'Field ID # 651. Market sector'
+          type: string
+        Period:
+          description: 'Field ID # 633. Period'
+          type: string
+        Country_Code:
+          description: 'Field ID # 652. ISO Country code'
+          type: string
+        Financial_Status:
+          description: 'Field ID # 1896. Financial Status Enumeration Table'
+          type: integer
+        Factset_Industry:
+          description: 'Field ID # 722. FactSet Industry Classification'
+          type: string
+        Factset_Sector:
+          description: 'Field ID # 723. FactSet Sector Classification'
+          type: string
+        Halt_Info:
+          description: 'Field ID # 1414. Halt Status'
+          type: integer
+        Homepage:
+          description: 'Field ID # 724. Company Homepage'
+          type: string
+        Halt_description:
+          description: 'Field ID # 1184. Halt description'
+          type: string
+        Feed_Currency:
+          description: >-
+            Field ID # 1182. Currency the Exchange sends the prices to FactSet
+            in
+          type: string
+        Country_Name:
+          description: 'Field ID # 1190. Name of Country'
+          type: string
+        Order_Lot_Size:
+          description: 'Field ID # 427. Number of securities in a lot'
+          type: integer
+        Trade_Lot_Size:
+          description: 'Field ID # 1335. The minimum number of lots required to trade'
+          type: integer
+        Tick_Size:
+          description: 'Field ID # 1499. Tick Size'
+          type: number
+        Tick_Group:
+          description: 'Field ID # 1507. Tick Group'
+          type: string
+        Tick_Pilot_Eff_Date:
+          description: 'Field ID # 1508. Tick Pilot effective day'
+          type: string
+        Avg_30Day_Vol:
+          description: 'Field ID # 709. Average cumulative volume for last 30 days'
+          type: number
+        Avg_5Day_Vol:
+          description: 'Field ID # 719. Average cumulative volume over last 5 trading days'
+          type: number
+        High_52Week:
+          description: 'Field ID # 767. 52 Week High Price'
+          type: number
+        Low_52Week:
+          description: 'Field ID # 768. 52 Week Low Price'
+          type: number
+        High_52Week_Date:
+          description: 'Field ID # 1220. 52 Week High Price Date'
+          type: string
+        Low_52Week_Date:
+          description: 'Field ID # 1295. 52 Week Low Price Date'
+          type: string
+        Trade_Condition:
+          description: 'Field ID # 174. Trade Condition'
+          type: string
+        Total_Return_3M:
+          description: 'Field ID # 746. 3 Month return for US mutual funds'
+          type: number
+        Total_Return_52W:
+          description: 'Field ID # 747. 52-Week Total Return for US mutual funds'
+          type: number
+    DFSnapshot_Response:
+      type: object
+      description: sample response
+      properties:
+        Error:
+          description: error value
+          example: 0
+          type: integer
+        symbol1:
+          description: first symbol from `ids` or `chain`
+          type: array
+          items:
+            $ref: '#/components/schemas/fields'
+        Host:
+          description: host name
+          example: FactSet
+          type: string
+        symbol2:
+          description: second symbol from `ids` or `chain` list
+          type: string
+    specialfield:
+      title: special field values
+      type: object
+      properties:
+        NF:
+          description: >-
+            **#NF#** - Not found. The requested symbol could not be found by the
+            service.
+          type: string
+        NA:
+          description: >-
+            **#NA#** - Not Applicable. The requested field could not be found
+            for the requested symbol. This usually means that the field is not
+            applicable for this type of record.
+          type: string
+        NE:
+          description: >-
+            **#NE#** - Not Entitled. The supplied username and password are not
+            entitled to the data requested.
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {endpoint}
+          type: string
+          example: /dfsnapshot
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+  responses:
+    '402':
+      description: >-
+        Invalid HTTP method. Either the method is not POST or GET or exceeds the
+        maximum request length (currently set at 5000 bytes). The description
+        field will indicate the exact reason.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        text/csv:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+    '403':
+      description: >-
+        Invalid HTTP URL. Necessary query parameters are missing in the request.
+        The description field will indicate the exact reason.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+        text/csv:
+          schema:
+            $ref: '#/components/schemas/errorResponse'

@@ -1,0 +1,1185 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: alerting endpoints
+  name: alerting
+paths:
+  /alerting/prices/basic/alert/get:
+    get:
+      description: Details of an alert. The details include the trigger definition
+        at the time of alert creation.
+      operationId: get/alerting/prices/basic/alert/get
+      parameters:
+      - description: Identifier of the alert.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Details of an alert.
+      tags:
+      - alerting
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /alerting/prices/basic/alert/list:
+    get:
+      description: List of alerts in descending order of creation.
+      operationId: get/alerting/prices/basic/alert/list
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of milliseconds to throttle the update rate
+          from 0ms to 5000ms. Set to 0 for sending updates immediately.
+        in: query
+        name: _subscriptionMinimumInterval
+        schema:
+          default: 0.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5000
+          minimum: 0
+          type: number
+      - description: Starting point as returned in the attributes `pagination.next`
+          or `pagination.previous` by a prior invocation of this endpoint, or undefined
+          (default).
+        in: query
+        name: _paginationCursor
+        schema:
+          exclusiveMaximum: false
+          maxLength: 50
+          type: string
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: List of alerts.
+      tags:
+      - alerting
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: true
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: true
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /alerting/prices/basic/trigger/get:
+    get:
+      description: Details of a trigger.
+      operationId: get/alerting/prices/basic/trigger/get
+      parameters:
+      - description: Identifier of the trigger.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: Details of a trigger.
+      tags:
+      - alerting
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /alerting/prices/basic/trigger/list:
+    post:
+      description: Returns a list of triggers sorted in descending order of creation.
+      operationId: post/alerting/prices/basic/trigger/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_data'
+                meta:
+                  $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: List of triggers.
+      tags:
+      - alerting
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: true
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: false
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 5.962133916683182
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      example:
+        next: next
+        total: 0.8008281904610115
+        previous: previous
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    CursorBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the cursor-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - next
+      - previous
+      type: object
+      x-property-sort:
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    OffsetBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the offset-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        hasNext:
+          description: Flag indicating that a subsequent request with the same parameters,
+            except that the parameter `pagination.offset` is incremented by `pagination.limit`,
+            would yield additional results.
+          type: boolean
+      required:
+      - hasNext
+      type: object
+      x-property-sort:
+      - hasNext
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If `true`, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    inline_response_200_data_price:
+      description: Price data at the time of alert creation.
+      example:
+        time: time
+        value: 0.8008281904610115
+      properties:
+        value:
+          description: Depending on `trigger.price.type`, the trade, bid, or ask price.
+          format: real
+          type: number
+        time:
+          description: Date and time of the price.
+          format: datetime
+          type: string
+      type: object
+      x-property-sort:
+      - value
+      - time
+    inline_response_200_data_trigger_notation:
+      description: Notation data of the trigger.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_data_trigger_price:
+      description: Price data of the trigger.
+      example:
+        type: trade
+        quality: RLT
+      properties:
+        type:
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+        quality:
+          description: Price quality of the trigger.
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Real-Time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours.'
+      type: object
+      x-property-sort:
+      - type
+      - quality
+    inline_response_200_data_trigger_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: 6.027456183070403
+        lowerLimit: 1.4658129805029452
+      properties:
+        upperLimit:
+          description: Upper limit.
+          format: real
+          type: number
+        lowerLimit:
+          description: Lower limit.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - upperLimit
+      - lowerLimit
+    inline_response_200_data_trigger_status:
+      description: Status of the trigger.
+      example:
+        code: active
+        details: details
+        encryptedDetails: encryptedDetails
+      properties:
+        code:
+          description: Code of the status.
+          enum:
+          - active
+          - inactive
+          - error
+          type: string
+          x-enum-description:
+          - The trigger is active and trigger conditions are evaluated.
+          - The trigger is inactive and conditions do not generate alerts
+          - The trigger is in an error state, error details are noted in "details"
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            error.
+          type: string
+        encryptedDetails:
+          description: Base64-encoded, internal details about the error, in addition
+            to "details". An issue submitted to Service Desk should contain this data
+            to speed up investigation.
+          type: string
+      type: object
+      x-property-sort:
+      - code
+      - details
+      - encryptedDetails
+    inline_response_200_data_trigger:
+      description: Trigger data at the time of alert creation.
+      example:
+        notation:
+          id: id
+        price:
+          type: trade
+          quality: RLT
+        range:
+          upperLimit: 6.027456183070403
+          lowerLimit: 1.4658129805029452
+        comment: comment
+        id: id
+        creation: creation
+        status:
+          code: active
+          details: details
+          encryptedDetails: encryptedDetails
+      properties:
+        id:
+          description: Identifier of the trigger.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the trigger was created.
+          format: datetime
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_range'
+        comment:
+          description: Comment of the trigger.
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_status'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - notation
+      - price
+      - range
+      - comment
+      - status
+    inline_response_200_data:
+      description: Details of the alert.
+      example:
+        price:
+          time: time
+          value: 0.8008281904610115
+        id: id
+        trigger:
+          notation:
+            id: id
+          price:
+            type: trade
+            quality: RLT
+          range:
+            upperLimit: 6.027456183070403
+            lowerLimit: 1.4658129805029452
+          comment: comment
+          id: id
+          creation: creation
+          status:
+            code: active
+            details: details
+            encryptedDetails: encryptedDetails
+        creation: creation
+      properties:
+        id:
+          description: Identifier of the alert.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the alert was created.
+          format: datetime
+          type: string
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_price'
+        trigger:
+          $ref: '#/components/schemas/inline_response_200_data_trigger'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - price
+      - trigger
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 5.962133916683182
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200:
+      example:
+        data:
+          price:
+            time: time
+            value: 0.8008281904610115
+          id: id
+          trigger:
+            notation:
+              id: id
+            price:
+              type: trade
+              quality: RLT
+            range:
+              upperLimit: 6.027456183070403
+              lowerLimit: 1.4658129805029452
+            comment: comment
+            id: id
+            creation: creation
+            status:
+              code: active
+              details: details
+              encryptedDetails: encryptedDetails
+          creation: creation
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_1_trigger_price:
+      description: Price data of the trigger.
+      example:
+        type: trade
+        quality: RLT
+      properties:
+        type:
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+      type: object
+      x-property-sort:
+      - type
+      - quality
+    inline_response_200_1_trigger_status:
+      description: Status of the trigger.
+      example:
+        code: active
+        details: details
+      properties:
+        code:
+          description: Code of the status.
+          enum:
+          - active
+          - inactive
+          - error
+          type: string
+          x-enum-description:
+          - The trigger is active and trigger conditions are evaluated.
+          - The trigger is inactive and conditions do not generate alerts
+          - The trigger is in an error state, error details are noted in "details"
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            error.
+          type: string
+      type: object
+      x-property-sort:
+      - code
+      - details
+    inline_response_200_1_trigger:
+      description: Trigger data at the time of alert creation.
+      example:
+        notation:
+          id: id
+        price:
+          type: trade
+          quality: RLT
+        range:
+          upperLimit: 6.027456183070403
+          lowerLimit: 1.4658129805029452
+        comment: comment
+        id: id
+        creation: creation
+        status:
+          code: active
+          details: details
+      properties:
+        id:
+          description: Identifier of the trigger.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the trigger was created.
+          format: datetime
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_1_trigger_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_range'
+        comment:
+          description: Comment of the trigger.
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_1_trigger_status'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - notation
+      - price
+      - range
+      - comment
+      - status
+    inline_response_200_1_data:
+      example:
+        price:
+          time: time
+          value: 0.8008281904610115
+        id: id
+        trigger:
+          notation:
+            id: id
+          price:
+            type: trade
+            quality: RLT
+          range:
+            upperLimit: 6.027456183070403
+            lowerLimit: 1.4658129805029452
+          comment: comment
+          id: id
+          creation: creation
+          status:
+            code: active
+            details: details
+        creation: creation
+      properties:
+        id:
+          description: Identifier of the alert.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the alert was created.
+          format: datetime
+          type: string
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_price'
+        trigger:
+          $ref: '#/components/schemas/inline_response_200_1_trigger'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - price
+      - trigger
+    inline_response_200_1_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          next: next
+          total: 0.8008281904610115
+          previous: previous
+          isEstimatedTotal: true
+        status:
+          code: 5.962133916683182
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/CursorBasedPaginationOutputObject'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200_1:
+      example:
+        data:
+        - price:
+            time: time
+            value: 0.8008281904610115
+          id: id
+          trigger:
+            notation:
+              id: id
+            price:
+              type: trade
+              quality: RLT
+            range:
+              upperLimit: 6.027456183070403
+              lowerLimit: 1.4658129805029452
+            comment: comment
+            id: id
+            creation: creation
+            status:
+              code: active
+              details: details
+          creation: creation
+        - price:
+            time: time
+            value: 0.8008281904610115
+          id: id
+          trigger:
+            notation:
+              id: id
+            price:
+              type: trade
+              quality: RLT
+            range:
+              upperLimit: 6.027456183070403
+              lowerLimit: 1.4658129805029452
+            comment: comment
+            id: id
+            creation: creation
+            status:
+              code: active
+              details: details
+          creation: creation
+        meta:
+          pagination:
+            next: next
+            total: 0.8008281904610115
+            previous: previous
+            isEstimatedTotal: true
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: List of alerts.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_2_data:
+      description: Details of the trigger.
+      example:
+        notation:
+          id: id
+        price:
+          type: trade
+          quality: RLT
+        range:
+          upperLimit: 6.027456183070403
+          lowerLimit: 1.4658129805029452
+        comment: comment
+        id: id
+        creation: creation
+        status:
+          code: active
+          details: details
+          encryptedDetails: encryptedDetails
+      properties:
+        id:
+          description: Identifier of the trigger.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the trigger was created.
+          format: datetime
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_1_trigger_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_range'
+        comment:
+          description: Comment of the trigger.
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_status'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - notation
+      - price
+      - range
+      - comment
+      - status
+    inline_response_200_2:
+      example:
+        data:
+          notation:
+            id: id
+          price:
+            type: trade
+            quality: RLT
+          range:
+            upperLimit: 6.027456183070403
+            lowerLimit: 1.4658129805029452
+          comment: comment
+          id: id
+          creation: creation
+          status:
+            code: active
+            details: details
+            encryptedDetails: encryptedDetails
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _alerting_prices_basic_trigger_list_data_filter_status:
+      description: Status of the trigger.
+      properties:
+        code:
+          description: Code of the status.
+          enum:
+          - active
+          - inactive
+          - error
+          type: string
+          x-enum-description:
+          - The trigger is active and trigger conditions are evaluated.
+          - The trigger is inactive and conditions do not generate alerts.
+          - The trigger is in an error state, error details are noted in `details`
+      type: object
+      x-property-sort:
+      - code
+    _alerting_prices_basic_trigger_list_data_filter:
+      description: Criteria that filter the items in the response list.
+      properties:
+        status:
+          $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_data_filter_status'
+      type: object
+      x-property-sort:
+      - status
+    _alerting_prices_basic_trigger_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        filter:
+          $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_data_filter'
+      type: object
+      x-property-sort:
+      - filter
+    _alerting_prices_basic_trigger_list_meta_pagination:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        cursor:
+          description: Starting point as returned in the attributes `pagination.next`
+            or `pagination.previous` by a prior invocation of this endpoint, or undefined
+            (default).
+          maxLength: 50
+          type: string
+        limit:
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+2
+          minimum: 0
+          type: number
+      type: object
+      x-property-sort:
+      - cursor
+      - limit
+    _alerting_prices_basic_trigger_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - pagination
+    inline_object:
+      properties:
+        data:
+          $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_data'
+        meta:
+          $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_3_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: '{}'
+        lowerLimit: '{}'
+      properties:
+        upperLimit:
+          description: Upper limit.
+          type: object
+        lowerLimit:
+          description: Lower limit.
+          type: object
+      type: object
+      x-property-sort:
+      - upperLimit
+      - lowerLimit
+    inline_response_200_3_data:
+      example:
+        notation:
+          id: id
+        price:
+          type: trade
+          quality: RLT
+        range:
+          upperLimit: '{}'
+          lowerLimit: '{}'
+        comment: comment
+        id: id
+        creation: creation
+        status:
+          code: active
+          details: details
+      properties:
+        id:
+          description: Identifier of the trigger.
+          format: id64
+          type: string
+          x-positive: true
+        creation:
+          description: Date and time when the trigger was created.
+          format: datetime
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_1_trigger_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_3_range'
+        comment:
+          description: Comment of the trigger.
+          type: string
+        status:
+          $ref: '#/components/schemas/inline_response_200_1_trigger_status'
+      type: object
+      x-property-sort:
+      - id
+      - creation
+      - notation
+      - price
+      - range
+      - comment
+      - status
+    inline_response_200_3:
+      example:
+        data:
+        - notation:
+            id: id
+          price:
+            type: trade
+            quality: RLT
+          range:
+            upperLimit: '{}'
+            lowerLimit: '{}'
+          comment: comment
+          id: id
+          creation: creation
+          status:
+            code: active
+            details: details
+        - notation:
+            id: id
+          price:
+            type: trade
+            quality: RLT
+          range:
+            upperLimit: '{}'
+            lowerLimit: '{}'
+          comment: comment
+          id: id
+          creation: creation
+          status:
+            code: active
+            details: details
+        meta:
+          pagination:
+            next: next
+            total: 0.8008281904610115
+            previous: previous
+            isEstimatedTotal: true
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: List of triggers.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.38.0
+x-api-version: 2.9.0
+x-original-swagger-version: "2.0"
+

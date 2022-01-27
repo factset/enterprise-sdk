@@ -1,0 +1,14 @@
+{
+  "projectName": "@factset/sdk-factsetner",
+  "projectVersion": "0.8.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetner",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetNER/0.8.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

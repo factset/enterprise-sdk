@@ -1,0 +1,37 @@
+{
+  "modelPackage": "com.factset.sdk.IntradayTickHistory.models",
+  "apiPackage": "com.factset.sdk.IntradayTickHistory.api",
+  "invokerPackage": "com.factset.sdk.IntradayTickHistory",
+  "java8": true,
+  "groupId": "com.factset.sdk",
+  "artifactId": "intradaytickhistory",
+  "artifactVersion": "0.9.0",
+  "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
+  "artifactDescription": "FactSet SDK",
+  "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmDeveloperConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmUrl": "http://github.com/FactSet/enterprise-sdk",
+  "developerName": "FactSet Research Systems",
+  "developerEmail": "api@factset.com",
+  "developerOrganization": "FactSet Research Systems",
+  "developerOrganizationUrl": "https://developer.factset.com/",
+  "licenseName": "The Apache Software License, Version 2.0",
+  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+  "serializableModel": true,
+  "fullJavaUtil": true,
+  "withXml": false,
+  "useGzipFeature": false,
+  "hideGenerationTimestamp": true,
+  "caseInsensitiveResponseHeaders": true,
+  "library": "jersey2",
+  "servers":  false,
+  "httpUserAgent": "fds-sdk/java/IntradayTickHistory/0.9.0",
+  "files": {
+    "LICENSE": {},
+    "auth/FactSetOAuth2ClientAuth.mustache": {
+      "templateType": "SupportingFiles",
+      "folder": "src/main/java/com/factset/sdk/IntradayTickHistory/auth",
+      "destinationFilename": "FactSetOAuth2ClientAuth.java"
+    }
+  }
+}

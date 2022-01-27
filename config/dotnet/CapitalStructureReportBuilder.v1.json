@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.CapitalStructureReportBuilder",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{c9f58764-8dbb-5e2f-b56a-b4dcb93b81d1}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Capital Structure Report Builder",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/CapitalStructureReportBuilder/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

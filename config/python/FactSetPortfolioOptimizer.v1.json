@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetPortfolioOptimizer",
+  "projectName": "fds.sdk.FactSetPortfolioOptimizer",
+  "packageVersion": "0.8.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet Portfolio Optimizer",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetPortfolioOptimizer",
+  "httpUserAgent": "fds-sdk/python/FactSetPortfolioOptimizer/0.8.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

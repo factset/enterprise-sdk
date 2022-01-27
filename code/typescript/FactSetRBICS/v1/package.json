@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-factsetrbics",
+  "version": "0.9.0",
+  "description": "FactSet_Revere_Business_Industry_Classification_System__RBICS_is_a_comprehensive_structured_taxonomy_to_classify_companies_by_what_they_primarily_do__It_delivers_a_granular_view_for_investors_by_classifying_companies_using_a_bottom_up_approach_according_to_the_products_and_services_they_provide__By_combining_this_approach_with_a_top_level_grouping_based_on_companies_behavior_similarities_and_stock_co_movement_FactSet_RBICS_delivers_unprecedented_precision_for_1400_sector_groups_RBICS_Focus_is_a_six_level_classification_which_highlights_the_companys_main_business__It_is_based_on_the_company_business_line_s_that_stand_for_majority_of_a_the_revenue_that_the_company_generates__Updated_monthly__For_more_details_visit__Online_Assitant_Page_20710_https__oa_apps_factset_com_pages_20710_",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

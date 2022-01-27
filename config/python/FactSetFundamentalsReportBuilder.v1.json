@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetFundamentalsReportBuilder",
+  "projectName": "fds.sdk.FactSetFundamentalsReportBuilder",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet Fundamentals Report Builder",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetFundamentalsReportBuilder",
+  "httpUserAgent": "fds-sdk/python/FactSetFundamentalsReportBuilder/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

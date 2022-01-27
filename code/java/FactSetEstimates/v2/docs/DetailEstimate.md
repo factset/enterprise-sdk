@@ -1,0 +1,36 @@
+
+
+# DetailEstimate
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**fsymId** | **String** |  |  [optional]
+**metric** | **String** | Company&#39;s Financial statement &#39;metric&#39; that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). |  [optional]
+**periodicity** | **String** | Company&#39;s &#39;periodicity&#39; for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods. |  [optional]
+**fiscalYear** | **Integer** | Company&#39;s &#39;fiscal year&#39; for the estimate record |  [optional]
+**fiscalPeriod** | **Integer** | Company&#39;s &#39;fiscal period&#39; for the estimate record.  &#39;Periodicity&#39; defines context for period. |  [optional]
+**fiscalEndDate** | **LocalDate** | Company&#39;s &#39;fiscal end date&#39; for the estimate record expressed in YYYY-MM-DD format |  [optional]
+**relativePeriod** | **Integer** | &#39;Fiscal period&#39; based on relationship to &#39;estimate date&#39;. This is not applicable for fixed-consensus endpoint. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
+**currency** | **String** | Currency used estimates in consensus calculations. Currency used estimates in consensus calculations. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). |  [optional]
+**estimateDate** | **LocalDate** | Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
+**estimateValue** | **Double** | The value of the estimate. |  [optional]
+**analystId** | **String** | The FactSet Entity Identifier for the analyst making the estimate. |  [optional]
+**analystName** | **String** | The name of the analyst making the estimate. |  [optional]
+**brokerId** | **String** | The FactSet Entity Identifier for the broker making the estimate. |  [optional]
+**brokerName** | **String** | The name of the broker making the estimate. |  [optional]
+**prevEstimateDate** | **LocalDate** | Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
+**prevEstimateValue** | **Double** | The value of the previous estimate. |  [optional]
+**section** | **String** | Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus |  [optional]
+**statusCode** | **Integer** | Status code of the estimate. |  [optional]
+**statusText** | **String** | Status description of the estimate. |  [optional]
+**requestId** | **String** | Identifier that was used for the request. |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

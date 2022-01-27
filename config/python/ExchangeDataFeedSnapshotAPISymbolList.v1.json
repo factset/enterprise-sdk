@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.ExchangeDataFeedSnapshotAPISymbolList",
+  "projectName": "fds.sdk.ExchangeDataFeedSnapshotAPISymbolList",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - Exchange DataFeed Snapshot API - Symbol List",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/ExchangeDataFeedSnapshotAPISymbolList",
+  "httpUserAgent": "fds-sdk/python/ExchangeDataFeedSnapshotAPISymbolList/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

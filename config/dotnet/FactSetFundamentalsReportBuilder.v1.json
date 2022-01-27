@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.FactSetFundamentalsReportBuilder",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{944d055f-8d87-54c1-8ff9-9212844f0690}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - FactSet Fundamentals Report Builder",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFundamentalsReportBuilder/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

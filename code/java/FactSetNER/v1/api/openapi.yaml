@@ -1,0 +1,218 @@
+openapi: 3.0.1
+info:
+  description: Extract named entities and their FactSet entity IDs from given document
+    text.
+  title: NER API
+  version: 1.5.0
+servers:
+- url: https://api-sandbox.factset.com/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Named Entity Extraction
+  name: entities
+paths:
+  /cognitive/ner/v1/entities:
+    post:
+      description: Extract named entities from document text.
+      operationId: post_entities_/entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Success
+        "400":
+          content: {}
+          description: Bad Request
+        "500":
+          content: {}
+          description: Server-side Error
+      tags:
+      - entities
+      x-codegen-request-body-name: payload
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  responses:
+    MaskError:
+      content: {}
+      description: When any error occurs on mask
+    ParseError:
+      content: {}
+      description: When a mask can't be parsed
+  schemas:
+    Request:
+      example:
+        input:
+          characterOffset: 0
+          idType: entityId
+          filterTagsWithoutId: true
+          text: As demand for the coronavirus vaccine plateaus, Ohio Governor Mike
+            DeWine is giving state residents a shot to win $1 million. Starting May
+            26, the state will award $1 million each week to an adult who has received
+            at least the first dose of the COVID-19 vaccine, DeWine said. There will
+            be five total drawings. This will give anyone who has not been vaccinated
+            time to get the first dose of Pfizer or Moderna and be well on the way
+            to full immunity, DeWine said Wednesday. West Virginia Governor Jim Justice
+            wanted to give every vaccinated resident between the ages of 16 and 35
+            a $100 savings bond. States and localities have been given wide discretion
+            by the Treasury Department in spending federal aid.
+      properties:
+        input:
+          $ref: '#/components/schemas/Input'
+      type: object
+    Input:
+      example:
+        characterOffset: 0
+        idType: entityId
+        filterTagsWithoutId: true
+        text: As demand for the coronavirus vaccine plateaus, Ohio Governor Mike DeWine
+          is giving state residents a shot to win $1 million. Starting May 26, the
+          state will award $1 million each week to an adult who has received at least
+          the first dose of the COVID-19 vaccine, DeWine said. There will be five
+          total drawings. This will give anyone who has not been vaccinated time to
+          get the first dose of Pfizer or Moderna and be well on the way to full immunity,
+          DeWine said Wednesday. West Virginia Governor Jim Justice wanted to give
+          every vaccinated resident between the ages of 16 and 35 a $100 savings bond.
+          States and localities have been given wide discretion by the Treasury Department
+          in spending federal aid.
+      properties:
+        text:
+          description: Input-text (plain text (preferred) or HTML-formatted) of document
+            to extract named-entities from.
+          example: As demand for the coronavirus vaccine plateaus, Ohio Governor Mike
+            DeWine is giving state residents a shot to win $1 million. Starting May
+            26, the state will award $1 million each week to an adult who has received
+            at least the first dose of the COVID-19 vaccine, DeWine said. There will
+            be five total drawings. This will give anyone who has not been vaccinated
+            time to get the first dose of Pfizer or Moderna and be well on the way
+            to full immunity, DeWine said Wednesday. West Virginia Governor Jim Justice
+            wanted to give every vaccinated resident between the ages of 16 and 35
+            a $100 savings bond. States and localities have been given wide discretion
+            by the Treasury Department in spending federal aid.
+          type: string
+        characterOffset:
+          description: Offset to add to the returned named entity positions; useful
+            if the given text input is not from the beginning of the original document.
+          minimum: 0
+          type: integer
+        idType:
+          default: iconum
+          description: Format of the Ids to return for the extracted named entities.
+          enum:
+          - iconum
+          - entityId
+          example: entityId
+          type: string
+        filterTagsWithoutId:
+          default: true
+          description: Boolean flag, set True [False] to [not] drop named entities
+            for which a matching Id could not be found.
+          type: boolean
+      required:
+      - text
+      type: object
+    Response:
+      example:
+        namedEntity:
+        - score: 0.08008281904610115
+          neId: neId
+          startChar: 0
+          lookupText: lookupText
+          subType: NE_GPE
+          endChar: 0
+          text: text
+          type: NE_GPE
+        - score: 0.08008281904610115
+          neId: neId
+          startChar: 0
+          lookupText: lookupText
+          subType: NE_GPE
+          endChar: 0
+          text: text
+          type: NE_GPE
+      properties:
+        namedEntity:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+      type: object
+    Tag:
+      example:
+        score: 0.08008281904610115
+        neId: neId
+        startChar: 0
+        lookupText: lookupText
+        subType: NE_GPE
+        endChar: 0
+        text: text
+        type: NE_GPE
+      properties:
+        type:
+          description: Type of the extracted named-entity (NE).
+          enum:
+          - NE_GPE
+          - NE_ORG
+          - NE_PERSON
+          - NE_PHARMACEUTICAL
+          - NE_DATETIME
+          - NE_NUMBER
+          - NE_MONEY
+          example: NE_GPE
+          type: string
+        subType:
+          description: More specific sub-type (e.g., NE_COUNTRY) of the named-entity
+            (if applicable).
+          enum:
+          - NE_GENERIC_DRUG
+          - NE_BRANDED_DRUG
+          - NE_DRUG_CLASS
+          - NE_PIPELINE_DRUG
+          - NE_INDICATION
+          example: NE_GPE
+          type: string
+        text:
+          description: Text for the named-entity (NE), as extracted from the given
+            document.
+          type: string
+        score:
+          minimum: 0
+          type: number
+        startChar:
+          description: Starting character position of the named-entity text (relative
+            to any offset provided (default offset=0)).
+          minimum: 0
+          type: integer
+        endChar:
+          description: Ending character position of the named-entity text (relative
+            to any offset provided (default offset=0))
+          minimum: 0
+          type: integer
+        lookupText:
+          description: Best-matching (FactSet) looked-up name for the extracted named-entity.
+          type: string
+        neId:
+          description: Best-matching (FactSet) entity-id for the extracted named-entity
+          type: string
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-original-swagger-version: "2.0"
+

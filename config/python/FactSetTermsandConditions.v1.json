@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetTermsandConditions",
+  "projectName": "fds.sdk.FactSetTermsandConditions",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet Terms and Conditions",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetTermsandConditions",
+  "httpUserAgent": "fds-sdk/python/FactSetTermsandConditions/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

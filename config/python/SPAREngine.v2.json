@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.SPAREngine",
+  "projectName": "fds.sdk.SPAREngine",
+  "packageVersion": "0.8.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - SPAR Engine",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/SPAREngine",
+  "httpUserAgent": "fds-sdk/python/SPAREngine/0.8.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

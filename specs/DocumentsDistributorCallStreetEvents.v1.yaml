@@ -1,0 +1,1414 @@
+openapi: 3.0.0
+info:
+  title: Documents Distributor - CallStreet Events
+  version: 3.0.0
+  contact:
+    name: FactSet Research Systems
+  description: >-
+    CallStreet Events contains all the Documents Distributor APIs that provide
+    events data such as Events Audio and Near Real-Time Transcripts
+
+
+    The  Events Audio API provides access to all audio recordings to various
+    company events covered by FactSet. The events include, but are not limited
+    to: earnings calls, conferences, and investor days. 
+
+
+    This API also provides relevant metadata such as timestamps and identifiers
+    around each audio file.
+
+
+    The Documents Distributor - Near Real-time Transcripts API enables access to
+    Near Real-time Transcripts provided by CallStreet to time-sensitive clients.
+    This API also provides the relevant speaker metadata along with their
+    confidence scores. This data caters to quant clients interested in building
+    machine learning models.
+
+
+    Clients can leverage this API to perform sentiment analysis through natural
+    language processing or machine learning. It can also be used to complement
+    analysis using FactSet's transcripts service.
+servers:
+  - url: https://api.factset.com
+paths:
+  /docs-distributor/audio/v1/list-files:
+    get:
+      summary: Retrieve audio recordings and metadata within FactSet coverage
+      tags:
+        - Events Audio
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Events-Audio'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - url: >-
+                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                        fileName: A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3
+                        durationSecs: 2000
+                        endOffsetSeconds: 1873
+                        startOffsetSeconds: 10
+                        sourceCode: I
+                        startTime: '2021-11-19T13:59:44Z'
+                        endTime: '2021-11-19T14:33:05Z'
+                        uploadTime: '2021-11-19T14:36:56Z'
+                        fileSize: 8001411
+                        reportId: 2583259
+                        ticker: MGI-US
+                        entityId: 05YXKG-E
+                        trimmed: false
+                        sampleRate: 22
+                        bitrate: 32
+                    meta:
+                      sort:
+                        - '-startDate'
+                      pagination:
+                        total: 1181255
+                        isEstimatedTotal: false
+                        limit: 1
+                        offset: 10
+                      partial:
+                        isPartial: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Events-Audio-400-Response'
+              examples:
+                example-1:
+                  value:
+                    code: parameterError
+                    title: uploadTme is not a valid parameter
+                    id: 7af3d86ca5954503b9244f2620fcf5eb
+                    details:
+                      validParameters:
+                        _sort:
+                          - startDate
+                          - '-startDate'
+                          - uploadTime
+                        _paginationLimit:
+                          - integer from 1 to 500
+                        _paginationOffset:
+                          - positive integer
+                        reportId:
+                          - integer
+                        startDate:
+                          - integer offset less than 0
+                          - date
+                          - datetime
+                        endDate:
+                          - integer offset less than 0
+                          - date
+                          - datetime
+                        ids:
+                          - >-
+                            comma separated string of tickers or entityIds or
+                            combination of both
+                        sourceCode:
+                          - file source code
+                        fileName:
+                          - mp3 file name
+                        trimmed:
+                          - true/false
+                        uploadTime:
+                          - integer from -1 to -168
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Authentication Failed
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Entitlements Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Internal Service Error
+      operationId: get-docs-distributor-audio-v1-list-files
+      description: >-
+        Gets the latest 25 audio files. Parameters can be used to filter and
+        narrow down the results
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - '-startDate'
+              - uploadTime
+              - startDate
+            default: '-startDate'
+          in: query
+          name: _sort
+          description: >-
+            Sorts results in chronological order, reverse chronological order
+            and by uploadTime(latest uploaded first). Results are in reverse
+            chronological order by default.
+        - schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+          in: query
+          name: _paginationLimit
+          description: >-
+            Specifies the number of results to return per page. [ Min=0 ;
+            Max=500 ]
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: startDate
+          description: >-
+            Used in conjuction with endDate. The earliest date of the audio file
+            the API should fetch for (can be in absolute: YYYY-MM-DD or relative
+            date: -1 for yesterday)'
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: _paginationOffset
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: endDate
+          description: >-
+            Used in conjuction with startDate. The latest date of the audio file
+            the API should fetch for (can be in absolute: YYYY-MM-DD or relative
+            date: 0 for today)
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: reportId
+          description: >-
+            Unique identifier for fetching the audio file for an event. The same
+            ID is used for the transcript of the same event
+        - schema:
+            type: string
+          in: query
+          name: ids
+          description: >-
+            This parameter filters the results based on ticker-region or Entity
+            ID or the combination of both. A comma is used to separate each
+            identifier
+        - schema:
+            type: string
+            enum:
+              - P
+              - W
+              - V
+              - F
+              - I
+              - R
+          in: query
+          name: sourceCode
+          description: >-
+            This parameter filters the results based on Source of the Audio
+            file. Below are the descriptions for each Source Code -
+
+            * P = Phone
+
+            * W = Webcast
+
+            * V = Vendor
+
+            * I = Webcast Replay
+
+            * F = Flash - identical to webcast; can merge with "W" in the future
+
+            * R = Replay (Phone Replay)
+        - schema:
+            type: string
+          in: query
+          name: fileName
+          description: This parameter is used to filter the data on based on the file name.
+        - schema:
+            type: boolean
+          in: query
+          name: trimmed
+          description: This parameters helps to search trimmed audio files
+        - schema:
+            type: integer
+            minimum: -168
+            maximum: -1
+            format: int32
+          in: query
+          name: uploadTime
+          description: >-
+            This parameter filters data based on uploadTime relative to the
+            current time, in hours. For example:- uploadTime = -15 (fetches
+            audio files between 15 hours ago and now)
+
+
+            Minimum is 1 hour i.e., uploadTime= -1
+
+
+            Maximum is 1 week/168 hours i.e., uploadTime=-168
+
+
+            While using uploadTime, the startDate and endDate parameters will be
+            ignored
+  /bulk-documents/nrt/v1/calls:
+    get:
+      summary: Returns the active calls happening at the moment
+      tags:
+        - Near Real-Time Transcripts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Calls'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - callStatus: inProgress
+                        reportId: 2582305
+                        sourceCode: P
+                        audioSourceId: 432079
+                        recordingStartTime: '2021-11-19T14:56:37Z'
+                        ticker: GEOS-US
+                        entityId: 001SWW-E
+                        eventType: E
+                        eventTitle: Q4 2021 Earnings Call
+                        eventDatetimeUtc: '2021-11-19T15:00:00Z'
+                      - callStatus: inProgress
+                        reportId: 2587895
+                        sourceCode: W
+                        audioSourceId: 432078
+                        recordingStartTime: '2021-11-19T14:54:24Z'
+                        ticker: DLNG-US
+                        entityId: 00FR56-E
+                        eventType: E
+                        eventTitle: Q3 2021 Earnings Call
+                        eventDatetimeUtc: '2021-11-19T15:00:00Z'
+                      - callStatus: inProgress
+                        reportId: 2589904
+                        sourceCode: W
+                        audioSourceId: 432077
+                        recordingStartTime: '2021-11-19T14:52:28Z'
+                        ticker: SFNC-US
+                        entityId: 00301Z-E
+                        eventType: SS
+                        eventTitle: >-
+                          Simmons First National Corporation and Spirit of Texas
+                          Bancshares, Inc Merger Call
+                        eventDatetimeUtc: '2021-11-19T15:00:00Z'
+                      - callStatus: inProgress
+                        reportId: 2582540
+                        sourceCode: P
+                        audioSourceId: 432076
+                        recordingStartTime: '2021-11-19T14:51:10Z'
+                        ticker: BKE-US
+                        entityId: 0017L0-E
+                        eventType: E
+                        eventTitle: Q3 2021 Earnings Call
+                        eventDatetimeUtc: '2021-11-19T15:00:00Z'
+                      - callStatus: ended
+                        reportId: 2589692
+                        sourceCode: P
+                        audioSourceId: 432070
+                        recordingStartTime: '2021-11-19T13:55:30Z'
+                        ticker: AAON-US
+                        entityId: 000ZGQ-E
+                        eventType: SS
+                        eventTitle: Acquisition of BasX Solutions by AAON, Inc Call
+                        eventDatetimeUtc: '2021-11-19T14:00:00Z'
+                    meta:
+                      sort:
+                        - '-startDate'
+                      pagination:
+                        total: 14921
+                        isEstimatedTotal: false
+                        limit: 5
+                        offset: 5
+                      partial:
+                        isPartial: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Calls-400-Response'
+              examples:
+                example-1:
+                  value:
+                    id: f815da1a-da7e-4b66-a4a4-59b5b7c9bea2
+                    error_message: parameterError:_paginatioLimit is not a valid parameter
+                    details:
+                      validParameters:
+                        _sort:
+                          - startDate
+                          - '-startDate'
+                        _paginationLimit:
+                          - integer from 0 to 500
+                        _paginationOffset:
+                          - positive integer
+                        audioSourceId:
+                          - positive integer
+                        reportId:
+                          - positive integer
+                        callStatus:
+                          - ended
+                          - inProgress
+                          - ewn
+                          - issueAtSource
+                        ticker:
+                          - string in form of 'ticker-region'
+                        entityId:
+                          - string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Authentication Failed
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Entitlements Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Internal Service Error
+      operationId: get-bulk-documents-nrt-v1-calls
+      description: Returns the active calls happening at the moment
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - startDate
+              - '-startDate'
+            default: '-startDate'
+          in: query
+          name: _sort
+          description: >-
+            Enables to get the data in chronological or reverse chronological
+            order based on startDate. Results are in reverse chronological order
+            if this parameter is not used
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: reportId
+          description: Unique identifier for an event
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: audioSourceId
+          description: >-
+            Unique Id for an internal recording specific to reportId. For
+            example, reportId X would have multiple recordings from different
+            source (dial-in or webcast).One reportId can have multiple
+            audiosource ids.
+        - schema:
+            type: string
+          in: query
+          name: entityId
+          description: Factset entity level identifier for the company hosting the event
+        - schema:
+            type: string
+          in: query
+          name: ticker
+          description: Ticker-region identifier for the company hosting the event
+        - schema:
+            type: string
+            enum:
+              - inProgress
+              - ended
+              - ewn
+              - issueAtSource
+          in: query
+          name: callStatus
+          description: Status of the call i.e. ended or inProgress or ewn or issueAtSource
+        - schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+          in: query
+          name: _paginationLimit
+          description: >-
+            Specifies the number of results to return per page.[ Min=0 ; Max=500
+            ]
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: _paginationOffset
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
+  /bulk-documents/nrt/v1/list-snippets:
+    get:
+      summary: Returns the latest snippets from an active call
+      tags:
+        - Near Real-Time Transcripts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Snippets'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - reportId: 2457785
+                        snippetEndTimestamp: '2021-10-15 13:16:50'
+                        snippetData:
+                          - metadata:
+                              transcript: 'The operator will be with you shortly '
+                              endTime: 3.78
+                              startTime: 0
+                          - metadata:
+                              transcript: >-
+                                , welcomed the course call, please hold an
+                                operator will be with you shortly. 
+                              endTime: 29.700000000000003
+                              startTime: 21.42
+                        snippetSequence: 1
+                        audioSourceId: 421599
+                      - reportId: 2457785
+                        snippetEndTimestamp: '2021-10-15 13:17:16'
+                        snippetData:
+                          - metadata:
+                              transcript: 'What Congress are looking to join '
+                              endTime: 47.64
+                              startTime: 41.46
+                          - metadata:
+                              transcript: '. Can I have your first and name '
+                              endTime: 55.32
+                              startTime: 47.64
+                        snippetSequence: 2
+                        audioSourceId: 421599
+                      - reportId: 2457785
+                        snippetEndTimestamp: '2021-10-15 13:17:28'
+                        snippetData:
+                          - metadata:
+                              transcript: '? Thank you. And good company '
+                              endTime: 67.68
+                              startTime: 61.2
+                        snippetSequence: 3
+                        audioSourceId: 421599
+                      - reportId: 2457785
+                        snippetEndTimestamp: '2021-10-15 13:17:41'
+                        snippetData:
+                          - metadata:
+                              transcript: >-
+                                . Let's I'll join you and hold onto the calls
+                                again.
+                              endTime: 74.46000000000001
+                              startTime: 67.68
+                        snippetSequence: 4
+                        audioSourceId: 421599
+                      - reportId: 2457785
+                        snippetEndTimestamp: '2021-10-15 13:18:57'
+                        snippetData:
+                          - metadata:
+                              transcript: 'on '
+                              endTime: 156.78
+                              startTime: 150.9
+                        snippetSequence: 5
+                        audioSourceId: 421599
+                    meta:
+                      pagination:
+                        total: 231
+                        isEstimatedTotal: false
+                        limit: 5
+                        offset: 5
+                      partial:
+                        isPartial: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Snippets-400-Response'
+              examples:
+                example-1:
+                  value:
+                    id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
+                    error_message: >-
+                      parameterError:['_paginationLmit'] is not a valid
+                      parameter(s),
+                    details:
+                      validParameters:
+                        _paginationLimit:
+                          - integer from 0 to 500
+                        _paginationOffset:
+                          - positive integer
+                        audioSourceId:
+                          - positive integer
+                        reportId:
+                          - positive integer
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Authentication Failed
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Entitlements Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Internal Service Error
+      operationId: get-bulk-documents-nrt-v1-list-snippets
+      description: Returns the latest snippets from an active call
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: reportId
+          description: Unique identifier for an event
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: audioSourceId
+          required: true
+          description: >-
+            Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different
+            source (dial-in or webcast). One ReportID can have multiple
+            AudioSource ids.
+        - schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+          in: query
+          name: _paginationLimit
+          description: >-
+            Specifies the  number of results to return per page. [ Min=0;
+            Max=500 ]
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: _paginationOffset
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
+  /bulk-documents/nrt/v1/speakerids:
+    get:
+      summary: >-
+        Returns the latest speakerIds with the confidence scores generated for
+        an active call.
+      tags:
+        - Near Real-Time Transcripts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Speakerids'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - audioSourceId: 430219
+                        speakerStartOffset: 0
+                        speakerId: 0HH8QW-E
+                        cosineScore: 0.6958988631392222
+                      - audioSourceId: 430219
+                        speakerStartOffset: 61.488
+                        speakerId: 0HH8QW-E
+                        cosineScore: 0.7166958724380188
+                      - audioSourceId: 430219
+                        speakerStartOffset: 71.712
+                        speakerId: 0HH8QW-E
+                        cosineScore: 0.7945775184563546
+                    meta:
+                      sort:
+                        - startDate
+                      pagination:
+                        total: 379
+                        isEstimatedTotal: false
+                        limit: 3
+                        offset: 3
+                      partial:
+                        isPartial: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Speakerids-400-Response'
+              examples:
+                example-1:
+                  value:
+                    id: caccf853-a448-4a14-b44f-ffbb962730f3
+                    error_message: parameterError:audioSourcId is not a valid parameter
+                    details:
+                      validParameters:
+                        _sort:
+                          - startDate
+                          - '-startDate'
+                        _paginationLimit:
+                          - integer from 0 to 500
+                        _paginationOffset:
+                          - positive integer
+                        audioSourceId:
+                          - positive integer
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Authentication Failed
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Entitlements Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Internal Service Error
+      operationId: get-bulk-documents-nrt-v1-speakerids
+      parameters:
+        - schema:
+            type: string
+            default: startDate
+            enum:
+              - startDate
+              - '-startDate'
+          in: query
+          name: _sort
+          description: >-
+            Enables to get the data in chronological or reverse chronological
+            order. Results are in chronological order if this parameter is not
+            used
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: audioSourceId
+          required: true
+          description: >-
+            The Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from a different
+            source (dial-in or webcast). One ReportID can have multiple
+            audioSource ids. 
+        - schema:
+            type: integer
+            minimum: 0
+            maximum: 500
+            format: int32
+          in: query
+          name: _paginationLimit
+          description: >-
+            Specifies the number of results to return per page.[ Min=0 ; Max=500
+            ]
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: _paginationOffset
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
+      description: >-
+        Returns the latest speakerIds with the cosine scores(confidence scores)
+        generated for an active call.
+components:
+  schemas:
+    NRT-Snippets:
+      description: >-
+        Metadata of the snippets of active calls happening at that moment are
+        returned
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              reportId:
+                type: integer
+                description: The unique ID for an event.
+              snippetEndTimestamp:
+                type: string
+                description: >-
+                  The snippet end time is calculated based off the endTime in
+                  the snippetData section and the recordingStartTime from the
+                  calls endpoint 
+              snippetData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    metadata:
+                      type: object
+                      properties:
+                        transcript:
+                          type: string
+                          description: The actual transcript snippet
+                        endTime:
+                          type: number
+                          description: >-
+                            The number of seconds into the call, when the
+                            transcript snippet ended
+                        startTime:
+                          type: number
+                          description: >-
+                            The number of seconds into the call,when the
+                            transcript snippet started
+              snippetSequence:
+                type: integer
+                description: >-
+                  The sequence number of the snippet from the start of the
+                  current call 
+              audioSourceId:
+                type: integer
+                description: >-
+                  The Unique ID for an Internal recording specific to reportID.
+                  For example, ReportID X would have multiple recordings from a
+                  different source (dial-in or webcast). One ReportID can have
+                  multiple AudioSource ids.
+        meta:
+          type: object
+          properties:
+            pagination:
+              type: object
+              properties:
+                total:
+                  description: Total number for results returned for a specific query
+                  type: integer
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results
+                limit:
+                  type: integer
+                  description: Number of results returned per page
+                offset:
+                  type: integer
+                  description: >-
+                    The flag indicating the position in the results array if
+                    additional results are available beyond the default value or
+                    the value in _paginationLimit parameter (if used). This
+                    value is passed in the _paginationOffset parameter to
+                    retrieve subsequent results
+            partial:
+              type: object
+              properties:
+                isPartial:
+                  type: boolean
+                  description: >-
+                    True – When the API returns all the results of the query
+
+
+                    False – When API returns partial results of the query based
+                    on _paginationOffset parameter
+    NRT-Calls:
+      description: "\t\t\nMetadata of active calls happening at that moment are returned\n"
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              callStatus:
+                type: string
+                description: >-
+                  Status of the call i.e. ended or inProgress or ewn or
+                  issueAtSource
+
+
+                  * inProgress- the call is in progress
+
+                  * ended- the call has ended
+
+                  * ewn- the call has technically ended and can be considered as
+                  ended but is missing a notification from the upstream systems
+
+                  * issueAtSource- the call has ended with no snippet data due
+                  to a possible issue at the source
+              reportId:
+                type: integer
+                description: The unique ID for an event.
+              sourceCode:
+                type: string
+                description: |-
+                  Identifier for the source of how the event is recorded.
+                  P:- Phone Replay
+                  W:- Webcast
+              audioSourceId:
+                type: integer
+                description: >-
+                  Unique ID for an Internal recording specific to reportID. For
+                  example, ReportID X would have multiple recordings from
+                  different source (dial-in - P or webcast - W). One reportId
+                  can have multiple audiosource ids.
+              recordingStartTime:
+                type: string
+                description: The official UTC timestamp when FactSet starts the recording
+              ticker:
+                type: string
+                description: Ticker-region identifier for the company hosting the event
+              entityId:
+                type: string
+                description: >-
+                  Factset entity level identifier for the company hosting the
+                  event
+              eventType:
+                type: string
+                description: >-
+                  Refers to the various event types covered by FactSet
+                  CallStreet -
+
+                  * Analyst, Investor & Shareholder Meeting => AS
+
+                  * Earnings Call => E
+
+                  * Earnings Release => ER
+
+                  * Guidance => G
+
+                  * Sales & Revenue Call => SA
+
+                  * Sales & Revenue Release => SR
+
+                  * Special & M&A (Special Situation) => SS
+              eventTitle:
+                type: string
+                description: Title of the Event
+              eventDatetimeUtc:
+                type: string
+                description: The official UTC timestamp of the start of the event
+        meta:
+          type: object
+          properties:
+            sort:
+              type: array
+              description: The value in _sort parameter if used in the request
+              items:
+                type: string
+            pagination:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  description: Total number for results returned for a specific query
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results
+                limit:
+                  type: integer
+                  description: Number of results returned per page
+                offset:
+                  type: integer
+                  description: >-
+                    The flag indicating the position in the results array if
+                    additional results are available beyond the default value or
+                    the value in _paginationLimit parameter (if used). This
+                    value is passed in the _paginationOffset parameter to
+                    retrieve subsequent results
+            partial:
+              type: object
+              properties:
+                isPartial:
+                  type: boolean
+                  description: >-
+                    True – When the API returns all the results of the query
+
+
+                    False – When API returns partial results of the query based
+                    on _paginationOffset parameter
+    NRT-Speakerids:
+      description: >-
+        Speaker metadata and the cosine scores(confidence scores ) generated for
+        an active  call are returned
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              audioSourceId:
+                type: integer
+                description: >-
+                  The Unique ID for an Internal recording specific to reportID.
+                  For example, ReportID X would have multiple recordings from a
+                  different source (dial-in or webcast). One ReportID can have
+                  multiple audioSource ids.
+              speakerStartOffset:
+                type: number
+                description: >-
+                  The number of seconds into the call when a speaker starts / is
+                  speaking
+              speakerId:
+                type: string
+                description: A unique identifier for a speaker
+              cosineScore:
+                type: number
+                description: >-
+                  The cosine similarity score (Confidence score)  for a
+                  particular speaker.
+
+
+                  A score > 0.5 while a key-speaker is speaking can be
+                  considered as a high confidence in the predicted speaker
+
+
+                  Negative and null cosine scores are eliminated from the
+                  speakerid result set as they are the predictions due to either
+                  music or silence in the call
+
+
+                  Only the Speakerids with the highest cosineScore are rendered
+                  in the result set
+        meta:
+          type: object
+          properties:
+            sort:
+              type: array
+              description: The value in _sort parameter if used in the request
+              items:
+                type: string
+            pagination:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  description: >-
+                    Total number of results the API returns for a particular
+                    query
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    Boolean value that represents whether the total count of
+                    results returned is exact or an estimate. This is defaulted
+                    to False as the API should always return the exact count
+                limit:
+                  type: integer
+                  description: Number of results returned per page
+                offset:
+                  type: integer
+                  description: >-
+                    The flag indicating the position in the results array if
+                    additional results are available beyond the default value or
+                    the value in paginationLimit parameter (if used). This value
+                    is passed in the _paginationOffset parameter to retrieve
+                    subsequent results
+            partial:
+              type: object
+              properties:
+                isPartial:
+                  type: boolean
+                  description: >-
+                    True – When the API returns all the results of the query
+
+
+                    False – When API returns partial results of the query based
+                    on _paginationOffset parameter
+    Events-Audio:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                description: Download link for the audio file
+              fileName:
+                type: string
+                description: The filename of the audio file
+              durationSecs:
+                type: number
+                description: >-
+                  Total duration of the recording in seconds based on
+                  startOffsetSeconds to endOffsetSeconds
+              endOffsetSeconds:
+                type: number
+                description: >-
+                  The delta in seconds between startTime to when FactSet marks
+                  the end of the call
+              startOffsetSeconds:
+                type: number
+                description: >-
+                  The delta in seconds between start of audio file to when
+                  FactSet marks the beginning of the call
+              sourceCode:
+                type: string
+                description: >-
+                  Identifies the method of how the event is recorded Below are
+                  the descriptions for each Source Code -
+
+                  * P = Phone
+
+                  * W = Webcast
+
+                  * V = Vendor
+
+                  * I = Webcast Replay
+
+                  * F = Flash - identical to webcast; can merge with "W" in the
+                  future
+
+                  * R = Replay (Phone Replay)
+              startTime:
+                type: string
+                description: The official timestamp when FactSet begins the recording
+              endTime:
+                type: string
+                description: The official timestamp when FactSet ends the recording
+              uploadTime:
+                type: string
+                description: >-
+                  The official timestamp when FactSet publishes the audio file
+                  externally
+              fileSize:
+                type: number
+                description: Size of the Audio file, in bytes
+              reportId:
+                type: integer
+                description: >-
+                  The unique ID of the audio file for an event. The same ID is
+                  used for the transcript of the same event
+              ticker:
+                type: string
+                description: Ticker-region identifier for the company hosting the event
+              entityId:
+                type: string
+                description: >-
+                  Factset entity level identifier for the company hosting the
+                  event
+              trimmed:
+                type: boolean
+                description: >-
+                  The trimmed attribute helps identify if the audio is the
+                  trimmed version
+              sampleRate:
+                type: number
+                description: The number of samples of audio carried per second in Kbps
+              bitrate:
+                type: number
+                description: >-
+                  The total number of bits of information stored per second of
+                  sound in Kbps
+        meta:
+          type: object
+          properties:
+            sort:
+              type: array
+              description: The value in _sort parameter if used in the request
+              items:
+                type: string
+            pagination:
+              type: object
+              description: "\t\nList of pagination objects"
+              properties:
+                total:
+                  type: integer
+                  description: Total number of files the API returns for a particular query
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    Boolean value that represents whether the total count of
+                    files returned is exact or an estimate. This is defaulted to
+                    False as the API should always return the exact count
+                limit:
+                  type: integer
+                  description: Number of results returned per page
+                offset:
+                  type: integer
+                  description: >-
+                    The flag indicating the position in the results array if
+                    additional results are available beyond the default value or
+                    the value in paginationLimit parameter (if used). This value
+                    is passed in the _paginationOffset parameter to retrieve
+                    subsequent results
+            partial:
+              type: object
+              description: ''
+              properties:
+                isPartial:
+                  type: boolean
+                  description: >-
+                    True – When the API returns all the results of the query
+
+
+                    False – When API returns partial results of the query based
+                    on _paginationOffset parameter
+    Events-Audio-400-Response:
+      description: ''
+      type: object
+      properties:
+        code:
+          type: string
+        title:
+          type: string
+        id:
+          type: string
+        details:
+          type: object
+          properties:
+            validParameters:
+              type: object
+              properties:
+                _sort:
+                  type: array
+                  items:
+                    type: string
+                _paginationLimit:
+                  type: array
+                  items:
+                    type: string
+                _paginationOffset:
+                  type: array
+                  items:
+                    type: string
+                reportId:
+                  type: array
+                  items:
+                    type: string
+                startDate:
+                  type: array
+                  items:
+                    type: string
+                endDate:
+                  type: array
+                  items:
+                    type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+                sourceCode:
+                  type: array
+                  items:
+                    type: string
+                fileName:
+                  type: array
+                  items:
+                    type: string
+                trimmed:
+                  type: array
+                  items:
+                    type: string
+                uploadTime:
+                  type: array
+                  items:
+                    type: string
+    NRT-Calls-400-Response:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+        error_message:
+          type: string
+        details:
+          type: object
+          properties:
+            validParameters:
+              type: object
+              properties:
+                _sort:
+                  type: array
+                  items:
+                    type: string
+                _paginationLimit:
+                  type: array
+                  items:
+                    type: string
+                _paginationOffset:
+                  type: array
+                  items:
+                    type: string
+                audioSourceId:
+                  type: array
+                  items:
+                    type: string
+                reportId:
+                  type: array
+                  items:
+                    type: string
+                callStatus:
+                  type: array
+                  items:
+                    type: string
+                ticker:
+                  type: array
+                  items:
+                    type: string
+                entityId:
+                  type: array
+                  items:
+                    type: string
+    NRT-Snippets-400-Response:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+        error_message:
+          type: string
+        details:
+          type: object
+          properties:
+            validParameters:
+              type: object
+              properties:
+                _paginationLimit:
+                  type: array
+                  items:
+                    type: string
+                _paginationOffset:
+                  type: array
+                  items:
+                    type: string
+                audioSourceId:
+                  type: array
+                  items:
+                    type: string
+                reportId:
+                  type: array
+                  items:
+                    type: string
+    NRT-Speakerids-400-Response:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+        error_message:
+          type: string
+        details:
+          type: object
+          properties:
+            validParameters:
+              type: object
+              properties:
+                _sort:
+                  type: array
+                  items:
+                    type: string
+                _paginationLimit:
+                  type: array
+                  items:
+                    type: string
+                _paginationOffset:
+                  type: array
+                  items:
+                    type: string
+                audioSourceId:
+                  type: array
+                  items:
+                    type: string
+    Error:
+      type: object
+      properties:
+        error_message:
+          type: string
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+tags:
+  - name: Near Real-Time Transcripts
+  - name: Events Audio
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []

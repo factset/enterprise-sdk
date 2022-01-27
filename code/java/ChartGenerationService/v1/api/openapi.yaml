@@ -1,0 +1,432 @@
+openapi: 3.0.1
+info:
+  description: This is a service for generating charts in a node environment that
+    were created using web charting and get back images in form of `PNGs` and `JPEGs`
+    as response.
+  title: Chart Generation Service
+  version: 1.0.0
+servers:
+- description: sandbox server (uses dummy data)
+  url: https://api-sandbox.factset.com/charting
+- description: production server (uses live data)
+  url: https://api.factset.com/charting
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/catalog/categories:
+    get:
+      operationId: getCategoryList
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryListResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesErrorResponse'
+          description: Bad Input
+      summary: Get a list of chart categories
+      tags:
+      - Chart Templates
+      x-accepts: application/json
+  /v1/catalog/charts:
+    get:
+      description: You can get all the charts present or can just get the information
+        by categories. The response includes the name of the chart, description, tags
+        and any additional input specific to that chart. Use the information from
+        this response to determine what charts you want and get its image from /images
+        endpoint. Additionally you can also get back a auto generated PDF for the
+        categories you requested for.
+      operationId: getChartList
+      parameters:
+      - description: A comma delimited string of catgory names to limit the response
+          to certain categories. If nothing is provided, all charts under every category
+          would be listed out.
+        explode: true
+        in: query
+        name: categories
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: return type of the response
+        example: json
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - json
+          - pdf
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategorizedChartList'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/CatalogPDF'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartListErrorResponse'
+          description: Bad Input
+      summary: Get a list of chart templates that can be used for getting the image
+        from the service.
+      tags:
+      - Chart Templates
+      x-accepts: application/json
+  /v1/image:
+    get:
+      operationId: Images
+      parameters:
+      - description: 'Path to the saved chart. For any of the default charts, the
+          option should be `categoryName + ''/'' + chartName`. For charts under the
+          Client or Personal directories, the option should be `directoryName + '':/''
+          + pathTotheChart`.  '
+        explode: true
+        in: query
+        name: chart
+        required: true
+        schema:
+          example: Equity/RSI
+          type: string
+        style: form
+      - description: List of identifiers to be charted in a comma(,) separated string.
+          Only the first one would be considered as primary and rest would be added
+          as comps. Check the catalog for more information on which charts require
+          a ticker.
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          example: FDS,AAPL
+          type: string
+        style: form
+      - description: Option for overriding the startDate of the chart. For absolute
+          dates provide a string in `YYYYMMDD` format. We can also specify relative
+          date options
+        explode: true
+        in: query
+        name: sd
+        required: false
+        schema:
+          example: -1Y
+          type: string
+        style: form
+      - description: Option for overriding the endDate of the chart. For absolute
+          dates provide a string in `YYYYMMDD` format. We can also specify relative
+          date options
+        explode: true
+        in: query
+        name: ed
+        required: false
+        schema:
+          example: "0"
+          type: string
+        style: form
+      - description: Option for setting the width of the image
+        explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          default: 1056
+          example: 600
+          format: int64
+          type: integer
+        style: form
+      - description: Option for setting the height of the image
+        explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          default: 816
+          example: 500
+          format: int64
+          type: integer
+        style: form
+      - description: A shorthand string for the overall frequency of the chart like
+          `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default
+          to frequency stored in the document.
+        explode: true
+        in: query
+        name: freq
+        required: false
+        schema:
+          example: D
+          type: string
+        style: form
+      - description: Currency ISO code for the overall currency of the chart. The
+          API doesn't allow per series currency at this point in time.
+        explode: true
+        in: query
+        name: ccy
+        required: false
+        schema:
+          example: USD
+          type: string
+        style: form
+      - description: Option to specify the splits adjustment
+        explode: true
+        in: query
+        name: split
+        required: false
+        schema:
+          enum:
+          - SPLIT
+          - UNSPLIT
+          example: SPLIT
+          type: string
+        style: form
+      - description: Numeric option to specify the spinOffs adjustment. Possible options
+          include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs
+          and cash dividends) and `9` (No adjustments)
+        explode: true
+        in: query
+        name: spin
+        required: false
+        schema:
+          enum:
+          - 0
+          - 1
+          - 4
+          - 9
+          example: 1
+          type: number
+        style: form
+      - description: Option for the calendarType of the chart
+        explode: true
+        in: query
+        name: cal
+        required: false
+        schema:
+          default: local
+          enum:
+          - local
+          - fiveDay
+          - sevenDay
+          type: string
+        style: form
+      - description: Option to customize the title. If you don't customize the title,
+          then it displays by default the security name.
+        explode: true
+        in: query
+        name: title
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Option to adjust chart's fontSize
+        explode: true
+        in: query
+        name: fontSize
+        required: false
+        schema:
+          example: 10
+          type: number
+        style: form
+      - description: The type of image to be generated by the service
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: png
+          enum:
+          - png
+          - jpg
+          type: string
+        style: form
+      - description: Option to toggle gridLines on/off on the chart
+        explode: true
+        in: query
+        name: gridLines
+        required: false
+        schema:
+          default: true
+          example: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            img/png:
+              schema:
+                $ref: '#/components/schemas/PNGResponse'
+            img/jpeg:
+              schema:
+                $ref: '#/components/schemas/JPEGResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Input
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedResponse'
+          description: Unauthorized
+      summary: Get chart image back in PNG or JPEG formats
+      tags:
+      - Chart Templates
+      x-accepts: application/json
+components:
+  schemas:
+    PNGResponse:
+      example: (no example available)
+      type: string
+    JPEGResponse:
+      example: (no example available)
+      type: string
+    CategoryListResponse:
+      example:
+      - commodities
+      - equity
+      - fx
+      - interest_rates
+      - market_analysis
+      - options
+      items:
+        description: Chart categories available for user.
+        type: string
+      type: array
+    CategoriesErrorResponse:
+      properties:
+        error:
+          example: No categories found
+          type: string
+      type: object
+    ChartInput:
+      properties:
+        in:
+          description: How to apply the additional input. Would be often via query
+            parameter which can be appended to the request with &
+          enum:
+          - query
+          - param
+          type: string
+        name:
+          description: The name of the parameter
+          example: tz
+          type: string
+        required:
+          description: Whether or not the parameter is required to be specified to
+            get the chart image.
+          example: false
+          type: boolean
+        description:
+          description: A short description of the input and its use
+          example: Can be used to specify timezone of the chart
+          type: string
+        type:
+          description: The type of value expected for the input
+          example: string
+          type: string
+        example:
+          description: An example value for the input
+          example: America/New_York
+          type: string
+      type: object
+    ChartList:
+      properties:
+        name:
+          description: Name of the chart
+          example: RSI
+          type: string
+        description:
+          description: A short description about the chart and its contents
+          example: This chart requires a ticker
+          type: string
+        tags:
+          description: A list of tags to classify the chart. This is being done so
+            that users can easily group them if required.
+          example:
+          - price
+          - intraday
+          items:
+            type: string
+          type: array
+        inputs:
+          description: List of additional inputs for the chart
+          items:
+            $ref: '#/components/schemas/ChartInput'
+          type: array
+      type: object
+    CategorizedChartList:
+      items:
+        properties:
+          category:
+            description: Name of the category. This is required when building the
+              request for the chart image.
+            example: equity
+            type: string
+          chartList:
+            items:
+              $ref: '#/components/schemas/ChartList'
+            type: array
+        type: object
+      type: array
+    ChartListErrorResponse:
+      properties:
+        error:
+          enum:
+          - Invalid Category Name(s)
+          - Unable to build chart-list
+          type: string
+      type: object
+    CatalogPDF:
+      format: binary
+      type: string
+    ErrorResponse:
+      properties:
+        error:
+          enum:
+          - Missing chart document
+          - Failed to fetch saved chart document
+          - Invalid chart width
+          - Invalid chart height
+          - Invalid showEolLabels option
+          - Invalid show footer option
+          - Invalid display frequency option
+          - Invalid file type
+          - Invalid frequency
+          - Invalid timezone
+          - Invalid ticker
+          - Invalid chart title
+          type: string
+      type: object
+    UnauthorizedResponse:
+      properties:
+        error:
+          enum:
+          - User credentials not found
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

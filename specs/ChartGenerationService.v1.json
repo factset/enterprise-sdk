@@ -1,0 +1,532 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Chart Generation Service",
+    "description": "This is a service for generating charts in a node environment that were created using web charting and get back images in form of `PNGs` and `JPEGs` as response.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.factset.com/charting",
+      "description": "sandbox server (uses dummy data)"
+    },
+    {
+      "url": "https://api.factset.com/charting",
+      "description": "production server (uses live data)"
+    }
+  ],
+  "paths": {
+    "/v1/catalog/categories": {
+      "get": {
+        "tags": [
+          "Chart Templates"
+        ],
+        "summary": "Get a list of chart categories",
+        "operationId": "getCategoryList",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/catalog/charts": {
+      "get": {
+        "tags": [
+          "Chart Templates"
+        ],
+        "summary": "Get a list of chart templates that can be used for getting the image from the service.",
+        "description": "You can get all the charts present or can just get the information by categories. The response includes the name of the chart, description, tags and any additional input specific to that chart. Use the information from this response to determine what charts you want and get its image from /images endpoint. Additionally you can also get back a auto generated PDF for the categories you requested for.",
+        "operationId": "getChartList",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "categories",
+            "required": false,
+            "description": "A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "return type of the response",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "pdf"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategorizedChartList"
+                }
+              },
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogPDF"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChartListErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/image": {
+      "get": {
+        "tags": [
+          "Chart Templates"
+        ],
+        "summary": "Get chart image back in PNG or JPEG formats",
+        "operationId": "Images",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "chart",
+            "required": true,
+            "description": "Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  ",
+            "schema": {
+              "type": "string",
+              "example": "Equity/RSI"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ids",
+            "required": false,
+            "description": "List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker.",
+            "schema": {
+              "type": "string",
+              "example": "FDS,AAPL"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sd",
+            "required": false,
+            "description": "Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options",
+            "schema": {
+              "type": "string",
+              "example": "-1Y"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ed",
+            "required": false,
+            "description": "Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options",
+            "schema": {
+              "type": "string",
+              "example": "0"
+            }
+          },
+          {
+            "in": "query",
+            "name": "width",
+            "required": false,
+            "description": "Option for setting the width of the image",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "default": 1056,
+              "example": 600
+            }
+          },
+          {
+            "in": "query",
+            "name": "height",
+            "required": false,
+            "description": "Option for setting the height of the image",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "default": 816,
+              "example": 500
+            }
+          },
+          {
+            "in": "query",
+            "name": "freq",
+            "required": false,
+            "description": "A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document.",
+            "schema": {
+              "type": "string",
+              "example": "D"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ccy",
+            "required": false,
+            "description": "Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time.",
+            "schema": {
+              "type": "string",
+              "example": "USD"
+            }
+          },
+          {
+            "in": "query",
+            "name": "split",
+            "required": false,
+            "description": "Option to specify the splits adjustment",
+            "schema": {
+              "type": "string",
+              "example": "SPLIT",
+              "enum": [
+                "SPLIT",
+                "UNSPLIT"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "spin",
+            "required": false,
+            "description": "Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments)",
+            "schema": {
+              "type": "number",
+              "enum": [
+                0,
+                1,
+                4,
+                9
+              ],
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "cal",
+            "required": false,
+            "description": "Option for the calendarType of the chart",
+            "schema": {
+              "type": "string",
+              "default": "local",
+              "enum": [
+                "local",
+                "fiveDay",
+                "sevenDay"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "required": false,
+            "description": "Option to customize the title. If you don't customize the title, then it displays by default the security name.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fontSize",
+            "required": false,
+            "description": "Option to adjust chart's fontSize",
+            "schema": {
+              "type": "number",
+              "example": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "description": "The type of image to be generated by the service",
+            "schema": {
+              "type": "string",
+              "default": "png",
+              "enum": [
+                "png",
+                "jpg"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "gridLines",
+            "required": false,
+            "description": "Option to toggle gridLines on/off on the chart",
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "example": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "img/png": {
+                "schema": {
+                  "$ref": "#/components/schemas/PNGResponse"
+                }
+              },
+              "img/jpeg": {
+                "schema": {
+                  "$ref": "#/components/schemas/JPEGResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PNGResponse": {
+        "type": "string",
+        "example": "(no example available)"
+      },
+      "JPEGResponse": {
+        "type": "string",
+        "example": "(no example available)"
+      },
+      "CategoryListResponse": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "description": "Chart categories available for user."
+        },
+        "example": [
+          "commodities",
+          "equity",
+          "fx",
+          "interest_rates",
+          "market_analysis",
+          "options"
+        ]
+      },
+      "CategoriesErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "No categories found"
+          }
+        }
+      },
+      "ChartInput": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string",
+            "enum": [
+              "query",
+              "param"
+            ],
+            "description": "How to apply the additional input. Would be often via query parameter which can be appended to the request with &"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the parameter",
+            "example": "tz"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether or not the parameter is required to be specified to get the chart image.",
+            "example": false
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the input and its use",
+            "example": "Can be used to specify timezone of the chart"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of value expected for the input",
+            "example": "string"
+          },
+          "example": {
+            "type": "string",
+            "description": "An example value for the input",
+            "example": "America/New_York"
+          }
+        }
+      },
+      "ChartList": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the chart",
+            "example": "RSI"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description about the chart and its contents",
+            "example": "This chart requires a ticker"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tags to classify the chart. This is being done so that users can easily group them if required.",
+            "example": [
+              "price",
+              "intraday"
+            ]
+          },
+          "inputs": {
+            "type": "array",
+            "description": "List of additional inputs for the chart",
+            "items": {
+              "$ref": "#/components/schemas/ChartInput"
+            }
+          }
+        }
+      },
+      "CategorizedChartList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "example": "equity",
+              "description": "Name of the category. This is required when building the request for the chart image."
+            },
+            "chartList": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ChartList"
+              }
+            }
+          }
+        }
+      },
+      "ChartListErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "Invalid Category Name(s)",
+              "Unable to build chart-list"
+            ]
+          }
+        }
+      },
+      "CatalogPDF": {
+        "type": "string",
+        "format": "binary"
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "Missing chart document",
+              "Failed to fetch saved chart document",
+              "Invalid chart width",
+              "Invalid chart height",
+              "Invalid showEolLabels option",
+              "Invalid show footer option",
+              "Invalid display frequency option",
+              "Invalid file type",
+              "Invalid frequency",
+              "Invalid timezone",
+              "Invalid ticker",
+              "Invalid chart title"
+            ]
+          }
+        }
+      },
+      "UnauthorizedResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "User credentials not found"
+            ]
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

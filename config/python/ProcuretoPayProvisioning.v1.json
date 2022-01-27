@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.ProcuretoPayProvisioning",
+  "projectName": "fds.sdk.ProcuretoPayProvisioning",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - Procure to Pay: Provisioning",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/ProcuretoPayProvisioning",
+  "httpUserAgent": "fds-sdk/python/ProcuretoPayProvisioning/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

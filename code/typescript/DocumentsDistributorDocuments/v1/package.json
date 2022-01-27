@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-documentsdistributordocuments",
+  "version": "0.9.0",
+  "description": "Documents_APIs_that_provide_filings_such_as_Global_Filings_and_XML_files_such_as_StreetAccount__Global_Filings_API_provides_the_capability_to_search_and_download_filings_documents_from_various_exchanges_around_the_world__The_API_also_provides_relevant_metadata_such_as_document_source_company_identifiers_and_form_type_around_each_filings_document__Filings_providers_currently_include_EDGAR_and_SYMEX_WebDisclosure_____StreetAccount_XML_API_provides_access_to_historical_StreetAccount__SA_news__SA_provides_a_summary_for_various_corporate_and_market_news_written_by_journalist_with_background_in_financial_markets___The_API_delivers_SA_stories_in_XML_format_based_on_user_specified_date_input_parameters__When_the_API_request_is_completed_output_files_will_be_made_available_back_to_the_users_through_a_secure_URL__This_API_has_three_endpoints__1_Request_Files__2_Check_Status__3_Get_Files__Files_delivered_contain_both_metadata_and_content_body_in_each_file__This_eliminates_the_need_to_make_multiple_requests_through_multiple_services_to_get_all_the_information__",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

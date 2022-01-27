@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetPeople",
+  "projectName": "fds.sdk.FactSetPeople",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet People",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetPeople",
+  "httpUserAgent": "fds-sdk/python/FactSetPeople/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

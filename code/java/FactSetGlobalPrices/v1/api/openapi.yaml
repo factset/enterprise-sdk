@@ -1,0 +1,2577 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
+  title: FactSet Global Prices API
+  version: 1.0.1
+servers:
+- description: Production
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Get Security Open, High, Low, Close, Volume for a list of ids and date
+    range
+  name: Prices
+paths:
+  /factset-global-prices/v1/prices:
+    get:
+      description: |
+        Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade Count, and Turn Over for a specified list of securities, date range, currency, and adjustment factors.
+      operationId: getGPDPrices
+      parameters:
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          <p>***ids limit** =  50 per request*</p> *<p>Make note, GET Method URL request
+          lines are also limited to a total length of 8192 bytes (8KB). In cases where
+          the service allows for thousands of ids, which may lead to exceeding this
+          request line limit of 8KB, its advised for any requests with large request
+          lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneEquityId:
+            summary: One Equity Market Identifier
+            value:
+            - AAPL-USA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.
+            |field|description|
+            |---|---|
+            |price|Closing Price|
+            |priceOpen|Opening Price|
+            |priceHigh|High Price|
+            |priceLow|Low Price|
+            |volume|Volume|
+            |turnover|Total Trade Value for the Day|
+            |tradeCount|Number of Trades|
+            |vwap|Volume Weighted Average Price|
+        example:
+        - price
+        - priceOpen
+        - priceHigh
+        - priceLow
+        - volume
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          default:
+          - price
+          - priceOpen
+          - priceHigh
+          - priceLow
+          - volume
+          - turnover
+          - tradeCount
+          - vwap
+          - currency
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: |
+          Controls the display frequency of the data returned.
+            * **D** = Daily
+            * **AD** = Actual Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **M** = Monthly, based on the last trading day of the month.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** =  Actual Quarterly
+            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+            * **ASA** = Actual Semi-annual
+            * **CSA** = Calendar Semi-annual
+            * **AY** = Actual Annual, based on the start date.
+            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - AD
+          - W
+          - M
+          - AM
+          - AQ
+          - CQ
+          - ASA
+          - CSA
+          - AY
+          - CY
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: FIVEDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          type: string
+        style: form
+      - description: Currency code for adjusting prices. Default is Local. For a list
+          of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Controls the split and spinoff adjustments for the prices.
+            * **SPLIT** = Split ONLY Adjusted. This is used by default.
+            * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+            * **UNSPLIT** = No Adjustments.
+        explode: true
+        in: query
+        name: adjust
+        required: false
+        schema:
+          default: SPLIT
+          enum:
+          - SPLIT
+          - SPLIT_SPINOFF
+          - UNSPLIT
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                One Week Prices for Two Securities All Fields:
+                  $ref: '#/components/examples/GlobalPricesResponseAll'
+                Filtered Fields:
+                  $ref: '#/components/examples/GlobalPricesResponsePricesOnly'
+              schema:
+                $ref: '#/components/schemas/globalPricesResponse'
+          description: Array of Price Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets end-of-day Open, High, Low, Close for a list of securities.
+      tags:
+      - Prices
+      x-accepts: application/json
+    post:
+      description: Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade
+        Count, and Turn Over for a specified list of securities, date range, currency,
+        and adjustment factors.
+      operationId: getSecurityPricesForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/globalPricesRequest'
+        description: Request object for `Prices`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/globalPricesResponse'
+          description: Array of security prices
+      summary: Requests end-of-day Open, High, Low, Close for a large list of securities.
+      tags:
+      - Prices
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-global-prices/v1/corporate-actions:
+    get:
+      description: |
+        Gets the Corporate Actions amounts, dates, types, and flags over a specified date range.
+        You may request future dates to receive information for declared events.
+
+        Event Categories:
+        * __Cash Dividends__ (CASH_DIVS)
+          * **DVC** – Dividend
+          * **DVCD** – Dividend with DRP Option
+          * **DRP** – Dividend Reinvestment
+        * __Stock Distributions__ (STOCK_DIST)
+          * **DVS** – Stock Dividend
+          * **DVSS** – Stock Dividend, Special
+          * **BNS** – Bonus Issue
+          * **BNSS** – Bonus Issue, Special
+        * __Spin Offs__ (SPINOFFS)
+          * **SPO** – Spin Off
+        * __Rights Issue__ (RIGHTS)
+          * **DSR** – Rights Issue
+        * __Splits__ (SPLITS)
+          * **FSP** – Forward Split
+          * **RSP** – Reverse Split
+          * **SPL** – Split
+      operationId: getGPDCorporateActions
+      parameters:
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          <p>***ids limit** =  100 per request*</p> *<p>Make note, GET Method URL
+          request lines are also limited to a total length of 8192 bytes (8KB). In
+          cases where the service allows for thousands of ids, which may lead to exceeding
+          this request line limit of 8KB, its advised for any requests with large
+          request lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneEquityId:
+            summary: One Equity Market Identifier
+            value:
+            - AAPL-USA
+          multipleEquityIds:
+            summary: Multiple Equity Market Identifiers
+            value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Selects the Event Category to include in the response.
+            * **CASH_DIVS** = Cash Dividends
+            * **STOCK_DIST** = Stock Distributions
+            * **SPINOFFS** = Spin Offs
+            * **RIGHTS** = Rights Issue
+            * **SPLITS** = Splits
+            * **ALL** = Returns all Event Types. If left blank the service will default to ALL.
+        explode: true
+        in: query
+        name: eventCategory
+        required: false
+        schema:
+          default: ALL
+          enum:
+          - CASH_DIVS
+          - STOCK_DIST
+          - RIGHTS
+          - SPINOFFS
+          - SPLITS
+          - ALL
+          type: string
+        style: form
+      - description: |
+          Request available Corporate Actions data fields to be included in the response.
+          Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
+
+            |field|description|
+            |---|---|
+            |fsymId|Factset Regional Security Identifier|
+            |eventTypeCode|Character code that denotes the type of event|
+            |effectiveDate|The date when security is traded ex-dividend|
+            |requestId|Identifier that was used for the request.|
+
+          <h3>Common Fields</h3>
+            |field|description|
+            |---|---|
+            |eventId|Uniquely Identifies the event|
+            |eventTypeDesc|Description of the type of event|
+            |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
+            |announcementDate|Date the event was publicly announced|
+            |recordDate|Record date of the event|
+            |payDate|Payment date of the event|
+          <h3>Dividend Fields</h3>
+            |field|description|
+            |---|---|
+            |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+            |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
+            |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+            |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+            |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
+            |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+            |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+            |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+            |declaredCurrency|Currency ISO code associated with the declared amount. |
+            |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
+            |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
+            |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
+            |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+            |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
+            |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+            |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+            |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
+          <h3>Distribution Fields</h3>
+            |field|description|
+            |---|---|
+            |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
+            |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+            |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+            |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+            |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+            |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+            |distOldTerm|Component of distribution ratio- Number of shares held.|
+            |distNewTerm|Component of distribution ratio - Number of shares received.|
+            |rightsIssuePrice|Price of the rights issue. |
+            |rightsIssueCurrency|Currency the rights issue price was declared in.|
+            |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+          <h3>Splits Fields</h3>
+            |field|description|
+            |---|---|
+            |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+            |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+            |distOldTerm|Component of distribution ratio- Number of shares held.|
+            |distNewTerm|Component of distribution ratio - Number of shares received.|
+            |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+        examples:
+          Dividends Fields:
+            $ref: '#/components/examples/DividendsFields'
+          Distributions Fields:
+            $ref: '#/components/examples/DistributionsFields'
+          Splits Fields:
+            $ref: '#/components/examples/SplitsFields'
+        explode: false
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+        example: 2019-01-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+        example: 2019-12-31
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Currency code for adjusting prices. Default is Local. For a list
+          of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Ordinary Dividends:
+                  $ref: '#/components/examples/OrdinaryDividends'
+                Security Spinoffs:
+                  $ref: '#/components/examples/DistributionsSpinoff'
+                Rights Issue:
+                  $ref: '#/components/examples/DistributionsRights'
+                Forward Split:
+                  $ref: '#/components/examples/SplitsForward'
+                Bonus Issue:
+                  $ref: '#/components/examples/SplitsBonus'
+                Stock Dividend:
+                  $ref: '#/components/examples/SplitsDividend'
+                Reverse Split:
+                  $ref: '#/components/examples/SplitsReverse'
+              schema:
+                $ref: '#/components/schemas/corporateActionsResponse'
+          description: Array of security dividend information for a given date range
+            and list of securities
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets Corporate Actions information.
+      tags:
+      - Corporate Actions
+      x-accepts: application/json
+    post:
+      description: Gets the Corporate Actions amounts, dates, types, and flags over
+        a specified date range. You may request future dates to receive information
+        for declared events. <p>**_startDate and endDate are required parameters.
+        The input startDate must come before the input endDate._**
+      operationId: postCorporateActions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/corporateActionsRequest'
+        description: Request object for `Corporate Actions`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/corporateActionsResponse'
+          description: Array of security prices
+      summary: Requests Corporate Actions information.
+      tags:
+      - Corporate Actions
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    DividendsFields:
+      summary: Dividends Fields
+      value:
+      - currency
+      - amtDefTradingAdj
+      - taxRate
+      - shortDesc
+    SplitsFields:
+      summary: Splits Fields
+      value:
+      - adjFactor
+      - shortDesc
+    DistributionsFields:
+      summary: Distribtuions Fields
+      value:
+      - distPct
+      - shortDesc
+    GlobalPricesResponseAll:
+      summary: Prices Response of all fields over 1 week period for two securities
+        - FactSet (FDS-US) and Tesla (TSLA-US).
+      value:
+        data:
+        - volume: 157303
+          date: 2021-08-23
+          priceLow: 366.45
+          tradeCount: 5865
+          requestId: FDS-USA
+          price: 366.61
+          vwap: 368.351679
+          fsymId: SQFMK3-R
+          currency: USD
+          priceOpen: 370.06
+          priceHigh: 372.23
+          turnover: 57958.674978
+        - volume: 113627
+          date: 2021-08-24
+          priceLow: 365.4659
+          tradeCount: 4288
+          requestId: FDS-USA
+          price: 367.64
+          vwap: 368.081635
+          fsymId: SQFMK3-R
+          currency: USD
+          priceOpen: 366.5
+          priceHigh: 370.1
+          turnover: 41839.970284
+        - volume: 195053
+          date: 2021-08-25
+          priceLow: 370.11
+          tradeCount: 5900
+          requestId: FDS-USA
+          price: 376
+          vwap: 375.038196
+          fsymId: SQFMK3-R
+          currency: USD
+          priceOpen: 375
+          priceHigh: 376.3
+          turnover: 73123.855946
+        - volume: 124169
+          date: 2021-08-26
+          priceLow: 373.12
+          tradeCount: 6150
+          requestId: FDS-USA
+          price: 374.01
+          vwap: 374.475431
+          fsymId: SQFMK3-R
+          currency: USD
+          priceOpen: 375.55
+          priceHigh: 375.78
+          turnover: 46499.419473
+        - volume: 148418
+          date: 2021-08-27
+          priceLow: 373.01
+          tradeCount: 4603
+          requestId: FDS-USA
+          price: 376.58
+          vwap: 376.852769
+          fsymId: SQFMK3-R
+          currency: USD
+          priceOpen: 375.56
+          priceHigh: 379.83
+          turnover: 55944.725964
+        - volume: 4594319
+          date: 2021-08-23
+          priceLow: 680.77
+          tradeCount: 117486
+          requestId: TSLA
+          price: 706.3
+          vwap: 703.466057
+          fsymId: PTT03G-L
+          currency: USD
+          priceOpen: 685
+          priceHigh: 712.06
+          turnover: 3231982.61276
+        - volume: 2749510
+          date: 2021-08-24
+          priceLow: 702.68
+          tradeCount: 77318
+          requestId: TSLA
+          price: 708.49
+          vwap: 708.370904
+          fsymId: PTT03G-L
+          currency: USD
+          priceOpen: 710.66
+          priceHigh: 715.22
+          turnover: 1947249.860375
+        - volume: 2916454
+          date: 2021-08-25
+          priceLow: 704.07
+          tradeCount: 77972
+          requestId: TSLA
+          price: 711.2
+          vwap: 711.720995
+          fsymId: PTT03G-L
+          currency: USD
+          priceOpen: 706.73
+          priceHigh: 716.9
+          turnover: 2075838.531845
+        - volume: 3044656
+          date: 2021-08-26
+          priceLow: 697.68
+          tradeCount: 89432
+          requestId: TSLA
+          price: 701.16
+          vwap: 704.739009
+          fsymId: PTT03G-L
+          currency: USD
+          priceOpen: 708.4
+          priceHigh: 715.4
+          turnover: 2146476.51359
+        - volume: 3442269
+          date: 2021-08-27
+          priceLow: 702.22
+          tradeCount: 89171
+          requestId: TSLA
+          price: 711.92
+          vwap: 710.596056
+          fsymId: PTT03G-L
+          currency: USD
+          priceOpen: 705.41
+          priceHigh: 714.99
+          turnover: 2446231.2914
+    GlobalPricesResponsePricesOnly:
+      summary: Prices Reponse of FactSet (FDS-US) filtered to only return "price"
+        field with dates.
+      value:
+        data:
+        - date: 2021-08-23
+          requestId: FDS-USA
+          price: 366.61
+          fsymId: SQFMK3-R
+          currency: USD
+        - date: 2021-08-24
+          requestId: FDS-USA
+          price: 367.64
+          fsymId: SQFMK3-R
+          currency: USD
+        - date: 2021-08-25
+          requestId: FDS-USA
+          price: 376
+          fsymId: SQFMK3-R
+          currency: USD
+        - date: 2021-08-26
+          requestId: FDS-USA
+          price: 374.01
+          fsymId: SQFMK3-R
+          currency: USD
+        - date: 2021-08-27
+          requestId: FDS-USA
+          price: 376.58
+          fsymId: SQFMK3-R
+          currency: USD
+    OrdinaryDividends:
+      summary: Ordinary Dividends (DVC)
+      value:
+        data:
+        - fsymId: T0JRMW-R
+          eventId: NQTVZK-A
+          eventTypeCode: DVC
+          eventTypeDesc: Dividend
+          divTypeCode: "1"
+          announcementDate: 2021-02-18
+          recordDate: 2021-04-21
+          payDate: 2021-04-20
+          effectiveDate: 2021-04-19
+          currency: CHF
+          amtDefNetGrossIndicator: G
+          amtDefTradingAdj: 2.75
+          amtDefTradingUnadj: 2.75
+          amtNetTradingAdj: 1.7875
+          amtNetTradingUnadj: 1.7875
+          amtGrossTradingAdj: 2.75
+          amtGrossTradingUnadj: 2.75
+          currencyDeclared: CHF
+          amtDefDecAdj: 2.75
+          amtDefDecUnadj: 2.75
+          amtNetDecAdj: 1.7875
+          amtNetDecUnadj: 1.7875
+          amtGrossDecAdj: 2.75
+          amtGrossDecUnadj: 2.75
+          dividendsSpecFlag: 0
+          taxRate: 35
+          requestId: NESN-CH
+        - fsymId: V5W2SX-R
+          eventId: NQTVZK-A
+          eventTypeCode: DVC
+          eventTypeDesc: Dividend
+          divTypeCode: "1"
+          announcementDate: 2021-02-18
+          recordDate: 2021-04-21
+          payDate: 2021-04-20
+          effectiveDate: 2021-04-19
+          currency: USD
+          amtDefNetGrossIndicator: G
+          amtDefTradingAdj: 3.003987
+          amtDefTradingUnadj: 3.003987
+          amtNetTradingAdj: 1.952592
+          amtNetTradingUnadj: 1.952592
+          amtGrossTradingAdj: 3.003987
+          amtGrossTradingUnadj: 3.003987
+          currencyDeclared: CHF
+          amtDefDecAdj: 2.75
+          amtDefDecUnadj: 2.75
+          amtNetDecAdj: 1.7875
+          amtNetDecUnadj: 1.7875
+          amtGrossDecAdj: 2.75
+          amtGrossDecUnadj: 2.75
+          dividendsSpecFlag: 0
+          taxRate: 35
+          requestId: V5W2SX-R
+    DistributionsSpinoff:
+      summary: Security Spin Offs
+      value:
+        data:
+        - fsymId: WFJYTJ-R
+          eventId: MGNWXJ-A
+          eventTypeCode: SPO
+          eventTypeDesc: Spin off
+          announcementDate: null
+          payDate: 2019-02-25
+          recordDate: 2019-02-14
+          effectiveDate: 2019-02-26
+          adjFactor: 0.961251
+          adjFactorComnined: 0.961251
+          amtDefTradingAdj: 0.41926
+          amtDefTradingUnadj: 0.41926
+          currency: USD
+          distRatio: null
+          distNewTerm: 0.005371
+          distOldTerm: 1
+          rightsIssueCurrency: null
+          rightsIssuePrice: null
+          shortDesc: |
+            Spin off (Company): For every 1 share held of General Electric Co. (CUSIP: 369604103; SEDOL: 2380498), receive 0.005371 share of Wabtec Rg (CUSIP: 929740108; SEDOL: 2955733)
+          requestId: GE-US
+        - fsymId: JQZCQT-R
+          eventId: MS6X2Y-A
+          eventTypeCode: SPO
+          eventTypeDesc: Spin off
+          announcementDate: null
+          payDate: null
+          recordDate: null
+          effectiveDate: 2018-03-27
+          adjFactor: 0.859805
+          adjFactorComnined: 0.997374
+          amtDefTradingAdj: 1.08634
+          amtDefTradingUnadj: 1.08634
+          currency: GBP
+          distRatio: null
+          distNewTerm: 1
+          distOldTerm: 1
+          rightsIssueCurrency: null
+          rightsIssuePrice: null
+          shortDesc: |
+            Spin off: For every 1 share held of Great Portland Estates plc (CUSIP: G40712211; SEDOL: BF5H9P8), receive 1 share of Great Portland Estates PLC R.E.I.T.
+          requestId: GPOR-GB
+    DistributionsRights:
+      summary: Rights Distributions
+      value:
+        data:
+        - fsymId: B01HJ2-R
+          eventId: HP3BNY-A
+          eventTypeCode: DSR
+          eventTypeDesc: Rights Issue
+          announcementDate: null
+          payDate: 2021-05-10
+          recordDate: 2021-04-08
+          effectiveDate: 2021-04-07
+          adjFactor: null
+          adjFactorComnined: null
+          amtDefTradingAdj: null
+          amtDefTradingUnadj: null
+          currency: null
+          distRatio: null
+          distNewTerm: 6
+          distOldTerm: 1
+          rightsIssueCurrency: AUD
+          rightsIssuePrice: 0.005
+          shortDesc: 1 new share @ 0.005 AUD for 6 existing shares
+          requestId: -US
+        - fsymId: B01HJ2-R
+          eventId: HP3BNY-A
+          eventTypeCode: DSR
+          eventTypeDesc: Rights Issue
+          announcementDate: null
+          payDate: 2020-09-25
+          recordDate: 2020-08-31
+          effectiveDate: 2020-08-28
+          adjFactor: null
+          adjFactorComnined: null
+          amtDefTradingAdj: null
+          amtDefTradingUnadj: null
+          currency: null
+          distRatio: null
+          distNewTerm: null
+          distOldTerm: null
+          rightsIssueCurrency: AUD
+          rightsIssuePrice: 0.05
+          shortDesc: 'Rights Issue(Renounceable):  new share @ 0.05 AUD for  existing
+            share'
+          requestId: GE-US
+    SplitsForward:
+      summary: Forward Split
+      value:
+        data:
+        - fsymId: MH33D6-R
+          eventId: W0QQDY-A
+          eventTypeCode: FSP
+          eventTypeDesc: Forward Split
+          announcementDate: null
+          recordDate: 2020-08-24
+          payDate: 2020-08-28
+          effectiveDate: 2020-08-31
+          adjustmentFactor: 0.25
+          adjustmentFactorCombined: 0.25
+          distRatioPercentRate: null
+          distOldTerm: 1
+          distNewTerm: 4
+          rightsIssueCurrency: null
+          rightsIssuePrice: null
+          shortDesc: 'Forward Split(Mandatory): 4 for 1'
+          requestId: AAPL-US
+    SplitsBonus:
+      summary: Bonus Issue
+      value:
+        data:
+        - fsymId: MH33D6-R
+          eventId: JPCPPX-A
+          eventTypeCode: BNS
+          eventTypeDesc: Bonus Issue
+          announcementDate: null
+          recordDate: 2014-06-02
+          payDate: 2014-06-06
+          effectiveDate: 2014-06-09
+          adjFactor: 0.142857
+          adjFactorCombined: 0.142857
+          distPct: null
+          distOldTerm: 1
+          distNewTerm: 6
+          shortDesc: 'Bonus Issue: 6 new shares for 1 existing share'
+          requestId: AAPL-US
+    SplitsDividend:
+      summary: Stock Dividend
+      value:
+        data:
+        - fsymId: WFJYTJ-R
+          eventId: VWSM82-A
+          eventTypeCode: DVS
+          eventTypeDesc: Stock Dividend
+          announcementDate: null
+          payDate: 2015-05-04
+          recordDate: 2015-04-02
+          effectiveDate: 2015-04-27
+          adjFactor: 0.997262
+          adjFactorCombined: 0.997262
+          distPct: 0.27455
+          distOldTerm: null
+          distNewTerm: null
+          rightsIssueCurrency: null
+          rightsIssuePrice: null
+          shortDesc: 0.27455% Stock Dividend
+          requestId: GOOG-US
+    SplitsReverse:
+      summary: Reverse Split
+      value:
+        data:
+        - fsymId: JQZCQT-R-R
+          eventId: N4HMGJ-A
+          eventTypeCode: RSP
+          eventTypeDesc: Reverse Split
+          announcementDate: null
+          payDate: 2018-03-27
+          recordDate: 2018-03-26
+          effectiveDate: 2018-03-27
+          adjFactor: 1.16
+          adjFactorCombined: 0.997374
+          distPct: null
+          distOldTerm: 29
+          distNewTerm: 25
+          rightsIssueCurrency: null
+          rightsIssuePrice: null
+          shortDesc: 'Reverse Split(Mandatory): 25 for 29'
+          requestId: GPOR-GB
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-global-prices/v1/{endpoint}
+        message: 'The date parameter ''startDate'' must be in the following date format:
+          YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /factset-global-prices/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      description: This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include dates
+        as of today's current date or any prior historical date.
+      summary: Bad Request - Future Date
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:52:48.091
+        path: /factset-global-prices/v1/{endpoint}
+        message: The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /factset-global-prices/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-global-prices/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /factset-global-prices/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-global-prices/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /factset-global-prices/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-global-prices/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /factset-global-prices/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-global-prices/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-global-prices/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    idsMax100:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids
+        limit** =  100 per request*</p> *<p>Make note, GET Method URL request lines
+        are also limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this request
+        line limit of 8KB, its advised for any requests with large request lines to
+        be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 100
+        minItems: 1
+        type: array
+      style: form
+    idsMax50:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids
+        limit** =  50 per request*</p> *<p>Make note, GET Method URL request lines
+        are also limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this request
+        line limit of 8KB, its advised for any requests with large request lines to
+        be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - AAPL-USA
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
+    eventCategory:
+      description: |
+        Selects the Event Category to include in the response.
+          * **CASH_DIVS** = Cash Dividends
+          * **STOCK_DIST** = Stock Distributions
+          * **SPINOFFS** = Spin Offs
+          * **RIGHTS** = Rights Issue
+          * **SPLITS** = Splits
+          * **ALL** = Returns all Event Types. If left blank the service will default to ALL.
+      explode: true
+      in: query
+      name: eventCategory
+      required: false
+      schema:
+        default: ALL
+        enum:
+        - CASH_DIVS
+        - STOCK_DIST
+        - RIGHTS
+        - SPINOFFS
+        - SPLITS
+        - ALL
+        type: string
+      style: form
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.
+      example: 2021-08-27
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        type: string
+      style: form
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.
+      example: 2021-08-27
+      explode: true
+      in: query
+      name: endDate
+      required: true
+      schema:
+        type: string
+      style: form
+    startDateCA:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+      example: 2019-01-01
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    endDateCA:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+      example: 2019-12-31
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: string
+      style: form
+    date:
+      description: |
+        The as of date in **YYYY-MM-DD** format. This controls the perspective date in which the period parameter will be computed. Future dates (T+1) are not accepted in this endpoint.
+      example: 2019-07-07
+      explode: true
+      in: query
+      name: date
+      required: false
+      schema:
+        type: string
+      style: form
+    frequency:
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **AD** = Actual Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **AQ** =  Actual Quarterly
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **ASA** = Actual Semi-annual
+          * **CSA** = Calendar Semi-annual
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      explode: true
+      in: query
+      name: frequency
+      required: false
+      schema:
+        default: D
+        enum:
+        - D
+        - AD
+        - W
+        - M
+        - AM
+        - AQ
+        - CQ
+        - ASA
+        - CSA
+        - AY
+        - CY
+        type: string
+      style: form
+    calendar:
+      description: Calendar of data returned. SEVENDAY includes weekends.
+      example: FIVEDAY
+      explode: true
+      in: query
+      name: calendar
+      required: false
+      schema:
+        default: FIVEDAY
+        enum:
+        - FIVEDAY
+        - SEVENDAY
+        type: string
+      style: form
+    currency:
+      description: Currency code for adjusting prices. Default is Local. For a list
+        of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+      explode: true
+      in: query
+      name: currency
+      required: false
+      schema:
+        type: string
+      style: form
+    adjust:
+      description: |
+        Controls the split and spinoff adjustments for the prices.
+          * **SPLIT** = Split ONLY Adjusted. This is used by default.
+          * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **UNSPLIT** = No Adjustments.
+      explode: true
+      in: query
+      name: adjust
+      required: false
+      schema:
+        default: SPLIT
+        enum:
+        - SPLIT
+        - SPLIT_SPINOFF
+        - UNSPLIT
+        type: string
+      style: form
+    fieldsPrices:
+      description: |
+        Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.
+          |field|description|
+          |---|---|
+          |price|Closing Price|
+          |priceOpen|Opening Price|
+          |priceHigh|High Price|
+          |priceLow|Low Price|
+          |volume|Volume|
+          |turnover|Total Trade Value for the Day|
+          |tradeCount|Number of Trades|
+          |vwap|Volume Weighted Average Price|
+      example:
+      - price
+      - priceOpen
+      - priceHigh
+      - priceLow
+      - volume
+      explode: true
+      in: query
+      name: fields
+      required: false
+      schema:
+        default:
+        - price
+        - priceOpen
+        - priceHigh
+        - priceLow
+        - volume
+        - turnover
+        - tradeCount
+        - vwap
+        - currency
+        items:
+          type: string
+        type: array
+      style: form
+    fieldsCorporateActions:
+      description: |
+        Request available Corporate Actions data fields to be included in the response.
+        Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
+
+          |field|description|
+          |---|---|
+          |fsymId|Factset Regional Security Identifier|
+          |eventTypeCode|Character code that denotes the type of event|
+          |effectiveDate|The date when security is traded ex-dividend|
+          |requestId|Identifier that was used for the request.|
+
+        <h3>Common Fields</h3>
+          |field|description|
+          |---|---|
+          |eventId|Uniquely Identifies the event|
+          |eventTypeDesc|Description of the type of event|
+          |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
+          |announcementDate|Date the event was publicly announced|
+          |recordDate|Record date of the event|
+          |payDate|Payment date of the event|
+        <h3>Dividend Fields</h3>
+          |field|description|
+          |---|---|
+          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+          |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
+          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+          |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
+          |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+          |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+          |declaredCurrency|Currency ISO code associated with the declared amount. |
+          |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
+          |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
+          |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
+          |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
+          |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
+        <h3>Distribution Fields</h3>
+          |field|description|
+          |---|---|
+          |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
+          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+          |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+          |distOldTerm|Component of distribution ratio- Number of shares held.|
+          |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |rightsIssuePrice|Price of the rights issue. |
+          |rightsIssueCurrency|Currency the rights issue price was declared in.|
+          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+        <h3>Splits Fields</h3>
+          |field|description|
+          |---|---|
+          |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+          |distOldTerm|Component of distribution ratio- Number of shares held.|
+          |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+      examples:
+        Dividends Fields:
+          $ref: '#/components/examples/DividendsFields'
+        Distributions Fields:
+          $ref: '#/components/examples/DistributionsFields'
+        Splits Fields:
+          $ref: '#/components/examples/SplitsFields'
+      explode: false
+      in: query
+      name: fields
+      required: false
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    globalPricesRequest:
+      description: Prices Request Body
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          example:
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
+          type: array
+        fields:
+          description: |
+            Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.
+              |field|description|
+              |---|---|
+              |price|Closing Price|
+              |priceOpen|Opening Price|
+              |priceHigh|High Price|
+              |priceLow|Low Price|
+              |volume|Volume|
+              |turnover|Total Trade Value for the Day|
+              |tradeCount|Number of Trades|
+              |vwap|Volume Weighted Average Price|
+          example:
+          - price
+          - priceOpen
+          - priceHigh
+          - priceLow
+          - volume
+          - vwap
+          - tradeCount
+          - turnover
+          items:
+            type: string
+          maxItems: 8
+          minItems: 1
+          title: Prices Fields
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2020-06-30
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2021-06-30
+          title: End Date
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          description: Currency code for adjusting prices. Default is Local. For a
+            list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          title: Request Currency
+          type: string
+        calendar:
+          $ref: '#/components/schemas/calendar'
+        adjust:
+          $ref: '#/components/schemas/adjust'
+      required:
+      - endDate
+      - ids
+      - startDate
+      title: Prices Request Body
+      type: object
+    globalPricesResponse:
+      example:
+        data:
+        - date: 2020-11-19T00:00:00.000+0000
+          requestId: DDD-USA
+          fsymId: LCV42P-L
+          currency: USD
+        - date: 2020-11-19T00:00:00.000+0000
+          requestId: DDD-USA
+          fsymId: LCV42P-L
+          currency: USD
+      properties:
+        data:
+          description: Array of Price Objects
+          items:
+            $ref: '#/components/schemas/price'
+          type: array
+      title: Prices Response
+      type: object
+    price:
+      additionalProperties: true
+      example:
+        date: 2020-11-19T00:00:00.000+0000
+        requestId: DDD-USA
+        fsymId: LCV42P-L
+        currency: USD
+      properties:
+        fsymId:
+          description: FactSet Permanent Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix (XXXXXX-L).
+          example: LCV42P-L
+          type: string
+        date:
+          description: Ending date for the period expressed in YYYY-MM-DD format.
+          example: 2020-11-19
+          format: date
+          type: string
+        currency:
+          description: 'Currency ISO code. For more details, visit [Online Assistant
+            Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          type: string
+        requestId:
+          description: Identifier that was used for the request.
+          example: DDD-USA
+          type: string
+      title: Price Object
+      type: object
+    CashDividendsResponse:
+      properties:
+        data:
+          description: Array of Diviends Objects
+          items:
+            $ref: '#/components/schemas/Dividend'
+          type: array
+      title: Cash Dividends Response
+      type: object
+    StockDistributionsResponse:
+      properties:
+        data:
+          description: Array of Distribution Objects
+          items:
+            $ref: '#/components/schemas/Distribution'
+          type: array
+      title: Stock Distributions Response
+      type: object
+    SpinoffsResponse:
+      properties:
+        data:
+          description: Array of Distribution Objects
+          items:
+            $ref: '#/components/schemas/Distribution'
+          type: array
+      title: Spinoffs Response
+      type: object
+    RightsIssueResponse:
+      properties:
+        data:
+          description: Array of Distribution Objects
+          items:
+            $ref: '#/components/schemas/Distribution'
+          type: array
+      title: Rights Issue Response
+      type: object
+    SplitsResponse:
+      properties:
+        data:
+          description: Array of Split Objects
+          items:
+            $ref: '#/components/schemas/Split'
+          type: array
+      title: Splits Response
+      type: object
+    corporateActionsResponse:
+      example:
+        data:
+        - key: '{}'
+        - key: '{}'
+      properties:
+        data:
+          description: Array of Corporate Action Objects
+          items:
+            additionalProperties: true
+            properties:
+              fsymId:
+                description: Factset Regional Security Identifier. Six alpha-numeric
+                  characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies
+                  the security's best regional security data series per currency.
+                  For equities, all primary listings per region and currency are allocated
+                  a regional-level permanent identifier. The regional-level permanent
+                  identifier will be available once a SEDOL representing the region/currency
+                  has been allocated and the identifiers are on FactSet.
+                example: SJY281-R
+                type: string
+                x-fds-sdf: fsym_id
+                x-fds-dh: REGIONAL_FDS_ID
+              eventId:
+                description: FactSet identifier that uniquely identifies the Event.
+                example: JTHPFN-A
+                type: string
+                x-fds-sdf: ca_event_id
+                x-fds-dh: EVENT_ID
+              eventTypeCode:
+                description: Corporate Actions Event type code.
+                enum:
+                - DVC
+                - DVCD
+                - DRP
+                - DVS
+                - DVSS
+                - BNS
+                - BNSS
+                - SPO
+                - DSR
+                - FSP
+                - RSP
+                - SPL
+                type: string
+                x-fds-sdf: ca_event_type_code
+                x-fds-dh: EVENT_TYPE_CODE
+              eventTypeDesc:
+                description: Corporate Actions Event type description.
+                type: string
+                x-fds-sdf: null
+                x-fds-dh: EVENT_TYPE
+              divTypeCode:
+                description: |
+                  Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764).
+                type: string
+                x-fds-sdf: div_type_code
+                x-fds-dh: DIVTYPE_NUM
+              announcementDate:
+                description: Date Event was announced in YYYY-MM-DD format.
+                type: string
+                x-fds-sdf: announcement_date
+                x-fds-dh: ANNDATE
+              recordDate:
+                description: Date of Record for distribution in YYYY-MM-DD format.
+                type: string
+                x-fds-sdf: record_date
+                x-fds-dh: RECORD_DATE
+              payDate:
+                description: Date of Payment for distribution in YYYY-MM-DD format.
+                type: string
+                x-fds-sdf: pay_date
+                x-fds-dh: PAYDATE
+              effectiveDate:
+                description: Effective Date or Ex-Date of distribution in YYYY-MM-DD
+                  format.
+                type: string
+                x-fds-sdf: effective_date
+                x-fds-dh: EFFECTIVE_DATE
+              requestId:
+                description: Identifier that was used for the request.
+                example: AAPL-US
+                type: string
+            title: Corporate Action Object
+            type: object
+          type: array
+      title: Corporate Actions Response
+      type: object
+    corporateActionsRequest:
+      description: Corporate Actions Request Body
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          example:
+          - TSLA-US
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          title: ids
+          type: array
+        eventCategory:
+          $ref: '#/components/schemas/eventCategory'
+        fields:
+          description: |
+            Request available Corporate Actions data fields to be included in the response.
+            Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
+
+              |field|description|
+              |---|---|
+              |fsymId|Factset Regional Security Identifier|
+              |eventTypeCode|Character code that denotes the type of event|
+              |effectiveDate|The date when security is traded ex-dividend|
+              |requestId|Identifier that was used for the request.|
+
+            <h3>Common Fields</h3>
+              |field|description|
+              |---|---|
+              |eventId|Uniquely Identifies the event|
+              |eventTypeDesc|Description of the type of event|
+              |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
+              |announcementDate|Date the event was publicly announced|
+              |recordDate|Record date of the event|
+              |payDate|Payment date of the event|
+            <h3>Dividend Fields</h3>
+              |field|description|
+              |---|---|
+              |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+              |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
+              |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+              |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+              |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
+              |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+              |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+              |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+              |declaredCurrency|Currency ISO code associated with the declared amount. |
+              |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
+              |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
+              |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
+              |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+              |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
+              |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+              |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+              |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
+            <h3>Distribution Fields</h3>
+              |field|description|
+              |---|---|
+              |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
+              |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+              |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+              |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+              |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+              |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+              |distOldTerm|Component of distribution ratio- Number of shares held.|
+              |distNewTerm|Component of distribution ratio - Number of shares received.|
+              |rightsIssuePrice|Price of the rights issue. |
+              |rightsIssueCurrency|Currency the rights issue price was declared in.|
+              |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+            <h3>Splits Fields</h3>
+              |field|description|
+              |---|---|
+              |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+              |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+              |distOldTerm|Component of distribution ratio- Number of shares held.|
+              |distNewTerm|Component of distribution ratio - Number of shares received.|
+              |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+          example:
+          - eventId
+          - eventTypeDesc
+          - recordDate
+          - payDate
+          - currency
+          items:
+            type: string
+          maxItems: 36
+          minItems: 1
+          title: fields
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+          example: 2020-06-30
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+          example: 2021-06-30
+          title: End Date
+          type: string
+        currency:
+          description: Currency code for adjusting prices. Default is Local. For a
+            list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          title: Request Currency
+          type: string
+      required:
+      - ids
+      title: Corporate Actions Request Body
+      type: object
+    idsMax100:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+      example:
+      - TSLA-US
+      - AAPL-US
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      title: ids
+      type: array
+    idsMax50:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+      example:
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 50
+      minItems: 1
+      title: ids
+      type: array
+    eventCategory:
+      default: ALL
+      description: |
+        Selects the Event Category to include in the response.
+          * **CASH_DIVS** = Cash Dividends
+          * **STOCK_DIST** = Stock Distributions
+          * **SPINOFFS** = Spin Offs
+          * **RIGHTS** = Rights Issue
+          * **SPLITS** = Splits
+          * **ALL** = Returns all Event Types. If left blank the service will default to ALL.
+      enum:
+      - CASH_DIVS
+      - STOCK_DIST
+      - RIGHTS
+      - SPINOFFS
+      - SPLITS
+      - ALL
+      example: CASH_DIVS
+      title: eventCategory
+      type: string
+    fieldsCorporateActions:
+      description: |
+        Request available Corporate Actions data fields to be included in the response.
+        Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
+
+          |field|description|
+          |---|---|
+          |fsymId|Factset Regional Security Identifier|
+          |eventTypeCode|Character code that denotes the type of event|
+          |effectiveDate|The date when security is traded ex-dividend|
+          |requestId|Identifier that was used for the request.|
+
+        <h3>Common Fields</h3>
+          |field|description|
+          |---|---|
+          |eventId|Uniquely Identifies the event|
+          |eventTypeDesc|Description of the type of event|
+          |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
+          |announcementDate|Date the event was publicly announced|
+          |recordDate|Record date of the event|
+          |payDate|Payment date of the event|
+        <h3>Dividend Fields</h3>
+          |field|description|
+          |---|---|
+          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+          |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
+          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+          |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
+          |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+          |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
+          |declaredCurrency|Currency ISO code associated with the declared amount. |
+          |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
+          |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
+          |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
+          |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
+          |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
+        <h3>Distribution Fields</h3>
+          |field|description|
+          |---|---|
+          |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
+          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
+          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
+          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
+          |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+          |distOldTerm|Component of distribution ratio- Number of shares held.|
+          |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |rightsIssuePrice|Price of the rights issue. |
+          |rightsIssueCurrency|Currency the rights issue price was declared in.|
+          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+        <h3>Splits Fields</h3>
+          |field|description|
+          |---|---|
+          |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
+          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
+          |distOldTerm|Component of distribution ratio- Number of shares held.|
+          |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+      example:
+      - eventId
+      - eventTypeDesc
+      - recordDate
+      - payDate
+      - currency
+      items:
+        type: string
+      maxItems: 36
+      minItems: 1
+      title: fields
+      type: array
+    pricesFields:
+      description: |
+        Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.
+          |field|description|
+          |---|---|
+          |price|Closing Price|
+          |priceOpen|Opening Price|
+          |priceHigh|High Price|
+          |priceLow|Low Price|
+          |volume|Volume|
+          |turnover|Total Trade Value for the Day|
+          |tradeCount|Number of Trades|
+          |vwap|Volume Weighted Average Price|
+      example:
+      - price
+      - priceOpen
+      - priceHigh
+      - priceLow
+      - volume
+      - vwap
+      - tradeCount
+      - turnover
+      items:
+        type: string
+      maxItems: 8
+      minItems: 1
+      title: Prices Fields
+      type: array
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2020-06-30
+      title: Start Date
+      type: string
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2021-06-30
+      title: End Date
+      type: string
+    startDateCA:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+      example: 2020-06-30
+      title: Start Date
+      type: string
+    endDateCA:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the "event" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull "all" events for each requested ids.
+      example: 2021-06-30
+      title: End Date
+      type: string
+    frequency:
+      default: D
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **AD** = Actual Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **AQ** =  Actual Quarterly
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **ASA** = Actual Semi-annual
+          * **CSA** = Calendar Semi-annual
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      enum:
+      - D
+      - AD
+      - W
+      - M
+      - AM
+      - AQ
+      - CQ
+      - ASA
+      - CSA
+      - AY
+      - CY
+      example: M
+      title: Frequency
+      type: string
+    calendar:
+      default: FIVEDAY
+      description: Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
+        will default to the securities' trading calendar which excludes date records
+        for respective holiday periods.
+      enum:
+      - FIVEDAY
+      - SEVENDAY
+      - LOCAL
+      example: FIVEDAY
+      title: Calendar
+      type: string
+    requestCurrency:
+      description: Currency code for adjusting prices. Default is Local. For a list
+        of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+      title: Request Currency
+      type: string
+    adjust:
+      default: SPLIT
+      description: |
+        Controls the split and spinoff adjustments for the prices.
+          * **SPLIT** = Split ONLY Adjusted. This is used by default.
+          * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **UNSPLIT** = No Adjustments.
+      enum:
+      - SPLIT
+      - SPLIT_SPINOFF
+      - UNSPLIT
+      example: SPLIT
+      title: Adjust
+      type: string
+    Dividend:
+      properties:
+        fsymId:
+          description: Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's
+            best regional security data series per currency. For equities, all primary
+            listings per region and currency are allocated a regional-level permanent
+            identifier. The regional-level permanent identifier will be available
+            once a SEDOL representing the region/currency has been allocated and the
+            identifiers are on FactSet.
+          example: SJY281-R
+          type: string
+          x-fds-sdf: fsym_id
+          x-fds-dh: REGIONAL_FDS_ID
+        eventId:
+          description: FactSet identifier that uniquely identifies the Event.
+          example: JTHPFN-A
+          type: string
+          x-fds-sdf: ca_event_id
+          x-fds-dh: EVENT_ID
+        eventTypeCode:
+          description: Corporate Actions Event type code.
+          enum:
+          - DVC
+          - DVCD
+          - DRP
+          type: string
+          x-fds-sdf: ca_event_type_code
+          x-fds-dh: EVENT_TYPE_CODE
+        eventTypeDesc:
+          description: Corporate Actions Event type description.
+          type: string
+          x-fds-sdf: null
+          x-fds-dh: EVENT_TYPE
+        divTypeCode:
+          description: |
+            Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764).
+          type: string
+          x-fds-sdf: div_type_code
+          x-fds-dh: DIVTYPE_NUM
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: announcement_date
+          x-fds-dh: ANNDATE
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: record_date
+          x-fds-dh: RECORD_DATE
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: pay_date
+          x-fds-dh: PAYDATE
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: effective_date
+          x-fds-dh: EFFECTIVE_DATE
+        currency:
+          description: 'Currency ISO code. For more details, visit [Online Assistant
+            Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          type: string
+          x-fds-sdf: trading_currency
+          x-fds-dh: DEF_CURR_ISO
+        amtDefNetGrossIndicator:
+          description: 'Net/Gross Marker Code. For details describing Net vs. Gross
+            dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).'
+          enum:
+          - "N"
+          - G
+          type: string
+          x-fds-sdf: amt_def_net_gross_indicator
+          x-fds-dh: NGFLAG
+        amtDefTradingAdj:
+          description: Default Amount - Trading Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_trading_adj
+          x-fds-dh: AMT_DEF_SPLIT
+        amtDefTradingUnadj:
+          description: Default Amount - Trading Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_trading_adj
+          x-fds-dh: AMT_DEF_UNSPLIT
+        amtGrossTradingAdj:
+          description: 'Gross Amount - Trading Currency, Split Adjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_gross_trading_adj
+          x-fds-dh: GROSS_DEF_SPLIT
+        amtGrossTradingUnadj:
+          description: 'Gross Amount - Trading Currency, Unadjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_gross_trading_unadj
+          x-fds-dh: GROSS_DEF_UNSPLIT
+        amtNetTradingAdj:
+          description: Net Amount - Trading Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_net_trading_adj
+          x-fds-dh: NET_DEF_SPLIT
+        amtNetTradingUnadj:
+          description: Net Amount - Trading Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_net_trading_unadj
+          x-fds-dh: NET_DEF_UNSPLIT
+        declaredCurrency:
+          description: Currency code for declared dividend.
+          example: USD
+          type: string
+          x-fds-sdf: declared_currency
+          x-fds-dh: DEC_CURR_ISO
+        amtDefDecAdj:
+          description: Default Amount - Declared Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_dec_adj
+          x-fds-dh: AMT_DEC_SPLIT
+        amtDefDecUnadj:
+          description: Default Amount - Declared Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_dec_unadj
+          x-fds-dh: AMT_DEC_UNSPLIT
+        amtGrossDecAdj:
+          description: 'Gross Amount - Declared Currency, Split Adjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_gross_dec_adj
+          x-fds-dh: GROSS_DEC_SPLIT
+        amtGrossDecUnadj:
+          description: 'Gross Amount - Declared Currency, Unadjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_gross_dec_unadj
+          x-fds-dh: GROSS_DEC_UNSPLIT
+        amtNetDecAdj:
+          description: 'Net Amount - Declared Currency, Split Adjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_net_dec_adj
+          x-fds-dh: NET_DEC_SPLIT
+        amtNetDecUnadj:
+          description: 'Net Amount - Declared Currency, Unadjusted '
+          format: double
+          type: number
+          x-fds-sdf: amt_net_dec_unadj
+          x-fds-dh: NET_DEC_UNSPLIT
+        dividendsSpecFlag:
+          description: Special Dividend Flag - 1=Yes, 0=No
+          example: 0
+          type: integer
+          x-fds-sdf: dividend_spec_flag
+          x-fds-dh: SPEC_FLAG
+        taxRate:
+          description: Tax Rate for on gross dividend for net dividend.
+          format: double
+          type: number
+          x-fds-sdf: tax_rate
+          x-fds-dh: TAX_RATE
+        requestId:
+          description: Identifier that was used for the request.
+          example: AAPL-US
+          type: string
+      title: Dividend Object
+      type: object
+    Distribution:
+      properties:
+        fsymId:
+          description: Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's
+            best regional security data series per currency. For equities, all primary
+            listings per region and currency are allocated a regional-level permanent
+            identifier. The regional-level permanent identifier will be available
+            once a SEDOL representing the region/currency has been allocated and the
+            identifiers are on FactSet.
+          example: SJY281-R
+          type: string
+          x-fds-sdf: fsym_id
+          x-fds-dh: REGIONAL_FDS_ID
+        eventId:
+          description: FactSet identifier that uniquely identifies the Event.
+          example: JTHPFN-A
+          type: string
+          x-fds-sdf: ca_event_id
+          x-fds-dh: EVENT_ID
+        eventTypeCode:
+          description: Corporate Actions Event type code.
+          enum:
+          - DVS
+          - DVSS
+          - BNS
+          - BNSS
+          - SPO
+          - DSR
+          type: string
+          x-fds-sdf: ca_event_type_code
+          x-fds-dh: EVENT_TYPE_CODE
+        eventTypeDesc:
+          description: Corporate Actions Event type description.
+          example: Stock Dividend, Special
+          type: string
+          x-fds-sdf: null
+          x-fds-dh: EVENT_TYPE
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: announcement_date
+          x-fds-dh: ANNDATE
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: record_date
+          x-fds-dh: RECORD_DATE
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: pay_date
+          x-fds-dh: PAYDATE
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: effective_date
+          x-fds-dh: EFFECTIVE_DATE
+        adjFactor:
+          description: |
+            Factor for adjusting price and shares.
+            A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.
+          example: 0.997262
+          format: double
+          type: number
+          x-fds-sdf: price_adj_factor
+          x-fds-dh: ADJ_FACTOR
+        adjFactorCombined:
+          description: Combined adjustment factor for all distribution events on that
+            day.
+          example: 0.997262
+          format: double
+          type: number
+          x-fds-sdf: null
+          x-fds-dh: ADJ_FACTOR_COMBINED
+        amtDefTradingAdj:
+          description: Default Amount - Trading Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_trading_adj
+          x-fds-dh: AMT_DEF_SPLIT
+        amtDefTradingUnadj:
+          description: Default Amount - Trading Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: amt_def_trading_adj
+          x-fds-dh: AMT_DEF_UNSPLIT
+        currency:
+          description: 'Currency ISO code. For more details, visit [Online Assistant
+            Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          type: string
+          x-fds-sdf: trading_currency
+          x-fds-dh: DEF_CURR_ISO
+        distPct:
+          description: Distribution percentage of the event  (i.e. 10%). Typical for
+            stock distributions.
+          example: 0.27455
+          format: double
+          type: number
+          x-fds-sdf: dist_pct
+          x-fds-dh: DIST_RATIO_PERCENT_RATE
+        distOldTerm:
+          description: Component of distribution ratio -  Number of shares held.
+          example: 1
+          format: double
+          type: number
+          x-fds-sdf: dist_old_term
+          x-fds-dh: DIST_RATIO_TERM_OLD
+        distNewTerm:
+          description: Component of distribution ratio -  Number of shares received.
+          example: 0.05
+          format: double
+          type: number
+          x-fds-sdf: dist_new_term
+          x-fds-dh: DIST_RATIO_TERM_NEW
+        rightsIssuePrice:
+          description: Description
+          format: double
+          type: number
+          x-fds-sdf: rights_issue_price
+          x-fds-dh: RIGHTS_PRICE
+        rightsIssueCurrency:
+          description: Description
+          example: USD
+          type: string
+          x-fds-sdf: rights_issue_currency
+          x-fds-dh: RIGHTS_CURR
+        shortDesc:
+          description: Textual description identifying the event.
+          example: |
+            Spin off (Company)- For every 1 share held of General Electric Co. (CUSIP- 369604103; SEDOL- 2380498), receive 0.005371 share of Wabtec Rg (CUSIP- 929740108; SEDOL- 2955733)"
+          type: string
+          x-fds-sdf: short-desc
+          x-fds-dh: EVENT_DESC_SHORT
+        requestId:
+          description: Identifier that was used for the request.
+          example: GOOG-US
+          type: string
+      title: Distribution Object
+      type: object
+    Split:
+      properties:
+        fsymId:
+          description: Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's
+            best regional security data series per currency. For equities, all primary
+            listings per region and currency are allocated a regional-level permanent
+            identifier. The regional-level permanent identifier will be available
+            once a SEDOL representing the region/currency has been allocated and the
+            identifiers are on FactSet.
+          example: SJY281-R
+          type: string
+          x-fds-sdf: fsym_id
+          x-fds-dh: REGIONAL_FDS_ID
+        eventId:
+          description: FactSet identifier that uniquely identifies the Event.
+          example: JTHPFN-A
+          type: string
+          x-fds-sdf: ca_event_id
+          x-fds-dh: EVENT_ID
+        eventTypeCode:
+          description: Character code that denotes the type of Event.
+          enum:
+          - FSP
+          - RSP
+          - SPL
+          type: string
+          x-fds-sdf: ca_event_type_code
+          x-fds-dh: EVENT_TYPE_CODE
+        eventTypeDesc:
+          description: Corporate Actions Event type description.
+          example: Forward Split
+          type: string
+          x-fds-sdf: null
+          x-fds-dh: EVENT_TYPE
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: announcement_date
+          x-fds-dh: ANNDATE
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: record_date
+          x-fds-dh: RECORD_DATE
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: pay_date
+          x-fds-dh: PAYDATE
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          x-fds-sdf: effective_date
+          x-fds-dh: EFFECTIVE_DATE
+        adjFactor:
+          description: |
+            Factor for adjusting price and shares.
+            A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.
+          example: 0.997262
+          format: double
+          type: number
+          x-fds-sdf: price_adj_factor
+          x-fds-dh: ADJ_FACTOR
+        adjFactorCombined:
+          description: Combined adjustment factor for all distribution events on that
+            day.
+          example: 0.997262
+          format: double
+          type: number
+          x-fds-sdf: null
+          x-fds-dh: ADJ_FACTOR_COMBINED
+        distOldTerm:
+          description: Component of distribution ratio -  Number of shares held.
+          example: 1
+          format: double
+          type: number
+          x-fds-sdf: dist_old_term
+          x-fds-dh: DIST_RATIO_TERM_OLD
+        distNewTerm:
+          description: Component of distribution ratio -  Number of shares received.
+          example: 0.05
+          format: double
+          type: number
+          x-fds-sdf: dist_new_term
+          x-fds-dh: DIST_RATIO_TERM_NEW
+        shortDesc:
+          description: Textual description identifying the event.
+          example: 'Split (Mandatory): 3 for 1.'
+          type: string
+          x-fds-sdf: short_desc
+          x-fds-dh: EVENT_DESC_SHORT
+        requestId:
+          description: Identifier that was used for the request.
+          example: IBM-US
+          type: string
+      title: Split Object
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-global-prices/v1/prices
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,0 +1,1527 @@
+{
+  "host": "api.factset.com",
+  "swagger": "2.0",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/recommendationList/get": {
+      "get": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "get/recommendationList/get",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "Attributes of a single list.",
+        "description": "Attributes of a single list, including data about its active revision.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "format": "id32",
+            "x-positive": true,
+            "required": true,
+            "description": "Identifier of the list."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "name": "_language",
+            "in": "query",
+            "type": "string",
+            "format": "isoLanguage",
+            "description": "ISO 639-1 code of the language.",
+            "maxLength": 2,
+            "minLength": 2,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Details about the recommendation list.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "name",
+                    "activeRange",
+                    "numberRevisions",
+                    "activeRevision"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true,
+                      "description": "Identifier of the recommendation list."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the recommendation list."
+                    },
+                    "activeRange": {
+                      "type": "object",
+                      "format": "timeRange",
+                      "properties": {
+                        "start": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                        },
+                        "end": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                        }
+                      },
+                      "x-property-sort": [
+                        "start",
+                        "end"
+                      ],
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "description": "Time range during which the recommendation list is, was, or will be active."
+                    },
+                    "numberRevisions": {
+                      "type": "number",
+                      "format": "int32",
+                      "x-positive": true,
+                      "description": "Number of all revisions of this recommendation list."
+                    },
+                    "activeRevision": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "id",
+                        "title",
+                        "activeRange"
+                      ],
+                      "description": "Information on the active revision of this recommendation list, or null.",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true,
+                          "description": "Identifier of the currently active revision."
+                        },
+                        "title": {
+                          "type": "string",
+                          "format": "localizedString",
+                          "description": "The language specific name assigned to the recommendation list as of the given revision."
+                        },
+                        "activeRange": {
+                          "type": "object",
+                          "format": "timeRange",
+                          "properties": {
+                            "start": {
+                              "type": "string",
+                              "format": "datetime",
+                              "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                            },
+                            "end": {
+                              "type": "string",
+                              "format": "datetime",
+                              "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                            }
+                          },
+                          "x-property-sort": [
+                            "start",
+                            "end"
+                          ],
+                          "required": [
+                            "start",
+                            "end"
+                          ],
+                          "description": "Time range during which the revision is, was, or will be active."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendationList/search": {
+      "get": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "get/recommendationList/search",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "Search for recommendation lists.",
+        "description": "Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match."
+          },
+          {
+            "name": "onlyActive",
+            "in": "query",
+            "type": "boolean",
+            "required": false,
+            "description": "Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "name": "_language",
+            "in": "query",
+            "type": "string",
+            "format": "isoLanguage",
+            "description": "ISO 639-1 code of the language.",
+            "maxLength": 2,
+            "minLength": 2,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of recommendation lists.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "name",
+                      "activeRange",
+                      "numberRevisions",
+                      "activeRevision"
+                    ],
+                    "description": "Recommendation list.",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Identifier of the recommendation list."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the recommendation list."
+                      },
+                      "activeRange": {
+                        "type": "object",
+                        "format": "timeRange",
+                        "properties": {
+                          "start": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                          }
+                        },
+                        "x-property-sort": [
+                          "start",
+                          "end"
+                        ],
+                        "required": [
+                          "start",
+                          "end"
+                        ],
+                        "description": "Time range during which the recommendation list is active or has been active."
+                      },
+                      "numberRevisions": {
+                        "type": "number",
+                        "format": "int32",
+                        "x-positive": true,
+                        "description": "Number of all revisions of this recommendation list."
+                      },
+                      "activeRevision": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "title",
+                          "activeRange"
+                        ],
+                        "description": "Information on the active revision of this recommendation list, or null.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the currently active revision."
+                          },
+                          "title": {
+                            "type": "string",
+                            "format": "localizedString",
+                            "description": "The language specific name assigned to the recommendation list as of the given revision."
+                          },
+                          "activeRange": {
+                            "type": "object",
+                            "format": "timeRange",
+                            "properties": {
+                              "start": {
+                                "type": "string",
+                                "format": "datetime",
+                                "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                              },
+                              "end": {
+                                "type": "string",
+                                "format": "datetime",
+                                "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                              }
+                            },
+                            "x-property-sort": [
+                              "start",
+                              "end"
+                            ],
+                            "required": [
+                              "start",
+                              "end"
+                            ],
+                            "description": "Time range during which the revision is, was, or will be active."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendationList/revision/get": {
+      "get": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "get/recommendationList/revision/get",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "Attributes of a single revision.",
+        "description": "Attributes of a single revision.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "number",
+            "format": "id32",
+            "x-positive": true,
+            "required": true,
+            "description": "Identifier of the revision."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "name": "_language",
+            "in": "query",
+            "type": "string",
+            "format": "isoLanguage",
+            "description": "ISO 639-1 code of the language.",
+            "maxLength": 2,
+            "minLength": 2,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Details about the revision.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "recommendationList",
+                    "types",
+                    "title",
+                    "description",
+                    "activeRange",
+                    "instrument"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true,
+                      "description": "Identifier of the revision."
+                    },
+                    "recommendationList": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "id",
+                        "name"
+                      ],
+                      "description": "The recommendation list to which this revision belongs.",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true,
+                          "description": "Identifier of the recommendation list."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the recommendation list."
+                        }
+                      }
+                    },
+                    "types": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "name"
+                        ],
+                        "description": "Type assigned to the recommendation list as of the given revision.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the type."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the type."
+                          }
+                        }
+                      },
+                      "description": "Set of types assigned to the recommendation list as of the given revision. The customer maintains a list of valid types for all of its recommendation lists."
+                    },
+                    "title": {
+                      "type": "string",
+                      "format": "localizedString",
+                      "description": "Title assigned to the recommendation list as of the given revision."
+                    },
+                    "description": {
+                      "type": "string",
+                      "format": "localizedString",
+                      "description": "Description assigned to the recommendation list as of the given revision."
+                    },
+                    "activeRange": {
+                      "type": "object",
+                      "format": "timeRange",
+                      "properties": {
+                        "start": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                        },
+                        "end": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                        }
+                      },
+                      "x-property-sort": [
+                        "start",
+                        "end"
+                      ],
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "description": "Time range during which the revision is, was, or will be active."
+                    },
+                    "instrument": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "description": "Instrument to which the recommendation list points, as of the given revision.",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true,
+                          "description": "Identifier of the instrument."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendationList/revision/list": {
+      "post": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "post/recommendationList/revision/list",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "List of revisions of a recommendation list.",
+        "description": "List of revisions of a recommendation list, excluding the elements of each revision.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "idList",
+                    "idRevision",
+                    "activeRange"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "idList": {
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true,
+                      "description": "Identifier of the recommendation list."
+                    },
+                    "idRevision": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Restrict the result list to specific revisions. Each identifier refers to a revision of the recommendation list referenced by idList."
+                      },
+                      "maxItems": 100
+                    },
+                    "activeRange": {
+                      "type": "object",
+                      "format": "timeRange",
+                      "properties": {
+                        "start": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past.",
+                          "x-allowNullValue": true
+                        },
+                        "end": {
+                          "type": "string",
+                          "format": "datetime",
+                          "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future.",
+                          "x-allowNullValue": true
+                        }
+                      },
+                      "x-property-sort": [
+                        "start",
+                        "end"
+                      ],
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "description": "Restrict the result list to revisions which have been active during the specified time range."
+                    }
+                  },
+                  "required": [
+                    "idList"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    },
+                    "language": {
+                      "$ref": "#/definitions/LanguageMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes",
+                    "language"
+                  ]
+                }
+              },
+              "required": [
+                "data"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "An unordered list of revisions.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "types",
+                      "title",
+                      "description",
+                      "activeRange",
+                      "instrument"
+                    ],
+                    "description": "Revision",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Identifier of the revision."
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "name"
+                          ],
+                          "description": "Type assigned to the recommendation list as of the given revision.",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "format": "id32",
+                              "x-positive": true,
+                              "description": "Identifier of the type."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the type."
+                            }
+                          }
+                        },
+                        "description": "Set of types assigned to the recommendation list as of the given revision. The customer maintains a list of valid types for all of its recommendation lists."
+                      },
+                      "title": {
+                        "type": "string",
+                        "format": "localizedString",
+                        "description": "Title assigned to the recommendation list as of the given revision."
+                      },
+                      "description": {
+                        "type": "string",
+                        "format": "localizedString",
+                        "description": "Description assigned to the recommendation list as of the given revision."
+                      },
+                      "activeRange": {
+                        "type": "object",
+                        "format": "timeRange",
+                        "properties": {
+                          "start": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                          }
+                        },
+                        "x-property-sort": [
+                          "start",
+                          "end"
+                        ],
+                        "required": [
+                          "start",
+                          "end"
+                        ],
+                        "description": "Time range during which the revision is, was, or will be active."
+                      },
+                      "instrument": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id"
+                        ],
+                        "description": "Instrument to which the recommendation list points, as of the given revision.",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "id64",
+                            "x-positive": true,
+                            "description": "Identifier of the instrument."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendationList/revision/search": {
+      "get": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "get/recommendationList/revision/search",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "Search for revisions of a recommendation list.",
+        "description": "Search for revisions of a recommendation list.",
+        "parameters": [
+          {
+            "name": "idNotation",
+            "in": "query",
+            "type": "string",
+            "format": "id64",
+            "x-positive": true,
+            "required": false,
+            "description": "Restrict the search to revisions containing an element associated with the identified notation."
+          },
+          {
+            "name": "idInstrument",
+            "in": "query",
+            "type": "string",
+            "format": "id64",
+            "x-positive": true,
+            "required": false,
+            "description": "Restrict the search to revisions pointing to the identified instrument."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "name": "_language",
+            "in": "query",
+            "type": "string",
+            "format": "isoLanguage",
+            "description": "ISO 639-1 code of the language.",
+            "maxLength": 2,
+            "minLength": 2,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of revisions.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "recommendationList",
+                      "types",
+                      "title",
+                      "description",
+                      "activeRange",
+                      "instrument"
+                    ],
+                    "description": "Revision",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Identifier of the revision."
+                      },
+                      "recommendationList": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "name"
+                        ],
+                        "description": "The recommendation list to which this revision belongs.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the recommendation list."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the recommendation list."
+                          }
+                        }
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "name"
+                          ],
+                          "description": "Type assigned to the recommendation list as of the given revision.",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "format": "id32",
+                              "x-positive": true,
+                              "description": "Identifier of the type."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the type."
+                            }
+                          }
+                        },
+                        "description": "Set of types assigned to the recommendation list as of the given revision. The customer maintains a list of valid types for all of its recommendation lists."
+                      },
+                      "title": {
+                        "type": "string",
+                        "format": "localizedString",
+                        "description": "Title assigned to the recommendation list as of the given revision."
+                      },
+                      "description": {
+                        "type": "string",
+                        "format": "localizedString",
+                        "description": "Description assigned to the recommendation list as of the given revision."
+                      },
+                      "activeRange": {
+                        "type": "object",
+                        "format": "timeRange",
+                        "properties": {
+                          "start": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past."
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "datetime",
+                            "description": "The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future."
+                          }
+                        },
+                        "x-property-sort": [
+                          "start",
+                          "end"
+                        ],
+                        "required": [
+                          "start",
+                          "end"
+                        ],
+                        "description": "Time range during which the revision is, was, or will be active."
+                      },
+                      "instrument": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id"
+                        ],
+                        "description": "Instrument to which the recommendation list points, as of the given revision.",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "id64",
+                            "x-positive": true,
+                            "description": "Identifier of the instrument."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendationList/revision/element/list": {
+      "get": {
+        "tags": [
+          "recommendationList"
+        ],
+        "operationId": "get/recommendationList/revision/element/list",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "List of elements of a given revision.",
+        "description": "List of elements of a given revision.",
+        "parameters": [
+          {
+            "name": "idRevision",
+            "in": "query",
+            "type": "number",
+            "format": "id32",
+            "x-positive": true,
+            "required": true,
+            "description": "Identifier of the revision."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "name": "_language",
+            "in": "query",
+            "type": "string",
+            "format": "isoLanguage",
+            "description": "ISO 639-1 code of the language.",
+            "maxLength": 2,
+            "minLength": 2,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of elements sorted by position.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "hasNotationData",
+                      "position",
+                      "notation",
+                      "description",
+                      "weight",
+                      "recommendationClass"
+                    ],
+                    "properties": {
+                      "hasNotationData": {
+                        "type": "boolean",
+                        "description": "Attributes referred to by the notation identifier, beyond notation.instrument.customName, are available.\n\nIf this flag is false, it indicates that some notation data for this element is no longer available because the notation may have expired. For answers without notation data, the members position, instrument.customName, weight, description and recommendationClass are retained."
+                      },
+                      "position": {
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true,
+                        "description": "Position of the element."
+                      },
+                      "notation": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "symbol",
+                          "market",
+                          "instrument"
+                        ],
+                        "description": "Notation data of the element.",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "id64",
+                            "x-positive": true,
+                            "description": "Identifier of the notation."
+                          },
+                          "symbol": {
+                            "type": "string",
+                            "description": "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify notations, no symbol will be set for the notations of that market."
+                          },
+                          "market": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "id",
+                              "name"
+                            ],
+                            "description": "Market of the notation.",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "format": "id32",
+                                "x-positive": true,
+                                "description": "Identifier of the market."
+                              },
+                              "name": {
+                                "type": "string",
+                                "format": "localizedString",
+                                "description": "Name of the market."
+                              }
+                            }
+                          },
+                          "instrument": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "id",
+                              "isin",
+                              "name",
+                              "customName",
+                              "type"
+                            ],
+                            "description": "Instrument data of the notation.",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "id64",
+                                "x-positive": true,
+                                "description": "Identifier of the instrument."
+                              },
+                              "isin": {
+                                "type": "string",
+                                "format": "isin",
+                                "description": "International Securities Identification Number of the instrument."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Name of the instrument."
+                              },
+                              "customName": {
+                                "type": "string",
+                                "format": "localizedString",
+                                "description": "Customer specific name of the instrument."
+                              },
+                              "type": {
+                                "description": "Instrument type as defined by FactSet Digital Solutions. Instrument types are arranged in a hierarchy, with level 1 representing the most coarse granularity and further levels successively refining the granularity (see MDG category system 18).",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "number",
+                                      "format": "id32",
+                                      "x-positive": true,
+                                      "description": "Identifier of the instrument type."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "format": "localizedString",
+                                      "description": "Name of the instrument type."
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "short",
+                          "long"
+                        ],
+                        "description": "Description of the element.",
+                        "properties": {
+                          "short": {
+                            "type": "string",
+                            "format": "localizedString",
+                            "description": "Short description of the element."
+                          },
+                          "long": {
+                            "type": "string",
+                            "format": "localizedString",
+                            "description": "Long description of the element."
+                          }
+                        }
+                      },
+                      "weight": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "Weight of this list element. If set for at least one list element, the sum off all weights of an element list must be 1."
+                      },
+                      "recommendationClass": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "code",
+                          "description"
+                        ],
+                        "description": "Customer-defined recommendation class of the element.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the recommendation class."
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "Code of the recommendation class."
+                          },
+                          "description": {
+                            "type": "string",
+                            "format": "localizedString",
+                            "description": "Description of the recommendation class."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Prime Developer Trial",
+    "version": "v1"
+  },
+  "x-interface-version": 1,
+  "x-documenter-version": "5.38.0",
+  "x-api-version": "2.9.0",
+  "tags": [
+    {
+      "name": "recommendationList",
+      "description": "recommendationList endpoints"
+    }
+  ],
+  "responses": {
+    "ErrorResponse": {
+      "description": "Generic error response for all errors (400 ... 599 error codes)",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/definitions/ErrorMetaObject"
+          },
+          "errors": {
+            "$ref": "#/definitions/ErrorObject"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorMetaObject": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/StatusObject"
+        }
+      }
+    },
+    "ErrorObject": {
+      "type": "array",
+      "description": "The errors member contains additional information about a failed request.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "string",
+            "description": "A human-readable, unstructured explanation specific to this occurrence of the failure."
+          },
+          "encryptedDetails": {
+            "type": "string",
+            "description": "Base64-encoded, internal details about the error, in addition to \"details\"."
+          },
+          "type": {
+            "type": "number",
+            "format": "int32",
+            "description": "Internal error type of the Foundation API protocol."
+          },
+          "attribute": {
+            "type": "array",
+            "description": "For a validation error, a reference to the request parameter that failed validation; otherwise, an empty array.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Element of the path denoting the request parameter."
+                },
+                "index": {
+                  "type": "number",
+                  "format": "int32",
+                  "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
+                }
+              },
+              "x-property-sort": [
+                "name",
+                "index"
+              ]
+            }
+          }
+        },
+        "x-property-sort": [
+          "detail",
+          "encryptedDetails",
+          "type",
+          "attribute"
+        ]
+      }
+    },
+    "AttributesMember": {
+      "type": "array",
+      "description": "Limit the attributes returned in the response to the specified set.",
+      "items": {
+        "type": "string",
+        "maxLength": 100,
+        "exclusiveMaximum": false
+      },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "LanguageMember": {
+      "type": "string",
+      "format": "isoLanguage",
+      "description": "ISO 639-1 code of the language.",
+      "maxLength": 2,
+      "minLength": 2,
+      "exclusiveMinimum": false,
+      "exclusiveMaximum": false
+    },
+    "StatusObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "number",
+          "format": "int32",
+          "description": "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1)."
+        }
+      },
+      "description": "The status member contains the status code of the response.",
+      "required": [
+        "code"
+      ]
+    },
+    "CursorBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        },
+        "next": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+        },
+        "previous": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ]
+    },
+    "CursorBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "next": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+        },
+        "previous": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+        }
+      },
+      "required": [
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "next",
+        "previous"
+      ]
+    },
+    "OffsetBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal"
+      ]
+    },
+    "OffsetBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "hasNext": {
+          "type": "boolean",
+          "description": "Flag indicating that a subsequent request with the same parameters, except that the parameter `pagination.offset` is incremented by `pagination.limit`, would yield additional results."
+        }
+      },
+      "required": [
+        "hasNext"
+      ],
+      "x-property-sort": [
+        "hasNext"
+      ]
+    },
+    "PartialOutputObject": {
+      "type": "object",
+      "properties": {
+        "isPartial": {
+          "type": "boolean",
+          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
+        }
+      },
+      "description": "Object denoting that the endpoint response is possibly incomplete.",
+      "required": [
+        "isPartial"
+      ],
+      "x-property-sort": [
+        "isPartial"
+      ]
+    }
+  },
+  "basePath": "/wealth/v1",
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

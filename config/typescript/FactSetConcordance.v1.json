@@ -1,0 +1,14 @@
+{
+  "projectName": "@factset/sdk-factsetconcordance",
+  "projectVersion": "0.8.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetconcordance",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetConcordance/0.8.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

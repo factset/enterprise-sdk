@@ -1,0 +1,4134 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: "The FactSet Symbology API provides symbol resolution services, allowing\
+    \ clients to translate market identifiers into various symbology\ntypes. various\
+    \ market symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN,\
+    \ \nSEDOL, Tickers, and Bloomberg FIGIs. \n\nFactset's Symbology API sits at the\
+    \ center of its hub-and-spoke data model, enabling you to quickly \nharmonize\
+    \ the expanding catalog of Content APIs. Translate market IDs into CUSIP, SEDOL,\
+    \ ISIN, Tickers as a point in time or for the entire\nhistory of the requested\
+    \ id allowing Data Management workflows to normalize ids over time. Additionally,\
+    \ the Symbology API provides \ntranslation of market ids into Bloomberg FIGI.\n"
+  title: FactSet Symbology API
+  version: 2.0.0
+servers:
+- description: Production
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /symbology/v1/factset:
+    get:
+      description: Translate market security symbols into FactSet Permanent Security
+        Identifiers. The permanent identifier provides a unique record key and a convenient
+        way to link across content sets. Additionally, if your firm does not have
+        licenses for the symbol systems (e.g., CUSIP, SEDOL, ISIN), the permanent
+        identifier provides a way to deliver security and listing-level data. <p>*GET
+        Method is limited by URL Length of 2,048 characters. If a large universe of
+        symbols is requested, it's advised to use POST method to retrieve the same
+        response model.*</P><p>**This endpoint is included with all other Content
+        API packages.**</p>
+      operationId: translateFactset
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleFactsetTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleFactsetTranslation'
+              schema:
+                $ref: '#/components/schemas/factsetTranslationResponse'
+          description: Successful response of Market IDs translated into FactSet Permanent
+            Identifiers.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into FactSet Permanent Identifiers.
+      tags:
+      - FactSet
+      x-accepts: application/json
+    post:
+      description: Translate market security symbols into FactSet Permanent Security
+        Identifiers. The permanent identifier provides a unique record key and a convenient
+        way to link across content sets. Additionally, if your firm does not have
+        licenses for the symbol systems (e.g., CUSIP, SEDOL, ISIN), the permanent
+        identifier provides a way to deliver security and listing-level data.
+      operationId: batchTranslateFactset
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market ID to FactSet ID:
+                $ref: '#/components/examples/singleFactsetTranslationPost'
+              Translate Multiple Market IDs to FactSet IDs:
+                $ref: '#/components/examples/multipleFactsetTranslationPost'
+            schema:
+              $ref: '#/components/schemas/factsetTranslationRequest'
+        description: Request Body for FactSet Symbology Translation
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleFactsetTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleFactsetTranslation'
+              schema:
+                $ref: '#/components/schemas/factsetTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into FactSet Permanent Identifiers.
+      tags:
+      - FactSet
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/cusip:
+    get:
+      description: Translate market security symbols into CUSIP and FactSet Permanent
+        Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for
+        more details regarding the CUSIP numbering system. <p>*GET Method is limited
+        by URL Length of 2,048 characters. If a large universe of symbols is requested,
+        it's advised to use POST method to retrieve the same response model.*</P>
+      operationId: translateCusip
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: As-Of date for historical symbol request in YYYY-MM-DD format.
+        example: 2010-01-01
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleCusipTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleCusipTranslation'
+              schema:
+                $ref: '#/components/schemas/cusipTranslationResponse'
+          description: Successful response of Market IDs translated into CUSIPs.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into CUSIP.
+      tags:
+      - CUSIP
+      x-accepts: application/json
+    post:
+      description: Translate market security symbols into CUSIP and FactSet Permanent
+        Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for
+        more details regarding the CUSIP numbering system. <p>This method is best
+        for requesting **large universes** of `ids`.</p>
+      operationId: batchTranslateCusips
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market Identifier to CUSIP:
+                $ref: '#/components/examples/singleCusipTranslationPost'
+              Translate Multiple Market Identifiers CUSIP:
+                $ref: '#/components/examples/multipleCusipTranslationPost'
+            schema:
+              $ref: '#/components/schemas/cusipTranslationRequest'
+        description: Request Body for CUSIP Symbology Translation
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleCusipTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleCusipTranslation'
+              schema:
+                $ref: '#/components/schemas/cusipTranslationResponse'
+          description: Symbol Translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into CUSIP.
+      tags:
+      - CUSIP
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/cusip-history:
+    get:
+      description: Return the full history of CUSIP changes for a given market security
+        or FactSet Permanent Id. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094)
+        for more details regarding the CUSIP numbering system.  <p>*GET Method is
+        limited by URL Length of 2,048 characters. If a large universe of symbols
+        is requested, it's advised to use POST method to retrieve the same response
+        model.*</P>
+      operationId: cusipHistory
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                CUSIP History for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistory'
+                CUSIP History for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleCusipHistory'
+              schema:
+                $ref: '#/components/schemas/cusipHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history of CUSIP changes for the requested ID(s).
+      tags:
+      - CUSIP
+      x-accepts: application/json
+    post:
+      description: |
+        Return the full history of CUSIP changes for a given market security or FactSet Permanent Id. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system.
+      operationId: batchCusipHistory
+      requestBody:
+        content:
+          application/json:
+            examples:
+              CUSIP History for Single Market ID:
+                $ref: '#/components/examples/singleCusipHistoryPost'
+              CUSIP History for Multiple Market IDs:
+                $ref: '#/components/examples/multipleCusipHistoryPost'
+            schema:
+              $ref: '#/components/schemas/cusipHistoryTranslationRequest'
+        description: Request Body for CUSIP History
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                CUSIP History for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistory'
+                CUSIP History for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleCusipHistory'
+              schema:
+                $ref: '#/components/schemas/cusipHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history of CUSIP changes for the requested ID(s).
+      tags:
+      - CUSIP
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/sedol:
+    get:
+      description: |
+        Translate market security symbols into SEDOL and FactSet Permanent Identifiers. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details regarding the SEDOL numbering system.
+      operationId: translateSedol
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: As-Of date for historical symbol request in YYYY-MM-DD format.
+        example: 2010-01-01
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleSedolTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleSedolTranslation'
+              schema:
+                $ref: '#/components/schemas/sedolTranslationResponse'
+          description: Successful response of Market IDs translated into SEDOL.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into SEDOL.
+      tags:
+      - SEDOL
+      x-accepts: application/json
+    post:
+      description: |
+        Translate market security symbols into SEDOL and FactSet Permanent Identifiers. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details regarding the SEDOL numbering system.
+      operationId: batchTranslateSedol
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market Identifier to SEDOL:
+                $ref: '#/components/examples/singleSedolTranslationPost'
+              Translate Multiple Market Identifiers SEDOL:
+                $ref: '#/components/examples/multipleSedolTranslationPost'
+            schema:
+              $ref: '#/components/schemas/sedolTranslationRequest'
+        description: Request Body for SEDOL Symbology Translation
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleSedolTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleSedolTranslation'
+              schema:
+                $ref: '#/components/schemas/sedolTranslationResponse'
+          description: Symbol Translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into SEDOL.
+      tags:
+      - SEDOL
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/sedol-history:
+    get:
+      description: |
+        Returns the full history of SEDOL changes for a given security or list of securities. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details.
+      operationId: sedolHistory
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                SEDOL History for GOOGL:
+                  $ref: '#/components/examples/singleSedolHistory'
+                SEDOL History for GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleSedolHistory'
+              schema:
+                $ref: '#/components/schemas/sedolHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history of SEDOL changes for the requested ID(s).
+      tags:
+      - SEDOL
+      x-accepts: application/json
+    post:
+      description: |
+        Return the full history of SEDOL changes for a given market security or FactSet Permanent Id. Visit [OA 3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more details regarding the SEDOL numbering system.
+      operationId: batchSedolHistory
+      requestBody:
+        content:
+          application/json:
+            examples:
+              SEDOL History Single Market ID:
+                $ref: '#/components/examples/singleSedolHistoryPost'
+              SEDOL History for Multiple Market IDs:
+                $ref: '#/components/examples/multipleSedolHistoryPost'
+            schema:
+              $ref: '#/components/schemas/sedolHistoryTranslationRequest'
+        description: Request Body for SEDOL History
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                SEDOL History for GOOGL:
+                  $ref: '#/components/examples/singleSedolHistory'
+                SEDOL History for GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleSedolHistory'
+              schema:
+                $ref: '#/components/schemas/sedolHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history SEDOL changes for a requested ID.
+      tags:
+      - SEDOL
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/isin:
+    get:
+      description: "Translate market security symbols into ISIN and FactSet Permanent\
+        \ Identifiers. \n"
+      operationId: translateIsin
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: As-Of date for historical symbol request in YYYY-MM-DD format.
+        example: 2010-01-01
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleIsinTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleIsinTranslation'
+              schema:
+                $ref: '#/components/schemas/isinTranslationResponse'
+          description: Successful response of Market IDs translated into ISIN.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into ISIN.
+      tags:
+      - ISIN
+      x-accepts: application/json
+    post:
+      description: |
+        Translate market security symbols into ISIN and FactSet Permanent Identifiers.
+      operationId: batchTranslateIsin
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market Identifier to ISIN:
+                $ref: '#/components/examples/singleIsinTranslationPost'
+              Translate Multiple Market Identifiers ISIN:
+                $ref: '#/components/examples/multipleIsinTranslationPost'
+            schema:
+              $ref: '#/components/schemas/isinTranslationRequest'
+        description: Request Body for ISIN Symbology Translation
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleIsinTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleIsinTranslation'
+              schema:
+                $ref: '#/components/schemas/isinTranslationResponse'
+          description: Symbol Translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into ISIN.
+      tags:
+      - ISIN
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/isin-history:
+    get:
+      description: |
+        Returns the full history of ISIN changes for a given security.
+      operationId: isinHistory
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ISIN History for GOOGL:
+                  $ref: '#/components/examples/singleIsinHistory'
+                ISIN History for GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleIsinHistory'
+              schema:
+                $ref: '#/components/schemas/isinHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history or as of a specific date of ISIN changes
+        for the requested ID(s).
+      tags:
+      - ISIN
+      x-accepts: application/json
+    post:
+      description: |
+        Return the full history of ISIN changes for a given market security or FactSet Permanent Id.
+      operationId: batchIsinHistory
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ISIN History Single Market ID:
+                $ref: '#/components/examples/singleIsinHistoryPost'
+              ISIN History for Multiple Market IDs:
+                $ref: '#/components/examples/multipleIsinHistoryPost'
+            schema:
+              $ref: '#/components/schemas/isinHistoryTranslationRequest'
+        description: Request Body for ISIN History
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ISIN History for GOOGL:
+                  $ref: '#/components/examples/singleIsinHistory'
+                ISIN History for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleIsinHistory'
+              schema:
+                $ref: '#/components/schemas/isinHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieve the full history or as of a specific date of ISIN changes
+        for a requested ID.
+      tags:
+      - ISIN
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/ticker:
+    get:
+      description: |
+        Returns the Ticker-Exchange or Ticker-Region for a given security.
+      operationId: translateTicker
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.
+            * **REGION** = Ticker-Regional (e.g. GOOGL-US)
+            * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)
+        examples:
+          Regional:
+            summary: REGION - Ticker-Regional ID
+            value: REGION
+          Exchange:
+            summary: EXCHANGE - Ticker-Exchange ID
+            value: EXCHANGE
+        explode: true
+        in: query
+        name: tickerType
+        required: false
+        schema:
+          default: REGION
+          enum:
+          - REGION
+          - EXCHANGE
+          type: string
+        style: form
+      - description: As-Of date for historical symbol request in YYYY-MM-DD format.
+        example: 2010-01-01
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleTickerTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleTickerTranslation'
+              schema:
+                $ref: '#/components/schemas/tickerTranslationResponse'
+          description: Successful response of Ticker-Exchange or Ticker-Region for
+            a given security.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the Ticker-Exchange or Ticker-Region for a given security.
+      tags:
+      - Ticker
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
+      operationId: batchTranslateTicker
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market Identifier to Ticker:
+                $ref: '#/components/examples/singleTickerTranslationPost'
+              Translate Multiple Market Identifiers Ticker:
+                $ref: '#/components/examples/multipleTickerTranslationPost'
+            schema:
+              $ref: '#/components/schemas/tickerTranslationRequest'
+        description: Request Body for Ticker History
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleTickerTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleTickerTranslation'
+              schema:
+                $ref: '#/components/schemas/tickerTranslationResponse'
+          description: Symbol Translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the Ticker-Exchange or Ticker-Region for a given security.
+      tags:
+      - Ticker
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/ticker-history:
+    get:
+      description: |
+        Return the full history of Ticker changes for a given market security or FactSet Permanent Id.
+      operationId: tickerHistory
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.
+            * **REGION** = Ticker-Regional (e.g. GOOGL-US)
+            * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)
+        examples:
+          Regional:
+            summary: REGION - Ticker-Regional ID
+            value: REGION
+          Exchange:
+            summary: EXCHANGE - Ticker-Exchange ID
+            value: EXCHANGE
+        explode: true
+        in: query
+        name: tickerType
+        required: false
+        schema:
+          default: REGION
+          enum:
+          - REGION
+          - EXCHANGE
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Ticker History since Jan. 1st 2010 for GOOGL:
+                  $ref: '#/components/examples/singleTickerHistory'
+                Ticker History since Jan. 1st 2010 for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleTickerHistory'
+              schema:
+                $ref: '#/components/schemas/tickerHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the full history of Ticker-Exchange or Ticker-Region changes
+        for a requested security.
+      tags:
+      - Ticker
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
+      operationId: batchTickerHistory
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Ticker History since Jan. 1st 2010 for Single Market ID:
+                $ref: '#/components/examples/singleTickerHistoryPost'
+              Ticker History since Jan. 1st 2010 for Multiple Market IDs:
+                $ref: '#/components/examples/multipleTickerHistoryPost'
+            schema:
+              $ref: '#/components/schemas/tickerHistoryTranslationRequest'
+        description: Request Body for Ticker History
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Ticker History since Jan. 1st 2010 for GOOGL:
+                  $ref: '#/components/examples/singleTickerHistory'
+                Ticker History since Jan. 1st 2010 for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleTickerHistory'
+              schema:
+                $ref: '#/components/schemas/tickerHistoryTranslationResponse'
+          description: Symbol translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the full history of Ticker-Exchange or Ticker-Region changes
+        for a requested security.
+      tags:
+      - Ticker
+      x-contentType: application/json
+      x-accepts: application/json
+  /symbology/v1/bloomberg:
+    get:
+      description: Returns the current security, composite, regional Bloomberg (FIGI)
+        unique identifiers.
+      operationId: translateBloomberg
+      parameters:
+      - description: Requested market securities or entities. Accepted identifiers
+          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+          Tickers. This request value is sent back in the response as, `requestId`.
+        examples:
+          singleMarketId:
+            summary: One Market Identifier
+            value:
+            - GOOGL-US
+          multipleMarketIds:
+            summary: Multiple Market Identifiers
+            value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleBloombergTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleBloombergTranslation'
+              schema:
+                $ref: '#/components/schemas/bloombergTranslationResponse'
+          description: Successful response of Ticker-Exchange or Ticker-Region for
+            a given security.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate FactSet symbols into Bloomberg Identifiers.
+      tags:
+      - Bloomberg FIGI
+      x-accepts: application/json
+    post:
+      description: Returns the current security, composite, and regional identifiers
+        from Bloomberg. <p>This method is best for requesting **large universes**
+        of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
+      operationId: batchTranslateBloomberg
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Translate Single Market Identifier to Bloomberg:
+                $ref: '#/components/examples/singleBloombergTranslationPost'
+              Translate Multiple Market Identifiers Bloomberg:
+                $ref: '#/components/examples/multipleBloombergTranslationPost'
+            schema:
+              $ref: '#/components/schemas/bloombergTranslationRequest'
+        description: Request Body for Bloomberg FIGIs.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleBloombergTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleBloombergTranslation'
+              schema:
+                $ref: '#/components/schemas/bloombergTranslationResponse'
+          description: Symbol Translation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Translate market security symbols into Bloomberg Identifiers.
+      tags:
+      - Bloomberg FIGI
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    singleFactsetTranslation:
+      description: Translating a single market identifier (IBM-US) into a Factset
+        Permanent ID.
+      summary: Translating a single market identifier into a Factset Permanent ID.
+      value:
+        data:
+        - fsymId: SJY281-R
+          fsymSecurityId: MCPQD9-S
+          fsymRegionalId: SJY281-R
+          fsymListingId: NM6QRZ-L
+          fsymEntityId: 000N1N-E
+          fsymTickerExchange: IBM-USA
+          fsymTickerRegion: IBM-US
+          frefListingExchange: NYS
+          currency: USD
+          securityType: SHARE
+          name: International Business Machines Corporation
+          requestId: IBM-US
+    multipleFactsetTranslation:
+      description: Translating multiple market identifiers (IBM-US, FDS-US, APPL-US)
+        into Factset Permanent IDs.
+      summary: Translating multiple market identifiers into Factset Permanent IDs.
+      value:
+        data:
+        - fsymId: SJY281-R
+          fsymSecurityId: MCPQD9-S
+          fsymRegionalId: SJY281-R
+          fsymListingId: NM6QRZ-L
+          fsymEntityId: 000N1N-E
+          fsymTickerExchange: IBM-USA
+          fsymTickerRegion: IBM-US
+          frefListingExchange: NYS
+          currency: USD
+          securityType: SHARE
+          name: International Business Machines Corporation
+          requestId: IBM-US
+        - fsymId: SQFMK3-R
+          fsymSecurityId: DJC0PL-S
+          fsymRegionalId: SQFMK3-R
+          fsymListingId: MFRPJG-L
+          fsymEntityId: 0016YD-E
+          fsymTickerExchange: FDS-USA
+          fsymTickerRegion: FDS-US
+          frefListingExchange: NYS
+          currency: USD
+          securityType: SHARE
+          name: FactSet Research Systems Inc.
+          requestId: FDS-US
+        - fsymId: SND8QN-R
+          fsymSecurityId: BZW5K9-S
+          fsymRegionalId: SND8QN-R
+          fsymListingId: MT8YXR-L
+          fsymEntityId: 0B5JXL-E
+          fsymTickerExchange: APPL-USA
+          fsymTickerRegion: APPL-US
+          frefListingExchange: OTC
+          currency: null
+          securityType: SHARE
+          name: Appell Petroleum Corp.
+          requestId: APPL-US
+    singleFactsetTranslationPost:
+      description: Translating a single market identifier (IBM-US) into a FactSet
+        Permanent ID from a Post Body.
+      summary: Translating a single market identifier into a Factset Permanent ID
+        from a Post Body.
+      value:
+        ids:
+        - IBM-US
+    multipleFactsetTranslationPost:
+      description: Translating multiple market identifiers (IBM-US,FDS-US,APPL-US)
+        into Factset Permanent IDs from a Post Body.
+      summary: Translating multiple market identifier into Factset Permanent IDs from
+        a Post Body.
+      value:
+        ids:
+        - IBM-US
+        - FDS-US
+        - APPL-US
+    singleCusipTranslation:
+      description: Translating Single Market Identifier (GOOGL-US) into CUSIP.
+      summary: Translating a single market identifier into CUSIP.
+      value:
+        data:
+          fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          cusipEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL
+    multipleCusipTranslation:
+      description: Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into CUSIPs.
+      summary: Translating Multiple Market Identifiers into CUSIPs.
+      value:
+        data:
+        - fsymId: DJC0PL-S
+          name: FactSet Research Systems Inc.
+          cusip: "303075105"
+          cusipEffectiveStartDate: 1996-06-28
+          cusipEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: FDS
+        - fsymId: DF3K29-S
+          name: Microsoft Corporation
+          cusip: "594918104"
+          cusipEffectiveStartDate: 1986-03-13
+          cusipEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: MSFT
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          cusipEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL
+    singleCusipTranslationPost:
+      description: Translating a market identifier (GOOGL-US) into CUSIP from a Post
+        Body.
+      summary: Translating a single market identifier into CUSIP from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        asOfDate: 2010-01-01
+    multipleCusipTranslationPost:
+      description: Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into
+        CUSIP from a Post Body.
+      summary: Translating a multiple market identifiers into CUSIPs from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+        asOfDate: 2010-01-01
+    singleCusipHistory:
+      description: Full history of CUSIP for a single market identifier (GOOGL-US).
+      summary: Full history of CUSIP for a single market identifier.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          cusipEffectiveEndDate: 2015-10-05
+          requestId: GOOGL-US
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 02079K305
+          cusipEffectiveStartDate: 2015-10-05
+          cusipEffectiveEndDate: null,
+          requestId: GOOGL-US
+    multipleCusipHistory:
+      description: Full history of CUSIPs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history of CUSIPs for multiple market identifiers.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          cusipEffectiveEndDate: 2015-10-05
+          requestId: GOOGL-US
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          cusip: 02079K305
+          cusipEffectiveStartDate: 2015-10-05
+          cusipEffectiveEndDate: null,
+          requestId: GOOGL-US
+        - fsymId: R85KLC-S
+          name: Apple Inc.
+          cusip: "037833100"
+          cusipEffectiveStartDate: 1980-12-12
+          cusipEffectiveEndDate: null
+          requestId: AAPL-US
+        - fsymId: DF3K29-S
+          name: Microsoft Corporation
+          cusip: "594918104"
+          cusipEffectiveStartDate: 1986-03-13
+          cusipEffectiveEndDate: null
+          requestId: MSFT-US
+    singleCusipHistoryPost:
+      description: Full history of CUSIP for a single market identifier (GOOGL-US).
+      summary: Full history of CUSIP for a single market identifier.
+      value:
+        ids:
+        - IBM-US
+        - FDS-US
+    multipleCusipHistoryPost:
+      description: Full history of CUSIPs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history of CUSIPs for multiple market identifiers.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+    singleSedolTranslation:
+      description: Translating Single Market Identifier (GOOGL-US) into SEDOL.
+      summary: Translating a single market identifier into SEDOL.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveStartDate: 2004-08-19
+          sedolEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL-US
+    multipleSedolTranslation:
+      description: Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into SEDOLs.
+      summary: Translating Multiple Market Identifiers into SEDOLs.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveStartDate: 2004-08-19
+          sedolEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL-US
+        - fsymId: MH33D6-R
+          name: Apple Inc.
+          sedol: "2046251"
+          sedolEffectiveStartDate: 1980-12-12
+          sedolEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: AAPL-US
+        - fsymId: P8R3C2-R
+          name: Microsoft Corporation
+          sedol: "2588173"
+          sedolEffectiveStartDate: 1986-03-13
+          sedolEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: MSFT-US
+    singleSedolTranslationPost:
+      description: Translating a market identifier (GOOGL-US) into SEDOL from a Post
+        Body.
+      summary: Translating a single market identifier into SEDOL from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        asOfDate: 2010-01-01
+    multipleSedolTranslationPost:
+      description: Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into
+        SEDOLs from a Post Body.
+      summary: Translating a multiple market identifiers into SEDOLs from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+        asOfDate: 2010-01-01
+    singleSedolHistory:
+      description: Full history of SEDOL for a single market identifier (GOOGL-US).
+      summary: Full history of SEDOL for a single market identifier.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveStartDate: 2004-08-19
+          sedolEffectiveEndDate: 2015-10-05
+          requestId: GOOGL-US
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: BYVY8G0
+          sedolEffectiveStartDate: 2015-10-05
+          sedolEffectiveEndDate: null
+          requestId: GOOGL-US
+    multipleSedolHistory:
+      description: Full history of SEDOLs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history of SEDOLs for multiple market identifiers.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveStartDate: 2004-08-19
+          sedolEffectiveEndDate: 2015-10-05
+          requestId: GOOGL-US
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: BYVY8G0
+          sedolEffectiveStartDate: 2015-10-05
+          sedolEffectiveEndDate: null
+          requestId: GOOGL-US
+        - fsymId: MH33D6-R
+          name: Apple Inc.
+          sedol: "2046251"
+          sedolEffectiveStartDate: 1980-12-12
+          sedolEffectiveEndDate: null
+          requestId": AAPL-US
+        - fsymId: P8R3C2-R
+          name: Microsoft Corporation
+          sedol: "2588173"
+          sedolEffectiveStartDate: 1986-03-13
+          sedolEffectiveEndDate": null
+          requestId": MSFT-US
+    singleSedolHistoryPost:
+      description: Full history of SEDOL for a single market identifier (GOOGL-US).
+      summary: Full history of SEDOL for a single market identifier.
+      value:
+        ids:
+        - GOOGL-US
+    multipleSedolHistoryPost:
+      description: Full history of SEDOLs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history of SEDOLs for multiple market identifiers.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+    singleIsinTranslation:
+      description: Translating Single Market Identifier (GOOGL-US) into ISIN.
+      summary: Translating a single market identifier into ISIN.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+          isinEffectiveStartDate: 2004-08-19
+          isinEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL
+    multipleIsinTranslation:
+      description: Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into ISINs.
+      summary: Translating Multiple Market Identifiers into ISINs.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+          isinEffectiveStartDate: 2004-08-19
+          isinEffectiveEndDate: 2015-10-05
+          asOfDate: 2010-01-01
+          requestId: GOOGL
+        - fsymId: R85KLC-S
+          name: Apple Inc.
+          isin: US0378331005
+          isinEffectiveStartDate: 1980-12-12
+          isinEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: AAPL
+        - fsymId: DF3K29-S
+          name: Microsoft Corporation
+          isin: US5949181045
+          isinEffectiveStartDate: 1986-03-13
+          isinEffectiveEndDate: null
+          asOfDate: 2010-01-01
+          requestId: MSFT
+    singleIsinTranslationPost:
+      description: Translating a market identifier (GOOGL-US) into ISIN from a Post
+        Body.
+      summary: Translating a single market identifier into ISIN from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        asOfDate: 2010-01-01
+    multipleIsinTranslationPost:
+      description: Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into
+        ISINs from a Post Body.
+      summary: Translating a multiple market identifiers into ISINs from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+        asOfDate: 2010-01-01
+    singleIsinHistory:
+      description: Full history of ISIN for a single market identifier (GOOGL-US).
+      summary: Full history of ISIN for a single market identifier.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+          isinEffectiveStartDate: 2004-08-19
+          isinEffectiveEndDate: 2015-10-05
+          requestId: GOOGL
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US02079K3059
+          isinEffectiveStartDate: 2015-10-05
+          isinEffectiveEndDate: null
+          requestId: GOOGL
+    multipleIsinHistory:
+      description: Full history of ISINs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history of ISINs for multiple market identifiers.
+      value:
+        data:
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+          isinEffectiveStartDate: 2004-08-19
+          isinEffectiveEndDate: 2015-10-05
+          requestId: GOOGL
+        - fsymId: XF9TK6-S
+          name: Alphabet Inc. Class A
+          isin: US02079K3059
+          isinEffectiveStartDate: 2015-10-05
+          isinEffectiveEndDate: null
+          requestId: GOOGL
+        - fsymId: R85KLC-S
+          name: Apple Inc.
+          isin: US0378331005
+          isinEffectiveStartDate: 1980-12-12
+          isinEffectiveEndDate: null
+          requestId: AAPL
+        - fsymId: DF3K29-S
+          name: Microsoft Corporation
+          isin: US5949181045
+          isinEffectiveStartDate: 1986-03-13
+          isinEffectiveEndDate: null
+          requestId: MSFT
+    singleIsinHistoryPost:
+      description: Full history for ISIN for a single market identifier (GOOGL-US).
+      summary: Full history for ISIN for a single market identifier.
+      value:
+        ids:
+        - GOOGL-US
+    multipleIsinHistoryPost:
+      description: Full history for ISINs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      summary: Full history for ISINs for multiple market identifiers.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+    singleTickerTranslation:
+      description: Translating Single Market Identifier (HTM0LK-R) into Ticker.
+      summary: Translating a single market identifier into Ticker-Region.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03
+          asOfDate: 2020-07-29
+          requestId: HTM0LK-R
+    multipleTickerTranslation:
+      description: Translating Multiple Market Identifiers (HTM0LK-R, US0378331005,
+        2588173) into Ticker-Region.
+      summary: Translating Multiple Market Identifiers into Ticker-Region.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03
+          asOfDate: 2020-07-29
+          requestId: HTM0LK-R
+        - fsymId: MH33D6-R
+          name: Apple Inc.
+          ticker: AAPL-US
+          tickerEffectiveStartDate: 1980-12-12
+          asOfDate: 2020-07-29
+          requestId: US0378331005
+        - fsymId: P8R3C2-R
+          name: Microsoft Corporation
+          ticker: MSFT-US
+          tickerEffectiveStartDate: 1986-03-13
+          asOfDate: 2020-07-29
+          requestId: "2588173"
+    singleTickerTranslationPost:
+      description: Translating a market identifier (HTM0LK-R) into Ticker from a Post
+        Body.
+      summary: Translating a single market identifier into Ticker from a Post Body.
+      value:
+        ids:
+        - IBM-US
+        - FDS-US
+        tickerType: EXCHANGE
+        asOfDate: 2019-12-31
+    multipleTickerTranslationPost:
+      description: Translating market identifier (HTM0LK-R, US0378331005, '2588173')
+        into ISINs from a Tickers.
+      summary: Translating multiple market identifiers into Tickers from a Post Body.
+      value:
+        ids:
+        - HTM0LK-R
+        - US0378331005
+        - "2588173"
+        tickertype:
+        - REGION
+        asOfDate: 2019-12-31
+    singleTickerHistory:
+      description: Full history of Ticker for a single market identifier (HTM0LK-R).
+      summary: Full history of Ticker for a single market identifier.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOG-US
+          tickerEffectiveStartDate: 2004-08-19
+          requestId: HTM0LK-R
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03
+          requestId: HTM0LK-R
+    multipleTickerHistory:
+      description: Full history of Tickers for multiple market identifiers (HTM0LK-R,
+        US0378331005, '2588173').
+      summary: Full history of Tickers for multiple market identifiers.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOG-US
+          tickerEffectiveStartDate: 2004-08-19
+          requestId: HTM0LK-R
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03
+          requestId: HTM0LK-R
+        - fsymId: MH33D6-R
+          name: Apple Inc.
+          ticker: AAPL-US
+          tickerEffectiveStartDate: 1980-12-12
+          requestId: US0378331005
+        - fsymId: P8R3C2-R
+          name: Microsoft Corporation
+          ticker: MSFT-US
+          tickerEffectiveStartDate: 1986-03-13
+          requestId: "2588173"
+    singleTickerHistoryPost:
+      description: Full history of Ticker for a single market identifier (HTM0LK-R).
+      summary: Full history of Ticker for a single market identifier.
+      value:
+        ids:
+        - HTM0LK-R
+        tickerType:
+        - REGION
+    multipleTickerHistoryPost:
+      description: Full history of Tickers for multiple market identifiers (HTM0LK-R,
+        US0378331005, '2588173').
+      summary: Full history of Tickers for multiple market identifiers.
+      value:
+        ids:
+        - HTM0LK-R
+        - US0378331005
+        - "2588173"
+        tickertype:
+        - REGION
+    singleBloombergTranslation:
+      description: Translating Single Market Identifier (GOOGL-US) into Bloomberg
+        FIGI.
+      summary: Translating a single market identifier into Bloomberg FIGI.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          bbgSecurityId: BBG009S39JY5
+          bbgCompositeId: BBG009S39JX6
+          bbgListingId: BBG009S4MT03
+          bbgTickerListing: GOOGL UW
+          bbgTickerComposite: GOOGL US
+          requestId: GOOGL-US
+    multipleBloombergTranslation:
+      description: Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into Bloomberg FIGIs.
+      summary: Translating Multiple Market Identifiers into Bloomberg FIGIs.
+      value:
+        data:
+        - fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          bbgSecurityId: BBG009S39JY5
+          bbgCompositeId: BBG009S39JX6
+          bbgListingId: BBG009S4MT03
+          bbgTickerListing: GOOGL UW
+          bbgTickerComposite: GOOGL US
+          requestId: GOOGL-US
+        - fsymId: MH33D6-R
+          name: Apple Inc.
+          bbgSecurityId: BBG001S5N8V8
+          bbgCompositeId: BBG000B9XRY4
+          bbgListingId: BBG000B9Y5X2
+          bbgTickerListing: AAPL UW
+          bbgTickerComposite: AAPL US
+          requestId: AAPL-US
+        - fsymId: 8R3C2-R
+          name: Microsoft Corporation
+          bbgSecurityId: BBG001S5TD05
+          bbgCompositeId: BBG000BPH459
+          bbgListingId: BBG000BPHFS9
+          bbgTickerListing: MSFT UW
+          bbgTickerComposite: MSFT US
+          requestId: MSFT-US
+    singleBloombergTranslationPost:
+      description: Translating a market identifier (GOOGL-US) into Bloomberg from
+        a Post Body.
+      summary: Translating a single market identifier into Bloomberg from a Post Body.
+      value:
+        ids:
+        - GOOGL-US
+    multipleBloombergTranslationPost:
+      description: Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into
+        Bloomberg from a Post Body.
+      summary: Translating a multiple market identifiers into Bloomberg from a Post
+        Body.
+      value:
+        ids:
+        - GOOGL-US
+        - AAPL-US
+        - MSFT-US
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2020-07-24 17:19:26.237
+        path: /symbology/v1/{endpoint}
+        message: 'The asOfDate parameter(s) must be in the following date format:
+          YYYY-MM-DD. '
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-07-24 17:17:24.963
+        path: /symbology/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      description: This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include dates
+        as of today's current date or any prior historical date.
+      summary: Bad Request - Future Date
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:52:48.091
+        path: /symbology/v1/{endpoint}
+        message: The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /symbology/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2020-07-24 17:14:57.32
+        path: /symbology/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /symbology/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /symbology/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /symbology/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /symbology/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /symbology/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /symbology/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /symbology/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    getIds:
+      description: Requested market securities or entities. Accepted identifiers include
+        all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers.
+        This request value is sent back in the response as, `requestId`.
+      examples:
+        singleMarketId:
+          summary: One Market Identifier
+          value:
+          - GOOGL-US
+        multipleMarketIds:
+          summary: Multiple Market Identifiers
+          value:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
+    getAsOfDate:
+      description: As-Of date for historical symbol request in YYYY-MM-DD format.
+      example: 2010-01-01
+      explode: true
+      in: query
+      name: asOfDate
+      required: false
+      schema:
+        type: string
+      style: form
+    getTickerType:
+      description: |
+        Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.
+          * **REGION** = Ticker-Regional (e.g. GOOGL-US)
+          * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)
+      examples:
+        Regional:
+          summary: REGION - Ticker-Regional ID
+          value: REGION
+        Exchange:
+          summary: EXCHANGE - Ticker-Exchange ID
+          value: EXCHANGE
+      explode: true
+      in: query
+      name: tickerType
+      required: false
+      schema:
+        default: REGION
+        enum:
+        - REGION
+        - EXCHANGE
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivty 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    factsetTranslationRequest:
+      description: Request object for FactSet endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+      required:
+      - ids
+      title: FactSet Translation Request
+      type: object
+    factsetTranslationResponse:
+      description: Response object for FactSet endpoint.
+      example:
+        data:
+        - frefListingExchange: NAS
+          fsymEntityId: 000F9X-E
+          securityType: SHARE
+          requestId: COST
+          fsymId: NSXGVV-L
+          name: Costco Wholesale Corporation
+          fsymSecurityId: X0MHD2-S
+          currency: USD
+          fsymListingId: NSXGVV-L
+          fsymRegionalId: BL5KVX-R
+          fsymTickerExchange: COST-USA
+          fsymTickerRegion: COST-US
+        - frefListingExchange: NAS
+          fsymEntityId: 000F9X-E
+          securityType: SHARE
+          requestId: COST
+          fsymId: NSXGVV-L
+          name: Costco Wholesale Corporation
+          fsymSecurityId: X0MHD2-S
+          currency: USD
+          fsymListingId: NSXGVV-L
+          fsymRegionalId: BL5KVX-R
+          fsymTickerExchange: COST-USA
+          fsymTickerRegion: COST-US
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/factsetTranslation'
+          type: array
+      title: FactSet Translation Response
+      type: object
+    factsetTranslation:
+      description: FactSet Translation data object.
+      example:
+        frefListingExchange: NAS
+        fsymEntityId: 000F9X-E
+        securityType: SHARE
+        requestId: COST
+        fsymId: NSXGVV-L
+        name: Costco Wholesale Corporation
+        fsymSecurityId: X0MHD2-S
+        currency: USD
+        fsymListingId: NSXGVV-L
+        fsymRegionalId: BL5KVX-R
+        fsymTickerExchange: COST-USA
+        fsymTickerRegion: COST-US
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+          type: string
+        fsymSecurityId:
+          description: FactSet Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income
+            securities that exist on FactSet are allocated a security-level permanent
+            identifier. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: X0MHD2-S
+          type: string
+        fsymRegionalId:
+          description: FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security’s
+            best regional security data series per currency. For equities, all primary
+            listings per region and currency are allocated a regional-level permanent
+            identifier. The regional-level permanent identifier will be available
+            once a SEDOL representing the region/currency has been allocated and the
+            identifiers are on FactSet. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: BL5KVX-R
+          type: string
+        fsymListingId:
+          description: FactSet Listing Security Identifier. Six alpha-numeric characters,
+            vowels excluded, with an -L suffix (XXXXXX-L). The listing-level permanent
+            identifier will be available prior to the end of trading on the first
+            day of trading. Does not populate for composite ids (i.e. '-USA') since
+            these are not specified listing exchanges. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+          type: string
+        fsymEntityId:
+          description: FactSet Entity Identifier (-E). For more information on Entity
+            Ids, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: 000F9X-E
+          type: string
+        fsymTickerExchange:
+          description: 'FactSet exchange ticker symbol. For definitions of Exchange
+            Codes, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544).'
+          example: COST-USA
+          type: string
+        fsymTickerRegion:
+          description: 'FactSet region ticker symbol. For details on Global Region
+            Codes, visit [Online Assistant Page #13258](https://oa.apps.factset.com/pages/13258)'
+          example: COST-US
+          type: string
+        frefListingExchange:
+          description: 'Primary Listing Exchange Code. For details on Exchange Code
+            Definitions, visit [Online Assistant Page #12544](https://oa.apps.factset.com/pages/12544) '
+          example: NAS
+          type: string
+        currency:
+          description: 'Three character ISO Currency code. For details on ISO Currency
+            Code definitions, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)'
+          example: USD
+          type: string
+        securityType:
+          description: 'Returns security types for equities. For definitions of Security
+            Types, visit [Online Assistant Page #15776](https://oa.apps.factset.com/pages/15776)'
+          example: SHARE
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Costco Wholesale Corporation
+          type: string
+        requestId:
+          description: Identifier specified in the `ids` parameter of the request.
+          example: COST
+          type: string
+      title: FactSet Translation
+      type: object
+    cusipTranslationRequest:
+      description: Request object for CUSIP Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+        asOfDate:
+          description: As-Of Date for historical symbol request in YYYY-MM-DD format.
+          example: 2010-01-01
+          title: As Of Date
+          type: string
+      required:
+      - ids
+      title: CUSIP Translation Request
+      type: object
+    cusipTranslationResponse:
+      description: Response object for CUISP Translation endpoint.
+      example:
+        data:
+        - cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-01-01T00:00:00.000+0000
+          cusipEffectiveEndDate: 2015-10-05
+        - cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-01-01T00:00:00.000+0000
+          cusipEffectiveEndDate: 2015-10-05
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/cusipTranslation'
+          type: array
+      title: CUSIP Translation Response
+      type: object
+    cusipTranslation:
+      description: CUISP Translation data object.
+      example:
+        cusip: 38259P508
+        cusipEffectiveStartDate: 2004-08-19
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        asOfDate: 2010-01-01T00:00:00.000+0000
+        cusipEffectiveEndDate: 2015-10-05
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        cusip:
+          description: CUSIP with Check Digit
+          example: 38259P508
+          type: string
+        cusipEffectiveStartDate:
+          description: The effective start date in which the CUSIP was valid for the
+            security.
+          example: 2004-08-19
+          type: string
+        cusipEffectiveEndDate:
+          description: The effective end date in which the CUSIP was valid. If null,
+            the CUSIP is still active for the security and date requested.
+          example: 2015-10-05
+          type: string
+        asOfDate:
+          description: The effective end date in which the CUSIP was valid. If null,
+            the CUSIP is still active for the security and date requested.
+          example: 2010-01-01
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: CUSIP Translation
+      type: object
+    cusipHistoryTranslationRequest:
+      description: Request object for CUSIP Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+      required:
+      - ids
+      title: CUSIP history Translation Request
+      type: object
+    cusipHistoryTranslationResponse:
+      description: Response object for CUISP Translation endpoint.
+      example:
+        data:
+        - cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          cusipEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+        - cusip: 38259P508
+          cusipEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          cusipEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/cusipHistoryTranslation'
+          type: array
+      title: CUSIP History Translation Response
+      type: object
+    cusipHistoryTranslation:
+      description: CUISP history Translation data object.
+      example:
+        cusip: 38259P508
+        cusipEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        cusipEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        cusip:
+          description: CUSIP with Check Digit
+          example: 38259P508
+          type: string
+        cusipEffectiveStartDate:
+          description: CUSIP effective start date in YYYY-MM-DD format.
+          example: 2004-08-19
+          format: date
+          type: string
+        cusipEffectiveEndDate:
+          description: CUSIP effective end date in YYYY-MM-DD format. Null if still
+            active.
+          example: 2015-10-05
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: CUSIP history Translation
+      type: object
+    sedolTranslationRequest:
+      description: Request object for SEDOL Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+        asOfDate:
+          description: As-Of Date for historical symbol request in YYYY-MM-DD format.
+          example: 2010-01-01
+          title: As Of Date
+          type: string
+      required:
+      - ids
+      title: SEDOL Translation Request
+      type: object
+    sedolTranslationResponse:
+      description: Response object for SEDOL Translation endpoint.
+      example:
+        data:
+        - sedolEffectiveStartDate: 2004-08-19
+          requestId: GOOGL-US
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          asOfDate: 2010-01-01T00:00:00.000+0000
+          sedolEffectiveEndDate: 2015-10-05
+        - sedolEffectiveStartDate: 2004-08-19
+          requestId: GOOGL-US
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          asOfDate: 2010-01-01T00:00:00.000+0000
+          sedolEffectiveEndDate: 2015-10-05
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/sedolTranslation'
+          type: array
+      title: SEDOL Translation Response
+      type: object
+    sedolTranslation:
+      description: SEDOL Translation data object.
+      example:
+        sedolEffectiveStartDate: 2004-08-19
+        requestId: GOOGL-US
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        sedol: B020QX2
+        asOfDate: 2010-01-01T00:00:00.000+0000
+        sedolEffectiveEndDate: 2015-10-05
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        sedol:
+          description: SEDOL
+          example: B020QX2
+          type: string
+        sedolEffectiveStartDate:
+          description: The effective start date in which the CUSIP was valid for the
+            security.
+          example: 2004-08-19
+          type: string
+        sedolEffectiveEndDate:
+          description: The effective end date in which the Sedol was valid. If null,
+            the Sedol is still active for the security and date requested.
+          example: 2015-10-05
+          type: string
+        asOfDate:
+          description: The reqeuested date for the symbol.
+          example: 2010-01-01
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL-US
+          type: string
+      title: SEDOL Translation
+      type: object
+    sedolHistoryTranslationRequest:
+      description: Request object for SEDOL Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+      required:
+      - ids
+      title: SEDOL History Translation Request
+      type: object
+    sedolHistoryTranslationResponse:
+      description: Response object for SEDOL Translation endpoint.
+      example:
+        data:
+        - sedolEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+        - sedolEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          sedol: B020QX2
+          sedolEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/sedolHistoryTranslation'
+          type: array
+      title: SEDOL Translation Response
+      type: object
+    sedolHistoryTranslation:
+      description: SEDOL History Translation data object.
+      example:
+        sedolEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        sedol: B020QX2
+        sedolEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        sedol:
+          description: SEDOL
+          example: B020QX2
+          type: string
+        sedolEffectiveStartDate:
+          description: SEDOL effective start date in YYYY-MM-DD format.
+          example: 2004-08-19
+          format: date
+          type: string
+        sedolEffectiveEndDate:
+          description: SEDOL effective end date in YYYY-MM-DD format. Null if still
+            active.
+          example: 2015-10-05
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: SEDOL History Translation
+      type: object
+    isinTranslationRequest:
+      description: Request object for ISIN Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+        asOfDate:
+          description: As-Of Date for historical symbol request in YYYY-MM-DD format.
+          example: 2010-01-01
+          title: As Of Date
+          type: string
+      required:
+      - ids
+      title: ISIN Translation Request
+      type: object
+    isinTranslationResponse:
+      description: Response object for ISIN Translation endpoint.
+      example:
+        data:
+        - requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+        - requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          isin: US38259P5089
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/isinTranslation'
+          type: array
+      title: ISIN Translation Response
+      type: object
+    isinTranslation:
+      description: ISIN Translation data object.
+      example:
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        isin: US38259P5089
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        isin:
+          description: ISIN
+          example: US38259P5089
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: ISIN Translation
+      type: object
+    isinHistoryTranslationRequest:
+      description: Request object for ISIN History endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+      required:
+      - ids
+      title: ISIN History Translation Request
+      type: object
+    isinHistoryTranslationResponse:
+      description: Response object for ISIN Translation endpoint.
+      example:
+        data:
+        - isinEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          isinEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-12-31T00:00:00.000+0000
+          isin: US38259P5089
+        - isinEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+          isinEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-12-31T00:00:00.000+0000
+          isin: US38259P5089
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/isinHistoryTranslation'
+          type: array
+      title: ISIN History Translation Response
+      type: object
+    isinHistoryTranslation:
+      description: ISIN History Translation data object.
+      example:
+        isinEffectiveStartDate: 2004-08-19T00:00:00.000+0000
+        isinEffectiveEndDate: 2015-10-05T00:00:00.000+0000
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        asOfDate: 2010-12-31T00:00:00.000+0000
+        isin: US38259P5089
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        isin:
+          description: ISIN
+          example: US38259P5089
+          type: string
+        isinEffectiveStartDate:
+          description: ISIN effective start date in YYYY-MM-DD format.
+          example: 2004-08-19
+          format: date
+          type: string
+        isinEffectiveEndDate:
+          description: ISIN effective end date in YYYY-MM-DD format. Null if still
+            active.
+          example: 2015-10-05
+          format: date
+          type: string
+        asOfDate:
+          description: As of Date in YYYY-MM-DD format.
+          example: 2010-12-31
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: ISIN History Translation
+      type: object
+    tickerTranslationRequest:
+      description: Request object for Ticker endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+        tickerType:
+          description: |
+            Controls the Ticker Type returned.
+              * **REGION** = Ticker-Regional
+              * **EXCHANGE** = Ticker-Exchange
+          example: REGION
+          title: Ticker Type
+          type: string
+        asOfDate:
+          description: As-Of Date for historical symbol request in YYYY-MM-DD format.
+          example: 2010-01-01
+          title: As Of Date
+          type: string
+      required:
+      - ids
+      - tickerType
+      title: Ticker Translation Request
+      type: object
+    tickerTranslationResponse:
+      description: Response object for Ticker Translation endpoint.
+      example:
+        data:
+        - ticker: GOOGL-US
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+        - ticker: GOOGL-US
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/tickerTranslation'
+          type: array
+      title: Ticker Translation Response
+      type: object
+    tickerTranslation:
+      description: Ticker Translation data object.
+      example:
+        ticker: GOOGL-US
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        ticker:
+          description: Region or Exchange Ticker
+          example: GOOGL-US
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: Ticker Translation
+      type: object
+    tickerHistoryTranslationRequest:
+      description: Request object for Ticker endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+        tickerType:
+          description: |
+            Controls the Ticker Type returned.
+              * **REGION** = Ticker-Regional
+              * **EXCHANGE** = Ticker-Exchange
+          example: REGION
+          title: Ticker Type
+          type: string
+      required:
+      - ids
+      - tickerType
+      title: Ticker History Translation Request
+      type: object
+    tickerHistoryTranslationResponse:
+      description: Response object for Ticker History endpoint.
+      example:
+        data:
+        - ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-12-31T00:00:00.000+0000
+        - ticker: GOOGL-US
+          tickerEffectiveStartDate: 2014-04-03T00:00:00.000+0000
+          requestId: GOOGL
+          fsymId: HTM0LK-R
+          name: Alphabet Inc. Class A
+          asOfDate: 2010-12-31T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/tickerHistoryTranslation'
+          type: array
+      title: Ticker History Translation Response
+      type: object
+    tickerHistoryTranslation:
+      description: Ticker History Translation data object.
+      example:
+        ticker: GOOGL-US
+        tickerEffectiveStartDate: 2014-04-03T00:00:00.000+0000
+        requestId: GOOGL
+        fsymId: HTM0LK-R
+        name: Alphabet Inc. Class A
+        asOfDate: 2010-12-31T00:00:00.000+0000
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+          type: string
+        ticker:
+          description: Region or Exchange Ticker
+          example: GOOGL-US
+          type: string
+        tickerEffectiveStartDate:
+          description: Ticker effective start date in YYYY-MM-DD format.
+          example: 2014-04-03
+          format: date
+          type: string
+        asOfDate:
+          description: As of Date in YYYY-MM-DD format.
+          example: 2010-12-31
+          format: date
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: GOOGL
+          type: string
+      title: Ticker History Translation
+      type: object
+    bloombergTranslationRequest:
+      description: Request object for Bloomberg Translation endpoint.
+      properties:
+        ids:
+          description: Requested market securities or entities. Accepted identifiers
+            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+            Tickers. This request value is sent back in the response as, `requestId`.
+          example:
+          - GOOGL-US
+          items:
+            type: string
+          title: Identifier List
+          type: array
+      required:
+      - ids
+      title: Bloomberg Translation Request
+      type: object
+    bloombergTranslationResponse:
+      description: Response object for Symbol Translation endpoint.
+      example:
+        data:
+        - bbgTickerComposite: COST US
+          bbgSecurityId: BBG001S9KRQ7
+          bbgTickerListing: COST UW
+          requestId: COST
+          fsymId: NSXGVV-L
+          name: Costco Wholesale Corporation
+          bbgListingId: BBG000F6HLL1
+          bbgCompositeId: BBG000F6H8W8
+        - bbgTickerComposite: COST US
+          bbgSecurityId: BBG001S9KRQ7
+          bbgTickerListing: COST UW
+          requestId: COST
+          fsymId: NSXGVV-L
+          name: Costco Wholesale Corporation
+          bbgListingId: BBG000F6HLL1
+          bbgCompositeId: BBG000F6H8W8
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          items:
+            $ref: '#/components/schemas/bloombergTranslation'
+          type: array
+      title: Bloomberg Translation Response
+      type: object
+    bloombergTranslation:
+      description: Symbol Translation data object.
+      example:
+        bbgTickerComposite: COST US
+        bbgSecurityId: BBG001S9KRQ7
+        bbgTickerListing: COST UW
+        requestId: COST
+        fsymId: NSXGVV-L
+        name: Costco Wholesale Corporation
+        bbgListingId: BBG000F6HLL1
+        bbgCompositeId: BBG000F6H8W8
+      properties:
+        fsymId:
+          description: FactSet Default Permanent Identifier. Regional and Composite
+            (-USA) request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI will
+            use security '-S' ids. [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+          type: string
+        name:
+          description: Proper Name of company or issuer.
+          example: Costco Wholesale Corporation
+          type: string
+        bbgSecurityId:
+          description: Bloomberg Security Identifier.
+          example: BBG001S9KRQ7
+          type: string
+        bbgCompositeId:
+          description: Bloomberg Security Identifier.
+          example: BBG000F6H8W8
+          type: string
+        bbgListingId:
+          description: Bloomberg Security Identifier.
+          example: BBG000F6HLL1
+          type: string
+        bbgTickerListing:
+          description: Bloomberg Security Identifier.
+          example: COST UW
+          type: string
+        bbgTickerComposite:
+          description: Bloomberg Security Identifier.
+          example: COST US
+          type: string
+        requestId:
+          description: Identifier specified in the request
+          example: COST
+          type: string
+      title: Bloomberg Translation
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /symbology/v1/{endpoint}
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    getIds:
+      description: Requested market securities or entities. Accepted identifiers include
+        all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers.
+        This request value is sent back in the response as, `requestId`.
+      example:
+      - GOOGL-US
+      items:
+        type: string
+      title: Identifier List
+      type: array
+    getAsOfDate:
+      description: As-Of Date for historical symbol request in YYYY-MM-DD format.
+      example: 2010-01-01
+      title: As Of Date
+      type: string
+    getTickerType:
+      description: |
+        Controls the Ticker Type returned.
+          * **REGION** = Ticker-Regional
+          * **EXCHANGE** = Ticker-Exchange
+      example: REGION
+      title: Ticker Type
+      type: string
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

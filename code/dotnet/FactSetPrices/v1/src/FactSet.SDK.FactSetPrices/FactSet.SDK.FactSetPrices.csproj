@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>FactSet.SDK.FactSetPrices</AssemblyName>
+    <PackageId>FactSet.SDK.FactSetPrices</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>FactSet Research Systems</Authors>
+    <Company>FactSet Research Systems</Company>
+    <AssemblyTitle>FactSet SDK</AssemblyTitle>
+    <Description>Allow clients to fetch data through the SDK.</Description>
+    <Copyright></Copyright>
+    <RootNamespace>FactSet.SDK.FactSetPrices</RootNamespace>
+    <Version>0.9.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetPrices.xml</DocumentationFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Refer to Changelog on GitHub source repository</PackageReleaseNotes>
+    <PackageTags>FactSet;API;SDK</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FactSet.SDK.Utils" Version="0.9.1" />
+    <PackageReference Include="JsonSubTypes" Version="1.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
+    <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

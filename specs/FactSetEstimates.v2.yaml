@@ -1,0 +1,2542 @@
+openapi: 3.0.0
+info:
+  version: 2.3.0
+  title: FactSet Estimates
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    Gain access to 20+ years of comprehensive estimates and statistics of over
+    250+ estimated metrics, including financial statement items, product
+    segments, geosegments, and industry metrics. FactSet's consensus estimates
+    are aggregated from a wide base of over 800+ contributors and cover over
+    19,000 active companies across 90+ countries. Data returned can be accessed
+    on the data frequencies based on quarterly, fiscal years, and calendar
+    years. FactSet Estimates updates on a real time basis intraday (every 5
+    minutes). Updating times vary based on earning season vs. non-earning season
+    but the goal is to have the data available to the client within a few hours
+    that FactSet receives updated information. Often times updates times can be
+    much faster as FactSet has always been known as one of the fastest estimate
+    providers in the market.
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Consensus
+    description: >-
+      The consensus or nest of all Estimates items aggregated by a statistic
+      such as mean or median.
+  - name: Broker Detail
+    description: >-
+      The Broker-Level detail of Estimates items. Entitlements with Brokers are
+      required.
+  - name: Ratings
+    description: >-
+      The Consensus and Broker-Level Ratings detail for Buy, Hold, Sell,
+      Overweight, Underweight.
+  - name: Surprise
+    description: >-
+      The Surprise Events reflecting the company's reported financials against
+      the broker's estimates.
+  - name: Segments
+    description: The Product or Geographic Segment Estimates
+  - name: Data Items
+    description: Available Data Item Catalog to be used as input to the metrics parameters
+paths:
+  /factset-estimates/v2/rolling-consensus:
+    get:
+      tags:
+        - Consensus
+      summary: >-
+        Retrieves consensus estimates for a requested list of ids and rolling
+        fiscal periods.
+      operationId: getRollingConsensus
+      description: >
+        Returns FactSet Estimates consensus data using rolling fiscal dates.
+        <p>The rolling behavior causes fiscal year to automatically roll from
+        one year to the next as the historical perspective date changes. The
+        fiscal period rolls forward as of each period end. This endpoint is
+        optimized to allow the request to simply include a relative fiscal
+        period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for
+        next unreported fiscal year end), and then see what the consensus
+        thought the "next fiscal year" estimates were through time as you "roll"
+        back your perspective dates. This differs from locking down an absolute
+        estimate period such as explicitly stating Fiscal Year 2019. This can be
+        done in the fixed-consensus endpoint.</p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/relativeFiscalStart'
+        - $ref: '#/components/parameters/relativeFiscalEnd'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Consensus
+      summary: >-
+        Retrieves consensus estimates for a requested list of ids and rolling
+        fiscal periods
+      description: >
+        Returns FactSet Estimates consensus data using rolling fiscal dates.
+        <p>The rolling behavior causes fiscal year to automatically roll from
+        one year to the next as the historical perspective date changes. The
+        fiscal period rolls forward as of each period end. This endpoint is
+        optimized to allow the request to simply include a relative fiscal
+        period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for
+        next unreported fiscal year end), and then see what the consensus
+        thought the "next fiscal year" estimates were through time as you "roll"
+        back your perspective dates. This differs from locking down an absolute
+        estimate period such as explicitly stating Fiscal Year 2019. This can be
+        done in the fixed-consensus endpoint.</p>
+      operationId: getRollingConsensusForList
+      requestBody:
+        required: true
+        description: Request object for Rolling Conensus estimates.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rollingConsensusRequest'
+      responses:
+        '200':
+          description: Rolling Conensus Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/fixed-consensus:
+    get:
+      tags:
+        - Consensus
+      summary: >-
+        Retrieves consensus estimates for a requested list of ids and fixed
+        fiscal periods
+      operationId: getFixedConsensus
+      description: >
+        Returns FactSet Estimates consensus data using fixed fiscal dates. For
+        example, if the company's current unreported year is 12/2020, all data
+        returned by formulas that specify as the period/report basis will be for
+        12/2005 regardless of what perspective dates (startDate/endDate) are
+        used. The fixed dates are "locked" in time and all estimated values are
+        for that explicit date. If you are requesting that the estimated periods
+        can change with the perspective date, please use the rolling-consensus
+        endpoint.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/fiscalPeriodStart'
+        - $ref: '#/components/parameters/fiscalPeriodEnd'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Consensus Estimate Data Items.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Consensus
+      summary: FactSet consensus estimates for fixed fiscal periods
+      description: >
+        Returns FactSet Estimates consensus data using fixed fiscal dates. For
+        example, if the company's current unreported year is 12/2020, all data
+        returned by formulas that specify as the period/report basis will be for
+        12/2005 regardless of what perspective dates (startDate/endDate) are
+        used. The fixed dates are "locked" in time and all estimated values are
+        for that explicit date. If you are requesting that the estimated periods
+        can change with the perspective date, please use the rolling-consensus
+        endpoint.
+      operationId: getFixedConsensusForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fixedConsensusRequest'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/rolling-detail:
+    get:
+      tags:
+        - Broker Detail
+      summary: FactSet estimates detail data for rolling fiscal periods
+      operationId: getRollingDetail
+      description: >
+        Updated intraday, the FactSet detail estimates apis provide individual
+        broker-level estimates collected from over 800 sell-side analysts. This
+        database contains 20+ years of broker history across more than 59,000
+        global companies. Content is provided for "rolling" fiscal periods.     
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/includeAll'
+        - $ref: '#/components/parameters/relativeFiscalStart'
+        - $ref: '#/components/parameters/relativeFiscalEnd'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Broker Detail
+      summary: FactSet estimates detail data for rolling fiscal periods
+      description: >
+        Updated intraday, the FactSet detail estimates apis provide individual
+        broker-level estimates collected from over 800 sell-side analysts. This
+        database contains 20+ years of broker history across more than 59,000
+        global companies. Content is provided for "rolling" fiscal periods.
+      operationId: getRollingDetailForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rollingDetailRequest'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/fixed-detail:
+    get:
+      tags:
+        - Broker Detail
+      summary: Estimates detail data for fixed fiscal periods
+      operationId: getFixedDetail
+      description: >
+        Updated intraday, the FactSet detail estimates apis provide individual
+        broker-level estimates collected from over 800 sell-side analysts. This
+        database contains 20+ years of broker history across more than 59,000
+        global companies. Content is provided for "fixed" fiscal periods.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/includeAll'
+        - $ref: '#/components/parameters/fiscalPeriodStart'
+        - $ref: '#/components/parameters/fiscalPeriodEnd'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Broker Detail
+      summary: Estimates detail data for fixed fiscal periods
+      description: >
+        Updated intraday, the FactSet detail estimates apis provide individual
+        broker-level estimates collected from over 800 sell-side analysts. This
+        database contains 20+ years of broker history across more than 59,000
+        global companies. Content is provided for "fixed" fiscal periods.
+      operationId: getFixedDetailForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fixedDetailRequest'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/consensus-ratings:
+    get:
+      tags:
+        - Ratings
+      summary: >-
+        Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight,
+        and Sell.
+      operationId: getConsensusRatings
+      description: >
+        Returns ratings from the FactSet Estimates database for current and
+        historical for an individual security using rolling fiscal dates as of a
+        specific date.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusRatingsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Ratings
+      summary: >-
+        Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight,
+        and Sell.
+      description: >
+        Returns ratings from the FactSet Estimates database for current and
+        historical for an individual security using rolling fiscal dates as of a
+        specific date.
+      operationId: getConsensusRatingsForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/consensusRatingsRequest'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consensusRatingsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/detail-ratings:
+    get:
+      tags:
+        - Ratings
+      summary: >-
+        Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and
+        Sell.
+      operationId: getDetailRatings
+      description: >
+        Retrieves the Broker Level ratings for the requested Id and date range.
+        Ratings include Buy, Hold, Sell, Overweight, and Underweight.
+
+        <p>The `startDate` and `endDate` parameters controls the range of
+        perspective dates. By default, the service will return the range of
+        estimateDates within the latest company's reporting period. As you
+        expand the date range, additional full historical reporting periods and
+        all ratings estimateDates per broker will be returned.</p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+      responses:
+        '200':
+          description: Estimate Ratings data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailRatingsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Ratings
+      summary: >-
+        Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and
+        Sell.
+      description: >
+        Retrieves the Broker Level ratings for the requested Id and date range.
+        Ratings include Buy, Hold, Sell, Overweight, and Underweight.
+
+        <p>The `startDate` and `endDate` parameters controls the range of
+        perspective dates. By default, the service will return the range of
+        estimateDates within the latest company's reporting period. As you
+        expand the date range, additional full historical reporting periods and
+        all ratings estimateDates per broker will be returned.</p>
+      operationId: getDetailRatingsForList
+      requestBody:
+        required: true
+        description: Request object for Detail Reatings Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/detailRatingsRequest'
+      responses:
+        '200':
+          description: Estimate Detail Ratings data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailRatingsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/surprise:
+    get:
+      tags:
+        - Surprise
+      summary: Surprise estimates for rolling fiscal periods
+      operationId: getSurprise
+      description: |
+        Returns FactSet Estimates surprise data using rolling fiscal dates.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/periodicitySurprise'
+        - $ref: '#/components/parameters/statistic'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surpriseResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Surprise
+      summary: Surprise estimates for rolling fiscal periods
+      description: |
+        Returns FactSet Estimates surprise data using rolling fiscal dates.
+      operationId: getSurpriseForList
+      requestBody:
+        required: true
+        description: Request object for `Security` prices.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/surpriseRequest'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surpriseResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/segments:
+    get:
+      tags:
+        - Segments
+      summary: >-
+        Retrieves product & geographic segment estimates for a requested list of
+        ids and fiscal periods
+      operationId: getSegments
+      description: >
+        Returns FactSet Estimates Consensus Data for the segments gathered from
+        the Business, Geographical, or Actual Reconciliation (ADJUSTMENT)
+        classifications by using fiscal periods with a reporting frequency. 
+      parameters:
+        - $ref: '#/components/parameters/segmentIds'
+        - $ref: '#/components/parameters/segmentType'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/relativeFiscalStart'
+        - $ref: '#/components/parameters/relativeFiscalEnd'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Segment Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/segmentsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Segments
+      summary: >-
+        Retrieves product segment estimates for a requested list of ids and
+        fiscal periods
+      description: >
+        Returns FactSet Estimates Data for the segments gathered from the
+        Business, Geographical, or Actual Reconciliation (ADJUSTMENT)
+        classifications by using fiscal periods with a reporting frequency. 
+      operationId: getSegmentsForList
+      requestBody:
+        required: true
+        description: Request object for Product Segments estimates.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/segmentsRequest'
+      responses:
+        '200':
+          description: Segments Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/segmentsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/metrics:
+    get:
+      summary: Available Estimate metrics
+      operationId: getEstimateMetrics
+      tags:
+        - Data Items
+      description: >
+        Returns list of available Estimate metrics that can be used in the
+        `metrics` parameter of related endpoints.
+
+        **By default, Factset provides Estimated items in millions. For specific
+        metric methodology definitions, reference the `OAurl` response items to
+        launch the available methodology page.** 
+      parameters:
+        - $ref: '#/components/parameters/category'
+        - $ref: '#/components/parameters/subcategory'
+      responses:
+        '200':
+          description: Estimate data metric items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/metricsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Available Estimate metrics or ratios.
+      operationId: getEstimateMetricsForList
+      tags:
+        - Data Items
+      description: >
+        Returns list of available Estimate metrics that can be used in the
+        `metrics` parameter of related endpoints.
+
+        **By default, Factset provides Estimated items in millions. For specific
+        metric methodology definitions, reference the `OAurl` response items to
+        launch the available methodology page.** 
+      requestBody:
+        required: true
+        description: Request object for requesting estimates data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metricsRequest'
+      responses:
+        '200':
+          description: List of Estimate metric Ids
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/metricsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 3000
+      required: true
+      explode: false
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> *
+        Make Note - id limit of 3000 for defaults, otherwise the service is
+        limited to a 30 second duration. This can be reached when increasing
+        total number of metrics requested and depth of history. *
+      examples:
+        oneId:
+          summary: One Market Identifier
+          value:
+            - AAPL-USA
+        multipleIds:
+          summary: Multiple Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    segmentIds:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 50
+      required: true
+      explode: false
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> *
+        Make Note - id limit of 50 for defaults, otherwise the service is
+        limited to a 30 second duration. This can be reached when increasing
+        total number of metrics requested and depth of history. *
+      examples:
+        oneId:
+          summary: One Market Identifier
+          value:
+            - AAPL-USA
+        multipleIds:
+          summary: Multiple Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    relativeFiscalStart:
+      name: relativeFiscalStart
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. For example, set to 1 and periodicity to ANN to ask for
+        relative Fiscal Year 1 (FY1).
+      example: 1
+    relativeFiscalEnd:
+      name: relativeFiscalEnd
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. For example, set to 2 and periodicity to ANN to ask for
+        relative Fiscal Year 1 (FY2).
+      example: 3
+    fiscalPeriodStart:
+      name: fiscalPeriodStart
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        Fiscal period start expressed in absolute date formats. Date that will
+        fall back to most recent completed period during resolution.
+          * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)
+          * **Fiscal Year-end** - YYYY (e.g. 2019)
+      example: '2019'
+    fiscalPeriodEnd:
+      name: fiscalPeriodEnd
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        Fiscal period start expressed in absolute date formats. Date that will
+        fall back to most recent completed period during resolution.
+          * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)
+          * **Fiscal Year-end** - YYYY (e.g. 2019)
+      example: '2020'
+    periodicity:
+      name: periodicity
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+          - SEMI
+          - NTMA
+          - LTMA
+        default: ANN
+      description: >
+        The periodicity for the estimates requested, allowing you to fetch
+        Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.
+          * **ANN** - Annual
+          * **QTR** - Quarterly
+          * **SEMI** - Semi-Annual 
+          * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
+          * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
+    periodicitySurprise:
+      name: periodicity
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+          - SEMI
+        default: ANN
+      description: >
+        The periodicity for the estimates requested, allowing you to fetch
+        Quarterly, Semi-Annual and Annual Estimates.
+          * **ANN** - Annual
+          * **QTR** - Quarterly
+          * **SEMI** - Semi-Annual 
+    metrics:
+      name: metrics
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example:
+            - SALES
+        minItems: 1
+      explode: false
+      description: >
+        Requested metrics. Use the /metrics endpoint to return a list of
+        available estimate items. Note, the number of metrics you are allowed to
+        supply is limited to 1 for now. **Top 10** most used metrics are **EPS,
+        SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. 
+        For more details, visit [Online Assistant Page
+        #15034](https://oa.apps.factset.com/pages/15034).
+    statistic:
+      name: statistic
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - MEAN
+          - MEDIAN
+          - HIGH
+          - LOW
+          - COUNT
+          - STDDEV
+        default: MEAN
+      description: Statistic for consensus calculation.
+    currency:
+      name: currency
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >-
+        Currency code for adjusting the data. For a list of currency ISO codes,
+        visit [Online Assistant Page
+        #1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+    startDate:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >-
+        Start date for point in time of estimates expressed in YYYY-MM-DD
+        format.
+      example: '2019-07-30'
+    endDate:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: End date for point in time of estimates expressed in YYYY-MM-DD format.
+      example: '2020-07-30'
+    frequency:
+      name: frequency
+      in: query
+      schema:
+        type: string
+        enum:
+          - D
+          - W
+          - AM
+          - AQ
+          - AY
+        default: D
+      description: |
+        Controls the frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).      
+          * **AQ** = Quarterly, based on the start date.
+          * **AY** = Actual Annual, based on the start date. 
+      examples:
+        Daily:
+          summary: D - Daily frequency display based on trading calendar
+          value: D
+        Weekly:
+          summary: W - Weekly - based on the last day of the week of the start date
+          value: W
+        Actual Month:
+          summary: >-
+            AM - Actual Month - based on the startDate (e.g., if the start date
+            is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          value: AM
+        Actual Annual:
+          summary: AY - Actual Annual - based on the startDate
+          value: AY
+    category:
+      name: category
+      in: query
+      schema:
+        type: string
+        enum:
+          - FINANCIAL_STATEMENT
+          - INDUSTRY_METRIC
+          - OTHER
+      required: false
+      description: |
+        Filters the list of Estimate metrics by major category -
+          * **FINANCIAL_STATEMENT** = Includes Balance Sheet, Cash Flow, and Income Statement.
+          * **INDUSTRY_METRICS** = Industry specific metrics.
+          * **OTHER** = Target Price
+    subcategory:
+      name: subcategory
+      in: query
+      schema:
+        type: string
+        enum:
+          - AIRLINES
+          - BALANCE_SHEET
+          - BANKS
+          - CASH_FLOW
+          - COMMODITIES
+          - COMPUTER_HARDWARE
+          - CONSUMER_SERVICES
+          - EDUCATION
+          - FINANCIAL_SERVICE_PROVIDER
+          - HOME_BUILDERS
+          - HOSPITALS
+          - HOTELS
+          - INCOME_STATEMENT
+          - INSURANCE
+          - MARIJUANA
+          - MINING
+          - MULTIFINANCIAL
+          - OIL_AND_GAS
+          - OTHER
+          - REITS
+          - RESTAURANTS
+          - RETAILERS
+          - TELECOMMUNICATIONS
+          - TRANSPORTATION
+      required: false
+      description: >
+        Sub-Category Filter for the Primary Category Requested. Choose a related
+        sub-category for the Category requested. For methodology, visit [OA
+        16038](https://my.apps.factset.com/oa/pages/16038) <p>Financial
+        Statement - 
+          * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term Debt, and more.
+          * **CASH_FLOW** - Cash Flow Statement line items, such as Free Cash Flow and Share Repurchases
+          * **INCOME_STATEMENT** - Income Statement line items, such as EPS, Sales, DPS, and more.
+        </p> <p> Industry Metrics - 
+
+          * **AIRLINES** - Including items such as Revenue Passenger, Total Revenue per ASK, Available Seats, and more.
+          * **BANKS** - Including items such as Net Interest Income, Trading Income, Net Loans, and more. SUPPLEMENTAL
+          * **COMMODITIES** - Including items such as Average Target Price.
+          * **COMPUTER_HARDWARE** - Including items such as Total Addressable Market.
+          * **CONSUMER_SERVICES** - Including items such as Gross Merchandise Volume
+          * **EDUCATION** - Including Items such as Total Student Enrollment
+          * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription Value
+          * **HOME_BUILDERS** - Including items such as Home Sales, Land Sales, Cancellation Rates, and more.
+          * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
+          * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
+          * **INSURANCE** - Including items such as Gross Premiums Written, Underwriting Income, and Claims.
+          * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
+          * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
+          * **INSURANCE** - Including items such as Gross Premiums Written, Underwriting Income, and Claims.
+          * **MARIJUANA** - Including items such as Cost per Gram and Kg of Cannabis Sold.
+          * **MINING** - Including items such as Realized Price and Total Production
+          * **MULTIFINANCIAL** - Including items such as AUM, Net Flows, and Fee Related Earnings.
+          * **OIL_AND_GAS** - Including items such as Downstream Income, Production per Day, and Exploration Expense.
+          * **OTHER** - Target Price
+          * **REITS** - Including items such as Funds from Operations, Implied Cap Rate, and LTV.
+          * **RESTAURANTS** - Including items such as Restaurant Margin.
+          * **RETAILERS** - Including items such as Stores Information, Selling Space and Net sales per square foot.
+          * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue Per User, Churn, and more.
+          * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>
+          
+    includeAll:
+      name: includeAll
+      in: query
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: >
+        Include All filter is used to identify included and excluded broker
+        details from the consensus
+          By default the service would return only the brokers included in the consensus-
+          * **TRUE** = Returns all the brokers included and excluded in the consensus
+          * **FALSE** = Returns only the broker details included in the consensus
+          
+    segmentType:
+      name: segmentType
+      in: query
+      required: true
+      schema:
+        type: string
+        enum:
+          - BUS
+          - GEO
+        default: BUS
+      description: |
+        Controls the type of segment selected.
+          * **BUS** = Business / Product Segment
+          * **GEO** = Geographic Segment
+      examples:
+        Business:
+          summary: BUS - Business Segments
+          value: BUS
+        Geographic:
+          summary: GEO - Geographic Segments
+          value: GEO
+  schemas:
+    rollingConsensusRequest:
+      title: Rolling Consensus Request Body
+      description: Request object for requesting rolling consensus estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStart'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEnd'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    consensusResponse:
+      type: object
+      title: Consensus Response
+      properties:
+        data:
+          description: Array of consensus estimate objects
+          type: array
+          items:
+            $ref: '#/components/schemas/consensusEstimate'
+    consensusEstimate:
+      title: Consensus Estimate
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
+        fsymId:
+          description: >-
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034)
+          type: string
+          example: SALES
+        periodicity:
+          description: >-
+            The reporting interval for the estimate. This is derived from
+            Estimate Date and is translated to the Period List = ANN, QTR, SEMI,
+            LTMA, or NMTA.
+          type: string
+          example: ANN
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record. Periods for
+            periodicity of ANN = 1, and SEMI = 2. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598).
+          type: integer
+          example: 4
+        fiscalYear:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2018
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format. For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-12-31'
+        relativePeriod:
+          description: >-
+            'Fiscal period' based on relationship to 'estimate date'. This is
+            not applicable for fixed-consensus endpoint. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2
+        estimateDate:
+          description: >-
+            Date of estimate expressed in YYYY-MM-DD format. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-07-24'
+        currency:
+          description: >-
+            Currency used estimates in consensus calculations. For a list of
+            currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        mean:
+          description: >-
+            Mean of estimates in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12345.01
+        median:
+          description: >-
+            Median of estimates in consensus calculation. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12346.01
+        standardDeviation:
+          description: >-
+            Standard deviation of estimates in consensus calculation. For more
+            details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 0.011034
+        high:
+          description: >-
+            Highest estimate in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: number
+          format: double
+          example: 12349.01
+        low:
+          description: >-
+            Lowest estimate in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12344.01
+        estimateCount:
+          description: >-
+            Count or NEST of estimates in consensus calculation. For more
+            details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: integer
+          example: 20
+        up:
+          description: >-
+            Number of Up Revisions within the consensus for the metric and
+            period. The default window size is 100 days For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: integer
+          example: 6
+        down:
+          description: >-
+            Number of Up Revisions within the consensus for the metric and
+            period. The default window size is 100 days. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: integer
+          example: 4
+    fixedConsensusRequest:
+      title: Fixed Consensus Request Body
+      description: Request object for requesting fixed consensus estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        fiscalPeriodStart:
+          $ref: '#/components/schemas/fiscalPeriodStart'
+        fiscalPeriodEnd:
+          $ref: '#/components/schemas/fiscalPeriodEnd'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    surpriseRequest:
+      title: Surprise Request Body
+      description: Request object for requesting surprise estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        periodicity:
+          $ref: '#/components/schemas/periodicitySurprise'
+        currency:
+          $ref: '#/components/schemas/currency'
+        statistic:
+          $ref: '#/components/schemas/statistic'
+      required:
+        - ids
+        - metrics
+    surpriseResponse:
+      title: Surprise Response
+      type: object
+      properties:
+        data:
+          description: Array of surprises
+          type: array
+          items:
+            $ref: '#/components/schemas/surprise'
+    surprise:
+      title: Surprise
+      type: object
+      properties:
+        fsymId:
+          type: string
+          example: SJY281-R
+        date:
+          description: Date for data expressed in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2017-12-31'
+        currency:
+          description: >-
+            Currency used estimates in consensus calculations. Currency used
+            estimates in consensus calculations. For a list of currency ISO
+            codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034).
+          type: string
+          example: SALES
+        statistic:
+          description: >-
+            Method of calculation for the consensus 'statistic'. For more
+            details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: string
+          example: MEAN
+        periodicity:
+          description: >-
+            Company's 'periodicity' for the estimate record, reflecting Annual,
+            Quarterly, or Semi-Annual report periods. Next-twelve-months (NTMA)
+            and Last-twelve-months (LTMA) also supported.
+          type: string
+          example: ANN
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format
+          type: string
+          format: date
+          example: '2017-12-31'
+        fiscalYear:
+          description: Company's 'fiscal year' for the estimate record
+          type: integer
+          example: 2018
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record.  'Periodicity'
+            defines context for period.
+          type: integer
+          example: 4
+        surpriseDate:
+          description: >-
+            Date of the reported event expressed in YYYY-MM-DD format. For more
+            details, visit [Online Assistant Page
+            #16601](https://oa.apps.factset.com/pages/16601).
+          type: string
+          format: date
+          example: '2017-02-24'
+        surpriseAmount:
+          description: >-
+            Amount of difference between last consensus and actual. For more
+            details, visit [Online Assistant Page
+            #16145](https://oa.apps.factset.com/pages/16145).
+          type: number
+          format: double
+          example: 0.07951
+        surprisePercent:
+          description: >-
+            Percent difference between last consensus and actual. For more
+            details, visit [Online Assistant Page
+            #16145](https://oa.apps.factset.com/pages/16145).
+          type: number
+          format: double
+          example: 6.16
+        surpriseBefore:
+          description: >-
+            Last consensus before event. For more details, visit [Online
+            Assistant Page #16145](https://oa.apps.factset.com/pages/16145).
+          type: number
+          format: double
+          example: 1.2905
+        surpriseAfter:
+          description: >-
+            Actual value after event. For more details, visit [Online Assistant
+            Page #16145](https://oa.apps.factset.com/pages/16145).
+          type: number
+          format: double
+          example: 1.3653
+        eventDescription:
+          description: >-
+            Description of event. For more details, visit [Online Assistant Page
+            #16601](https://oa.apps.factset.com/pages/16601).
+          type: string
+          example: Results for 2016
+        eventFlag:
+          description: >-
+            Flag for event. Code of Event Flag, where 0 = results and 1 = profit
+            warning. For more details, visit [Online Assistant Page
+            #16601](https://oa.apps.factset.com/pages/16601).
+          type: integer
+          example: 0
+        requestId:
+          type: string
+          example: IBM-US
+    rollingDetailRequest:
+      title: Rolling Detail Request Body
+      description: Request object for requesting rolling detail estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        includeAll:
+          $ref: '#/components/schemas/includeAll'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStart'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEnd'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    detailResponse:
+      type: object
+      title: Detail Response
+      properties:
+        data:
+          description: Array of consensus estimate objects
+          type: array
+          items:
+            $ref: '#/components/schemas/detailEstimate'
+    detailEstimate:
+      title: Detail
+      type: object
+      properties:
+        fsymId:
+          type: string
+          example: SJY281-R
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034).
+          type: string
+          example: SALES
+        periodicity:
+          description: >-
+            Company's 'periodicity' for the estimate record, reflecting Annual,
+            Quarterly, or Semi-Annual report periods.
+          type: string
+          example: ANN
+        fiscalYear:
+          description: Company's 'fiscal year' for the estimate record
+          type: integer
+          example: 2018
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record.  'Periodicity'
+            defines context for period.
+          type: integer
+          example: 4
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format
+          type: string
+          format: date
+          example: '2017-12-31'
+        relativePeriod:
+          description: >-
+            'Fiscal period' based on relationship to 'estimate date'. This is
+            not applicable for fixed-consensus endpoint. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2
+        currency:
+          description: >-
+            Currency used estimates in consensus calculations. Currency used
+            estimates in consensus calculations. For a list of currency ISO
+            codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        estimateDate:
+          description: >-
+            Date of estimate expressed in YYYY-MM-DD format. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-07-24'
+        estimateValue:
+          description: The value of the estimate.
+          type: number
+          format: double
+          example: 23456
+        analystId:
+          description: The FactSet Entity Identifier for the analyst making the estimate.
+          type: string
+          example: 0DXTST-E
+        analystName:
+          description: The name of the analyst making the estimate.
+          type: string
+          example: Josh Baer
+        brokerId:
+          description: The FactSet Entity Identifier for the broker making the estimate.
+          type: string
+          example: 05FBK7-E
+        brokerName:
+          description: The name of the broker making the estimate.
+          type: string
+          example: Morgan Stanley
+        prevEstimateDate:
+          description: >-
+            Date the previous estimate was made expressed in YYYY-MM-DD format.
+            For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-05-02'
+        prevEstimateValue:
+          description: The value of the previous estimate.
+          type: number
+          format: double
+          example: 22336
+        section:
+          description: >-
+            Section of the estimate.Returns the details of brokers inlcuded and
+            excluded in the consensus
+          type: string
+          example: Included
+        statusCode:
+          description: Status code of the estimate.
+          type: integer
+          example: 0
+        statusText:
+          description: Status description of the estimate.
+          type: string
+          example: ''
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
+    fixedDetailRequest:
+      title: Fixed Detail Request Body
+      description: Request object for requesting rolling detail estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        includeAll:
+          $ref: '#/components/schemas/includeAll'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        fiscalPeriodStart:
+          $ref: '#/components/schemas/fiscalPeriodStart'
+        fiscalPeriodEnd:
+          $ref: '#/components/schemas/fiscalPeriodStart'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    consensusRatingsRequest:
+      title: Consensus Ratings Request Body
+      description: Request object for requesting consensus ratings estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+        - ids
+    consensusRatingsResponse:
+      type: object
+      title: Consensus Ratings Response
+      properties:
+        data:
+          description: Array of consensus ratings estimate objects
+          type: array
+          items:
+            $ref: '#/components/schemas/consensusRatings'
+    consensusRatings:
+      title: Consensus Ratings
+      type: object
+      properties:
+        fsymId:
+          type: string
+          example: SJY281-R
+        estimateDate:
+          description: >-
+            Date of estimate expressed in YYYY-MM-DD format. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-07-24'
+        buyCount:
+          description: >-
+            The number of Buy ratings taken into account in the calculation of a
+            consensus. This information is shown only for a 100-day consensus.
+          type: integer
+          example: 5
+        overweightCount:
+          description: >-
+            The number of Overweight ratings taken into account in the
+            calculation of a consensus. This information is shown only for a
+            100-day consensus.
+          type: integer
+          example: 1
+        holdCount:
+          description: >-
+            The number of Hold ratings taken into account in the calculation of
+            a consensus. This information is shown only for a 100-day consensus.
+          type: integer
+          example: 1
+        underweightCount:
+          description: >-
+            The number of Underweight ratings taken into account in the
+            calculation of a consensus. This information is shown only for a
+            100-day consensus.
+          type: integer
+          example: 1
+        sellCount:
+          description: >-
+            The number of Sell ratings taken into account in the calculation of
+            a consensus. This information is shown only for a 100-day consensus.
+          type: integer
+          example: 1
+        ratingsNestTotal:
+          description: >-
+            The total number of ratings taken into account in the calculation of
+            a consensus. This information is shown only for a 100-day consensus.
+          type: integer
+          example: 1
+        ratingsNote:
+          description: >
+            The mean average of ratings for the fiscal dates indicated, where
+            each underlying rating is given a numerical score and then
+            aggregated to a mean consensus -
+
+            __*Individual Ratings Scores*__
+
+            |Value|Rating Description|
+
+            |---|---|
+
+            |1|Buy|
+
+            |1.5|Overweight|
+
+            |2|Hold|
+
+            |2.5|Underweight|
+
+            |3|Sell|
+          type: number
+          format: double
+          example: 1.85555
+        ratingsNoteText:
+          description: >
+            The mean textual rating for the fiscal dates indicated. The text
+            rating is assigned by falling within the below defined ranges - 
+
+            __*Textual Ranges for Average*__
+
+            |Value|Rating Description|
+
+            |---|---|
+
+            |< 1.25|Buy|
+
+            |< 1.75|Overweight|
+
+            |< 2.25|Hold|
+
+            |< 2.75|Underweight|
+
+            |<= 3|Sell|
+          type: string
+          example: Hold
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
+    detailRatingsRequest:
+      title: Detail Ratings Request Body
+      description: Request object for requesting detail ratings estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+      required:
+        - ids
+    detailRatingsResponse:
+      type: object
+      title: Detail Ratings Response
+      properties:
+        data:
+          description: Array of detail ratings estimate objects
+          type: array
+          items:
+            $ref: '#/components/schemas/detailRatings'
+    detailRatings:
+      title: Detail Ratings
+      type: object
+      properties:
+        fsymId:
+          type: string
+          example: SJY281-R
+        estimateDate:
+          description: >-
+            Date of estimate expressed in YYYY-MM-DD format. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-07-24'
+        analystId:
+          description: The FactSet Entity Identifier for the analyst making the estimate.
+          type: string
+          example: 0DXTST-E
+        analystName:
+          description: The name of the analyst making the estimate.
+          type: string
+          example: Josh Baer
+        brokerId:
+          description: The FactSet Entity Identifier for the broker making the estimate.
+          type: string
+          example: 05FBK7-E
+        brokerName:
+          description: The name of the broker making the estimate.
+          type: string
+          example: Morgan Stanley
+        ratingsNoteText:
+          description: >
+            A textual representation of the analysts rating. Broker
+            recommendations are divided into five main broad categories- **Buy,
+            Overweight, Hold, Underweight, and Sell**.<p>Additional
+            recommendations may be displayed for the below reasons - 
+
+            * Without- A rating "Without" is displayed when a broker provides
+            estimates but does not provide a rating.
+
+            * Dropping- When a broker stops covering an equity, the
+            recommendation will show "Dropping."
+
+            * Not Available- A broker may be "Not Available" due to outstanding
+            circumstances with that particular security. Ratings are not
+            displayed until a new rating is provided.
+
+            * Most/Least- "Most" or "Least" favorable rating is displayed for
+            top or bottom rating available for a particular security.
+          type: string
+          example: overweight
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
+    segmentsRequest:
+      title: Segments Request Body
+      description: Request object for requesting segments estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/segmentIds'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStart'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEnd'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        segmentType:
+          $ref: '#/components/schemas/segmentType'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    segmentsResponse:
+      type: object
+      title: Segments Response
+      properties:
+        data:
+          description: Array of Segments objects
+          type: array
+          items:
+            $ref: '#/components/schemas/segmentsEstimate'
+    segmentsEstimate:
+      title: Segments Estimate
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL
+        fsymId:
+          description: >-
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security’s best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+        segmentType:
+          description: Segment selected
+          type: string
+          example: BUS
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034)
+          type: string
+          example: SALES
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record. Periods for
+            periodicity of ANN = 1, and SEMI = 2. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598).
+          type: integer
+          example: 1
+        fiscalYear:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2018
+        segmentLabel:
+          description: Displays the specific label of the segment.
+          type: string
+          example: iPhone
+        segmentLevel:
+          description: >-
+            Returns the level of the segment item as either P = Parent or S =
+            Subordinate
+          type: string
+          example: S
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format. For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2021-09-30'
+        estimateDate:
+          description: The date the estimates are as of in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-07-01'
+        currency:
+          description: >-
+            Currency used estimates in consensus calculations. For a list of
+            currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        mean:
+          description: >-
+            Mean of estimates in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12345.01
+        median:
+          description: >-
+            Median of estimates in consensus calculation. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12346.01
+        standardDeviation:
+          description: >-
+            Standard deviation of estimates in consensus calculation. For more
+            details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 0.011034
+        high:
+          description: >-
+            Highest estimate in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: number
+          format: double
+          example: 12349.01
+        low:
+          description: >-
+            Lowest estimate in consensus calculation. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: number
+          format: double
+          example: 12344.01
+        estimateCount:
+          description: >-
+            Count or NEST of estimates in consensus calculation. For more
+            details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114)
+          type: integer
+          example: 20
+        up:
+          description: >-
+            Number of Up Revisions within the consensus for the metric and
+            period. The default window size is 100 days For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: integer
+          example: 6
+        down:
+          description: >-
+            Number of Up Revisions within the consensus for the metric and
+            period. The default window size is 100 days. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16114).
+          type: integer
+          example: 4
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-estimates/v2/prices
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+    metricsRequest:
+      title: Metrics Request Body
+      description: Metrics Request Body
+      type: object
+      properties:
+        category:
+          $ref: '#/components/schemas/category'
+        subcategory:
+          $ref: '#/components/schemas/subcategory'
+    metricsResponse:
+      type: object
+      title: Metrics Response
+      properties:
+        data:
+          description: >
+            Array of metric objects representing the metrics that can be
+            requested from the estimates APIs.
+          type: array
+          items:
+            $ref: '#/components/schemas/metric'
+    metric:
+      title: Metric Object
+      type: object
+      properties:
+        metric:
+          description: >-
+            Metric identifier to be used as `metrics` input in the FactSet
+            Estimate endpoints.
+          type: string
+          example: ASSETS
+        name:
+          description: Plain text name of the metric.
+          type: string
+          example: Total Assets
+        category:
+          description: >-
+            Primary Category of metric item, such as, FINANCIAL_STATEMENT or
+            INDUSTRY_METRIC
+          type: string
+          example: FINANCIAL_STATEMENT
+        subcategory:
+          description: >-
+            Sub-category of metric items, such as the INCOME_STATEMENT or
+            AIRLINES.
+          type: string
+          example: BALANCE_SHEET
+        OAurl:
+          description: >-
+            The Online Assistant Page URL, used to lookup the definition and
+            methodology of the requested item.
+          type: string
+          example: https://my.apps.factset.com/oa/pages/16283
+    ids:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 3000
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make
+        Note - id limit of 3000 for defaults, otherwise the service is limited
+        to a 30 second duration. This can be reached when increasing total
+        number of metrics requested and depth of history. *
+      example:
+        - FDS-US
+    segmentIds:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 50
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make
+        Note - id limit of 50 for defaults, otherwise the service is limited to
+        a 30 second duration. This can be reached when increasing total number
+        of metrics requested and depth of history. *
+      example:
+        - FDS-US
+    startDate:
+      type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to previous close. Future
+        dates (T+1) are not accepted in this #endpoint.
+      example: '2019-01-01'
+    endDate:
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        If left blank, the API will default to previous close. Future dates
+        (T+1) are not accepted in this endpoint.
+      example: '2019-12-31'
+    statistic:
+      type: string
+      enum:
+        - MEAN
+        - MEDIAN
+        - HIGH
+        - LOW
+        - COUNT
+        - STDDEV
+      default: MEAN
+      description: Statistic for consensus calculation.
+      example: MEDIAN
+    frequency:
+      type: string
+      enum:
+        - D
+        - W
+        - AM
+        - AQ
+        - AY
+      default: D
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.). 
+          * **AQ** = Quarterly, based on the start date.
+          * **AY** = Actual Annual, based on the start date.
+      example: AM
+    relativeFiscalStart:
+      type: integer
+      description: Relative fiscal period, expressed as an integer, used to filter results.
+      example: 1
+    relativeFiscalEnd:
+      type: integer
+      description: Relative fiscal period, expressed as an integer, used to filter results.
+      example: 3
+    fiscalPeriodStart:
+      type: string
+      description: >
+        Fiscal period start expressed in absolute date formats. Date that will
+        fall back to most recent completed period during resolution.
+          * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)
+          * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)
+          * **Fiscal Year-end** - YYYY (e.g. 2019)
+      example: '2019'
+    fiscalPeriodEnd:
+      type: string
+      description: >
+        Fiscal period end expressed in absolute date formats. Date that will
+        fall back to most recent completed period during resolution.
+          * **Month-end** - MM/YYYY (e.g., 11/2019)
+          * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)
+          * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)
+          * **Fiscal Year-end** - YYYY (e.g. 2019)
+      example: '2020'
+    periodicity:
+      type: string
+      enum:
+        - ANN
+        - QTR
+        - SEMI
+        - LTMA
+        - NTMA
+      default: ANN
+      description: >-
+        The periodicity for the estimates, reflecting Annual, Semi-Annual and
+        Quarterly Estimates. Next-twelve-months (NTMA) and Last-twelve-months
+        (LTMA) also supported.
+    periodicitySurprise:
+      type: string
+      enum:
+        - ANN
+        - QTR
+        - SEMI
+      default: ANN
+      description: >-
+        The periodicity for the estimates, reflecting Annual, Semi-Annual and
+        Quarterly Estimates.
+    metrics:
+      type: array
+      items:
+        type: string
+      description: >-
+        Requested metrics. Use the metrics endpoint for a list of estimate
+        items. Note, the number of metrics you are allowed to supply is limited
+        to 1 for now. For more details, visit [Online Assistant Page
+        #15034](https://oa.apps.factset.com/pages/15034).
+      example:
+        - SALES
+      minItems: 1
+    currency:
+      description: >-
+        Currency code for adjusting the data. For a list of currency ISO codes,
+        visit [Online Assistant Page
+        #1470](https://oa.apps.factset.com/pages/1470).
+      type: string
+      example: USD
+    category:
+      type: string
+      enum:
+        - FINANCIAL_STATEMENT
+        - INDUSTRY_METRIC
+        - OTHER
+      example: INDUSTRY_METRIC
+      description: |
+        Filters the list of Estimate metrics by major category -
+          * **FINANCIAL_STATEMENT** = Includes Balance Sheet, Cash Flow, and Income Statement.
+          * **INDUSTRY_METRICS** = Industry specific metrics.
+          * **OTHER** = Target Price
+    subcategory:
+      type: string
+      example: AIRLINES
+      enum:
+        - AIRLINES
+        - BALANCE_SHEET
+        - BANKS
+        - CASH_FLOW
+        - COMMODITIES
+        - COMPUTER_HARDWARE
+        - CONSUMER_SERVICES
+        - EDUCATION
+        - FINANCIAL_SERVICE_PROVIDER
+        - HOME_BUILDERS
+        - HOSPITALS
+        - HOTELS
+        - INCOME_STATEMENT
+        - INSURANCE
+        - MARIJUANA
+        - MINING
+        - MULTIFINANCIAL
+        - OIL_AND_GAS
+        - OTHER
+        - REITS
+        - RESTAURANTS
+        - RETAILERS
+        - TELECOMMUNICATIONS
+        - TRANSPORTATION
+      description: >
+        Sub-Category Filter for the Primary Category Requested. Choose a related
+        sub-category for the Category requested. For methodology, visit [OA
+        16038](https://my.apps.factset.com/oa/pages/16038) <p>Financial
+        Statement - 
+          * **BALANCE_SHEET** - Balance Sheet line items, such as Assets, Long-term Debt, and more.
+          * **CASH_FLOW** - Cash Flow Statement line items, such as Free Cash Flow and Share Repurchases
+          * **INCOME_STATEMENT** - Income Statement line items, such as EPS, Sales, DPS, and more.
+        </p> <p> Industry Metrics - 
+
+          * **AIRLINES** - Including items such as Revenue Passenger, Total Revenue per ASK, Available Seats, and more.
+          * **BANKS** - Including items such as Net Interest Income, Trading Income, Net Loans, and more. SUPPLEMENTAL
+          * **COMMODITIES** - Including items such as Average Target Price.
+          * **COMPUTER_HARDWARE** - Including items such as Total Addressable Market.
+          * **CONSUMER_SERVICES** - Including items such as Gross Merchandise Volume
+          * **EDUCATION** - Including Items such as Total Student Enrollment
+          * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription Value
+          * **HOME_BUILDERS** - Including items such as Home Sales, Land Sales, Cancellation Rates, and more.
+          * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
+          * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
+          * **INSURANCE** - Including items such as Gross Premiums Written, Underwriting Income, and Claims.
+          * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
+          * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
+          * **INSURANCE** - Including items such as Gross Premiums Written, Underwriting Income, and Claims.
+          * **MARIJUANA** - Including items such as Cost per Gram and Kg of Cannabis Sold.
+          * **MINING** - Including items such as Realized Price and Total Production
+          * **MULTIFINANCIAL** - Including items such as AUM, Net Flows, and Fee Related Earnings.
+          * **OIL_AND_GAS** - Including items such as Downstream Income, Production per Day, and Exploration Expense.
+          * **OTHER** - Target Price
+          * **REITS** - Including items such as Funds from Operations, Implied Cap Rate, and LTV.
+          * **RESTAURANTS** - Including items such as Restaurant Margin.
+          * **RETAILERS** - Including items such as Stores Information, Selling Space and Net sales per square foot.
+          * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue Per User, Churn, and more.
+          * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>
+    includeAll:
+      type: boolean
+      default: false
+      example: false
+      description: >
+        Include All filter is used to identify included and excluded broker
+        details from the consensus
+          By default the service would return only the brokers included in the consensus-
+          * **TRUE** = Returns all the brokers included and excluded in the consensus
+          * **FALSE** = Returns only the broker details included in the consensus
+    segmentType:
+      type: string
+      enum:
+        - BUS
+        - GEO
+      default: BUS
+      description: |
+        Controls the type of segment selected.
+          * **BUS** = Business
+          * **GEO** = Geographic
+      example: BUS
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-estimates/v2/{endpoint}
+        message: >-
+          The date parameter 'startDate' must be in the following date format:
+          YYYY-MM-DD
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:48:42.016'
+        path: /factset-estimates/v2/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:52:48.091'
+        path: /factset-estimates/v2/{endpoint}
+        message: >-
+          The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /factset-estimates/v2/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-estimates/v2/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-estimates/v2/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-estimates/v2/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-estimates/v2/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use
+          /factset-estimates/v2/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-estimates/v2/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-estimates/v2/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-estimates/v2/{endpoint}
+        message: Unexpected error
+        subErrors: null

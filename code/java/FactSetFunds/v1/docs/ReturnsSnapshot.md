@@ -1,0 +1,28 @@
+
+
+# ReturnsSnapshot
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**fsymId** | **String** | FactSet Security Identifier. Six alpha-numeric characters, excluding vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of the Fund requested. |  [optional]
+**oneWeek** | **Double** | The one-week return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**oneMonth** | **Double** | The one-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**threeMonth** | **Double** | The three-month return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**yearToDate** | **Double** | The year-to-date return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**oneYear** | **Double** | The one-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**threeYear** | **Double** | The three-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**threeYearAnnualized** | **Double** | The three-year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**fiveYear** | **Double** | The five-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**fiveYearAnnualized** | **Double** | The five year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
+**date** | **String** | The date of the return in YYYY-MM-DD format. |  [optional]
+**requestId** | **String** | The requested Id sent as input. |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

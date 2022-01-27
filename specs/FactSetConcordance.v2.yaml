@@ -1,0 +1,2643 @@
+openapi: 3.0.0
+info:
+  version: 2.0.0
+  title: FactSet Concordance API
+  description: >
+    The FactSet Concordance API provides the ability to programmatically look up
+    several types of entities by their name and other attributes. It attempts to
+    match attributes that you supply for the entity and returns as many match
+    candidates as it can find. The result is a "concorded" FactSet Entity
+    Permanent identifier.  The Entity Identifier can then be used as input
+    throughout FactSet's Content soultions, such as Content APIs and Standard
+    DataFeeds.<p> There are two types of workflows supported in the API. The
+    first workflow type follows traditional API conventions in that a request is
+    accepted and a response is returned synchronously. The second workflow type
+    involves a background task. With this workflow, a task is created for
+    uploading a set of queries, and then the client polls for the task to
+    complete. Once the task has completed, the client retrieves the concordance
+    results throught the decisions endpoint.</p>
+  contact:
+    name: FactSet Research Systems, Inc.
+    email: api@factset.com
+servers:
+  - url: https://api.factset.com/content
+    description: Production Server
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Entity Match
+    description: Retrieve a list of Entity Matches and Candidates for up to 25 names.
+  - name: Entity Match - Bulk
+    description: >-
+      Submit a file with a large list of entity names and attributes and
+      retrieve decisions once mapped.
+  - name: Universes
+    description: Create, View, and Manage Universes where mappings are saved.
+  - name: Mappings
+    description: >-
+      View all Saved Mappings in a Universe or update and save mappings made of
+      ClientIds and Names to FactSet Entity Ids
+  - name: Snowflake
+    description: >-
+      The response is formatted specifically for Snowflake environment and not
+      used by consumers outside of Snowflake.
+paths:
+  /factset-concordance/v2/entity-match:
+    get:
+      summary: Get Entity Candidates and Matches for a single name and attributes.
+      description: >
+        Finds the best candidate entities matching the given entity name.
+        Additional attributes can be supplied to narrow the search, such as
+        State, URL, and Entity Types. <p>**Max of 1 Name permitted in a single
+        GET request.** Use the POST method for /entity-match to fetch up to 25
+        names. Otherwise, use the "Entity Match - Bulk" workflow to submit
+        larger universes of names to be concorded via a file.</p><p>
+      tags:
+        - Entity Match
+      operationId: getEntityMatch
+      parameters:
+        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/country'
+        - $ref: '#/components/parameters/state'
+        - $ref: '#/components/parameters/url'
+        - $ref: '#/components/parameters/includeEntityType'
+        - $ref: '#/components/parameters/excludeEntityType'
+        - $ref: '#/components/parameters/includeEntitySubType'
+        - $ref: '#/components/parameters/excludeEntitySubType'
+        - $ref: '#/components/parameters/addParent'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityMatchResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Get a list of Entity Candidates and Matches for a requested list of up
+        to 25 names and attributes.
+      description: >
+        Finds the best candidate entities matching the given entity name. If a
+        `universeId` is provided, any match for an input including a `clientId`
+        will be saved to that universe. Additional attributes can be supplied to
+        narrow the search, such as State, URL, and Entity Types. Finds the best
+        candidate entities matching the given company name. Additional
+        attributes can be supplied to narrow the search.  <p>**Max of 25 Names
+        inputted.** Use the "Entity Match - Bulk" workflow to submit larger
+        universes of names to be concorded via a file.</p><p> Supported types of
+        Entities in which the names can match to include -
+          * Corporations, Joint Ventures, and Holding Companies
+          * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p>
+      tags:
+        - Entity Match
+      operationId: getEntityMatchForList
+      requestBody:
+        $ref: '#/components/requestBodies/EntityMatchRequestV2'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityMatchResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/entity-task:
+    post:
+      summary: Input a file with names and attributes, creating a taskId.
+      description: >
+        Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list
+        of names and attributes and receive a `taskId`. The taskId is then used
+        for reference in the */entity-task-status* and */entity-decisions*
+        endpoints to receive results once the task is successful.<p>This is the
+        first step in the overall "Bulk" workflow. Use the /entity-task-status
+        endpoint to check the status.</p> <p> A universeId must be included in
+        request. If you do not have a universe created, reference the
+        `/universe` endpoint.
+      tags:
+        - Entity Match - Bulk
+      operationId: getEntityTaskForList
+      requestBody:
+        description: Entity Request object. Used to create an Entity Task.
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                universeId:
+                  description: >-
+                    The id of the universe that entities should be mapped to.
+                    Reference the `/universe` endpoint to create a universe, or
+                    view available universes via `/universes`.
+                  type: integer
+                  example: 1
+                taskName:
+                  description: >-
+                    User defined name for the task that will be used to name the
+                    output files.
+                  type: string
+                  example: test31
+                inputFile:
+                  description: >
+                    The UTF-8 encoded CSV File containing the entity names to be
+                    concorded to a FactSet Entity Identifier. The files first
+                    row **MUST** include headers as defined in the *Column
+                    parameters. Be mindful of casing and spacing in column
+                    headers. The input file is posted as a file object in the
+                    form. For this reason, the mime type of this post request
+                    must be multipart/form-data.
+                  type: string
+                  format: binary
+                  example: Name,Country\nFactSet,US\n
+                clientIdColumn:
+                  description: >
+                    Header Name of the column in the input file that contains a
+                    unique identifier supplied by the user referred to as a
+                    "clientId". This clientId can be used to create custom
+                    mappings or references.
+                  type: string
+                  example: ClientId
+                nameColumn:
+                  description: >
+                    Header name of the column in the input file that contains
+                    the Entity Name to be matched.
+                  type: string
+                  example: NAME
+                countryColumn:
+                  description: >
+                    Header Name of the column in the input file that contains
+                    the country's ISO Code. This is used to filter the
+                    candidates before taking a match decision.
+                  type: string
+                  example: COUNTRY
+                urlColumn:
+                  description: >
+                    Header Name of the column in the input file that contains
+                    the Entity's URL. URL corresponding to the entity name that
+                    is used when evaluating candidates for a match.
+                  type: string
+                  example: URL
+                stateColumn:
+                  description: >
+                    Header Name of the column in the input file that contains
+                    the two letter State Code of the state or province where the
+                    Entity is located. Currently, only US state codes are
+                    supported.
+                  type: string
+                  example: STATE
+                includeEntityType:
+                  description: >
+                    Three-character FactSet entity type code used to filter
+                    candidates in order to determine the final match result.
+                    Only candidates with an entity type specified will be
+                    considered for the final match result. Multiple types can be
+                    entered separated by commas. **Do not include within
+                    `inputFile`.**
+                  type: array
+                  items:
+                    type: string
+                    example: PUB
+                    maxLength: 3
+                    minLength: 3
+                excludeEntityType:
+                  description: >
+                    Three-character FactSet entity type code used to filter
+                    candidates in order to determine the final match result.
+                    Entities with these types will be excluded from the
+                    decisions.
+
+                    It is a global option used to filter the candidates before
+                    taking a match decision.
+
+                    Candidates with an entity type specified will *not* be
+                    considered for the final match result.
+
+                    **Do not include within `inputFile`.**
+                  type: array
+                  items:
+                    type: string
+                    example: EXT
+                    maxLength: 3
+                    minLength: 3
+                includeEntitySubType:
+                  description: >
+                    Two-character FactSet entity subtype code used to filter
+                    candidates in order to determine the final match result.
+                    Only candidates with an entity subtype specified will be
+                    considered for the final match result. Multiple types can be
+                    entered separated by commas. **Do not include within
+                    `inputFile`.**
+                  type: array
+                  items:
+                    type: string
+                    example: PR
+                    maxLength: 2
+                    minLength: 2
+                excludeEntitySubType:
+                  description: >
+                    Two-character FactSet entity subtype code used to filter
+                    candidates in order to determine the final match result.
+                    Candidates with an entity subtype specified will *not* be
+                    considered for the final match result. Multiple types can be
+                    entered separated by commas.
+
+                    **Do not include within `inputFile`.**
+                  type: array
+                  items:
+                    type: string
+                    example: IB
+                    maxLength: 2
+                    minLength: 2
+              required:
+                - universeId
+                - taskName
+                - inputFile
+                - nameColumn
+                - clientIdColumn
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityTaskResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/entity-task-status:
+    get:
+      summary: Gets the status of the requested taskId or all tasks for a User
+      description: >
+        Pulls the **status** for ALL the Entity Tasks submitted by a client
+        within the last 30 days, and related details such as task duration and
+        decision rates. Specific Tasks can also be retrieved by using the
+        _taskId_ parameter.<p>Status types include -
+          * PENDING - The task has not yet started.
+          * IN_PROGRESS - The task is submitted and decisions are in progress.
+          * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.
+          * FAILURE - The task failed. Reach out to FactSet Support for assistance.
+          * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.
+          * ABORTED - The task was aborted.
+      tags:
+        - Entity Match - Bulk
+      operationId: getEntityTaskStatus
+      parameters:
+        - $ref: '#/components/parameters/taskStatusId'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/status'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityTaskStatusResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/entity-decisions:
+    get:
+      summary: Get the decisions of matches for the requested taskId.
+      description: >
+        Retrieves the `Decision` objects for an Entity Task (taskId). The
+        decisions do not include all candidates, but rather the results of
+        concording the requested list of names included in the input file.
+        Mapped entities will include a FactSet Entity Identifier (-E). Results
+        will be saved to the `universeId` specified in the input file.
+      tags:
+        - Entity Match - Bulk
+      operationId: getEntityDecisions
+      parameters:
+        - $ref: '#/components/parameters/taskDecisionId'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityDecisionsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/universe:
+    post:
+      summary: Create a new universe
+      description: |
+        Create a new universe that is distinct from any existing universe
+      tags:
+        - Universes
+      operationId: getUniverseForList
+      requestBody:
+        $ref: '#/components/requestBodies/CreateUniverseRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/UniverseMetaResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /factset-concordance/v2/entity-universe:
+    get:
+      summary: Retrieve all saved mappings within a requested universe
+      description: |
+        Retrieves all entity mappings within a requested universe.
+      tags:
+        - Mappings
+      operationId: getEntityUniverse
+      parameters:
+        - $ref: '#/components/parameters/universeIdRequired'
+        - $ref: '#/components/parameters/clientIdFilter'
+        - $ref: '#/components/parameters/mapStatus'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityUniverseResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Retrieve all saved mappings within a requested universe or large list of
+        client ids
+      description: >
+        Retrieves all entity mappings that were saved in a given universe.
+        Supports filtering by a large number of `clientId`s
+      tags:
+        - Mappings
+      operationId: getEntityUniverseForList
+      requestBody:
+        $ref: '#/components/requestBodies/EntityUniverseRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityUniverseResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/update-universe:
+    post:
+      summary: Update metadata for an existing universe
+      description: |
+        Update metadata for an existing universe
+      tags:
+        - Universes
+      operationId: getUpdateUniverseForList
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateUniverseRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/UniverseMetaResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /factset-concordance/v2/universes:
+    get:
+      summary: Fetch metadata for universes
+      description: >
+        Fetch information on active universes for the current user. Optionally
+        filter for a specific universe given a `universeId`
+      tags:
+        - Universes
+      operationId: getUniverses
+      parameters:
+        - $ref: '#/components/parameters/universeId'
+      responses:
+        '200':
+          $ref: '#/components/responses/UniversesResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /factset-concordance/v2/entity-universe-statistics:
+    get:
+      summary: Get statistics on a given universe
+      description: >
+        Get the total number of mappings in a universe, as well as the number of
+        mapped, unmapped and indeterminate mappings
+      tags:
+        - Universes
+      operationId: getEntityUniverseStatistics
+      parameters:
+        - $ref: '#/components/parameters/universeIdRequired'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityUniverseStatisticsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /factset-concordance/v2/entity-mapping:
+    post:
+      summary: Saves a single-mapping specified by the client.
+      description: >
+        Saves a Concordance Mapping to the client universe. When making a post,
+        all exiting values are overwritten in the database with the values
+        passed in the request. clientId and clientName are required.
+      tags:
+        - Mappings
+      operationId: getEntityMappingForList
+      requestBody:
+        $ref: '#/components/requestBodies/EntityMappingRequestV2'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/entity-mapping-delete:
+    post:
+      summary: Deletes mapping specified by the client.
+      description: >
+        Delete a Concordance Mapping to the client universe. When making a post,
+        all exiting values are overwritten in the database with the values
+        passed in the request. clientId and universeId are required.
+      tags:
+        - Mappings
+      operationId: getEntityMappingDeleteForList
+      requestBody:
+        $ref: '#/components/requestBodies/EntityMappingDeleteRequestV2'
+      responses:
+        '200':
+          $ref: '#/components/responses/EntityMappingDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-concordance/v2/snowflake-entity-match:
+    post:
+      summary: >-
+        Perform an entity search and return a snowflake-friendly response. Up to
+        25 Names per request.
+      description: >
+        Finds the best candidate entities matching the given company name.
+        Additional attributes can be supplied to narrow the search. *This
+        endpoint is used natively within Snowflake and is not to be consumed
+        directly by users. Reach out to your FactSet Account team to learn more
+        about Concordance in Snowflake.*
+      tags:
+        - Snowflake
+      operationId: getSnowflakeEntityMatchForList
+      requestBody:
+        $ref: '#/components/requestBodies/SnowflakeEntityMatchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/SnowflakeEntityMatchResponse'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    name:
+      name: name
+      description: Name of Entity to match.
+      in: query
+      schema:
+        type: string
+      required: true
+      example: FactSet
+    country:
+      name: country
+      description: >-
+        ISO2 country code corresponding to the entity name that is used when
+        evaluating candidates for a match. For a list of ISO2 Country codes,
+        visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+      in: query
+      schema:
+        type: string
+        maxLength: 2
+        minLength: 2
+      example: US
+    state:
+      name: state
+      description: >-
+        Two-character state code corresponding to the entity name that is used
+        when evaluating candidates for a match. Currently, only US state codes
+        are supported.
+      in: query
+      schema:
+        type: string
+        maxLength: 2
+        minLength: 2
+      example: CT
+    url:
+      name: url
+      description: >-
+        URL corresponding to the entity name that is used when evaluating
+        candidates for a match.
+      in: query
+      schema:
+        type: string
+    includeEntityType:
+      name: includeEntityType
+      description: >
+        Three-character FactSet entity type code used to filter candidates in
+        order to determine the final match result. Only candidates with an
+        entity type specified will be considered for the final match result.
+        Multiple types can be entered separated by commas.
+          |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
+          |---|---|---|---|
+          |ABS|Asset-Backed||MED|Broadcast Call Sign|
+          |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
+          |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
+          |CMD|Commodity||MUT|Mutual Fd-Open End|
+          |COL|College/University||NPO|Non-Profit Organization|
+          |CUR|Currency||OPD|Operating Division|
+          |ESP|Emp Stk Ownership Plan||OTH|Other|
+          |EXT|Extinct||PEF|Pension Fund|
+          |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
+          |FND|Foundation/Endowment||PUB|Public Company|
+          |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
+          |FRX|ForEx||PVT|Private Company|
+          |GOV|Government||SOV|Sovereign Wealth Fund|
+          |HED|Hedge Fund||SUB|Subsidiary|
+          |HOL|Holding Company||TRU|Trust/Trustee|
+          |IDX|Index||UMB|Umbrella Fund|
+          |VEN|Venture Capital Fund||JVT|Joint Venture|
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          maxLength: 3
+          minLength: 3
+          example: PUB
+    excludeEntityType:
+      name: excludeEntityType
+      description: >
+        Three-character FactSet entity type code used to filter candidates in
+        order to determine the final match result. Candidates with an entity
+        type specified will *not* be considered for the final match result.
+        Multiple types can be entered separated by commas.
+          |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
+          |---|---|---|---|
+        |ABS|Asset-Backed||MED|Broadcast Call Sign|
+
+        |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
+
+        |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
+
+        |CMD|Commodity||MUT|Mutual Fd-Open End|
+
+        |COL|College/University||NPO|Non-Profit Organization|
+
+        |CUR|Currency||OPD|Operating Division|
+
+        |ESP|Emp Stk Ownership Plan||OTH|Other|
+
+        |EXT|Extinct||PEF|Pension Fund|
+
+        |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
+
+        |FND|Foundation/Endowment||PUB|Public Company|
+
+        |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
+
+        |FRX|ForEx||PVT|Private Company|
+
+        |GOV|Government||SOV|Sovereign Wealth Fund|
+
+        |HED|Hedge Fund||SUB|Subsidiary|
+
+        |HOL|Holding Company||TRU|Trust/Trustee|
+
+        |IDX|Index||UMB|Umbrella Fund|
+
+        |VEN|Venture Capital Fund||JVT|Joint Venture|
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          maxLength: 3
+          minLength: 3
+          example: EXT
+    includeEntitySubType:
+      name: includeEntitySubType
+      description: >
+        Two-character FactSet entity subtype code used to filter candidates in
+        order to determine the final match result. Only candidates with an
+        entity subtype specified will be considered for the final match result.
+        Multiple types can be entered separated by commas.
+          |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|
+          |---|---|---|---|
+          |AR|Arbitrage|IC|Investment Company|
+          |BM|Bank Investment Division|IN|Insurance Company|
+          |BR|Broker|MF|Mutual Fund Manager|
+          |CP|Corporate|ML|Master Ltd Part|
+          |CU|Custodial|MM|Market Maker|
+          |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|
+          |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|
+          |FO|Foundation/Endowment Manager|PP|Real Estate Manager|
+          |FS|Fund Distributor|RE|Research Firm|
+          |FU|Fund|SB|Subsidiary Branch|
+          |FY|Family Office|ST|Stock Borrowing/Lending|
+          |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|
+          |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|
+          |IA|Investment Adviser|
+          |IB|Investment Banking|
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          maxLength: 2
+          minLength: 2
+          example: PR
+    excludeEntitySubType:
+      name: excludeEntitySubType
+      description: >
+        Two-character FactSet entity subtype code used to filter candidates in
+        order to determine the final match result. Candidates with an entity
+        subtype specified will not be considered for the final match result.
+        Multiple types can be entered separated by commas.
+
+        |Entity Subtype Code|Entity Subtype Description|Entity Subtype
+        Code|Entity Subtype Description|
+
+        |---|---|---|---|
+
+        |AR|Arbitrage|IC|Investment Company|
+
+        |BM|Bank Investment Division|IN|Insurance Company|
+
+        |BR|Broker|MF|Mutual Fund Manager|
+
+        |CP|Corporate|ML|Master Ltd Part|
+
+        |CU|Custodial|MM|Market Maker|
+
+        |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|
+
+        |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|
+
+        |FO|Foundation/Endowment Manager|PP|Real Estate Manager|
+
+        |FS|Fund Distributor|RE|Research Firm|
+
+        |FU|Fund|SB|Subsidiary Branch|
+
+        |FY|Family Office|ST|Stock Borrowing/Lending|
+
+        |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|
+
+        |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|
+
+        |IA|Investment Adviser|
+
+        |IB|Investment Banking|
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          example: HF
+          maxLength: 2
+          minLength: 2
+    addParent:
+      name: includeParent
+      description: >-
+        Flag to include parent entities in the list of candidates. This
+        parameter does not influence the match result.
+      in: query
+      schema:
+        type: boolean
+        example: false
+        default: false
+    taskDecisionId:
+      name: taskId
+      description: >-
+        Concordance Task Identifier. The taskId is created in response from the
+        /entity-task endpoint.
+      in: query
+      schema:
+        type: integer
+      example: 31589
+      required: true
+    taskStatusId:
+      name: taskId
+      description: >-
+        Concordance Task Identifier. The taskId is created in response from the
+        /entity-task endpoint.
+      in: query
+      schema:
+        type: integer
+      example: 31589
+      required: false
+    offset:
+      name: offset
+      description: Starting row for records to return or rows to skip.
+      in: query
+      schema:
+        type: integer
+        default: 0
+    limit:
+      name: limit
+      in: query
+      description: Limits the number of records in the response.
+      schema:
+        type: integer
+      example: 10
+    status:
+      name: status
+      description: |
+        Filter on the status of the Concordance Tasks. Default is no filter.
+          * PENDING - The task has not yet started
+          * IN_PROGRESS - The task is submitted and decisions are in progress.
+          * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.
+          * FAILURE - The task failed. Reach out to FactSet Support for assistance.
+          * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.
+          * ABORTED - The task was aborted.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - PENDING
+            - IN_PROGRESS
+            - SUCCESS
+            - FAILURE
+            - BAD_REQUEST
+            - ABORTED
+      explode: false
+    mapStatus:
+      name: mapStatus
+      description: >
+        Filter by the Entity Decisions that have the specified mapStatus, where
+        -
+          * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
+          * UNMAPPED - The requested Entity Name is unmapped by FactSet.
+          * INDETERMINATE - The requested Entity Name was unable to make a mapping.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - MAPPED
+            - UNMAPPED
+            - INDETERMINATE
+        example: MAPPED
+    clientIdFilter:
+      name: clientId
+      description: |
+        Filter by the clientId(s) created by the user in a previous mapping.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          example: EXT
+      explode: false
+      example:
+        - abc-123
+        - def-456
+    clientId:
+      name: clientId
+      description: >
+        A unique identifer supplied by the user. The clientId is recorded to the
+        user's mapped universe.
+      in: query
+      schema:
+        type: string
+      example: abc-123
+    universeId:
+      name: universeId
+      description: >-
+        Universe identifier. *To create a universe, use the `/universe'
+        endpoint.*
+      in: query
+      schema:
+        type: integer
+      example: 1
+    universeIdRequired:
+      name: universeId
+      required: true
+      description: >-
+        Universe identifier. *To create a universe, use the `/universe'
+        endpoint.*
+      in: query
+      schema:
+        type: integer
+      example: 1
+  requestBodies:
+    EntityMatchRequestV2:
+      description: A request to match a Entity.
+      required: true
+      content:
+        application/json;charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EntityMatchRequest'
+    EntityMappingRequestV2:
+      description: A request to create a single mapping.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityMappingRequest'
+    EntityMappingDeleteRequestV2:
+      description: A request to delete entity mappings specified by the client
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityMappingDeleteRequest'
+    EntityUniverseRequest:
+      description: A request to fetch all entities of a given universe
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityUniverseRequest'
+    CreateUniverseRequest:
+      description: A request to create a user's universe
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateUniverseRequest'
+    UpdateUniverseRequest:
+      description: A request to update a user's universe
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateUniverseRequest'
+    SnowflakeEntityMatchRequest:
+      description: A request to match an entity name and its attributes within Snowflake.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMatchRequest'
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+    EntityMatchResponse:
+      description: Response containing Entity Match results.
+      content:
+        application/json;charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EntityMatchesResponse'
+          examples:
+            Entity Matches:
+              $ref: '#/components/examples/EntityMatches'
+    EntityTaskResponse:
+      description: OK. The Entity Task creation is submitted.
+      content:
+        application/json;charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EntityTaskResponse'
+          examples:
+            Pending Task:
+              $ref: '#/components/examples/PendingTask'
+    EntityTaskStatusResponse:
+      description: Response object for Task Status endpoint.
+      content:
+        application/json;charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EntityTaskStatusResponse'
+          examples:
+            Successful Entity Task:
+              $ref: '#/components/examples/SuccessfulEntityTasks'
+            Pending Task:
+              $ref: '#/components/examples/PendingTasks'
+            Bad Task:
+              $ref: '#/components/examples/BadTasks'
+            Failed Task:
+              $ref: '#/components/examples/FailedTasks'
+    EntityDecisionsResponse:
+      description: Response object for Entity Decisions endpoint.
+      content:
+        application/json;charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EntityDecisionsResponse'
+          examples:
+            Entity Decisions:
+              $ref: '#/components/examples/EntityDecisions'
+    EntityUniverseResponse:
+      description: Response object for FactSet Concordance Universe detail.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityUniverseResponse'
+          examples:
+            CompanyUniverse:
+              $ref: '#/components/examples/EntityUniverse'
+    EntityUniverseStatisticsResponse:
+      description: Response object for mapping statistics for a universe
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityUniverseStatisticsResponse'
+    UniversesResponse:
+      description: Metadata on multiple universes
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UniversesResponse'
+    UniverseMetaResponse:
+      description: Metadata on a single universe
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UniverseMetaResponse'
+    EntityMappingResponse:
+      description: Single entity mapping
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityMappingResponse'
+    EntityResponse:
+      description: Response object for FactSet Concordance Entity.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityResponse'
+          examples:
+            EntityResponse:
+              $ref: '#/components/examples/EntityResponse'
+    SnowflakeEntityMatchResponse:
+      description: >-
+        Response object for the entity-match object in a snowflake friendly
+        response model.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SnowflakeEntityMatchResponse'
+    EntityMappingDeleteResponse:
+      description: >-
+        Response object for the entity-match object in a snowflake friendly
+        response model.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EntityMappingDeleteResponse'
+    ErrorResponse:
+      description: Error Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Not Found:
+              $ref: '#/components/examples/NotFound'
+  schemas:
+    EntityMatchRequest:
+      title: Entity Match Request
+      description: Request object for a requesting multiple Entity Matches.
+      type: object
+      properties:
+        input:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                description: The Name of the entity to match.
+                type: string
+                example: Amazon
+              clientId:
+                description: >
+                  A unique identifier supplied by the user. ClientId is saved to
+                  the user's Concordance universe and will be used as the
+                  identifier for that entity within the universe.
+                type: string
+                example: abc-123
+              country:
+                description: >
+                  ISO2 country code corresponding to the entity name that is
+                  used when evaluating candidates for a match. For a list of ISO
+                  Country codes, visit [OA
+                  8754](https://my.apps.factset.com/oa/pages/8754).
+                type: string
+                maxLength: 2
+                minLength: 2
+                example: US
+              state:
+                description: >
+                  Two-character state code corresponding to the entity name that
+                  is used when evaluating candidates for a match. Currently,
+                  only US state codes are supported.Two character state or
+                  province code to filter on.
+                type: string
+                maxLength: 2
+                minLength: 2
+                example: CT
+              url:
+                description: >
+                  URL corresponding to the entity name that is used when
+                  evaluating candidates for a match.
+                type: string
+                example: www.amazon.com
+            required:
+              - name
+          minItems: 1
+          maxItems: 25
+        includeEntityType:
+          description: >
+            Three-character FactSet entity type code used to filter candidates
+            in order to determine the final match result. Only candidates with
+            an entity type specified will be considered for the final match
+            result. Multiple types can be entered separated by commas
+              |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
+              |---|---|---|---|
+              |ABS|Asset-Backed||MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
+              |CMD|Commodity||MUT|Mutual Fd-Open End|
+              |COL|College/University||NPO|Non-Profit Organization|
+              |CUR|Currency||OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan||OTH|Other|
+              |EXT|Extinct||PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
+              |FND|Foundation/Endowment||PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx||PVT|Private Company|
+              |GOV|Government||SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund||SUB|Subsidiary|
+              |HOL|Holding Company||TRU|Trust/Trustee|
+              |IDX|Index||UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund||JVT|Joint Venture|
+          type: array
+          items:
+            type: string
+            maxLength: 3
+            minLength: 3
+            example: PUB
+        excludeEntityType:
+          description: >
+            Three-character FactSet entity type code used to filter candidates
+            in order to determine the final match result. Candidates with an
+            entity type specified will not be considered for the final match
+            result. Multiple types can be entered separated by commas.
+              |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
+              |---|---|---|---|
+              |ABS|Asset-Backed||MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
+              |CMD|Commodity||MUT|Mutual Fd-Open End|
+              |COL|College/University||NPO|Non-Profit Organization|
+              |CUR|Currency||OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan||OTH|Other|
+              |EXT|Extinct||PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
+              |FND|Foundation/Endowment||PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx||PVT|Private Company|
+              |GOV|Government||SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund||SUB|Subsidiary|
+              |HOL|Holding Company||TRU|Trust/Trustee|
+              |IDX|Index||UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund||JVT|Joint Venture|
+          type: array
+          items:
+            type: string
+            example: EXT
+            maxLength: 3
+            minLength: 3
+        includeEntitySubType:
+          description: >
+            Two-character FactSet entity subtype code used to filter candidates
+            in order to determine the final match result. Only candidates with
+            an entity subtype specified will be considered for the final match
+            result. Multiple types can be entered separated by commas.
+              |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|
+              |---|---|---|---|
+              |AR|Arbitrage|IC|Investment Company|
+              |BM|Bank Investment Division|IN|Insurance Company|
+              |BR|Broker|MF|Mutual Fund Manager|
+              |CP|Corporate|ML|Master Ltd Part|
+              |CU|Custodial|MM|Market Maker|
+              |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|
+              |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|
+              |FO|Foundation/Endowment Manager|PP|Real Estate Manager|
+              |FS|Fund Distributor|RE|Research Firm|
+              |FU|Fund|SB|Subsidiary Branch|
+              |FY|Family Office|ST|Stock Borrowing/Lending|
+              |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|
+              |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|
+              |IA|Investment Adviser|
+              |IB|Investment Banking|
+          type: array
+          items:
+            type: string
+            example: PR
+            maxLength: 2
+            minLength: 2
+        excludeEntitySubType:
+          description: >
+            Two-character FactSet entity subtype code used to filter candidates
+            in order to determine the final match result. Candidates with an
+            entity subtype specified will not be considered for the final match
+            result. Multiple types can be entered separated by commas.
+              |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|
+              |---|---|---|---|
+              |AR|Arbitrage|IC|Investment Company|
+              |BM|Bank Investment Division|IN|Insurance Company|
+              |BR|Broker|MF|Mutual Fund Manager|
+              |CP|Corporate|ML|Master Ltd Part|
+              |CU|Custodial|MM|Market Maker|
+              |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|
+              |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|
+              |FO|Foundation/Endowment Manager|PP|Real Estate Manager|
+              |FS|Fund Distributor|RE|Research Firm|
+              |FU|Fund|SB|Subsidiary Branch|
+              |FY|Family Office|ST|Stock Borrowing/Lending|
+              |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|
+              |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|
+              |IA|Investment Adviser|
+              |IB|Investment Banking|
+          type: array
+          items:
+            type: string
+            example: HF
+            maxLength: 2
+            minLength: 2
+        includeParent:
+          description: >
+            Flag to include parent entities in the list of candidates. This
+            parameter does not influence the match result.
+          type: boolean
+          default: false
+        universeId:
+          description: |
+            The universeId to save this set of inputs to
+          type: integer
+          example: 1
+      required:
+        - input
+    EntityMappingRequest:
+      type: object
+      required:
+        - universeId
+        - clientId
+        - clientName
+      properties:
+        universeId:
+          description: The universe to save this mapping to.
+          type: integer
+          example: 1
+        clientId:
+          description: >-
+            A unique identifier supplied by the user. ClientId is saved to the
+            user's Concordance universe and will be used as the identifier for
+            that entity within the universe.
+          type: string
+          example: FDS-USA
+        entityId:
+          description: FactSet Entity Identifier mapped to the submitted entity.
+          type: string
+          example: 0016YD-E
+        clientName:
+          description: Name of entity to match.
+          type: string
+          example: FactSet
+        clientCountry:
+          description: ISO2 country code corresponding to the Entity name.
+          type: string
+          example: US
+          minLength: 2
+          maxLength: 2
+        clientState:
+          description: ISO Code of State or Province location to map Entity.
+          type: string
+          example: CT
+          minLength: 2
+          maxLength: 2
+        clientUrl:
+          description: URL corresponding to the entity name.
+          type: string
+          example: www.factset.com
+    EntityMappingDeleteRequest:
+      type: object
+      required:
+        - universeId
+        - clientId
+      properties:
+        universeId:
+          description: The universe to save this mapping to.
+          type: integer
+          example: 1
+        clientId:
+          description: >-
+            A unique identifier supplied by the user. ClientId is saved to the
+            user's Concordance universe and will be used as the identifier for
+            that entity within the universe.
+          type: array
+          items:
+            type: string
+          example:
+            - abc-123
+            - dfg-456
+    EntityUniverseRequest:
+      type: object
+      required:
+        - universeId
+      properties:
+        universeId:
+          description: the id of the universe that entities come from
+          type: integer
+          example: 1
+        offset:
+          description: starting row of the universe
+          type: integer
+          example: 0
+        limit:
+          description: Limits the number of records in the response.
+          type: integer
+          example: 10
+        mapStatus:
+          description: entity statuses to be filtered
+          type: array
+          items:
+            $ref: '#/components/schemas/MapStatus'
+          example:
+            - MAPPED
+        clientId:
+          description: >-
+            fetch only the mappings that has client id included in the specified
+            list.
+          type: array
+          items:
+            type: string
+          example:
+            - abc-123
+            - dfg-456
+    CreateUniverseRequest:
+      type: object
+      required:
+        - universeName
+      properties:
+        universeName:
+          description: Universe name
+          type: string
+          example: My Universe
+        universeDescription:
+          description: Universe description
+          type: string
+          example: This is my universe
+    UpdateUniverseRequest:
+      type: object
+      required:
+        - universeId
+      properties:
+        universeName:
+          description: Universe name
+          type: string
+          example: My Universe
+        universeDescription:
+          description: Universe description
+          type: string
+          example: This is my universe
+        universeId:
+          description: Universe identifier
+          type: integer
+          example: 1
+    SnowflakeEntityMatchRequest:
+      title: Snowflake Company Match Request
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          description: Array of input rows
+          type: array
+          items:
+            type: array
+            description: One search row from Snowflake
+            items:
+              type: object
+              example: 0
+            minItems: 7
+            maxItems: 7
+            example:
+              - 0
+              - FactSet
+              - US
+              - CT
+              - www.factset.com
+              - 1
+          minItems: 1
+          maxItems: 25
+    EntityMatchesResponse:
+      title: Entity Matches Response
+      description: Response object for Entity Matches.
+      type: object
+      properties:
+        data:
+          description: Candidate list of `Entity Match` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityMatch'
+    EntityTaskResponse:
+      title: Entity Task Response
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EntityTaskStatus'
+    EntityTaskStatusResponse:
+      title: Entity Task Status Response
+      type: object
+      properties:
+        data:
+          description: Array of Concordance Entity Task `Status` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityTaskStatus'
+    EntityDecisionsResponse:
+      title: Entity Decisions Response
+      type: object
+      properties:
+        data:
+          description: Array of `Entity Match` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityMatch'
+    EntityUniverseResponse:
+      title: Entity Universe Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityMapping'
+    EntityResponse:
+      title: Entity Response
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EntityMapping'
+    EntityMappingResponse:
+      title: Entity Mapping Response
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EntityMapping'
+    UniverseMetaResponse:
+      title: Metadata for a single universe
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/UniverseMeta'
+    EntityUniverseStatisticsResponse:
+      title: Entity Mapping Statistics Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniverseStatistics'
+    UniversesResponse:
+      title: Metadata on multiple universes
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniverseMeta'
+    SnowflakeEntityMatchResponse:
+      title: Snowflake Entity Search Response
+      type: object
+      example:
+        data:
+          - clientCountry: us,
+            clientId: null,
+            clientName: apple,
+            clientState: ca,
+            clientUrl: www.apple.com,
+            confidenceScore: 1.0,
+            countryCode: us,
+            countryName: United States,
+            entityId: 000C7F-E,
+            entityName: Apple, Inc.,
+            entitySubTypeCode: CP,
+            entityTypeCode: PUB,
+            entityTypeDescription: Public Company,
+            factsetIndustryCode: 1320,
+            factsetIndustryName: Telecommunications Equipment,
+            factsetSectorCode: 1300,
+            factsetSectorName: Electronic Technology,
+            locationCity: Cupertino,
+            mapStatus: MAPPED,
+            matchFlag: true,
+            nameMatchSource: Proper/ Legal Name,
+            nameMatchString: apple inc,
+            parentMatchFlag: false,
+            parentName: null,
+            regionName: North America,
+            rowIndex: 0,
+            sicCode: 3663,
+            similarityScore: 1.0,
+            stateCode: ca,
+            stateName: California,
+            taskId: null,
+            url: www.apple.com,
+          - clientCountry: null,
+            clientId: null,
+            clientName: factset,
+            clientState: null,
+            clientUrl: null,
+            confidenceScore: 1.0,
+            countryCode: us,
+            countryName: United States,
+            entityId: 0016YD-E,
+            entityName: FactSet Research Systems, Inc.,
+            entitySubTypeCode: CP,
+            entityTypeCode: PUB,
+            entityTypeDescription: Public Company,
+            factsetIndustryCode: 3305,
+            factsetIndustryName: Data Processing Services,
+            factsetSectorCode: 3300,
+            factsetSectorName: Technology Services,
+            locationCity: Norwalk,
+            mapStatus: MAPPED,
+            matchFlag: true,
+            nameMatchSource: Domain Name,
+            nameMatchString: factset,
+            parentMatchFlag: false,
+            parentName: null,
+            regionName: North America,
+            rowIndex: 1,
+            sicCode: 7374,
+            similarityScore: 1.0,
+            stateCode: ct,
+            stateName: Connecticut,
+            taskId: null,
+            url: www.factset.com
+      properties:
+        data:
+          type: array
+          items:
+            type: array
+            items:
+              type: object
+          description: JSON body to be parsed by snowflake
+    EntityMappingDeleteResponse:
+      title: Entity Delete Mapping Response
+      type: object
+      properties:
+        data:
+          description: >-
+            Array of `Entity Mapping` objects that have been successfully
+            deleted.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityMapping'
+    ErrorResponse:
+      title: Error Response
+      type: object
+      properties:
+        status:
+          description: Status.
+          type: string
+          example: Bad Request
+        timestamp:
+          description: Timestamp in yyyy-mm-ddThh:mm:ss.sss format.
+          type: string
+          example: '2019-11-01T11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-concordance/v2/entity-match
+        message:
+          description: The plain text error message.
+          type: string
+          example: Validation Error
+        subErrors:
+          description: Sub-errors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+    EntityMatch:
+      title: Entity Match
+      description: |
+        Entity Match object showing the decision reached for each Entity.
+      type: object
+      properties:
+        universeId:
+          description: The id of the universe that entities should be mapped to
+          type: integer
+          example: 1
+        taskId:
+          description: >
+            Identifier denoting a specific Concordance task submitted by the
+            user. This value will be null for /entity-match endpoint responses
+            and is only available when using the "Bulk" workflow.
+          type: integer
+          example: 31
+        rowIndex:
+          description: Row number for match in the request or input file.
+          type: integer
+        matchFlag:
+          description: Flag denoting if the row is a match.
+          type: boolean
+        entityId:
+          description: >
+            FactSet Entity Identifier of the entity matched respective to the
+            requested Name submitted. For more detail, visit [FactSet Permanent
+            Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          type: string
+        entityName:
+          description: Full name corresponding to the matched entity.
+          type: string
+          example: FactSet Research Systems, Inc.
+        url:
+          description: URL of the matched entity.
+          type: string
+          example: www.factset.com
+        mapStatus:
+          description: |
+            Concordance status of the submitted, where - 
+              * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
+              * UNMAPPED - The requested Entity Name is unmapped by FactSet.
+              * INDETERMINATE - The requested Entity Name has unable to make a mapping.
+          type: string
+          enum:
+            - MAPPED
+            - UNMAPPED
+            - INDETERMINATE
+          example: MAPPED
+        similarityScore:
+          description: >
+            Probability of the match being similar to the entity requested as
+            determined by the Concordance algorithm. A similarityScore of 1 is
+            the highest level of similarity.
+          type: number
+          format: double
+          example: 1
+        confidenceScore:
+          description: >
+            Additional statistic calculated by the algorithm that is used to
+            ensure the validity of the match result. A confidenceScore of 1 is
+            the highest level of confidence.
+          type: number
+          format: double
+          example: 1
+        countryCode:
+          description: >-
+            ISO2 country code corresponding to the location of the matched
+            entity.
+          type: string
+          example: US
+        countryName:
+          description: Country name corresponding to the location of the matched entity
+          type: string
+          example: United States
+        stateCode:
+          description: >-
+            Two character state code corresponding to the location of the
+            matched entity.
+          type: string
+          example: CT
+        stateName:
+          description: State name corresponding to the location of the matched entity.
+          type: string
+          example: Connecticut
+        sicCode:
+          description: Standard Industrial Classification (SIC) Code of the matched entity.
+          type: string
+          example: 7374
+        entityTypeCode:
+          description: >-
+            Code representing the entity type of the matched entity. See the
+            related request parameter for a table of all Codes and their
+            respective descriptions.
+          type: string
+          example: PUB
+        entityTypeDescription:
+          description: Description of of the matched entity's type.
+          type: string
+          example: Public Company
+        entitySubTypeCode:
+          description: >-
+            Code representing the entity subtype of the matched entity. See the
+            related request parameter for a table of all Codes and their
+            respective descriptions.
+          type: string
+          example: PR
+        locationCity:
+          type: string
+          example: Norwalk
+          description: City where the matched entity is located.
+        regionName:
+          description: Region where the matched entity is located.
+          type: string
+          example: North America
+        factsetIndustryCode:
+          description: FactSet Industry Classification Code of the matched entity.
+          type: string
+          example: 3305
+        factsetIndustryName:
+          description: Name of the matched entity's FactSet Industry Classification.
+          type: string
+          example: Data Processing Services
+        factsetSectorCode:
+          description: Name of the matched entity's FactSet Sector Classification Code.
+          type: string
+          example: 3300
+        factsetSectorName:
+          description: Name of the matched entity's FactSet Sector Classification.
+          type: string
+          example: Technology Services
+        parentName:
+          description: Name of the matched entity's parent entity.
+          type: string
+        parentMatchFlag:
+          description: >-
+            Flag denoting that the matched entity is the parent of another
+            match.
+          type: boolean
+          example: false
+        clientId:
+          description: >-
+            Unique Identifer provided by the user in the request to represent
+            the entity Name being requested.
+          type: string
+          example: abc-123
+        clientName:
+          description: Name of the entity to match as specified in the request
+          type: string
+          example: factset
+        clientCountry:
+          description: ISO2 country code specified in the request.
+          type: string
+          example: US
+        clientState:
+          description: State code specified in the request.
+          type: string
+          example: CT
+        clientUrl:
+          description: URL specified in the request.
+          type: string
+          example: www.factset.com
+        nameMatchString:
+          description: >-
+            String on which the Concordance algorithm mapped the submitted
+            entity.
+          type: string
+          example: factset
+        nameMatchSource:
+          description: Type of name that the nameMatchString matched.
+          type: string
+          example: Domain Name
+    EntityTaskStatus:
+      title: Entity Task Status
+      description: >
+        Concordance Entity Task Status object. Shows the settings and status of
+        a taskId and some statistics on the matches.
+      type: object
+      properties:
+        taskId:
+          description: >-
+            Identifier denoting a specific Concordance task submitted by the
+            user.
+          type: integer
+          example: 31
+        taskName:
+          description: User-defined name for the task used to name the output file.
+          type: string
+          example: test31
+        taskAction:
+          description: Action status for the Concordance Task process.
+          type: string
+          example: processfile
+        status:
+          description: >-
+            Status of the Concordance Task. If the value is "SUCCESS", you can
+            move to the subsequent /entity-decisions endpoint to retrieve the
+            results.
+          type: string
+          enum:
+            - PENDING
+            - IN_PROGRESS
+            - SUCCESS
+            - FAILURE
+            - BAD_REQUEST
+            - ABORTED
+        inputFile:
+          description: |
+            The input file is posted as a file object in the form.
+          type: string
+          example: test31.csv
+        clientIdColumn:
+          description: >-
+            Name of the column in the input file that contains a unique
+            identifier supplied by the user.
+          type: string
+          example: ClientId
+        nameColumn:
+          description: >-
+            Name of the column in the input file that contains the entity name
+            to be matched.
+          type: string
+          example: Name
+        countryColumn:
+          description: >
+            Name of the column in the input file that contains the ISO2 country
+            code corresponding to the entity name.  The country code is used
+            when evaluating candidates for a match.
+          type: string
+          example: Country
+        stateColumn:
+          description: >
+            Name of the column in the input file that contains the Two-character
+            state code corresponding to the entity name. The state code is used
+            when evaluating candidates for a match.
+          type: string
+          example: State
+        urlColumn:
+          description: >
+            Name of the column in the input file that contains the URL
+            corresponding to the entity name. The URL is used when evaluating
+            candidates for a match.
+          type: string
+          example: URL
+        hasResult:
+          description: Flag denoting the taskId has a result.
+          type: boolean
+          example: true
+        taskSubmitTime:
+          description: Time the Task was submitted in UTC.
+          type: string
+          format: date-time
+          example: 2020-06-24T22:02:21.000Z
+        message:
+          description: Textual message for the status.
+          type: string
+          example: Waiting for the input file
+        inputCount:
+          description: Number of records in the Input File.
+          type: integer
+          example: 11
+        mappedCount:
+          description: Number of records with status of MAPPED the Input File.
+          type: integer
+          example: 8
+        unmappedCount:
+          description: Number of records with status of UNMAPPED the Input File.
+          type: integer
+          example: 2
+        indeterminateCount:
+          description: Number of records with status of INDETERMINATE the Input File.
+          type: integer
+          example: 1
+        processStartTime:
+          description: Process start time in UTC.
+          type: string
+          format: date-time
+          example: 2020-07-03T15:12:06.722Z
+        processDuration:
+          description: Process duration in seconds.
+          type: number
+          format: double
+          example: 1.51603
+        tryCount:
+          description: Number of tries made so far for the request.
+          type: integer
+          example: 3
+        decisionRate:
+          description: Percentage of mapped entities in the Input File.
+          type: number
+          format: double
+          example: 0.7272727272727273
+        error:
+          type: string
+        errorTitle:
+          type: string
+        includeEntityType:
+          description: |
+            Requested Entity types to include.
+          type: array
+          items:
+            type: string
+            example: PUB
+        excludeEntityType:
+          description: |
+            Requested Entity types to exclude.
+          type: array
+          items:
+            type: string
+            example: EXT
+        includeEntitySubType:
+          description: |
+            Requested Entity subtypes to include.
+          type: array
+          items:
+            type: string
+            example: PR
+        excludeEntitySubType:
+          description: |
+            Requested Entity subtypes to exclude.
+          type: array
+          items:
+            type: string
+            example: IB
+        userSerial:
+          description: user-serial of the person who initiated the entity task.
+          type: string
+          example: FDSQAR_C-000000
+        userFullName:
+          description: |
+            Full name of the person associated with the `userSerial`.
+          type: string
+          example: Jane Smith
+        universeId:
+          description: |
+            The universe id this task was submitted to.
+          type: integer
+          example: 1
+        universeName:
+          description: |
+            The name of the universe this task was submitted to.
+          type: string
+          example: My Universe
+    EntityMapping:
+      title: Entity Mapping
+      description: >
+        Concordance Company Entity Mapping object. Shows the mapping detail
+        related to user's universe.
+      type: object
+      properties:
+        entityId:
+          description: >-
+            FactSet Entity Identifier of the entity matched to the submitted
+            entity
+          type: string
+          example: 00456-E
+        entityName:
+          description: Full name corresponding to the matched entity.
+          type: string
+          example: FactSet Inc.
+        clientId:
+          description: User-defined unique identifier provided by the user in the request
+          type: string
+          example: abc-1234
+        clientName:
+          description: Name of the entity to match as specified in the request.
+          type: string
+          example: factset
+        clientCountry:
+          description: ISO2 country code specified in the request
+          type: string
+          example: us
+        clientState:
+          description: State code specified in the request
+          type: string
+          example: ct
+        clientUrl:
+          description: URL specified in the request
+          type: string
+          example: www.factset.com
+        createdTime:
+          description: Time when entity was created in UTC.
+          type: string
+          format: date-time
+          example: 2020-06-24T22:02:21.000Z
+        updatedTime:
+          description: Time when the submitted entity was last updated in UTC.
+          type: string
+          format: date-time
+          example: 2020-06-24T22:02:21.000Z
+        mapStatus:
+          description: Current status of the entity mapping.
+          type: string
+          enum:
+            - MAPPED
+            - UNMAPPED
+            - INDETERMINATE
+        universeId:
+          description: |
+            The universe this mapping belongs to. Only set in v2 endpoints
+          type: integer
+          example: 1
+    UniverseStatistics:
+      title: Universe Statistics
+      description: Mapping statistics for a given universe
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          example: 10
+        mappedCount:
+          type: integer
+          example: 8
+        unmappedCount:
+          type: integer
+          example: 1
+        indeterminateCount:
+          type: integer
+          example: 1
+        universeId:
+          type: integer
+          example: 1
+    MapStatus:
+      description: Status of an entity mapping
+      type: string
+      example: MAPPED
+      enum:
+        - MAPPED
+        - UNMAPPED
+        - INDETERMINATE
+    UniverseMeta:
+      title: Universe Meta
+      description: Metadata about a single universe
+      type: object
+      properties:
+        universeId:
+          description: The universe identifier
+          type: integer
+          example: 1
+        universeName:
+          description: The user specified universe name
+          type: string
+          example: My Universe
+        universeDescription:
+          description: The user specified universe description
+          type: string
+          example: This is a universe
+        selfManaged:
+          description: >-
+            False if the universe is managed by FactSet Managed Service, True
+            otherwise
+          type: boolean
+          example: true
+        createdBy:
+          description: The user who created the universe
+          type: string
+          example: FDSQAR_C-000000
+        createdOn:
+          description: When the universe was created
+          type: string
+          format: date-time
+          example: 2020-01-01T00:00:00.000Z
+        updatedBy:
+          description: The user who most recently updated the universe metadata
+          type: string
+          example: FDSQAR_C-000000
+        updatedOn:
+          description: When the universe metadata was most recently updated
+          type: string
+          format: date-time
+          example: 2020-01-01T00:00:00.000Z
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: Timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-concordance/v2/{endpoint}
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: Sub-Errors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: The operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  examples:
+    EntityRequests:
+      summary: Entity Match Request
+      description: Example of a request to find a match for a list of Companies.
+      value:
+        input:
+          - clientId: abc-123
+            name: FactSet
+            country: US
+            state: CT
+            url: www.factset.com
+          - clientId: def-453
+            name: FactSet
+            country: DE
+        includeEntityType:
+          - SUB
+        excludeEntityType:
+          - PVT
+        includeParent: true
+    EntityMatches:
+      description: Entity Matches
+      value:
+        data:
+          - taskId: null
+            rowIndex: 0
+            matchFlag: true
+            entityId: 0016YD-E
+            entityName: FactSet Research Systems, Inc.
+            url: www.factset.com
+            mapStatus: MAPPED
+            similarityScore: 1
+            confidenceScore: 1
+            countryCode: US
+            countryName: United States
+            stateProvinceCode: CT
+            stateName: Connecticut
+            sicCode: 7374
+            entityTypeCode: PUB
+            entityTypeDescription: Public Company
+            entitySubTypeCode: CP
+            locationCity: Norwalk
+            regionName: North America
+            factsetIndustryCode: 3305
+            factsetIndustryName: Data Processing Services
+            factsetSectorCode: 3300
+            factsetSectorName: Technology Services
+            parentName: null,
+            parentMatchFlag: null
+            clientId: abc-123
+            clientName: factset
+            clientCountry: US
+            clientState: CT
+            clientUrl: www.factset.com
+            nameMatchString: factset
+            nameMatchSource: Domain Name
+    SuccessfulEntityTasks:
+      summary: Successful Entity Task
+      description: Example of the status of a successful Entity Concordance Task.
+      value:
+        data:
+          - taskId: 31
+            taskName: test
+            taskAction: processfile
+            status: SUCCESS
+            inputFile: test_427608.csv
+            clientIdColumn: id
+            nameColumn: name
+            countryColumn: country
+            stateColumn: state
+            urlColumn: url
+            includeEntityType:
+              - PUB
+            excludeEntityType: null
+            includeEntitySubType:
+              - CP
+            excludeEntitySubType: null
+            hasResult: true
+            taskSubmitTime: '2020-12-16T16:22:06Z'
+            message: null
+            inputCount: 4
+            mappedCount: 3
+            unmappedCount: 1
+            indeterminateCount: 0
+            processStartTime: '2020-12-16T16:22:09Z'
+            processDuration: 38.68899
+            tryCount: null
+            decisionRate: 0.75
+            error: null
+            errorTitle: null
+            userSerial: FDSQAR_C-000000
+            userFullName: Jane Smith
+            universeId: 1
+            universeName: My Universe
+    PendingTask:
+      summary: Status pending input file
+      description: Example of the status of a Task pending input file.
+      value:
+        data:
+          taskId: 31
+          taskName: test
+          taskAction: processfile
+          status: PENDING
+          inputFile: test_427608.csv
+          clientIdColumn: id
+          nameColumn: name
+          countryColumn: country
+          stateColumn: state
+          urlColumn: url
+          includeEntityType:
+            - PUB
+          excludeEntityType: null
+          includeEntitySubType:
+            - CP
+          excludeEntitySubType: null
+          hasResult: false
+          taskSubmitTime: '2020-12-16T16:22:06Z'
+          message: null
+          inputCount: null
+          mappedCount: null
+          unmappedCount: null
+          indeterminateCount: null
+          processStartTime: null
+          processDuration: null
+          tryCount: null
+          decisionRate: null
+          error: null
+          errorTitle: null
+          userSerial: FDSQAR_C-000000
+          userFullName: Jane Smith
+          universeId: 1
+          universeName: My Universe
+    PendingTasks:
+      summary: Status pending input file
+      description: Example of the status of a Task pending input file.
+      value:
+        data:
+          - taskId: 31
+            taskName: test
+            taskAction: processfile
+            status: PENDING
+            inputFile: test_427608.csv
+            clientIdColumn: id
+            nameColumn: name
+            countryColumn: country
+            stateColumn: state
+            urlColumn: url
+            includeEntityType:
+              - PUB
+            excludeEntityType: null
+            includeEntitySubType:
+              - CP
+            excludeEntitySubType: null
+            hasResult: false
+            taskSubmitTime: '2020-12-16T16:22:06Z'
+            message: null
+            inputCount: null
+            mappedCount: null
+            unmappedCount: null
+            indeterminateCount: null
+            processStartTime: null
+            processDuration: null
+            tryCount: null
+            decisionRate: null
+            error: null
+            errorTitle: null
+            userSerial: FDSQAR_C-000000
+            userFullName: Jane Smith
+            universeId: 1
+            universeName: My Universe
+    BadTasks:
+      summary: Status for bad request
+      description: Example of the status of a Task with a bad request.
+      value:
+        data:
+          - taskId: 31
+            taskName: test
+            taskAction: processfile
+            status: BAD_REQUEST
+            inputFile: test_427608.csv
+            clientIdColumn: id
+            nameColumn: name
+            countryColumn: country
+            stateColumn: state
+            urlColumn: url
+            includeEntityType:
+              - PUB
+            excludeEntityType: null
+            includeEntitySubType:
+              - CP
+            excludeEntitySubType: null
+            hasResult: false
+            taskSubmitTime: '2020-12-17T20:43:42Z'
+            message: null
+            inputCount: null
+            mappedCount: null
+            unmappedCount: null
+            indeterminateCount: null
+            processStartTime: '2020-12-17T20:44:00Z'
+            processDuration: 0
+            tryCount: null
+            decisionRate: null
+            error: >-
+              The Name column "name", passed as parameter, does not exist in the
+              input file.
+            errorTitle: Wrong parameter
+            userSerial: FDSQAR_C-000000
+            userFullName: Jane Smith
+            universeId: 1
+            universeName: My Universe
+    FailedTasks:
+      summary: Status for failed request
+      description: Example of the status of a Task with a failed request.
+      value:
+        data:
+          - taskId: 31
+            taskName: test
+            taskAction: processfile
+            status: FAILURE
+            inputFile: test_427608.csv
+            clientIdColumn: id
+            nameColumn: name
+            countryColumn: country
+            stateColumn: state
+            urlColumn: url
+            includeEntityType:
+              - PUB
+            excludeEntityType: null
+            includeEntitySubType:
+              - CP
+            excludeEntitySubType: null
+            hasResult: false
+            taskSubmitTime: '2020-12-17T20:43:42Z'
+            message: null
+            inputCount: null
+            mappedCount: null
+            unmappedCount: null
+            indeterminateCount: null
+            processStartTime: '2020-12-17T20:44:00Z'
+            processDuration: 0
+            tryCount: null
+            decisionRate: null
+            error: different refererence used by concordance service
+            errorTitle: compute_candidates
+            userSerial: FDSQAR_C-000000
+            userFullName: Jane Smith
+            universeId: 1
+            universeName: My Universe
+    EntityDecisionsFile:
+      description: An Entity Concordance Task Decision File.
+      value: >
+        rowIndex,clientId,requestName,requestCountry,name,requestUrl,entityType,mapStatus,similarityScore,confidenceScore
+
+        0,FDS-US,FactSet,"FactSet Research Systems,
+        Inc.",US,www.factset.com,PUB,MATCHED,1.0,1.0
+
+        1,FDS-DE,FactSet,FactSet GmbH,DE,,SUB,MATCHED,1.0,1.0
+    EntityDecisions:
+      description: Entity Decisions
+      value:
+        data:
+          - taskId: 427749
+            rowIndex: 0
+            matchFlag: null
+            entityId: 0016YD-E
+            entityName: FactSet Research Systems, Inc.
+            url: www.factset.com
+            mapStatus: MAPPED
+            similarityScore: 1
+            confidenceScore: 1
+            countryCode: US
+            countryName: United States
+            stateProvinceCode: CT
+            stateName: Connecticut
+            sicCode: 7374
+            entityTypeCode: PUB
+            entityTypeDescription: Public Company
+            entitySubTypeCode: CP
+            locationCity: Norwalk
+            regionName: North America
+            factsetIndustryCode: 3305
+            factsetIndustryName: Data Processing Services
+            factsetSectorCode: 3300
+            factsetSectorName: Technology Services
+            parentName: null,
+            parentMatchFlag: null
+            clientId: abc-123
+            clientName: factset
+            clientCountry: US
+            clientState: CT
+            clientUrl: www.factset.com
+            nameMatchString: factset
+            nameMatchSource: Domain Name
+    NotFound:
+      description: 404 - Not Found
+      value:
+        status: Not Found
+        timestamp: 2019-11-01T11:09:41.918Z
+        path: /factset-concordance/v2/fakeendpoint
+        message: '''/factset-concordance/v2/fake-endpoint'' is not a valid endpoint'
+        subErrors: null
+    EntityUniverse:
+      description: Entity Universe response from v2 endpoint
+      value:
+        data:
+          - entityId: 00345-E
+            entityName: FactSet Inc.
+            clientId: abc-123
+            clientName: factset
+            clientCountry: us
+            clientState: ct
+            clientUrl: www.factset.com
+            createdTime: 2020-09-04T20:14:13.123Z
+            updatedTime: 2020-10-04T20:14:13.123Z
+            mapStatus: MAPPED
+            universeId: 1
+          - entityId: null
+            entityName: null
+            clientId: def-456
+            clientName: apple
+            clientCountry: us
+            clientState: ca
+            clientUrl: www.apple.com
+            createdTime: 2020-07-04T20:14:13.123Z
+            updatedTime: 2020-08-04T20:14:13.123Z
+            mapStatus: UNMAPPED
+            universeId: 1
+    EntityResponse:
+      description: Entity Response
+      value:
+        data:
+          entityId: 00345-E
+          entityName: FactSet Inc.
+          clientId: abc-123
+          clientName: factset
+          clientCountry: US
+          clientState: CT
+          clientUrl: www.factset.com
+          createdTime: 2020:09:04T20:14:13.123
+          updatedTime: 2020:10:04T20:14:13.123
+          mapStatus: MAPPED
+          universeId: 1
+    EntityMappingRequest:
+      description: Entity Mapping Request
+      value:
+        clientId: abc-123
+        entityId: 0016YD-E
+        clientName: FactSet
+        clientCountry: US
+        clientState: CT
+        clientUrl: www.factset.com
+    EntityUniverseStatsResponse:
+      description: |
+        Statistics on a universe
+      value:
+        data:
+          totalCount: 10
+          unmappedCount: 1
+          mappedCount: 8
+          indeterminateCount: 1
+          universeId: 1
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-30 13:22:09.053'
+        path: /factset-concordance/v2/{endpoint}
+        message: The parameter 'name' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Passing Invalid Parameter
+      description: >-
+        This error message occurs when a request parameter is not recognized by
+        the service. Please revise your request to include only the parameters
+        listed in the specification. Typical errors are spelling mistakes and
+        use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-23 11:03:40.765'
+        path: /factset-concordance/v2/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON.
+        But is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 11:59:09.649'
+        path: /factset-concordance/v2/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: This error may be returned if it takes more than 29 seconds to complete.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 16:18:38.949'
+        path: /factset-concordance/v2/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2020-07-02 16:08:07.945'
+        path: /factset-concordance/v2/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint which is not
+        authorized to access. The request was a legal request, but the server is
+        refusing to respond. Please reach out to FactSet Account Team for
+        assistance with authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-07-02 17:21:52.197'
+        path: /factset-concordance/v2/{endpoint}
+        message: >-
+          User is not authorized for the id requested, please reach out to
+          FactSet for support
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2020-07-02 09:42:27.237'
+        path: /factset-concordance/v2/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 09:48:29.18'
+        path: /factset-concordance/v2/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 10:36:01.944'
+        path: /factset-concordance/v2/{endpoint}
+        message: Unexpected error
+        subErrors: null

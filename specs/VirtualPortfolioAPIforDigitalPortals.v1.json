@@ -1,0 +1,3570 @@
+{
+  "swagger": "2.0",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/portfolio/create": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Create a portfolio.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number of portfolios would exceed 100.|400 Bad Request|",
+        "summary": "Create a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name",
+                    "currency"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the portfolio.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u002e\\u0030-\\u003a\\u003d\\u003f-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]{1,}$",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    },
+                    "currency": {
+                      "description": "Main currency used as the portfolio's currency. See endpoint /basic/valueUnit/currency/main/list for valid values.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "isoCode"
+                      ],
+                      "properties": {
+                        "isoCode": {
+                          "description": "ISO 4217 code of the currency.",
+                          "type": "string",
+                          "maxLength": 3,
+                          "exclusiveMaximum": false,
+                          "default": "EUR"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              },
+              "required": [
+                "data"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Details of the portfolio.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/delete": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Delete a portfolio.",
+        "summary": "Delete a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always empty."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/get": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "description": "Details of a portfolio.",
+        "summary": "Details of a portfolio.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Identifier of the portfolio.",
+            "required": true,
+            "type": "string",
+            "format": "id64",
+            "x-positive": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Details of the portfolio.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "name",
+                    "currency",
+                    "summary",
+                    "profitLoss",
+                    "riskKeyFigures"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the portfolio."
+                    },
+                    "currency": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "id",
+                        "isoCode"
+                      ],
+                      "description": "Currency of the portfolio. See endpoint `/basic/valueUnit/currency/main/list` for possible values.",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true,
+                          "description": "Identifier of the currency."
+                        },
+                        "isoCode": {
+                          "type": "string",
+                          "description": "ISO 4217 code of the currency."
+                        }
+                      }
+                    },
+                    "summary": {
+                      "description": "Summary of portfolio values in the portfolio's currency (see attribute `currency`).",
+                      "type": "object",
+                      "x-property-sort": [
+                        "totalValue",
+                        "purchaseValue",
+                        "numberPositions",
+                        "transactions",
+                        "cash"
+                      ],
+                      "properties": {
+                        "totalValue": {
+                          "description": "The total portfolio value, including the current cash amount.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "purchaseValue": {
+                          "description": "The total purchase value of all securities.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "numberPositions": {
+                          "description": "Number of positions in the portfolio.",
+                          "type": "number",
+                          "format": "int32"
+                        },
+                        "transactions": {
+                          "description": "Summary of all non-cash transactions.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "total",
+                            "buy",
+                            "sell"
+                          ],
+                          "properties": {
+                            "total": {
+                              "description": "Summary of all non-cash transactions.",
+                              "type": "object",
+                              "x-property-sort": [
+                                "number",
+                                "turnover"
+                              ],
+                              "properties": {
+                                "number": {
+                                  "description": "Total number of transactions in the portfolio.",
+                                  "type": "number",
+                                  "format": "int32"
+                                },
+                                "turnover": {
+                                  "description": "Total turnover generated by all transactions.",
+                                  "type": "number",
+                                  "format": "real"
+                                }
+                              }
+                            },
+                            "buy": {
+                              "description": "Summary of buy transactions.",
+                              "type": "object",
+                              "x-property-sort": [
+                                "number",
+                                "turnover"
+                              ],
+                              "properties": {
+                                "number": {
+                                  "description": "Number of buy transactions in the portfolio.",
+                                  "type": "number",
+                                  "format": "int32"
+                                },
+                                "turnover": {
+                                  "description": "Total turnover generated by all buy transactions.",
+                                  "type": "number",
+                                  "format": "real"
+                                }
+                              }
+                            },
+                            "sell": {
+                              "description": "Summary of sell transactions.",
+                              "type": "object",
+                              "x-property-sort": [
+                                "number",
+                                "turnover"
+                              ],
+                              "properties": {
+                                "number": {
+                                  "description": "Number of sell transactions in the portfolio.",
+                                  "type": "number",
+                                  "format": "int32"
+                                },
+                                "turnover": {
+                                  "description": "Total turnover generated by all sell transactions.",
+                                  "type": "number",
+                                  "format": "real"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "cash": {
+                          "description": "Summary of cash transactions.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "amount"
+                          ],
+                          "properties": {
+                            "amount": {
+                              "description": "Current cash amount.",
+                              "type": "number",
+                              "format": "real"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "profitLoss": {
+                      "description": "Profit and loss analysis. Positive values indicate profit; negative values indicate loss. All calculations are performed in the currency of the portfolio.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "realized",
+                        "potential",
+                        "total",
+                        "today"
+                      ],
+                      "properties": {
+                        "realized": {
+                          "description": "Summary of realized profit or loss resulting from closed positions, i.e. instrument positions that have been sold entirely",
+                          "type": "object",
+                          "x-property-sort": [
+                            "absolute",
+                            "relative"
+                          ],
+                          "properties": {
+                            "absolute": {
+                              "description": "Absolute value of profit or loss.",
+                              "type": "number",
+                              "format": "real"
+                            },
+                            "relative": {
+                              "description": "Relative value of profit or loss.",
+                              "type": "number",
+                              "format": "relativeValue"
+                            }
+                          }
+                        },
+                        "potential": {
+                          "description": "Summary of potential profit or loss resulting from open positions, i.e. instrument positions that have not been sold.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "absolute",
+                            "relative"
+                          ],
+                          "properties": {
+                            "absolute": {
+                              "description": "Absolute value of profit or loss.",
+                              "type": "number",
+                              "format": "real"
+                            },
+                            "relative": {
+                              "description": "Relative value of profit or loss.",
+                              "type": "number",
+                              "format": "relativeValue"
+                            }
+                          }
+                        },
+                        "total": {
+                          "description": "Summary of potential profit or loss resulting from open and closed positions.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "absolute",
+                            "relative"
+                          ],
+                          "properties": {
+                            "absolute": {
+                              "description": "Absolute value of realized and potential profit or loss.",
+                              "type": "number",
+                              "format": "real"
+                            },
+                            "relative": {
+                              "description": "Relative value of realized and potential profit or loss.",
+                              "type": "number",
+                              "format": "relativeValue"
+                            }
+                          }
+                        },
+                        "today": {
+                          "description": "Summary of today's profit or loss, calculated using the most recent price and the last price of the prior trading day.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "absolute",
+                            "relative"
+                          ],
+                          "properties": {
+                            "absolute": {
+                              "description": "Absolute value of profit or loss.",
+                              "type": "number",
+                              "format": "real"
+                            },
+                            "relative": {
+                              "description": "Relative value of profit or loss.",
+                              "type": "number",
+                              "format": "relativeValue"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "riskKeyFigures": {
+                      "description": "Current risk key figures.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "volatility",
+                        "valueAtRisk"
+                      ],
+                      "properties": {
+                        "volatility": {
+                          "description": "Portfolio's volatility over the last 250 calendar days.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "valueAtRisk": {
+                          "description": "Current portfolio value-at-risk, calculated using the variance/covariance method.",
+                          "type": "number",
+                          "format": "real"
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/list": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "description": "List of portfolios with keyfigures.",
+        "summary": "List of portfolios with keyfigures.",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of portfolios.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "name",
+                      "currency",
+                      "summary",
+                      "profitLoss"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Identifier of the portfolio.",
+                        "x-sortable": true,
+                        "type": "string",
+                        "format": "id64",
+                        "x-positive": true
+                      },
+                      "name": {
+                        "description": "Name of the portfolio.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "string"
+                      },
+                      "currency": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "id",
+                          "isoCode"
+                        ],
+                        "description": "Main currency of the portfolio. See endpoint `/basic/valueUnit/currency/main/list` for possible values.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "format": "id32",
+                            "x-positive": true,
+                            "description": "Identifier of the currency."
+                          },
+                          "isoCode": {
+                            "type": "string",
+                            "description": "ISO 4217 code of the currency."
+                          }
+                        }
+                      },
+                      "summary": {
+                        "description": "Summary of portfolio values in the portfolio's currency (see attribute `currency`).",
+                        "type": "object",
+                        "x-property-sort": [
+                          "totalValue",
+                          "numberPositions",
+                          "transactions",
+                          "cash"
+                        ],
+                        "properties": {
+                          "totalValue": {
+                            "description": "The total portfolio value, including the current cash amount.",
+                            "type": "number",
+                            "format": "real"
+                          },
+                          "numberPositions": {
+                            "description": "Number of positions in the portfolio.",
+                            "type": "number",
+                            "format": "int32"
+                          },
+                          "transactions": {
+                            "description": "Summary of all non-cash transactions.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "total"
+                            ],
+                            "properties": {
+                              "total": {
+                                "description": "Summary of all non-cash transactions.",
+                                "type": "object",
+                                "x-property-sort": [
+                                  "number",
+                                  "turnover"
+                                ],
+                                "properties": {
+                                  "number": {
+                                    "description": "Total number of transactions in the portfolio.",
+                                    "type": "number",
+                                    "format": "int32"
+                                  },
+                                  "turnover": {
+                                    "description": "Total turnover generated by all transactions.",
+                                    "type": "number",
+                                    "format": "real"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "cash": {
+                            "description": "Summary of cash transactions.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "amount"
+                            ],
+                            "properties": {
+                              "amount": {
+                                "description": "Current cash amount.",
+                                "type": "number",
+                                "format": "real"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "profitLoss": {
+                        "description": "Profit and loss analysis. Positive values indicate profit; negative values indicate loss. All calculations are performed in the currency of the portfolio.",
+                        "type": "object",
+                        "x-property-sort": [
+                          "total"
+                        ],
+                        "properties": {
+                          "total": {
+                            "description": "Summary of potential profit or loss resulting from open and closed positions.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "absolute",
+                              "relative"
+                            ],
+                            "properties": {
+                              "absolute": {
+                                "description": "Absolute value of realized and potential profit or loss.",
+                                "type": "number",
+                                "format": "real"
+                              },
+                              "relative": {
+                                "description": "Relative value of realized and potential profit or loss.",
+                                "type": "number",
+                                "format": "relativeValue"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "id",
+                "-id",
+                "name",
+                "-name"
+              ]
+            },
+            "maxItems": 2,
+            "uniqueItems": true,
+            "default": [
+              "name"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          }
+        ]
+      }
+    },
+    "/portfolio/modify": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Modify a portfolio.",
+        "summary": "Modify a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "name"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "name": {
+                      "description": "Name of the portfolio.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u002e\\u0030-\\u003a\\u003d\\u003f-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]*$",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/evaluation/list": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "description": "Performs an evaluation over a period of time and returns portfolio key figures for each day, week, or month.",
+        "summary": "Evaluate a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "range",
+                    "resolution"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "range": {
+                      "type": "object",
+                      "format": "dateRange",
+                      "x-isClosedInterval": true,
+                      "properties": {
+                        "start": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The starting point of the date range (inclusive)."
+                        },
+                        "end": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The ending point of the date range (inclusive)."
+                        }
+                      },
+                      "x-property-sort": [
+                        "start",
+                        "end"
+                      ],
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "description": "Date range for the time series. A valid date range is between 1900-01-01 and the day after the current day. A date before the date of the first transaction is implicitly adjusted to the date of the portfolio's first transaction."
+                    },
+                    "resolution": {
+                      "type": "string",
+                      "default": "daily",
+                      "x-enum-description": [
+                        "",
+                        "",
+                        ""
+                      ],
+                      "enum": [
+                        "daily",
+                        "weekly",
+                        "monthly"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "range"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of dates with corresponding key figures.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "currency",
+                    "keyfigures"
+                  ],
+                  "properties": {
+                    "currency": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "id",
+                        "isoCode"
+                      ],
+                      "description": "Main currency of the portfolio. See endpoint `/basic/valueUnit/currency/main/list` for possible values.",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true,
+                          "description": "Identifier of the currency."
+                        },
+                        "isoCode": {
+                          "type": "string",
+                          "description": "ISO 4217 code of the currency."
+                        }
+                      }
+                    },
+                    "keyfigures": {
+                      "description": "Summary of portfolio key figures in the corresponding resolution.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "date",
+                          "cash",
+                          "value",
+                          "profitLoss",
+                          "period"
+                        ],
+                        "properties": {
+                          "date": {
+                            "description": "Date the evaluation is performed for (end of week or end of month for weekly and monthly resolution respectively).",
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "cash": {
+                            "description": "The amount of cash since range start.",
+                            "type": "number",
+                            "format": "real"
+                          },
+                          "value": {
+                            "description": "The value of all open positions since range start.",
+                            "type": "number",
+                            "format": "real"
+                          },
+                          "profitLoss": {
+                            "description": "Summary of profit/loss.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "absolute",
+                              "performance",
+                              "modifiedDietzPerformance"
+                            ],
+                            "properties": {
+                              "absolute": {
+                                "description": "Profit/loss since range start.",
+                                "type": "number",
+                                "format": "real"
+                              },
+                              "performance": {
+                                "description": "The performance of the portfolio since range start.",
+                                "type": "number",
+                                "format": "relativeValue"
+                              },
+                              "modifiedDietzPerformance": {
+                                "description": "The performance of the portfolio calculated using the \"modified Dietz\" method since range start.",
+                                "type": "number",
+                                "format": "relativeValue"
+                              }
+                            }
+                          },
+                          "period": {
+                            "description": "Summary of the corresponding period.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "profitLoss",
+                              "transactions",
+                              "payouts",
+                              "purchaseValue"
+                            ],
+                            "properties": {
+                              "profitLoss": {
+                                "description": "Summary of profit/loss in the corresponding period.",
+                                "type": "object",
+                                "x-property-sort": [
+                                  "absolute"
+                                ],
+                                "properties": {
+                                  "absolute": {
+                                    "description": "Profit/loss in the corresponding period.",
+                                    "type": "number",
+                                    "format": "real"
+                                  }
+                                }
+                              },
+                              "transactions": {
+                                "description": "The number of transactions in the corresponding period.",
+                                "type": "number",
+                                "format": "int32"
+                              },
+                              "payouts": {
+                                "description": "The number of payouts in the corresponding period.",
+                                "type": "number",
+                                "format": "int32"
+                              },
+                              "purchaseValue": {
+                                "description": "Value of money that has been invested in the corresponding period.",
+                                "type": "number",
+                                "format": "real"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/name/list": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "description": "List of portfolios.",
+        "summary": "List of portfolios.",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of portfolios.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "name"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Identifier of the portfolio.",
+                        "x-sortable": true,
+                        "type": "string",
+                        "format": "id64",
+                        "x-positive": true
+                      },
+                      "name": {
+                        "description": "Name of the portfolio.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "id",
+                "-id",
+                "name",
+                "-name"
+              ]
+            },
+            "maxItems": 2,
+            "uniqueItems": true,
+            "default": [
+              "name"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          }
+        ]
+      }
+    },
+    "/portfolio/position/list": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "description": "List all positions of a portfolio.",
+        "summary": "List all positions of a portfolio.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Identifier of the portfolio.",
+            "type": "string",
+            "format": "id64",
+            "x-positive": true,
+            "required": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of positions.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "positions"
+                  ],
+                  "properties": {
+                    "positions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "instrument",
+                          "currency",
+                          "notation",
+                          "shares",
+                          "purchase",
+                          "value",
+                          "profitLoss"
+                        ],
+                        "properties": {
+                          "instrument": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "id",
+                              "isin"
+                            ],
+                            "description": "Details of the instrument",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier of the instrument.",
+                                "type": "string",
+                                "format": "id64",
+                                "x-positive": true
+                              },
+                              "isin": {
+                                "description": "International Securities Identification Number",
+                                "type": "string",
+                                "format": "isin"
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "id",
+                              "isoCode"
+                            ],
+                            "description": "Main currency of the position. See endpoint `/basic/valueUnit/currency/main/list` for possible values.",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "format": "id32",
+                                "x-positive": true,
+                                "description": "Identifier of the currency."
+                              },
+                              "isoCode": {
+                                "type": "string",
+                                "description": "ISO 4217 code of the currency."
+                              }
+                            }
+                          },
+                          "notation": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "id",
+                              "price"
+                            ],
+                            "description": "Notation of the transaction establishing the position, i.e. its first transaction.",
+                            "properties": {
+                              "id": {
+                                "description": "Identifier of the notation.",
+                                "type": "string",
+                                "format": "id64",
+                                "x-positive": true
+                              },
+                              "price": {
+                                "description": "Price of the notation.",
+                                "type": "object",
+                                "x-property-sort": [
+                                  "time",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "time": {
+                                    "description": "Date and time of the trade price",
+                                    "type": "string",
+                                    "format": "datetime"
+                                  },
+                                  "value": {
+                                    "description": "Trade price.",
+                                    "type": "number",
+                                    "format": "real"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "shares": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "bought",
+                              "sold",
+                              "open"
+                            ],
+                            "description": "Number of shares in the position.",
+                            "properties": {
+                              "bought": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Number of shares bought."
+                              },
+                              "sold": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Number of shares sold."
+                              },
+                              "open": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Open number of shares."
+                              }
+                            }
+                          },
+                          "purchase": {
+                            "description": "Purchase details of the position.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "price",
+                              "exchangeRate",
+                              "charges",
+                              "value"
+                            ],
+                            "properties": {
+                              "price": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Weighted average purchase price of the position."
+                              },
+                              "exchangeRate": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Weighted average exchange rate of the position between the position and portfolio currency."
+                              },
+                              "charges": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Sum of additional purchase fees for the position in portfolio's base currency."
+                              },
+                              "value": {
+                                "type": "number",
+                                "format": "real",
+                                "description": "Aggregated purchase value of all buy transactions of the position."
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "number",
+                            "format": "real",
+                            "description": "Current value of the position."
+                          },
+                          "profitLoss": {
+                            "description": "Profit and loss of the position. Positive values indicate profit; negative values indicate loss. All calculations are performed in the currency of the portfolio.",
+                            "type": "object",
+                            "x-property-sort": [
+                              "intraday",
+                              "potential"
+                            ],
+                            "properties": {
+                              "intraday": {
+                                "description": "Summary of today's profit or loss, calculated using the most recent price and the last price of the prior trading day.",
+                                "type": "object",
+                                "x-property-sort": [
+                                  "absolute",
+                                  "relative"
+                                ],
+                                "properties": {
+                                  "absolute": {
+                                    "description": "Absolute value of profit or loss.",
+                                    "type": "number",
+                                    "format": "real"
+                                  },
+                                  "relative": {
+                                    "description": "Relative value of profit or loss.",
+                                    "type": "number",
+                                    "format": "relativeValue"
+                                  }
+                                }
+                              },
+                              "potential": {
+                                "description": "Summary of potential profit or loss resulting from open positions, i.e. instrument positions that have not been sold.",
+                                "type": "object",
+                                "x-property-sort": [
+                                  "absolute",
+                                  "relative"
+                                ],
+                                "properties": {
+                                  "absolute": {
+                                    "description": "Absolute value of profit or loss.",
+                                    "type": "number",
+                                    "format": "real"
+                                  },
+                                  "relative": {
+                                    "description": "Relative value of profit or loss.",
+                                    "type": "number",
+                                    "format": "relativeValue"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "maxItems": 1000,
+                      "description": "Positions of the Portfolio."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/create": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Add a transaction to a portfolio.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number of transactions would exceed 1000.|400 Bad Request|",
+        "summary": "Add a transaction to a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "type",
+                    "notation",
+                    "time",
+                    "numberShares",
+                    "price",
+                    "charges",
+                    "exchangeRate",
+                    "parentTransaction"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "type": {
+                      "description": "Transaction Type. ",
+                      "type": "string",
+                      "x-enum-description": [
+                        "Buy",
+                        "Sell",
+                        "Sell short",
+                        "Cover short sale"
+                      ],
+                      "enum": [
+                        "buy",
+                        "sell",
+                        "short",
+                        "cover"
+                      ]
+                    },
+                    "notation": {
+                      "description": "Notation of the position.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the notation.",
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "time": {
+                      "description": "Date and time of the trade.",
+                      "type": "string",
+                      "format": "datetime"
+                    },
+                    "numberShares": {
+                      "description": "Number of shares bought or sold.",
+                      "type": "number",
+                      "format": "real"
+                    },
+                    "price": {
+                      "description": "Purchase price.",
+                      "type": "number",
+                      "format": "real"
+                    },
+                    "charges": {
+                      "description": "Charges accrued in portfolio‘s base currency.",
+                      "type": "number",
+                      "format": "real",
+                      "default": 0
+                    },
+                    "exchangeRate": {
+                      "description": "The exchange rate between the notation's currency and the portfolio currency.",
+                      "type": "number",
+                      "format": "real",
+                      "default": 1
+                    },
+                    "parentTransaction": {
+                      "description": "Parent transactions can be used to link transactions together. Only sell or cover short sell can be have buy transaction as its parent. All other combinations will be ignored, but they will not affect the current create request.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the parent transaction.",
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "notation",
+                    "time",
+                    "numberShares",
+                    "price"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true,
+                      "description": "Identifier of the transaction."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/delete": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Delete a transaction of a portfolio.",
+        "summary": "Delete a transaction of a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "transaction",
+                    "notation"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "transaction": {
+                      "description": "Transaction of the portfolio.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true,
+                          "description": "Identifier of the transaction."
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "notation": {
+                      "description": "Notation of the transaction.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the notation",
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "transaction",
+                    "notation"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "The response is always empty."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/list": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "description": "List of transactions in a portfolio.",
+        "summary": "List of transactions in a portfolio.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Identifier of the portfolio.",
+            "type": "string",
+            "format": "id64",
+            "x-positive": true,
+            "required": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of transactions.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "notation",
+                      "type",
+                      "time",
+                      "numberShares",
+                      "price",
+                      "charges",
+                      "exchangeRate"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "id64",
+                        "x-positive": true,
+                        "description": "Identifier of transaction."
+                      },
+                      "notation": {
+                        "description": "Notation of the transaction.",
+                        "type": "object",
+                        "x-property-sort": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "description": "Identifier of the notation",
+                            "type": "string",
+                            "format": "id64",
+                            "x-positive": true
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Type of transaction",
+                        "x-enum-description": [
+                          "Buy",
+                          "Sell",
+                          "Cash",
+                          "Payout",
+                          "Sell short",
+                          "Cover short sale"
+                        ],
+                        "enum": [
+                          "buy",
+                          "sell",
+                          "cash",
+                          "payout",
+                          "short",
+                          "cover"
+                        ]
+                      },
+                      "time": {
+                        "type": "string",
+                        "format": "datetime",
+                        "description": "Date and time of the trade."
+                      },
+                      "numberShares": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "Number of shares bought or sold."
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "Price the securities were purchased / sold for."
+                      },
+                      "charges": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "Charges accrued in portfolio's base currency."
+                      },
+                      "exchangeRate": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "The exchange rate between the notation's currency and the portfolio currency."
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/modify": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Modify a transaction in a portfolio.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|At least one of the parameters `numberShares`, `price`, `charges`, `exchangeRate` or `time` must be set.|400 Bad Request|",
+        "summary": "Modify a transaction in a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "transaction"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "transaction": {
+                      "description": "Transaction of the portfolio.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id",
+                        "notation",
+                        "time",
+                        "numberShares",
+                        "price",
+                        "charges",
+                        "exchangeRate"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true,
+                          "description": "Identifier of the transaction."
+                        },
+                        "notation": {
+                          "description": "Notation of the transaction.",
+                          "type": "object",
+                          "x-property-sort": [
+                            "id"
+                          ],
+                          "properties": {
+                            "id": {
+                              "description": "Identifier of the notation",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "time": {
+                          "description": "Date and time of the trade.",
+                          "type": "string",
+                          "format": "datetime"
+                        },
+                        "numberShares": {
+                          "description": "Number of shares bought or sold.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "price": {
+                          "description": "Purchase price.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "charges": {
+                          "description": "Charges accrued in portfolio's base currency.",
+                          "type": "number",
+                          "format": "real"
+                        },
+                        "exchangeRate": {
+                          "description": "The exchange rate between the notation's currency and the portfolio currency.",
+                          "type": "number",
+                          "format": "real"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {},
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/cash/create": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Add a cash transaction to a portfolio.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number of transactions would exceed 1000.|400 Bad Request|",
+        "summary": "Add a cash transaction to a portfolio.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "time",
+                    "amount"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "time": {
+                      "description": "Date and time of the trade.",
+                      "type": "string",
+                      "format": "datetime"
+                    },
+                    "amount": {
+                      "description": "The cash amount being deposited / withdrawn in portfolio‘s base currency.",
+                      "type": "number",
+                      "format": "real"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "time",
+                    "amount"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true,
+                      "description": "Identifier of the transaction."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/transaction/cash/delete": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Delete a cash transaction.",
+        "summary": "Delete a cash transaction.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "transaction"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the portfolio.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "transaction": {
+                      "description": "Transaction of the portfolio.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true,
+                          "description": "Identifier of the transaction."
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "transaction"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "The response is always empty."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/create": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Create a watchlist.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number of watchlists would exceed 100.|400 Bad Request|",
+        "summary": "Create a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "name"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the watchlist.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u002e\\u0030-\\u003a\\u003d\\u003f-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]*$",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Identifier of the watchlist."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/delete": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Delete a watchlist.",
+        "summary": "Delete a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the watchlist.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always empty."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/list": {
+      "get": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 4,
+        "description": "List of watchlists.",
+        "summary": "List of watchlists.",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "name",
+                      "numberPositions",
+                      "creation"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Identifier of the watchlist.",
+                        "x-sortable": true,
+                        "type": "string",
+                        "format": "id64",
+                        "x-positive": true
+                      },
+                      "name": {
+                        "description": "Name of the watchlist.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "string"
+                      },
+                      "numberPositions": {
+                        "description": "Number of positions.",
+                        "x-sortable": true,
+                        "type": "number",
+                        "format": "int32"
+                      },
+                      "creation": {
+                        "description": "Date and time of the watchlist creation.",
+                        "x-sortable": true,
+                        "type": "string",
+                        "format": "datetime"
+                      }
+                    }
+                  },
+                  "description": "List of watchlist."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "id",
+                "-id",
+                "name",
+                "-name",
+                "numberPositions",
+                "-numberPositions",
+                "creation",
+                "-creation"
+              ]
+            },
+            "maxItems": 4,
+            "uniqueItems": true,
+            "default": [
+              "name"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          }
+        ]
+      }
+    },
+    "/watchlist/modify": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Modify a watchlist.",
+        "summary": "Modify a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "name"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the watchlist.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "name": {
+                      "description": "Name of the watchlist.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u002e\\u0030-\\u003a\\u003d\\u003f-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]*$",
+                      "x-trim": false,
+                      "minLength": 1,
+                      "exclusiveMinimum": false,
+                      "maxLength": 100,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/create": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Add a position to a watchlist.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|Maximum number of watchlist positions would exceed 100.|400 Bad Request|\n|The watchlist does not exist.|400 Bad Request|\n|The notation already exists in the watchlist.|400 Bad Request|",
+        "summary": "Add a position to a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "notation",
+                    "comment"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the watchlist.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "notation": {
+                      "description": "Notation of the position.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the notation.",
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "comment": {
+                      "description": "Personal note for the watchlist position.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]*$",
+                      "x-allowNullValue": true,
+                      "x-trim": false,
+                      "maxLength": 200,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "format": "id32",
+                      "x-positive": true,
+                      "description": "Identifier of the position."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/delete": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Delete a position of a watchlist.",
+        "summary": "Delete a position of a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "position"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the watchlist.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "position": {
+                      "description": "Position of the watchlist.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of a position.",
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/list": {
+      "get": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 2,
+        "description": "List of positions of a watchlist.",
+        "summary": "List of positions of a watchlist.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Identifier of the watchlist.",
+            "required": true,
+            "type": "string",
+            "format": "id64",
+            "x-positive": true
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "array",
+            "description": "Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "id",
+                "-id",
+                "notation.id",
+                "-notation.id"
+              ]
+            },
+            "maxItems": 2,
+            "uniqueItems": true,
+            "default": [
+              "id"
+            ],
+            "collectionFormat": "csv",
+            "name": "_sort",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "id",
+                      "notation",
+                      "comment"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Identifier of the position.",
+                        "x-sortable": true,
+                        "x-default-sort-attribute": true,
+                        "x-default-sort-direction": 1,
+                        "type": "number",
+                        "format": "id32",
+                        "x-positive": true
+                      },
+                      "notation": {
+                        "description": "Notation of the position.",
+                        "type": "object",
+                        "x-property-sort": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "description": "Identifier of the notation.",
+                            "x-sortable": true,
+                            "type": "string",
+                            "format": "id64",
+                            "x-positive": true
+                          }
+                        }
+                      },
+                      "comment": {
+                        "description": "Personal note for the watchlist position.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "description": "Positions of the watchlist.",
+                  "maxItems": 100
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/watchlist/position/modify": {
+      "post": {
+        "tags": [
+          "watchlist"
+        ],
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": true,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": true,
+        "x-maxSortParameterCount": 10,
+        "description": "Modify a position in a watchlist.\n\nCertain error conditions yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|At least one of the parameters `notation` or `comment` must be set.|400 Bad Request|\n|The notation already exists in the watchlist.|400 Bad Request|",
+        "summary": "Modify a position in a watchlist.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "x-property-sort": [
+                "data",
+                "meta"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "x-property-sort": [
+                    "id",
+                    "position",
+                    "notation",
+                    "comment"
+                  ],
+                  "description": "The data member contains the request's primary data.",
+                  "properties": {
+                    "id": {
+                      "description": "Identifier of the watchlist.",
+                      "type": "string",
+                      "format": "id64",
+                      "x-positive": true
+                    },
+                    "position": {
+                      "description": "Position of the watchlist.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the position.",
+                          "type": "number",
+                          "format": "id32",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "notation": {
+                      "description": "Notation of the position.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "Identifier of the notation.",
+                          "type": "string",
+                          "format": "id64",
+                          "x-positive": true
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "comment": {
+                      "description": "Personal note for the watchlist position.",
+                      "type": "string",
+                      "pattern": "^[\\u0020-\\u005d\\u005f\\u0061-\\u007e\\u00c0-\\u00ff\\u20ac]*$",
+                      "x-allowNullValue": true,
+                      "x-trim": false,
+                      "maxLength": 200,
+                      "exclusiveMaximum": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "position"
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the request.",
+                  "properties": {
+                    "attributes": {
+                      "$ref": "#/definitions/AttributesMember"
+                    }
+                  },
+                  "x-property-sort": [
+                    "attributes"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "This member is always emtpy."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Prime Developer Trial",
+    "version": "v1"
+  },
+  "host": "api-sandbox.factset.com",
+  "x-interface-version": 1,
+  "x-documenter-version": "5.36.0",
+  "x-api-version": "2.7.2",
+  "responses": {
+    "ErrorResponse": {
+      "description": "Generic error response for all errors (400 ... 599 error codes)",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/definitions/ErrorMetaObject"
+          },
+          "errors": {
+            "$ref": "#/definitions/ErrorObject"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorMetaObject": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/StatusObject"
+        }
+      }
+    },
+    "ErrorObject": {
+      "type": "array",
+      "description": "The errors member contains additional information about a failed request.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "string",
+            "description": "A human-readable, unstructured explanation specific to this occurrence of the failure."
+          },
+          "encryptedDetails": {
+            "type": "string",
+            "description": "Base64-encoded, internal details about the error, in addition to \"details\"."
+          },
+          "type": {
+            "type": "number",
+            "format": "int32",
+            "description": "Internal error type of the Foundation API protocol."
+          },
+          "attribute": {
+            "type": "array",
+            "description": "For a validation error, a reference to the request parameter that failed validation; otherwise, an empty array.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Element of the path denoting the request parameter."
+                },
+                "index": {
+                  "type": "number",
+                  "format": "int32",
+                  "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
+                }
+              },
+              "x-property-sort": [
+                "name",
+                "index"
+              ]
+            }
+          }
+        },
+        "x-property-sort": [
+          "detail",
+          "encryptedDetails",
+          "type",
+          "attribute"
+        ]
+      }
+    },
+    "AttributesMember": {
+      "type": "array",
+      "description": "Limit the attributes returned in the response to the specified set.",
+      "items": {
+        "type": "string",
+        "maxLength": 100,
+        "exclusiveMaximum": false
+      },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "LanguageMember": {
+      "type": "string",
+      "format": "isoLanguage",
+      "description": "ISO 639-1 code of the language.",
+      "maxLength": 2,
+      "minLength": 2,
+      "exclusiveMinimum": false,
+      "exclusiveMaximum": false
+    },
+    "StatusObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "number",
+          "format": "int32",
+          "description": "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1)."
+        }
+      },
+      "description": "The status member contains the status code of the response.",
+      "required": [
+        "code"
+      ]
+    },
+    "SubscriptionMember": {
+      "type": "object",
+      "properties": {
+        "minimumInterval": {
+          "type": "number",
+          "format": "int32",
+          "description": "Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.",
+          "minimum": 0,
+          "exclusiveMinimum": false,
+          "maximum": 5000,
+          "exclusiveMaximum": false,
+          "default": 0
+        }
+      },
+      "description": "Object defining the subscription attributes.",
+      "required": [
+        "minimumInterval"
+      ],
+      "x-property-sort": [
+        "minimumInterval"
+      ]
+    },
+    "CursorBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        },
+        "next": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+        },
+        "previous": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ]
+    },
+    "CursorBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "next": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+        },
+        "previous": {
+          "type": "string",
+          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+        }
+      },
+      "required": [
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "next",
+        "previous"
+      ]
+    },
+    "OffsetBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal"
+      ]
+    },
+    "OffsetBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "hasNext": {
+          "type": "boolean",
+          "description": "Flag indicating that a subsequent request with the same parameters, except that the parameter `pagination.offset` is incremented by `pagination.limit`, would yield additional results."
+        }
+      },
+      "required": [
+        "hasNext"
+      ],
+      "x-property-sort": [
+        "hasNext"
+      ]
+    },
+    "PartialOutputObject": {
+      "type": "object",
+      "properties": {
+        "isPartial": {
+          "type": "boolean",
+          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
+        }
+      },
+      "description": "Object denoting that the endpoint response is possibly incomplete.",
+      "required": [
+        "isPartial"
+      ],
+      "x-property-sort": [
+        "isPartial"
+      ]
+    }
+  },
+  "basePath": "/wealth/v1",
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

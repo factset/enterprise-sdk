@@ -1,0 +1,1886 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    Using an entity centric data model, FactSet's Entity API provides access to
+    FactSet's complete security and entity level symbology, comprehensive entity reference data, and all of the
+    necessary relationships and connections to create a foundation that tightly correlates disparate sources of
+    information to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.
+  title: FactSet Entity API
+  version: 1.2.0
+servers:
+- description: Production
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Retrieve Entity Reference information for a list of securities, such
+    as Parent Equity and Business Descriptions.
+  name: Entity Reference
+- description: Retrieve the related equity or fixed income securities for a given
+    list of ids
+  name: Entity Securities
+- description: Retrieve the Entities corporate structure, its subsidiaries and related
+    entity ids.
+  name: Entity Structure
+paths:
+  /factset-entity/v1/entity-references:
+    get:
+      description: |
+        Returns an Entity reference profile for the requested Entity Id(s). Data points include - Ultimate Parent Id, Credit Parent Id, Headquarters location details, Website URL, and Business Description.
+      operationId: getEntityReferences
+      parameters:
+      - description: |
+          The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 3000
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceResponse'
+          description: Fetches Entity Reference data for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns an entity reference profiles for an individual entity
+      tags:
+      - Entity Reference
+      x-accepts: application/json
+    post:
+      description: |
+        Returns an entity reference object for the requested entity ids. Data points include - ultimate parent id, headquarters location details, credit parent id, website, and business description.
+      operationId: postEntityReferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entityReferenceRequest'
+        description: Request Body to request a list of Entity Reference objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceResponse'
+          description: Entity Reference data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns an entity reference data for a list of ids.
+      tags:
+      - Entity Reference
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-entity/v1/entity-securities:
+    get:
+      description: |
+        Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity.
+      operationId: getEntitySecurities
+      parameters:
+      - description: |
+          The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 3000
+          minItems: 1
+          type: array
+        style: form
+      - description: Controls the response to return all related equity listings (EQ),
+          all debt instruments (FI), or both all equity and all debt (ALL).
+        example: EQ
+        explode: true
+        in: query
+        name: securityType
+        required: false
+        schema:
+          default: EQ
+          enum:
+          - EQ
+          - FI
+          - ALL
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entitySecuritiesResponse'
+          description: Entity Security data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all Equity Exchange Listings and all debt instruments issued
+        for the requested entity.
+      tags:
+      - Entity Securities
+      x-accepts: application/json
+    post:
+      description: |
+        Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity.
+      operationId: postEntitySecurities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entitySecuritiesRequest'
+        description: Request Body to request a list of Entity Security objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entitySecuritiesResponse'
+          description: Successful Response producing an array of Entity Security Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all Equity Exchange Listings and all debt instruments issued
+        for the requested entity.
+      tags:
+      - Entity Securities
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-entity/v1/entity-structures:
+    get:
+      description: |
+        Returns all active or inactive entities below the requested entity id.
+      operationId: getEntityStructure
+      parameters:
+      - description: |
+          The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        style: form
+      - description: Controls the levels returned in the hierarchy. Use -1 to return
+          all levels, or 1-n for a specific level.
+        example: -1
+        explode: true
+        in: query
+        name: level
+        required: false
+        schema:
+          default: -1
+          type: integer
+        style: form
+      - description: Controls active or inactive securities returned in the hierarchy.
+          Enter 1 to return only active entities, 0 for inactive entities, and -1
+          for all active and inactive.
+        example: -1
+        explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          default: -1
+          maximum: 1
+          minimum: -1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityStructureResponse'
+          description: Fetches Entity Structure
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all active or inactive entities and respective levels below
+        the requested entity id.
+      tags:
+      - Entity Structure
+      x-accepts: application/json
+    post:
+      description: |
+        Returns all active or inactive entities and respective levels below the requested entity id.
+      operationId: postEntityStructure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entityStructureRequest'
+        description: Request Body to request a list of Entity Structure objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityStructureResponse'
+          description: Entity Structure data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all active or inactive entities below the requested entity
+        id.
+      tags:
+      - Entity Structure
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-entity/v1/ultimate-entity-structures:
+    get:
+      description: |
+        Returns full ultimate entity structure including ultimate parent and all subordinates. Will accept entity from any level of entity structure or active vs. inactive status of entity.
+      operationId: getUltimateEntityStructure
+      parameters:
+      - description: |
+          The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        style: form
+      - description: Controls the levels returned in the hierarchy. Use -1 to return
+          all levels, or 1-n for a specific level.
+        example: -1
+        explode: true
+        in: query
+        name: level
+        required: false
+        schema:
+          default: -1
+          type: integer
+        style: form
+      - description: Controls active or inactive securities returned in the hierarchy.
+          Enter 1 to return only active entities, 0 for inactive entities, and -1
+          for all active and inactive.
+        example: -1
+        explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          default: -1
+          maximum: 1
+          minimum: -1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ultimateEntityStructureResponse'
+          description: Fetches Ultimate Entity Structure data for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the full ultimate parent entity hiearachy. Control levels and
+        active status of underlying entities.
+      tags:
+      - Entity Structure
+      x-accepts: application/json
+    post:
+      description: |
+        Returns all active or inactive entities and respective levels below the requested entity id.
+      operationId: postUltimateEntityStructure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ultimateEntityStructureRequest'
+        description: Request Body to request a list of Ultimate Entity Structure objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ultimateEntityStructureResponse'
+          description: Ultimate Entity Structure data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all active or inactive entities and respective levels below
+        the requested entity id.
+      tags:
+      - Entity Structure
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:52:36.464
+        path: /factset-entity/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-30 13:22:09.053
+        path: /factset-entity/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when user is passing an Invalid Parameter
+      summary: Bad Request - Passing Invalid Parameter
+      value:
+        status: Bad Request
+        timestamp: 2020-07-23 11:03:40.765
+        path: /factset-entity/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameter. Please modify your request
+          to use parameters outlined in the specification for this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:59:09.649
+        path: /factset-entity/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 16:18:38.949
+        path: /factset-entity/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2020-07-02 16:08:07.945
+        path: /factset-entity/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-07-02 17:21:52.197
+        path: /factset-entity/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-entity/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2020-07-02 09:42:27.237
+        path: /factset-entity/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 09:48:29.18
+        path: /factset-entity/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 10:36:01.944
+        path: /factset-entity/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    ids:
+      description: |
+        The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      example:
+      - AAPL-US
+      - 0FPWZZ-E
+      - TSLA-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: IBM-US
+          type: string
+        maxItems: 3000
+        minItems: 1
+        type: array
+      style: form
+    structureIds:
+      description: |
+        The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      example:
+      - AAPL-US
+      - 0FPWZZ-E
+      - TSLA-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: IBM-US
+          type: string
+        maxItems: 100
+        minItems: 1
+        type: array
+      style: form
+    securityType:
+      description: Controls the response to return all related equity listings (EQ),
+        all debt instruments (FI), or both all equity and all debt (ALL).
+      example: EQ
+      explode: true
+      in: query
+      name: securityType
+      required: false
+      schema:
+        default: EQ
+        enum:
+        - EQ
+        - FI
+        - ALL
+        type: string
+      style: form
+    level:
+      description: Controls the levels returned in the hierarchy. Use -1 to return
+        all levels, or 1-n for a specific level.
+      example: -1
+      explode: true
+      in: query
+      name: level
+      required: false
+      schema:
+        default: -1
+        type: integer
+      style: form
+    active:
+      description: Controls active or inactive securities returned in the hierarchy.
+        Enter 1 to return only active entities, 0 for inactive entities, and -1 for
+        all active and inactive.
+      example: -1
+      explode: true
+      in: query
+      name: active
+      required: false
+      schema:
+        default: -1
+        maximum: 1
+        minimum: -1
+        type: integer
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    entityReferenceRequest:
+      description: Entity Reference Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: ids
+          type: array
+      required:
+      - ids
+      title: Entity Reference Request
+      type: object
+    entityReferenceResponse:
+      example:
+        data:
+        - websiteIR: https://ir.aboutamazon.com/overview/default.aspx
+          parentEquityId: MCNYYL-R
+          website: http://www.amazon.com
+          publicEntityFlag: 1
+          businessDescription: 'Amazon.com, Inc. engages in the provision of Online
+            retail shopping services. It operates through the following business segments:
+            North America, International, and Amazon Web Services (AWS). The North
+            America segment includes retail sales of consumer products and subscriptions
+            through North America-focused websites such as www.amazon.com and www.amazon.ca.
+            The International segment offers retail sales of consumer products and
+            subscriptions through internationally-focused websites. The Amazon Web
+            Services segment involves in the global sales of compute, storage, database,
+            and AWS service offerings for start-ups, enterprises, government agencies,
+            and academic institutions. The company was founded by Jeffrey P. Bezos
+            in July 1994 and is headquartered in Seattle, WA.'
+          ultimateParentId: 001MF1-E
+          fsymId: 001MF1-E
+          entityProperName: Amazon.com, Inc.
+          headquartersStreet: 410 Terry Avenue North
+          headquartersCountry: US
+          creditParentId: 001MF1-E
+          countryOfRisk: US
+          headquartersCity: Seattle
+          headquartersState: WA
+          ultimateParentName: Amazon.com, Inc.
+          fsymEntityId: 001MF1-E
+          phone: +1.206.266.1000
+          privateEntityFlag: 0
+          securityType: SHARE
+          requestId: AMZN-US
+          headquartersZip: 98109-5210
+          emailIR: amazon-ir@amazon.com
+          incorporationDate: 1996-05-28T00:00:00.000+0000
+          incorporationCountry: US
+        - websiteIR: https://ir.aboutamazon.com/overview/default.aspx
+          parentEquityId: MCNYYL-R
+          website: http://www.amazon.com
+          publicEntityFlag: 1
+          businessDescription: 'Amazon.com, Inc. engages in the provision of Online
+            retail shopping services. It operates through the following business segments:
+            North America, International, and Amazon Web Services (AWS). The North
+            America segment includes retail sales of consumer products and subscriptions
+            through North America-focused websites such as www.amazon.com and www.amazon.ca.
+            The International segment offers retail sales of consumer products and
+            subscriptions through internationally-focused websites. The Amazon Web
+            Services segment involves in the global sales of compute, storage, database,
+            and AWS service offerings for start-ups, enterprises, government agencies,
+            and academic institutions. The company was founded by Jeffrey P. Bezos
+            in July 1994 and is headquartered in Seattle, WA.'
+          ultimateParentId: 001MF1-E
+          fsymId: 001MF1-E
+          entityProperName: Amazon.com, Inc.
+          headquartersStreet: 410 Terry Avenue North
+          headquartersCountry: US
+          creditParentId: 001MF1-E
+          countryOfRisk: US
+          headquartersCity: Seattle
+          headquartersState: WA
+          ultimateParentName: Amazon.com, Inc.
+          fsymEntityId: 001MF1-E
+          phone: +1.206.266.1000
+          privateEntityFlag: 0
+          securityType: SHARE
+          requestId: AMZN-US
+          headquartersZip: 98109-5210
+          emailIR: amazon-ir@amazon.com
+          incorporationDate: 1996-05-28T00:00:00.000+0000
+          incorporationCountry: US
+      properties:
+        data:
+          description: Array of Entity Reference objects.
+          items:
+            $ref: '#/components/schemas/entityReference'
+          type: array
+      title: Entity Reference Response
+      type: object
+    entityReference:
+      example:
+        websiteIR: https://ir.aboutamazon.com/overview/default.aspx
+        parentEquityId: MCNYYL-R
+        website: http://www.amazon.com
+        publicEntityFlag: 1
+        businessDescription: 'Amazon.com, Inc. engages in the provision of Online
+          retail shopping services. It operates through the following business segments:
+          North America, International, and Amazon Web Services (AWS). The North America
+          segment includes retail sales of consumer products and subscriptions through
+          North America-focused websites such as www.amazon.com and www.amazon.ca.
+          The International segment offers retail sales of consumer products and subscriptions
+          through internationally-focused websites. The Amazon Web Services segment
+          involves in the global sales of compute, storage, database, and AWS service
+          offerings for start-ups, enterprises, government agencies, and academic
+          institutions. The company was founded by Jeffrey P. Bezos in July 1994 and
+          is headquartered in Seattle, WA.'
+        ultimateParentId: 001MF1-E
+        fsymId: 001MF1-E
+        entityProperName: Amazon.com, Inc.
+        headquartersStreet: 410 Terry Avenue North
+        headquartersCountry: US
+        creditParentId: 001MF1-E
+        countryOfRisk: US
+        headquartersCity: Seattle
+        headquartersState: WA
+        ultimateParentName: Amazon.com, Inc.
+        fsymEntityId: 001MF1-E
+        phone: +1.206.266.1000
+        privateEntityFlag: 0
+        securityType: SHARE
+        requestId: AMZN-US
+        headquartersZip: 98109-5210
+        emailIR: amazon-ir@amazon.com
+        incorporationDate: 1996-05-28T00:00:00.000+0000
+        incorporationCountry: US
+      properties:
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 001MF1-E
+          type: string
+        entityProperName:
+          description: Name that the entity is commonly referred to as, normalized
+            and in proper case.
+          example: Amazon.com, Inc.
+          type: string
+        fsymEntityId:
+          description: Unique FactSet-generated identifier representing an entity
+          example: 001MF1-E
+          type: string
+        ultimateParentId:
+          description: The ultimate parent id of the entity.
+          example: 001MF1-E
+          type: string
+        ultimateParentName:
+          description: Name that the ultimate parent entity is commonly referred to
+            as, normalized and in proper case."
+          example: Amazon.com, Inc.
+          type: string
+        creditParentId:
+          description: |
+            The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer's debt offerings.
+            Credit Parent's are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology -
+            * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent.
+            * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B).
+            * An issuer must have active debt.
+          example: 001MF1-E
+          type: string
+        parentEquityId:
+          description: The regional parent equity listing id.
+          example: MCNYYL-R
+          type: string
+        privateEntityFlag:
+          description: Returns 1 if the entity is a Private Company, otherwise, 0.
+          example: 0
+          type: integer
+        publicEntityFlag:
+          description: Returns 1 if the entity is a Public Company, otherwise, 0.
+          example: 1
+          type: integer
+        securityType:
+          description: Security type of the identifier, For descriptions of the each
+            security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)
+          example: SHARE
+          type: string
+        website:
+          description: Web page address for the entity
+          example: http://www.amazon.com
+          type: string
+        incorporationDate:
+          description: Year the entity was incorporated in YYYY-MM-DD format.
+          example: 1996-05-28
+          format: date
+          type: string
+        countryOfRisk:
+          description: |
+            Entity's Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following -
+            * Country of Headquarters
+            * Country of Incorporation
+            * Country of Primary Exchange (the country where most liquid equity listings trade)
+          example: US
+          type: string
+        incorporationCountry:
+          description: ISO Country code where the entity is incorporated
+          example: US
+          type: string
+        businessDescription:
+          description: Extended business description for the requested entity.
+          example: 'Amazon.com, Inc. engages in the provision of Online retail shopping
+            services. It operates through the following business segments: North America,
+            International, and Amazon Web Services (AWS). The North America segment
+            includes retail sales of consumer products and subscriptions through North
+            America-focused websites such as www.amazon.com and www.amazon.ca. The
+            International segment offers retail sales of consumer products and subscriptions
+            through internationally-focused websites. The Amazon Web Services segment
+            involves in the global sales of compute, storage, database, and AWS service
+            offerings for start-ups, enterprises, government agencies, and academic
+            institutions. The company was founded by Jeffrey P. Bezos in July 1994
+            and is headquartered in Seattle, WA.'
+          type: string
+        phone:
+          description: The entity's international phone number.
+          example: +1.206.266.1000
+          type: string
+        headquartersStreet:
+          description: The entity's headquarters street address.
+          example: 410 Terry Avenue North
+          type: string
+        headquartersCity:
+          description: The entity's headquarters street address.
+          example: Seattle
+          type: string
+        headquartersState:
+          description: Abbreviated State of company headquarters.
+          example: WA
+          type: string
+        headquartersZip:
+          description: Zip/Postal Code for entity's headquarters.
+          example: 98109-5210
+          type: string
+        headquartersCountry:
+          description: Abbreviated (ISO) Country of headquarters.
+          example: US
+          type: string
+        emailIR:
+          description: Email Address of the Investor Relations Contact
+          example: amazon-ir@amazon.com
+          type: string
+        websiteIR:
+          description: Website or Page for the Entity's Investor Relations team.
+          example: https://ir.aboutamazon.com/overview/default.aspx
+          type: string
+        requestId:
+          description: Identifier used in "ids" parameter.  When list of identifiers
+            used, they will be parsed and resolved individually.
+          example: AMZN-US
+          type: string
+      title: Entity Profile
+      type: object
+    entitySecuritiesRequest:
+      description: Entity Securities Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: ids
+          type: array
+        securityType:
+          $ref: '#/components/schemas/securityType'
+      required:
+      - ids
+      title: Entity Securities Request
+      type: object
+    entitySecuritiesResponse:
+      example:
+        data:
+        - securityName: Amazon.com, Inc. 1.9% 21-AUG-2020
+          fsymEntityId: 001MF1-E
+          securityType: BDNT
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          fsymSecurityId: F3PS31-S
+          fsymListingId: LVR478-L
+          listingExchange: NAS
+          fsymTickerExchange: AMZN-NAS
+          fsymTickerRegion: AMZN-US
+          activeFlag: 1
+        - securityName: Amazon.com, Inc. 1.9% 21-AUG-2020
+          fsymEntityId: 001MF1-E
+          securityType: BDNT
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          fsymSecurityId: F3PS31-S
+          fsymListingId: LVR478-L
+          listingExchange: NAS
+          fsymTickerExchange: AMZN-NAS
+          fsymTickerRegion: AMZN-US
+          activeFlag: 1
+      properties:
+        data:
+          description: Array of securities objects.
+          items:
+            $ref: '#/components/schemas/entitySecurities'
+          type: array
+      title: Entity Securities Response
+      type: object
+    entitySecurities:
+      example:
+        securityName: Amazon.com, Inc. 1.9% 21-AUG-2020
+        fsymEntityId: 001MF1-E
+        securityType: BDNT
+        requestId: AMZN-US
+        fsymId: 001MF1-E
+        fsymSecurityId: F3PS31-S
+        fsymListingId: LVR478-L
+        listingExchange: NAS
+        fsymTickerExchange: AMZN-NAS
+        fsymTickerRegion: AMZN-US
+        activeFlag: 1
+      properties:
+        fsymId:
+          description: FactSet Ultimate Parent ID of the Requested Security ID
+          example: 001MF1-E
+          type: string
+        fsymSecurityId:
+          description: FactSet Security ID (-S).
+          example: F3PS31-S
+          type: string
+        fsymListingId:
+          description: FactSet Listing ID (-L). Corresponds to the listing exchange
+            for the requested security. Not applicable for FI instruments.
+          example: LVR478-L
+          type: string
+        securityType:
+          description: The Security Type Code. Security Type Code details and mapping
+            are described on Online Assistant Page 15776 for Equity and Page 16014
+            for Fixed Income.
+          enum:
+          - SHARE
+          - PREFEQ
+          - MF_C
+          - MF_O
+          - ETF_ETF
+          - ETF_UVI
+          - ETF_NAV
+          - ADR
+          - GDR
+          - NVDR
+          - DR
+          - ALIEN
+          - PREF
+          - WARRANT
+          - RIGHT
+          - UNIT
+          - STRUCT
+          - TEMP
+          - CONV
+          - BDNT
+          - PFD
+          - PASS
+          - MM
+          - RMBS
+          - ABS
+          - COVR
+          - LKS
+          - LAUTH
+          - BLDN
+          - CMBS
+          example: BDNT
+          type: string
+        listingExchange:
+          description: The securities primary listing exchange.
+          example: NAS
+          type: string
+        securityName:
+          description: Security name
+          example: Amazon.com, Inc. 1.9% 21-AUG-2020
+          type: string
+        fsymEntityId:
+          description: Unique FactSet-generated identifier representing an entity.
+          example: 001MF1-E
+          type: string
+        fsymTickerExchange:
+          description: The security's ticker-exchange, representing the listing exchange
+            symbol.
+          example: AMZN-NAS
+          type: string
+        fsymTickerRegion:
+          description: The security's regional ticker.
+          example: AMZN-US
+          type: string
+        activeFlag:
+          description: Indicates if security is active. 1 = Active; 0 = Inactive.
+          enum:
+          - 0
+          - 1
+          example: 1
+          type: integer
+        requestId:
+          description: Identifier used in `ids` parameter.  When list of identifiers
+            used, they will be parsed and resolved individually.
+          example: AMZN-US
+          type: string
+      title: Entity Securities
+      type: object
+    entityStructureRequest:
+      description: Entity Structure Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          title: ids
+          type: array
+        level:
+          default: -1
+          description: Controls the levels returned in the hierarchy. Use -1 to return
+            all levels, or 1-n for a specific level.
+          example: -1
+          title: level
+          type: integer
+        active:
+          default: -1
+          description: Controls active or inactive securities returned in the hierarchy.
+            Enter 1 to return only active entities, 0 for inactive entities, and -1
+            for all active and inactive.
+          example: 1
+          maximum: 1
+          minimum: -1
+          title: active
+          type: integer
+      required:
+      - ids
+      title: Entity Structure Request
+      type: object
+    entityStructureResponse:
+      example:
+        data:
+        - fsymEntityId: 001MF1-E
+          inactive: 0
+          level: 2
+          ultimateParentId: 001MF1-E
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          description: Whole Foods Market, Inc. (Subsidiary)
+          parentEntityId: 001MF1-E
+        - fsymEntityId: 001MF1-E
+          inactive: 0
+          level: 2
+          ultimateParentId: 001MF1-E
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          description: Whole Foods Market, Inc. (Subsidiary)
+          parentEntityId: 001MF1-E
+      properties:
+        data:
+          description: Array of Entity Structure objects.
+          items:
+            $ref: '#/components/schemas/entityStructure'
+          type: array
+      title: Entity Structure Response
+      type: object
+    entityStructure:
+      example:
+        fsymEntityId: 001MF1-E
+        inactive: 0
+        level: 2
+        ultimateParentId: 001MF1-E
+        requestId: AMZN-US
+        fsymId: 001MF1-E
+        description: Whole Foods Market, Inc. (Subsidiary)
+        parentEntityId: 001MF1-E
+      properties:
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 001MF1-E
+          type: string
+        fsymEntityId:
+          description: Unique FactSet-generated identifier representing an entity
+          example: 001MF1-E
+          type: string
+        ultimateParentId:
+          description: The ultimate parent id of the entity.
+          example: 001MF1-E
+          type: string
+        parentEntityId:
+          description: Within the hierarchy, this id represents the immediate parent
+            entity id for the level directly above. Ultimate parent id will return
+            a blank string.
+          example: 001MF1-E
+          type: string
+        level:
+          description: Controls the levels returned in the hierarchy. Use -1 to return
+            all levels, or 1-n for a specific level.
+          example: 2
+          type: integer
+        inactive:
+          description: A flag for inactive securities; whereby 1 = inactive and 0
+            = active.
+          example: 0
+          type: integer
+        description:
+          description: The proper name and entity type for the entity.
+          example: Whole Foods Market, Inc. (Subsidiary)
+          type: string
+        requestId:
+          description: Identifier used in `ids`.
+          example: AMZN-US
+          type: string
+      title: Entity Structure
+      type: object
+    ultimateEntityStructureRequest:
+      description: Ultimate Entity Structure Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          title: ids
+          type: array
+        level:
+          default: -1
+          description: Controls the levels returned in the hierarchy. Use -1 to return
+            all levels, or 1-n for a specific level.
+          example: -1
+          title: level
+          type: integer
+        active:
+          default: -1
+          description: Controls active or inactive securities returned in the hierarchy.
+            Enter 1 to return only active entities, 0 for inactive entities, and -1
+            for all active and inactive.
+          example: 1
+          maximum: 1
+          minimum: -1
+          title: active
+          type: integer
+      required:
+      - ids
+      title: Ultimate Entity Structure Request
+      type: object
+    ultimateEntityStructureResponse:
+      example:
+        data:
+        - fsymEntityId: 001MF1-E
+          inactive: 0
+          level: 3
+          ultimateParentId: 001MF1-E
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          description: Whole Foods Market, Inc. (Subsidiary)
+          parentEntityId: 001MF1-E
+        - fsymEntityId: 001MF1-E
+          inactive: 0
+          level: 3
+          ultimateParentId: 001MF1-E
+          requestId: AMZN-US
+          fsymId: 001MF1-E
+          description: Whole Foods Market, Inc. (Subsidiary)
+          parentEntityId: 001MF1-E
+      properties:
+        data:
+          description: Array of Entity Structure objects.
+          items:
+            $ref: '#/components/schemas/utlimateEntityStructure'
+          type: array
+      title: Entity Structure Response
+      type: object
+    utlimateEntityStructure:
+      example:
+        fsymEntityId: 001MF1-E
+        inactive: 0
+        level: 3
+        ultimateParentId: 001MF1-E
+        requestId: AMZN-US
+        fsymId: 001MF1-E
+        description: Whole Foods Market, Inc. (Subsidiary)
+        parentEntityId: 001MF1-E
+      properties:
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 001MF1-E
+          type: string
+        fsymEntityId:
+          description: Unique FactSet-generated identifier representing an entity
+          example: 001MF1-E
+          type: string
+        ultimateParentId:
+          description: The ultimate parent id of the entity.
+          example: 001MF1-E
+          type: string
+        parentEntityId:
+          description: Within the hierarchy, this id represents the immediate parent
+            entity id for the level directly above. Ultimate parent id will return
+            a blank string.
+          example: 001MF1-E
+          type: string
+        level:
+          description: Level within the ultimate entity structure. This is taken from
+            the perspective of the ultimate parent id and the full entity hierarchy.
+          example: 3
+          type: integer
+        inactive:
+          description: A flag for inactive securities; whereby 1 = inactive and 0
+            = active.
+          example: 0
+          type: integer
+        description:
+          description: The proper name and entity type for the entity.
+          example: Whole Foods Market, Inc. (Subsidiary)
+          type: string
+        requestId:
+          description: Identifier used in `ids`.
+          example: AMZN-US
+          type: string
+      title: Ultimate Entity Structure
+      type: object
+    ids:
+      description: |
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+      example:
+      - FDS-US
+      - 0FPWZZ-E
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: ids
+      type: array
+    structureIds:
+      description: |
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.
+      example:
+      - FDS-US
+      - 0FPWZZ-E
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      title: ids
+      type: array
+    securityType:
+      default: EQ
+      description: |
+        Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).
+      enum:
+      - EQ
+      - FI
+      - ALL
+      example: EQ
+      title: securityType
+      type: string
+    level:
+      default: -1
+      description: Controls the levels returned in the hierarchy. Use -1 to return
+        all levels, or 1-n for a specific level.
+      example: -1
+      title: level
+      type: integer
+    active:
+      default: -1
+      description: Controls active or inactive securities returned in the hierarchy.
+        Enter 1 to return only active entities, 0 for inactive entities, and -1 for
+        all active and inactive.
+      example: 1
+      maximum: 1
+      minimum: -1
+      title: active
+      type: integer
+    errorResponse:
+      description: error description
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-entity/v1/{end-point}
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

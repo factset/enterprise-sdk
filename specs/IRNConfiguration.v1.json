@@ -1,0 +1,1018 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "IRN API v1",
+    "description": "Allows users to create, update and configure IRN data.",
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.factset.com/research/irn"
+    }
+  ],
+  "paths": {
+    "/v1/authors": {
+      "get": {
+        "tags": [
+          "Authors"
+        ],
+        "summary": "Get all Authors",
+        "parameters": [
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserConfigDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/custom-fields": {
+      "get": {
+        "tags": [
+          "CustomFields"
+        ],
+        "summary": "Get all Custom Fields",
+        "parameters": [
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomFieldConfigDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/group": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "summary": "Get Group details",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupConfigDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/group/client-sales-representative": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientSalesRepresentativeDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/recommendations": {
+      "get": {
+        "tags": [
+          "Recommendations"
+        ],
+        "summary": "Get all Recommendations",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RecommendationConfigDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sentiments": {
+      "get": {
+        "tags": [
+          "Sentiments"
+        ],
+        "summary": "Get all Sentiments",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SentimentConfigDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/subjects": {
+      "get": {
+        "tags": [
+          "Subjects"
+        ],
+        "summary": "Get all Subjects",
+        "parameters": [
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubjectSummaryDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/subjects/{subjectId}": {
+      "get": {
+        "tags": [
+          "Subjects"
+        ],
+        "summary": "Get Subject details for the given Id provided",
+        "parameters": [
+          {
+            "name": "subjectId",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubjectConfigDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/teams": {
+      "get": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Get all Teams",
+        "parameters": [
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TeamSummaryDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/teams/{teamId}": {
+      "get": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Get Team details for the given Id provided",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-IRN-Ignore-Permissions",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamConfigDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all assigned FactSet users",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserConfigDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TeamSummaryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "serialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "team": {
+            "$ref": "#/components/schemas/TeamSummaryDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FormulaConfigDto": {
+        "type": "object",
+        "properties": {
+          "formula": {
+            "type": "string",
+            "nullable": true
+          },
+          "formulaType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NumericConfigDto": {
+        "type": "object",
+        "properties": {
+          "decimals": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "splitType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IntegerConfigDto": {
+        "type": "object",
+        "properties": {
+          "splitType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExtendedTextConfigDto": {
+        "type": "object",
+        "properties": {
+          "maxChars": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OptionsConfigDto": {
+        "type": "object",
+        "properties": {
+          "multiSelectEnabled": {
+            "type": "boolean"
+          },
+          "onTheFlyEnabled": {
+            "type": "boolean"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomFieldConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "usePreviousValue": {
+            "type": "boolean"
+          },
+          "isMandatory": {
+            "type": "boolean"
+          },
+          "isHidden": {
+            "type": "boolean"
+          },
+          "formulaConfig": {
+            "$ref": "#/components/schemas/FormulaConfigDto"
+          },
+          "numericConfig": {
+            "$ref": "#/components/schemas/NumericConfigDto"
+          },
+          "integerConfig": {
+            "$ref": "#/components/schemas/IntegerConfigDto"
+          },
+          "extendedTextConfig": {
+            "$ref": "#/components/schemas/ExtendedTextConfigDto"
+          },
+          "optionsConfig": {
+            "$ref": "#/components/schemas/OptionsConfigDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectSettingsDto": {
+        "type": "object",
+        "properties": {
+          "defaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationSettingsDto": {
+        "type": "object",
+        "properties": {
+          "defaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SentimentSettingsDto": {
+        "type": "object",
+        "properties": {
+          "defaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupFieldsDto": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/SubjectSettingsDto"
+          },
+          "recommendation": {
+            "$ref": "#/components/schemas/RecommendationSettingsDto"
+          },
+          "sentiment": {
+            "$ref": "#/components/schemas/SentimentSettingsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/GroupFieldsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientSalesRepresentativeDto": {
+        "type": "object",
+        "properties": {
+          "fullname": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isHidden": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SentimentConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isHidden": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectSummaryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "identifierType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isHidden": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApprovalLevelConfigDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "approverIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApprovalProcessConfigDto": {
+        "type": "object",
+        "properties": {
+          "approvalLevels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApprovalLevelConfigDto"
+            },
+            "nullable": true
+          },
+          "viewerIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "shouldSendEmailAlertsWhenSubmittedForApproval": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsWhenApproved": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsWhenDenied": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsToAuthor": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsToApprovers": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsToViewers": {
+            "type": "boolean"
+          },
+          "canAuthorSelfApprove": {
+            "type": "boolean"
+          },
+          "canAuthorEditPending": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommentaryConfigDto": {
+        "type": "object",
+        "properties": {
+          "shouldSendEmailAlertsToAuthor": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsToCommenters": {
+            "type": "boolean"
+          },
+          "shouldSendEmailAlertsToAll": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeadlineFormatConfigDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "customString": {
+            "type": "string",
+            "nullable": true
+          },
+          "customFieldName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RatingConfigDto": {
+        "type": "object",
+        "properties": {
+          "ratingsVisibleToAuthor": {
+            "type": "boolean"
+          },
+          "ratingsVisibleToViewers": {
+            "type": "boolean"
+          },
+          "ratingsVisibleToAll": {
+            "type": "boolean"
+          },
+          "viewerIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "optionValues": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "isHidden": {
+            "type": "boolean"
+          },
+          "identifierType": {
+            "type": "string",
+            "nullable": true
+          },
+          "customFieldIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "approvalProcessConfig": {
+            "$ref": "#/components/schemas/ApprovalProcessConfigDto"
+          },
+          "commentaryConfig": {
+            "$ref": "#/components/schemas/CommentaryConfigDto"
+          },
+          "newsHeadlineFormat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineFormatConfigDto"
+            },
+            "nullable": true
+          },
+          "emailHeadlineFormat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HeadlineFormatConfigDto"
+            },
+            "nullable": true
+          },
+          "ratingConfig": {
+            "$ref": "#/components/schemas/RatingConfigDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamConfigDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultSubjectId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "userIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.IRNNotes",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{da4f3619-2ff9-5928-b98a-77fcabc681ac}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - IRN Notes",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/IRNNotes/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

@@ -1,0 +1,3956 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api-sandbox.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /factset/etf/getBySymbol:
+    get:
+      description: An ETP can be profiled by defining several common attributes such
+        as issuer, fund description, and benchmark.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Retrieve basic profile information for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/allocation/asset/listBySymbol:
+    get:
+      description: This endpoint returns selected ETP's allocations grouped by asset
+        class. The response will be sorted by weight in descending order.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's asset allocations.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/allocation/country/listBySymbol:
+    get:
+      description: This endpoint returns selected ETP's allocations grouped by country
+        names. The response will be sorted by weight in descending order.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's country allocations.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/allocation/exchange/listBySymbol:
+    get:
+      description: This endpoint returns selected ETP's allocations grouped by exchanges.
+        The response will be sorted by weight in descending order.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's exchange allocations.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/allocation/region/listBySymbol:
+    get:
+      description: This endpoint returns selected ETP's allocations grouped by region
+        names. The response will be sorted by weight in descending order.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's region allocations.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/allocation/sector/listBySymbol:
+    get:
+      description: This endpoint returns selected ETP's allocations grouped by sector
+        names. The response will be sorted by weight in descending order.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's sector allocations.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/characteristics/getBySymbol:
+    get:
+      description: An ETP has many unique characteristics specific to its composition
+        that differentiate it from other products. This includes details on leverage,
+        hedging, derivatives, and service providers.
+      parameters:
+      - description: Market symbol of ETF defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_6'
+          description: Successful Response
+      summary: Retrieve basic characteristic information for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/class/getBySymbol:
+    get:
+      description: 'ETP classification is divided into three categories: Asset Class,
+        Geography, and Investment Strategy. Asset class is determined based on the
+        various asset types held by the fund, A fund''s geography can be classified
+        by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development
+        (e.g. BRIC). An ETP''s investment strategy is classified in broad categories
+        (e.g. Large Cap) and more granular categorizations.'
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: Successful Response
+      summary: Retrieve an ETP's classification specific to asset class, geography,
+        or investment strategy.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/class/category/broad/list:
+    get:
+      description: List of ETP class broad categories.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_8'
+          description: Successful Response
+      summary: List of ETP class broad categories.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/class/category/focus/list:
+    get:
+      description: List of ETP class focus categories.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_9'
+          description: Successful Response
+      summary: List of ETP class focus categories.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/class/category/niche/list:
+    get:
+      description: List of ETP class niche categories.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_10'
+          description: Successful Response
+      summary: List of ETP class niche categories.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/class/geography/list:
+    get:
+      description: List of ETP class geographies.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_11'
+          description: Successful Response
+      summary: List of ETP class geographies.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/distribution/getBySymbol:
+    get:
+      description: Retrieve distribution-related details for a specific ETP including
+        dividend and capital gain distribution details.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_12'
+          description: Successful Response
+      summary: Retrieve an ETP's current distribution details.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/fundFlows/getBySymbol:
+    get:
+      description: Retrieve the amount invested or divested in a specific ETP over
+        various time periods including one-day, one-week, one-month, one-year, and
+        YTD.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_13'
+          description: Successful Response
+      summary: Retrieve an ETP's cash inflow/outflows for various time periods.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/growthOfTenK/listBySymbol:
+    get:
+      description: Growth of 10K (or growth of 10,000) is a commonly used chart that
+        highlights the change in the value of an initial 10,000 investment in the
+        ETP during a given period of time. Often, this period of time is either since
+        inception or the calculation between the pre-defined range.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Historice NAV date value.
+        in: query
+        name: timePeriod
+        schema:
+          enum:
+          - 1M
+          - 3M
+          - 6M
+          - YTD
+          - 1Y
+          - 3Y
+          - 5Y
+          - 10Y
+          - SI
+          type: string
+          x-enum-description:
+          - One month.
+          - Three months.
+          - Six months.
+          - Year to date.
+          - One year.
+          - Three year.
+          - Five years.
+          - Ten years.
+          - Since Inception.
+        x-enum-description:
+        - One month.
+        - Three months.
+        - Six months.
+        - Year to date.
+        - One year.
+        - Three year.
+        - Five years.
+        - Ten years.
+        - Since Inception.
+      - description: Historice NAV date value.
+        in: query
+        name: calculationType
+        schema:
+          enum:
+          - I
+          - SI
+          type: string
+          x-enum-description:
+          - Interval - Growth of 10000 calculated based on pre-defined time Period.
+          - ' Since Inception - Growth of 10000 calculation starts from the inception.'
+        x-enum-description:
+        - Interval - Growth of 10000 calculated based on pre-defined time Period.
+        - ' Since Inception - Growth of 10000 calculation starts from the inception.'
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_14'
+          description: Successful Response
+      summary: This endpoint returns selected ETP's Growth of 10K calculated values.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/holdings/listBySymbol:
+    get:
+      description: Retrieve an ETP's holdings information including security, shares
+        held, and weight.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_15'
+          description: Successful Response
+      summary: Holdings details for an individual ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/price/getBySymbol:
+    get:
+      description: Retrieve an ETP's historical NAV and shares outstanding for a specified
+        time range.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_16'
+          description: Successful Response
+      summary: Retrieve historical ETP NAV values.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/returns/getBySymbol:
+    get:
+      description: An ETP's total return data can be returned for various time frames
+        including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return
+        market price is used to calcualte price returns. Total return nav is used
+        to calcualte nav returns.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Return type.
+        in: query
+        name: returnType
+        schema:
+          default: price
+          enum:
+          - price
+          - nav
+          exclusiveMaximum: false
+          maxLength: 5
+          type: string
+          x-enum-description:
+          - Price Returns.
+          - NAV Returns.
+        x-enum-description:
+        - Price Returns.
+        - NAV Returns.
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_17'
+          description: Successful Response
+      summary: Retrieve total return data for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/strategy/getBySymbol:
+    get:
+      description: ETP's can be classified in many different ways including investment
+        strategy, security weightings, and fund composition.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_18'
+          description: Successful Response
+      summary: Retrieve various classification details for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/strategy/segment/list:
+    get:
+      description: Retrieve the various segments assigned to a specific ETP. Segment
+        data is used to group funds for comparison and relative performance analyses.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_19'
+          description: Successful Response
+      summary: Retrieve a list of ETP strategy segments.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/structure/getBySymbol:
+    get:
+      description: Retrieve details on a fund's structure including its type, investment
+        style (active/passive), and legal structure.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_20'
+          description: Successful Response
+      summary: Retrieve the basic structure information for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/taxesAndFees/us/getBySymbol:
+    get:
+      description: Retrieve various fee and tax related details on a specified ETP
+        including expense ratio and tax treatment for dividends and capital gains.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_21'
+          description: Successful Response
+      summary: Retrieve the tax and fee related information for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+  /factset/etf/timeSeries/listBySymbol:
+    get:
+      description: Retrieve the historical NAV data and the respective fund flows
+        and shares outstanding for a specified fund and time period. Please refer
+        currency.fund in /factset/etf/getBySymbol for currency value.
+      parameters:
+      - description: Market symbol of ETP defined by FactSet.
+        in: query
+        name: symbol
+        required: true
+        schema:
+          exclusiveMaximum: false
+          maxLength: 10
+          type: string
+      - description: Time frame of the data.
+        in: query
+        name: timePeriod
+        schema:
+          default: 1Y
+          enum:
+          - 1M
+          - 3M
+          - 6M
+          - YTD
+          - 1Y
+          - 3Y
+          - 5Y
+          - 10Y
+          - SI
+          type: string
+          x-enum-description:
+          - One month.
+          - Three months.
+          - Six months.
+          - Year to date.
+          - One year.
+          - Three year.
+          - Five years.
+          - Ten years.
+          - Since Inception.
+        x-enum-description:
+        - One month.
+        - Three months.
+        - Six months.
+        - Year to date.
+        - One year.
+        - Three year.
+        - Five years.
+        - Ten years.
+        - Since Inception.
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_22'
+          description: Successful Response
+      summary: Retrieve historical NAV data for a specified ETP.
+      tags:
+      - factset
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-accepts: application/json
+components:
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 9.301444243932576
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    SubscriptionMember:
+      description: Object defining the subscription attributes.
+      properties:
+        minimumInterval:
+          description: Non-negative number of milliseconds to throttle the update
+            rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+3
+          minimum: 0
+          type: number
+      required:
+      - minimumInterval
+      type: object
+      x-property-sort:
+      - minimumInterval
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    CursorBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the cursor-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - next
+      - previous
+      type: object
+      x-property-sort:
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      example:
+        total: 6.027456183070403
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    OffsetBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the offset-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        hasNext:
+          description: Flag indicating that a subsequent request with the same parameters,
+            except that the parameter `pagination.offset` is incremented by `pagination.limit`,
+            would yield additional results.
+          type: boolean
+      required:
+      - hasNext
+      type: object
+      x-property-sort:
+      - hasNext
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If true, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    inline_response_200_data_exchange:
+      description: Exchange.
+      example:
+        country: country
+        code: code
+        name: name
+        region: Europe
+      properties:
+        code:
+          description: Short Code of the exchange. This data is available for all
+            the regions.
+          type: string
+        name:
+          description: Name of the exchance where ETP is listed. This data is available
+            for all the regions.
+          type: string
+        country:
+          description: Short country code where ETP exchange is located. This data
+            is available for all the regions and country code is in format ISO 3166-1
+            alpha-2.
+          type: string
+        region:
+          description: short region code where ETP exchange is located. This data
+            is available for all the regions.
+          enum:
+          - Europe
+          - North America
+          - Asia-Pacific
+          - Middle East & Africa
+          type: string
+          x-enum-description:
+          - Europe region.
+          - North America region.
+          - Asia-Pacific region.
+          - Middle East & Africa.
+      type: object
+      x-property-sort:
+      - code
+      - name
+      - country
+      - region
+    inline_response_200_data_issuer:
+      description: Issuer.
+      example:
+        name: name
+      properties:
+        name:
+          description: Name of the issuer of the ETP. This data is available for all
+            the regions.
+          type: string
+      type: object
+      x-property-sort:
+      - name
+    inline_response_200_data_brand:
+      description: Brand.
+      example:
+        name: name
+      properties:
+        name:
+          description: Name of the brand of the ETP. This data is available for all
+            the regions.
+          type: string
+      type: object
+      x-property-sort:
+      - name
+    inline_response_200_data_currency:
+      description: Currency.
+      example:
+        fund: fund
+        listing: listing
+      properties:
+        listing:
+          description: Currency of exchange specific listing. This data is available
+            for all the regions and currency code is in the format ISO 4217.
+          type: string
+        fund:
+          description: Base calculation currency of the ETP. This data is available
+            for all the regions and currency code is in the format ISO 4217.
+          type: string
+      type: object
+      x-property-sort:
+      - listing
+      - fund
+    inline_response_200_data_index:
+      description: The index the ETP is replicating, if applicable.
+      example:
+        website: website
+        name: name
+        currency: currency
+        family: family
+        distributionTreatment: distributionTreatment
+        rebalancingFrequency: Monthly
+      properties:
+        name:
+          description: The name of the underlying index of the ETP. This data is available
+            for all the regions.
+          type: string
+        family:
+          description: The name of the index provider for the underlying index of
+            the ETP. This data is available for all the regions.
+          type: string
+        website:
+          description: The link to the underlying index's homepage. This data is available
+            for all the regions.
+          type: string
+        distributionTreatment:
+          description: Describes the treatment of constituent cash flows by the index,
+            whether capitalized (reinvested) or ignored, as well as tax withholding
+            by foreign countries. Text and standardized value available for this data
+            item. This data is available for Europe only.
+          type: string
+        rebalancingFrequency:
+          description: Period of time between reweighting underlying index constituents.
+          enum:
+          - Monthly
+          - Annually
+          - Quarterly
+          - Semi-annual
+          - Daily
+          - As Needed
+          - Bi-Monthly
+          - Weekly
+          type: string
+          x-enum-description:
+          - Monthly.
+          - Annually.
+          - Quarterly.
+          - Semi-annual.
+          - Daily.
+          - As Needed.
+          - Bi-Monthly.
+          - Weekly.
+        currency:
+          description: Base calculation currency of underlying index. This data is
+            available for all the regions and currency code is in the format ISO 4217.
+          type: string
+      type: object
+      x-property-sort:
+      - name
+      - family
+      - website
+      - distributionTreatment
+      - rebalancingFrequency
+      - currency
+    inline_response_200_data_financialReport_annual:
+      description: Annual.
+      example:
+        date: 2000-01-23
+        isAvailable: true
+      properties:
+        isAvailable:
+          description: States whether or not the current annual financial report is
+            available on the issuer's website. This data is available for all the
+            regions.
+          type: boolean
+        date:
+          description: Date of the last annual report available on issuer's site.
+            This data is available for all the regions.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - isAvailable
+      - date
+    inline_response_200_data_financialReport_semiAnnual:
+      description: Semi annual.
+      example:
+        date: 2000-01-23
+        isAvailable: true
+      properties:
+        isAvailable:
+          description: States whether or not the semi-annual financial report is available
+            on the issuer's website. This data is available for all the regions.
+          type: boolean
+        date:
+          description: Date of the last semi-annual report available on the issuer's
+            website. This data is available for all the regions.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - isAvailable
+      - date
+    inline_response_200_data_financialReport:
+      description: Financial report.
+      example:
+        semiAnnual:
+          date: 2000-01-23
+          isAvailable: true
+        annual:
+          date: 2000-01-23
+          isAvailable: true
+      properties:
+        annual:
+          $ref: '#/components/schemas/inline_response_200_data_financialReport_annual'
+        semiAnnual:
+          $ref: '#/components/schemas/inline_response_200_data_financialReport_semiAnnual'
+      type: object
+      x-property-sort:
+      - annual
+      - semiAnnual
+    inline_response_200_data_createRedeem:
+      description: Create or redeem
+      example:
+        unitCost: 0.8008281904610115
+        unitSize: 6.027456183070403
+      properties:
+        unitCost:
+          description: The standard fee in the ETP currency to create or redeem one
+            unit of an ETP. This data is available for the US regions..
+          format: real
+          type: number
+        unitSize:
+          description: The minimum ETP share block at which issuers are willing to
+            perform creations or redemptions per prospectus or other filing documents.
+            This data is available for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - unitCost
+      - unitSize
+    inline_response_200_data_trading_average:
+      description: Average.
+      example:
+        volume: 5.962133916683182
+        value: 5.637376656633329
+      properties:
+        volume:
+          description: The average daily number of shares traded over the past 45
+            trading days. This data is available for the US regions.
+          format: real
+          type: number
+        value:
+          description: The average daily value traded over the past 45-trading day
+            period in ETP's listing currency. This data is available for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - volume
+      - value
+    inline_response_200_data_trading_median:
+      description: Median.
+      example:
+        volume: 2.3021358869347655
+        value: 7.061401241503109
+      properties:
+        volume:
+          description: Median daily number of shares traded over the past 45 trading
+            days. This data is available for the regions.
+          format: real
+          type: number
+        value:
+          description: Median daily value traded over the past 45 trading days in
+            ETP's listing currency. This data is available for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - volume
+      - value
+    inline_response_200_data_trading:
+      description: Trading.
+      example:
+        average:
+          volume: 5.962133916683182
+          value: 5.637376656633329
+        median:
+          volume: 2.3021358869347655
+          value: 7.061401241503109
+      properties:
+        average:
+          $ref: '#/components/schemas/inline_response_200_data_trading_average'
+        median:
+          $ref: '#/components/schemas/inline_response_200_data_trading_median'
+      type: object
+      x-property-sort:
+      - average
+      - median
+    inline_response_200_data_documentation:
+      description: Documentation.
+      example:
+        isSaiPosted: true
+        isProspectusPosted: true
+      properties:
+        isProspectusPosted:
+          description: Complete prospectus is available on issuer website. This data
+            is available for all the regions.
+          type: boolean
+        isSaiPosted:
+          description: Statement of Additional Information (SAI) is available on issuer
+            website. This data is available for the US regions.
+          type: boolean
+      type: object
+      x-property-sort:
+      - isProspectusPosted
+      - isSaiPosted
+    inline_response_200_data_insight:
+      description: Insight.
+      example:
+        overview: overview
+        quote: quote
+      properties:
+        overview:
+          description: In-depth ETP overview from FactSet ETP Analytics. This data
+            is available for the US regions.
+          type: string
+        quote:
+          description: Abbreviated ETP overview from the FactSet ETP Analytics. This
+            data is available for the US regions.
+          type: string
+      type: object
+      x-property-sort:
+      - overview
+      - quote
+    inline_response_200_data:
+      description: Profile.
+      example:
+        trading:
+          average:
+            volume: 5.962133916683182
+            value: 5.637376656633329
+          median:
+            volume: 2.3021358869347655
+            value: 7.061401241503109
+        symbol: symbol
+        website: website
+        createRedeem:
+          unitCost: 0.8008281904610115
+          unitSize: 6.027456183070403
+        documentation:
+          isSaiPosted: true
+          isProspectusPosted: true
+        description: description
+        index:
+          website: website
+          name: name
+          currency: currency
+          family: family
+          distributionTreatment: distributionTreatment
+          rebalancingFrequency: Monthly
+        launchDate: 2000-01-23
+        issuer:
+          name: name
+        insight:
+          overview: overview
+          quote: quote
+        holdingsDate: 2000-01-23
+        name: name
+        aum: 1.4658129805029452
+        domicile: domicile
+        exchange:
+          country: country
+          code: code
+          name: name
+          region: Europe
+        currency:
+          fund: fund
+          listing: listing
+        asOfDate: 2000-01-23
+        financialReport:
+          semiAnnual:
+            date: 2000-01-23
+            isAvailable: true
+          annual:
+            date: 2000-01-23
+            isAvailable: true
+        brand:
+          name: name
+        status: Active
+      properties:
+        asOfDate:
+          description: Date data was published. This data is available only for US
+            region.
+          format: date
+          type: string
+        holdingsDate:
+          description: The as of data for holdings statistics. This data available
+            only for US region
+          format: date
+          type: string
+        symbol:
+          description: Ticker of the ETP. This data is available for all region.
+          type: string
+        exchange:
+          $ref: '#/components/schemas/inline_response_200_data_exchange'
+        name:
+          description: Name of the ETP. This data is available for all the regions.
+          type: string
+        issuer:
+          $ref: '#/components/schemas/inline_response_200_data_issuer'
+        brand:
+          $ref: '#/components/schemas/inline_response_200_data_brand'
+        launchDate:
+          description: Launch date of the ETP. This data is available for all the
+            regions.
+          format: date
+          type: string
+        description:
+          description: A brief description of the ETP. This data is available for
+            all the regions.
+          type: string
+        website:
+          description: Link to the ETP's homepage. This data is available for the
+            US and Canada region.
+          type: string
+        domicile:
+          description: ETP country of domicile. This data is available for all the
+            regions and country code is in format ISO 3166-1 alpha-2.
+          type: string
+        status:
+          description: Staus of the ETP. This data is available for all the regions.
+          enum:
+          - Active
+          - Delisted
+          - Not trading yet
+          type: string
+          x-enum-description:
+          - Active.
+          - Delisted.
+          - Not trading yet.
+        currency:
+          $ref: '#/components/schemas/inline_response_200_data_currency'
+        index:
+          $ref: '#/components/schemas/inline_response_200_data_index'
+        financialReport:
+          $ref: '#/components/schemas/inline_response_200_data_financialReport'
+        createRedeem:
+          $ref: '#/components/schemas/inline_response_200_data_createRedeem'
+        aum:
+          description: The market value of the total assets that a individual ETP
+            manages on behalf of it's investors. This data is available for all the
+            regions.
+          format: real
+          type: number
+        trading:
+          $ref: '#/components/schemas/inline_response_200_data_trading'
+        documentation:
+          $ref: '#/components/schemas/inline_response_200_data_documentation'
+        insight:
+          $ref: '#/components/schemas/inline_response_200_data_insight'
+      type: object
+      x-property-sort:
+      - asOfDate
+      - holdingsDate
+      - symbol
+      - exchange
+      - name
+      - issuer
+      - brand
+      - launchDate
+      - description
+      - website
+      - domicile
+      - status
+      - currency
+      - index
+      - financialReport
+      - createRedeem
+      - aum
+      - trading
+      - documentation
+      - insight
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 9.301444243932576
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200:
+      example:
+        data:
+          trading:
+            average:
+              volume: 5.962133916683182
+              value: 5.637376656633329
+            median:
+              volume: 2.3021358869347655
+              value: 7.061401241503109
+          symbol: symbol
+          website: website
+          createRedeem:
+            unitCost: 0.8008281904610115
+            unitSize: 6.027456183070403
+          documentation:
+            isSaiPosted: true
+            isProspectusPosted: true
+          description: description
+          index:
+            website: website
+            name: name
+            currency: currency
+            family: family
+            distributionTreatment: distributionTreatment
+            rebalancingFrequency: Monthly
+          launchDate: 2000-01-23
+          issuer:
+            name: name
+          insight:
+            overview: overview
+            quote: quote
+          holdingsDate: 2000-01-23
+          name: name
+          aum: 1.4658129805029452
+          domicile: domicile
+          exchange:
+            country: country
+            code: code
+            name: name
+            region: Europe
+          currency:
+            fund: fund
+            listing: listing
+          asOfDate: 2000-01-23
+          financialReport:
+            semiAnnual:
+              date: 2000-01-23
+              isAvailable: true
+            annual:
+              date: 2000-01-23
+              isAvailable: true
+          brand:
+            name: name
+          status: Active
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_1_data_assets:
+      example:
+        weight: 0.8008281904610115
+        assetClass: assetClass
+      properties:
+        assetClass:
+          description: Name of the asset class.
+          type: string
+        weight:
+          description: Consolidate weight of the position within the ETP by asset
+            class(es).
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - assetClass
+      - weight
+    inline_response_200_1_data:
+      description: ETP asset allocation data.
+      example:
+        assets:
+        - weight: 0.8008281904610115
+          assetClass: assetClass
+        - weight: 0.8008281904610115
+          assetClass: assetClass
+        reportDate: 2000-01-23
+      properties:
+        reportDate:
+          description: Reporting date for the allocations.
+          format: date
+          type: string
+        assets:
+          description: List of allocations by asset class.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data_assets'
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - reportDate
+      - assets
+    inline_response_200_1_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          total: 6.027456183070403
+          isEstimatedTotal: true
+        status:
+          code: 9.301444243932576
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/OffsetBasedPaginationOutputObject'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200_1:
+      example:
+        data:
+          assets:
+          - weight: 0.8008281904610115
+            assetClass: assetClass
+          - weight: 0.8008281904610115
+            assetClass: assetClass
+          reportDate: 2000-01-23
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_1_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_2_data_countries:
+      example:
+        country: country
+        weight: 0.8008281904610115
+      properties:
+        country:
+          description: Name of the country.
+          type: string
+        weight:
+          description: Consolidate weight of the position within the ETP by country(s)..
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - country
+      - weight
+    inline_response_200_2_data:
+      description: ETP country allocation data.
+      example:
+        reportDate: 2000-01-23
+        countries:
+        - country: country
+          weight: 0.8008281904610115
+        - country: country
+          weight: 0.8008281904610115
+      properties:
+        reportDate:
+          description: Reporting date for the allocations.
+          format: date
+          type: string
+        countries:
+          description: List of allocations by country.
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data_countries'
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - reportDate
+      - countries
+    inline_response_200_2:
+      example:
+        data:
+          reportDate: 2000-01-23
+          countries:
+          - country: country
+            weight: 0.8008281904610115
+          - country: country
+            weight: 0.8008281904610115
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_3_data_exchanges:
+      example:
+        weight: 0.8008281904610115
+        exchange: exchange
+      properties:
+        exchange:
+          description: Name of the exchange.
+          type: string
+        weight:
+          description: Consolidate weight of the position within the ETP by exchange(s).
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - exchange
+      - weight
+    inline_response_200_3_data:
+      description: ETP exchange allocation data.
+      example:
+        reportDate: 2000-01-23
+        exchanges:
+        - weight: 0.8008281904610115
+          exchange: exchange
+        - weight: 0.8008281904610115
+          exchange: exchange
+      properties:
+        reportDate:
+          description: Reporting date for the allocations.
+          format: date
+          type: string
+        exchanges:
+          description: List of allocations by exchange.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data_exchanges'
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - reportDate
+      - exchanges
+    inline_response_200_3:
+      example:
+        data:
+          reportDate: 2000-01-23
+          exchanges:
+          - weight: 0.8008281904610115
+            exchange: exchange
+          - weight: 0.8008281904610115
+            exchange: exchange
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_3_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_4_data_regions:
+      example:
+        weight: 0.8008281904610115
+        region: region
+      properties:
+        region:
+          description: Name of the region.
+          type: string
+        weight:
+          description: Consolidate weight of the position within the ETP by region(s)..
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - region
+      - weight
+    inline_response_200_4_data:
+      description: ETP region allocation data.
+      example:
+        regions:
+        - weight: 0.8008281904610115
+          region: region
+        - weight: 0.8008281904610115
+          region: region
+        reportDate: 2000-01-23
+      properties:
+        reportDate:
+          description: Reporting date for the allocations.
+          format: date
+          type: string
+        regions:
+          description: List of allocations by region.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_regions'
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - reportDate
+      - regions
+    inline_response_200_4:
+      example:
+        data:
+          regions:
+          - weight: 0.8008281904610115
+            region: region
+          - weight: 0.8008281904610115
+            region: region
+          reportDate: 2000-01-23
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_4_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_5_data_sectors:
+      example:
+        weight: 0.8008281904610115
+        sector: sector
+      properties:
+        sector:
+          description: Name of the sector.
+          type: string
+        weight:
+          description: Consolidate weight of the position within the ETP by sector(s).
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - sector
+      - weight
+    inline_response_200_5_data:
+      description: ETP sector allocation data.
+      example:
+        sectors:
+        - weight: 0.8008281904610115
+          sector: sector
+        - weight: 0.8008281904610115
+          sector: sector
+        reportDate: 2000-01-23
+      properties:
+        reportDate:
+          description: Reporting date for the allocations.
+          format: date
+          type: string
+        sectors:
+          description: List of allocations by sector.
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_data_sectors'
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - reportDate
+      - sectors
+    inline_response_200_5:
+      example:
+        data:
+          sectors:
+          - weight: 0.8008281904610115
+            sector: sector
+          - weight: 0.8008281904610115
+            sector: sector
+          reportDate: 2000-01-23
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_5_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_6_data_gearing_leverage:
+      description: Leverage.
+      example:
+        factor: 0.8008281904610115
+        type: type
+        isLeverageFund: true
+      properties:
+        isLeverageFund:
+          description: Flags ETPs that deliver leveraged long exposure to an index.
+            This data is available for all the regions.
+          type: boolean
+        factor:
+          description: Leverage factor of leveraged and inverse ETPs (2x, 3x, -1x,
+            -2x, -3x, variable). This data is available for all the regions.
+          format: real
+          type: number
+        type:
+          description: Determines if leverage factor is fixed or variable. This data
+            is available for all the regions.
+          type: string
+      type: object
+      x-property-sort:
+      - isLeverageFund
+      - factor
+      - type
+    inline_response_200_6_data_gearing:
+      description: Gearing.
+      example:
+        leverage:
+          factor: 0.8008281904610115
+          type: type
+          isLeverageFund: true
+        exposureResetPeriod: Daily
+        isInverseFund: true
+      properties:
+        isInverseFund:
+          description: Flags ETPs that deliver short exposure to an index, including
+            leveraged short exposure. This data is available for all the regions.
+          type: boolean
+        leverage:
+          $ref: '#/components/schemas/inline_response_200_6_data_gearing_leverage'
+        exposureResetPeriod:
+          description: Exposure reset frequency of leveraged and inverse ETPs, text
+            and standardized value available. This data is available for all the regions.
+          enum:
+          - Daily
+          - Variable
+          - None
+          - Monthly
+          - Quarterly
+          type: string
+          x-enum-description:
+          - Daily.
+          - Variable.
+          - None.
+          - Monthly.
+          - Quarterly.
+      type: object
+      x-property-sort:
+      - isInverseFund
+      - leverage
+      - exposureResetPeriod
+    inline_response_200_6_data_hedge:
+      description: Hedge.
+      example:
+        targetCurrency: targetCurrency
+        isHedged: true
+        sourceCurrency: sourceCurrency
+      properties:
+        isHedged:
+          description: Flags ETPs that are hedged to eliminate or reduce foreign currency
+            exposure for US investors. This data is available for all the regions.
+          type: boolean
+        sourceCurrency:
+          description: For currency-hedged funds, the values shows foreign currency
+            the ETP is hedged against. Currency code is in ISO 4217 format. This data
+            is available for all the regions.
+          type: string
+        targetCurrency:
+          description: For currency-hedged funds, the currency the ETP is exposed
+            to after hedging. Currency code is in ISO 4217 format. This data is available
+            for all the regions.
+          type: string
+      type: object
+      x-property-sort:
+      - isHedged
+      - sourceCurrency
+      - targetCurrency
+    inline_response_200_6_data_counterParty:
+      description: Counter Party.
+      example:
+        holdsDerivatives: true
+        swap: swap
+        credit: credit
+      properties:
+        credit:
+          description: Name of the ETP's credit counterparty. This data is available
+            for all the regions.
+          type: string
+        swap:
+          description: Name of the ETP's swap counterparty. This data is available
+            for all the regions.
+          type: string
+        holdsDerivatives:
+          description: Flags ETPs that are expected to hold OTC derivatives in the
+            course of normal fund operations. This data is available for the US and
+            Canada regions.
+          type: boolean
+      type: object
+      x-property-sort:
+      - credit
+      - swap
+      - holdsDerivatives
+    inline_response_200_6_data_serviceProvider:
+      description: Service Provider.
+      example:
+        subAdvisor: subAdvisor
+        primaryAdvisor: primaryAdvisor
+        distributor: distributor
+        isIssuerAffiliate: true
+      properties:
+        primaryAdvisor:
+          description: The name of the primary advisor of the ETP. This data is available
+            for the US and Canada regions.
+          type: string
+        subAdvisor:
+          description: The name of the sub-advisor of the ETP. This data is available
+            for the US and Canada regions.
+          type: string
+        distributor:
+          description: The name of the distributor of the ETP. This data is available
+            for the US region.
+          type: string
+        isIssuerAffiliate:
+          description: Describes whether the swap counterparty is affiliated with
+            the issuer. This data is available for the Europe regions.
+          type: boolean
+      type: object
+      x-property-sort:
+      - primaryAdvisor
+      - subAdvisor
+      - distributor
+      - isIssuerAffiliate
+    inline_response_200_6_data:
+      description: Characteristics.
+      example:
+        gearing:
+          leverage:
+            factor: 0.8008281904610115
+            type: type
+            isLeverageFund: true
+          exposureResetPeriod: Daily
+          isInverseFund: true
+        serviceProvider:
+          subAdvisor: subAdvisor
+          primaryAdvisor: primaryAdvisor
+          distributor: distributor
+          isIssuerAffiliate: true
+        counterParty:
+          holdsDerivatives: true
+          swap: swap
+          credit: credit
+        hedge:
+          targetCurrency: targetCurrency
+          isHedged: true
+          sourceCurrency: sourceCurrency
+      properties:
+        gearing:
+          $ref: '#/components/schemas/inline_response_200_6_data_gearing'
+        hedge:
+          $ref: '#/components/schemas/inline_response_200_6_data_hedge'
+        counterParty:
+          $ref: '#/components/schemas/inline_response_200_6_data_counterParty'
+        serviceProvider:
+          $ref: '#/components/schemas/inline_response_200_6_data_serviceProvider'
+      type: object
+      x-property-sort:
+      - gearing
+      - hedge
+      - counterParty
+      - serviceProvider
+    inline_response_200_6:
+      example:
+        data:
+          gearing:
+            leverage:
+              factor: 0.8008281904610115
+              type: type
+              isLeverageFund: true
+            exposureResetPeriod: Daily
+            isInverseFund: true
+          serviceProvider:
+            subAdvisor: subAdvisor
+            primaryAdvisor: primaryAdvisor
+            distributor: distributor
+            isIssuerAffiliate: true
+          counterParty:
+            holdsDerivatives: true
+            swap: swap
+            credit: credit
+          hedge:
+            targetCurrency: targetCurrency
+            isHedged: true
+            sourceCurrency: sourceCurrency
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_6_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_7_data_geography:
+      description: geography.
+      example:
+        region: Europe
+        specific: specific
+      properties:
+        region:
+          description: The broad regional exposure of the ETP's holdings (e.g., Latin
+            America, Asia-Pacific, Global), text and standardized value available.
+            This data is available for all the regions.
+          enum:
+          - Europe
+          - North America
+          - Global
+          - Developed Markets
+          - Asia-Pacific
+          - Global Ex-U.S.
+          - Emerging Markets
+          - Latin America
+          - Middle East & Africa
+          - Frontier Markets
+          type: string
+          x-enum-description:
+          - Europe.
+          - North America.
+          - Global.
+          - Developed Markets.
+          - Asia-Pacific.
+          - Global Ex-U.S.
+          - Emerging Markets.
+          - Latin America.
+          - Middle East & Africa.
+          - Frontier Markets.
+        specific:
+          description: The specific geographic exposure of the ETP's holdings (e.g.,
+            BRICs, Chile, Asia-Pacific Ex-Japan), text and standardized value available.This
+            data is available for all the regions. See endpoint /factset/etf/class/geography/list
+            for possible values
+          type: string
+      type: object
+      x-property-sort:
+      - region
+      - specific
+    inline_response_200_7_data_category:
+      description: category.
+      example:
+        broad: broad
+        focus: focus
+        niche: niche
+      properties:
+        broad:
+          description: The 1st of 3 asset-class-specific, hierarchical exposure tiers;
+            the broadest category the ETP falls under within its asset class (e.g.,
+            Size & Style, Sector, Precious Metals, Absolute Returns), text and standardized
+            value available. This data is available for all the regions. Please refer
+            /factset/etf/class/category/broad/list for possible values.
+          type: string
+        focus:
+          description: The 2nd of 3 asset-class-specific, hierarchical exposure tiers;
+            the ETP's classification within its category (e.g., Small Cap, Energy,
+            Palladium, Long/Short), text and standardized value available. This data
+            is available for all the regions. Please refer /factset/etf/class/category/focus/list
+            for possible values.
+          type: string
+        niche:
+          description: The 3rd of 3 asset-class-specific, hierarchical exposure tiers;
+            The ETP's classification within its Focus. Most granular tier of exposure
+            sort (e.g., Growth, Coal, Physically held, Merger Arbitrage), text and
+            standardized value available. This data is available for all the regions.
+            Please refer /factset/etf/class/category/niche/list for possible values.
+          type: string
+      type: object
+      x-property-sort:
+      - broad
+      - focus
+      - niche
+    inline_response_200_7_data:
+      description: Class information of given ETP.
+      example:
+        geography:
+          region: Europe
+          specific: specific
+        economicDevelopment: Developed Markets
+        asset: Equity
+        category:
+          broad: broad
+          focus: focus
+          niche: niche
+      properties:
+        asset:
+          description: Asset class of ETP holdings (Equity, Fixed Income, Currency,
+            Commodities, Asset Allocation, or Alternatives), text and standardized
+            value available. This data is available for all the regions.
+          enum:
+          - Equity
+          - Alternatives
+          - Fixed Income
+          - Commodities
+          - Currency
+          - Asset Allocation
+          type: string
+          x-enum-description:
+          - Equity.
+          - Alternatives.
+          - Fixed Income.
+          - Commodities.
+          - Currency.
+          - Asset Allocation.
+        economicDevelopment:
+          description: The country development level of the ETP's holdings (Developed,
+            Emerging, Frontier, or Blended), text and standardized value available.
+            This data is available for all the regions.
+          enum:
+          - Developed Markets
+          - Blended Development
+          - Emerging Markets
+          - Frontier Markets
+          type: string
+          x-enum-description:
+          - Developed Markets.
+          - Blended Development.
+          - Emerging Markets.
+          - Frontier Markets.
+        geography:
+          $ref: '#/components/schemas/inline_response_200_7_data_geography'
+        category:
+          $ref: '#/components/schemas/inline_response_200_7_data_category'
+      type: object
+      x-property-sort:
+      - asset
+      - economicDevelopment
+      - geography
+      - category
+    inline_response_200_7:
+      example:
+        data:
+          geography:
+            region: Europe
+            specific: specific
+          economicDevelopment: Developed Markets
+          asset: Equity
+          category:
+            broad: broad
+            focus: focus
+            niche: niche
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_7_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_8_data:
+      example:
+        broadCategory: broadCategory
+      properties:
+        broadCategory:
+          description: ETP class broad category.
+          type: string
+      type: object
+      x-property-sort:
+      - broadCategory
+    inline_response_200_8:
+      example:
+        data:
+        - broadCategory: broadCategory
+        - broadCategory: broadCategory
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of ETP class broad categories.
+          items:
+            $ref: '#/components/schemas/inline_response_200_8_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_9_data:
+      example:
+        focusCategory: focusCategory
+      properties:
+        focusCategory:
+          description: ETP class focus category.
+          type: string
+      type: object
+      x-property-sort:
+      - focusCategory
+    inline_response_200_9:
+      example:
+        data:
+        - focusCategory: focusCategory
+        - focusCategory: focusCategory
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of focus categories.
+          items:
+            $ref: '#/components/schemas/inline_response_200_9_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_10_data:
+      example:
+        nicheCategory: nicheCategory
+      properties:
+        nicheCategory:
+          description: ETP class niche category.
+          type: string
+      type: object
+      x-property-sort:
+      - nicheCategory
+    inline_response_200_10:
+      example:
+        data:
+        - nicheCategory: nicheCategory
+        - nicheCategory: nicheCategory
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of niche categories.
+          items:
+            $ref: '#/components/schemas/inline_response_200_10_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_11_data:
+      example:
+        name: name
+      properties:
+        name:
+          description: Name of the geography.
+          type: string
+      type: object
+      x-property-sort:
+      - name
+    inline_response_200_11:
+      example:
+        data:
+        - name: name
+        - name: name
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of class geographies.
+          items:
+            $ref: '#/components/schemas/inline_response_200_11_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_12_data_dividend:
+      description: Dividend information for the next dividend.
+      example:
+        qualified: 0.8008281904610115
+        nonQualified: 6.027456183070403
+        exDividendDate: 2000-01-23
+        returnOnCapital: 1.4658129805029452
+        isReported: true
+      properties:
+        isReported:
+          description: States whether the ETP's next ex-dividend date is posted on
+            the issuer's website. This data is available for all the regions.
+          type: boolean
+        exDividendDate:
+          description: The ex-dividend date of the ETP's next distribution. This data
+            is available for all the regions.
+          format: date
+          type: string
+        qualified:
+          description: Qualified dividend payment on ex-dividend-date. This data is
+            available for all regions.
+          format: real
+          type: number
+        nonQualified:
+          description: Non-Qualified dividend payment on ex-dividend-date. This data
+            is available for all regions.
+          format: real
+          type: number
+        returnOnCapital:
+          description: Return on Capital available on ex-dividend-date. This data
+            is available for all regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - isReported
+      - exDividendDate
+      - qualified
+      - nonQualified
+      - returnOnCapital
+    inline_response_200_12_data_capitalGains:
+      description: Capital Gains.
+      example:
+        longTerm: 5.637376656633329
+        shortTerm: 5.962133916683182
+      properties:
+        shortTerm:
+          description: Total short term capital gains on ex-date. This data is available
+            for all the regions.
+          format: real
+          type: number
+        longTerm:
+          description: Total long term capital gains on ex-date. This data is available
+            for all the regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - shortTerm
+      - longTerm
+    inline_response_200_12_data:
+      description: Distribution.
+      example:
+        distributionYield: 7.061401241503109
+        capitalGains:
+          longTerm: 5.637376656633329
+          shortTerm: 5.962133916683182
+        dividend:
+          qualified: 0.8008281904610115
+          nonQualified: 6.027456183070403
+          exDividendDate: 2000-01-23
+          returnOnCapital: 1.4658129805029452
+          isReported: true
+        totalDistribution: 2.3021358869347655
+      properties:
+        dividend:
+          $ref: '#/components/schemas/inline_response_200_12_data_dividend'
+        capitalGains:
+          $ref: '#/components/schemas/inline_response_200_12_data_capitalGains'
+        totalDistribution:
+          description: Total Distribution on exDividend-date. Values are in the ETP's
+            listing currency in the ISO 4217 format. This data is available for all
+            regions. Please refer currency.listing in /factset/etf/getBySymbol for
+            currency value.
+          format: real
+          type: number
+        distributionYield:
+          description: Total 12-month distribution of the ETP multiplied by split
+            factor then divided by its net asset value. Data is split adjusted. This
+            data is available for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - dividend
+      - capitalGains
+      - totalDistribution
+      - distributionYield
+    inline_response_200_12:
+      example:
+        data:
+          distributionYield: 7.061401241503109
+          capitalGains:
+            longTerm: 5.637376656633329
+            shortTerm: 5.962133916683182
+          dividend:
+            qualified: 0.8008281904610115
+            nonQualified: 6.027456183070403
+            exDividendDate: 2000-01-23
+            returnOnCapital: 1.4658129805029452
+            isReported: true
+          totalDistribution: 2.3021358869347655
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_12_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_13_data:
+      description: Fund flows (i.e., the amount invested or divested from a fund)
+        based on the creation/redemption process. The data returned may not be related
+        to overall volume or price movement. All fund flow inputs use transaction-day
+        values to ensure that all assets under management (AUM) and flows are fully
+        comparable and reflective of the same, verified market conditions. This data
+        is available for all the regions.
+      example:
+        flows1W: 6.027456183070403
+        flowsYTD: 5.962133916683182
+        flows1D: 0.8008281904610115
+        flows1Y: 5.637376656633329
+        flows1M: 1.4658129805029452
+      properties:
+        flows1D:
+          description: One-day fund flows. This data is available for all the regions.
+          format: real
+          type: number
+        flows1W:
+          description: One-week fund flows. This data is available for all the regions.
+          format: real
+          type: number
+        flows1M:
+          description: One-month fund flows. This data is available for all the regions.
+          format: real
+          type: number
+        flowsYTD:
+          description: Year-to-date fund flows. This data is available for all the
+            regions.
+          format: real
+          type: number
+        flows1Y:
+          description: One-year fund flows. This data is available for all the regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - flows1D
+      - flows1W
+      - flows1M
+      - flowsYTD
+      - flows1Y
+    inline_response_200_13:
+      example:
+        data:
+          flows1W: 6.027456183070403
+          flowsYTD: 5.962133916683182
+          flows1D: 0.8008281904610115
+          flows1Y: 5.637376656633329
+          flows1M: 1.4658129805029452
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_13_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_14_data:
+      example:
+        tenkPercentChange: 6.027456183070403
+        navDate: 2000-01-23
+        tenkValue: 0.8008281904610115
+      properties:
+        navDate:
+          description: Growth of the 10k calculation date
+          format: date
+          type: string
+        tenkValue:
+          description: Growth of the 10k calculation value.
+          format: real
+          type: number
+        tenkPercentChange:
+          description: Growth of the 10k calculation percent change.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - navDate
+      - tenkValue
+      - tenkPercentChange
+    inline_response_200_14:
+      example:
+        data:
+        - tenkPercentChange: 6.027456183070403
+          navDate: 2000-01-23
+          tenkValue: 0.8008281904610115
+        - tenkPercentChange: 6.027456183070403
+          navDate: 2000-01-23
+          tenkValue: 0.8008281904610115
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: Growth of TenK data.
+          items:
+            $ref: '#/components/schemas/inline_response_200_14_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_15_data:
+      example:
+        shares: 0.8008281904610115
+        symbol: symbol
+        reportDate: 2000-01-23
+        name: name
+        marketValue: 6.027456183070403
+        weight: 1.4658129805029452
+        currencyCode: currencyCode
+      properties:
+        symbol:
+          description: Identifier of the holding. (when available).
+          type: string
+        name:
+          description: Name of the holding.
+          type: string
+        reportDate:
+          description: Reporting date of the holding.
+          format: date
+          type: string
+        shares:
+          description: Number of shares held, unadjusted for corporate actions.
+          format: real
+          type: number
+        marketValue:
+          description: Market value of the holding, unadjusted for corporate actions.
+          format: real
+          type: number
+        currencyCode:
+          description: Code representing the currency of the ETP and  it's in format
+            ISO 4217
+          type: string
+        weight:
+          description: Weight of the holding within the ETP.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - symbol
+      - name
+      - reportDate
+      - shares
+      - marketValue
+      - currencyCode
+      - weight
+    inline_response_200_15:
+      example:
+        data:
+        - shares: 0.8008281904610115
+          symbol: symbol
+          reportDate: 2000-01-23
+          name: name
+          marketValue: 6.027456183070403
+          weight: 1.4658129805029452
+          currencyCode: currencyCode
+        - shares: 0.8008281904610115
+          symbol: symbol
+          reportDate: 2000-01-23
+          name: name
+          marketValue: 6.027456183070403
+          weight: 1.4658129805029452
+          currencyCode: currencyCode
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: ETP holdings data.
+          items:
+            $ref: '#/components/schemas/inline_response_200_15_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_16_data_nav_last:
+      description: Last.
+      example:
+        date: 2000-01-23
+        value: 6.027456183070403
+      properties:
+        value:
+          description: Last available NAV value, in case of the daily NAV value is
+            missing. This data is available for all the regions.
+          format: real
+          type: number
+        date:
+          description: Date of last available NAV. This data is available for all
+            the regions.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - value
+      - date
+    inline_response_200_16_data_nav:
+      description: Nav.
+      example:
+        last:
+          date: 2000-01-23
+          value: 6.027456183070403
+        totalReturn: 1.4658129805029452
+        currency: CHF
+        value: 0.8008281904610115
+        startDate: 2000-01-23
+      properties:
+        value:
+          description: Daily net asset value (NAV) of the ETP. This data is available
+            for all the regions.
+          format: real
+          type: number
+        currency:
+          description: Currency of the ETP's NAV in ISO 4217 format. This data is
+            available for all the regions.
+          enum:
+          - CHF
+          - CAD
+          - USD
+          - EUR
+          - MXN
+          - GBP
+          - GBX
+          - SEK
+          - JPY
+          type: string
+          x-enum-description:
+          - Swiss franc.
+          - Canadian dollar.
+          - United States dollar.
+          - Euro.
+          - Mexican peso.
+          - Pound sterling.
+          - Penny sterling.
+          - Swedish krona/kronor.
+          - Japanese yen.
+        startDate:
+          description: Date of first available NAV ex-date. This data is available
+            for all the regions.
+          format: date
+          type: string
+        last:
+          $ref: '#/components/schemas/inline_response_200_16_data_nav_last'
+        totalReturn:
+          description: ETP NAV calculated by reinvesting dividends and compounding
+            returns. This data is available for all the regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - value
+      - currency
+      - startDate
+      - last
+      - totalReturn
+    inline_response_200_16_data_sharesOutstanding:
+      description: Shares outstanding.
+      example:
+        lastValue: 5.637376656633329
+        earliestDate: 2000-01-23
+        value: 5.962133916683182
+      properties:
+        value:
+          description: Daily shares outstanding (i.e., actual values) for a ETP. This
+            data is available for all the regions.
+          format: real
+          type: number
+        lastValue:
+          description: Last available shares outstanding for a ETP. This data is available
+            for all the regions.
+          format: real
+          type: number
+        earliestDate:
+          description: Returns the earliest date for which a shares outstanding figure
+            is available. This data is available for all the regions.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - value
+      - lastValue
+      - earliestDate
+    inline_response_200_16_data:
+      description: Price.
+      example:
+        nav:
+          last:
+            date: 2000-01-23
+            value: 6.027456183070403
+          totalReturn: 1.4658129805029452
+          currency: CHF
+          value: 0.8008281904610115
+          startDate: 2000-01-23
+        sharesOutstanding:
+          lastValue: 5.637376656633329
+          earliestDate: 2000-01-23
+          value: 5.962133916683182
+      properties:
+        nav:
+          $ref: '#/components/schemas/inline_response_200_16_data_nav'
+        sharesOutstanding:
+          $ref: '#/components/schemas/inline_response_200_16_data_sharesOutstanding'
+      type: object
+      x-property-sort:
+      - nav
+      - sharesOutstanding
+    inline_response_200_16:
+      example:
+        data:
+          nav:
+            last:
+              date: 2000-01-23
+              value: 6.027456183070403
+            totalReturn: 1.4658129805029452
+            currency: CHF
+            value: 0.8008281904610115
+            startDate: 2000-01-23
+          sharesOutstanding:
+            lastValue: 5.637376656633329
+            earliestDate: 2000-01-23
+            value: 5.962133916683182
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_16_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_17_data:
+      description: Returns.
+      example:
+        return3Y: 5.637376656633329
+        return5Y: 2.3021358869347655
+        return3M: 6.027456183070403
+        returnYTD: 1.4658129805029452
+        return1Y: 5.962133916683182
+        return1M: 0.8008281904610115
+      properties:
+        return1M:
+          description: 1 month performance. This data is available for the US regions.
+          format: real
+          type: number
+        return3M:
+          description: 3 month performance. This data is available for the US regions.
+          format: real
+          type: number
+        returnYTD:
+          description: YTD performance. This data is available for the US regions.
+          format: real
+          type: number
+        return1Y:
+          description: 1 year performance. This data is available for the US regions.
+          format: real
+          type: number
+        return3Y:
+          description: 3 year performance. This data is available for the US regions.
+          format: real
+          type: number
+        return5Y:
+          description: 5 year performance. This data is available for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - return1M
+      - return3M
+      - returnYTD
+      - return1Y
+      - return3Y
+      - return5Y
+    inline_response_200_17:
+      example:
+        data:
+          return3Y: 5.637376656633329
+          return5Y: 2.3021358869347655
+          return3M: 6.027456183070403
+          returnYTD: 1.4658129805029452
+          return1Y: 5.962133916683182
+          return1M: 0.8008281904610115
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_17_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_18_data:
+      description: Strategy.
+      example:
+        cluster: cluster
+        selectCriteria: selectCriteria
+        segment: segment
+        isTransparent: true
+        description: description
+        fundOfFunds: fundOfFunds
+        weighting: weighting
+        group: group
+      properties:
+        description:
+          description: Descriptive Summary of the methods used by a ETP or its index
+            in selection and weighting of its holdings, text and standardized value
+            available.  This data is available for the US and Canada regions.
+          type: string
+        group:
+          description: Factset's Universal Screening tool code allows screening the
+            greatest number of ETP's to surface based on a similar ETP strategy. This
+            data is available for the US and Canada regions.
+          type: string
+        cluster:
+          description: Factset's Universal Screening tool code allows us to screen
+            a greater number of ETP's to surface; all must have similar ETP strategy
+            characteristics. This data item is more granular and narrow than the strategy
+            group. This data is available for the US and Canada regions.
+          type: string
+        selectCriteria:
+          description: Description of the security selection criteria used by the
+            ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized
+            value available. This data is available for all the regions.
+          type: string
+        weighting:
+          description: Text that specifies the weighting selection criteria used by
+            the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental)
+            , text and standardized value available. This data is available for all
+            the regions.
+          type: string
+        segment:
+          description: Determines the unique segment the ETP falls into, based on
+            FactSet ETP Analytics rules-based classification system determined by
+            geography, category, focus, and niche. Text and standardized value available
+            for this data item. This data is available for the US regions. See endpoint
+            /factset/etf/strategy/segment/list for possible values.
+          type: string
+        isTransparent:
+          description: Description that States whether or not the methodology behind
+            the underlying index can be clearly understood from offering documents.
+            This data is available for the US and Canada regions.
+          type: boolean
+        fundOfFunds:
+          description: Description of the ETP that holds a portfolio of other ETPs.
+            This data is available for the Canada regions.
+          type: string
+      type: object
+      x-property-sort:
+      - description
+      - group
+      - cluster
+      - selectCriteria
+      - weighting
+      - segment
+      - isTransparent
+      - fundOfFunds
+    inline_response_200_18:
+      example:
+        data:
+          cluster: cluster
+          selectCriteria: selectCriteria
+          segment: segment
+          isTransparent: true
+          description: description
+          fundOfFunds: fundOfFunds
+          weighting: weighting
+          group: group
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_18_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_19_data:
+      example:
+        name: name
+      properties:
+        name:
+          description: Name of the segment.
+          type: string
+      type: object
+      x-property-sort:
+      - name
+    inline_response_200_19:
+      example:
+        data:
+        - name: name
+        - name: name
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: List of strategy segments.
+          items:
+            $ref: '#/components/schemas/inline_response_200_19_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_20_data:
+      description: Structure.
+      example:
+        isDripEligible: true
+        syntheticType: syntheticType
+        isEligibleForRegisteredAccounts: true
+        cashFlowFrequency: cashFlowFrequency
+        legalStructure: legalStructure
+        backing: backing
+        isEtn: true
+        portfolioDisclosure: portfolioDisclosure
+        type: type
+        isActivelyManaged: true
+        isHoldingsTransparent: true
+        isUcitsCompliant: true
+      properties:
+        isEtn:
+          description: Flags exchange-traded notes. This data is available for all
+            the regions.
+          type: boolean
+        type:
+          description: Describes the legal structure of the ETP, text and standardized
+            value available This data is available for all the regions.
+          type: string
+        isActivelyManaged:
+          description: Flags ETPs that are actively managed as per SEC guidelines.
+            This data is available for all the regions.
+          type: boolean
+        backing:
+          description: Describes whether the ETP holds underlying securities or uses
+            derivatives to gain its desired exposure, text and standardized value
+            available.  This data is available for all the regions.
+          type: string
+        syntheticType:
+          description: Indicates whether the synthetic ETP is “unfunded” (collateral
+            or substitute basket of securities for the swap agreement is owned by
+            ETP), or “funded” (collateral for swap agreement is held by a custodian
+            in the name of the ETP or in the name of the counterparty, pledged to
+            the ETP issuer), text and standardized value available. This data is available
+            for Europe only.
+          type: string
+        legalStructure:
+          description: The organizational structure of the ETP, text and standardized
+            value available. This data is available for all the regions.
+          type: string
+        isUcitsCompliant:
+          description: The counterparty for derivative exposure for synthetic ETPs.
+            This data is available for all the regions.
+          type: boolean
+        isHoldingsTransparent:
+          description: States whether or not the ETP's issuer discloses its positions
+            on its website daily. This data is available for all the regions.
+          type: boolean
+        portfolioDisclosure:
+          description: The frequency of an issuer's disclosure of all ETP holdings
+            on its website, text and standardized value available. This data is available
+            for all the regions.
+          type: string
+        cashFlowFrequency:
+          description: States how often the ETP makes regular distributions, text
+            and standardized value available. This data is available only for US and
+            Europe.
+          type: string
+        isEligibleForRegisteredAccounts:
+          description: Product can be held in tax-advantaged investment accounts.
+            This data is available for Canada only.
+          type: boolean
+        isDripEligible:
+          description: Ability to have dividends reinvested. This data is available
+            for Canada only.
+          type: boolean
+      type: object
+      x-property-sort:
+      - isEtn
+      - type
+      - isActivelyManaged
+      - backing
+      - syntheticType
+      - legalStructure
+      - isUcitsCompliant
+      - isHoldingsTransparent
+      - portfolioDisclosure
+      - cashFlowFrequency
+      - isEligibleForRegisteredAccounts
+      - isDripEligible
+    inline_response_200_20:
+      example:
+        data:
+          isDripEligible: true
+          syntheticType: syntheticType
+          isEligibleForRegisteredAccounts: true
+          cashFlowFrequency: cashFlowFrequency
+          legalStructure: legalStructure
+          backing: backing
+          isEtn: true
+          portfolioDisclosure: portfolioDisclosure
+          type: type
+          isActivelyManaged: true
+          isHoldingsTransparent: true
+          isUcitsCompliant: true
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_20_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_21_data_maxCapitalGainsRate:
+      description: Max capital gains rate.
+      example:
+        longTerm: 0.8008281904610115
+        shortTerm: 6.027456183070403
+      properties:
+        longTerm:
+          description: The maximum US federal personal income tax rate that applies
+            to long-term capital gains associated with the ETP. This data is available
+            for the US regions.
+          format: real
+          type: number
+        shortTerm:
+          description: The maximum US federal personal income tax rate that applies
+            to short-term capital gains associated with the ETP. This data is available
+            for the US regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - longTerm
+      - shortTerm
+    inline_response_200_21_data_expenseRatio:
+      description: Expense ratio.
+      example:
+        value: 1.4658129805029452
+        potential: 5.962133916683182
+      properties:
+        value:
+          description: Typically the net total annual fee the issuer deducts from
+            ETP assets as a management fee. Also can include where applicable acquired
+            ETP fees, short interest expense, index fees, and financing fees. Breakeven
+            rate is reported for commodity pools. This data is available for all the
+            regions.
+          format: real
+          type: number
+        potential:
+          description: The full expense ratio before any fee waivers. This data is
+            available fo the US and Canada regions.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - value
+      - potential
+    inline_response_200_21_data:
+      description: Taxes and fees.
+      example:
+        capitalGainsDistirbutions3Y: 7.061401241503109
+        tradingExpenseRatio: 2.027123023002322
+        feeWaiver: feeWaiver
+        maxCapitalGainsRate:
+          longTerm: 0.8008281904610115
+          shortTerm: 6.027456183070403
+        dividendTreatment: dividendTreatment
+        managementExpenseRatio: 9.301444243932576
+        distributeK1: distributeK1
+        potentialCostIncreaseDate: 2000-01-23
+        managementFee: 3.616076749251911
+        expenseRatio:
+          value: 1.4658129805029452
+          potential: 5.962133916683182
+        capitalGains: 2.3021358869347655
+        contractAdvisoryFee: 5.637376656633329
+        taxType: taxType
+        taxOnDistributions: taxOnDistributions
+      properties:
+        maxCapitalGainsRate:
+          $ref: '#/components/schemas/inline_response_200_21_data_maxCapitalGainsRate'
+        dividendTreatment:
+          description: Describes whether dividend income received by the ETP is distributed
+            to ETP shareholders or capitalised (reinvested) into the ETP, text and
+            standardized value available. This data is available for all the Canada
+            and Europe regions.
+          type: string
+        distributeK1:
+          description: Flags ETPs that distribute K-1 tax forms. This data is available
+            for the US regions.
+          type: string
+        taxType:
+          description: Type of the tax applicable on the distribution. This data is
+            available for the US regions.
+          type: string
+        taxOnDistributions:
+          description: Tax treatment of the ETP's regular distributions. This data
+            is available for the US regions.
+          type: string
+        expenseRatio:
+          $ref: '#/components/schemas/inline_response_200_21_data_expenseRatio'
+        potentialCostIncreaseDate:
+          description: Expiration date of any fee waivers. This data is available
+            for the US and Canada regions.
+          format: date
+          type: string
+        contractAdvisoryFee:
+          description: The advisors fee excluding any additional costs or fees; A
+            subset of the total expense ratio. This data is available for the Canada
+            regions.
+          format: real
+          type: number
+        capitalGains:
+          description: Realized capital gains or losses reported on the ETP's most
+            recent annual or semi-annual report. Gains must generally be paid out
+            as a distribution at year-end, while losses can be banked to offset future
+            gains. This data is available only for the US regions.
+          format: real
+          type: number
+        capitalGainsDistirbutions3Y:
+          description: The average annual capital gains paid out to shareholders over
+            the past 3 calendar years, measured as a percent of net asset value (NAV)
+            on the final trading day of each previous year. This data is available
+            for the US region only.
+          format: real
+          type: number
+        managementExpenseRatio:
+          description: Total net annual cost associated with holding the ETP, expressed
+            as a percentage.  This data is available for the Canada regions.
+          format: real
+          type: number
+        managementFee:
+          description: Annual fee collected by fund manager, expressed as a percentage.
+            This data is available for the Canada region.
+          format: real
+          type: number
+        tradingExpenseRatio:
+          description: Estimated annual costs associated with trading the underlying
+            holdings. This data is available for the Canada region.
+          format: real
+          type: number
+        feeWaiver:
+          description: A reduction in annual ETP expenses, expressed as a percentage.
+            This data is available for the Canada region.
+          type: string
+      type: object
+      x-property-sort:
+      - maxCapitalGainsRate
+      - dividendTreatment
+      - distributeK1
+      - taxType
+      - taxOnDistributions
+      - expenseRatio
+      - potentialCostIncreaseDate
+      - contractAdvisoryFee
+      - capitalGains
+      - capitalGainsDistirbutions3Y
+      - managementExpenseRatio
+      - managementFee
+      - tradingExpenseRatio
+      - feeWaiver
+    inline_response_200_21:
+      example:
+        data:
+          capitalGainsDistirbutions3Y: 7.061401241503109
+          tradingExpenseRatio: 2.027123023002322
+          feeWaiver: feeWaiver
+          maxCapitalGainsRate:
+            longTerm: 0.8008281904610115
+            shortTerm: 6.027456183070403
+          dividendTreatment: dividendTreatment
+          managementExpenseRatio: 9.301444243932576
+          distributeK1: distributeK1
+          potentialCostIncreaseDate: 2000-01-23
+          managementFee: 3.616076749251911
+          expenseRatio:
+            value: 1.4658129805029452
+            potential: 5.962133916683182
+          capitalGains: 2.3021358869347655
+          contractAdvisoryFee: 5.637376656633329
+          taxType: taxType
+          taxOnDistributions: taxOnDistributions
+        meta:
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_21_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_22_data:
+      example:
+        nav: 0.8008281904610115
+        navDate: 2000-01-23
+        navChange: 6.027456183070403
+        aum: 2.3021358869347655
+        navChangePercent: 1.4658129805029452
+        sharesOutstanding: 5.637376656633329
+        fundFlows: 5.962133916683182
+      properties:
+        navDate:
+          description: Historice NAV date value.
+          format: date
+          type: string
+        nav:
+          description: Returns historic Net Asset Value of the ETP.
+          format: real
+          type: number
+        navChange:
+          description: Absolute change in NAV value.
+          format: real
+          type: number
+        navChangePercent:
+          description: Related change in the NAV value.
+          format: real
+          type: number
+        fundFlows:
+          description: This value returns factset's ETF fundflow history. Rolling
+            one day fund flows are calculated using the difference of shares outstanding
+            at previous close and shares outstanding one day prior to close mulitplied
+            by the NAV of one day prior to close.
+          format: real
+          type: number
+        sharesOutstanding:
+          description: Returns the historic share Outstanding values of the ETP.
+          format: real
+          type: number
+        aum:
+          description: Returns the historic Total Asset Value of the ETP.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - navDate
+      - nav
+      - navChange
+      - navChangePercent
+      - fundFlows
+      - sharesOutstanding
+      - aum
+    inline_response_200_22:
+      example:
+        data:
+        - nav: 0.8008281904610115
+          navDate: 2000-01-23
+          navChange: 6.027456183070403
+          aum: 2.3021358869347655
+          navChangePercent: 1.4658129805029452
+          sharesOutstanding: 5.637376656633329
+          fundFlows: 5.962133916683182
+        - nav: 0.8008281904610115
+          navDate: 2000-01-23
+          navChange: 6.027456183070403
+          aum: 2.3021358869347655
+          navChangePercent: 1.4658129805029452
+          sharesOutstanding: 5.637376656633329
+          fundFlows: 5.962133916683182
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 9.301444243932576
+      properties:
+        data:
+          description: Time series.
+          items:
+            $ref: '#/components/schemas/inline_response_200_22_data'
+          type: array
+          uniqueItems: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.36.0
+x-api-version: 2.7.0
+x-original-swagger-version: "2.0"
+

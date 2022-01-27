@@ -1,0 +1,18 @@
+
+
+# InlineResponse20082
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**java.util.List&lt;InlineResponse20082Data&gt;**](InlineResponse20082Data.md) | Set of bid and ask prices for a list of notations. |  [optional]
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

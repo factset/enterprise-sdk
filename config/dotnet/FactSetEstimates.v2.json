@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.FactSetEstimates",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{400b5367-9eb9-599a-8a6c-6af8dd3f1b3d}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - FactSet Estimates",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimates/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

@@ -1,0 +1,916 @@
+openapi: 3.0.1
+info:
+  description: Allows users to create, update and configure IRN data.
+  title: IRN API v1
+  version: "1"
+servers:
+- url: https://api-sandbox.factset.com/research/irn
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/authors:
+    get:
+      parameters:
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserConfigDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      summary: Get all Authors
+      tags:
+      - Authors
+      x-accepts: application/json
+  /v1/custom-fields:
+    get:
+      parameters:
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomFieldConfigDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      summary: Get all Custom Fields
+      tags:
+      - CustomFields
+      x-accepts: application/json
+  /v1/group:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupConfigDto'
+          description: Success
+      summary: Get Group details
+      tags:
+      - Group
+      x-accepts: application/json
+  /v1/group/client-sales-representative:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientSalesRepresentativeDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      tags:
+      - Group
+      x-accepts: application/json
+  /v1/recommendations:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecommendationConfigDto'
+                type: array
+          description: Success
+      summary: Get all Recommendations
+      tags:
+      - Recommendations
+      x-accepts: application/json
+  /v1/sentiments:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SentimentConfigDto'
+                type: array
+          description: Success
+      summary: Get all Sentiments
+      tags:
+      - Sentiments
+      x-accepts: application/json
+  /v1/subjects:
+    get:
+      parameters:
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SubjectSummaryDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      summary: Get all Subjects
+      tags:
+      - Subjects
+      x-accepts: application/json
+  /v1/subjects/{subjectId}:
+    get:
+      parameters:
+      - description: Id
+        explode: false
+        in: path
+        name: subjectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectConfigDto'
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get Subject details for the given Id provided
+      tags:
+      - Subjects
+      x-accepts: application/json
+  /v1/teams:
+    get:
+      parameters:
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TeamSummaryDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      summary: Get all Teams
+      tags:
+      - Teams
+      x-accepts: application/json
+  /v1/teams/{teamId}:
+    get:
+      parameters:
+      - description: Id
+        explode: false
+        in: path
+        name: teamId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-IRN-Ignore-Permissions
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamConfigDto'
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get Team details for the given Id provided
+      tags:
+      - Teams
+      x-accepts: application/json
+  /v1/users:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserConfigDto'
+                type: array
+          description: Success
+      summary: Get all assigned FactSet users
+      tags:
+      - Users
+      x-accepts: application/json
+components:
+  schemas:
+    TeamSummaryDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+      type: object
+    UserConfigDto:
+      additionalProperties: false
+      example:
+        firstName: firstName
+        lastName: lastName
+        emailAddress: emailAddress
+        serialNumber: serialNumber
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        team:
+          code: code
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userName: userName
+      properties:
+        id:
+          format: uuid
+          type: string
+        userName:
+          nullable: true
+          type: string
+        serialNumber:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        emailAddress:
+          nullable: true
+          type: string
+        team:
+          $ref: '#/components/schemas/TeamSummaryDto'
+      type: object
+    ProblemDetails:
+      additionalProperties: false
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        extensions:
+          additionalProperties:
+            additionalProperties: false
+            type: object
+          nullable: true
+          readOnly: true
+          type: object
+      type: object
+    FormulaConfigDto:
+      additionalProperties: false
+      example:
+        formulaType: formulaType
+        formula: formula
+      properties:
+        formula:
+          nullable: true
+          type: string
+        formulaType:
+          nullable: true
+          type: string
+      type: object
+    NumericConfigDto:
+      additionalProperties: false
+      example:
+        decimals: 0
+        splitType: splitType
+      properties:
+        decimals:
+          format: int32
+          type: integer
+        splitType:
+          nullable: true
+          type: string
+      type: object
+    IntegerConfigDto:
+      additionalProperties: false
+      example:
+        splitType: splitType
+      properties:
+        splitType:
+          nullable: true
+          type: string
+      type: object
+    ExtendedTextConfigDto:
+      additionalProperties: false
+      example:
+        maxChars: 6
+      properties:
+        maxChars:
+          format: int32
+          type: integer
+      type: object
+    OptionsConfigDto:
+      additionalProperties: false
+      example:
+        multiSelectEnabled: true
+        options:
+        - options
+        - options
+        onTheFlyEnabled: true
+      properties:
+        multiSelectEnabled:
+          type: boolean
+        onTheFlyEnabled:
+          type: boolean
+        options:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    CustomFieldConfigDto:
+      additionalProperties: false
+      example:
+        usePreviousValue: true
+        code: code
+        optionsConfig:
+          multiSelectEnabled: true
+          options:
+          - options
+          - options
+          onTheFlyEnabled: true
+        source: source
+        type: type
+        isHidden: true
+        extendedTextConfig:
+          maxChars: 6
+        formulaConfig:
+          formulaType: formulaType
+          formula: formula
+        numericConfig:
+          decimals: 0
+          splitType: splitType
+        integerConfig:
+          splitType: splitType
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isMandatory: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        code:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        usePreviousValue:
+          type: boolean
+        isMandatory:
+          type: boolean
+        isHidden:
+          type: boolean
+        formulaConfig:
+          $ref: '#/components/schemas/FormulaConfigDto'
+        numericConfig:
+          $ref: '#/components/schemas/NumericConfigDto'
+        integerConfig:
+          $ref: '#/components/schemas/IntegerConfigDto'
+        extendedTextConfig:
+          $ref: '#/components/schemas/ExtendedTextConfigDto'
+        optionsConfig:
+          $ref: '#/components/schemas/OptionsConfigDto'
+      type: object
+    SubjectSettingsDto:
+      additionalProperties: false
+      example:
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        defaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    RecommendationSettingsDto:
+      additionalProperties: false
+      example:
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        defaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    SentimentSettingsDto:
+      additionalProperties: false
+      example:
+        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        defaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    GroupFieldsDto:
+      additionalProperties: false
+      example:
+        sentiment:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        subject:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        recommendation:
+          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        subject:
+          $ref: '#/components/schemas/SubjectSettingsDto'
+        recommendation:
+          $ref: '#/components/schemas/RecommendationSettingsDto'
+        sentiment:
+          $ref: '#/components/schemas/SentimentSettingsDto'
+      type: object
+    GroupConfigDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fields:
+          sentiment:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          subject:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          recommendation:
+            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        fields:
+          $ref: '#/components/schemas/GroupFieldsDto'
+      type: object
+    ClientSalesRepresentativeDto:
+      additionalProperties: false
+      example:
+        emailAddress: emailAddress
+        fullname: fullname
+      properties:
+        fullname:
+          nullable: true
+          type: string
+        emailAddress:
+          nullable: true
+          type: string
+      type: object
+    RecommendationConfigDto:
+      additionalProperties: false
+      example:
+        code: 0
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isHidden: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          format: int32
+          type: integer
+        isHidden:
+          type: boolean
+      type: object
+    SentimentConfigDto:
+      additionalProperties: false
+      example:
+        code: 0
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isHidden: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          format: int32
+          type: integer
+        isHidden:
+          type: boolean
+      type: object
+    SubjectSummaryDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        identifierType: identifierType
+        isHidden: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        identifierType:
+          nullable: true
+          type: string
+        isHidden:
+          type: boolean
+      type: object
+    ApprovalLevelConfigDto:
+      additionalProperties: false
+      example:
+        approverIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+      properties:
+        name:
+          nullable: true
+          type: string
+        approverIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      type: object
+    ApprovalProcessConfigDto:
+      additionalProperties: false
+      example:
+        shouldSendEmailAlertsWhenSubmittedForApproval: true
+        shouldSendEmailAlertsWhenApproved: true
+        shouldSendEmailAlertsToAuthor: true
+        viewerIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        shouldSendEmailAlertsToApprovers: true
+        shouldSendEmailAlertsToViewers: true
+        canAuthorEditPending: true
+        approvalLevels:
+        - approverIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+        - approverIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+        shouldSendEmailAlertsWhenDenied: true
+        canAuthorSelfApprove: true
+      properties:
+        approvalLevels:
+          items:
+            $ref: '#/components/schemas/ApprovalLevelConfigDto'
+          nullable: true
+          type: array
+        viewerIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        shouldSendEmailAlertsWhenSubmittedForApproval:
+          type: boolean
+        shouldSendEmailAlertsWhenApproved:
+          type: boolean
+        shouldSendEmailAlertsWhenDenied:
+          type: boolean
+        shouldSendEmailAlertsToAuthor:
+          type: boolean
+        shouldSendEmailAlertsToApprovers:
+          type: boolean
+        shouldSendEmailAlertsToViewers:
+          type: boolean
+        canAuthorSelfApprove:
+          type: boolean
+        canAuthorEditPending:
+          type: boolean
+      type: object
+    CommentaryConfigDto:
+      additionalProperties: false
+      example:
+        shouldSendEmailAlertsToAuthor: true
+        shouldSendEmailAlertsToCommenters: true
+        shouldSendEmailAlertsToAll: true
+      properties:
+        shouldSendEmailAlertsToAuthor:
+          type: boolean
+        shouldSendEmailAlertsToCommenters:
+          type: boolean
+        shouldSendEmailAlertsToAll:
+          type: boolean
+      type: object
+    HeadlineFormatConfigDto:
+      additionalProperties: false
+      example:
+        name: name
+        customFieldName: customFieldName
+        customString: customString
+      properties:
+        name:
+          nullable: true
+          type: string
+        customString:
+          nullable: true
+          type: string
+        customFieldName:
+          nullable: true
+          type: string
+      type: object
+    RatingConfigDto:
+      additionalProperties: false
+      example:
+        viewerIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ratingsVisibleToAll: true
+        ratingsVisibleToViewers: true
+        ratingsVisibleToAuthor: true
+        optionValues:
+        - 0
+        - 0
+      properties:
+        ratingsVisibleToAuthor:
+          type: boolean
+        ratingsVisibleToViewers:
+          type: boolean
+        ratingsVisibleToAll:
+          type: boolean
+        viewerIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        optionValues:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+      type: object
+    SubjectConfigDto:
+      additionalProperties: false
+      example:
+        code: code
+        customFieldIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        commentaryConfig:
+          shouldSendEmailAlertsToAuthor: true
+          shouldSendEmailAlertsToCommenters: true
+          shouldSendEmailAlertsToAll: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        identifierType: identifierType
+        approvalProcessConfig:
+          shouldSendEmailAlertsWhenSubmittedForApproval: true
+          shouldSendEmailAlertsWhenApproved: true
+          shouldSendEmailAlertsToAuthor: true
+          viewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          shouldSendEmailAlertsToApprovers: true
+          shouldSendEmailAlertsToViewers: true
+          canAuthorEditPending: true
+          approvalLevels:
+          - approverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+          - approverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+          shouldSendEmailAlertsWhenDenied: true
+          canAuthorSelfApprove: true
+        ratingConfig:
+          viewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ratingsVisibleToAll: true
+          ratingsVisibleToViewers: true
+          ratingsVisibleToAuthor: true
+          optionValues:
+          - 0
+          - 0
+        newsHeadlineFormat:
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        isHidden: true
+        emailHeadlineFormat:
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+        - name: name
+          customFieldName: customFieldName
+          customString: customString
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        isHidden:
+          type: boolean
+        identifierType:
+          nullable: true
+          type: string
+        customFieldIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        approvalProcessConfig:
+          $ref: '#/components/schemas/ApprovalProcessConfigDto'
+        commentaryConfig:
+          $ref: '#/components/schemas/CommentaryConfigDto'
+        newsHeadlineFormat:
+          items:
+            $ref: '#/components/schemas/HeadlineFormatConfigDto'
+          nullable: true
+          type: array
+        emailHeadlineFormat:
+          items:
+            $ref: '#/components/schemas/HeadlineFormatConfigDto'
+          nullable: true
+          type: array
+        ratingConfig:
+          $ref: '#/components/schemas/RatingConfigDto'
+      type: object
+    TeamConfigDto:
+      additionalProperties: false
+      example:
+        code: code
+        userIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        defaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        defaultSubjectId:
+          format: uuid
+          nullable: true
+          type: string
+        userIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

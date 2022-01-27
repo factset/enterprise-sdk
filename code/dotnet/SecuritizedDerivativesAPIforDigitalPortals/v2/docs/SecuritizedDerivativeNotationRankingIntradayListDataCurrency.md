@@ -1,0 +1,11 @@
+# FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model.SecuritizedDerivativeNotationRankingIntradayListDataCurrency
+Main currency of the trading value and volume for securitized derivatives quoted in percent. The parameter ensures the consistency and comparability of the trading value and trading volume for such securitized derivatives. For securitized derivatives not quoted in percent, the currency and the value unit, see parameter `valueUnit`, are identical, thus it is not neccessary to specify the currency if the value unit has been specified.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **decimal** | Identifier of the main currency. See endpoint &#x60;/basic/valueUnit/currency/main/list&#x60; for valid values. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

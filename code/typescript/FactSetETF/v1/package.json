@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-factsetetf",
+  "version": "0.9.0",
+  "description": "FactSet_ETF_data_feeds_provide_complete_and_accurate_security_fund_and_reference_data_across_the_universe_of_exchange_traded_products__Data_is_sourced_from_ETF_providers_across_the_globe_and_includes_more_than_100_unique_data_points_resulting_in_comprehensive_coverage_to_help_you_evaluate_and_construct_ETFs_analyze_potential_trades_and_perform_fund_research_p_FactSet_Reference_and_Analytics_data_uses_FactSets_FCS_which_categorizes_exchange_traded_products_using_a_rules_based_system_that_is_derived_from_seven_core_classifications__This_system_evaluates_the_asset_class_economic_development_level_and_geographical_region_as_described_in_each_funds_prospectus_and_marketing_materials__ETF_exposure_details_are_presented_on_successively_granular_levels___category_then_focus_and_then_niche__p_pMoreover_FactSet_ETF_Reference_data_captures_over_100_unique_data_points_and_provides_market_specific_data_if_you_wish_to_solely_focus_on_U_S__Canadian_Australian_New_Zealand_Singapore_Hong_Kong_or_European_exchanges__All_data_points_are_grouped_in_one_of_two_levels_either_as_a_Fund_or_as_a_Listing__However_FactSet_ETF_Analytics_data_is_primarily_available_for_U_S__domiciled_ETFs__A_subset_of_reference_data_items_are_provided_for_European_domiciled_funds__For_a_full_breakout_of_regional_availability_and_history_see_Formula_Definitions_and_Calculations__p",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

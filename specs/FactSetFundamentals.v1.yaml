@@ -1,0 +1,1532 @@
+openapi: 3.0.0
+info:
+  version: 1.0.2
+  title: FactSet Fundamentals API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    Gain access to current, comprehensive, and comparative information on
+    securities in worldwide developed and emerging markets. Composed of annual
+    and interim/quarterly data, detailed historical financial statement content,
+    per share data, and calculated ratios, FactSet Fundamentals provides you
+    with the information you need for a global investment perspective.
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /factset-fundamentals/v1/fundamentals:
+    get:
+      tags:
+        - FactSet Fundamentals
+      summary: Returns the Company Fundamental Data.
+      operationId: getFdsFundamentals
+      description: >
+        Retrieves FactSet Fundamental standardized data for an individual
+        security. Use the /metrics endpoint to retrieve a full list of valid
+        metrics or data items.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/fiscalPeriodStart'
+        - $ref: '#/components/parameters/fiscalPeriodEnd'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/restated'
+      responses:
+        '200':
+          description: Fundamental data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundamentalsResponse'
+              examples:
+                Result of Single Company (FDS-US), sales(FF_SALES) details for the given period:
+                  $ref: '#/components/examples/resultOfSingleIdwithSingleMetricItem'
+                Result of Multiple Companies single metric item details:
+                  $ref: '#/components/examples/resultOfMultipleIdwithSingleMetricItem'
+                Result of Single Company (FDS-US), and Multiple Metrics (FF_SALES, FF_PE):
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleMetricItem'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - FactSet Fundamentals
+      summary: Returns the Company Fundamental Data.
+      description: >
+        Retrieves FactSet Fundamental standardized data for an individual
+        security. Use the /metrics endpoint to retrieve a full list of valid
+        metrics or data items.  
+      operationId: getFdsFundamentalsForList
+      requestBody:
+        required: true
+        description: Request object for requesting fundamentals data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fundamentalsRequest'
+            examples:
+              Single Company (FDS-US), sales(FF_SALES) details for the given period:
+                $ref: '#/components/examples/postBodyOfSingleIdwithSingleMetricItem'
+              Multiple Companies single metric item details:
+                $ref: '#/components/examples/postBodyOfMultipleIdwithSingleMetricItem'
+              Single Company (FDS-US), and Multiple Metrics (FF_SALES, FF_PE):
+                $ref: '#/components/examples/postBodyOfSingleIdwithMultipleMetricItem'
+      responses:
+        '200':
+          description: Fundamental data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundamentalsResponse'
+              examples:
+                Result of Single Company (FDS-US), sales(FF_SALES) details for the given period:
+                  $ref: '#/components/examples/resultOfSingleIdwithSingleMetricItem'
+                Result of Multiple Companies single metric item details:
+                  $ref: '#/components/examples/resultOfMultipleIdwithSingleMetricItem'
+                Result of Single Company (FDS-US), and Multiple Metrics (FF_SALES, FF_PE):
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleMetricItem'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-fundamentals/v1/metrics:
+    get:
+      summary: Available fundamental metrics or ratios.
+      operationId: getFdsFundamentalsMetrics
+      tags:
+        - Data Items
+      description: >
+        Returns list of available FF_* metrics that can be used in the `metrics`
+        parameter of related endpoints. These are related to FactSet
+        Fundamentals standardized data. As Reported will be available in future
+        endpoints. Leave Category and Subcategory blank to request all available
+        items. The Endpoint Data model is optimized for timeseries data with
+        periodicity. Some items in this list are non-timeseries.
+
+        **For methodology definitions, reference the `OApageID` or `OAurl`
+        response items to launch the available methodology page.**
+      parameters:
+        - $ref: '#/components/parameters/category'
+        - $ref: '#/components/parameters/subcategory'
+      responses:
+        '200':
+          description: Fundamental data metric items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/metricsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Available fundamental metrics or ratios.
+      operationId: getFdsFundamentalsMetricsForList
+      tags:
+        - Data Items
+      description: >
+        Returns list of available FF_* metrics that can be used in the `metrics`
+        parameter of related endpoints. These are related to FactSet
+        Fundamentals standardized data. As-Reported will be available in future
+        endpoints. Leave Category and Subcategory blank to request all available
+        items. The Endpoint Data model is optimized for timeseries data with
+        periodicity. Some items in this list are non-timeseries.
+               **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**
+      requestBody:
+        required: true
+        description: Request object for requesting fundamentals data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metricsRequest'
+            examples:
+              Metric Ids Under Category-INCOME_STATEMENT:
+                $ref: >-
+                  #/components/examples/postBodyMetricsUnderCategory-INCOME_STATEMENT
+              Metric Ids under the subcategory FINANCING:
+                $ref: >-
+                  #/components/examples/postBodyMetricsUnderSubCategory-FINANCING
+              Metric Ids under the given category and subcategory combination:
+                $ref: >-
+                  #/components/examples/postBodyMetricswithCategoryAndSubcategoryFilter
+      responses:
+        '200':
+          description: List of sample Fundamental metric Ids
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/metricsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      explode: false
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+
+        SEDOL are accepted as input. <p>***ids limit** =  1000 per request*</p>
+
+        *<p>Make note, GET Method URL request lines are also limited to a total
+
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands
+
+        of ids, which may lead to exceeding this request line limit of 8KB, its
+
+        advised for any requests with large request lines to be requested
+        through
+
+        the respective "POST" method.</p>*
+      examples:
+        oneId:
+          summary: Single id
+          value:
+            - FDS-US
+        multipleIds:
+          summary: Multiple ids
+          value:
+            - FDS-US
+            - IBM-US
+            - AAPL-US
+    periodicity:
+      name: periodicity
+      in: query
+      schema:
+        type: string
+        enum:
+          - ANN
+          - ANN_R
+          - QTR
+          - QTR_R
+          - SEMI
+          - LTM
+          - LTMSG
+          - YTD
+        default: QTR
+      required: false
+      description: |
+        Periodicity or frequency of the fiscal periods, where
+          * **ANN**  = Annual - Original,
+          * **ANN_R** = Annual - Latest - *Includes Restatements*,
+          * **QTR**  = Quarterly - Original,
+          * **QTR_R** = Quarterly - Latest - *Includes Restatements*,
+          * **SEMI** = Semi-Annual,
+          * **LTM**  = Last Twelve Months,
+          * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
+          * **YTD** = Year-to-date.
+      examples:
+        ANN:
+          summary: ANN - Annual Original.
+          value: ANN
+        ANN_R:
+          summary: ANN_R - Annual Latest.
+          value: ANN_R
+        QTR:
+          summary: QTR - Quarterly Original.
+          value: QTR
+        QTR_R:
+          summary: QTR_R - Quarterly Latest.
+          value: QTR_R
+        SEMI:
+          summary: SEMI - Semi-Annual.
+          value: SEMI
+        LTM:
+          summary: LTM - Last Twelve Months.
+          value: LTM
+        LTMSG:
+          summary: LTMSG - Last Twelve Months Global.
+          value: LTMSG
+        YTD:
+          summary: YTD - Year-to-date.
+          value: YTD
+    fiscalPeriodStart:
+      name: fiscalPeriodStart
+      in: query
+      required: false
+      schema:
+        type: string
+        example: '2017-09-01'
+      description: >
+        Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will
+        fall back to most recent completed period during resolution.
+    fiscalPeriodEnd:
+      name: fiscalPeriodEnd
+      in: query
+      required: false
+      schema:
+        type: string
+        example: '2018-03-01'
+      description: >
+        Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall
+        back to most recent completed period during resolution.
+    metrics:
+      name: metrics
+      in: query
+      required: true
+      explode: false
+      description: >
+        Requested List of Financial Statement Items or Ratios. Use /metrics
+        endpoint for a complete list of available FF_* metric items. <p>*When
+        requesting multiple metrics, you cannot mix metric data types (e.g.
+        strings and floats). Please use /metrics endpoints for context on metric
+        dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per
+        request*</p>
+
+        *<p>Make note, GET Method URL request lines are also limited to a total
+
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands
+
+        of metrics, which may lead to exceeding this request line limit of 8KB,
+        its
+
+        advised for any requests with large request lines to be requested
+        through
+
+        the respective "POST" method.</p>*
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - FF_SALES
+          - FF_EPS
+          - FF_PE
+        minItems: 1
+        maxItems: 1600
+      examples:
+        Single Metric:
+          summary: FF_SALES
+          value:
+            - FF_SALES
+        Multiple Metrics:
+          summary: FF_SALES, FF_EPS, FF_PE
+          value:
+            - FF_SALES
+            - FF_EPS
+            - FF_PE
+    currency:
+      name: currency
+      in: query
+      description: >
+        Currency code for currency values. For a list of currency ISO codes,
+        visit Online Assistant Page
+        [OA1470](https://my.apps.factset.com/oa/pages/1470).
+      required: false
+      schema:
+        type: string
+        default: LOCAL
+        example: USD
+    restated:
+      name: restated
+      in: query
+      schema:
+        type: string
+        enum:
+          - RP
+          - RF
+        default: RP
+      required: false
+      description: |
+        Update Status Flag:
+          * **RP** = Include preliminary data,
+          * **RF** = Only final data
+      examples:
+        ANN:
+          summary: RP - Include preliminary data.
+          value: RP
+        QTR:
+          summary: RF - Only final data.
+          value: RF
+    category:
+      name: category
+      in: query
+      schema:
+        type: string
+        enum:
+          - INCOME_STATEMENT
+          - BALANCE_SHEET
+          - CASH_FLOW
+          - RATIOS
+          - FINANCIAL_SERVICES
+          - INDUSTRY_METRICS
+          - PENSION_AND_POSTRETIREMENT
+          - MARKET_DATA
+          - MISCELLANEOUS
+          - DATES
+      required: false
+      description: |
+        Filters the list of FF_* metrics by major category -
+          * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.
+          * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.
+          * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.
+          * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.
+          * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.
+          * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.
+          * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.
+          * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing related market data.*
+          * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.
+          * **DATES** = Relevant Dates
+      examples:
+        INCOME_STATEMENT:
+          summary: INCOME_STATEMENT - Income Statement.
+          value: INCOME_STATEMENT
+        BALANCE_SHEET:
+          summary: BALANCE_SHEET - Balance Sheet.
+          value: BALANCE_SHEET
+        CASH_FLOW:
+          summary: CASH_FLOW - Cash Flow Statement.
+          value: CASH_FLOW
+        RATIOS:
+          summary: RATIOS - Pre-calculated Ratios.
+          value: RATIOS
+        FINANCIAL_SERVICES:
+          summary: FINANCIAL_SERVICES - Financial Statement.
+          value: FINANCIAL_SERVICES
+        INDUSTRY_METRICS:
+          summary: INDUSTRY_METRICS - Industry Specific.
+          value: INDUSTRY_METRICS
+        PENSION_AND_POSTRETIREMENT:
+          summary: >-
+            PENSION_AND_POSTRETIREMENT - Accumulated Pension Benefit
+            Obligations.
+          value: PENSION_AND_POSTRETIREMENT
+        MARKET_DATA:
+          summary: MARKET_DATA - General Market Data.
+          value: MARKET_DATA
+        MISCELLANEOUS:
+          summary: >-
+            MISCELLANEOUS - Corporation Data, Financial Records details,
+            Indicators.
+          value: MISCELLANEOUS
+        DATES:
+          summary: DATES - Relevant Dates.
+          value: DATES
+    subcategory:
+      name: subcategory
+      in: query
+      schema:
+        type: string
+        enum:
+          - AIRLINES
+          - ASSETS
+          - BALANCE_SHEET
+          - BANKING
+          - CASH_FLOW
+          - CHANGE_IN_CASH
+          - CLASSIFICATION
+          - CORPORATE_DATA
+          - DATES
+          - EMPLOYEES_AND_MANAGEMENT
+          - FINANCIAL
+          - FINANCIAL_RECORDS
+          - FINANCING
+          - GROWTH_RATE
+          - HEALTHCARE
+          - HOTELS_AND_GAMING
+          - INCOME_STATEMENT
+          - INDICATOR
+          - INVESTING
+          - LIABILITIES
+          - LIQUIDITY
+          - MARKET_DATA
+          - METALS_AND_MINING
+          - NON-OPERATING
+          - OIL_AND_GAS
+          - OPERATING
+          - PENSION_AND_POSTRETIREMENT
+          - PER_SHARE
+          - PHARMACEUTICAL
+          - PROFITABILITY
+          - REIT
+          - RETAIL
+          - SHAREHOLDERS_EQUITY
+          - SIZE
+          - SUPPLEMENTAL
+          - VALUATION
+          - BANK
+          - INSURANCE
+          - UTILITY
+      required: false
+      description: >
+        Sub-Category Filter for the Primary Category Requested. Choose a related
+        sub-category for the Category requested-
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
+          * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
+          * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL
+          * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY
+          * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT
+          * **MARKET_DATA** - MARKET_DATA
+          * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT
+          * **DATES** - DATES
+      examples:
+        INCOME_STATEMENT_INCOME_STATEMENT:
+          summary: INCOME_STATEMENT - INCOME_STATEMENT
+          value: INCOME_STATEMENT
+        INCOME_STATEMENT_OPERATING:
+          summary: INCOME_STATEMENT - NON-OPERATING
+          value: OPERATING
+        INCOME_STATEMENT_PER_SHARE:
+          summary: INCOME_STATEMENT - PER_SHARE
+          value: PER_SHARE
+        INCOME_STATEMENT_SUPPLEMENTAL:
+          summary: INCOME_STATEMENT - SUPPLEMENTAL
+          value: SUPPLEMENTAL
+        BALANCE_SHEET_ASSETS:
+          summary: BALANCE_SHEET - ASSETS
+          value: ASSETS
+        BALANCE_SHEET_BALANCE_SHEET:
+          summary: BALANCE_SHEET - BALANCE_SHEET
+          value: BALANCE_SHEET
+        BALANCE_SHEET_HEALTHCARE:
+          summary: BALANCE_SHEET - HEALTHCARE
+          value: HEALTHCARE
+        BALANCE_SHEET_LIABILITIES:
+          summary: BALANCE_SHEET - LIABILITIES
+          value: LIABILITIES
+        BALANCE_SHEET_PER_SHARE:
+          summary: BALANCE_SHEET - PER_SHARE
+          value: PER_SHARE
+        BALANCE_SHEET_SHAREHOLDERS_EQUITY:
+          summary: BALANCE_SHEET - SHAREHOLDERS_EQUITY
+          value: SHAREHOLDERS_EQUITY
+        BALANCE_SHEET_SUPPLEMENTAL:
+          summary: BALANCE_SHEET - SUPPLEMENTAL
+          value: SUPPLEMENTAL
+        CASH_FLOW_CASH_FLOW:
+          summary: CASH_FLOW - CASH_FLOW
+          value: CASH_FLOW
+        CASH_FLOW_CHANGE_IN_CASH:
+          summary: CASH_FLOW - CHANGE_IN_CASH
+          value: CHANGE_IN_CASH
+        CASH_FLOW_FINANCING:
+          summary: CASH_FLOW - FINANCING
+          value: FINANCING
+        CASH_FLOW_INVESTING:
+          summary: CASH_FLOW - INVESTING
+          value: INVESTING
+        CASH_FLOW_OPERATING:
+          summary: CASH_FLOW - OPERATING
+          value: OPERATING
+        CASH_FLOW_PER_SHARE:
+          summary: CASH_FLOW - PER_SHARE
+          value: PER_SHARE
+        CASH_FLOW_SUPPLEMENTAL:
+          summary: CASH_FLOW - SUPPLEMENTAL
+          value: SUPPLEMENTAL
+        RATIOS_FINANCIAL:
+          summary: RATIOS - FINANCIAL
+          value: FINANCIAL
+        RATIOS_GROWTH_RATE:
+          summary: RATIOS - GROWTH_RATE
+          value: GROWTH_RATE
+        RATIOS_LIQUIDITY:
+          summary: RATIOS - LIQUIDITY
+          value: LIQUIDITY
+        RATIOS_PROFITABILITY:
+          summary: RATIOS - PROFITABILITY
+          value: PROFITABILITY
+        RATIOS_SIZE:
+          summary: RATIOS - SIZE
+          value: SIZE
+        RATIOS_VALUATION:
+          summary: RATIOS - VALUATION
+          value: VALUATION
+        FINANCIAL_SERVICES_BALANCE_SHEET:
+          summary: FINANCIAL_SERVICES - BALANCE_SHEET
+          value: BALANCE_SHEET
+        FINANCIAL_SERVICES_INCOME_STATEMENT:
+          summary: FINANCIAL_SERVICES - INCOME_STATEMENT
+          value: INCOME_STATEMENT
+        FINANCIAL_SERVICES_SUPPLEMENTAL:
+          summary: FINANCIAL_SERVICES - SUPPLEMENTAL
+          value: SUPPLEMENTAL
+        INDUSTRY_METRICS_AIRLINES:
+          summary: INDUSTRY_METRICS - AIRLINES
+          value: AIRLINES
+        INDUSTRY_METRICS_BANKING:
+          summary: INDUSTRY_METRICS - BANKING
+          value: BANKING
+        INDUSTRY_METRICS_HOTELS_AND_GAMING:
+          summary: INDUSTRY_METRICS - HOTELS_AND_GAMING
+          value: HOTELS_AND_GAMING
+        INDUSTRY_METRICS_METALS_AND_MINING:
+          summary: INDUSTRY_METRICS - METALS_AND_MINING
+          value: METALS_AND_MINING
+        INDUSTRY_METRICS_OIL_AND_GAS:
+          summary: INDUSTRY_METRICS - OIL_AND_GAS
+          value: OIL_AND_GAS
+        INDUSTRY_METRICS_PHARMACEUTICAL:
+          summary: INDUSTRY_METRICS - PHARMACEUTICAL
+          value: PHARMACEUTICAL
+        INDUSTRY_METRICS_REIT:
+          summary: INDUSTRY_METRICS - REIT
+          value: REIT
+        INDUSTRY_METRICS_RETAIL:
+          summary: INDUSTRY_METRICS - RETAIL
+          value: RETAIL
+        INDUSTRY_METRICS_BANK:
+          summary: INDUSTRY_METRICS - BANK
+          value: BANK
+        INDUSTRY_METRICS_INSURANCE:
+          summary: INDUSTRY_METRICS - INSURANCE
+          value: INSURANCE
+        INDUSTRY_METRICS_UTILITY:
+          summary: INDUSTRY_METRICS - UTILITY
+          value: UTILITY
+        PENSION_AND_POSTRETIREMENT_PENSION_AND_POSTRETIREMENT:
+          summary: PENSION_AND_POSTRETIREMENT - PENSION_AND_POSTRETIREMENT
+          value: PENSION_AND_POSTRETIREMENT
+        MARKET_DATA_MARKET_DATA:
+          summary: MARKET_DATA - MARKET_DATA
+          value: MARKET_DATA
+        MISCELLANEOUS_CLASSIFICATION:
+          summary: MISCELLANEOUS - CLASSIFICATION
+          value: CLASSIFICATION
+        MISCELLANEOUS_CORPORATE_DATA:
+          summary: MISCELLANEOUS - CORPORATE_DATA
+          value: CORPORATE_DATA
+        MISCELLANEOUS_FINANCIAL_RECORDS:
+          summary: MISCELLANEOUS - FINANCIAL_RECORDS
+          value: FINANCIAL_RECORDS
+        MISCELLANEOUS_INDICATOR:
+          summary: MISCELLANEOUS - INDICATOR
+          value: INDICATOR
+        MISCELLANEOUS_EMPLOYEES_AND_MANAGEMENT:
+          summary: MISCELLANEOUS - EMPLOYEES_AND_MANAGEMENT
+          value: EMPLOYEES_AND_MANAGEMENT
+        DATES_DATES:
+          summary: DATES - DATES
+          value: DATES
+  schemas:
+    fundamentalsRequest:
+      title: Fundamentals Request Body
+      description: Fundamentals request body elements
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        fiscalPeriodStart:
+          $ref: '#/components/schemas/fiscalPeriodStart'
+        fiscalPeriodEnd:
+          $ref: '#/components/schemas/fiscalPeriodEnd'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        currency:
+          $ref: '#/components/schemas/currency'
+        restated:
+          $ref: '#/components/schemas/restated'
+      required:
+        - ids
+        - metrics
+    fundamentalsResponse:
+      type: object
+      title: Fundamentals Response
+      description: Array of Fundamentals Objects
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/fundamental'
+    fundamental:
+      title: Fundamental Object
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
+        fsymId:
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+        metric:
+          description: >-
+            The requested `metric` input, representing the Fundamental Data
+            Item. For a definition of the item please use the
+            /fundamentals/v#/metrics endpoint.
+          type: string
+          example: FF_SALES
+        periodicity:
+          description: >-
+            Periodicity or frequency of the fiscal periods, where ANN = Annual
+            Original, ANN_R = Annual Latest, QTR = Quarterly Original, QTR_R =
+            Quarterly Latest, SEMI = Semi-Annual, LTM = Last Twelve Months,
+            LTMSG = Last Twelve Months Global
+            [OA17959](https://my.apps.factset.com/oa/pages/17959) and YTD =
+            Year-to-date.
+          type: string
+          example: QTR
+          enum:
+            - ANN
+            - ANN_R
+            - QTR
+            - QTR_R
+            - SEMI
+            - CAL
+            - LTM
+            - LTMSG
+            - YTD
+        fiscalPeriod:
+          description: >-
+            Fiscal Period indicator. Returns an integer representing the fiscal
+            period for the requested item and periodicity. QUARTERLY CODE:
+            1-Fist Quarter; 2-Second Quarter; 3-Third Quarter; 4-Fourth Quarter.
+            SEMI-CODE: 1-First Semi-annual Period; 2-Second Semi-annual Period.
+          type: integer
+          example: 4
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format.
+          type: integer
+          example: 2018
+        fiscalPeriodLength:
+          description: Length of fiscal period in days.
+          type: integer
+          example: 91
+        fiscalEndDate:
+          description: The normalized data the fiscal period ended.
+          type: string
+          format: date
+          example: '2017-12-31'
+        reportDate:
+          description: The date the reported fiscal period actually ended.
+          type: string
+          format: date
+          example: '2017-12-30'
+        epsReportDate:
+          description: >-
+            The date the EPS was reported for the requested periodicity. In
+            YYYY-MM-DD format. Unavailable data returned as 0001-01-01.
+          type: string
+          format: date
+          example: '2018-02-24'
+        updateType:
+          description: >-
+            The update type, where: 1 = Preliminary; 2 = FAST; 3 = Final. For
+            more details, visit [Online Assistant Page
+            #D13094](https://oa.apps.factset.com/pages/D13094).
+          type: integer
+          example: 1
+        updateStatus:
+          description: >-
+            Update Status Flag: P = Preliminary - The period is updated from a
+            report that usually contains limited or only key information., F =
+            Final - The period is updated from a report where detailed
+            information are available in financial statements including the
+            notes to the line items.
+          type: string
+          example: P
+        currency:
+          description: >-
+            Currency code for the data. For a list of currency ISO codes, visit
+            [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        value:
+          description: >-
+            Value of the data metric requested. Note that the type of value is
+            'object', and depending on the data metric requested, the value
+            could be an object representation of a string or double. 
+          type: object
+          example: 12375
+    metricsRequest:
+      title: Metrics Request Body
+      description: Metrics Request Body
+      type: object
+      properties:
+        category:
+          $ref: '#/components/schemas/category'
+        subcategory:
+          $ref: '#/components/schemas/subcategory'
+    metricsResponse:
+      type: object
+      title: Metrics Response
+      properties:
+        data:
+          description: >
+            Array of metric objects representing the metrics that can be
+            requested from the fundamentals APIs.
+          type: array
+          items:
+            $ref: '#/components/schemas/metric'
+    metric:
+      title: Metric Object
+      type: object
+      properties:
+        metric:
+          description: >-
+            Metric identifier to be used as `metrics` input in
+            `/fundamentals/v#/fundamentals` endpoint.
+          type: string
+          example: FF_ASSETS
+        name:
+          description: Plain text name of the metric.
+          type: string
+          example: Total Assets
+        category:
+          description: >-
+            Primary Category of metric item, such as, INCOME_STATEMENT,
+            BALANCE_SHEET, CASH_FLOW, or RATIOS.
+          type: string
+          example: BALANCE_SHEET
+        subcategory:
+          description: >-
+            Sub-category of metric item, such as ASSETS, SUPPLEMENTAL,
+            SHAREHOLDERS_EQUITY, VALUATION, PROFITABILITY, etc.
+          type: string
+          example: ASSETS
+        OAPageId:
+          description: >-
+            The Online Assistant Page ID in D***** format, used to lookup the
+            definition and methodology of the requested item. Visit
+            my.apps.factset.com/oa/pages/[D*****] for details. For example,
+            https://my.apps.factset.com/oa/pages/D10585 will give you the
+            definition for FF_SALES.
+          type: string
+          example: D10585
+        OAurl:
+          description: >-
+            The Online Assistant Page URL, used to lookup the definition and
+            methodology of the requested item. For example,
+            https://my.apps.factset.com/oa/pages/D10585 will give you the
+            definition for FF_SALES.
+          type: string
+          example: https://my.apps.factset.com/oa/pages/D10585
+        factor:
+          description: The factor for the metric (e.g. 1000 = thousands).
+          type: integer
+          example: 1000000
+        sdfPackage:
+          description: >-
+            An indicator for which Standard Data Feed (SDF) package the item is
+            available in - BASIC or ADVANCED. A null value represents items
+            available only in API.
+          type: string
+          enum:
+            - BASIC
+            - ADVANCED
+          example: BASIC
+        dataType:
+          description: >
+            The data type for the metric. Make note, mixing data types within a
+            single /fundamentals API is not supported. Each dataType is defined
+            below -
+              * **date** - date format expressed in YYYY-MM-DD.
+              * **doubleArray** - A double is a FactSet data type, similar to a float or an integer. A double represents numeric data but provides for a greater amount of decimal precision than the float data type. Double values have up to 15 digits of precision, while float values have up to 7 digits (integers have up to 10 digits).
+              * **float** - A float value is a real number (i.e., a number that can contain a fractional part/decimals). A float value has a precision up to seven digits and accurately represents numbers whose absolute value is less than 16,277,216 (224). An example metric includes
+              * **floatArray** - unction will hold data for multiple time-periods, as well as for many companies (i.e., two-dimensional value). The FLOATARRAY function returns data using a vertical orientation (e.g., down a column). The difference between FLOAT and FLOATARRAY is that FLOAT can only go across a row (one-dimension; horizontal orientation; vertical length=1) whereas FLOATARRAY will return data both across a row and down a column (two-dimensions; vertical orientation). With FLOATARRAY, the number of data points across a row will correspond to the number of companies queried; the number of data points down a column will correspond to the length of the time-series.
+              * **intArray** - An integer is a whole number or zero (i.e., integers do not include decimals). Integers can be positive or negative.
+              * **string** - A string value is an ASCII character. A string is a sequence of ASCII characters. String value and text value are synonymous. Function will hold data for multiple time-periods, as well as for many companies (i.e., two-dimensional value). The STRING_ARRAY function returns data using a vertical orientation (e.g., down a column)
+              * **stringArray** - The difference between STRING and STRINGARRAY is that STRING can only go across a row (one-dimension; horizontal orientation; vertical length=1) whereas STRINGARRAY will return data both across a row and down a column (two-dimensions; vertical orientation). With STRINGARRAY, the number of data points across a row will correspond to the number of companies queried; the number of data points down a column will correspond to the length of the time-series.
+          type: string
+          example: doubleArray
+    ids:
+      title: Ids
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      example:
+        - FDS-US
+    periodicity:
+      title: Periodicity
+      type: string
+      description: |
+        Periodicity or frequency of the fiscal periods, where
+          * **ANN** = Annual Original,
+          * **ANN_R** = Annual Latest - *Includes Restatements*,
+          * **QTR** = Quarterly,
+          * **QTR_R** = Quarterly Latest - *Includes Restatements*,
+          * **SEMI** = Semi-Annual,
+          * **LTM** = Last Twelve Months,
+          * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959) and
+          * **YTD** = Year-to-date
+      enum:
+        - ANN
+        - ANN_R
+        - QTR
+        - QTR_R
+        - SEMI
+        - LTM
+        - LTMSG
+        - YTD
+      default: QTR
+      example: QTR
+    fiscalPeriodStart:
+      title: Fiscal Period Start
+      type: string
+      description: >
+        Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will
+        fall back to most recent completed period during resolution.
+      example: '2017-09-01'
+    fiscalPeriodEnd:
+      title: Fiscal Period End
+      type: string
+      description: >
+        Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall
+        back to most recent completed period during resolution.
+      example: '2018-03-01'
+    metrics:
+      title: Metrics
+      type: array
+      description: >
+        Requested List of Financial Statement Items or Ratios. Use /metrics
+        endpoint for a complete list of available FF_* metric items.
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1600
+      example:
+        - FF_SALES
+    currency:
+      title: Currency
+      description: >
+        Currency code for currency values. For a list of currency ISO codes,
+        visit [Online Assistant Page
+        #1470](https://oa.apps.factset.com/pages/1470).
+      type: string
+      default: LOCAL
+      example: USD
+    restated:
+      title: Update Status
+      type: string
+      enum:
+        - RP
+        - RF
+      default: RP
+      description: |
+        Update Status flag:
+          * **RP** = Include preliminary data,
+          * **RF** = Only final data
+      example: RP
+    category:
+      title: Category
+      type: string
+      enum:
+        - INCOME_STATEMENT
+        - BALANCE_SHEET
+        - CASH_FLOW
+        - RATIOS
+        - FINANCIAL_SERVICES
+        - INDUSTRY_METRICS
+        - PENSION_AND_POSTRETIREMENT
+        - MARKET_DATA
+        - MISCELLANEOUS
+        - DATES
+      description: |
+        Filters the list of FF_* metrics by major category -
+          * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.
+          * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.
+          * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.
+          * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.
+          * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.
+          * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.
+          * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.
+          * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing related market data.*
+          * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.
+          * **DATES** = Relevant Dates
+      example: INCOME_STATEMENT
+    subcategory:
+      title: Sub Category
+      type: string
+      enum:
+        - AIRLINES
+        - ASSETS
+        - BALANCE_SHEET
+        - BANKING
+        - CASH_FLOW
+        - CHANGE_IN_CASH
+        - CLASSIFICATION
+        - CORPORATE_DATA
+        - DATES
+        - EMPLOYEES_AND_MANAGEMENT
+        - FINANCIAL
+        - FINANCIAL_RECORDS
+        - FINANCING
+        - GROWTH_RATE
+        - HEALTHCARE
+        - HOTELS_AND_GAMING
+        - INCOME_STATEMENT
+        - INDICATOR
+        - INVESTING
+        - LIABILITIES
+        - LIQUIDITY
+        - MARKET_DATA
+        - METALS_AND_MINING
+        - NON-OPERATING
+        - OIL_AND_GAS
+        - OPERATING
+        - PENSION_AND_POSTRETIREMENT
+        - PER_SHARE
+        - PHARMACEUTICAL
+        - PROFITABILITY
+        - REIT
+        - RETAIL
+        - SHAREHOLDERS_EQUITY
+        - SIZE
+        - SUPPLEMENTAL
+        - VALUATION
+        - BANK
+        - INSURANCE
+        - UTILITY
+      description: >
+        Sub-Category Filter for the Primary Category Requested. Choose a related
+        sub-category for the Category requested-
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
+          * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
+          * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL
+          * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY
+          * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT
+          * **MARKET_DATA** - MARKET_DATA
+          * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT
+          * **DATES** - DATES
+      example: INCOME_STATEMENT
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: Timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-fundamentals/v1/{endpoint}
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: Sub-Errors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: The operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - More Than One Fundamental Metric Id:
+              $ref: '#/components/examples/badRequestMoreThanOneFundamentalMeticId'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    resultOfSingleIdwithSingleMetricItem:
+      summary: Result of Single Company single metric item [FF_SALES] details.
+      description: >
+        Results the FDS-US sales data for the period 2017-09-01 to 2018-03-01 on
+        quarterly basis with the preliminary data Values.
+      value:
+        data:
+          - requestId: FDS-US
+            fsymId: SQFMK3-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 1
+            fiscalYear: 2018
+            fiscalPeriodLength: 91
+            fiscalEndDate: '2017-11-30'
+            reportDate: '2017-11-30'
+            epsReportDate: '2017-12-19'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 329.141
+          - requestId: FDS-US
+            fsymId: SQFMK3-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 2
+            fiscalYear: 2018
+            fiscalPeriodLength: 90
+            fiscalEndDate: '2018-02-28'
+            reportDate: '2018-02-28'
+            epsReportDate: '2018-03-27'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 335.231
+    resultOfMultipleIdwithSingleMetricItem:
+      summary: Result of Multiple Companies single metric item [FF_SALES] details.
+      description: >
+        Results the FDS-US, IBM-US, AAPL-US sales data for the period 2017-09-01
+        to 2018-03-01 on quarterly basis with the final data Values.
+      value:
+        data:
+          - requestId: FDS-US
+            fsymId: SQFMK3-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 1
+            fiscalYear: 2018
+            fiscalPeriodLength: 91
+            fiscalEndDate: '2017-11-30'
+            reportDate: '2017-11-30'
+            epsReportDate: '2017-12-19'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 329.141
+          - requestId: FDS-US
+            fsymId: SQFMK3-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 2
+            fiscalYear: 2018
+            fiscalPeriodLength: 90
+            fiscalEndDate: '2018-02-28'
+            reportDate: '2018-02-28'
+            epsReportDate: '2018-03-27'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 335.231
+          - requestId: IBM-US
+            fsymId: SJY281-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 3
+            fiscalYear: 2017
+            fiscalPeriodLength: null
+            fiscalEndDate: '2017-09-30'
+            reportDate: '2017-09-30'
+            epsReportDate: '2017-10-17'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 19153
+          - requestId: IBM-US
+            fsymId: SJY281-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 4
+            fiscalYear: 2017
+            fiscalPeriodLength: null
+            fiscalEndDate: '2017-12-31'
+            reportDate: '2017-12-31'
+            epsReportDate: '2018-01-18'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 22543
+          - requestId: AAPL-US
+            fsymId: MH33D6-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 4
+            fiscalYear: 2017
+            fiscalPeriodLength: 91
+            fiscalEndDate: '2017-09-30'
+            reportDate: '2017-09-30'
+            epsReportDate: '2017-11-02'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 52574
+          - requestId: AAPL-US
+            fsymId: MH33D6-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 1
+            fiscalYear: 2018
+            fiscalPeriodLength: 91
+            fiscalEndDate: '2017-12-31'
+            reportDate: '2017-12-30'
+            epsReportDate: '2018-02-01'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 88477
+    resultOfSingleIdwithMultipleMetricItem:
+      summary: Result of Single Company and Multiple Metrics [FF_SALES, FF_PE]
+      description: >
+        Results the FDS-US Quarterly Sales and Price to Earnings data as of
+        2020-05-31
+      value:
+        data:
+          - requestId: FDS
+            fsymId: SQFMK3-R
+            metric: FF_SALES
+            periodicity: QTR
+            fiscalPeriod: 3
+            fiscalYear: 2020
+            fiscalPeriodLength: 92
+            fiscalEndDate: '2020-05-31'
+            reportDate: '2020-05-31'
+            epsReportDate: '2020-06-25'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 374.083
+          - requestId: FDS
+            fsymId: SQFMK3-R
+            metric: FF_PE
+            periodicity: QTR
+            fiscalPeriod: 3
+            fiscalYear: 2020
+            fiscalPeriodLength: 92
+            fiscalEndDate: '2020-05-31'
+            reportDate: '2020-05-31'
+            epsReportDate: '2020-06-25'
+            updateType: 3
+            restated: F
+            currency: USD
+            value: 31.6769162623484
+    postBodyOfSingleIdwithSingleMetricItem:
+      summary: FDS-US company sales[FF_SALES] data for the given time period
+      description: >-
+        Requests the FDS-US sales data for the period 2017-09-01 to 2018-03-01
+        on quarterly basis with the preliminary data Values.
+      value:
+        ids:
+          - FDS-US
+        periodicity: QTR
+        fiscalPeriodStart: '2017-09-01'
+        fiscalPeriodEnd: '2018-03-01'
+        metrics:
+          - FF_SALES
+        currency: USD
+        restated: RP
+    postBodyOfMultipleIdwithSingleMetricItem:
+      summary: Multiple Companies single metric item [FF_SALES] details.
+      description: >-
+        Post body request example to fetch details of  the FDS-US, IBM-US,
+        AAPL-US sales data for the period 2017-09-01 to 2018-03-01 on quarterly
+        basis with the final data Values.
+      value:
+        ids:
+          - FDS-US
+          - IBM-US
+          - AAPL-US
+        periodicity: QTR
+        fiscalPeriodStart: '2017-09-01'
+        fiscalPeriodEnd: '2018-03-01'
+        metrics:
+          - FF_SALES
+        currency: USD
+        restated: RP
+    postBodyOfSingleIdwithMultipleMetricItem:
+      summary: Requesting Quarterly FF_SALES and FF_PE for FDS-US
+      description: >-
+        Requests the FDS-US Sales and Price-to-Earnings data for the period
+        2017-09-01 to 2018-03-01 on quarterly basis with the preliminary data
+        Values.
+      value:
+        ids:
+          - FDS-US
+        periodicity: QTR
+        fiscalPeriodStart: '2017-09-01'
+        fiscalPeriodEnd: '2018-03-01'
+        metrics:
+          - FF_SALES
+          - FF_PE
+        currency: USD
+        restated: RP
+    postBodyMetricsUnderCategory-INCOME_STATEMENT:
+      summary: The list of Metric Ids under the category INCOME_STATEMENT
+      description: >-
+        Return The list of Metric Ids under the category INCOME_STATEMENT which
+        include all the subcategories under the category.
+      value:
+        category: INCOME_STATEMENT
+    postBodyMetricsUnderSubCategory-FINANCING:
+      summary: The list of Metric Ids under the subcategory FINANCING
+      description: Return The list of Metric Ids under the subcategory FINANCING.
+      value:
+        data:
+          subcategory: FINANCING
+    postBodyMetricswithCategoryAndSubcategoryFilter:
+      summary: >-
+        The list of Metric Ids under the given category and subcategory
+        combination.
+      description: >-
+        This post request help us to narrow down the result of metrics under to
+        category using subcategory filter. The given response is result of
+        category-INCOME_STATEMENT and subcategory-SUPPLEMENTAL.
+      value:
+        category: INCOME_STATEMENT
+        subcategory: SUPPLEMENTAL
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 11:52:36.464'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-30 13:22:09.053'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestMoreThanOneFundamentalMeticId:
+      summary: Bad Request - More Than One Fundamental Metric Id
+      description: >-
+        This error message occurs when user is passing more than one metric as
+        an input.
+      value:
+        status: Bad Request
+        timestamp: 2020-07-23T11:11:46.261Z
+        path: /factset-fundamentals/v1/fundamentals
+        message: 'getFdsFundamentals.metrics: size must be between 1 and 1'
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Passing invalid Fundamental Metric Id
+      description: >-
+        This error message occurs when user is passing Invalid Metric Id. Please
+        use the helper endpoint */metrics* for sample Fundamental Metric Id.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-23 11:03:40.765'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: 'Given input is not a valid value for parameter: `metrics`'
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON.
+        But is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 11:59:09.649'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 16:18:38.949'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2020-07-02 16:08:07.945'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
+        authorized to access. The request was a legal request, but the server is
+        refusing to respond. Please reach out to FactSet Account Team for
+        assistance with authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-07-02 17:21:52.197'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: >-
+          User is not authorized for the id requested, please reach out to
+          FactSet for support
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2020-07-02 09:42:27.237'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 09:48:29.18'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 10:36:01.944'
+        path: /factset-fundamentals/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

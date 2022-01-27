@@ -1,0 +1,998 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api-sandbox.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /watchlist/create:
+    post:
+      description: The endpoint creates a new watchlist.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_create_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Create watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/delete:
+    post:
+      description: The endpoint deletes a watchlist.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_create_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: The endpoint deletes a watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/list:
+    get:
+      description: The endpoint lists all watchlist of a user.
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Sortable attributes. The sort order is ascending unless it is
+          prefixed with a minus sign, in which case it is descending. A list of at
+          most 2 (possibly prefixed) attribute name(s) is allowed.
+        explode: false
+        in: query
+        name: _sort
+        schema:
+          default: '["name"]'
+          items:
+            enum:
+            - name
+            - -name
+            - amount
+            - -amount
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: List watchlists.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: true
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: false
+      x-maxSortParameterCount: 2
+      x-accepts: application/json
+  /watchlist/modify:
+    post:
+      description: The endpoint renames a watchlist.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_2'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_modify_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Rename a watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/position/create:
+    post:
+      description: The endpoint adds a new position in a watchlist.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_3'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_position_create_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: Add position in watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/position/delete:
+    post:
+      description: The endpoint deletes a position in a watchlist.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_4'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_position_delete_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Add position in watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/position/list:
+    get:
+      description: The endpoint lists the positions of a watchlist.
+      parameters:
+      - description: Name of watchlist
+        in: query
+        name: name
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+        x-trim: false
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Sortable attributes. The sort order is ascending unless it is
+          prefixed with a minus sign, in which case it is descending. A list of at
+          most 2 (possibly prefixed) attribute name(s) is allowed.
+        explode: false
+        in: query
+        name: _sort
+        schema:
+          default: '["id"]'
+          items:
+            enum:
+            - id
+            - -id
+            - notation
+            - -notation
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        in: query
+        name: _paginationOffset
+        schema:
+          default: 0.0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+      - description: Non-negative maximum number of entries to return.
+        in: query
+        name: _paginationLimit
+        schema:
+          default: 20.0
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful Response
+      summary: List positions of watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: true
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: false
+      x-maxSortParameterCount: 2
+      x-accepts: application/json
+  /watchlist/position/modify:
+    post:
+      description: The endpoint modifies a position in a watchlist. All properties
+        except the position id are modifiable by the endpoint.
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_5'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_position_modify_data'
+                meta:
+                  $ref: '#/components/schemas/_watchlist_create_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Add position in watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsCursorBasedPaging: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+      required: false
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: false
+    inline_object_5:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_5'
+      required: false
+    inline_object_4:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_4'
+      required: false
+    inline_object_3:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_3'
+      required: false
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
+      required: false
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 0.8008281904610115
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    SubscriptionMember:
+      description: Object defining the subscription attributes.
+      properties:
+        minimumInterval:
+          description: Non-negative number of milliseconds to throttle the update
+            rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+3
+          minimum: 0
+          type: number
+      required:
+      - minimumInterval
+      type: object
+      x-property-sort:
+      - minimumInterval
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      example:
+        total: 6.027456183070403
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If true, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    _watchlist_create_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          description: Name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+      required:
+      - name
+      type: object
+      x-property-sort:
+      - name
+    _watchlist_create_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - attributes
+    inline_object:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_create_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 0.8008281904610115
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200:
+      example:
+        data: '{}'
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: This member is always emtpy.
+          type: object
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_object_1:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_create_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_1:
+      example:
+        data: '{}'
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: This member is always empty.
+          type: object
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_2_data:
+      example:
+        amount: 0.8008281904610115
+        name: name
+      properties:
+        name:
+          description: Name of watchlist.
+          type: string
+          x-sortable: true
+          x-default-sort-direction: 1
+          x-default-sort-attribute: true
+        amount:
+          description: Number of watched positions.
+          format: int32
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - name
+      - amount
+    inline_response_200_2_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          total: 6.027456183070403
+          isEstimatedTotal: true
+        status:
+          code: 0.8008281904610115
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/OffsetBasedPaginationOutputObject'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200_2:
+      example:
+        data:
+        - amount: 0.8008281904610115
+          name: name
+        - amount: 0.8008281904610115
+          name: name
+        - amount: 0.8008281904610115
+          name: name
+        - amount: 0.8008281904610115
+          name: name
+        - amount: 0.8008281904610115
+          name: name
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data'
+          maxItems: 100
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_2_meta'
+      type: object
+    _watchlist_modify_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          description: Name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+        nameNew:
+          description: New name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+      required:
+      - name
+      - nameNew
+      type: object
+      x-property-sort:
+      - name
+      - nameNew
+    inline_object_2:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_modify_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    _watchlist_position_create_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          description: Name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+        notation:
+          description: Identifier of the notation
+          format: id64
+          type: string
+          x-positive: true
+        additionalData:
+          description: Additional data to the watched position.
+          type: string
+          x-trim: false
+      required:
+      - name
+      - notation
+      type: object
+      x-property-sort:
+      - name
+      - notation
+      - additionalData
+    inline_object_3:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_position_create_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_3_data:
+      example:
+        id: 0.8008281904610115
+      properties:
+        id:
+          description: Position id.
+          format: id32
+          type: number
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_3:
+      example:
+        data:
+        - id: 0.8008281904610115
+        - id: 0.8008281904610115
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: This attribute is always null.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _watchlist_position_delete_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          description: Name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+        id:
+          description: Position id.
+          format: id32
+          type: number
+          x-positive: true
+      required:
+      - id
+      - name
+      type: object
+      x-property-sort:
+      - name
+      - id
+    inline_object_4:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_position_delete_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_4_data:
+      example:
+        notation: notation
+        id: 0.8008281904610115
+        additionalData: additionalData
+      properties:
+        id:
+          description: Position id.
+          format: id32
+          type: number
+          x-sortable: true
+          x-positive: true
+          x-default-sort-direction: 1
+          x-default-sort-attribute: true
+        notation:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-sortable: true
+          x-positive: true
+        additionalData:
+          description: Additional data to the watched position.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - notation
+      - additionalData
+    inline_response_200_4:
+      example:
+        data:
+        - notation: notation
+          id: 0.8008281904610115
+          additionalData: additionalData
+        - notation: notation
+          id: 0.8008281904610115
+          additionalData: additionalData
+        - notation: notation
+          id: 0.8008281904610115
+          additionalData: additionalData
+        - notation: notation
+          id: 0.8008281904610115
+          additionalData: additionalData
+        - notation: notation
+          id: 0.8008281904610115
+          additionalData: additionalData
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data'
+          maxItems: 100
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_2_meta'
+      type: object
+    _watchlist_position_modify_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          description: Name of watchlist
+          maxLength: 100
+          minLength: 1
+          type: string
+          x-trim: false
+        id:
+          description: Position id.
+          format: id32
+          type: number
+          x-positive: true
+        notation:
+          description: Identifier of the notation
+          format: id64
+          type: string
+          x-positive: true
+        additionalData:
+          description: Additional data to the watched position.
+          type: string
+          x-trim: false
+      required:
+      - id
+      - name
+      type: object
+      x-property-sort:
+      - name
+      - id
+      - notation
+      - additionalData
+    inline_object_5:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_position_modify_data'
+        meta:
+          $ref: '#/components/schemas/_watchlist_create_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.27.0
+x-api-version: 2.0.0
+x-original-swagger-version: "2.0"
+

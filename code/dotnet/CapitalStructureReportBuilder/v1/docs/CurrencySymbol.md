@@ -1,0 +1,10 @@
+# FactSet.SDK.CapitalStructureReportBuilder.Model.CurrencySymbol
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**_CurrencySymbol** | [**CurrencySymbolCurrencySymbol**](CurrencySymbolCurrencySymbol.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -1,0 +1,3045 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FactSet Funds API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    FactSet Mutual Funds data offers over 50 fund- and share class-specific data
+    points for mutual funds listed in the United States. <p>FactSet Mutual Funds
+    Reference provides fund-specific reference information as well as FactSet's
+    proprietary classification system. It includes but is not limited to the
+    following coverage 
+      * Fund descriptions 
+      * A seven-tier classification system
+      * Leverage information
+      * Fees and expenses 
+      * Portfolio managers 
+      
+      FactSet Mutual Funds Time Series provides quantitative data items on a historical basis. It includes but is not limited to the following coverage 
+      * Net asset value
+      * Fund flows 
+      * Assets under management
+      * Total return 
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Reference
+    description: >-
+      Basic reference data for funds, including summary, status, benchmark
+      details, classifications, and more.
+  - name: Prices & Returns
+    description: Fetch Fund Price (NAV) and Returns over a requested time-series.
+  - name: Fund Flows & AUM
+    description: Fetch Fund AUM and Fund Flows over a requested time-series.
+  - name: Helper
+    description: Check the Fund's current status and database availability
+paths:
+  /factset-funds/v1/summary:
+    get:
+      tags:
+        - Reference
+      summary: Get basic reference summary data for a Fund.
+      operationId: getFundsSummary
+      description: >
+        Fetch basic reference data for the requested fund(s), including
+        countryDomicile, shrClass, shrClassInceptDate, etc. 
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Fund Summaries response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/summariesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: Get basic reference data for a large list of Fund ids.
+      description: >
+        Fetch basic reference data for the requested fund(s), including
+        countryDomicile, shrClass, shrClassInceptDate, etc. 
+      operationId: getFundsSummaryForList
+      requestBody:
+        required: true
+        description: >-
+          The Funds Summary request body, allowing the user to specify a list of
+          ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/summariesRequest'
+      responses:
+        '200':
+          description: The Funds Summary response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/summariesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/classifications:
+    get:
+      tags:
+        - Reference
+      summary: Get basic Fund Classifications
+      operationId: getFundsClassifications
+      description: >
+        Fetch basic fund classification data, such as Asset Class, Category,
+        Focus, Niche, Region, and more.<p> FactSet Mutual Funds Reference uses
+        FactSet's proprietary Fund Classification System, which categorizes
+        funds using a rules-based system that is derived from seven core
+        classifications. This system evaluates the asset class, economic
+        development level, and geographical region as described in each fund's
+        prospectus and marketing materials. Fund exposure details are presented
+        on successively granular levels- category, then focus, and then niche.
+        Moreover, FactSet Fund Reference captures over 40 unique data points for
+        U.S. mutual funds. All data items are grouped in one of two levels,
+        either as a Fund or as a Share Class.</p><p>For more details regarding
+        FactSet's Fund Classification, visit Online Assistant
+        [21436](https://my.apps.factset.com/oa/pages/21436) or download -
+        [FactSet Fund Classification System Rules &
+        Methodology](https://my.apps.factset.com/oa/cms/oaAttachment/4547a2f4-5df5-4ec9-a0d3-7d51610dd637/26837)</p><p>
+
+        |Classification Type|Description|
+
+        |---|---|
+
+        |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income,
+        Currency, Commodities, Asset Allocation, or Alternatives) based on the
+        fund’s mandate.|
+
+        |Category|The 1st of 3 asset-class-specific, hierarchical exposure
+        tiers; the broadest category the fund falls under within its asset class
+        (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based
+        on the fund’s mandate.|
+
+        |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers;
+        the fund's classification within its category (e.g. Small Cap, Energy,
+        Palladium, Long/Short); based on the fund’s mandate.|
+
+        |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers;
+        The fund's classification within its Focus. Most granular tier of
+        exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage);
+        based on the fund’s mandate.|
+
+        |Economic Development Level|The country development level of the fund
+        (Developed, Emerging, Frontier, or Blended) based on the fund’s
+        mandate.|
+
+        |Region|The broad regional exposure of the fund (e.g., Latin America,
+        Asia-Pacific, Global) based on the fund’s mandate.|
+
+        |Specific Geography|The specific geographic exposure of the fund (e.g.,
+        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s
+        mandate.|
+
+        </p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Fund Summaries response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classificationsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: Get basic Fund Classifications for a large list of ids.
+      description: >
+        Fetch basic fund classification data, such as Asset Class, Category,
+        Focus, Niche, Region, and more.<p> FactSet Mutual Funds Reference uses
+        FactSet's proprietary Fund Classification System, which categorizes
+        funds using a rules-based system that is derived from seven core
+        classifications. This system evaluates the asset class, economic
+        development level, and geographical region as described in each fund's
+        prospectus and marketing materials. Fund exposure details are presented
+        on successively granular levels- category, then focus, and then niche.
+        Moreover, FactSet Fund Reference captures over 40 unique data points for
+        U.S. mutual funds. All data items are grouped in one of two levels,
+        either as a Fund or as a Share Class.</p><p>For more details regarding
+        FactSet's Fund Classification, visit Online Assistant
+        [21436](https://my.apps.factset.com/oa/pages/21436) or download -
+        [FactSet Fund Classification System Rules &
+        Methodology](https://my.apps.factset.com/oa/cms/oaAttachment/4547a2f4-5df5-4ec9-a0d3-7d51610dd637/26837)</p><p>
+
+        |Classification Type|Description|
+
+        |---|---|
+
+        |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income,
+        Currency, Commodities, Asset Allocation, or Alternatives) based on the
+        fund’s mandate.|
+
+        |Category|The 1st of 3 asset-class-specific, hierarchical exposure
+        tiers; the broadest category the fund falls under within its asset class
+        (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based
+        on the fund’s mandate.|
+
+        |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers;
+        the fund's classification within its category (e.g. Small Cap, Energy,
+        Palladium, Long/Short); based on the fund’s mandate.|
+
+        |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers;
+        The fund's classification within its Focus. Most granular tier of
+        exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage);
+        based on the fund’s mandate.|
+
+        |Economic Development Level|The country development level of the fund
+        (Developed, Emerging, Frontier, or Blended) based on the fund’s
+        mandate.|
+
+        |Region|The broad regional exposure of the fund (e.g., Latin America,
+        Asia-Pacific, Global) based on the fund’s mandate.|
+
+        |Specific Geography|The specific geographic exposure of the fund (e.g.,
+        Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s
+        mandate.|
+
+        </p>
+      operationId: getFundsClassificationsForList
+      requestBody:
+        required: true
+        description: >-
+          The Classifications request body, allowing the user to specify a list
+          of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/classificationsRequest'
+      responses:
+        '200':
+          description: The Classifications response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classificationsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/benchmark-details:
+    get:
+      tags:
+        - Reference
+      summary: Get the Fund's Primary and Segment Benchmark Details
+      operationId: getFundsBenchmarkDetails
+      description: >
+        Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be
+        then used in the [Benchmarks
+        API](https://developer.factset.com/api-catalog/factset-benchmarks-api)
+        to fetch index-level prices, returns, constituents data.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Benchmark Details response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/benchmarkDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: >-
+        Get the Fund's Primary and Segment Benchmark details for large list of
+        ids.
+      description: >
+        Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be
+        then used in the [Benchmarks
+        API](https://developer.factset.com/api-catalog/factset-benchmarks-api)
+        to fetch index-level prices, returns, constituents data.
+      operationId: getFundsBenchmarkDetailsForList
+      requestBody:
+        required: true
+        description: >-
+          The Benchmark Details request body, allowing the user to specify a
+          list of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/benchmarkDetailsRequest'
+      responses:
+        '200':
+          description: The Benchmark Details response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/benchmarkDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/costs-fees:
+    get:
+      tags:
+        - Reference
+      summary: Get the Fund's Costs, Investment minimums and Risk, and Fees.
+      operationId: getFundsCostsFees
+      description: >
+        Fetch the Fund's Costs, Investment minimums and Risk, and Fees. This
+        subcategory includes management fees, 12b-1 fees, expense ratios, and
+        several other data items. The value for each specified share class is
+        expressed as a percentage of the AUM.
+      parameters:
+        - $ref: '#/components/parameters/costsFeesIds'
+        - $ref: '#/components/parameters/date'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: The Costs and Fees response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/costsFeesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: >-
+        Get the Fund's Costs, Investment minimums and Risk, and Fees for large
+        list of ids.
+      description: >
+        Fetch the Fund's Costs, Investment minimums and Risk, and Fees. Data
+        Items include Expense Ratios, investment minimums and maximums, swing
+        prices, entry and exit expenses, and more.
+      operationId: getFundsCostsFeesForList
+      requestBody:
+        required: true
+        description: >-
+          The Costs and Fees request body, allowing the user to specify a list
+          of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/costsFeesRequest'
+      responses:
+        '200':
+          description: The Cost and Fees response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/costsFeesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/managers:
+    get:
+      tags:
+        - Reference
+      summary: Get a list of Fund Managers and related details for a list of ids.
+      operationId: getFundsManagers
+      description: >
+        Fetch basic Fund manager details, such as Title, Phone, Job Id and Name.
+        NOTE - A subscription to FactSet's Ownership product is required to
+        access formulas in this Asset Managers subcategory.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Fund Managers response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/managersResponse'
+              examples:
+                Fund Managers for MABAX:
+                  $ref: '#/components/examples/fundManagers'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: Get a list of Fund Managers and related details for a large list of ids.
+      description: >
+        Fetch basic Fund manager details, such as Title, Phone, Job Id and
+        Name. 
+      operationId: getFundsManagersForList
+      requestBody:
+        required: true
+        description: >-
+          The Funds Managers request body, allowing the user to specify a list
+          of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/managersRequest'
+      responses:
+        '200':
+          description: The Funds Managers response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/managersResponse'
+              examples:
+                Fund Managers for MABAX:
+                  $ref: '#/components/examples/fundManagers'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/related-funds:
+    get:
+      tags:
+        - Reference
+      summary: Get a list of Related Funds for a list of Fund ids.
+      operationId: getRelatedFunds
+      description: >
+        Fetch the five related fund share classes. Fund share classes can be
+        related if they belong to the same Fund Classification segment, have the
+        same share class type, have the same legal structure, and have the same
+        country of primary exchange. Beyond the baseline criteria, the five most
+        relevant funds are determined based on whether they follow the same
+        benchmark, have the same maturity, and have the same selection strategy
+        as the specified share class.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Related Funds response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relatedFundsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Reference
+      summary: Get a list of Related Funds for a large list of Fund ids.
+      description: >
+        Fetch the five related fund share classes. Fund share classes can be
+        related if they belong to the same Fund Classification segment, have the
+        same share class type, have the same legal structure, and have the same
+        country of primary exchange. Beyond the baseline criteria, the five most
+        relevant funds are determined based on whether they follow the same
+        benchmark, have the same maturity, and have the same selection strategy
+        as the specified share class.
+      operationId: getRelatedFundsForList
+      requestBody:
+        required: true
+        description: >-
+          The Related Funds request body, allowing the user to specify a list of
+          ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relatedFundsRequest'
+      responses:
+        '200':
+          description: The Related Funds response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relatedFundsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/prices:
+    get:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Prices (NAV) for a requested time-series
+      operationId: getFundsPrices
+      description: |
+        Get Fund Prices (NAV) for a requested date range and list of ids.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/dataType'
+        - $ref: '#/components/parameters/splitAdjust'
+      responses:
+        '200':
+          description: The Prices response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsPricesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Prices (NAV) for a requested date range and large list of ids.
+      description: >
+        Fetch fund prices (NAV) as of a requested date range and a large list of
+        ids. 
+      operationId: getFundsPricesForList
+      requestBody:
+        required: true
+        description: The Prices request body, allowing the user to specify a list of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fundsPricesRequest'
+      responses:
+        '200':
+          description: The Prices response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsPricesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/returns:
+    get:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Returns for a requested time-series
+      operationId: getFundsReturns
+      description: >
+        Get Fund NAV Returns over a time-series for the requested date range and
+        frequency. <p>The simple Total Return NAV shows the fund's total return
+        level by reinvesting distributions so that ex-date NAVs are increased by
+        the distribution amount and compounded thereafter. Total return NAV
+        compounds daily and is calculated from the first available NAV date of
+        each fund. The total return NAV series reflects the value that an
+        investor would own if it had purchased one share at the inception date
+        and reinvested all dividends on a Gross basis.</p><p> Control the
+        dividends to include or exclude using the dividendAdjust parameter. The
+        first available NAV date of each fund can be found in the /summary
+        endpoint as `priceFristDate`. Visit [OA
+        #21437](https://my.apps.factset.com/oa/pages/21437) for more
+        details.</p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/dividendAdjust'
+      responses:
+        '200':
+          description: The Returns response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsReturnsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Returns for a requested time-series and large list of ids
+      description: >
+        Get Fund NAV Returns over a time-series for the requested date range and
+        frequency. <p>The simple Total Return NAV shows the fund's total return
+        level by reinvesting distributions so that ex-date NAVs are increased by
+        the distribution amount and compounded thereafter. Total return NAV
+        compounds daily and is calculated from the first available NAV date of
+        each fund. The total return NAV series reflects the value that an
+        investor would own if it had purchased one share at the inception date
+        and reinvested all dividends on a Gross basis.</p><p> Control the
+        dividends to include or exclude using the dividendAdjust parameter. The
+        first available NAV date of each fund can be found in the /summary
+        endpoint as `priceFristDate`. Visit [OA
+        #21437](https://my.apps.factset.com/oa/pages/21437) for more
+        details.</p>
+      operationId: getFundsReturnsForList
+      requestBody:
+        required: true
+        description: The Returns request body, allowing the user to specify a list of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fundsReturnsRequest'
+      responses:
+        '200':
+          description: The Returns response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsReturnsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/returns-snapshot:
+    get:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Returns over pre-defined time horizons as of a specific date.
+      operationId: getFundsReturnsSnapshot
+      description: >
+        Get Fund Returns over pre-defined time horizons as of a specific date.
+        Use the date parameter to set the perspective date, and adjust the
+        return type to include or exclude dividends using the dividendAdjust
+        parameter. Returns Ranges include - 
+
+        * oneWeek
+
+        * oneMonth
+
+        * threeMonth
+
+        * yearToDate
+
+        * oneYear
+
+        * threeYear
+
+        * threeYearAnnualized
+
+        * fiveYear
+
+        * fiveYearAnnualized
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/dateSnapshot'
+        - $ref: '#/components/parameters/dividendAdjust'
+      responses:
+        '200':
+          description: The Returns Snapshot response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsReturnsSnapshotResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Returns over pre-defined time horizons as of a specific date.
+      description: >
+        Get Fund Returns over pre-defined time horizons as of a specific date.
+        Use the date parameter to set the perspective date, and adjust the
+        return type to include or exclude dividends using the dividendAdjust
+        parameter. Returns Ranges include - 
+
+        * oneWeek
+
+        * oneMonth
+
+        * threeMonth
+
+        * yearToDate
+
+        * oneYear
+
+        * threeYear
+
+        * threeYearAnnualized
+
+        * fiveYear
+
+        * fiveYearAnnualized 
+      operationId: getFundsReturnsSnapshotForList
+      requestBody:
+        required: true
+        description: >-
+          The Returns Snapshot request body, allowing the user to specify a list
+          of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fundsReturnsSnapshotRequest'
+      responses:
+        '200':
+          description: The Returns Snapshot response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundsReturnsSnapshotResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/returns-range:
+    get:
+      tags:
+        - Prices & Returns
+      summary: Get Fund Returns for a user-defined date range
+      operationId: getFundsReturnsRange
+      description: >
+        Get Fund Returns between a specified startDate and endDate. The service
+        will compute the return between those two periods to retrieve the single
+        value and does not create a time-series. Control the return type to
+        include or exclude dividends by using the dividendAdjust parameter.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDateRange'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/dividendAdjust'
+      responses:
+        '200':
+          description: The Returns Range response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsRangeResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Prices & Returns
+      summary: >-
+        Get Fund Returns over pre-defined time horizons as of a specific date
+        for large list of ids.
+      description: >
+        Get Fund Returns between a specified startDate and endDate. The service
+        will compute the return between those two periods to retrieve the single
+        value and does not create a time-series. Control the return type to
+        include or exclude dividends by using the dividendAdjust parameter.
+      operationId: getFundsReturnsRangeForList
+      requestBody:
+        required: true
+        description: >-
+          The Returns Range request body, allowing the user to specify a list of
+          ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/returnsRangeRequest'
+      responses:
+        '200':
+          description: The Returns Range response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsRangeResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/aum:
+    get:
+      tags:
+        - Fund Flows & AUM
+      summary: Get Fund AUM for a requested date range and list of ids
+      operationId: getFundsAum
+      description: >
+        Get the Fund Level or Share Class Level Assets Under Management (AUM).
+        <p>NOTE - AUM can be accessed on a five-day calendar. If a vendor does
+        not provide NAV and shares outstanding on a market holiday, the previous
+        trading day value is used. If a vendor does provide data on a market
+        holiday, that value will be presented, and then fund flows and AUM will
+        be calculated. When you are manually calculating actual AUM on a market
+        holiday or a rolled date, it will differ from the value shown in the
+        FactSet workstation. This is due to the previous day's NAV being used in
+        the manual AUM calculation.</p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequencyAum'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/dataType'
+      responses:
+        '200':
+          description: The AUM response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/aumResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Fund Flows & AUM
+      summary: Get Fund AUM for a requested date range and large list of ids
+      description: >
+        Get the Fund Level or Share Class Level Assets Under Management (AUM).
+        <p>NOTE - AUM can be accessed on a five-day calendar. If a vendor does
+        not provide NAV and shares outstanding on a market holiday, the previous
+        trading day value is used. If a vendor does provide data on a market
+        holiday, that value will be presented, and then fund flows and AUM will
+        be calculated. When you are manually calculating actual AUM on a market
+        holiday or a rolled date, it will differ from the value shown in the
+        FactSet workstation. This is due to the previous day's NAV being used in
+        the manual AUM calculation.</p>
+      operationId: getFundsAumForList
+      requestBody:
+        required: true
+        description: The AUM request body, allowing the user to specify a list of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/aumRequest'
+      responses:
+        '200':
+          description: The AUM response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/aumResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/flows:
+    get:
+      tags:
+        - Fund Flows & AUM
+      summary: Get Fund Flows for a requested date range and list of ids
+      operationId: getFundsFlows
+      description: >
+        Get the Fund Flows. One-day fund flows are calculated by subtracting the
+        shares outstanding at previous close from the shares outstanding one day
+        prior to close, and then multiplying the result by the net asset value
+        (NAV) of one day prior to close.
+
+
+        The fund flows calculation breaks down as follows - 
+
+        (Shares Outstanding T0 - Shares Outstanding T-1) * NAV T-1
+
+        While NAVs are routinely reported on a trade-day (T0) basis,
+        industry-wide shares outstanding are a mixture of trade-day and next-day
+        values. Trade-day values are not verified, as the actual
+        creation/redemption activity takes place late in the evening, after NAVs
+        and shares outstanding values have been published. The result is that
+        multiple industry flows are calculated using unverified T0 values.
+
+        FactSet has standardized all shares outstanding reporting on a next-day
+        basis. To ensure that assets under management (AUM) and fund flows are
+        synchronized, FactSet synchronizes shares outstanding values and changes
+        with NAVs reported on the previous day, as the creations and redemptions
+        used the previous day's reported NAVs as a transaction price. <p>For
+        more information on Fund Flows Methodology, Time Windows, Makret
+        Holidays, and Missing Values, visit - [OA
+        #17863](https://my.apps.factset.com/oa/pages/17863#Flows_Calculation)</p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: The Fund Flows response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/flowsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Fund Flows & AUM
+      summary: Get Fund Flows for a requested date range and large list of ids
+      description: >
+        Get the Fund Flows. One-day fund flows are calculated by subtracting the
+        shares outstanding at previous close from the shares outstanding one day
+        prior to close, and then multiplying the result by the net asset value
+        (NAV) of one day prior to close.
+
+
+        The fund flows calculation breaks down as follows - 
+
+        (Shares Outstanding T0 - Shares Outstanding T-1) * NAV T-1
+
+        While NAVs are routinely reported on a trade-day (T0) basis,
+        industry-wide shares outstanding are a mixture of trade-day and next-day
+        values. Trade-day values are not verified, as the actual
+        creation/redemption activity takes place late in the evening, after NAVs
+        and shares outstanding values have been published. The result is that
+        multiple industry flows are calculated using unverified T0 values.
+
+        FactSet has standardized all shares outstanding reporting on a next-day
+        basis. To ensure that assets under management (AUM) and fund flows are
+        synchronized, FactSet synchronizes shares outstanding values and changes
+        with NAVs reported on the previous day, as the creations and redemptions
+        used the previous day's reported NAVs as a transaction price. <p>For
+        more information on Fund Flows Methodology, Time Windows, Makret
+        Holidays, and Missing Values, visit - [OA
+        #17863](https://my.apps.factset.com/oa/pages/17863#Flows_Calculation)</p>
+      operationId: getFundsFlowsForList
+      requestBody:
+        required: true
+        description: >-
+          The Fund Flows request body, allowing the user to specify a list of
+          ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/flowsRequest'
+      responses:
+        '200':
+          description: The AUM response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/flowsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/status:
+    get:
+      tags:
+        - Helper
+      summary: Get Fund's current status and database availability
+      operationId: getStatuses
+      description: >
+        Get the funds active status, share class status, and database
+        availability. Most common use is for coverage checks and id resolution
+        checks.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: The Statuses response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/statusesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Helper
+      summary: >-
+        Get Fund's current status and database availability for large list of
+        ids.
+      description: >
+        Get the funds active status, share class status, and database
+        availability. Most common use is for coverage checks and id resolution
+        checks.
+      operationId: getStatusesForList
+      requestBody:
+        required: true
+        description: The Statuses request body, allowing the user to specify a list of ids.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/statusesRequest'
+      responses:
+        '200':
+          description: The Statuses response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/statusesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      required: true
+      explode: false
+      description: >
+        The requested fund identifier. FactSet Identifiers, tickers, CUSIP,
+        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
+        request*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
+      examples:
+        oneId:
+          summary: One Market Identifier
+          value:
+            - MABAX-US
+        multipleIds:
+          summary: Multiple Market Identifiers
+          value:
+            - MABAX-US
+            - FCNTX-US
+    costsFeesIds:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 200
+      required: true
+      explode: false
+      description: >
+        The requested fund identifier. FactSet Identifiers, tickers, CUSIP,
+        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
+        request*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
+      examples:
+        oneId:
+          summary: One Market Identifier
+          value:
+            - MABAX-US
+        multipleIds:
+          summary: Multiple Market Identifiers
+          value:
+            - MABAX-US
+            - FCNTX-US
+    startDate:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to latest available
+        completed period.
+      example: '2018-12-31'
+    startDateRange:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to the day prior to today's
+        previous close. The startDate cannot be equal to the endDate as no
+        return can be computed. Additionally, the startDate MUST be equal to or
+        greater than the `priceFirstDate` found within the /summary endpoint.
+      example: '2018-12-31'
+    endDate:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        If left blank, the API will default to latest available completed
+        period.
+      example: '2019-12-31'
+    date:
+      name: date
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The date requested in **YYYY-MM-DD** format. If left blank, the API will
+        default to latest available completed period.
+      example: '2019-12-31'
+    dateSnapshot:
+      name: date
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The date requested for a given date range in YYYY-MM-DD format. The date
+        MUST be equal to or less than the `priceRecentDate` found within the
+        /summary endpoint.
+      example: '2018-12-31'
+    frequency:
+      name: frequency
+      in: query
+      schema:
+        type: string
+        enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - FQ
+          - AY
+          - CY
+          - FY
+        default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **FQ** = Fiscal Quarter of the company.
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+    frequencyAum:
+      name: frequency
+      in: query
+      schema:
+        type: string
+        enum:
+          - MTD
+          - M
+          - CQTD
+          - CQ
+          - CYTD
+          - CY
+        default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **MTD** = Month-To-Date
+          * **M** = Monthly, based on the last trading day of the month.
+          * **CQTD** = Calendar Quarter-to-Date
+          * **CQ** = Calendar Quarterly
+          * **CYTD** = Calendar Year-to-Date
+          * **CY** = Calendar Yearly
+    currency:
+      name: currency
+      in: query
+      required: false
+      schema:
+        type: string
+        default: LOCAL
+      description: >-
+        Controls the Currency conversion of the Fund. By default, the currency
+        will use the funds local currency.
+      example: USD
+    dataType:
+      name: dataType
+      in: query
+      schema:
+        type: string
+        enum:
+          - ROLL
+          - RAW
+        default: ROLL
+      description: The Data Type of the NAV expressed as Raw or Rolled values.
+    splitAdjust:
+      name: splitAdjust
+      in: query
+      schema:
+        type: string
+        enum:
+          - SPLIT
+          - UNSPLIT
+        default: SPLIT
+      description: The price adjustment split or unsplit.
+    dividendAdjust:
+      name: dividendAdjust
+      in: query
+      schema:
+        type: string
+        enum:
+          - DIV
+          - NO_DIV
+        default: DIV
+      description: >
+        Controls the dividend inclusion for the NAV returns calculations, where
+        - 
+
+        * DIV = Include Dividends, Total Return
+
+        * NO_DIV = Exclude Dividends, Simple Return
+  schemas:
+    summariesRequest:
+      title: Summaries Request Body
+      description: Summaries Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    summariesResponse:
+      type: object
+      title: Summaries Response
+      properties:
+        data:
+          description: Array of Summaries Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/summaries'
+    summaries:
+      title: Funds Summary Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        fsymEntityId:
+          description: >-
+            FactSet Entity Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -E suffix (XXXXXX-E), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: 04BFG7-E
+          x-fds-fql-formula: FSYM_ENTITY_ID
+        fsymRegionalId:
+          description: >-
+            FactSet Regional Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -R suffix (XXXXXX-R), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: SJY03Z-R
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('REGIONAL_NEW')
+        fsymTickerRegion:
+          description: FactSet Ticker-Region for the requested fund.
+          type: string
+          example: MABAX-US
+          x-fds-fql-formula: FSYM_TICKER_REGION
+        fsymUltimateParentId:
+          description: >-
+            The FactSet Ultimate Parent Entity Identifer, with a -E suffix
+            (XXXXXX-E).
+          type: string
+          example: 002HJD-E
+          x-fds-fql-formula: FSYM_ULTIMATE_PARENT_ID
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+        activeFlag:
+          description: >-
+            Binary flag to indicate whether the fund is currently active, where
+            1 is active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_ACTIVE
+        activelyManagedFlag:
+          description: >-
+            Binary indicator of whether the fund is actively managed, where 1 is
+            active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_ACTM
+        brand:
+          description: The Funds Brand Name in proper format.
+          type: string
+          example: BlackRock
+          x-fds-fql-formula: FFD_BRAND
+        countryDomicile:
+          description: >-
+            Returns the fund's country of domicile in ISO2 format. Only
+            available for Mutual Funds.
+          type: string
+          example: US
+        currency:
+          description: The fund's currency.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_CURRENCY
+        descInfo:
+          description: The Fund's Investment Strategy short description.
+          type: string
+          example: >-
+            The investment objective of the BlackRock Basic Value Fund, Inc.
+            (the Fund) is to seek capital appreciation and, secondarily, income
+            by investing in securities, primarily equity securities, that
+            management of the Fund believes are undervalued and therefore
+            represent basic investment value.
+          x-fds-fql-formula: FFD_DESC_INFO
+        fundOfFundsId:
+          description: >-
+            The fund of fund's id if applicable. Will provide plain Fund of
+            Funds text.
+          type: string
+          example: null
+          x-fds-fql-formula: FFD_FUND_OF_FUNDS_ID
+        inceptionDate:
+          description: The fund's inception date in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '1977-07-01'
+          x-fds-fql-formula: FFD_INCEPT_DATE
+        insight:
+          description: >-
+            The fund's investment strategy long description. Use `descInfo` if
+            needing short description.
+          type: string
+          example: null
+          x-fds-fql-formula: FFD_INSIGHT
+        issuerId:
+          description: The Issuer Identifier.
+          type: string
+          example: null
+          x-fds-fql-formula: FFD_ISSUER('ID')
+        issuerName:
+          description: The Issuer Name in proper format.
+          type: string
+          example: BlackRock Inc.
+          x-fds-fql-formula: FFD_ISSUER('NAME')
+        legalStructure:
+          description: >-
+            The legal structure of the fund, e.g. Open-Ended Fund, close-ended
+            fund
+          type: string
+          example: Open-Ended Fund
+          x-fds-fql-formula: FFD_LEG
+        leverageFactor:
+          description: The leverage factor of the fund.
+          type: number
+          format: double
+          example: 0
+          x-fds-fql-formula: FFD_LEV_FACTOR
+        leverageInverse:
+          description: >-
+            Indicates whether the fund is leveraged, inverse, or neither in
+            proper format.
+          type: string
+          example: Neither
+          x-fds-fql-formula: FFD_LEV_INV
+        name:
+          description: The Fund security's name in proper format.
+          type: string
+          example: BlackRock Basic Value Fund Incorporated
+          x-fds-fql-formula: FFD_NAME
+        navCurrency:
+          description: The NAV currency for the specified share class.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_DATA_CURR
+        objective:
+          description: The Fund's objective long description.
+          type: string
+          example: >-
+            The Fund invests primarily in equity securities that Fund management
+            believes are undervalued, which means that their prices are less
+            than Fund management believes they are worth. Equity securities
+            primarily consist of common stock, preferred stock, securities
+            convertible into common stock, or securities or other instruments
+            whose price is linked to the value of common stock. Fund management
+            places particular emphasis on companies with below average
+            price/earnings ratios that may pay above average dividends. The Fund
+            invests primarily in common stock of U.S. companies, but the Fund
+            may invest up to 25% of its total assets in the securities of
+            foreign companies. The Fund focuses primarily on companies with
+            market capitalizations of over $5 billion.
+          x-fds-fql-formula: FFD_OBJECTIVE
+        priceFirstDate:
+          description: >-
+            The fund's first available date for prices (NAV) in YYYY-MM-DD
+            format. This can be used to fetch the first available price from
+            FactSet. *NOTE: This is not the inception date of fund.*
+          type: string
+          format: date
+          example: '2018-04-18'
+          x-fds-fql-formula: FFD_PRICE_START_DATE
+        priceRecentDate:
+          description: >-
+            The fund's most recent available date for prices (NAV) in YYYY-MM-DD
+            format.
+          type: string
+          format: date
+          example: '2021-03-26'
+          x-fds-fql-formula: FFD_PRICE_RCNT_DATE
+        shrClass:
+          description: The Funds Share class type name in proper format.
+          example: Institutional Class
+          type: string
+          x-fds-fql-formula: FFD_SHR_CLS
+        shrClassActiveFlag:
+          description: >-
+            Returns a binary indicator of whether the specified share class is
+            currently active, where 1 is active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_SHR_CLS_ACTIVE
+        shrClsCurrency:
+          description: The currency for the specified share class.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_SHR_CLS_CURRENCY
+        shrClsInceptDate:
+          description: The specified share class's inception date in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '1977-07-01'
+          x-fds-fql-formula: FFD_SHR_CLS_INCEPT_DATE
+        shrClsName:
+          description: The specified share class name for the fund in proper format.
+          type: string
+          example: BlackRock Basic Value I
+          x-fds-fql-formula: FFD_SHR_CLS_NAME
+        shrClsTermDate:
+          description: >-
+            The Share class Termination Date in YYYY-MM-DD format. If still
+            active, value will be null.
+          type: string
+          format: date
+          example: null
+          x-fds-fql-formula: FFD_SHR_CLS_TERM_DATE
+        terminationDate:
+          description: >-
+            The Termination Date in YYYY-MM-DD format. If still active, value
+            will be null.
+          type: string
+          format: date
+          example: null
+          x-fds-fql-formula: FFD_TERM_DATE
+        type:
+          description: The Type of Fund, e.g. Mutual Fund, Unit Investment Trust
+          type: string
+          example: Mutual Fund
+          x-fds-fql-formula: FFD_TYPE
+        webSite:
+          description: The URL of the Fund.
+          type: string
+          example: >-
+            https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
+          x-fds-fql-formula: FFD_WEB
+    classificationsRequest:
+      title: Classifications Request Body
+      description: Classifications Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    classificationsResponse:
+      type: object
+      title: Classifications Response
+      properties:
+        data:
+          description: Array of Classifications Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/classifications'
+    classifications:
+      title: Classifications Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+        assetClass:
+          description: >-
+            Returns the asset class description from FactSet's fund
+            classification system. Asset class designates the fund's underlying
+            holding type, e.g. equity, fixed-income, etc.
+          type: string
+          example: Equity
+          x-fds-fql-formula: FFD_CLASS_ASSET
+        categoryClass:
+          description: >-
+            Returns the asset class category description from FactSet's fund
+            classification system. The asset class category is the first-tier
+            subcategory within the fund's asset class, e.g. size & style,
+            sector, precious metals, etc.
+          type: string
+          example: Size and Style
+          x-fds-fql-formula: FFD_CLASS_CAT
+        economicDevelopmentClass:
+          description: >-
+            Returns the fund's economic development description from FactSet's
+            fund classification system. This description refers to the
+            development level for the fund's geographic region of focus, e.g.
+            developed, emerging, etc.
+          type: string
+          example: Developed Markets
+          x-fds-fql-formula: FFD_CLASS_DEV
+        focusClass:
+          description: >-
+            Returns the fund's focus description from FactSet's fund
+            classification system. The fund's focus is the second-tier
+            subcategory within the fund's asset class, e.g. small cap, energy,
+            etc.
+          type: string
+          example: Total Market
+          x-fds-fql-formula: FFD_CLASS_FOCUS
+        geographicClass:
+          description: >-
+            Returns the fund's specific geography description from FactSet's
+            fund classification system. Specific geography refers to the fund's
+            particular geographic focus within the region, e.g. Chile, BRICs,
+            etc.
+          type: string
+          example: U.S.
+          x-fds-fql-formula: FFD_CLASS_GEO
+        nicheClass:
+          description: >-
+            Returns the fund's niche description from FactSet's fund
+            classification system. The fund's niche is the third-tier
+            subcategory with the fund's asset class, e.g. growth, coal, etc.
+          type: string
+          example: Value
+          x-fds-fql-formula: FFD_CLASS_NICHE
+        regionClass:
+          description: >-
+            Returns the fund's region description from FactSet's fund
+            classification system. Refers to the broad regional exposure of the
+            fund's holdings, e.g. Latin America, Asia-Pacific, etc.
+          type: string
+          example: North America
+          x-fds-fql-formula: FFD_CLASS_REG
+    benchmarkDetailsRequest:
+      title: Benchmark Details Request Body
+      description: Benchmark Details Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    benchmarkDetailsResponse:
+      type: object
+      title: Benchmark Details Response
+      properties:
+        data:
+          description: Array of Benchmark Details Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/benchmarkDetails'
+    benchmarkDetails:
+      title: Benchmark Details Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        benchmarkId:
+          description: The Fund's primary Benchmark Identifier.
+          type: string
+          example: R.1000
+          x-fds-fql-formula: FFD_BMK_ID
+        benchmarkName:
+          description: The proper name of the Benchmark Id.
+          type: string
+          example: Russell 1000 Index
+          x-fds-fql-formula: FFD_BMK_NAME
+        multipleBenchmarkFlag:
+          description: Indicates if the Fund has a composite benchmark.
+          type: string
+          example: Non-Composite
+          x-fds-fql-formula: FFD_BMK_MULT
+        benchmarkChangeDate:
+          description: >-
+            The date in which the benchmark changed for the requested fund in
+            YYYY-MM-DD. If no benchmark changes occurred, the response value
+            will be null.
+          type: string
+          format: date
+          example: null
+          x-fds-fql-formula: FFD_BMK_CHG_DATE
+        segment:
+          description: The segment of the respective segment benchmark id.
+          type: string
+          example: 'Equity: U.S. - Total Market Value'
+          x-fds-fql-formula: FFD_SEG
+        segmentBenchmarkId:
+          description: >-
+            Segment Benchmark Identifier. Funds in the same segment match on all
+            seven levels of FactSet's fund classification system.
+          type: string
+          example: MS664292
+          x-fds-fql-formula: FFD_SEG_BMK
+        segmentBenchmarkName:
+          description: >-
+            The segment benchmark's name in proper format. Funds in the same
+            segment match on all seven levels of FactSet's fund classification
+            system.
+          type: string
+          example: MSCI USA IMI Value Index
+          x-fds-fql-formula: FFD_SEG_BMK_NAME
+        segmentBenchmarkCurrency:
+          description: >-
+            The Segment Benchmark's currency in ISO3. Funds in the same segment
+            match on all seven levels of FactSet's fund classification system.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_SEG_BMK_CURR
+        segmentBenchmarkReturnType:
+          description: >-
+            The Segment benchmarks return type. Funds in the same segment match
+            on all seven levels of FactSet's fund classification system.
+          type: string
+          example: GROSS_RETURN
+          x-fds-fql-formula: FFD_SEG_BMK_RET
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    managersRequest:
+      title: Managers Request Body
+      description: Managers Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    managersResponse:
+      type: object
+      title: Managers Response
+      properties:
+        data:
+          description: Array of Managers Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/managers'
+    managers:
+      title: Managers Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        managerName:
+          description: Proper Name of the Fund Manager
+          type: string
+          example: Mr. Antonio DeSpirito III
+          x-fds-fql-formula: FFD_AM_NAME
+        managerTitle:
+          description: Proper Title of the Fund Manager
+          type: string
+          example: Managing Director
+          x-fds-fql-formula: FFD_AM_TITLE
+        managerPhone:
+          description: Phone Number of the Fund Manager
+          type: string
+          example: 1.212.810.5300
+          x-fds-fql-formula: FFD_AM_PHONE
+        managerInceptionDate:
+          description: Inception Date of the Fund Manager
+          type: string
+          format: date
+          example: '2014-01-01'
+          x-fds-fql-formula: FFD_AM_INCEPT_DATE
+        managerJobId:
+          description: Job Identifier for the Fund Manager
+          type: integer
+          example: 6721381
+          x-fds-fql-formula: FFD_AM_JOB_ID
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    costsFeesRequest:
+      title: Cost and Fees Request Body
+      description: Cost and Fees Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/costsFeesIds'
+        date:
+          $ref: '#/components/schemas/date'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    costsFeesResponse:
+      type: object
+      title: Classifications Response
+      properties:
+        data:
+          description: Array of Costs and Fees Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/costsFees'
+    costsFees:
+      title: Costs and Fees Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        managementExpenses:
+          description: >-
+            The management fee, or maintenance fee, is charged by the fund
+            manager. This cost is usually between 0.5% and 2% of assets on
+            average and is a periodic fee.
+          type: number
+          format: double
+          example: 0.42
+          x-fds-fql-formula: FFD_EXPENSES({date},MGMT)
+        date:
+          description: The Expense Date expressed in YYYY-MM-DD.
+          type: string
+          format: date
+          example: '2020-10-28'
+          x-fds-fql-formula: FFD_EXPENSES({date},MGMT).dates
+        currency:
+          description: ISO3 Currency
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_CURRENCY
+        entryExpense:
+          description: >-
+            The transaction entry fee or purchase fee collected from investors
+            when they join or leave a scheme. The fee is paid to the fund
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_EXPENSES({date},ENTRY)
+        exitExpense:
+          description: >-
+            The transaction exit fee is charged to investors when they redeem
+            shares from a fund.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_EXPENSES({date},EXIT)
+        frontExpensesMax:
+          description: >
+            The Maximum sales load or initial Sales Fee is a reduction made from
+            each investment in the fund, the maximum paid is dependent on the
+            size of the purchase, it decreases as the investment increases.
+            Often associated with class 'A' shares of a mutual fund it is also
+            known as Sales Charge, this is a fee paid when shares are purchased.
+            Also known as a "front-end load", this fee typically goes to the
+            brokers that sell the fund's shares.  (Under the Investment Company
+            Act of 1940 is 9%. The maximum sales load under NASD Rules is
+            81⁄2%)."
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_EXPENSES({date},MAXF)
+        backExpensesMax:
+          description: The Back Expense Maximum
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_EXPENSES({date},MAXB)
+        expenseRatio:
+          description: The Expense Ratio
+          type: number
+          format: double
+          example: 0.53
+          x-fds-fql-formula: FFD_EXPENSES({date},EXR)
+        expenseRatioProspectus:
+          description: The Expense Ratio Prospectus
+          type: number
+          format: double
+          example: 0.53
+          x-fds-fql-formula: FFD_EXPENSES({date},EXG)
+        initInvestmentMin:
+          description: The Initial Investment Minimum
+          type: number
+          format: double
+          example: 2000000
+          x-fds-fql-formula: FFD_INIT_INVT({date},MI,{currency})
+        initInvestmentIra:
+          description: The Initial Investment Individual Retirement Accounts
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_INIT_INVT({date},IRA,{currency})
+        swingPrice:
+          description: >-
+            Swing Price. Swing pricing occurs when a fund provider adjusts the
+            net asset value (NAV) of a fund in order to pass on trading costs to
+            purchasing or redeeming shareholders. This anti-dilution technique
+            is used to protect long-term shareholder’s interests.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_SWG_PRICE({date})
+        swingPriceDate:
+          description: >-
+            Swing Price Date. Swing pricing occurs when a fund provider adjusts
+            the net asset value (NAV) of a fund in order to pass on trading
+            costs to purchasing or redeeming shareholders. This anti-dilution
+            technique is used to protect long-term shareholder’s interests.
+          type: string
+          format: date
+          example: null
+          x-fds-fql-formula: FFD_SWG_PRICE({date}).dates
+        sriPriips:
+          description: >-
+            The SRI (Summary Risk Indicator) illustrates PRIIPs’ risk and reward
+            profile by measuring the market and credit risk level. Returns 1 for
+            low risk up to 7 for higher risk.
+          type: integer
+          example: null
+          x-fds-fql-formula: FFD_PRIIPS_SRI
+        srriUcits:
+          description: >-
+            Synthetic Risk and Reward Indicator illustrates a UCITS or NURS
+            (Non-UCITS Retail Scheme) fund’s risk and reward profile by
+            measuring the market risk level. Returns 1 for low risk up to 7 for
+            high risk.
+          type: integer
+          example: null
+          x-fds-fql-formula: FFD_UCITS_SRRI
+        performanceFee:
+          description: >-
+            Represents fees made to an investment manager as a percentage of
+            investment profits for generating positive returns.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_PERF_FEE({date})
+        tradingExpenseRatio:
+          description: >-
+            Represents the amount of trading commissions incurred to manage the
+            portfolio as a percentage of the total assets of the fund.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_TRAD_EXP({date})
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    relatedFundsRequest:
+      title: Related Funds Request Body
+      description: Related Funds Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    relatedFundsResponse:
+      type: object
+      title: Related Funds Response
+      properties:
+        data:
+          description: Array of Related Funds Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/relatedFunds'
+    relatedFunds:
+      title: Related Funds Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        relatedFundIdOne:
+          description: >-
+            The first related fund to the requestedId returned as a FactSet
+            Permanent Security Identifier (XXXXXX-S).
+          type: string
+          example: VTG6QP-S
+        relatedFundIdTwo:
+          description: >-
+            The second related fund to the requestedId returned as a FactSet
+            Permanent Security Identifier (XXXXXX-S).
+          type: string
+          example: MPWNZT-S
+        relatedFundIdThree:
+          description: >-
+            The third related fund to the requestedId returned as a FactSet
+            Permanent Security Identifier (XXXXXX-S).
+          type: string
+          example: NK7DYK-S
+        relatedFundIdFour:
+          description: >-
+            The fourth related fund to the requestedId returned as a FactSet
+            Permanent Security Identifier (XXXXXX-S).
+          type: string
+          example: VS6HXC-S
+        relatedFundIdFive:
+          description: >-
+            The fifth related fund to the requestedId returned as a FactSet
+            Permanent Security Identifier (XXXXXX-S).
+          type: string
+          example: NYQFB0-S
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    fundsPricesRequest:
+      title: Prices Request Body
+      description: Prices Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          $ref: '#/components/schemas/currency'
+        dataType:
+          $ref: '#/components/schemas/dataType'
+        splitAdjust:
+          $ref: '#/components/schemas/splitAdjust'
+      required:
+        - ids
+    fundsPricesResponse:
+      type: object
+      title: Prices Response
+      properties:
+        data:
+          description: Array of Prices Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/prices'
+    prices:
+      title: Prices Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        price:
+          description: >-
+            The NAV for the requested share class. NOTE - FactSet Mutual Funds
+            does not use seven-day yields to price money market funds.
+          type: number
+          format: double
+          example: 19.94
+          x-fds-fql-formula: FFD_PRICE
+        date:
+          description: The date of the NAV in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-02-26'
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+        currency:
+          description: ISO3 Currency
+          type: string
+          example: USD
+    fundsReturnsRequest:
+      title: Returns Request Body
+      description: Returns Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          $ref: '#/components/schemas/currency'
+        dividendAdjust:
+          $ref: '#/components/schemas/dividendAdjust'
+      required:
+        - ids
+    fundsReturnsResponse:
+      type: object
+      title: Returns Response
+      properties:
+        data:
+          description: Array of Returns Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/returns'
+    returns:
+      title: Returns Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        return:
+          description: >-
+            The Return for the requested id and date. Adjusting the frequency of
+            the time-series does not adjust the return calculation, and simply
+            controls the display frequency. The return type is determined by
+            including or excluding dividends through the dividendAdjust
+            parameter.
+          type: number
+          format: double
+          example: 25.2970433246628
+          x-fds-fql-formula: FFD_TOTAL_RET
+        date:
+          description: The date of the return in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-02-26'
+        currency:
+          description: ISO3 Currency
+          type: string
+          example: USD
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    fundsReturnsSnapshotRequest:
+      title: Returns Snapshot Request Body
+      description: Returns Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        date:
+          $ref: '#/components/schemas/dateSnapshot'
+        dividendAdjust:
+          $ref: '#/components/schemas/dividendAdjust'
+      required:
+        - ids
+    fundsReturnsSnapshotResponse:
+      type: object
+      title: Returns Snapshot Response
+      properties:
+        data:
+          description: Array of Returns Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/returnsSnapshot'
+    returnsSnapshot:
+      title: Returns Snapshot Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        oneWeek:
+          description: >-
+            The one-week return for the requested id and date. The return type
+            is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 2.38777459407833
+          x-fds-fql-formula: FFD_TRET({date},"1WK","NAV",{dividendAdjust})
+        oneMonth:
+          description: >-
+            The one-month return for the requested id and date. The return type
+            is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 7.52256770310935
+          x-fds-fql-formula: FFD_TRET({date},"1MON","NAV",{dividendAdjust})
+        threeMonth:
+          description: >-
+            The three-month return for the requested id and date. The return
+            type is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 13.8004246284501
+          x-fds-fql-formula: FFD_TRET({date},"3MON","NAV",{dividendAdjust})
+        yearToDate:
+          description: >-
+            The year-to-date return for the requested id and date. The return
+            type is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 13.1398416886544
+          x-fds-fql-formula: FFD_TRET({date},"YTD","NAV",{dividendAdjust})
+        oneYear:
+          description: >-
+            The one-year return for the requested id and date. The return type
+            is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 40.2223675604972
+          x-fds-fql-formula: FFD_TRET({date},"1YR","NAV",{dividendAdjust})
+        threeYear:
+          description: >-
+            The three-year return for the requested id and date. The return type
+            is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_TRET({date},"3YR","NAV",{dividendAdjust})
+        threeYearAnnualized:
+          description: >-
+            The three-year annualized return for the requested id and date. The
+            return type is determined by including or excluding dividends
+            through the dividendAdjust parameter.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_TRET_ANN({date},"3YR","NAV",{dividendAdjust})
+        fiveYear:
+          description: >-
+            The five-year return for the requested id and date. The return type
+            is determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: 25.2970433246628
+          x-fds-fql-formula: FFD_TRET({date},"3YR","NAV",{dividendAdjust})
+        fiveYearAnnualized:
+          description: >-
+            The five year annualized return for the requested id and date. The
+            return type is determined by including or excluding dividends
+            through the dividendAdjust parameter.
+          type: number
+          format: double
+          example: null
+          x-fds-fql-formula: FFD_TRET_ANN({date},"5YR","NAV",{dividendAdjust})
+        date:
+          description: The date of the return in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-03-30'
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    returnsRangeRequest:
+      title: Returns Range Request Body
+      description: Returns Range Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDateRange'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        dividendAdjust:
+          $ref: '#/components/schemas/dividendAdjust'
+      required:
+        - ids
+    returnsRangeResponse:
+      type: object
+      title: Returns Range Response
+      properties:
+        data:
+          description: Array of Returns Range Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/returnsRange'
+    returnsRange:
+      title: Returns Range Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        return:
+          description: >-
+            The Return calculated between two dates. The return type is
+            determined by including or excluding dividends through the
+            dividendAdjust parameter.
+          type: number
+          format: double
+          example: -3.16187341965815
+          x-fds-fql-formula: FFD_TRET_USER_RANGE({startDate},{endDate},"NAV",{dividendAdjust})
+        returnStartDate:
+          description: >-
+            The start date of the return in YYYY-MM-DD format. *NOTE - the
+            startDate cannot be less than the `priceFirstDate` which can be
+            accessed in the /summary endpoint.
+          type: string
+          format: date
+          example: '2018-04-18'
+          x-fds-fql-formula: FFD_PRICE_ACT_DATE({startDate})
+        returnEndDate:
+          description: >-
+            The end date of the return in YYYY-MM-DD format. The start date of
+            the return in YYYY-MM-DD format. *NOTE - the startDate cannot be
+            less than the `priceFirstDate` which can be accessed in the /summary
+            endpoint.
+          type: string
+          format: date
+          example: '2021-03-30'
+          x-fds-fql-formula: FFD_PRICE_ACT_DATE({endDate})
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    aumRequest:
+      title: AUM Request Body
+      description: AUM Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequencyAum'
+        currency:
+          $ref: '#/components/schemas/currency'
+        dataType:
+          $ref: '#/components/schemas/dataType'
+      required:
+        - ids
+    aumResponse:
+      type: object
+      title: AUM Response
+      properties:
+        data:
+          description: Array of AUM Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/aum'
+    aum:
+      title: AUM Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        fundLevelAUM:
+          description: >-
+            Returns fund-level Assets Under Management (AUM) data. Fund-level
+            AUM is the sum of the market values of the positions in the fund's
+            portfolio. This represents all share classes.
+          type: number
+          format: double
+          example: 1908934757.1935
+          x-fds-fql-formula: FFD_AUM
+        shrClassAUMRpt:
+          description: >-
+            As-Reported AUM. Calculated by using shares outstanding at previous
+            close multiplied by NAV at previous close. This is typically the
+            value seen on fund websites. As Reported AUM = (Shares Outstanding
+            t0 * NAV t0).
+          type: number
+          format: double
+          example: 902354605.39548
+          x-fds-fql-formula: >-
+            FFD_SHR_CLS_AUM({startDate},{endDate},{frequency},RPT,{dataType},{currency})
+        shrClassAUMAct:
+          description: >-
+            Actual AUM. Calculated by using shares outstanding at previous close
+            multiplied by NAV of one day prior to close. This is the value used
+            in calculating fund flows. Actual AUM = (Shares Outstanding t0 * NAV
+            t-1)
+          type: number
+          format: double
+          example: 914573047.89582
+          x-fds-fql-formula: >-
+            FFD_SHR_CLS_AUM({startDate},{endDate},{frequency},ACT,{dataType},{currency})
+        currency:
+          description: >-
+            The Currency of the AUM values. By default it will be in the FUnds
+            Currency, unless otherwise requested via the currency parameter.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_CURRENCY
+        date:
+          description: The date of the AUM in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-02-28'
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    flowsRequest:
+      title: Flows Request Body
+      description: Flows Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    flowsResponse:
+      type: object
+      title: Flows Response
+      properties:
+        data:
+          description: Array of Flows Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/flows'
+    flows:
+      title: Flows Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        fundFlows:
+          description: >-
+            Fund flows data for the specified share class in raw units of the
+            specified currency.
+          type: number
+          format: double
+          example: 271971.16741002
+          x-fds-fql-formula: FFD_FUND_FLOWS
+        currency:
+          description: >-
+            The Currency of the AUM values. By default it will be in the FUnds
+            Currency, unless otherwise requested via the currency parameter.
+          type: string
+          example: USD
+          x-fds-fql-formula: FFD_CURRENCY
+        date:
+          description: The date of the AUM in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2021-02-26'
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    statusesRequest:
+      title: Statuses Request Body
+      description: Classifications Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    statusesResponse:
+      type: object
+      title: Statuses Response
+      properties:
+        data:
+          description: Array of Statuses Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/statuses'
+    statuses:
+      title: Statuses Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -S suffix (XXXXXX-S), resolved from the requestId of
+            the Fund requested.
+          type: string
+          example: FNK7XP-S
+          x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+        activeFlag:
+          description: >-
+            Binary flag to indicate whether the fund is currently active, where
+            1 is active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_ACTIVE
+        shrClassActiveFlag:
+          description: >-
+            Returns a binary indicator of whether the specified share class is
+            currently active, where 1 is active and 0 is inactive.
+          type: integer
+          example: 1
+          x-fds-fql-formula: FFD_SHR_CLS_ACTIVE
+        isonFFD:
+          description: >-
+            Returns a binary indicator of whether the specified fund is
+            available in the FactSet Funds Database (FFD).
+          type: integer
+          example: 1
+          x-fds-fql-formula: ISON_FFD
+        requestId:
+          description: The requested Id sent as input.
+          type: string
+          example: MABAX
+    ids:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      description: >
+        The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of ids, which may lead to exceeding this request line limit of
+        8KB, its advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      example:
+        - MABAX
+        - FCNTX
+    costsFeesIds:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 200
+      description: >
+        The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of ids, which may lead to exceeding this request line limit of
+        8KB, its advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      example:
+        - MABAX
+        - FCNTX
+    startDate:
+      type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to previous close. Future
+        dates (T+1) are not accepted in this #endpoint.
+      example: '2019-01-01'
+    startDateRange:
+      type: string
+      description: >
+        The start date requested for a given date range in YYYY-MM-DD format. If
+        left blank, the API will default to the day prior to today's previous
+        close. The startDate cannot be equal to the endDate as no return can be
+        computed. Additionally, the startDate MUST be equal to or greater than
+        the `priceFirstDate` found within the /summary endpoint.
+      example: '2019-01-01'
+    dateSnapshot:
+      type: string
+      description: >
+        The date requested for a given date range in YYYY-MM-DD format. The date
+        MUST be equal to or less than the `priceRecentDate` found within the
+        /summary endpoint.
+      example: '2019-01-01'
+    endDate:
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        If left blank, the API will default to previous close. Future dates
+        (T+1) are not accepted in this endpoint.
+      example: '2019-12-31'
+    date:
+      type: string
+      description: >
+        The date requested in **YYYY-MM-DD** format. If left blank, the API will
+        default to previous close. Future dates (T+1) are not accepted in this
+        endpoint.
+      example: '2019-12-31'
+    currency:
+      type: string
+      description: The ISO3 currency control for the requested fund.
+      default: LOCAL
+      example: USD
+    dataType:
+      type: string
+      enum:
+        - ROLL
+        - RAW
+      default: RAW
+      description: |
+        Controls the data type of the Fund NAV between Raw or Rolled values.
+      example: ROLL
+    splitAdjust:
+      type: string
+      enum:
+        - SPLIT
+        - UNSPLIT
+      default: SPLIT
+      description: |
+        Controls the split adjustment of the Fund's NAV - 
+          * **SPLIT** = Split ONLY Adjusted. This is used by default.
+          * **UNSPLIT** = No Adjustments, Controls the split and dividend adjustments for the prices.
+      example: SPLIT
+    dividendAdjust:
+      type: string
+      enum:
+        - DIV
+        - NO_DIV
+      default: DIV
+      description: >
+        Controls the dividend inclusion for the NAV returns calculations, where
+        -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends,
+        Simple Return
+      example: DIV
+    frequency:
+      type: string
+      enum:
+        - D
+        - W
+        - M
+        - AM
+        - CQ
+        - FQ
+        - AY
+        - CY
+        - FY
+      default: D
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **FQ** = Fiscal Quarter of the company.
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+      example: M
+    frequencyAum:
+      type: string
+      enum:
+        - MTD
+        - M
+        - CQTD
+        - CQ
+        - CYTD
+        - CY
+      default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **MTD** = Month-To-Date
+          * **M** = Monthly, based on the last trading day of the month.
+          * **CQTD** = Calendar Quarter-to-Date
+          * **CQ** = Calendar Quarterly
+          * **CYTD** = Calendar Year-to-Date
+          * **CY** = Calendar Yearly
+      example: M
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-funds/v1/superRegion
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    fundManagers:
+      summary: List of Fund Managers for MABAX-US.
+      description: |
+        The list of all associated Fund Managers for MABAX-US.
+      value:
+        data:
+          - fsymId: FNK7XP-S
+            managerInceptionDate: '2014-01-01'
+            managerJobId: 6721381
+            managerName: Mr. Antonio DeSpirito III
+            managerPhone: 1.212.810.5300
+            managerTitle: Managing Director
+            requestId: MABAX
+          - fsymId: FNK7XP-S
+            managerInceptionDate: '0001-01-01'
+            managerJobId: 6256670
+            managerName: Ms. Carrie E. King, MBA
+            managerPhone: 1.609.282.2000
+            managerTitle: Managing Director
+            requestId: MABAX
+          - fsymId: FNK7XP-S
+            managerInceptionDate: '2016-04-01'
+            managerJobId: 8659057
+            managerName: Mr. David Zhao
+            managerPhone: 1.609.282.2000
+            managerTitle: Portfolio Manager
+            requestId: MABAX
+          - fsymId: FNK7XP-S
+            managerInceptionDate: '2016-01-01'
+            managerJobId: 8014279
+            managerName: Mr. Franco Fabrizio Tapia CFA, MBA
+            managerPhone: 1.212.810.5300
+            managerTitle: MD, Director of Research & Portfolio Manager
+            requestId: MABAX
+          - fsymId: FNK7XP-S
+            managerInceptionDate: '2012-01-01'
+            managerJobId: 8654243
+            managerName: Mr. Joseph E. Wolfe, CFA
+            managerPhone: 1.609.282.2000
+            managerTitle: Director
+            requestId: MABAX
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-funds/v1/{endpoint}
+        message: >-
+          The date parameter 'startDate' must be in the following date format:
+          YYYY-MM-DD
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:48:42.016'
+        path: /factset-funds/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:52:48.091'
+        path: /factset-funds/v1/{endpoint}
+        message: >-
+          The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /factset-funds/v1/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-funds/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-funds/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-funds/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-funds/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use /factset-funds
+          /v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-funds/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-funds/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-funds/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

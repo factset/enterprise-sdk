@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.Publisher",
+  "projectName": "fds.sdk.Publisher",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - Publisher",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/Publisher",
+  "httpUserAgent": "fds-sdk/python/Publisher/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

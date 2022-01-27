@@ -1,0 +1,42 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from fds.sdk.WatchlistAPIforDigitalPortals.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from fds.sdk.WatchlistAPIforDigitalPortals.model.attributes_member import AttributesMember
+from fds.sdk.WatchlistAPIforDigitalPortals.model.cursor_based_pagination_output_object import CursorBasedPaginationOutputObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.error_meta_object import ErrorMetaObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.error_object import ErrorObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object1 import InlineObject1
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object2 import InlineObject2
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object5 import InlineObject5
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2002_data import InlineResponse2002Data
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2002_meta import InlineResponse2002Meta
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2003_data import InlineResponse2003Data
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2004_data import InlineResponse2004Data
+from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
+from fds.sdk.WatchlistAPIforDigitalPortals.model.language_member import LanguageMember
+from fds.sdk.WatchlistAPIforDigitalPortals.model.offset_based_pagination_output_object import OffsetBasedPaginationOutputObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.partial_output_object import PartialOutputObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.status_object import StatusObject
+from fds.sdk.WatchlistAPIforDigitalPortals.model.subscription_member import SubscriptionMember
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_create_data import WatchlistCreateData
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_create_meta import WatchlistCreateMeta
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_modify_data import WatchlistModifyData
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_position_create_data import WatchlistPositionCreateData
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_position_delete_data import WatchlistPositionDeleteData
+from fds.sdk.WatchlistAPIforDigitalPortals.model.watchlist_position_modify_data import WatchlistPositionModifyData

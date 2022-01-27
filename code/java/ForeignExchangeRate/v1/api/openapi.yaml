@@ -1,0 +1,1382 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    Foreign Exchange Rates API in which retrieves Spots and Forwards for a given currency pair and date range. <p>*Spots and Forwards rates are sourced from W/M Reuters.The WM Company calculates daily standardized spot rates for global foreign exchange transactions, using rates provided by Reuters. These rates are recognized globally as the standard by banks, fund managers, and index compilers; increasingly these rates are also being used for benchmark currency trading. In 1994, WM Company began calculating closing spot rates. Closing spot rates provide a standard set of currency rates so that portfolio valuations can be compared to each other and their performances measured against benchmarks, without having discrepancies caused by exchange rates. Closing spot rates are recorded at 16:00 GMT.*</p>
+  title: Foreign Exchange Rates API
+  version: 1.0.0
+servers:
+- description: Production
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /foreign-exchange/v1/spots:
+    get:
+      description: |
+        Gets FX Spot rates for a requested currency pair, date range, and frequency. The WM Company calculates daily standardized spot rates for global foreign exchange transactions, using rates provided by Reuters. These rates are recognized globally as the standard by banks, fund managers, and index compilers; increasingly these rates are also being used for benchmark currency trading.
+      operationId: getSpots
+      parameters:
+      - description: The currency pair requested in the format of a ISO {source}{target}.
+          For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+        examples:
+          oneids:
+            summary: United States Dollar to Great British Pound
+            value:
+            - USDGBP
+          listOfKeyPairs:
+            summary: List of Key Pairs
+            value:
+            - EURUSD
+            - GBPUSD
+            - AUDUSD
+            - USDJPY
+            - USDCNY
+            - USDCAD
+            - USDCHF
+            - EURGBP
+            - EURCHF
+            - EURJPY
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+        example: 2019-01-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+        example: 2019-12-31
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\
+          \ \n  * **CQ** = Quarterly based on the last trading day of the calendar\
+          \ quarter (March, June, September, or December).\n  * **AY** = Actual Annual,\
+          \ based on the start date.\n  * **CY** = Calendar Annual, based on the last\
+          \ trading day of the calendar year.\n"
+        examples:
+          Daily:
+            summary: D - Daily frequency display based on trading calendar
+            value: D
+          Weekly:
+            summary: W - Weekly - based on the last day of the week of the start date
+            value: W
+          Monthly:
+            summary: M - Monthly - based on the last trading day of the month.
+            value: M
+          Actual Month:
+            summary: AM - Actual Month - based on the startDate (e.g., if the start
+              date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            value: AM
+          Calendar Quarterly:
+            summary: CQ - Calendar Quarterly - based on the last day of the week of
+              the startDate
+            value: CQ
+          Actual Annual:
+            summary: AY - Actual Annual - based on the the startDate
+            value: AY
+          Calendar Annual:
+            summary: CY - Calendar Annual - based on the last trading day of the calendar
+              year.
+            value: CY
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - AY
+          - CY
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Spot Rate of USDGBP:
+                  $ref: '#/components/examples/usdGBPSpot'
+              schema:
+                $ref: '#/components/schemas/spotsResponse'
+          description: Array of ids Spot Rates for the date range and frequency requested
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the servier
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets spots for a list of currency pairs
+      tags:
+      - Spots
+      x-accepts: application/json
+    post:
+      description: |
+        Gets FX Spot rates for a requested currency pair, date range, and frequency. The WM Company calculates daily standardized spot rates for global foreign exchange transactions, using rates provided by Reuters. These rates are recognized globally as the standard by banks, fund managers, and index compilers; increasingly these rates are also being used for benchmark currency trading.
+      operationId: getSpotsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Single Currency Spot Rate for Year 2019 on Daily Basis:
+                $ref: '#/components/examples/singleCurrencySpot'
+              List of Key Currency Pair Spot Rates for Year 2019 on Monthy Basis:
+                $ref: '#/components/examples/keyCurrencySpot'
+            schema:
+              $ref: '#/components/schemas/spotsRequest'
+        description: Request object for Spots.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/spotsResponse'
+          description: Array of spots
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the servier
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets spots for a list of currency pairs
+      tags:
+      - Spots
+      x-contentType: application/json
+      x-accepts: application/json
+  /foreign-exchange/v1/forwards:
+    get:
+      description: |
+        Forward rates are provided in 80+ currencies against the U.S. dollar, British pound, and euro. Forward quotes are provided by Reuters and coverage is determined by the amount of reliable currency trading in a particular currency. Bid, offer, and mid rates are available for 11 `forwardPeriod` periods - Overnight, Tomorrow Next, 1 Week (Spot Week), 1 month, 2 month, 3 month, 6 month, 9 month, 1 year, 2 year, 5 year. All identifiers have spot rates, but not all identifiers have forward rate data.
+      operationId: getFXForwards
+      parameters:
+      - description: The currency pair requested in the format of a ISO {source}{target}.
+          For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+        examples:
+          oneids:
+            summary: United States Dollar to Great British Pound
+            value:
+            - USDGBP
+          listOfKeyPairs:
+            summary: List of Key Pairs
+            value:
+            - EURUSD
+            - GBPUSD
+            - AUDUSD
+            - USDJPY
+            - USDCNY
+            - USDCAD
+            - USDCHF
+            - EURGBP
+            - EURCHF
+            - EURJPY
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |
+          Bid, offer, and mid rates are available for the following 11 time periods.
+           * ON - Overnight
+           * TN - Tomorrow Next
+           * SW - One Week (Spot Week)
+           * 1M - One Month
+           * 2M - Two Months
+           * 3M - Three Months
+           * 6M - Six Months
+           * 9M - Nine Months
+           * 1Y - One Year
+           * 2Y - Two Years
+           * 5Y - Five Years
+        examples:
+          Overnight:
+            summary: ON - Overnight
+            value: "ON"
+          Tomorrow Next:
+            summary: TN - Tomorrow Next
+            value: TN
+          One Week (Spot Week):
+            summary: SW - Spot Week
+            value: SW
+          One Month:
+            summary: 1M - One Month
+            value: 1M
+          Two Months:
+            summary: 2M - Two Months Forward
+            value: 2M
+          Three Months:
+            summary: 3M - Three Months Forward
+            value: 3M
+          Six Months:
+            summary: 6M - Six Months Forward
+            value: CY
+          Nine Months:
+            summary: 9M - Nine Months Forward
+            value: 9M
+          One Year:
+            summary: 1Y - One Year Forward
+            value: 1Y
+          Two Year:
+            summary: 2Y - Two Years Forward
+            value: CY
+          Five Year:
+            summary: 5Y - Five Years Forward
+            value: 5Y
+        explode: true
+        in: query
+        name: forwardPeriod
+        required: false
+        schema:
+          default: 1M
+          enum:
+          - "ON"
+          - TN
+          - SW
+          - 1M
+          - 2M
+          - 3M
+          - 6M
+          - 9M
+          - 1Y
+          - 2Y
+          - 5Y
+          type: string
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+        example: 2019-01-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+        example: 2019-12-31
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **W** = Weekly, based on the last day of the week of the\
+          \ start date.\n  * **M** = Monthly, based on the last trading day of the\
+          \ month.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
+          \ date is June 16, data is displayed for June 16, May 16, April 16 etc.).\
+          \ \n  * **CQ** = Quarterly based on the last trading day of the calendar\
+          \ quarter (March, June, September, or December).\n  * **AY** = Actual Annual,\
+          \ based on the start date.\n  * **CY** = Calendar Annual, based on the last\
+          \ trading day of the calendar year.\n"
+        examples:
+          Daily:
+            summary: D - Daily frequency display based on trading calendar
+            value: D
+          Weekly:
+            summary: W - Weekly - based on the last day of the week of the start date
+            value: W
+          Monthly:
+            summary: M - Monthly - based on the last trading day of the month.
+            value: M
+          Actual Month:
+            summary: AM - Actual Month - based on the startDate (e.g., if the start
+              date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            value: AM
+          Calendar Quarterly:
+            summary: CQ - Calendar Quarterly - based on the last day of the week of
+              the startDate
+            value: CQ
+          Actual Annual:
+            summary: AY - Actual Annual - based on the the startDate
+            value: AY
+          Calendar Annual:
+            summary: CY - Calendar Annual - based on the last trading day of the calendar
+              year.
+            value: CY
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - AY
+          - CY
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Forward Rate of USDGBP:
+                  $ref: '#/components/examples/usdGBPForward'
+              schema:
+                $ref: '#/components/schemas/forwardsResponse'
+          description: Array of ids Forward Rates for the date range and frequency
+            requested
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the servier
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets Forwards for a list of currency pairs
+      tags:
+      - Forwards
+      x-accepts: application/json
+    post:
+      description: |
+        Forward rates are provided in 80+ currencies against the U.S. dollar, British pound, and euro. Forward quotes are provided by Reuters and coverage is determined by the amount of reliable currency trading in a particular currency. Bid, offer, and mid rates are available for 11 `forwardPeriod` periods - Overnight, Tomorrow Next, 1 Week (Spot Week), 1 month, 2 month, 3 month, 6 month, 9 month, 1 year, 2 year, 5 year. All identifiers have spot rates, but not all identifiers have forward rate data.
+      operationId: getFXForwardsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Latest Birtish Pound Per US Dollar One Month Forward:
+                $ref: '#/components/examples/usdGBPForwardPost'
+            schema:
+              $ref: '#/components/schemas/forwardsRequest'
+        description: Request object for FX Forwards.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                British Pound to US Dollar Forward Rate:
+                  $ref: '#/components/examples/usdGBPForward'
+              schema:
+                $ref: '#/components/schemas/forwardsResponse'
+          description: Array of forward rates
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivty 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the servier
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets Forwards for a list of currency pairs
+      tags:
+      - Forwards
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    usdGBPSpot:
+      description: Spot Rate of USDGBP
+      summary: Spot Rate of British Pounds per U.S. Dollar
+      value:
+        data:
+        - requestId: USDGBP
+          currencyName: British Pounds per U.S. Dollar
+          spotAsk: 0.799488327
+          spotBid: 0.799232737
+          spotMid: 0.799360512
+          date: 2020-07-07
+    singleCurrencySpot:
+      description: Single Currency Pair Spot Rate for Calendar Year 2019
+      summary: Single Currency Pair Spot Rate for Calendar Year 2019
+      value:
+        ids:
+        - USDGBP
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: D
+    keyCurrencySpot:
+      description: Spot Rates for a list of Key Currency Pairs for the Year of 2019
+        on a Monthly Basis
+      summary: Spot Rates for a list of Key Currency Pairs for the Year of 2019 on
+        a Monthly Basis
+      value:
+        ids:
+        - EURUSD
+        - GBPUSD
+        - AUDUSD
+        - USDJPY
+        - USDCNY
+        - USDCAD
+        - USDCHF
+        - EURGBP
+        - EURCHF
+        - EURJPY
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+    usdGBPForward:
+      description: Forward Rate of USDGBP
+      summary: Forward Rate of British Pounds per U.S. Dollar
+      value:
+        data:
+        - requestId: USDGBP
+          currencyName: British Pounds per U.S. Dollar
+          forwardBid: 0.794937836
+          forwardMid: 0.795070563
+          forwardAsk: 0.795203333
+          forwardPeriod: 1M
+          date: 2020-07-07
+    usdGBPForwardPost:
+      description: Single Currency Pair One Month Forward Rates for Calendar Year
+        2019
+      summary: Single Currency Pair One Month Forward Rates for Calendar Year 2019
+      value:
+        ids:
+        - USDGBP
+        forwardPeriod: 1M
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: D
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2019-10-31 16:08:07.945
+        path: /foreign-exchange/v1/{endpoint}
+        message: 'The date parameter ''startDate'' must be in the following date format:
+          YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /foreign-exchange/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      description: This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include dates
+        as of today's current date or any prior historical date.
+      summary: Bad Request - Future Date
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:52:48.091
+        path: /foreign-exchange/v1/{endpoint}
+        message: The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /foreign-exchange/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2019-11-05 09:48:29.18
+        path: /foreign-exchange/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /foreign-exchange/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /foreign-exchange/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the servier is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /foreign-exchange/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /foreign-exchange/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /foreign-exchange/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /foreign-exchange/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /foreign-exchange/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    ids:
+      description: The currency pair requested in the format of a ISO {source}{target}.
+        For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+      examples:
+        oneids:
+          summary: United States Dollar to Great British Pound
+          value:
+          - USDGBP
+        listOfKeyPairs:
+          summary: List of Key Pairs
+          value:
+          - EURUSD
+          - GBPUSD
+          - AUDUSD
+          - USDJPY
+          - USDCNY
+          - USDCAD
+          - USDCHF
+          - EURGBP
+          - EURCHF
+          - EURJPY
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        type: array
+      style: form
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+      example: 2019-01-01
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+      example: 2019-12-31
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: string
+      style: form
+    frequency:
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
+        \ date.\n  * **M** = Monthly, based on the last trading day of the month.\n\
+        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
+        \ June 16, data is displayed for June 16, May 16, April 16 etc.). \n  * **CQ**\
+        \ = Quarterly based on the last trading day of the calendar quarter (March,\
+        \ June, September, or December).\n  * **AY** = Actual Annual, based on the\
+        \ start date.\n  * **CY** = Calendar Annual, based on the last trading day\
+        \ of the calendar year.\n"
+      examples:
+        Daily:
+          summary: D - Daily frequency display based on trading calendar
+          value: D
+        Weekly:
+          summary: W - Weekly - based on the last day of the week of the start date
+          value: W
+        Monthly:
+          summary: M - Monthly - based on the last trading day of the month.
+          value: M
+        Actual Month:
+          summary: AM - Actual Month - based on the startDate (e.g., if the start
+            date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          value: AM
+        Calendar Quarterly:
+          summary: CQ - Calendar Quarterly - based on the last day of the week of
+            the startDate
+          value: CQ
+        Actual Annual:
+          summary: AY - Actual Annual - based on the the startDate
+          value: AY
+        Calendar Annual:
+          summary: CY - Calendar Annual - based on the last trading day of the calendar
+            year.
+          value: CY
+      explode: true
+      in: query
+      name: frequency
+      required: false
+      schema:
+        default: D
+        enum:
+        - D
+        - W
+        - M
+        - AM
+        - CQ
+        - AY
+        - CY
+        type: string
+      style: form
+    forwardPeriod:
+      description: |
+        Bid, offer, and mid rates are available for the following 11 time periods.
+         * ON - Overnight
+         * TN - Tomorrow Next
+         * SW - One Week (Spot Week)
+         * 1M - One Month
+         * 2M - Two Months
+         * 3M - Three Months
+         * 6M - Six Months
+         * 9M - Nine Months
+         * 1Y - One Year
+         * 2Y - Two Years
+         * 5Y - Five Years
+      examples:
+        Overnight:
+          summary: ON - Overnight
+          value: "ON"
+        Tomorrow Next:
+          summary: TN - Tomorrow Next
+          value: TN
+        One Week (Spot Week):
+          summary: SW - Spot Week
+          value: SW
+        One Month:
+          summary: 1M - One Month
+          value: 1M
+        Two Months:
+          summary: 2M - Two Months Forward
+          value: 2M
+        Three Months:
+          summary: 3M - Three Months Forward
+          value: 3M
+        Six Months:
+          summary: 6M - Six Months Forward
+          value: CY
+        Nine Months:
+          summary: 9M - Nine Months Forward
+          value: 9M
+        One Year:
+          summary: 1Y - One Year Forward
+          value: 1Y
+        Two Year:
+          summary: 2Y - Two Years Forward
+          value: CY
+        Five Year:
+          summary: 5Y - Five Years Forward
+          value: 5Y
+      explode: true
+      in: query
+      name: forwardPeriod
+      required: false
+      schema:
+        default: 1M
+        enum:
+        - "ON"
+        - TN
+        - SW
+        - 1M
+        - 2M
+        - 3M
+        - 6M
+        - 9M
+        - 1Y
+        - 2Y
+        - 5Y
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivty 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the servier is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    spotsRequest:
+      description: Spots Request Body
+      properties:
+        ids:
+          description: The currency pair requested in the format of a ISO {source}{target}.
+            For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+          example:
+          - USDGBP
+          - USDEUR
+          items:
+            type: string
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+          example: 2019-01-01
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+          example: 2019-12-31
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+      - ids
+      title: Spots Request Body
+      type: object
+    spotsResponse:
+      example:
+        data:
+        - date: 2020-07-07T00:00:00.000+0000
+          currencyName: British Pounds per U.S. Dollar
+          requestId: USDGBP
+          spotBid: 0.799232737
+          spotAsk: 0.799488327
+          spotMid: 0.799360512
+        - date: 2020-07-07T00:00:00.000+0000
+          currencyName: British Pounds per U.S. Dollar
+          requestId: USDGBP
+          spotBid: 0.799232737
+          spotAsk: 0.799488327
+          spotMid: 0.799360512
+      properties:
+        data:
+          description: Array of Spot Objects
+          items:
+            $ref: '#/components/schemas/spot'
+          type: array
+      title: Spots Response
+      type: object
+    spot:
+      example:
+        date: 2020-07-07T00:00:00.000+0000
+        currencyName: British Pounds per U.S. Dollar
+        requestId: USDGBP
+        spotBid: 0.799232737
+        spotAsk: 0.799488327
+        spotMid: 0.799360512
+      properties:
+        requestId:
+          description: The FX Spot Rate currency pair requested in the 'ids' parameter.
+            This represents the base and quote currency.
+          example: USDGBP
+          type: string
+        currencyName:
+          description: The full text currency pair name expressed in Proper Case.
+          example: British Pounds per U.S. Dollar
+          type: string
+        spotBid:
+          description: The currency pair's spot rate Bid.
+          example: 0.799232737
+          type: number
+        spotMid:
+          description: The currency pair's spot rate Mid.
+          example: 0.799360512
+          type: number
+        spotAsk:
+          description: The currency pair's spot rate Ask.
+          example: 0.799488327
+          type: number
+        date:
+          description: Ending date for the period expressed in YYYY-MM-DD format.
+          example: 2020-07-07
+          format: date
+          type: string
+      title: Spot Object
+      type: object
+    forwardsRequest:
+      description: Forwards Request Body
+      properties:
+        ids:
+          description: The currency pair requested in the format of a ISO {source}{target}.
+            For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+          example:
+          - USDGBP
+          - USDEUR
+          items:
+            type: string
+          type: array
+        forwardPeriod:
+          $ref: '#/components/schemas/forwardPeriod'
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+          example: 2019-01-01
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+          example: 2019-12-31
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+      - ids
+      title: Forwards Request Body
+      type: object
+    forwardsResponse:
+      example:
+        data:
+        - date: 2020-07-07T00:00:00.000+0000
+          forwardAsk: 0.795203333
+          currencyName: British Pounds per U.S. Dollar
+          forwardPeriod: 1M
+          requestId: USDGBP
+          forwardMid: 0.795070563
+          forwardBid: 0.794937836
+        - date: 2020-07-07T00:00:00.000+0000
+          forwardAsk: 0.795203333
+          currencyName: British Pounds per U.S. Dollar
+          forwardPeriod: 1M
+          requestId: USDGBP
+          forwardMid: 0.795070563
+          forwardBid: 0.794937836
+      properties:
+        data:
+          description: Array of Forward Objects
+          items:
+            $ref: '#/components/schemas/forward'
+          type: array
+      title: Forwards Response
+      type: object
+    forward:
+      example:
+        date: 2020-07-07T00:00:00.000+0000
+        forwardAsk: 0.795203333
+        currencyName: British Pounds per U.S. Dollar
+        forwardPeriod: 1M
+        requestId: USDGBP
+        forwardMid: 0.795070563
+        forwardBid: 0.794937836
+      properties:
+        requestId:
+          description: The FX Forward Rate currency pair requested in the 'ids' parameter.
+            This represents the base and quote currency.
+          example: USDGBP
+          type: string
+        currencyName:
+          description: The full text currency pair name expressed in Proper Case.
+          example: British Pounds per U.S. Dollar
+          type: string
+        forwardBid:
+          description: The currency pair's Forward Rate Bid.
+          example: 0.794937836
+          type: number
+        forwardMid:
+          description: The currency pair's Forward Rate Mid.
+          example: 0.795070563
+          type: number
+        forwardAsk:
+          description: The currency pair's Forward Rate Ask.
+          example: 0.795203333
+          type: number
+        date:
+          description: Ending date for the period expressed in YYYY-MM-DD format.
+          example: 2020-07-07
+          format: date
+          type: string
+        forwardPeriod:
+          description: The Forward Time Period requested for the Currency Pair.
+          example: 1M
+          type: string
+      title: Forward Object
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /foreign-exchange/v1/spots
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    ids:
+      description: The currency pair requested in the format of a ISO {source}{target}.
+        For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
+      example:
+      - USDGBP
+      - USDEUR
+      items:
+        type: string
+      type: array
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+      example: 2019-01-01
+      type: string
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.
+      example: 2019-12-31
+      type: string
+    frequency:
+      default: D
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
+        \ date.\n  * **M** = Monthly, based on the last trading day of the month.\n\
+        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
+        \ June 16, data is displayed for June 16, May 16, April 16 etc.). \n  * **CQ**\
+        \ = Quarterly based on the last trading day of the calendar quarter (March,\
+        \ June, September, or December).\n  * **AY** = Actual Annual, based on the\
+        \ start date.\n  * **CY** = Calendar Annual, based on the last trading day\
+        \ of the calendar year.\n"
+      enum:
+      - D
+      - W
+      - M
+      - AM
+      - CQ
+      - AY
+      - CY
+      example: M
+      type: string
+    forwardPeriod:
+      default: 1M
+      description: |
+        Bid, offer, and mid rates are available for the following 11 time periods.
+         * ON - Overnight
+         * TN - Tomorrow Next
+         * SW - One Week (Spot Week)
+         * 1M - One Month
+         * 2M - Two Months
+         * 3M - Three Months
+         * 6M - Six Months
+         * 9M - Nine Months
+         * 1Y - One Year
+         * 2Y - Two Years
+         * 5Y - Five Years
+      enum:
+      - "ON"
+      - TN
+      - SW
+      - 1M
+      - 2M
+      - 3M
+      - 6M
+      - 9M
+      - 1Y
+      - 2Y
+      - 5Y
+      type: string
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

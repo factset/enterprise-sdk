@@ -1,0 +1,619 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "QRE API",
+    "description": "TBD",
+    "version": "0.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
+  "paths": {
+    "/analytics/quant/qre/v1/calculations": {
+      "post": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Starts a new script calculation",
+        "description": "This endpoint takes a python script and starts executing it within QRE",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Calculation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Expected response, contains the relative URL in the Location header to check the status of the calculation.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/quant/qre/v1/calculations/{id}": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Get calculation status by id",
+        "description": "This is the endpoint to check on the progress of a previous calculation request.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "From url, provided by location header or response body in the calculation start endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "From url, provided by location header or response body in the calculation start endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response. Signals that the calculation is finished.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatus"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response. Signals that the calculation is still in progress.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/quant/qre/v1/calculations/{id}/output": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Get calculation output for a specific calculation",
+        "description": "This endpoint returns the specified output from the calculation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "From url, provided by location header or response body in the calculation start endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "From url, provided by location header or response body in the calculation start endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response. Signals that the calculation is finished. Output from the calculation is returned.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "Content-Type": {
+                "description": "The content type of the output specified in the calculation's script.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response. Signals that the calculation is still in progress and no output is returned.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/quant/qre/v1/calculations/{id}/log": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Get calculation log for a specific calculation",
+        "description": "This endpoint returns the log from the calculation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "From url, provided by location header or response body in the calculation start endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "From url, provided by location header or response body in the calculation start endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response. Signals that the calculation is finished. Log from the calculation is returned.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response. Signals that the calculation is still in progress and no log is returned.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/quant/qre/v1/files/{server}/{file}": {
+      "post": {
+        "tags": [
+          "Files"
+        ],
+        "summary": "Starts a file upload",
+        "description": "This endpoint takes a file and uploads it",
+        "parameters": [
+          {
+            "name": "server",
+            "in": "path",
+            "description": "The server to upload the file to. Either `interactive` or `batch`.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The server to upload the file to. Either `interactive` or `batch`."
+            }
+          },
+          {
+            "name": "file",
+            "in": "path",
+            "description": "The file name to upload the file to. Existing directory can be specified.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The file name to upload the file to. Existing directory can be specified."
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Expected response, contains the relative URL in the Location header to check the status of the upload.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileUploadStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/quant/qre/v1/files/uploads/{id}": {
+      "get": {
+        "tags": [
+          "Files"
+        ],
+        "summary": "Get upload status by id",
+        "description": "This is the endpoint to check on the progress of a previous upload request.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "From url, provided by location header or response body in the upload start endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "From url, provided by location header or response body in the upload start endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response. Signals that the upload is finished.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileUploadStatus"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response. Signals that the upload is still in progress.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "Relative URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileUploadStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timeout. Retry the request later",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Calculation": {
+        "properties": {
+          "script": {
+            "type": "string",
+            "description": "The python script that will be executed"
+          }
+        }
+      },
+      "CalculationStatus": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for this calculation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "failed",
+              "completed"
+            ]
+          }
+        }
+      },
+      "FileUploadStatus": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for this upload"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "failed",
+              "completed"
+            ]
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.NorthfieldPortfolioOptimizer",
+  "projectName": "fds.sdk.NorthfieldPortfolioOptimizer",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - Northfield Portfolio Optimizer",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/NorthfieldPortfolioOptimizer",
+  "httpUserAgent": "fds-sdk/python/NorthfieldPortfolioOptimizer/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

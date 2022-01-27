@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-intradaytickhistory",
+  "version": "0.9.0",
+  "description": "pFactSets_Tick_History_provides_cost_effective_access_to_real_time_and_delayed_global_exchange_data__Proprietary_technology_normalizes_over_200_global_exchanges_and_19_tick_history_fields__Asset_types_integrated_include_equities_futures_options_fixed_income_mutual_funds_ETFs_indices_commodities_and_FX_rates__ppTick_History_provides_dynamic_access_to_tick_data_for_a_specific_security_intra_day_or_historically_via_standard_HTTPS_protocol__History_is_available_for_all_quotes_and_trades_for_a_trailing_6_months_or_1_year_respectively__Quotes_and_trade_data_for_Options_is_available_for_30_days__Tick_History_data_is_also_available_in_a_separate_end_of_day_feed__p_",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

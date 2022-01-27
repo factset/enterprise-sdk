@@ -1,0 +1,1986 @@
+openapi: 3.0.1
+info:
+  description: Allows users to extract, create, update and configure IRN data.
+  title: IRN API v1
+  version: "1"
+servers:
+- url: https://api-sandbox.factset.com/research/irn
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/meetings:
+    get:
+      operationId: GetMeetings
+      parameters:
+      - description: StartDate
+        explode: true
+        in: query
+        name: start
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: EndDate
+        explode: true
+        in: query
+        name: end
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Set of identifiers to filter on
+        explode: true
+        in: query
+        name: identifiers
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Limit on the number of meetings retrieved
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Only return meetings which have been modified or created since
+          a particular time
+        explode: true
+        in: query
+        name: modifiedSince
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Includes deleted meetings in results when set to true
+        explode: false
+        in: header
+        name: X-IRN-Include-Deleted
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MeetingSummaryDto'
+                type: array
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+      summary: Get all the meetings in the specified date range filtered on the given
+        identifiers
+      tags:
+      - Meetings
+      x-accepts: application/json
+    post:
+      operationId: CreateMeeting
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateMeetingDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMeetingDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateMeetingDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateMeetingDto'
+        description: 'Note: The organizer property is deprecated in favor of organizerId'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Success - Returns unique identifier of the meeting created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a meeting
+      tags:
+      - Meetings
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/meetings/{meetingId}:
+    delete:
+      operationId: DeleteMeeting
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a Meeting
+      tags:
+      - Meetings
+      x-accepts: application/json
+    get:
+      operationId: GetMeeting
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetingDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get details of a meeting
+      tags:
+      - Meetings
+      x-accepts: application/json
+    put:
+      operationId: UpdateMeeting
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeetingDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeetingDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeetingDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeetingDto'
+        description: 'Meeting details to update. Note: The organizer property is deprecated
+          in favor of organizerId'
+      responses:
+        "204":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Update meeting
+      tags:
+      - Meetings
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/attachments:
+    get:
+      operationId: GetAttachments
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AttachmentSummaryDto'
+                type: array
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get all the attachments belonging to a meeting
+      tags:
+      - Attachments
+      x-accepts: application/json
+    post:
+      operationId: CreateAttachment
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  type: string
+              required:
+              - file
+              type: object
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Success - Returns unique identifier of the Attachment
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create an attachment for an existing meeting
+      tags:
+      - Attachments
+      x-contentType: multipart/form-data
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/attachments/{attachmentId}/download:
+    get:
+      operationId: DownloadAttachment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Download an attachment from a meeting
+      tags:
+      - Attachments
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/attachments/{attachmentId}:
+    delete:
+      operationId: SoftDeleteMeetingAttachment
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Attachment Id
+        explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Delete attachment from meeting
+      tags:
+      - Attachments
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/events:
+    get:
+      operationId: GetEvents
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecordEventSummaryDto'
+                type: array
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get all the record events that belong to a meeting
+      tags:
+      - Events
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/events/{recordEventId}:
+    get:
+      operationId: GetRecordEvent
+      parameters:
+      - description: Meeting Id
+        explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Record Event Id
+        explode: false
+        in: path
+        name: recordEventId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetingEventDto'
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get details of a record event of a meeting
+      tags:
+      - Events
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/comments/{commentId}:
+    delete:
+      operationId: DeleteComment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          description: Server Error
+      summary: Delete a Comment from a Meeting
+      tags:
+      - Comments
+      x-accepts: application/json
+    get:
+      operationId: GetComment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentDto'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get details of a comment belonging to a meeting
+      tags:
+      - Comments
+      x-accepts: application/json
+    patch:
+      operationId: PatchComment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          text/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/*+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Edit a comment for a meeting
+      tags:
+      - Comments
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/comments:
+    get:
+      operationId: GetComments
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CommentSummaryDto'
+                type: array
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get all comments for a meeting
+      tags:
+      - Comments
+      x-accepts: application/json
+    post:
+      operationId: CreateComment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentDto'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          description: Server Error
+      summary: Create a comment to a Meeting
+      tags:
+      - Comments
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/comments/{commentId}/attachments:
+    get:
+      operationId: GetCommentAttachments
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AttachmentSummaryDto'
+                type: array
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Get attachments summary of a comment belonging to a meeting
+      tags:
+      - Comments
+      x-accepts: application/json
+    post:
+      operationId: CreateCommentAttachment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  type: string
+              required:
+              - file
+              type: object
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          description: Server Error
+      summary: Create a comment attachment to a Meeting
+      tags:
+      - Comments
+      x-contentType: multipart/form-data
+      x-accepts: application/json
+  /v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download:
+    get:
+      operationId: DownloadCommentAttachmentForComment
+      parameters:
+      - explode: false
+        in: path
+        name: meetingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      summary: Download single attachment detail of a comment belonging to a meeting
+      tags:
+      - Comments
+      x-accepts: application/json
+  /v1/identifiers:
+    get:
+      operationId: GetIdentifiers
+      parameters:
+      - description: Identifiers
+        explode: true
+        in: query
+        name: identifiers
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IdentifierResolutionDto'
+                type: array
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+      summary: Get all the identifier details for given identifiers
+      tags:
+      - Identifiers
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object_1:
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+    inline_object:
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+  schemas:
+    LocationDto:
+      additionalProperties: false
+      example:
+        locationName: locationName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        locationName:
+          nullable: true
+          type: string
+      type: object
+    AttendeeDto:
+      additionalProperties: false
+      example:
+        emailAddress: emailAddress
+        fullName: fullName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        emailAddress:
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          type: string
+      type: object
+    MeetingSummaryDto:
+      additionalProperties: false
+      example:
+        identifier: identifier
+        attendees:
+        - emailAddress: emailAddress
+          fullName: fullName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - emailAddress: emailAddress
+          fullName: fullName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: start
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        createdAt: createdAt
+        organizerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        organizer: organizer
+        end: end
+        attachmentIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        locations:
+        - locationName: locationName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - locationName: locationName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        start:
+          nullable: true
+          type: string
+        end:
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        authorId:
+          format: uuid
+          type: string
+        title:
+          nullable: true
+          type: string
+        identifier:
+          nullable: true
+          type: string
+        organizer:
+          nullable: true
+          type: string
+        organizerId:
+          format: uuid
+          type: string
+        attachmentIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        relatedSymbols:
+          items:
+            type: string
+          nullable: true
+          type: array
+        locations:
+          items:
+            $ref: '#/components/schemas/LocationDto'
+          nullable: true
+          type: array
+        attendees:
+          items:
+            $ref: '#/components/schemas/AttendeeDto'
+          nullable: true
+          type: array
+      type: object
+    ProblemDetails:
+      additionalProperties: false
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        extensions:
+          additionalProperties:
+            additionalProperties: false
+            type: object
+          nullable: true
+          readOnly: true
+          type: object
+      type: object
+    UserSerialDto:
+      additionalProperties: false
+      example:
+        serialNumber: serialNumber
+        username: username
+      properties:
+        username:
+          maxLength: 30
+          minLength: 0
+          nullable: true
+          type: string
+        serialNumber:
+          maxLength: 8
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - serialNumber
+      - username
+      type: object
+    ReferenceAttendeeDto:
+      additionalProperties: false
+      example:
+        emailAddress: emailAddress
+      properties:
+        emailAddress:
+          nullable: true
+          type: string
+      type: object
+    RelatedRecordsDto:
+      additionalProperties: false
+      example:
+        meetingIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        noteIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        noteIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        meetingIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      type: object
+    CreateBodyDto:
+      additionalProperties: false
+      example:
+        content: content
+      properties:
+        content:
+          nullable: true
+          type: string
+      type: object
+    CreateCustomFieldValueDto:
+      additionalProperties: false
+      description: "Set a value or values for a custom field identified by the field\
+        \ 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue\
+        \ etc) will be used,\r\ndepending on the data type of the custom field corresponding\
+        \ to the 'Code' provided"
+      example:
+        dateValue: dateValue
+        code: code
+        textValue: textValue
+        contactLookupValues:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        optionValue: optionValue
+        numericValue: 6.027456183070403
+        integerValue: 0
+        extendedTextValue: extendedTextValue
+        filePathValue: filePathValue
+        optionValues:
+        - optionValues
+        - optionValues
+      properties:
+        code:
+          nullable: true
+          type: string
+        integerValue:
+          format: int32
+          nullable: true
+          type: integer
+        textValue:
+          nullable: true
+          type: string
+        filePathValue:
+          nullable: true
+          type: string
+        numericValue:
+          format: double
+          nullable: true
+          type: number
+        dateValue:
+          nullable: true
+          type: string
+        extendedTextValue:
+          nullable: true
+          type: string
+        contactLookupValues:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        optionValue:
+          nullable: true
+          type: string
+        optionValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - code
+      type: object
+    CreateMeetingDto:
+      additionalProperties: false
+      example:
+        identifier: identifier
+        author:
+          serialNumber: serialNumber
+          username: username
+        attendees:
+        - emailAddress: emailAddress
+        - emailAddress: emailAddress
+        start: start
+        alertAuthor: false
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        alertAttendees: false
+        title: title
+        body:
+          content: content
+        organizerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedContacts:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFieldValues:
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        organizer: organizer
+        end: end
+        locations:
+        - locations
+        - locations
+        relatedRecords:
+          meetingIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          noteIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        author:
+          $ref: '#/components/schemas/UserSerialDto'
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        identifier:
+          nullable: true
+          type: string
+        start:
+          nullable: true
+          type: string
+        end:
+          nullable: true
+          type: string
+        locations:
+          items:
+            type: string
+          nullable: true
+          type: array
+        organizer:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        organizerId:
+          format: uuid
+          type: string
+        attendees:
+          items:
+            $ref: '#/components/schemas/ReferenceAttendeeDto'
+          nullable: true
+          type: array
+        alertAttendees:
+          default: false
+          type: boolean
+        alertAuthor:
+          default: false
+          type: boolean
+        relatedRecords:
+          $ref: '#/components/schemas/RelatedRecordsDto'
+        relatedContacts:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        relatedSymbols:
+          items:
+            type: string
+          maxLength: 100
+          nullable: true
+          type: array
+        body:
+          $ref: '#/components/schemas/CreateBodyDto'
+        customFieldValues:
+          items:
+            $ref: '#/components/schemas/CreateCustomFieldValueDto'
+          nullable: true
+          type: array
+      required:
+      - author
+      - end
+      - identifier
+      - start
+      - title
+      type: object
+    NewItemDto:
+      additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+      type: object
+    CustomFieldValueDto:
+      additionalProperties: false
+      example:
+        code: code
+        options:
+        - options
+        - options
+        contactValues:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+      properties:
+        code:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        options:
+          items:
+            type: string
+          nullable: true
+          type: array
+        contactValues:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      type: object
+    MeetingDto:
+      additionalProperties: false
+      example:
+        identifier: identifier
+        attendees:
+        - emailAddress: emailAddress
+          fullName: fullName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - emailAddress: emailAddress
+          fullName: fullName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFields:
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        - code: code
+          options:
+          - options
+          - options
+          contactValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        start: start
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        body: body
+        createdAt: createdAt
+        organizerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedContacts:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        organizer: organizer
+        averageRating: 0
+        end: end
+        locations:
+        - locationName: locationName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - locationName: locationName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedRecords:
+          meetingIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          noteIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        start:
+          nullable: true
+          type: string
+        end:
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        authorId:
+          format: uuid
+          type: string
+        title:
+          nullable: true
+          type: string
+        identifier:
+          nullable: true
+          type: string
+        organizer:
+          nullable: true
+          type: string
+        organizerId:
+          format: uuid
+          type: string
+        body:
+          nullable: true
+          type: string
+        averageRating:
+          format: int32
+          nullable: true
+          type: integer
+        locations:
+          items:
+            $ref: '#/components/schemas/LocationDto'
+          nullable: true
+          type: array
+        attendees:
+          items:
+            $ref: '#/components/schemas/AttendeeDto'
+          nullable: true
+          type: array
+        customFields:
+          items:
+            $ref: '#/components/schemas/CustomFieldValueDto'
+          nullable: true
+          type: array
+        relatedSymbols:
+          items:
+            type: string
+          nullable: true
+          type: array
+        relatedRecords:
+          $ref: '#/components/schemas/RelatedRecordsDto'
+        relatedContacts:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      type: object
+    UpdateMeetingDto:
+      additionalProperties: false
+      example:
+        identifier: identifier
+        attendees:
+        - emailAddress: emailAddress
+        - emailAddress: emailAddress
+        start: start
+        alertAuthor: false
+        relatedSymbols:
+        - relatedSymbols
+        - relatedSymbols
+        alertAttendees: false
+        title: title
+        body:
+          content: content
+        organizerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        relatedContacts:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        customFieldValues:
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        - dateValue: dateValue
+          code: code
+          textValue: textValue
+          contactLookupValues:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          optionValue: optionValue
+          numericValue: 6.027456183070403
+          integerValue: 0
+          extendedTextValue: extendedTextValue
+          filePathValue: filePathValue
+          optionValues:
+          - optionValues
+          - optionValues
+        organizer: organizer
+        end: end
+        locations:
+        - locations
+        - locations
+        relatedRecords:
+          meetingIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          noteIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        identifier:
+          nullable: true
+          type: string
+        start:
+          nullable: true
+          type: string
+        end:
+          nullable: true
+          type: string
+        locations:
+          items:
+            type: string
+          nullable: true
+          type: array
+        organizer:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        organizerId:
+          format: uuid
+          type: string
+        attendees:
+          items:
+            $ref: '#/components/schemas/ReferenceAttendeeDto'
+          nullable: true
+          type: array
+        alertAttendees:
+          default: false
+          type: boolean
+        alertAuthor:
+          default: false
+          type: boolean
+        relatedRecords:
+          $ref: '#/components/schemas/RelatedRecordsDto'
+        relatedContacts:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        relatedSymbols:
+          items:
+            type: string
+          maxLength: 100
+          nullable: true
+          type: array
+        body:
+          $ref: '#/components/schemas/CreateBodyDto'
+        customFieldValues:
+          items:
+            $ref: '#/components/schemas/CreateCustomFieldValueDto'
+          nullable: true
+          type: array
+      required:
+      - end
+      - identifier
+      - start
+      - title
+      type: object
+    AttachmentSummaryDto:
+      additionalProperties: false
+      example:
+        fileName: fileName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        mimeType: mimeType
+      properties:
+        id:
+          format: uuid
+          type: string
+        fileName:
+          nullable: true
+          type: string
+        mimeType:
+          nullable: true
+          type: string
+      type: object
+    RecordEventSummaryDto:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
+      properties:
+        id:
+          format: uuid
+          type: string
+        type:
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+      type: object
+    RecordChangeDto:
+      additionalProperties: false
+      example:
+        newValue: newValue
+        oldList:
+        - oldList
+        - oldList
+        field: field
+        newList:
+        - newList
+        - newList
+        oldValue: oldValue
+        operation: operation
+      properties:
+        field:
+          nullable: true
+          type: string
+        operation:
+          nullable: true
+          type: string
+        oldValue:
+          nullable: true
+          type: string
+        newValue:
+          nullable: true
+          type: string
+        oldList:
+          items:
+            type: string
+          nullable: true
+          type: array
+        newList:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    MeetingEventDto:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        changeList:
+        - newValue: newValue
+          oldList:
+          - oldList
+          - oldList
+          field: field
+          newList:
+          - newList
+          - newList
+          oldValue: oldValue
+          operation: operation
+        - newValue: newValue
+          oldList:
+          - oldList
+          - oldList
+          field: field
+          newList:
+          - newList
+          - newList
+          oldValue: oldValue
+          operation: operation
+        type: type
+        user: user
+      properties:
+        createdAt:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        user:
+          nullable: true
+          type: string
+        changeList:
+          items:
+            $ref: '#/components/schemas/RecordChangeDto'
+          nullable: true
+          type: array
+      type: object
+    SubcommentSummaryDto:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        userId:
+          format: uuid
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+      type: object
+    CommentDto:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        attachments:
+        - fileName: fileName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          mimeType: mimeType
+        - fileName: fileName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          mimeType: mimeType
+        subcomments:
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        body: body
+      properties:
+        id:
+          format: uuid
+          type: string
+        authorId:
+          format: uuid
+          type: string
+        parentCommentId:
+          format: uuid
+          nullable: true
+          type: string
+        body:
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentSummaryDto'
+          nullable: true
+          type: array
+        subcomments:
+          items:
+            $ref: '#/components/schemas/SubcommentSummaryDto'
+          nullable: true
+          type: array
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        from: from
+        value: '{}'
+      properties:
+        value:
+          additionalProperties: false
+          nullable: true
+          type: object
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+      type: object
+    CommentSummaryDto:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        subcomments:
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - createdAt: createdAt
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        userId:
+          format: uuid
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        subcomments:
+          items:
+            $ref: '#/components/schemas/SubcommentSummaryDto'
+          nullable: true
+          type: array
+      type: object
+    CreateCommentDto:
+      additionalProperties: false
+      example:
+        parentCommentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        authorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        body: body
+      properties:
+        authorId:
+          format: uuid
+          type: string
+        parentCommentId:
+          format: uuid
+          nullable: true
+          type: string
+        body:
+          nullable: true
+          type: string
+      type: object
+    ResolvedInstrumentDto:
+      additionalProperties: false
+      example:
+        ticker: ticker
+        cusip: cusip
+        name: name
+        entityId: entityId
+        sedol: sedol
+        isin: isin
+      properties:
+        name:
+          nullable: true
+          type: string
+        entityId:
+          nullable: true
+          type: string
+        ticker:
+          nullable: true
+          type: string
+        sedol:
+          nullable: true
+          type: string
+        cusip:
+          nullable: true
+          type: string
+        isin:
+          nullable: true
+          type: string
+      type: object
+    IdentifierResolutionDto:
+      additionalProperties: false
+      example:
+        instrumentMetadata:
+          ticker: ticker
+          cusip: cusip
+          name: name
+          entityId: entityId
+          sedol: sedol
+          isin: isin
+        query: query
+      properties:
+        instrumentMetadata:
+          $ref: '#/components/schemas/ResolvedInstrumentDto'
+        query:
+          nullable: true
+          type: string
+      type: object
+    inline_object:
+      properties:
+        file:
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    inline_object_1:
+      properties:
+        file:
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

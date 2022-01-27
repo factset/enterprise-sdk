@@ -1,0 +1,14 @@
+{
+  "projectName": "@factset/sdk-factsetownership",
+  "projectVersion": "0.9.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetownership",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetOwnership/0.9.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

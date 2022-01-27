@@ -1,0 +1,1553 @@
+openapi: 3.0.0
+info:
+  title: FactSet People API
+  version: 1.0.0
+  description: |
+    The FactSet People API exposes FactSet data for individuals and their jobs.
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+servers:
+  - url: https://api.factset.com/content
+    description: Production Server
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Profiles
+    description: Return information about the person with the specified entity ID.
+  - name: Job History
+    description: Returns the job history of the person
+  - name: Company
+    description: Returns a list of associated people for a requested company
+paths:
+  /factset-people/v1/profiles:
+    get:
+      summary: Return information about the person with the specified entity ID.
+      description: >
+        Returns a summary of basic information about the person referenced by
+        the entityId specified in the URI.
+      tags:
+        - Profiles
+      operationId: getPeopleProfiles
+      parameters:
+        - $ref: '#/components/parameters/profileEntityId'
+      responses:
+        '200':
+          description: Array of Profile Ojects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleProfilesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns profile information for a large list of people.
+      tags:
+        - Profiles
+      operationId: getPeopleProfilesForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/peopleProfilesRequest'
+      responses:
+        '200':
+          description: Array of People Profile Objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleProfilesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-people/v1/jobs:
+    get:
+      summary: Returns the Job history of the person.
+      description: >
+        Returns the `Job` history of the person referenced by the entityId
+        specified in the request.
+      tags:
+        - Job History
+      operationId: getPeopleJobs
+      parameters:
+        - $ref: '#/components/parameters/entityId'
+        - $ref: '#/components/parameters/status'
+        - $ref: '#/components/parameters/level'
+        - $ref: '#/components/parameters/type'
+      responses:
+        '200':
+          description: Array of Job objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleJobsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns the Job history for the large list of people.
+      description: >
+        Returns the `Job` history of the person referenced by the entityId
+        specified in the request.
+      tags:
+        - Job History
+      operationId: getPeopleJobsForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/peopleJobsRequest'
+      responses:
+        '200':
+          description: Array of Job objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleJobsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-people/v1/company-people:
+    get:
+      summary: Returns the list of people for the specified company identifiers
+      description: >
+        Returns the list of executives associated the company identifier
+        requested. Information includes the job functions, email, phone, title,
+        name, and FactSet Entity Identifier. The personId returned can then be
+        used in the `/profiles` endpoint to learn more about the given person.
+      tags:
+        - Company
+      operationId: getCompanyPeople
+      parameters:
+        - $ref: '#/components/parameters/companyId'
+        - $ref: '#/components/parameters/jobFunction'
+      responses:
+        '200':
+          description: Array of Company People objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPeopleResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Returns the list of people associated for a large list of company
+        identitifers
+      description: >
+        Returns the list of executives associated the company identifier
+        requested. Information includes the job functions, email, phone, title,
+        name, and FactSet Entity Identifier. The personId returned can then be
+        used in the /profiles endpoint to learn more about the given person.
+      tags:
+        - Company
+      operationId: getCompanyPeopleForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyPeopleRequest'
+      responses:
+        '200':
+          description: Array of Company People objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPeopleResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-people/v1/company-positions:
+    get:
+      summary: >-
+        Returns the list of people for the specified company identifiers and
+        position
+      description: >
+        Returns the list of people, name, and title for a list of company ids
+        and requested position. Positions include-
+          * Chairman
+          * Chief Executive Officer
+          * President
+          * Chief Operating Officer
+          * Chief Financial Officer
+          * Chief Technology Officer
+          * Chief Investment Officer
+          * Founder(s)
+          * Compliance Officer
+          * Admin
+          * Independent Director
+          * Directors/Board Members
+          * Investor Relations
+          * Legal Counsel
+          * Treasurer
+          * Sales and Marketing Managers
+          * Human Resources
+      tags:
+        - Company
+      operationId: getCompanyPositions
+      parameters:
+        - $ref: '#/components/parameters/companyId'
+        - $ref: '#/components/parameters/position'
+      responses:
+        '200':
+          description: Array of Company Positions objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPositionsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Returns the list of people associated for a large list of company
+        identitifers and position
+      description: >
+        Returns the list of people, name, and title for a list of company ids
+        and requested position. Positions include-
+          * Chairman
+          * Chief Executive Officer
+          * President
+          * Chief Operating Officer
+          * Chief Financial Officer
+          * Chief Technology Officer
+          * Chief Investment Officer
+          * Founder(s)
+          * Compliance Officer
+          * Admin
+          * Independent Director
+          * Directors/Board Members
+          * Investor Relations
+          * Legal Counsel
+          * Treasurer
+          * Sales and Marketing Managers
+          * Human Resources
+      tags:
+        - Company
+      operationId: getCompanyPositionsForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyPositionsRequest'
+      responses:
+        '200':
+          description: Array of Company Positions objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPositionsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-people/v1/company-compensation:
+    get:
+      summary: >-
+        Returns the compensation details of the people for the specified company
+        identifier
+      description: >
+        Returns the list of company-level executive compensation data items for
+        the top executives listed in annual filings.The coverage of the
+        compensation details for the executives are limited to US region. All
+        the compensation figures are expressed in raw units. 
+      tags:
+        - Company
+      operationId: getCompanyCompensation
+      parameters:
+        - $ref: '#/components/parameters/companyId'
+      responses:
+        '200':
+          description: Array of Company Compensation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyCompensationResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Returns the compensation details for the people for the specified
+        company identifier
+      description: >
+        Returns the list of company-level executive compensation data items for
+        the top executives listed in annual filings for the most recent fiscal
+        year. The coverage of the compensation details for the executives are
+        limited to US region. All the compensation figures are expressed in raw
+        units. 
+      tags:
+        - Company
+      operationId: getCompanyCompensationForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyCompensationRequest'
+      responses:
+        '200':
+          description: Array of Company Positions objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyCompensationResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-people/v1/company-stats:
+    get:
+      summary: Returns statistics about top leadership of a company.
+      description: >
+        Returns the statistics such as the average age, tenure, compensation of
+        leadership, number of executives, and the gender diversity of
+        leadership. We can utilize the data for analyzing a company's board and
+        management.
+      tags:
+        - Company
+      operationId: getCompanyStats
+      parameters:
+        - $ref: '#/components/parameters/companyId'
+        - $ref: '#/components/parameters/mbType'
+      responses:
+        '200':
+          description: Array of Company Stats objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyStatsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns statistics about top leadership of a company.
+      description: >
+        Returns the statistics such as the average age, tenure, compensation of
+        leadership, number of executives, and the gender diversity of
+        leadership. We can utilize the data for analyzing a company's board and
+        management. 
+      tags:
+        - Company
+      operationId: getCompanyStatsForList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyStatsRequest'
+      responses:
+        '200':
+          description: Array of Company Positions objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyStatsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    entityId:
+      name: ids
+      description: List of FactSet Person Entity identifier.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      required: true
+      explode: false
+      example:
+        - 0DPHLH-E
+        - 07MZV9-E
+    profileEntityId:
+      name: ids
+      description: List of FactSet Person Entity identifier.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 500
+      required: true
+      explode: false
+      example:
+        - 0DPHLH-E
+        - 07MZV9-E
+    status:
+      name: status
+      description: Select only Jobs with a certain status primary, active, or inactive.
+      in: query
+      schema:
+        type: string
+        enum:
+          - ALL
+          - PRIMARY
+          - ACTIVE
+          - INACTIVE
+        default: ALL
+    level:
+      name: level
+      description: >-
+        Select the level of detail only main Jobs or include other Jobs at a
+        company.
+      in: query
+      schema:
+        type: string
+        enum:
+          - SUMMARY
+          - DETAIL
+        default: DETAIL
+    type:
+      name: type
+      description: Select only Jobs of a certain type board member or employee.
+      in: query
+      schema:
+        type: string
+        enum:
+          - ALL
+          - BRD
+          - EMP
+        default: ALL
+    companyId:
+      name: ids
+      description: >
+        The requested company identifier. FactSet Identifiers, tickers, CUSIP,
+        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
+        request*</p>
+
+        *<p>Make note, GET Method URL request lines are also limited to a total
+
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands
+
+        of ids, which may lead to exceeding this request line limit of 8KB, its
+
+        advised for any requests with large request lines to be requested
+        through
+
+        the respective "POST" method.</p>*
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      required: true
+      explode: false
+      example:
+        - AAPL-US
+        - IBM-US
+    jobFunction:
+      name: function
+      description: >
+        Controls the types of people returned based on high-level job functions.
+        Filter by - 
+          |function|description|
+          |---|---|
+          |PEOPLE|Retrieve **ALL** Executives of a requested company|
+          |OFFICER|Retrieve only the Officers of a requested company|
+          |DIRECTOR|Retrieve only the Directors of a requested company|
+      in: query
+      schema:
+        type: string
+        enum:
+          - PEOPLE
+          - OFFICER
+          - DIRECTOR
+        example: PEOPLE
+        default: PEOPLE
+      required: false
+    position:
+      name: position
+      description: >
+        Controls the position details returned for the requested company. By
+        default, the service returns the CEO name, title, and ID for the
+        requested company ids.
+          |position|description|
+          |---|---|
+          |CHAIR|Chairman|
+          |CEO|Chief Executive Officer|
+          |PRES|President|
+          |COO|Chief Operating Officer|
+          |CFO|Chief Financial Officer|
+          |CTO|Chief Technology Officer|
+          |CIO|Chief Investment Officer|
+          |FOU|Founder(s)|
+          |CMP|Compliance Officer|
+          |ADM|Admin|
+          |IND|Independent Director|
+          |BRD|Directors/Board Members|
+          |IR|Investor Relations|
+          |LEG|Legal Counsel|
+          |TREAS|Treasurer|
+          |MKT|Sales and Marketing Managers|
+          |HR|Human Resources|
+      in: query
+      schema:
+        type: string
+        enum:
+          - CHAIR
+          - CEO
+          - PRES
+          - COO
+          - CFO
+          - CTO
+          - CIO
+          - FOU
+          - CMP
+          - ADM
+          - IND
+          - BRD
+          - IR
+          - LEG
+          - TREAS
+          - MKT
+          - HR
+        example: FOU
+        default: CEO
+      required: false
+    mbType:
+      name: mbType
+      description: |
+        Search based on the management and board types. The types include - 
+        |type|description|
+        |---|---|
+        |MB|Management & Board|
+        |MGMT|Management|
+        |BRD|Board|
+      in: query
+      schema:
+        type: string
+        enum:
+          - MB
+          - MGMT
+          - BRD
+        default: MB
+  schemas:
+    peopleProfilesRequest:
+      title: Profiles Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+      required:
+        - ids
+    peopleProfilesResponse:
+      title: Profiles Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/profile'
+    profile:
+      title: Profile
+      type: object
+      description: Basic information about a person entity.
+      properties:
+        requestId:
+          type: string
+          description: Person identifier used in the request.
+          example: 0DPHLH-E
+        personId:
+          description: FactSet Entity Identifier for the Person
+          type: string
+          example: 0DPHLH-E
+        lastName:
+          description: Last Name
+          type: string
+          example: Snow
+          x-fds-fql-formula: FPD_PERSON('LAST_NAME')
+        factsetName:
+          description: Name
+          type: string
+          example: Philip Snow
+          x-fds-fql-formula: FPD_PERSON('NAME')
+        firstName:
+          description: First Name
+          type: string
+          example: Frederick
+          x-fds-fql-formula: FPD_PERSON('FIRST_NAME')
+        middleName:
+          description: Middle Name
+          type: string
+          example: Philip
+          x-fds-fql-formula: FPD_PERSON('MIDDLE_NAME')
+        formalName:
+          description: Formal Name
+          type: string
+          example: Frederick Philip Snow
+          x-fds-fql-formula: FPD_PERSON('FORMAL_NAME')
+        properName:
+          description: Proper Name
+          type: string
+          example: Snow Frederick Philip CFA
+          x-fds-fql-formula: PROPER_NAME
+        salutation:
+          description: Primary Salutation of Name
+          type: string
+          example: Mr.
+          x-fds-fql-formula: FPD_PERSON(SALUTATION)
+        highestDegree:
+          description: The Highest Held Degree Code.
+          type: string
+          example: GRD
+          x-fds-fql-formula: FPD_PERSON('EDU_DEGREE_CODE')
+        highestDegreeInst:
+          description: The Highest Degree Institution Name.
+          type: string
+          example: Thunderbird School of Global Management
+          x-fds-fql-formula: FPD_PERSON('EDU_INST')
+        suffix:
+          description: Suffix of Name
+          type: string
+          example: CFA
+          x-fds-fql-formula: FPD_PERSON('SUFFIX')
+        age:
+          description: Person's age in years.
+          type: number
+          format: integer
+          example: 57
+          x-fds-fql-formula: FPD_PERSON('AGE')
+        gender:
+          description: Person's Gender.
+          type: string
+          example: Male
+          x-fds-fql-formula: FPD_PERSON('GENDER')
+        salary:
+          description: Most Recent Salary
+          type: number
+          format: integer
+          example: 525846
+          x-fds-fql-formula: FPD_PERSON('SALARY')
+        totalCompensation:
+          description: Most Recent Total Compensation
+          type: number
+          format: integer
+          example: 4719062
+          x-fds-fql-formula: FPD_PERSON(TOTAL_COMP)
+        primaryCompanyId:
+          description: Entity identifier of primary `Company` of employment.
+          type: string
+          example: 0016YD-E
+        primaryCompanyName:
+          description: Name of primary company of employment
+          type: string
+          example: FactSet Research Systems, Inc.
+          x-fds-fql-formula: FPD_PERSON('PRIMARY_CO_NAME')
+        primaryTitle:
+          description: Title at primary `Company` of employment
+          type: string
+          example: Chief Executive Officer & Director
+          x-fds-fql-formula: FPD_PERSON(PRIMARY_TITLE)
+        biography:
+          description: Brief biography of the person requested.
+          type: string
+          example: >-
+            Frederick Philip Snow is Chief Executive Officer & Director at
+            FactSet Research Systems, Inc. He is also on the board of FactSet
+            Systems India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd.
+            and Member of CFA Institute. Mr. Snow received an undergraduate
+            degree from the University of California, Berkeley and a graduate
+            degree from Thunderbird School of Global Management.
+          x-fds-fql-formula: FPD_PERSON('BIO')
+    peopleJobsRequest:
+      title: Jobs Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        status:
+          $ref: '#/components/schemas/status'
+        level:
+          $ref: '#/components/schemas/level'
+        type:
+          $ref: '#/components/schemas/type'
+      required:
+        - ids
+    peopleJobsResponse:
+      title: Jobs Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/job'
+    job:
+      title: Job
+      type: object
+      description: Basic information about a person's `Job`.
+      properties:
+        companyCity:
+          description: City the job is located in.
+          type: string
+          example: Norwalk
+          x-fds-fql-formula: FPD_PERSON_JOBS(CITY)
+        companyId:
+          description: FactSet Identifier for the company.
+          type: string
+          example: 0016YD-E
+        companyName:
+          description: Name of the company.
+          type: string
+          example: FactSet Research Systems, Inc.
+          x-fds-fql-formula: FPD_PERSON_JOBS(CO_NAME)
+        jobEndDate:
+          description: Ending date for the Job.
+          type: string
+          format: date
+          example: '0001-01-01'
+          x-fds-fql-formula: FPD_PERSON_JOBS(EDATE)
+        jobFunctionCode:
+          description: Job function code.
+          type: string
+          example: CEO
+          x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_CODE)
+        jobFunctionName:
+          description: Description of the job.
+          type: string
+          example: Chief Executive Officer
+          x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_DESC)
+        jobStartDate:
+          description: Starting date for the Job.
+          type: string
+          format: date
+          example: '2015-07-01'
+          x-fds-fql-formula: FPD_PERSON_JOBS(SDATE)
+        jobTitle:
+          description: Job Title
+          type: string
+          example: Chief Executive Officer & Director
+          x-fds-fql-formula: FPD_PERSON_JOBS(TITLE)
+        personId:
+          description: FactSet Entity Identifier for the Person.
+          type: string
+          example: 0DPHLH-E
+        requestId:
+          description: Original identifier used for the request.
+          type: string
+          example: 0DPHLH-E
+    companyPeopleRequest:
+      title: Company People Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/companyIds'
+        function:
+          $ref: '#/components/schemas/function'
+      required:
+        - ids
+    companyPeopleResponse:
+      title: Company People Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/companyPeople'
+    companyPeople:
+      title: Company People
+      type: object
+      description: List of executives for the specified company identifier.
+      properties:
+        fsymId:
+          description: FactSet Identifier for the company requested.
+          type: string
+          example: 000C7F-E
+        email:
+          description: Email of the person
+          type: string
+          example: null
+        name:
+          description: FactSet Name of the person
+          type: string
+          example: Tim Cook
+        jobFunction1:
+          description: Job Function1
+          type: string
+          example: Chief Executive Officer
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        jobFunction2:
+          description: Job Function2
+          type: string
+          example: Director/Board Member
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        jobFunction3:
+          description: Job Function3
+          type: string
+          example: null
+        jobFunction4:
+          description: Job Function4
+          type: string
+          example: null
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        mainPhone:
+          description: Main Phone Numbers of the executives.
+          type: string
+          example: 1.408.996.1010
+          x-fds-fql-formula: FPD_CO_PEOPLE_PHONE_MAIN
+        personId:
+          description: FactSet Entity Identifier for the Person.
+          type: string
+          example: 05F520-E
+        phone:
+          description: Phone number of the executives.
+          type: string
+          example: null
+          x-fds-fql-formula: FPD_CO_PEOPLE_PHONE
+        requestId:
+          description: Original identifier used for the request.
+          type: string
+          example: AAPL-US
+        title:
+          description: Executive titles for a specified company.
+          type: string
+          example: Chief Executive officer & Director
+          x-fds-fql-formula: FPD_CO_PEOPLE_TITLES
+    companyPositionsRequest:
+      title: Company Positions Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/companyIds'
+        position:
+          $ref: '#/components/schemas/position'
+      required:
+        - ids
+    companyPositionsResponse:
+      title: Company Positions Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/companyPositions'
+    companyPositions:
+      title: Company Positions
+      type: object
+      description: List of executives for the specified company identifier.
+      properties:
+        fsymId:
+          description: FactSet Identifier for the company.
+          type: string
+          example: 006XY7-E
+        personId:
+          description: Factset Entity Identifier for the Person
+          type: string
+          example: 05H8B8-E
+        name:
+          description: FactSet Name of the person
+          type: string
+          example: Elon Reeve Musk
+        title:
+          description: The requested Position Title
+          type: string
+          example: Technoking of Tesla
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(TITLE)
+        yearsAtFirm:
+          description: >-
+            The number of years individual is at firm. For founders, this is
+            since inception.
+          type: number
+          format: double
+          example: 17.78
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(YRS_FIRM))
+        age:
+          description: The age of the person requested.
+          type: number
+          format: integer
+          example: 48
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(AGE))
+        gender:
+          description: The Gender of the person requested.
+          type: string
+          example: Male
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(GENDER))
+        requestPosition:
+          description: The requested position code.
+          type: string
+          example: CEO
+        requestId:
+          description: Original identifier used for the request.
+          type: string
+          example: TSLA-US
+    companyCompensationRequest:
+      title: Company Compensation Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/companyIds'
+      required:
+        - ids
+    companyCompensationResponse:
+      title: Company Compensation Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/companyCompensation'
+    companyCompensation:
+      title: Company Compensation
+      type: object
+      description: >-
+        List of executives and their compensation details for the specified
+        company identifier.
+      properties:
+        name:
+          description: FactSet Name of the person
+          type: string
+          example: Tim Cook
+        personId:
+          description: Factset Entity Identifier for the Person
+          type: string
+          example: 05F520-E
+        title:
+          description: The requested Position Title
+          type: string
+          example: Chief Executive Officer & Director
+          x-fds-fql-formula: FPD_CO_COMPENSATION(EXEC_TITLE)
+        salary:
+          description: Salary of the person. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: 525846
+          x-fds-fql-formula: FPD_CO_COMPENSATION(SALARY)
+        bonus:
+          description: >-
+            Bonus of the executive during the fiscal year. Expressed in USD and
+            raw units.
+          type: number
+          format: integer
+          example: 48
+          x-fds-fql-formula: FPD_CO_COMPENSATION(BONUS)
+        stockAwards:
+          description: Stock awards for the person. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: null
+          x-fds-fql-formula: FPD_CO_COMPENSATION(STOCK_AWARDS)
+        optionsAwards:
+          description: Option Awards for the person. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: null
+          x-fds-fql-formula: FPD_CO_COMPENSATION(OPTION_AWARDS)
+        otherCompensation:
+          description: >-
+            All the other compensations which are not explicitly defined as
+            salary, bonus, stock awards, or options awards. Expressed in USD and
+            raw units.
+          type: number
+          format: integer
+          example: 11200
+          x-fds-fql-formula: FPD_CO_COMPENSATION(ALL_OTHER_COMP)
+        totalCompensation:
+          description: >-
+            The sum of all compensation for the requested person as reported by
+            the company. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: 4719062
+          x-fds-fql-formula: FPD_CO_COMPENSATION(TOTAL_COMP)
+        nonEquityIncentivePlanComp:
+          description: >-
+            All the earnings pursuant to awards under non-equity incentive
+            plans. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: 10731000
+          x-fds-fql-formula: FPD_CO_COMPENSATION(NON_EQ_INCENTIVE_PLAN_COMP)
+        nonQualifiedCompEarnings:
+          description: >-
+            All the other nonqualified defined contribution which are not tax
+            qualified and other contributions. Expressed in USD and raw units.
+          type: number
+          format: integer
+          example: null
+        compensationYear:
+          description: >-
+            The most recent year of compensation is expressed as 'YYYY' as
+            opposed to 'YYYY-MM-DD' format.
+          type: string
+          example: '2020'
+          x-fds-fql-formula: FPD_CO_COMPENSATION(COMP_YEAR)
+        requestId:
+          description: Original identifier used for the request.
+          type: string
+          example: TSLA-US
+    companyStatsRequest:
+      title: Company Stats Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/companyIds'
+        mbType:
+          $ref: '#/components/schemas/mbType'
+      required:
+        - ids
+    companyStatsResponse:
+      title: Company Stats Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/companyStats'
+    companyStats:
+      title: Company Statistics
+      type: object
+      description: >-
+        List of the statistics such as the average age, tenure, compensation of
+        leadership, the number of executives, and the gender diversity of
+        leadership for the requested identifier.
+      properties:
+        averageMgmtCompensation:
+          description: Average compensation for the executives
+          type: number
+          format: integer
+          example: 2267284
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_COMP)
+        averageTenure:
+          description: Avergae tenure of the people
+          type: number
+          format: double
+          example: 12.19
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_TENURE)
+        medianTenure:
+          description: Median tenure
+          type: number
+          format: double
+          example: 0.2
+          x-fds-fql-formula: FPD_CO_MB_STATS(MIN_TENURE)
+        averageAge:
+          description: Average of the executives on the management and board
+          type: number
+          format: double
+          example: 58.17
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_AGE)
+        maxAge:
+          description: Maximum age of the people on Management & Board
+          type: number
+          format: integer
+          example: 68
+          x-fds-fql-formula: FPD_CO_MB_STATS(MAX_AGE)
+        minimumAge:
+          description: Minimum age of the person on board
+          type: number
+          format: integer
+          example: 53
+          x-fds-fql-formula: FPD_CO_MB_STATS(MIN_AGE)
+        medianAge:
+          description: Median age of the people on board
+          type: number
+          example: 56
+          x-fds-fql-formula: FPD_CO_MB_STATS(MED_AGE)
+        boardIndependentDirectors:
+          description: Independent directors on the board
+          type: number
+          format: integer
+          example: 7
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,IND,NUM)
+        femaleBoardMembers:
+          description: Number of female members on the board
+          type: number
+          format: integer
+          example: 3
+          x-fds-fql-formula: FPD_CO_MB_STATS((BRD,FEMALE_BRD,NUM)
+        numberOfMembers:
+          description: Number of people on board.
+          type: number
+          format: integer
+          example: 25
+          x-fds-fql-formula: FPD_CO_MB_STATS(NUM_MEMBERS)
+        onOtherBoardsAll:
+          description: On Other Boards All
+          type: number
+          format: integer
+          example: 7
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_BRD,NUM)
+        onOtherBoardsCorporate:
+          description: On Other Boards Corporate
+          type: number
+          format: integer
+          example: 6
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_CORP_BRD,NUM)
+        mbType:
+          description: >-
+            Management and Board type, where MB = Management & Board, MGMT =
+            Management, and BRD = Board. This is a pass-through value from the
+            input used in the `mbType` query parameter.
+          type: string
+          example: MB
+        requestId:
+          description: Original identifier used for the request.
+          type: string
+          example: FDS
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-people/v1/superRegion
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+    ids:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      description: |
+        FactSet People Entity Ids.
+      example:
+        - 0DPHLH-E
+    companyIds:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      description: >
+        The requested company identifier. FactSet Identifiers, tickers, CUSIP,
+        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
+        request*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
+      example:
+        - AAPL-US
+    function:
+      type: string
+      enum:
+        - PEOPLE
+        - OFFICER
+        - DIRECTOR
+      default: PEOPLE
+      description: >
+        Controls the types of people returned based on high-level job functions.
+        Filter by - 
+          |function|description|
+          |---|---|
+          |PEOPLE|Retrieve **ALL** Executives of a requested company|
+          |OFFICER|Retrieve only the Officers of a requested company|
+          |DIRECTOR|Retrieve only the Directors of a requested company|
+      example: DIRECTOR
+    status:
+      type: string
+      description: Select only Jobs with a certain status primary, active, or inactive.
+      enum:
+        - ALL
+        - PRIMARY
+        - ACTIVE
+        - INACTIVE
+      default: ALL
+    level:
+      description: >-
+        Select the level of detail only main Jobs or include other Jobs at a
+        company.
+      type: string
+      enum:
+        - SUMMARY
+        - DETAIL
+      default: DETAIL
+    type:
+      description: Select only Jobs of a certain type board member or employee.
+      enum:
+        - ALL
+        - BRD
+        - EMP
+      default: ALL
+    position:
+      description: >
+        Controls the position details returned for the requested company. By
+        default, the service returns the CEO name, title, and ID for the
+        requested company ids.
+          |position|description|
+          |---|---|
+          |CHAIR|Chairman|
+          |CEO|Chief Executive Officer|
+          |PRES|President|
+          |COO|Chief Operating Officer|
+          |CFO|Chief Financial Officer|
+          |CTO|Chief Technology Officer|
+          |CIO|Chief Investment Officer|
+          |FOU|Founder(s)|
+          |CMP|Compliance Officer|
+          |ADM|Admin|
+          |IND|Independent Director|
+          |BRD|Directors/Board Members|
+          |IR|Investor Relations|
+          |LEG|Legal Counsel|
+          |TREAS|Treasurer|
+          |MKT|Sales and Marketing Managers|
+          |HR|Human Resources|
+      enum:
+        - CHAIR
+        - CEO
+        - PRES
+        - COO
+        - CFO
+        - CTO
+        - CIO
+        - FOU
+        - CMP
+        - ADM
+        - IND
+        - BRD
+        - IR
+        - LEG
+        - TREAS
+        - MKT
+        - HR
+      default: CEO
+      example: FOU
+    mbType:
+      description: |
+        Search based on the management and board types. The types include - 
+        |type|description|
+        |---|---|
+        |MB|Management & Board|
+        |MGMT|Management|
+        |BRD|Board|
+      type: string
+      enum:
+        - MB
+        - MGMT
+        - BRD
+      default: MB
+  examples:
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-people/v1/{endpoint}
+        message: >-
+          The date parameter 'startDate' must be in the following date format:
+          YYYY-MM-DD
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:48:42.016'
+        path: /factset-people/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /factset-people/v1/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-people/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-people/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-people/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-people/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use /factset-people
+          /v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-people/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-people/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-people/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'

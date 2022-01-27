@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-exchangedatafeedsnapshotapisymbollist",
+  "version": "0.9.0",
+  "description": "FactSets_Exchange_DataFeed_Snapshot_API_provides_cost_effective_access_to_real_time_and_delayed_global_exchange_data__Proprietary_technology_normalizes_over_200_global_exchanges_and_150_data_fields__Asset_types_integrated_include_equities_futures_options_warrants_fixed_income_mutual_funds_ETFs_indices_commodities_and_FX_rates__pCutting_edge_technology_ensures_reliability_and_provides_scalability_that_allow_applications_to_request_multiple_items_at_a_time__To_simplify_client_side_development_an_entire_response_can_be_placed_in_a_matrix_or_table_for_effortless_integration_into_internal_and_external_applications__Using_specified_output_formats__CSV_XML_JSON_receive_all_standard_fields_by_default_or_customize_the_list_based_on_specific_needs__p_pBelow_are_the_current_hosts_ppProduction_api_factset_compSandbox_api_sandbox_factset_com_p",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

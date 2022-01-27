@@ -1,0 +1,2396 @@
+openapi: 3.0.0
+info:
+  title: FactSet Terms & Conditions API
+  version: 1.0.0
+  description: >
+    The FactSet Terms & Conditions API exposes Terms & Conditions data for Fixed
+    Income Corporate, Governement & Agency securities. The FactSet Corporate
+    Government & Agency Terms & Conditions library provides descriptive data on
+    the issue level, such as offering details, redemption information, and
+    coupon schedules. Issuer level data is also available. Coverage is global
+    and includes corporate, sovereign, and agency issues.
+  termsOfService: http://www.factset.com/api/terms.html
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: http://www.factset.com/api
+  license:
+    name: License Information
+    url: http://www.factset.com/api/license.html
+servers:
+  - url: https://api.factset.com/content
+    description: Production Server
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Terms & Conditions
+    description: >-
+      Select specific Terms & Conditions fields for a list of Fixed Income
+      Security identifiers.
+  - name: Issue Size
+    description: >-
+      Fetch the Fixed Income Issue Details, such as Amount Outstanding, Change,
+      and Type.
+  - name: Coupons
+    description: Coupon History and Schedules
+  - name: Covenants
+    description: Covenant Details and Negative Covenants
+  - name: Redemptions
+    description: Redemption Prices
+  - name: Agents
+    description: Agency Details
+  - name: Use of Proceeds
+    description: Use of Proceeds raised from Fixed Income Issues
+  - name: Underwriters
+    description: Lead Underwriter Details
+  - name: Convertibles
+    description: Convertible Details, History, and Triggers
+paths:
+  /factset-terms-and-conditions/v1/terms-and-conditions:
+    get:
+      summary: Return select Terms and Conditions items for a Fixed Income security.
+      description: >
+        Returns Terms and Conditions data items for the Fixed Income security.
+        Includes items for Conditional Redemptions, Redemption Options, Security
+        Details, and Coupon Details.
+
+        Use the `fields` parameter to request specific items only or request an
+        entire category of items to fetch all available fields matching that
+        category(s).
+
+        <p>*For T&C data related to Agency, Coupon History, Issue Size, Negative
+        Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds,
+        please use respective endpoints optimized for that content.*</p>
+      tags:
+        - Terms & Conditions
+      operationId: getTermsAndConditions
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/fields'
+        - $ref: '#/components/parameters/categoriesCurrent'
+      responses:
+        '200':
+          description: Terms And Conditions Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/termsAndConditionsResponse'
+              examples:
+                Fixed Income Terms And Conditions:
+                  $ref: '#/components/examples/fixedIncomeTermsAndConditionsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Terms and Conditions for a list of Fixed Income securities.
+      description: >
+        Returns Terms and Conditions data items for the Fixed Income security.
+        Includes reference items for Conditional Redemptions, Redemption
+        Options, Security Details, Convertible Features, and Coupon Details.
+
+        Use the `fields` parameter to request specific items only or request an
+        entire category of items to fetch all available fields matching that
+        category(s).
+
+        <p>*For T&C data related to Agency, Coupon History, Issue Size, Negative
+        Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds,
+        please use respective endpoints optimized for that content.*</p>
+      tags:
+        - Terms & Conditions
+      operationId: getTermsAndConditionsForList
+      requestBody:
+        description: Request object for Terms And Conditions
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsRequest'
+            examples:
+              Fixed Income Terms And Conditions Item Request:
+                $ref: '#/components/examples/FixedIncomeTermsAndConditionsRequest'
+              Fixed Income Terms And Conditions Category Request:
+                $ref: >-
+                  #/components/examples/FixedIncomeTermsAndConditionsCategoryRequest
+        required: true
+      responses:
+        '200':
+          description: Terms and Conditions Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/termsAndConditionsResponse'
+              examples:
+                Fixed Income Terms And Conditions:
+                  $ref: '#/components/examples/fixedIncomeTermsAndConditionsResponse'
+                Fixed Income Coupon Details:
+                  $ref: '#/components/examples/FixedIncomeCouponDetailsResponse'
+                Fixed Income Redemption Options:
+                  $ref: '#/components/examples/FixedIncomeRedemptionOptionsResponse'
+                Fixed Income Security Details:
+                  $ref: '#/components/examples/FixedIncomeSecurityDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/fields:
+    get:
+      summary: Available fields for /terms-and-conditions endpoint
+      operationId: getTermsAndConditionsFields
+      tags:
+        - Terms & Conditions
+      description: >
+        Returns a list of available fields that can be used in the `fields`
+
+        parameter of the **/terms-and-conditions** endpoint.
+
+        Leave _category_ blank to request all available items.
+
+        Make Note, this does not represent all available fields within the Terms
+        and Conditions API and all other endpoints.
+      parameters:
+        - $ref: '#/components/parameters/category'
+      responses:
+        '200':
+          description: Terms And Conditions Fields Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fieldsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/issue-size:
+    get:
+      summary: Return Issue Size data for a list of Fixed Income securities.
+      description: |
+        Returns Issue Size data for the Fixed Income security.
+      tags:
+        - Issue Size
+      operationId: getIssueSize
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Issue Size Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/issueSizeResponse'
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeIssueSizeResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Issue Size data for a large list of Fixed Income securities.
+      description: |
+        Returns Issue Size data for a list of Fixed Income securities.
+      tags:
+        - Issue Size
+      operationId: getIssueSizeForList
+      requestBody:
+        description: Request object for Fixed Income Issue Size.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        required: true
+      responses:
+        '200':
+          description: Issue Size Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/issueSizeResponse'
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeIssueSizeResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/coupon-history:
+    get:
+      summary: Return historical Coupon information for a Fixed Income security.
+      description: |
+        Returns historical Coupon information for the Fixed Income security.
+      tags:
+        - Coupons
+      operationId: getCouponHistory
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Coupon History Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponHistoryResponse'
+              examples:
+                Fixed Income Coupon History:
+                  $ref: '#/components/examples/fixedIncomeCouponHistoryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Return historical Coupon information for a list of Fixed Income
+        securities.
+      description: >
+        Returns historical Coupon information for a list of Fixed Income
+        securities.
+      tags:
+        - Coupons
+      operationId: getCouponHistoryForList
+      requestBody:
+        description: Request object for Fixed Income Coupon History.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        required: true
+      responses:
+        '200':
+          description: Coupon History Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponHistoryResponse'
+              examples:
+                Fixed Income Coupon History:
+                  $ref: '#/components/examples/fixedIncomeCouponHistoryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/coupon-schedules:
+    get:
+      summary: Return Coupon Sechedules for a Fixed Income security.
+      description: |
+        Returns Coupon Schedules information for the Fixed Income security.
+      tags:
+        - Coupons
+      operationId: getCouponSchedules
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Coupon Schedules Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponSchedulesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Return Coupon Schedules information for a list of Fixed Income
+        securities.
+      description: >
+        Returns historical Coupon Schedules information for a list of Fixed
+        Income securities.
+      tags:
+        - Coupons
+      operationId: getCouponSchedulesForList
+      requestBody:
+        description: Request object for Fixed Income Coupon Schedules.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        required: true
+      responses:
+        '200':
+          description: Coupon Schedules Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/couponSchedulesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/covenant-details:
+    get:
+      summary: Return Covenant Details for a Fixed Income security.
+      description: |
+        Returns Covenant Details for the Fixed Income security.
+      tags:
+        - Covenants
+      operationId: getCovenantDetails
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Convenant Details Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/covenantDetailsResponse'
+              examples:
+                Fixed Income Covenant Details:
+                  $ref: '#/components/examples/fixedIncomeCovenantDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Covenant Details for a list of Fixed Income securities.
+      description: |
+        Returns Covenant Details for a list of Fixed Income securities.
+      tags:
+        - Covenants
+      operationId: getCovenantDetailsForList
+      requestBody:
+        description: Request object for Fixed Income Covenant Details.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        required: true
+      responses:
+        '200':
+          description: Convenant Details Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/covenantDetailsResponse'
+              examples:
+                Fixed Income Covenant Details:
+                  $ref: '#/components/examples/fixedIncomeCovenantDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/redemption-prices:
+    get:
+      summary: Return Redemption Prices for a Fixed Income security.
+      description: |
+        Returns Redemption Prices for the Fixed Income security.
+      tags:
+        - Redemptions
+      operationId: getFixedIncomeRedemptionPrices
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/categoriesRedemption'
+      responses:
+        '200':
+          description: Fixed Income Negative Redemption Prices Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redemptionPricesResponse'
+              examples:
+                Fixed Income Redemption Prices:
+                  $ref: '#/components/examples/fixedIncomeRedemptionPricesResponse'
+                Fixed Income Sinking Fund Redemption Prices:
+                  $ref: '#/components/examples/FixedIncomeSinkingFundPricesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Redemption Prices for a list of Fixed Income securities.
+      description: |
+        Returns Redemption Prices for a list of Fixed Income securities.
+      tags:
+        - Redemptions
+      operationId: getFixedIncomeRedemptionPricesForList
+      requestBody:
+        description: Request object for Fixed Income Redemption Prices.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/redemptionPricesRequest'
+            examples:
+              Fixed Income Redemption Prices Request:
+                $ref: '#/components/examples/fixedIncomeRedemptionPricesRequest'
+        required: true
+      responses:
+        '200':
+          description: Fixed Income Negative Redemption Prices Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redemptionPricesResponse'
+              examples:
+                Fixed Income Redemption Prices:
+                  $ref: '#/components/examples/fixedIncomeRedemptionPricesResponse'
+                Fixed Income Sinking Fund Redemption Prices:
+                  $ref: '#/components/examples/FixedIncomeSinkingFundPricesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/agents:
+    get:
+      summary: Return Agents items for a Fixed Income security.
+      description: |
+        Returns Agents data items for the Fixed Income security.
+      tags:
+        - Agents
+      operationId: getAgents
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Agents Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentsResponse'
+              examples:
+                Fixed Income Agents:
+                  $ref: '#/components/examples/fixedIncomeAgentsResponse'
+                Fixed Income Guarantors:
+                  $ref: '#/components/examples/FixedIncomeGuarantorsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Agents items for a list of Fixed Income securities.
+      description: |
+        Returns Agents data items for a list of Fixed Income securities.
+      tags:
+        - Agents
+      operationId: getAgentsForList
+      requestBody:
+        description: Request object for Fixed Income Agents.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+        required: true
+      responses:
+        '200':
+          description: Agents Resopnse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentsResponse'
+              examples:
+                Fixed Income Agents:
+                  $ref: '#/components/examples/fixedIncomeAgentsResponse'
+                Fixed Income Guarantors:
+                  $ref: '#/components/examples/FixedIncomeGuarantorsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/lead-underwriters:
+    get:
+      summary: Return Lead Underwriters for a Fixed Income security.
+      description: |
+        Returns Lead Underwriters for the Fixed Income security.
+      tags:
+        - Underwriters
+      operationId: getLeadUnderwriters
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Lead Underwriters Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/leadUnderwritersResponse'
+              examples:
+                Fixed Income Lead Underwriters:
+                  $ref: '#/components/examples/fixedIncomeLeadUnderwritersResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Lead Underwriters for a list of Fixed Income securities.
+      description: |
+        Returns Lead Underwriters for a list of Fixed Income securities.
+      tags:
+        - Underwriters
+      operationId: getLeadUnderwritersForList
+      requestBody:
+        description: Request object for Fixed Income Lead Underwriters.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+            examples:
+              Fixed Income Lead Underwriters Request:
+                $ref: '#/components/examples/fixedIncomeLeadUnderwritersRequest'
+        required: true
+      responses:
+        '200':
+          description: Lead Underwriters Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/leadUnderwritersResponse'
+              examples:
+                Fixed Income Lead Underwriters:
+                  $ref: '#/components/examples/fixedIncomeLeadUnderwritersResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/use-of-proceeds:
+    get:
+      summary: Return Use of Proceeds for a Fixed Income security.
+      description: |
+        Returns Use of Proceeds for the Fixed Income security.
+      tags:
+        - Use of Proceeds
+      operationId: getFixedIncomeUseOfProceeds
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Fixed Income Use of Proceeds Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/useOfProceedsResponse'
+              examples:
+                Fixed Income Use of Proceeds:
+                  $ref: '#/components/examples/fixedIncomeUseOfProceedsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Return Use of Proceeds for a list of Fixed Income securities.
+      description: |
+        Returns Use of Proceeds for a list of Fixed Income securities.
+      tags:
+        - Use of Proceeds
+      operationId: getFixedIncomeUseOfProceedsForList
+      requestBody:
+        description: Request object for Fixed Income Use of Proceeds.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+            examples:
+              Fixed Income Use of Proceeds Request:
+                $ref: '#/components/examples/FixedIncomeUseOfProceedsRequest'
+        required: true
+      responses:
+        '200':
+          description: Fixed Income Use of Proceeds Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/useOfProceedsResponse'
+              examples:
+                Fixed Income Use of Proceeds:
+                  $ref: '#/components/examples/fixedIncomeUseOfProceedsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/convertible-details:
+    get:
+      summary: >-
+        Return Convertible Details for a list of Convertible Fixed Income
+        securities.
+      description: |
+        Returns Convertible Details for a list of securities, such as -
+          * Convertible Currency
+          * Convertible Effective Date
+          * Convertible Notice Days Max and Min
+          * Convertible Payment Form
+          * Convertible Payment Details
+          * Convertible Payment Form Election
+          * Convertible Price Method
+          * Convertible Type
+          * Convertibles Ratio
+          * More
+      tags:
+        - Convertibles
+      operationId: getConvertibleDetails
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Convertible Details Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleDetailsResponse'
+              examples:
+                Convertible Details Response:
+                  $ref: '#/components/examples/fixedIncomeConvertibleDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Return Convertible Details data for a large list of Fixed Income
+        securities.
+      description: |
+        Returns Convertible Details for a list of securities, such as -
+          * Convertible Currency
+          * Convertible Effective Date
+          * Convertible Notice Days Max and Min
+          * Convertible Payment Form
+          * Convertible Payment Details
+          * Convertible Payment Form Election
+          * Convertible Price Method
+          * Convertible Type
+          * Convertibles Ratio
+          * More
+      tags:
+        - Convertibles
+      operationId: getConvertibleDetailsForList
+      requestBody:
+        description: Request object for Fixed Income Convertible Details.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+        required: true
+      responses:
+        '200':
+          description: Convertible Details Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleDetailsResponse'
+              examples:
+                Convertible Details Response:
+                  $ref: '#/components/examples/fixedIncomeConvertibleDetailsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/convertible-history:
+    get:
+      summary: Return Convertible History data for a list of Fixed Income securities.
+      description: >
+        Returns Convertible History data for the Fixed Income security,
+        including - * Convertibles Price * Convertibles Effective Date
+      tags:
+        - Convertibles
+      operationId: getConvertibleHistory
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Convertible History Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleHistoryResponse'
+              examples:
+                Convertible History:
+                  $ref: '#/components/examples/fixedIncomeConvertibleHistoryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Return Convertible History data for a large list of Fixed Income
+        securities.
+      description: |
+        Returns Convertible History data for a list of Fixed Income securities.
+      tags:
+        - Convertibles
+      operationId: getConvertibleHistoryForList
+      requestBody:
+        description: Request object for Fixed Income Issue Size.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+        required: true
+      responses:
+        '200':
+          description: Convertible History Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleHistoryResponse'
+              examples:
+                Fixed Income Issue Size:
+                  $ref: '#/components/examples/fixedIncomeConvertibleHistoryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-terms-and-conditions/v1/convertible-triggers:
+    get:
+      summary: Return Convertible Triggers data for a list of Fixed Income securities.
+      description: >
+        Returns Convertible Triggers data for the Fixed Income security
+        including the Convertible Trigger Id, Event, and Description.
+      tags:
+        - Convertibles
+      operationId: getConvertibleTriggers
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Convertible Triggers Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleTriggersResponse'
+              examples:
+                Convertible Triggers:
+                  $ref: '#/components/examples/fixedIncomeConvertibleTriggersResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Return Convertible Trigger data for a large list of Fixed Income
+        securities.
+      description: >
+        Returns Convertible Triggers data for the Fixed Income security
+        including the Convertible Trigger Id, Event, and Description.
+      tags:
+        - Convertibles
+      operationId: getConvertibleTriggersForList
+      requestBody:
+        description: Request object for Fixed Income Issue Size.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/termsAndConditionsScalarRequest'
+            examples:
+              Convertible Request:
+                $ref: '#/components/examples/FixedIncomeConvertibleRequest'
+        required: true
+      responses:
+        '200':
+          description: Convertible Triggers Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertibleTriggersResponse'
+              examples:
+                Convertible Triggers:
+                  $ref: '#/components/examples/fixedIncomeConvertibleTriggersResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      description: >
+        List of Fixed Income Security identifiers. Supported symbol types
+        include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier
+        (-S).
+
+
+        **ID LIMIT = 250** *per request*.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 250
+      required: true
+      explode: false
+      example:
+        - 30231GBJ
+        - 88579EAA
+    fields:
+      name: fields
+      description: >-
+        List of data items for Terms and Conditions. For a full list of
+        available fields, definitions, and category assignments, use the
+        `/fields` endpoint.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      example:
+        - principalAmt
+        - issueDesc
+        - denomMin
+        - maturityDate
+    categoriesCurrent:
+      name: categories
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - SECURITY_DETAILS
+            - COUPON_DETAILS
+            - CONVERTIBLE_FEATURES
+            - REDEMPTION_OPTIONS
+      required: false
+      explode: false
+      description: >
+        Selects the Fixed Income metrics by major category. Use the `/fields`
+        endpoint to get a list of all fields associated with each category.
+          * **SECURITY_DETAILS** = Detailed information about the security.
+          * **COUPON_DETAILS** = Coupon details.
+          * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+          * **REDEMPTION_OPTIONS** = Redemption options.
+    categoriesRedemption:
+      name: categories
+      in: query
+      description: |
+        Filters the list of Redemption Prices Categories -
+          * **CALL** = Call prices.
+          * **PUT** = Put prices.
+          * **SF** = Sinking Fund prices.
+      schema:
+        type: string
+        enum:
+          - ALL
+          - CALL
+          - PUT
+          - SF
+        default: ALL
+      required: true
+    category:
+      name: category
+      in: query
+      schema:
+        type: string
+        enum:
+          - SECURITY_DETAILS
+          - COUPON_DETAILS
+          - CONVERTIBLE_FEATURES
+          - REDEMPTION_OPTIONS
+      required: false
+      description: |
+        Filters the list of Fixed Income metrics by major category -
+          * **SECURITY_DETAILS** = Detailed information about the security.
+          * **COUPON_DETAILS** = Coupon details.
+          * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+          * **REDEMPTION_OPTIONS** = Redemption options.
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  schemas:
+    termsAndConditionsRequest:
+      title: Terms and Conditions Request
+      type: object
+      properties:
+        ids:
+          description: >
+            List of Fixed Income Security identifiers. Supported symbol types
+            include CUSIP, SEDOL, ISIN, and FactSet Security Permanent
+            Identifier (-S).
+
+
+            **ID LIMIT = 250** *per request*.
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 250
+        fields:
+          description: List of Terms and Conditions data items.
+          type: array
+          items:
+            type: string
+        categories:
+          type: array
+          items:
+            type: string
+            enum:
+              - SECURITY_DETAILS
+              - COUPON_DETAILS
+              - CONVERTIBLE_FEATURES
+              - REDEMPTION_OPTIONS
+          description: |
+            Selects the Fixed Income metrics by major category -
+            * **SECURITY_DETAILS** = Detailed information about the security.
+            * **COUPON_DETAILS** = Coupon details.
+            * **CONVERTIBLE_FEATURES** = Features of convertible instruments.
+            * **REDEMPTION_OPTIONS** = Redemption options.
+      required:
+        - ids
+    termsAndConditionsResponse:
+      title: Terms and Conditions Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/termsAndConditions'
+    termsAndConditions:
+      title: Terms and Conditions
+      type: object
+      description: Terms And Conditions data items for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+      additionalProperties: true
+      required:
+        - requestId
+        - fsymId
+    fieldsResponse:
+      title: Fields Response
+      type: object
+      properties:
+        data:
+          description: >
+            Array of metric objects representing the metrics that can be
+            requested from the Fixed Income APIs.
+          type: array
+          items:
+            $ref: '#/components/schemas/field'
+    field:
+      title: Field Object
+      type: object
+      properties:
+        field:
+          description: >
+            Field identifier to be used as `fields` input in
+            _Terms-and-Conditions_ endpoints.
+          type: string
+          example: principalAmt
+        name:
+          description: Plain text name of the field.
+          type: string
+          example: Principal (or Face Value) Amount
+        category:
+          description: >-
+            Primary Category of field item, such as COUPON_DETAILS or
+            SECURITY_DETAILS.
+          type: string
+          enum:
+            - CONVERTIBLE_FEATURES
+            - COUPON_DETAILS
+            - REDEMPTION_OPTIONS
+            - SECURITY_DETAILS
+          example: SECURITY_DETAILS
+        dataType:
+          description: |
+            The Data Type of the respective field, including -
+            * date
+            * string
+            * integer
+            * double
+          type: string
+          example: integer
+    issueSizeResponse:
+      title: Issue Size Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/issueSize'
+    issueSize:
+      title: Issue Size
+      type: object
+      description: Issue Size Data Items for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        outAmtEffDate:
+          description: Amount Outstanding Effective Date (out_amt_eff_date)
+          type: string
+          format: date
+        outAmtCurrency:
+          description: Amount Outstanding Currency
+          type: string
+        outAmt:
+          description: Amount Outstanding
+          type: number
+          format: double
+        outAmtChange:
+          description: Amount Outstanding Action Amount
+          type: number
+          format: double
+        outAmtChangePrice:
+          description: Price - Amount Outstanding Action
+          type: number
+          format: double
+        outAmtChangeType:
+          description: Amount Outstanding Action Type
+          type: string
+      required:
+        - requestId
+        - fsymId
+        - date
+    couponHistoryResponse:
+      title: Coupon History Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/couponHistory'
+    couponHistory:
+      title: Coupon History
+      type: object
+      description: Coupon History for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        date:
+          description: Coupon Accrual Date
+          type: string
+          format: date
+        couponBasketFlag:
+          description: Coupon Basket Flag
+          type: boolean
+        couponEffPmtDate:
+          description: Effective Payment Date
+          type: string
+          format: date
+        couponFormula:
+          description: Coupon Formula
+          type: string
+        couponInitResetDate:
+          description: First Coupon Reset Date
+          type: string
+          format: date
+        couponResetFreq:
+          description: Coupon Reset Frequency
+          type: string
+        couponLink:
+          description: Coupon Link
+          type: string
+        couponMargin:
+          description: Margin
+          type: number
+          format: double
+        couponMinFloatRate:
+          description: Coupon Minimum-Floating Rate
+          type: number
+          format: double
+        couponStructSubCode:
+          description: Coupon Structure Sub Code
+          type: string
+        couponTypeStruct:
+          description: Coupon Type
+          type: string
+        couponVarPmtFlag:
+          description: Variable Coupon Payments
+          type: boolean
+        underlyingIndex:
+          description: Underlying Index
+          type: string
+    couponSchedulesResponse:
+      title: Coupon Schedules Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/couponSchedules'
+    couponSchedules:
+      title: Coupon Schedules
+      type: object
+      description: Coupon Schedules for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        couponEffDate:
+          description: Coupon Effective Date
+          type: string
+          format: date
+        couponRate:
+          description: Coupon Rate
+          type: number
+          format: double
+    agentsResponse:
+      title: Agents Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/agent'
+    agent:
+      title: Agent
+      type: object
+      description: Agent Data Items for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        agentEntityId:
+          description: FactSet Entity Identifier for the Agent.
+          type: string
+        agentCommAmt:
+          description: Agent Commitment Amount
+          type: number
+          format: double
+        agentName:
+          description: Agent Name
+          type: string
+        agentType:
+          description: Role of the agent
+          type: string
+      required:
+        - requestId
+        - fsymId
+        - agentEntityId
+    covenantDetailsResponse:
+      title: Covenant Details Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/covenantDetail'
+    covenantDetail:
+      title: Covenant Detail
+      type: object
+      description: Covenant Detail for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        finCovType:
+          description: Covenant Type
+          type: string
+        finCovDesc:
+          description: Description
+          type: string
+    negativeCovenantsResponse:
+      title: Negative Covenants Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/negativeCovenant'
+    negativeCovenant:
+      title: Negative Covenant
+      type: object
+      description: Negative Covenant for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        negCovenantLvl:
+          description: Negative Covenant Level
+          type: string
+        negCovenantType:
+          description: Negative Covenant Type
+          type: string
+    redemptionPricesRequest:
+      title: Redemption Prices Request
+      type: object
+      properties:
+        ids:
+          description: >
+            List of Fixed Income Security identifiers. Supported symbol types
+            include CUSIP, SEDOL, ISIN, and FactSet Security Permanent
+            Identifier (-S).
+
+
+            **ID LIMIT = 250** *per request*.
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 250
+        categories:
+          description: |
+            Filters the list of Redemption Prices Categories -
+              * **CALL** = Call prices.
+              * **PUT** = Put prices.
+              * **SF** = Sinking Fund prices.
+          type: string
+          enum:
+            - ALL
+            - CALL
+            - PUT
+            - SF
+      required:
+        - ids
+        - categories
+    redemptionPricesResponse:
+      title: Redemption Prices Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/redemptionPrice'
+    redemptionPrice:
+      title: Redemption Price
+      type: object
+      description: Redemption Price Data Items for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        date:
+          description: Date of the Redemption Price.
+          type: string
+          format: date
+        category:
+          description: |
+            Redemption Price Category -
+            * **CALL** = Call prices.
+            * **PUT** = Put prices.
+            * **SF** = Sinking Fund prices.
+          type: string
+          enum:
+            - CALL
+            - PUT
+            - SF
+        minAmt:
+          description: Sinking Fund minimum amount.
+          type: number
+          format: double
+        price:
+          description: Redemption price for the category.
+          type: number
+          format: double
+      required:
+        - requestId
+        - fsymId
+        - date
+        - category
+    leadUnderwritersResponse:
+      title: Lead Underwriters Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/leadUnderwriter'
+    leadUnderwriter:
+      title: Lead Underwriter
+      type: object
+      description: Lead Underwriter for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        factsetLeadUwritrEntityId:
+          description: FactSet Entity Id for Lead Underwriter.
+          type: string
+    useOfProceedsResponse:
+      title: Use of Proceeds Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/useOfProceeds'
+    useOfProceeds:
+      title: Use of Proceeds
+      type: object
+      description: Use of Proceeds for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        useOfProceeds:
+          description: Use of proceeds.
+          type: string
+    convertibleDetailsResponse:
+      title: Convertible Details Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/convertibleDetails'
+    convertibleDetails:
+      title: Convertible Details
+      type: object
+      description: Convertible Details for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convCurr:
+          description: Convertible Currency
+          type: string
+        convEffDate:
+          description: Convertible Effective Date
+          type: string
+          format: date
+        convEndDate:
+          description: Convertible End Date
+          type: string
+          format: date
+        convFrequency:
+          description: Convertible Frequency
+          type: string
+        convId:
+          description: Convertible Type Id
+          type: integer
+        convIdentification:
+          description: Convertible Identification
+          type: string
+        convNoticeDaysMax:
+          description: Convertible Notice Max
+          type: integer
+        convNoticeDaysMin:
+          description: Convertible Notice Min
+          type: integer
+        convPayForm:
+          description: Convertible Payment Form
+          type: string
+        convPayFormDet:
+          description: Convertible Payment Form Detail
+          type: string
+        convPayFormElect:
+          description: Convertible Payment Form Election
+          type: string
+        convPremChgControl:
+          description: Convertible Premium Change Control
+          type: number
+          format: double
+        convPriceMethod:
+          description: Convertible Price Method
+          type: string
+        convRatio:
+          description: Convertibles Ratio
+          type: number
+          format: double
+        convRatioDesc:
+          description: Convertible Ratio Form Description
+          type: string
+        convType:
+          description: Convertible Type
+          type: string
+    convertibleHistoryResponse:
+      title: Convertible History Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/convertibleHistory'
+    convertibleHistory:
+      title: Convertible History
+      type: object
+      description: Convertible Details for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convEffDate:
+          description: Convertible Effective Date
+          type: string
+          format: date
+        convPrice:
+          description: Convertibles Price
+          type: number
+          format: double
+        convRatio:
+          description: Convertibles Ratio
+          type: number
+          format: double
+        convUlyFsymId:
+          description: Convertibles Underlying FactSet Permanent Identifier
+          type: string
+    convertibleTriggersResponse:
+      title: Convertible Triggers Response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/convertibleTriggers'
+    convertibleTriggers:
+      title: Convertible Triggers
+      type: object
+      description: Convertible Triggers for a Fixed Income security.
+      properties:
+        requestId:
+          description: Security identifier used in the request.
+          type: string
+        fsymId:
+          description: FactSet Permanent Security Identifier.
+          type: string
+        convTriggerEvent:
+          description: Convertible Trigger Event
+          type: string
+        convTriggerEventDesc:
+          description: Convertible Trigger Event Description
+          type: string
+        triggerId:
+          description: Convertible Trigger Id
+          type: integer
+    termsAndConditionsScalarRequest:
+      title: General Ids Request
+      type: object
+      properties:
+        ids:
+          description: >
+            List of Fixed Income Security identifiers. Supported symbol types
+            include CUSIP, SEDOL, ISIN, and FactSet Security Permanent
+            Identifier (-S).
+
+
+            **ID LIMIT = 250** *per request*.
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 250
+          example:
+            - 30231GBJ
+            - 88579EAA
+      required:
+        - ids
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-georev/v1/superRegion
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  examples:
+    FixedIncomeTermsAndConditionsRequest:
+      description: Fixed Income Terms And Conditions Data Item Request
+      value:
+        ids:
+          - 30231GBJ
+        fields:
+          - maturityDate
+          - principalAmt
+          - denomMin
+          - issueDesc
+    FixedIncomeTermsAndConditionsCategoryRequest:
+      description: Fixed Income Terms And Conditions Category Request
+      value:
+        ids:
+          - 30231GBJ
+        categories:
+          - SECURITY_DETAILS
+    FixedIncomeAgentsRequest:
+      description: Fixed Income Agents Request
+      value:
+        ids:
+          - 30231GBJ
+    FixedIncomeCovenantDetailsRequest:
+      description: Fixed Income Covenant Details Request
+      value:
+        ids:
+          - 00107TAA
+    FixedIncomeIssueSizeRequest:
+      description: Fixed Income Issue Size Request
+      value:
+        ids:
+          - W71259AA
+    fixedIncomeRedemptionPricesRequest:
+      description: Fixed Income Redemption Prices Request
+      value:
+        ids:
+          - 88579EAA
+        categories:
+          - CALL
+          - PUT
+    fixedIncomeLeadUnderwritersRequest:
+      description: Fixed Income Lead Underwriters Request
+      value:
+        ids:
+          - 88579EAA
+    FixedIncomeUseOfProceedsRequest:
+      description: Fixed Income Use of Proceeds Request
+      value:
+        ids:
+          - W7519AAG
+    FixedIncomeConvertibleRequest:
+      description: Fixed Income Convertible Request
+      value:
+        ids:
+          - 90138VAA
+          - E0002VAA
+    metricsRequest:
+      description: Metrics Request
+      value:
+        category: SECURITY_DETAILS
+    fixedIncomeAgentsResponse:
+      description: Fixed Income Agents Response
+      value:
+        data:
+          - requestId: 30231GBJ
+            fsymId: QB23QR-S
+            agentEntityId: 05FBK7-E
+            agentCommAmt: 62.6
+            agentName: Morgan Stanley & Co. LLC
+            agentType: Joint Book-Running Manager
+          - requestId: 30231GBJ
+            fsymId: QB23QR-S
+            agentEntityId: 0044MT-E
+            agentCommAmt: 7
+            agentName: BNP Paribas Securities Corp.
+            agentType: Co-Lead Manager
+          - requestId: 30231GBJ
+            fsymId: QB23QR-S
+            agentEntityId: 002J6J-E
+            agentCommAmt: 7
+            agentName: Deutsche Bank Securities Inc.
+            agentType: Co-Lead Manager
+    fixedIncomeCovenantDetailsResponse:
+      description: Fixed Income Covenant Details Response
+      value:
+        data:
+          - requestId: 00107TAA
+            fsymId: J537XV-S
+            finCovType: Fixed Charge Coverage Ratio
+            finCovDesc: 'The Fixed Charge Coverage Ratio would be at least 2.5 : 1'
+          - requestId: 00107TAA
+            fsymId: J537XV-S
+            finCovType: Debt to EBITDA Ratio
+            finCovDesc: >
+              "Indebtedness" means, with respect to any specified Person,
+              whether or not contingent:
+
+              (1) all indebtedness of such Person in respect of borrowed money;
+
+              (2) all obligations of such Person evidenced by bonds, notes,
+              debentures or similar instruments;
+
+              (3) all obligations of such Person in respect of banker's
+              acceptances, letters of credit or similar instruments;
+
+              (4) all Capital Lease Obligations and Attributable Debt of such
+              Person;
+
+              (5) all obligations of such Person in respect of the deferred and
+              unpaid balance of the purchase price of any property
+
+              or services, which purchase price is due more than six months
+              after the date of placing such property in service
+
+              or taking delivery and title thereto or the completion of such
+              services;
+
+              (6) all Hedging Obligations of such Person to the extent they
+              appear as a liability on the balance sheet
+
+              of such Person prepared in accordance with U.S. GAAP;
+
+              (7) all Disqualified Stock issued by such Person, valued at the
+              greater of its voluntary
+
+              or involuntary liquidation preference and its maximum fixed
+              repurchase price plus accrued dividends;
+
+              or (8) all Preferred Stock issued by a Subsidiary of such Person,
+              valued at the greater of its voluntary
+
+              or involuntary liquidation preference and its maximum fixed
+              repurchase price plus accrued dividends;
+
+              (9) all Indebtedness of others secured by a Lien on any asset of
+              the specified Person;
+
+              (10) to the extent not otherwise included, the Guarantee by the
+              specified Person of any Indebtedness of any other Person.
+    FixedIncomeGuarantorsResponse:
+      description: Fixed Income Guarantors Response
+      value:
+        data:
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            agentEntityId: 0LX3GN-E
+            agentCommAmt: null
+            agentName: Radisson Hospitality Belgium BVBA/SPRL
+            agentType: Guarantor
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            agentEntityId: 0LX3GP-E
+            agentCommAmt: null
+            agentName: Radisson Hotel Management & Development A/S
+            agentType: Guarantor
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            agentEntityId: 0LT6BW-E
+            agentCommAmt: null
+            agentName: Radisson Hotels ApS Danmark Ltd.
+            agentType: Guarantor
+    fixedIncomeNegativeCovenantsResponse:
+      description: Fixed Income Negative Covenants Response
+      value:
+        data:
+          - requestId: 00102JAA
+            fsymId: Q6B8MX-S
+            covenantLvl: Borrower
+            covenantType: Liens
+          - requestId: 00102JAA
+            fsymId: Q6B8MX-S
+            covenantLvl: Borrower
+            covenantType: Stock Issuance
+          - requestId: 00102JAA
+            fsymId: Q6B8MX-S
+            covenantLvl: Subsidiary
+            covenantType: Liens
+    fixedIncomeRedemptionPricesResponse:
+      description: Fixed Income Redemption Prices Response
+      value:
+        data:
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2034-12-15'
+            catagory: CALL
+            minAmt: null
+            price: 105
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2035-12-15'
+            catagory: CALL
+            minAmt: null
+            price: 104.5
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2036-12-15'
+            catagory: CALL
+            minAmt: null
+            price: 104
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2018-12-15'
+            catagory: PUT
+            minAmt: null
+            price: 100
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2019-12-15'
+            catagory: PUT
+            minAmt: null
+            price: 100
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2020-12-15'
+            catagory: PUT
+            minAmt: null
+            price: 100
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            date: '2021-12-15'
+            catagory: PUT
+            minAmt: null
+            price: 100
+    FixedIncomeSinkingFundPricesResponse:
+      description: Fixed Income Sinking Fund Prices Response
+      value:
+        data:
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2019-05-01'
+            category: SF
+            minAmt: 7.5
+            price: 100
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2019-11-01'
+            category: SF
+            minAmt: 7.5
+            price: 100
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2020-05-01'
+            category: SF
+            minAmt: 7.5
+            price: 100
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2020-11-01'
+            category: SF
+            minAmt: 7.5
+            price: 100
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2021-05-01'
+            category: SF
+            minAmt: 7.5
+            price: 100
+          - requestId: 28226BAH
+            fsymId: JXJLW4-S
+            date: '2024-01-31'
+            category: SF
+            minAmt: 7.5
+            price: 100
+    fixedIncomeCouponHistoryResponse:
+      description: Fixed Income Coupon Details Response
+      value:
+        data:
+          - requestId: ES0265936007
+            fsymId: Q2KW45-S
+            date: '2019-01-18'
+            couponBasketFlag: null
+            couponEffPmtDate: '2020-01-18'
+            couponFormula: null
+            couponInitResetDate: null
+            couponLink: null
+            couponMargin: null
+            couponMinFloatRate: null
+            couponStructSubCode: null
+            couponTypeStruct: Fixed Rate
+            couponVarPmtFlag: false
+            underlyingIndex: null
+          - requestId: ES0265936007
+            fsymId: Q2KW45-S
+            date: '2024-01-18'
+            couponBasketFlag: false
+            couponEffPmtDate: '2025-01-18'
+            couponFormula: '{EUR Swap - 5Y} + 5.927%'
+            couponInitResetDate: '2025-01-18'
+            couponLink: Interest Rate Linked
+            couponMargin: 592.7
+            couponMinFloatRate: null
+            couponStructSubCode: null
+            couponTypeStruct: Floating
+            couponVarPmtFlag: false
+            underlyingIndex: EUR Swap - 5Y
+    fixedIncomeCouponSchedulesResponse:
+      description: Fixed Income Coupon Schedules Response
+      value:
+        data:
+          - requestId: ES0265936007
+            fsymId: Q2KW45-S
+            date: '2019-01-18'
+    fixedIncomeIssueSizeResponse:
+      description: Fixed Income Issue Size Response
+      value:
+        data:
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            outAmtEffDate: '2020-09-01'
+            outAmtCurrency: EUR
+            outAmt: 0
+            outAmtChange: 250
+            outAmtChangePrice: 103.438
+            outAmtChangeType: Balance of Issue Called
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            outAmtEffDate: '2018-07-06'
+            outAmtCurrency: EUR
+            outAmt: 250
+            outAmtChange: 250
+            outAmtChangePrice: 99.473
+            outAmtChangeType: Initial Offering
+    fixedIncomeTermsAndConditionsResponse:
+      description: >-
+        Fixed Income Terms And Conditions Response after requesting
+        `principalAmt`,`maturityDate`,`denomMin`,and `issueDesc`.
+      value:
+        data:
+          - requestId: 30231GBJ
+            issueDesc: $1,000,000,000 3.294% Notes due 2027
+            maturityDate: '2027-03-19'
+            fsymId: D39KPF-S
+            denomMin: 2000
+            principalAmt: 1000
+          - requestId: 88579EAA
+            issueDesc: $62,326,000 Floating Rate Notes due December 15, 2044
+            maturityDate: '2044-12-15'
+            fsymId: BG7Z0W-S
+            denomMin: 1000
+            principalAmt: 1000
+    FixedIncomeCouponDetailsResponse:
+      description: Fixed Income Coupon Details Response
+      value:
+        data:
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            businessCalendar: null
+            businessDay: null
+            coupon: null
+            couponChange: null
+            couponCurrency: EUR
+    FixedIncomeRedemptionOptionsResponse:
+      description: Fixed Income Redemption Options Response
+      value:
+        data:
+          - requestId: W71259AA
+            fsymId: BJHY14-S
+            basketDesc: null
+            basketFlag: null
+            callFreq: null
+            callNextDate: null
+            callNextPrice: null
+    FixedIncomeSecurityDetailsResponse:
+      description: Fixed Income Security Details Response
+      value:
+        data:
+          - requestId: 00206RAU
+            fsymId: QB23QR-S
+    fixedIncomeLeadUnderwritersResponse:
+      description: Fixed Income Lead Underwriters Response
+      value:
+        data:
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            factsetLeadUwritrEntityId: 007GC3-E
+          - requestId: 88579EAA
+            fsymId: BG7Z0W-S
+            factsetLeadUwritrEntityId: 002Y4H-E
+    fixedIncomeUseOfProceedsResponse:
+      description: Fixed Income Use of Proceeds Response
+      value:
+        data:
+          - requestId: W7519AAG
+            fsymId: WLB9DF-S
+            useOfProceeds: Potential Future Mergers & Acquisitions
+          - requestId: W7519AAG
+            fsymId: WLB9DF-S
+            useOfProceeds: Refinance
+          - requestId: W7519AAG
+            fsymId: WLB9DF-S
+            useOfProceeds: General Corporate Purposes
+          - requestId: W7519AAG
+            fsymId: WLB9DF-S
+            useOfProceeds: Investment in Marketable Securities
+    fixedIncomeConvertibleDetailsResponse:
+      description: Fixed Income Convertible Details Response
+      value:
+        data:
+          - convCurr: USD
+            convEffDate: '2025-08-01'
+            convEndDate: '2026-01-29'
+            convFrequency: Continuous on Schedule
+            convId: 28654
+            convIdentification: Whole or Part
+            convNoticeDaysMax: null
+            convNoticeDaysMin: null
+            convPayForm: Cash or Physical or (Physical and Cash)
+            convPayFormDet: null
+            convPayFormElect: By Issuer
+            convPremChgControl: null
+            convPriceMethod: Fixed
+            convRatio: 18.3574
+            convRatioDesc: null
+            convType: Optional by Holder
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convCurr: USD
+            convEffDate: '2021-01-26'
+            convEndDate: '2025-07-31'
+            convFrequency: Continuous on Schedule
+            convId: 29550
+            convIdentification: Whole or Part
+            convNoticeDaysMax: null
+            convNoticeDaysMin: null
+            convPayForm: Cash or Physical or (Physical and Cash)
+            convPayFormDet: null
+            convPayFormElect: By Issuer
+            convPremChgControl: null
+            convPriceMethod: Fixed
+            convRatio: 18.3574
+            convRatioDesc: null
+            convType: Triggered Optional
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convCurr: USD
+            convEffDate: '2021-01-26'
+            convEndDate: '2026-01-30'
+            convFrequency: Continuous on Schedule
+            convId: 29551
+            convIdentification: Whole or Part
+            convNoticeDaysMax: null
+            convNoticeDaysMin: null
+            convPayForm: Cash or Physical or (Physical and Cash)
+            convPayFormDet: null
+            convPayFormElect: By Issuer
+            convPremChgControl: null
+            convPriceMethod: Variable
+            convRatio: 18.3574
+            convRatioDesc: null
+            convType: Triggered Optional
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convCurr: USD
+            convEffDate: '2021-07-01'
+            convEndDate: '2025-07-31'
+            convFrequency: Continuous on Schedule
+            convId: 29549
+            convIdentification: Whole or Part
+            convNoticeDaysMax: null
+            convNoticeDaysMin: null
+            convPayForm: Cash or Physical or (Physical and Cash)
+            convPayFormDet: null
+            convPayFormElect: By Issuer
+            convPremChgControl: null
+            convPriceMethod: Fixed
+            convRatio: 18.3574
+            convRatioDesc: null
+            convType: Triggered Optional
+            fsymId: SMH439-S
+            requestId: 90138VAA
+    fixedIncomeConvertibleHistoryResponse:
+      description: Fixed Income Convertible History Response
+      value:
+        data:
+          - convEffDate: '2025-08-01'
+            convPrice: 54.47
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convEffDate: '2021-01-26'
+            convPrice: 54.47
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convEffDate: '2021-01-26'
+            convPrice: 54.47
+            fsymId: SMH439-S
+            requestId: 90138VAA
+          - convEffDate: '2021-07-01'
+            convPrice: 54.47
+            fsymId: SMH439-S
+            requestId: 90138VAA
+    fixedIncomeConvertibleTriggersResponse:
+      description: Fixed Income Convertible Triggers Response
+      value:
+        data:
+          - convTriggerEvent: Price of Convertible Instrument
+            convTriggerEventDesc: null
+            fsymId: SMH439-S
+            requestId: 90138VAA
+            triggerId: 21161
+          - convTriggerEvent: Announced Redemption
+            convTriggerEventDesc: null
+            fsymId: SMH439-S
+            requestId: 90138VAA
+            triggerId: 21162
+          - convTriggerEvent: Distribution of Entitlements
+            convTriggerEventDesc: null
+            fsymId: SMH439-S
+            requestId: 90138VAA
+            triggerId: 21163
+          - convTriggerEvent: Fundamental Change
+            convTriggerEventDesc: Make-Whole
+            fsymId: SMH439-S
+            requestId: 90138VAA
+            triggerId: 21164
+          - convTriggerEvent: Commodity Price Performance
+            convTriggerEventDesc: null
+            fsymId: SMH439-S
+            requestId: 90138VAA
+            triggerId: 21160
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:48:42.016'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use
+          /factset-terms-and-conditions/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-terms-and-conditions/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

@@ -1,0 +1,14 @@
+{
+  "projectName": "@factset/sdk-factsetfundamentals",
+  "projectVersion": "0.9.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetfundamentals",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetFundamentals/0.9.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

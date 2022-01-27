@@ -1,0 +1,5502 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: debtInstrument endpoints
+  name: debtInstrument
+paths:
+  /debtInstrument/get:
+    get:
+      description: Fundamental data for a debt instrument; any other instrument yields
+        empty values for debt-instrument-specific attributes. Dates are interpreted
+        in the timezone of the issuer.
+      operationId: get/debtInstrument/get
+      parameters:
+      - description: Identifier of the instrument.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Fundamental data for a debt instrument.
+      tags:
+      - debtInstrument
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /debtInstrument/issuer/search:
+    post:
+      description: Search for issuers of debt instruments. FactSet does not consolidate
+        the data provided by different suppliers, therefore the result may contain
+        more than one identifier for a given issuer. The response is limited to 100
+        results.
+      operationId: post/debtInstrument/issuer/search
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_debtInstrument_issuer_search_data'
+                meta:
+                  $ref: '#/components/schemas/_debtInstrument_issuer_search_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: Search for issuers of debt instruments.
+      tags:
+      - debtInstrument
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /debtInstrument/keyFigures/notation/get:
+    get:
+      description: Key figures of a debt instrument. The key figures are calculated
+        using delayed prices with an additional delay of 10 minutes after an  update
+        of the debt instrument's price. Special product features such as the right
+        to a maturity extension, an attached option, or convertibility are not considered
+        for the key figure calculation. Further, a calculation is not performed for
+        perpetual products and for products with variable interest rate.
+      operationId: get/debtInstrument/keyFigures/notation/get
+      parameters:
+      - description: Identifier of a notation.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: Key figures of a debt instrument.
+      tags:
+      - debtInstrument
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /debtInstrument/notation/screener/search:
+    post:
+      description: Screener for debt instruments' notations based on debt instrument-specific
+        parameters. The result is limited to the notations that satisfy all the selected
+        filters. If more than one notation of an instrument matches the parameters,
+        and no market priority has been specified, only the notation with the highest
+        trading volume, averaged over one month, is considered.
+      operationId: post/debtInstrument/notation/screener/search
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data'
+                meta:
+                  $ref: '#/components/schemas/_debtInstrument_notation_screener_search_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: Screener for debt instruments' notations based on debt instrument-specific
+        parameters.
+      tags:
+      - debtInstrument
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /debtInstrument/notation/screener/valueRanges/get:
+    post:
+      description: The endpoint returns the possible values and value ranges for the
+        parameters used in the endpoint `/debtInstrument/notation/screener/search`.
+        It allows to request the values and value ranges only for a restricted set
+        of notations that match predefined parameters. The functionality may be used
+        to pre-fill the values and value ranges of the parameters of the `/debtInstrument/notation/screener/search`
+        endpoint so that performing a search always leads to a non-empty set of notations.
+        If more than one notation of an instrument matches the parameters, and no
+        market priority has been specified, only the notation with the highest trading
+        volume, averaged over one month, is considered.
+      operationId: post/debtInstrument/notation/screener/valueRanges/get
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_2'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_data'
+                meta:
+                  $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_meta'
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful Response
+      summary: Possible values and value ranges for the parameters used in the endpoint
+        `/debtInstrument/notation/screener/search.`
+      tags:
+      - debtInstrument
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+      required: false
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: false
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
+      required: false
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 1.2315135367772556
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    CursorBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the cursor-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - next
+      - previous
+      type: object
+      x-property-sort:
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      example:
+        total: 9.018348186070783
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    OffsetBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the offset-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        hasNext:
+          description: Flag indicating that a subsequent request with the same parameters,
+            except that the parameter `pagination.offset` is incremented by `pagination.limit`,
+            would yield additional results.
+          type: boolean
+      required:
+      - hasNext
+      type: object
+      x-property-sort:
+      - hasNext
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      example:
+        isPartial: true
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If `true`, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    inline_response_200_data_nsin:
+      description: NSIN data of the instrument.
+      example:
+        valor: valor
+        wkn: wkn
+      properties:
+        wkn:
+          description: The WKN (Wertpapierkennnummer, German for Securities Identification
+            Number) of the instrument. The WKN is a 6-character code of digits and
+            upper-case letters that uniquely identifies an instrument.
+          type: string
+        valor:
+          description: 'The Valor number (German: Valorennummer) of the instrument.
+            The Valor number is an integer number that uniquely identifies an instrument.'
+          type: string
+      type: object
+      x-property-sort:
+      - wkn
+      - valor
+    inline_response_200_data_type:
+      example:
+        name: name
+        id: 0.8008281904610115
+      properties:
+        id:
+          description: Identifier of the instrument type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the instrument type.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_data_lifeCycle_maturity:
+      description: Maturity data.
+      example:
+        date: 2000-01-23
+        isCallable: true
+        isPerpetual: true
+      properties:
+        date:
+          description: Date of the instrument's maturity. The value is empty if the
+            instrument is perpetual.
+          format: date
+          type: string
+        isPerpetual:
+          description: If true, the instrument is perpetual, i.e. it does not mature,
+            therefore the attribute `date` is null.
+          type: boolean
+        isCallable:
+          description: If true, the issuer may redeem the instrument prior to maturity.
+          type: boolean
+      type: object
+      x-property-sort:
+      - date
+      - isPerpetual
+      - isCallable
+    inline_response_200_data_lifeCycle:
+      description: Important dates of the instrument.
+      example:
+        issue: 2000-01-23
+        maturity:
+          date: 2000-01-23
+          isCallable: true
+          isPerpetual: true
+      properties:
+        issue:
+          description: Date of the issue.
+          format: date
+          type: string
+        maturity:
+          $ref: '#/components/schemas/inline_response_200_data_lifeCycle_maturity'
+      type: object
+      x-property-sort:
+      - issue
+      - maturity
+    inline_response_200_data_issuer:
+      description: Issuer of the instrument. See endpoint `/legalEntity/list` for
+        possible values.
+      example:
+        lei: lei
+        name: name
+        id: id
+      properties:
+        id:
+          description: Identifier of the issuer.
+          format: id64
+          type: string
+          x-positive: true
+        name:
+          description: Name of the issuer.
+          type: string
+        lei:
+          description: Legal Entity Identifier of the issuer.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - lei
+    inline_response_200_data_issue_price_valueUnit:
+      description: Value unit of the issue price such as percentages for a debt instrument
+        quoted in percent, or a main or a fractional currency for a per-unit-quoted
+        debt instrument (rarely). See endpoint `/basic/valueUnit/list` for possible
+        values.
+      example:
+        code: code
+        id: 1.4658129805029452
+      properties:
+        id:
+          description: Identifier of the value unit.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: Code of the value unit.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+    inline_response_200_data_issue_price:
+      description: Issue price data.
+      example:
+        valueUnit:
+          code: code
+          id: 1.4658129805029452
+        value: 6.027456183070403
+      properties:
+        value:
+          description: Issue price.
+          format: real
+          type: number
+        valueUnit:
+          $ref: '#/components/schemas/inline_response_200_data_issue_price_valueUnit'
+      type: object
+      x-property-sort:
+      - value
+      - valueUnit
+    inline_response_200_data_issue_volume_currency:
+      description: Main currency of denomination of the issue volume. See endpoint
+        `/basic/valueUnit/currency/main/list` for possible values.
+      example:
+        code: code
+        isoCode: isoCode
+        id: 5.637376656633329
+      properties:
+        id:
+          description: Identifier of the currency.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: 'Code of the currency: if assigned, a code according to ISO
+            4217, otherwise a local code.'
+          type: string
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+      - isoCode
+    inline_response_200_data_issue_volume:
+      description: Issue volume data.
+      example:
+        amount: 5.962133916683182
+        currency:
+          code: code
+          isoCode: isoCode
+          id: 5.637376656633329
+      properties:
+        amount:
+          description: Issue volume.
+          format: real
+          type: number
+        currency:
+          $ref: '#/components/schemas/inline_response_200_data_issue_volume_currency'
+      type: object
+      x-property-sort:
+      - amount
+      - currency
+    inline_response_200_data_issue:
+      description: Issue data of the instrument.
+      example:
+        volume:
+          amount: 5.962133916683182
+          currency:
+            code: code
+            isoCode: isoCode
+            id: 5.637376656633329
+        price:
+          valueUnit:
+            code: code
+            id: 1.4658129805029452
+          value: 6.027456183070403
+      properties:
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_issue_price'
+        volume:
+          $ref: '#/components/schemas/inline_response_200_data_issue_volume'
+      type: object
+      x-property-sort:
+      - price
+      - volume
+    inline_response_200_data_tradingVolume:
+      description: Requirements regarding the trading volume in the over-the-counter
+        (non-exchange-based) trading. For the currency of the trading volume, see
+        attribute `issue.volume.currency`.
+      example:
+        increment: 7.061401241503109
+        minimum: 2.3021358869347655
+      properties:
+        minimum:
+          description: Minimum trading volume.
+          format: real
+          type: number
+        increment:
+          description: Incremental trading volume over the minimum. The trading volume
+            over the minimum must be an integral multiple of the increment.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - increment
+    inline_response_200_data_redemption_price_valueUnit:
+      description: Value unit of the redemption price such as percentages for a debt
+        instrument quoted in percent, or a main or a fractional currency for a per-unit-quoted
+        debt instrument (rarely). See endpoint `/basic/valueUnit/list` for possible
+        values.
+      example:
+        code: code
+        id: 3.616076749251911
+      properties:
+        id:
+          description: Identifier of the value unit.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: Code of the value unit.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+    inline_response_200_data_redemption_price:
+      description: Redemption price data.
+      example:
+        valueUnit:
+          code: code
+          id: 3.616076749251911
+        value: 9.301444243932576
+      properties:
+        value:
+          description: Redemption price.
+          format: real
+          type: number
+        valueUnit:
+          $ref: '#/components/schemas/inline_response_200_data_redemption_price_valueUnit'
+      type: object
+      x-property-sort:
+      - value
+      - valueUnit
+    inline_response_200_data_redemption_currency:
+      description: Main currency of the redemption. See endpoint `/basic/valueUnit/currency/main/list`
+        for possible values.
+      example:
+        code: code
+        isoCode: isoCode
+        id: 2.027123023002322
+      properties:
+        id:
+          description: Identifier of the currency.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: 'Code of the currency: if assigned, a code according to ISO
+            4217, otherwise a local code.'
+          type: string
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+      - isoCode
+    inline_response_200_data_redemption:
+      description: Redemption data of the instrument.
+      example:
+        price:
+          valueUnit:
+            code: code
+            id: 3.616076749251911
+          value: 9.301444243932576
+        currency:
+          code: code
+          isoCode: isoCode
+          id: 2.027123023002322
+      properties:
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_redemption_price'
+        currency:
+          $ref: '#/components/schemas/inline_response_200_data_redemption_currency'
+      type: object
+      x-property-sort:
+      - price
+      - currency
+    inline_response_200_data_debtRanking:
+      description: Ranking data of the debt instrument. It indicates how payments
+        related to the debt instrument are ranked  compared to payments on the issuer's
+        other obligations.
+      example:
+        name: name
+        id: 7.386281948385884
+      properties:
+        id:
+          description: Identifier of the debt ranking.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the debt ranking.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_data_germany:
+      description: Specific data for Germany.
+      example:
+        isTrusteeEligible: true
+      properties:
+        isTrusteeEligible:
+          description: If true, the debt instrument is eligible for investments by
+            trustees according to §§1806ff of the BGB (German Civil Code). The German
+            legislative has declared it to be virtually free of the risk of loss,
+            such as government and state bonds. Eligible are primarily German securities.
+          type: boolean
+      type: object
+      x-property-sort:
+      - isTrusteeEligible
+    inline_response_200_data:
+      description: Fundamental data for a debt instrument.
+      example:
+        issue:
+          volume:
+            amount: 5.962133916683182
+            currency:
+              code: code
+              isoCode: isoCode
+              id: 5.637376656633329
+          price:
+            valueUnit:
+              code: code
+              id: 1.4658129805029452
+            value: 6.027456183070403
+        germany:
+          isTrusteeEligible: true
+        type:
+        - name: name
+          id: 0.8008281904610115
+        - name: name
+          id: 0.8008281904610115
+        debtRanking:
+          name: name
+          id: 7.386281948385884
+        tradingVolume:
+          increment: 7.061401241503109
+          minimum: 2.3021358869347655
+        issuer:
+          lei: lei
+          name: name
+          id: id
+        redemption:
+          price:
+            valueUnit:
+              code: code
+              id: 3.616076749251911
+            value: 9.301444243932576
+          currency:
+            code: code
+            isoCode: isoCode
+            id: 2.027123023002322
+        name: name
+        nsin:
+          valor: valor
+          wkn: wkn
+        shortName: shortName
+        lifeCycle:
+          issue: 2000-01-23
+          maturity:
+            date: 2000-01-23
+            isCallable: true
+            isPerpetual: true
+        nominalValue: 4.145608029883936
+        isin: isin
+      properties:
+        isin:
+          description: The International Securities Identification Number (ISIN) of
+            the instrument. The ISIN is a 12-character code of digits and upper-case
+            letters that uniquely identifies an instrument.
+          format: isin
+          type: string
+        nsin:
+          $ref: '#/components/schemas/inline_response_200_data_nsin'
+        name:
+          description: Name of the instrument.
+          format: localizedString
+          type: string
+        shortName:
+          description: Short name of the instrument.
+          format: localizedString
+          type: string
+        type:
+          description: Instrument type as defined by FactSet Digital Solutions. Instrument
+            types are arranged in a hierarchy, with the first level representing the
+            most coarse granularity and further levels successively refining the granularity
+            (see MDG category system 18). See endpoint `/category/get` for possible
+            values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_data_type'
+          type: array
+        lifeCycle:
+          $ref: '#/components/schemas/inline_response_200_data_lifeCycle'
+        issuer:
+          $ref: '#/components/schemas/inline_response_200_data_issuer'
+        issue:
+          $ref: '#/components/schemas/inline_response_200_data_issue'
+        tradingVolume:
+          $ref: '#/components/schemas/inline_response_200_data_tradingVolume'
+        redemption:
+          $ref: '#/components/schemas/inline_response_200_data_redemption'
+        nominalValue:
+          description: Nominal value for per-unit quoted debt instruments. Debt instruments
+            quoted in percent do not have a nominal value per se.
+          format: real
+          type: number
+        debtRanking:
+          $ref: '#/components/schemas/inline_response_200_data_debtRanking'
+        germany:
+          $ref: '#/components/schemas/inline_response_200_data_germany'
+      type: object
+      x-property-sort:
+      - isin
+      - nsin
+      - name
+      - shortName
+      - type
+      - lifeCycle
+      - issuer
+      - issue
+      - tradingVolume
+      - redemption
+      - nominalValue
+      - debtRanking
+      - germany
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 1.2315135367772556
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200:
+      example:
+        data:
+          issue:
+            volume:
+              amount: 5.962133916683182
+              currency:
+                code: code
+                isoCode: isoCode
+                id: 5.637376656633329
+            price:
+              valueUnit:
+                code: code
+                id: 1.4658129805029452
+              value: 6.027456183070403
+          germany:
+            isTrusteeEligible: true
+          type:
+          - name: name
+            id: 0.8008281904610115
+          - name: name
+            id: 0.8008281904610115
+          debtRanking:
+            name: name
+            id: 7.386281948385884
+          tradingVolume:
+            increment: 7.061401241503109
+            minimum: 2.3021358869347655
+          issuer:
+            lei: lei
+            name: name
+            id: id
+          redemption:
+            price:
+              valueUnit:
+                code: code
+                id: 3.616076749251911
+              value: 9.301444243932576
+            currency:
+              code: code
+              isoCode: isoCode
+              id: 2.027123023002322
+          name: name
+          nsin:
+            valor: valor
+            wkn: wkn
+          shortName: shortName
+          lifeCycle:
+            issue: 2000-01-23
+            maturity:
+              date: 2000-01-23
+              isCallable: true
+              isPerpetual: true
+          nominalValue: 4.145608029883936
+          isin: isin
+        meta:
+          status:
+            code: 1.2315135367772556
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _debtInstrument_issuer_search_data_name:
+      description: Issuer name.
+      properties:
+        searchValue:
+          description: Text string to be searched for.
+          maxLength: 100
+          minLength: 3
+          pattern: ^[ -!#-&(-+--/0-:=?-Za-zw"]*$
+          type: string
+      type: object
+      x-property-sort:
+      - searchValue
+    _debtInstrument_issuer_search_data_minimumRatingGrade_debtInstrument:
+      description: Debt instrument rating. Only issuers whose debt instruments are
+        rated higher than or equal to the rating grades in the provided list are returned.
+      properties:
+        ids:
+          description: List of rating grade identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 5
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_issuer_search_data_minimumRatingGrade:
+      description: Minimum rating grade requirements for the issuers or their debt
+        instruments. In either case, only one identifier per rating system is allowed.
+        See endpoint `/rating/grade/listBySystem` for valid values.
+      properties:
+        debtInstrument:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data_minimumRatingGrade_debtInstrument'
+      type: object
+      x-property-sort:
+      - debtInstrument
+    _debtInstrument_issuer_search_data_country:
+      description: List of countries of registration of the issuers. Only issuers
+        that are registered in a country in the provided list are returned.
+      properties:
+        ids:
+          description: List of country identifiers. See endpoint `/basic/region/country/list`
+            for valid values.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 20
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_issuer_search_data_market:
+      description: List of markets where debt instruments are traded. Only issuers
+        that have issued at least one debt instrument traded on a market in the provided
+        list are returned.
+      properties:
+        ids:
+          description: List of market identifiers. See endpoint `/basic/market/list`
+            for valid values.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 20
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_issuer_search_data:
+      description: The data member contains the request's primary data.
+      properties:
+        name:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data_name'
+        minimumRatingGrade:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data_minimumRatingGrade'
+        country:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data_country'
+        market:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data_market'
+      type: object
+      x-property-sort:
+      - name
+      - minimumRatingGrade
+      - country
+      - market
+    _debtInstrument_issuer_search_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - attributes
+    inline_object:
+      properties:
+        data:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_data'
+        meta:
+          $ref: '#/components/schemas/_debtInstrument_issuer_search_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_1_data:
+      example:
+        name: name
+        count: 6.027456183070403
+        id: 0.8008281904610115
+      properties:
+        id:
+          description: Identifier of an issuer.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the issuer.
+          type: string
+        count:
+          description: Number of debt instruments issued.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - count
+    inline_response_200_1:
+      example:
+        data:
+        - name: name
+          count: 6.027456183070403
+          id: 0.8008281904610115
+        - name: name
+          count: 6.027456183070403
+          id: 0.8008281904610115
+        meta:
+          status:
+            code: 1.2315135367772556
+      properties:
+        data:
+          description: List of issuers, sorted descending by the number of debt instruments
+            issued.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_2_data_calculation_price_valueUnit:
+      description: Value unit of the notation of the debt instrument, such as a main
+        currency for a per-unit-quoted debt instrument (rarely), or percentages for
+        a debt instrument quoted in percent. See endpoint `/basic/valueUnit/list`
+        for possible values.
+      example:
+        code: code
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the value unit.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: Code of the value unit.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+    inline_response_200_2_data_calculation_price:
+      description: Price used for the calculation.
+      example:
+        valueUnit:
+          code: code
+          id: 6.027456183070403
+        dirtyPricing: true
+        value: 0.8008281904610115
+      properties:
+        value:
+          description: Price value.
+          format: real
+          type: number
+        valueUnit:
+          $ref: '#/components/schemas/inline_response_200_2_data_calculation_price_valueUnit'
+        dirtyPricing:
+          description: If true, the attribute `price.value` contains the accrued interest.
+          type: boolean
+      type: object
+      x-property-sort:
+      - value
+      - valueUnit
+      - dirtyPricing
+    inline_response_200_2_data_calculation:
+      description: Details of the calculation.
+      example:
+        price:
+          valueUnit:
+            code: code
+            id: 6.027456183070403
+          dirtyPricing: true
+          value: 0.8008281904610115
+        time: time
+      properties:
+        time:
+          description: Date and time of the calculation.
+          format: datetime
+          type: string
+        price:
+          $ref: '#/components/schemas/inline_response_200_2_data_calculation_price'
+      type: object
+      x-property-sort:
+      - time
+      - price
+    inline_response_200_2_data_yield:
+      description: Yield-related key figures.
+      example:
+        current: 1.4658129805029452
+        toMaturity: 5.962133916683182
+        spread: 5.637376656633329
+      properties:
+        current:
+          description: Current yield, which is the next annual interest payment divided
+            by the price. If the coupon period is different than a year, the interest
+            payment is annualized.
+          format: relativeValue
+          type: number
+        toMaturity:
+          description: Yield to maturity, which is the annual rate of return, assuming
+            the instrument is held until maturity.
+          format: relativeValue
+          type: number
+        spread:
+          description: Credit spread, which is the difference in yield to maturity
+            between a highest-quality debt instrument, also called a benchmark bond,
+            and the debt instrument. See endpoint `/instrument/benchmark/list` for
+            the benchmark bond.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - current
+      - toMaturity
+      - spread
+    inline_response_200_2_data_sensitivities:
+      description: Price sensitivities of the debt instrument with respect to the
+        prevailing market interest rate.
+      example:
+        elasticity: 3.616076749251911
+        basePointValue: 7.061401241503109
+        modifiedDuration: 9.301444243932576
+        convexity: 2.027123023002322
+      properties:
+        basePointValue:
+          description: Base point value, which is the change of the debt instrument's
+            price for a one base point change (nominally, not relatively) of the prevailing
+            market interest rate. One base point is equivalent to 0,01 percent (1/100
+            of a percent). See attribute `price/valueUnit` for its value unit.
+          format: real
+          type: number
+        modifiedDuration:
+          description: Modified duration, which is the percentage change of the debt
+            instrument's price for a one percent change (nominally, not relatively)
+            of the prevailing market interest rate.
+          format: relativeValue
+          type: number
+        elasticity:
+          description: Yield elasticity, which is the ratio of the percentage change
+            of the debt instrument's price for a one percent change (relatively, not
+            nominally) of the prevailing market interest rate.
+          format: real
+          type: number
+        convexity:
+          description: Convexity, which is a measure for the change of the modified
+            duration as the prevailing market interest rate changes.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - basePointValue
+      - modifiedDuration
+      - elasticity
+      - convexity
+    inline_response_200_2_data:
+      description: Key figures and related data.
+      example:
+        calculation:
+          price:
+            valueUnit:
+              code: code
+              id: 6.027456183070403
+            dirtyPricing: true
+            value: 0.8008281904610115
+          time: time
+        macaulayDuration: 2.3021358869347655
+        yield:
+          current: 1.4658129805029452
+          toMaturity: 5.962133916683182
+          spread: 5.637376656633329
+        sensitivities:
+          elasticity: 3.616076749251911
+          basePointValue: 7.061401241503109
+          modifiedDuration: 9.301444243932576
+          convexity: 2.027123023002322
+      properties:
+        calculation:
+          $ref: '#/components/schemas/inline_response_200_2_data_calculation'
+        yield:
+          $ref: '#/components/schemas/inline_response_200_2_data_yield'
+        macaulayDuration:
+          description: Macaulay duration, which is the average period (in years) of
+            capital commitment.
+          format: real
+          type: number
+        sensitivities:
+          $ref: '#/components/schemas/inline_response_200_2_data_sensitivities'
+      type: object
+      x-property-sort:
+      - calculation
+      - yield
+      - macaulayDuration
+      - sensitivities
+    inline_response_200_2:
+      example:
+        data:
+          calculation:
+            price:
+              valueUnit:
+                code: code
+                id: 6.027456183070403
+              dirtyPricing: true
+              value: 0.8008281904610115
+            time: time
+          macaulayDuration: 2.3021358869347655
+          yield:
+            current: 1.4658129805029452
+            toMaturity: 5.962133916683182
+            spread: 5.637376656633329
+          sensitivities:
+            elasticity: 3.616076749251911
+            basePointValue: 7.061401241503109
+            modifiedDuration: 9.301444243932576
+            convexity: 2.027123023002322
+        meta:
+          status:
+            code: 1.2315135367772556
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _debtInstrument_notation_screener_search_data_validation_prices_latest:
+      description: Parameters related to the presence and age of the most recent trade
+        price.
+      properties:
+        availableOnly:
+          description: If `true`, only notations for which a trade price (even an
+            outdated one) is available will be returned.
+          type: boolean
+        minimumDate:
+          description: Earliest admissible date of the most recent trade price.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - availableOnly
+      - minimumDate
+    _debtInstrument_notation_screener_search_data_validation_prices_previous:
+      description: Parameters related to the presence and age of a trade price from
+        a preceding trading day.
+      properties:
+        availableOnly:
+          description: If `true`, only notations for which a trade price from a preceding
+            trading day is available will be returned.
+          type: boolean
+        minimumDate:
+          description: Earliest admissible date of the trade price from a preceding
+            trading day.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - availableOnly
+      - minimumDate
+    _debtInstrument_notation_screener_search_data_validation_prices:
+      description: Price-related parameters.
+      properties:
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        latest:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_prices_latest'
+        previous:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_prices_previous'
+      type: object
+      x-property-sort:
+      - quality
+      - latest
+      - previous
+    _debtInstrument_notation_screener_search_data_validation_valueUnit_restrict:
+      description: Specifies the value units a notation may have.
+      properties:
+        ids:
+          description: Set of value unit identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_valueUnit_exclude:
+      description: Specifies the value units a notation may not have.
+      properties:
+        ids:
+          description: Set of value unit identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_valueUnit:
+      description: Value unit selection. See endpoint `/basic/valueUnit/list` for
+        valid values.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_valueUnit_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_valueUnit_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_validation_market_selection_restrict:
+      description: Specifies the markets from which a notation may originate.
+      properties:
+        ids:
+          description: Set of market identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_market_selection_exclude:
+      description: Specifies the markets from which a notation may not originate.
+      properties:
+        ids:
+          description: Set of market identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_market_selection:
+      description: Market selection.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_market_selection_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_market_selection_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_validation_market_priority:
+      description: "Sequence of markets specifying the priority order of the markets\
+        \ for the selection of one notation per instrument. If for a given instrument\
+        \ with two matching notations, A and B, the market of notation A precedes\
+        \ the market of notation B in this list or if the market of notation B is\
+        \ not in this list, A is selected. If neither of the markets is in this list,\
+        \ the notation with the highest trading volume, averaged over one month, is\
+        \ selected.        \n The list does not restrict the request to only those\
+        \ markets (use the parameter `market.selection` for that purpose)."
+      properties:
+        ids:
+          description: List of market identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_market:
+      description: Market-related notation selection. See endpoint `/basic/market/list`
+        for valid values.
+      properties:
+        selection:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_market_selection'
+        priority:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_market_priority'
+      type: object
+      x-property-sort:
+      - selection
+      - priority
+    _debtInstrument_notation_screener_search_data_validation_instrumentSelectionList_restrict:
+      description: Restriction lists. If present, the result contains only notations
+        belonging to debt instruments that are a member of any of the provided lists.
+      properties:
+        ids:
+          description: Set of identifiers of restriction lists.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 3
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_instrumentSelectionList_exclude:
+      description: Exclusion lists. If present, the result does not contain notations
+        belonging to debt instruments that are a member of any of the provided lists.
+      properties:
+        ids:
+          description: Set of identifiers of exclusion lists.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 3
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_instrumentSelectionList:
+      description: Instrument-level restriction or exclusion.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_instrumentSelectionList_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_instrumentSelectionList_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_validation_notationSelectionList_restrict:
+      description: Restriction lists. If present, the result contains only debt instrument
+        notations that are a member of any of the provided lists.
+      properties:
+        ids:
+          description: Set of identifiers of restriction lists.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 3
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_notationSelectionList_exclude:
+      description: Exclusion lists. If present, the result does not contain debt instrument
+        notations that are a member of any of the provided lists.
+      properties:
+        ids:
+          description: Set of identifiers of exclusion lists.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 3
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_notationSelectionList:
+      description: Notation-level restriction or exclusion.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_notationSelectionList_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_notationSelectionList_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_validation_categorization_restrict:
+      description: Restriction list. Only debt instruments that belong to a category
+        in the provided list are returned.
+      properties:
+        ids:
+          description: Set of category identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 20
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_categorization_exclude:
+      description: Exclusion lists. Debt instruments that belong to a category in
+        the provided list are not returned.
+      properties:
+        ids:
+          description: Set of category identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 20
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_validation_categorization:
+      description: Debt instrument categorization. See endpoint `/category/listBySystem`
+        with `id=18` for valid values.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_categorization_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_categorization_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_validation:
+      description: Validation parameters.
+      properties:
+        onlyActive:
+          default: true
+          description: If `true`, only active notations will be returned. The term
+            "active" reflects the fact that notations and related data is not being
+            deleted immediately after becoming irrelevant (e.g. because the source
+            does not provide a price anymore), but remains in general retrievable
+            for up to 6 months.
+          type: boolean
+        onlyNotSuspended:
+          default: false
+          description: If `true`, only notations not suspended from trading will be
+            returned.
+          type: boolean
+        prices:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_prices'
+        valueUnit:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_valueUnit'
+        market:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_market'
+        instrumentSelectionList:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_instrumentSelectionList'
+        notationSelectionList:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_notationSelectionList'
+        categorization:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation_categorization'
+      type: object
+      x-property-sort:
+      - onlyActive
+      - onlyNotSuspended
+      - prices
+      - valueUnit
+      - market
+      - instrumentSelectionList
+      - notationSelectionList
+      - categorization
+    _debtInstrument_notation_screener_search_data_lifeCycle_issue:
+      description: Date range of the issue date.
+      properties:
+        start:
+          description: The starting point of the date range (inclusive), or `null`
+            to indicate that the date range extends indefinitely into the past.
+          format: date
+          type: string
+          x-allowNullValue: true
+        end:
+          description: The ending point of the date range (inclusive), or `null` to
+            indicate that the date range extends indefinitely into the future.
+          format: date
+          type: string
+          x-allowNullValue: true
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+      x-isClosedInterval: true
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_date:
+      description: Date range of the maturity date.
+      properties:
+        start:
+          description: The starting point of the date range (inclusive), or `null`
+            to indicate that the date range extends indefinitely into the past.
+          format: date
+          type: string
+          x-allowNullValue: true
+        end:
+          description: The ending point of the date range (inclusive), or `null` to
+            indicate that the date range extends indefinitely into the future.
+          format: date
+          type: string
+          x-allowNullValue: true
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+      x-isClosedInterval: true
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum:
+      description: The minimum of the range, or `null` to indicate that there is no
+        minimum.
+      properties:
+        value:
+          description: The minimum value.
+          format: real
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the minimum value is included in the range
+            or not.
+          type: boolean
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum:
+      description: The maximum of the range, or `null` to indicate that there is no
+        maximum.
+      properties:
+        value:
+          description: The maximum value.
+          format: real
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the maximum value is included in the range
+            or not.
+          type: boolean
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears:
+      description: Value range for the remaining term to maturity expressed in years.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction:
+      description: The maturity can be restricted by using one of the parameters `date`
+        or `remainingTermYears` but not both at the same time. If a maturity restriction
+        is set, perpetual instruments, i.e. such that do not mature, are not included
+        in the result unless the parameter `perpetual` is set to "include".
+      properties:
+        date:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_date'
+        remainingTermYears:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears'
+      type: object
+      x-property-sort:
+      - date
+      - remainingTermYears
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_lifeCycle_maturity:
+      description: Parameters related to the maturity.
+      properties:
+        restriction:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction'
+        perpetual:
+          description: Defines whether or not perpetual debt instruments, i.e. such
+            that do not mature, are included in the result. The value "only" can be
+            used if both parameters `maturity.restriction.date` and `maturity.restriction.remainingTermYears`
+            are not set.
+          enum:
+          - only
+          - include
+          - exclude
+          type: string
+          x-enum-description:
+          - Only perpetual debt instruments are included in the result.
+          - Perpetual debt instruments are included in the result even if one of the
+            parameters `maturity.restriction.date` or `maturity.restriction.remainingTermYears`
+            is set.
+          - Perpetual debt instruments are excluded from the result.
+      type: object
+      x-property-sort:
+      - restriction
+      - perpetual
+    _debtInstrument_notation_screener_search_data_lifeCycle:
+      description: Parameters related to important dates.
+      properties:
+        issue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_issue'
+        maturity:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity'
+        callable:
+          description: Restricts the result to debt instruments that are callable
+            (`true`) or are not callable (`false`). A callable instrument is one that
+            may be redeemed by the issuer prior to maturity.
+          type: boolean
+      type: object
+      x-property-sort:
+      - issue
+      - maturity
+      - callable
+    _debtInstrument_notation_screener_search_data_rating_grade_minimum:
+      description: Minimum rating grade.
+      properties:
+        ids:
+          description: List of rating grade identifiers. Allowed are at most two identifiers
+            which must refer to rating grades originating from different rating systems.
+            Only debt instruments that satisfy all conditions, i.e. are rated higher
+            than or equal to all provided rating grades, are returned. The sequence
+            of the provided identifiers corresponds to the response attributes `ratingSystem1`
+            and `ratingSystem2` respectively, i.e. the rating grade of a debt instrument
+            in the rating system of which the first identifier in the provided list
+            is a member, is represented by the attribute `ratingSystem1.rating.grade`
+            (and `ratingSystem1.rating.id` for the identifier of the rating grade).
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 2
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_rating_grade:
+      description: Rating grade.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_rating_grade_minimum'
+      type: object
+      x-property-sort:
+      - minimum
+    _debtInstrument_notation_screener_search_data_rating:
+      description: Parameters related to a rating of a debt instrument.
+      properties:
+        grade:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_rating_grade'
+      type: object
+      x-property-sort:
+      - grade
+    _debtInstrument_notation_screener_search_data_issuer_selection_restrict:
+      description: Restriction list. Only debt instruments issued by an issuer in
+        the provided list are returned.
+      properties:
+        ids:
+          description: Set of identifiers of legal entities in the role of an issuer.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issuer_selection_exclude:
+      description: Exclusion list. Debt instruments issued by an issuer in the provided
+        list are not returned.
+      properties:
+        ids:
+          description: Set of identifiers of legal entities in the role of an issuer.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issuer_selection:
+      description: Issuer selection. See endpoint `/debtInstrument/issuer/search`
+        for valid values.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_selection_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_selection_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_issuer_country_restrict:
+      description: Restriction list. Only debt instruments issued by an issuer whose
+        country of registration is in the provided list are returned.
+      properties:
+        ids:
+          description: Set of country identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issuer_country_exclude:
+      description: Exclusion list. Debt instruments issued by an issuer whose country
+        of registration is in the provided list are not returned.
+      properties:
+        ids:
+          description: Set of country identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issuer_country:
+      description: Selection of the country of registration of the debt instrtuments'
+        issuer. See endpoint `/basic/region/country/list` for valid values.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_country_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_country_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_issuer:
+      description: Parameters related to the issuer.
+      properties:
+        selection:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_selection'
+        country:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer_country'
+      type: object
+      x-property-sort:
+      - selection
+      - country
+    _debtInstrument_notation_screener_search_data_issue_volume_currency_restrict:
+      description: Restriction list. Only debt instruments with a main currency of
+        denomination in the provided list are returned.
+      properties:
+        ids:
+          description: Set of main currency identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issue_volume_currency_exclude:
+      description: Exclusion list. Debt instruments with a main currency of denomination
+        in the provided list are not returned.
+      properties:
+        ids:
+          description: Set of main currency identifiers.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_issue_volume_currency:
+      description: Selection of the main currency of denomination of the issue volume.
+        See endpoint `/basic/valueUnit/currency/main/list` for valid values.
+      properties:
+        restrict:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue_volume_currency_restrict'
+        exclude:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue_volume_currency_exclude'
+      type: object
+      x-property-sort:
+      - restrict
+      - exclude
+      x-atMostOne: true
+    _debtInstrument_notation_screener_search_data_issue_volume:
+      description: Issue volume.
+      properties:
+        currency:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue_volume_currency'
+      type: object
+      x-property-sort:
+      - currency
+    _debtInstrument_notation_screener_search_data_issue:
+      description: Parameters related to the issue.
+      properties:
+        volume:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue_volume'
+      type: object
+      x-property-sort:
+      - volume
+    _debtInstrument_notation_screener_search_data_tradingVolume_otc_minimum:
+      description: Value range for the minimum trading volume.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_tradingVolume_otc:
+      description: Volume applicable to the over-the-counter (non-exchange based)
+        trading.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradingVolume_otc_minimum'
+      type: object
+      x-property-sort:
+      - minimum
+    _debtInstrument_notation_screener_search_data_tradingVolume:
+      description: Parameters regarding the trading volume. The issuer of a debt instrument
+        may define a minimum trading volume, and an increment over that minimum, per
+        market place and for the over-the-counter (e.g. interbank) trade. Orders that
+        do not match the defined volumes cannot be (fully) executed. The currency
+        is the currency of denomination, thus the parameter `issue.volume.currency.restrict.ids`
+        must be set to exactly one currency in order to use this parameter.
+      properties:
+        otc:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradingVolume_otc'
+      type: object
+      x-property-sort:
+      - otc
+    _debtInstrument_notation_screener_search_data_compliance_germany:
+      description: Compliance properties in accordance with the German law.
+      properties:
+        trusteeEligible:
+          description: Defines whether or not the debt instruments are eligible for
+            investment by trustees according to §§1806ff of the BGB (German Civil
+            Code). The German legislative has declared such debt instruments to be
+            virtually free of the risk of loss, such as government and state bonds.
+            Eligible are primarily German debt instruments.
+          type: boolean
+      type: object
+      x-property-sort:
+      - trusteeEligible
+    _debtInstrument_notation_screener_search_data_compliance:
+      description: Compliance properties.
+      properties:
+        germany:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_compliance_germany'
+      type: object
+      x-property-sort:
+      - germany
+    _debtInstrument_notation_screener_search_data_coupon_occurrence_frequency:
+      description: Frequency of the coupon payments. This filter is only applied to
+        debt instruments whose `coupon.occurrence.type` is `repeated`. If this parameter
+        is set, `occurrence.type` must include the value `repeated` or must not be
+        set (in which case `repeated` is implied).
+      properties:
+        ids:
+          description: List of frequency identifiers. See endpoint `/basic/frequency/type/list`
+            for valid values.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 9
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_coupon_occurrence:
+      description: Parameters regarding the occurrence and frequency of the coupon
+        payments.
+      properties:
+        type:
+          description: Occurrence type of the coupon payments.
+          items:
+            enum:
+            - never
+            - once
+            - repeated
+            type: string
+            x-enum-description:
+            - Include debt instruments that do not pay a coupon.
+            - Include debt instruments that pay a coupon only once.
+            - Include debt instruments that pay a coupon on a repeated basis, possibly
+              further limited by `occurrence.frequency`.
+          type: array
+          uniqueItems: true
+        frequency:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_occurrence_frequency'
+      type: object
+      x-property-sort:
+      - type
+      - frequency
+    _debtInstrument_notation_screener_search_data_coupon_currentInterestRate_type:
+      description: Type of the interest rate.
+      properties:
+        ids:
+          description: List of interest rate type identifiers. See endpoint `/instrument/coupon/interestRate/type/list`
+            for valid values.
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 5
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum:
+      description: The minimum of the range, or `null` to indicate that there is no
+        minimum.
+      properties:
+        value:
+          description: The minimum value.
+          format: relativeValue
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the minimum value is included in the range
+            or not.
+          type: boolean
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum:
+      description: The maximum of the range, or `null` to indicate that there is no
+        maximum.
+      properties:
+        value:
+          description: The maximum value.
+          format: relativeValue
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the maximum value is included in the range
+            or not.
+          type: boolean
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value:
+      description: Value range for the interest rate of the current coupon period;
+        annualized if the payment frequency is not "annually". Not available for debt
+        instruments with a current interest rate type other than "fixed rate" (`id=2`)
+        or "step/reset" (`id=5`).
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_coupon_currentInterestRate:
+      description: Interest rate of the current coupon period. Not available for debt
+        instruments with an occurrence type of the coupon payments "never".
+      properties:
+        type:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_type'
+        value:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value'
+      type: object
+      x-property-sort:
+      - type
+      - value
+    _debtInstrument_notation_screener_search_data_coupon:
+      description: Parameters regarding the interest rate.
+      properties:
+        occurrence:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_occurrence'
+        currentInterestRate:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate'
+      type: object
+      x-property-sort:
+      - occurrence
+      - currentInterestRate
+    _debtInstrument_notation_screener_search_data_yield_current:
+      description: Value range for the current yield, which is the next annual interest
+        payment divided by the price. If the coupon period is different than a year,
+        the interest payment is annualized.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_yield_toMaturity:
+      description: Value range for the yield to maturity, which is the annual rate
+        of return, assuming the instrument is held until maturity.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_yield_spread:
+      description: Value range for the credit spread (the difference in yield to maturity)
+        between a debt instrument and its benchmark bond. See endpoint `/instrument/benchmark/list`
+        for the benchmark bond.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_yield:
+      description: Parameters related to the yield.
+      properties:
+        current:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_yield_current'
+        toMaturity:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_yield_toMaturity'
+        spread:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_yield_spread'
+      type: object
+      x-property-sort:
+      - current
+      - toMaturity
+      - spread
+    _debtInstrument_notation_screener_search_data_macaulayDuration:
+      description: Value range for the Macaulay duration, which is the average period
+        (in years) of capital commitment.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_sensitivities_basePointValue:
+      description: Value range for the base point value, which is the change of the
+        debt instrument's price for a one base point change (nominally, not relatively)
+        of the prevailing market interest rate. One base point is equivalent to 0.01
+        percent (1/100 of a percent). The unit of the base point value is the value
+        unit of the notation, thus the parameter `validation.valueUnit.restrict.ids`
+        must be set to exactly one value unit in order to use the parameter.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_sensitivities_modifiedDuration:
+      description: Value range for the modified duration, which is the percentage
+        change of the debt instrument's price for a one percent change (nominally,
+        not relatively) of the prevailing market interest rate.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_sensitivities_elasticity:
+      description: Value range for the yield elasticity, which is the ratio of the
+        percentage change of the debt instrument's price for a one percent change
+        (relatively, not nominally) of the prevailing market interest rate.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_sensitivities_convexity:
+      description: Value range for the convexity, which is a measure for the change
+        of the modified duration as the prevailing market interest rate changes.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_sensitivities:
+      description: Parameters related to the price sensitivities of debt instruments
+        with respect to the prevailing market interest rate.
+      properties:
+        basePointValue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities_basePointValue'
+        modifiedDuration:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities_modifiedDuration'
+        elasticity:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities_elasticity'
+        convexity:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities_convexity'
+      type: object
+      x-property-sort:
+      - basePointValue
+      - modifiedDuration
+      - elasticity
+      - convexity
+    _debtInstrument_notation_screener_search_data_tradedValue_days30_sum:
+      description: Value range for the sum of the cash flow.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_tradedValue_days30_average:
+      description: Value range for the average daily cash flow.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
+        maximum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _debtInstrument_notation_screener_search_data_tradedValue_days30:
+      description: Cash flow for the time range 30 trading days.
+      properties:
+        sum:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradedValue_days30_sum'
+        average:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradedValue_days30_average'
+      type: object
+      x-property-sort:
+      - sum
+      - average
+    _debtInstrument_notation_screener_search_data_tradedValue:
+      description: Parameters regarding the cash flow for all transactions over a
+        certain time range. The currency is the currency of denomination, thus the
+        parameter `issue.volume.currency.restrict.ids` must be set to exactly one
+        currency in order to use these parameters.
+      properties:
+        days30:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradedValue_days30'
+      type: object
+      x-property-sort:
+      - days30
+    _debtInstrument_notation_screener_search_data:
+      description: The data member contains the request's primary data.
+      properties:
+        validation:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation'
+        lifeCycle:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle'
+        subordinated:
+          description: Restricts the result to debt instruments that are subordinated
+            (`true`) or are not subordinated (`false`). In case of default, subordinated
+            debt instruments are redeemed with a lower priority than non-subordinated.
+          type: boolean
+        rating:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_rating'
+        issuer:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer'
+        issue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue'
+        tradingVolume:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradingVolume'
+        compliance:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_compliance'
+        coupon:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon'
+        yield:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_yield'
+        macaulayDuration:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_macaulayDuration'
+        sensitivities:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities'
+        tradedValue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradedValue'
+      type: object
+      x-property-sort:
+      - validation
+      - lifeCycle
+      - subordinated
+      - rating
+      - issuer
+      - issue
+      - tradingVolume
+      - compliance
+      - coupon
+      - yield
+      - macaulayDuration
+      - sensitivities
+      - tradedValue
+    _debtInstrument_notation_screener_search_meta_pagination:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        offset:
+          description: Non-negative number of entries to skip, or 0 (default).
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+        limit:
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+2
+          minimum: 0
+          type: number
+      type: object
+      x-property-sort:
+      - offset
+      - limit
+    _debtInstrument_notation_screener_search_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        language:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+        sort:
+          description: Sortable attributes. The sort order is ascending unless it
+            is prefixed with a minus sign, in which case it is descending. A list
+            of at most 10 (possibly prefixed) attribute name(s) is allowed.
+          items:
+            enum:
+            - valueUnit.code
+            - -valueUnit.code
+            - market.name
+            - -market.name
+            - symbol
+            - -symbol
+            - instrument.name
+            - -instrument.name
+            - instrument.shortName
+            - -instrument.shortName
+            - instrument.categorization.level1.name
+            - -instrument.categorization.level1.name
+            - instrument.categorization.level2.name
+            - -instrument.categorization.level2.name
+            - instrument.categorization.level3.name
+            - -instrument.categorization.level3.name
+            - instrument.lifeCycle.issue
+            - -instrument.lifeCycle.issue
+            - instrument.lifeCycle.maturity.date
+            - -instrument.lifeCycle.maturity.date
+            - instrument.lifeCycle.maturity.remainingTermYears
+            - -instrument.lifeCycle.maturity.remainingTermYears
+            - instrument.lifeCycle.maturity.perpetual
+            - -instrument.lifeCycle.maturity.perpetual
+            - instrument.lifeCycle.callable
+            - -instrument.lifeCycle.callable
+            - instrument.subordinated
+            - -instrument.subordinated
+            - instrument.ratingSystem1.rating.grade
+            - -instrument.ratingSystem1.rating.grade
+            - instrument.ratingSystem2.rating.grade
+            - -instrument.ratingSystem2.rating.grade
+            - instrument.issuer.name
+            - -instrument.issuer.name
+            - instrument.issuer.country.name
+            - -instrument.issuer.country.name
+            - instrument.issue.volume.currency.isoCode
+            - -instrument.issue.volume.currency.isoCode
+            - instrument.tradingVolume.otc.minimum
+            - -instrument.tradingVolume.otc.minimum
+            - instrument.compliance.germany.trusteeEligible
+            - -instrument.compliance.germany.trusteeEligible
+            - instrument.coupon.occurrence.frequency.name
+            - -instrument.coupon.occurrence.frequency.name
+            - instrument.coupon.currentInterestRate.type.name
+            - -instrument.coupon.currentInterestRate.type.name
+            - instrument.coupon.currentInterestRate.value
+            - -instrument.coupon.currentInterestRate.value
+            - yield.current
+            - -yield.current
+            - yield.toMaturity
+            - -yield.toMaturity
+            - yield.spread
+            - -yield.spread
+            - macaulayDuration
+            - -macaulayDuration
+            - sensitivities.basePointValue
+            - -sensitivities.basePointValue
+            - sensitivities.modifiedDuration
+            - -sensitivities.modifiedDuration
+            - sensitivities.elasticity
+            - -sensitivities.elasticity
+            - sensitivities.convexity
+            - -sensitivities.convexity
+            - tradedValue.days30.sum
+            - -tradedValue.days30.sum
+            - tradedValue.days30.average
+            - -tradedValue.days30.average
+            type: string
+          maxItems: 10
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - language
+      - sort
+      - pagination
+    inline_object_1:
+      properties:
+        data:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data'
+        meta:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_3_valueUnit:
+      description: Value unit of the notation such as a main or fractional currency
+        for equities, a percentage for debt instruments, or points for indices. See
+        endpoint `/basic/valueUnit/list` for possible values.
+      example:
+        code: code
+        id: 0.8008281904610115
+      properties:
+        id:
+          description: Identifier of the value unit.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: 'Code of the value unit: If assigned, a code according to ISO
+            4217, otherwise a local code, for a main currency; a code such as GBp
+            (for British pence) for a fractional currency; or a code such as PT (points)
+            for non-currency value units.'
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - code
+    inline_response_200_3_market:
+      description: Market of the notation.
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the market.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the market.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_nsin:
+      description: NSIN data of the notation.
+      example:
+        sedol: sedol
+      properties:
+        sedol:
+          description: The SEDOL or IDII for the notation.
+          type: string
+      type: object
+      x-property-sort:
+      - sedol
+    inline_response_200_3_fsym_listing:
+      description: Listing-level identifiers.
+      example:
+        tickerExchange: tickerExchange
+        isPrimary: true
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for a notation. The format is
+            six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).
+          type: string
+        tickerExchange:
+          description: 'FactSet market symbol of the notation, usually consisting
+            of the ticker (e.g. "DAI" for Daimler AG) and the three-character code
+            of the exchange on which the listing is traded (example: DAI-ETR).'
+          type: string
+        isPrimary:
+          description: Indicates whether the notation is the primary notation among
+            all notations within the same region (`true`) or not (`false`).
+          type: boolean
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+      - tickerExchange
+      - isPrimary
+    inline_response_200_3_fsym_regional:
+      description: Regional-level identifiers.
+      example:
+        isPrimary: true
+        tickerRegion: tickerRegion
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for a set of one or more notations
+            of the same region with the same value unit. The format is six alpha numeric
+            characters, excluding vowels, with an R suffix (XXXXXX-R).
+          type: string
+        tickerRegion:
+          description: 'FactSet regional symbol of the notation, consisting of the
+            ticker and the two-character code of the country or region where the listing
+            is traded (example: DAI-DE).'
+          type: string
+        isPrimary:
+          description: Indicates whether the notation is in the primary region of
+            the security (`true`) or not (`false`).
+          type: boolean
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+      - tickerRegion
+      - isPrimary
+    inline_response_200_3_fsym:
+      description: Notation-level FactSet identifiers of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        regional:
+          isPrimary: true
+          tickerRegion: tickerRegion
+          permanentIdentifier: permanentIdentifier
+        listing:
+          tickerExchange: tickerExchange
+          isPrimary: true
+          permanentIdentifier: permanentIdentifier
+      properties:
+        listing:
+          $ref: '#/components/schemas/inline_response_200_3_fsym_listing'
+        regional:
+          $ref: '#/components/schemas/inline_response_200_3_fsym_regional'
+      type: object
+      x-property-sort:
+      - listing
+      - regional
+    inline_response_200_3_instrument_nsin:
+      description: NSIN data of the instrument.
+      example:
+        cusip: cusip
+        valor: valor
+        wkn: wkn
+      properties:
+        wkn:
+          description: The WKN (Wertpapierkennnummer, German for Securities Identification
+            Number) of the instrument. The WKN is a 6-character code of digits and
+            upper-case letters that uniquely identifies an instrument.
+          type: string
+        valor:
+          description: 'The Valor number (German: Valorennummer) of the instrument.
+            The Valor number is an integer number that uniquely identifies an instrument.'
+          type: string
+        cusip:
+          description: The CUSIP (Committee on Uniform Security Identification Procedures)
+            or CINS (CUSIP International Numbering System) identifier of the instrument.
+            These numbers are 9-character codes of digits and upper-case letters that
+            uniquely identify an instrument.
+          type: string
+      type: object
+      x-property-sort:
+      - wkn
+      - valor
+      - cusip
+    inline_response_200_3_instrument_fsym_security:
+      description: Security-level identifier.
+      example:
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for an instrument. The format
+            is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          type: string
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+    inline_response_200_3_instrument_fsym:
+      description: Instrument-level FactSet identifier of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        security:
+          permanentIdentifier: permanentIdentifier
+      properties:
+        security:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_fsym_security'
+      type: object
+      x-property-sort:
+      - security
+    inline_response_200_3_instrument_categorization_level1:
+      description: First, most coarse, level of categorization.
+      example:
+        name: name
+        id: 1.4658129805029452
+      properties:
+        id:
+          description: Identifier of the category.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the category.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_categorization_level2:
+      description: Second level of categorization.
+      example:
+        name: name
+        id: 5.962133916683182
+      properties:
+        id:
+          description: Identifier of the category.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the category.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_categorization_level3:
+      description: Third, most detailed, level of categorization.
+      example:
+        name: name
+        id: 5.637376656633329
+      properties:
+        id:
+          description: Identifier of the category.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the category.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_categorization:
+      description: Debt instrument categorization. See endpoint `/category/listBySystem`
+        with `id=18` for valid values.
+      example:
+        level1:
+          name: name
+          id: 1.4658129805029452
+        level3:
+          name: name
+          id: 5.637376656633329
+        level2:
+          name: name
+          id: 5.962133916683182
+      properties:
+        level1:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_categorization_level1'
+        level2:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_categorization_level2'
+        level3:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_categorization_level3'
+      type: object
+      x-property-sort:
+      - level1
+      - level2
+      - level3
+    inline_response_200_3_instrument_lifeCycle_maturity:
+      description: Maturity data.
+      example:
+        date: 2000-01-23
+        remainingTermYears: 2.3021358869347655
+        perpetual: true
+      properties:
+        date:
+          description: Date of the debt instrument's maturity. The value is empty
+            if the instrument is perpetual.
+          format: date
+          type: string
+          x-sortable: true
+        remainingTermYears:
+          description: Remaining term to maturity expressed in years.
+          format: real
+          type: number
+          x-sortable: true
+        perpetual:
+          description: If `true`, the debt instrument is perpetual, i.e. it does not
+            mature, therefore the attribute `date` is `null`.
+          type: boolean
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - date
+      - remainingTermYears
+      - perpetual
+    inline_response_200_3_instrument_lifeCycle:
+      description: Important dates of the debt instrument.
+      example:
+        callable: true
+        issue: 2000-01-23
+        maturity:
+          date: 2000-01-23
+          remainingTermYears: 2.3021358869347655
+          perpetual: true
+      properties:
+        issue:
+          description: Date of the issue.
+          format: date
+          type: string
+          x-sortable: true
+        maturity:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_lifeCycle_maturity'
+        callable:
+          description: If `true`, the issuer may redeem the instrument prior to maturity.
+          type: boolean
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - issue
+      - maturity
+      - callable
+    inline_response_200_3_instrument_ratingSystem1_rating:
+      description: Rating of the debt instrument. See endpoint `/rating/grade/listBySystem`
+        with the identifier of the respective rating system for possible values. See
+        endpoint `/rating/grade/get` with the identifier of the rating grade for the
+        identifier of the rating system.
+      example:
+        grade: grade
+        id: 7.061401241503109
+      properties:
+        id:
+          description: Identifier of the rating grade.
+          format: id32
+          type: number
+          x-positive: true
+        grade:
+          description: Rating grade.
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - grade
+    inline_response_200_3_instrument_ratingSystem1:
+      description: Rating of the debt instrument according to the rating system of
+        the first identifier in the list provided in the parameter `rating.grade.minimum.ids`.
+      example:
+        rating:
+          grade: grade
+          id: 7.061401241503109
+      properties:
+        rating:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_ratingSystem1_rating'
+      type: object
+      x-property-sort:
+      - rating
+    inline_response_200_3_instrument_ratingSystem2:
+      description: Rating of the debt instrument according to the rating system of
+        the second identifier in the list provided in the parameter `rating.grade.minimum.ids`.
+      example:
+        rating:
+          grade: grade
+          id: 7.061401241503109
+      properties:
+        rating:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_ratingSystem1_rating'
+      type: object
+      x-property-sort:
+      - rating
+    inline_response_200_3_instrument_issuer_country:
+      description: Country of registration of the issuer. See endpoint `/basic/region/country/list`
+        for possible values.
+      example:
+        name: name
+        id: 3.616076749251911
+      properties:
+        id:
+          description: Identifier of the country.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the country.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_issuer:
+      description: Issuer of the debt instrument. See endpoint `/legalEntity/list`
+        for possible values.
+      example:
+        country:
+          name: name
+          id: 3.616076749251911
+        name: name
+        id: 9.301444243932576
+      properties:
+        id:
+          description: Identifier of the issuer.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the issuer.
+          type: string
+          x-sortable: true
+        country:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_issuer_country'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - country
+    inline_response_200_3_instrument_issue_volume_currency:
+      description: Main currency of denomination of the issue volume. See endpoint
+        `/basic/valueUnit/currency/main/list` for possible values.
+      example:
+        isoCode: isoCode
+        id: 2.027123023002322
+      properties:
+        id:
+          description: Identifier of the currency.
+          format: id32
+          type: number
+          x-positive: true
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - isoCode
+    inline_response_200_3_instrument_issue_volume:
+      description: Issue volume data.
+      example:
+        currency:
+          isoCode: isoCode
+          id: 2.027123023002322
+      properties:
+        currency:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_issue_volume_currency'
+      type: object
+      x-property-sort:
+      - currency
+    inline_response_200_3_instrument_issue:
+      description: Issue data of the debt instrument.
+      example:
+        volume:
+          currency:
+            isoCode: isoCode
+            id: 2.027123023002322
+      properties:
+        volume:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_issue_volume'
+      type: object
+      x-property-sort:
+      - volume
+    inline_response_200_3_instrument_tradingVolume_otc:
+      description: Volume applicable to the over-the-counter (non-exchange based)
+        trading.
+      example:
+        minimum: 4.145608029883936
+      properties:
+        minimum:
+          description: Minimum trading volume.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - minimum
+    inline_response_200_3_instrument_tradingVolume:
+      description: Requirements regarding the trading volume. The currency is the
+        currency of denomination (see attribute `issue.volume.currency`), thus the
+        values are not comparable if debt instruments with different currencies of
+        denomination are among the results.
+      example:
+        otc:
+          minimum: 4.145608029883936
+      properties:
+        otc:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_tradingVolume_otc'
+      type: object
+      x-property-sort:
+      - otc
+    inline_response_200_3_instrument_compliance_germany:
+      description: Compliance properties in accordance with the German law.
+      example:
+        trusteeEligible: true
+      properties:
+        trusteeEligible:
+          description: If `true`, the debt instrument is eligible for investments
+            by trustees according to §§1806ff of the BGB (German Civil Code). The
+            German legislative has declared it to be virtually free of the risk of
+            loss, such as government and state bonds. Eligible are primarily German
+            debt instruments.
+          type: boolean
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - trusteeEligible
+    inline_response_200_3_instrument_compliance:
+      description: Compliance properties.
+      example:
+        germany:
+          trusteeEligible: true
+      properties:
+        germany:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_compliance_germany'
+      type: object
+      x-property-sort:
+      - germany
+    inline_response_200_3_instrument_coupon_occurrence_frequency:
+      description: Frequency of the coupon payments. Information about the frequency
+        is available only if the attribute `occurrence.type` is set to `repeated`.
+        See endpoint `/basic/frequency/type/list` for possible values of the frequency.
+      example:
+        name: name
+        id: 7.386281948385884
+      properties:
+        id:
+          description: Identifier of the frequency.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the frequency.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_coupon_occurrence:
+      description: Occurrence and frequency of the coupon payments.
+      example:
+        type: never
+        frequency:
+          name: name
+          id: 7.386281948385884
+      properties:
+        type:
+          description: Occurrence type of the coupon payments.
+          enum:
+          - never
+          - once
+          - repeated
+          type: string
+          x-enum-description:
+          - The debt instrument does not pay out a coupon.
+          - The debt instrument pays out a coupon only once.
+          - The debt instrument pays out a coupon on a repeated basis.
+        frequency:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_coupon_occurrence_frequency'
+      type: object
+      x-property-sort:
+      - type
+      - frequency
+    inline_response_200_3_instrument_coupon_currentInterestRate_type:
+      description: Type of the interest rate, see endpoint `/instrument/coupon/interestRate/type/list`
+        for possible values.
+      example:
+        name: name
+        id: 1.2315135367772556
+      properties:
+        id:
+          description: Identifier of the type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the type.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_3_instrument_coupon_currentInterestRate:
+      description: Details of the current coupon period.
+      example:
+        type:
+          name: name
+          id: 1.2315135367772556
+        value: 1.0246457001441578
+      properties:
+        type:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_coupon_currentInterestRate_type'
+        value:
+          description: Value of the interest rate; annualized if the payment frequency
+            is not "annually". See endpoint `/instrument/coupon/keyData/get` for details
+            regarding the current period.
+          format: relativeValue
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - type
+      - value
+    inline_response_200_3_instrument_coupon:
+      description: Interest rate details.
+      example:
+        occurrence:
+          type: never
+          frequency:
+            name: name
+            id: 7.386281948385884
+        currentInterestRate:
+          type:
+            name: name
+            id: 1.2315135367772556
+          value: 1.0246457001441578
+      properties:
+        occurrence:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_coupon_occurrence'
+        currentInterestRate:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_coupon_currentInterestRate'
+      type: object
+      x-property-sort:
+      - occurrence
+      - currentInterestRate
+    inline_response_200_3_instrument:
+      description: Instrument data of the notation.
+      example:
+        subordinated: true
+        categorization:
+          level1:
+            name: name
+            id: 1.4658129805029452
+          level3:
+            name: name
+            id: 5.637376656633329
+          level2:
+            name: name
+            id: 5.962133916683182
+        issue:
+          volume:
+            currency:
+              isoCode: isoCode
+              id: 2.027123023002322
+        coupon:
+          occurrence:
+            type: never
+            frequency:
+              name: name
+              id: 7.386281948385884
+          currentInterestRate:
+            type:
+              name: name
+              id: 1.2315135367772556
+            value: 1.0246457001441578
+        tradingVolume:
+          otc:
+            minimum: 4.145608029883936
+        issuer:
+          country:
+            name: name
+            id: 3.616076749251911
+          name: name
+          id: 9.301444243932576
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
+        ratingSystem1:
+          rating:
+            grade: grade
+            id: 7.061401241503109
+        ratingSystem2:
+          rating:
+            grade: grade
+            id: 7.061401241503109
+        compliance:
+          germany:
+            trusteeEligible: true
+        name: name
+        nsin:
+          cusip: cusip
+          valor: valor
+          wkn: wkn
+        id: id
+        shortName: shortName
+        lifeCycle:
+          callable: true
+          issue: 2000-01-23
+          maturity:
+            date: 2000-01-23
+            remainingTermYears: 2.3021358869347655
+            perpetual: true
+        isin: isin
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+        name:
+          description: Name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
+          x-default-sort-direction: 1
+          x-default-sort-attribute: true
+        shortName:
+          description: Short name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
+        isin:
+          description: The International Securities Identification Number (ISIN) of
+            the instrument. The ISIN is a 12-character code of digits and upper-case
+            letters that uniquely identifies an instrument.
+          format: isin
+          type: string
+        nsin:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_nsin'
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_fsym'
+        categorization:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_categorization'
+        lifeCycle:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_lifeCycle'
+        subordinated:
+          description: If `true`, the debt instrument is subordinated.
+          type: boolean
+          x-sortable: true
+        ratingSystem1:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_ratingSystem1'
+        ratingSystem2:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_ratingSystem2'
+        issuer:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_issuer'
+        issue:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_issue'
+        tradingVolume:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_tradingVolume'
+        compliance:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_compliance'
+        coupon:
+          $ref: '#/components/schemas/inline_response_200_3_instrument_coupon'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - shortName
+      - isin
+      - nsin
+      - fsym
+      - categorization
+      - lifeCycle
+      - subordinated
+      - ratingSystem1
+      - ratingSystem2
+      - issuer
+      - issue
+      - tradingVolume
+      - compliance
+      - coupon
+    inline_response_200_3_yield:
+      description: Yield-related key figures.
+      example:
+        current: 1.4894159098541704
+        toMaturity: 6.84685269835264
+        spread: 7.457744773683766
+      properties:
+        current:
+          description: Current yield, which is the next annual interest payment divided
+            by the price. If the coupon period is different than a year, the interest
+            payment is annualized.
+          format: relativeValue
+          type: number
+          x-sortable: true
+        toMaturity:
+          description: Yield to maturity, which is the annual rate of return, assuming
+            the instrument is held until maturity.
+          format: relativeValue
+          type: number
+          x-sortable: true
+        spread:
+          description: Credit spread, which is the difference in yield to maturity
+            between a highest-quality debt instrument, also called a benchmark bond,
+            and the debt instrument. See endpoint `/instrument/benchmark/list` for
+            the benchmark bond.
+          format: relativeValue
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - current
+      - toMaturity
+      - spread
+    inline_response_200_3_sensitivities:
+      description: Price sensitivities of the debt instrument with respect to the
+        prevailing market interest rate.
+      example:
+        elasticity: 9.965781217890562
+        basePointValue: 4.965218492984954
+        modifiedDuration: 5.025004791520295
+        convexity: 9.369310271410669
+      properties:
+        basePointValue:
+          description: Base point value, which is the change of the debt instrument's
+            price for a one base point change (nominally, not relatively) of the prevailing
+            market interest rate. One base point is equivalent to 0.01 percent (1/100
+            of a percent). The unit of the base point value is the value unit of the
+            notation (see attribute `valueUnit`), thus the values are not comparable
+            if notations with different value units are among the results.
+          format: real
+          type: number
+          x-sortable: true
+        modifiedDuration:
+          description: Modified duration, which is the percentage change of the debt
+            instrument's price for a one percent change (nominally, not relatively)
+            of the prevailing market interest rate.
+          format: relativeValue
+          type: number
+          x-sortable: true
+        elasticity:
+          description: Yield elasticity, which is the ratio of the percentage change
+            of the debt instrument's price for a one percent change (relatively, not
+            nominally) of the prevailing market interest rate.
+          format: real
+          type: number
+          x-sortable: true
+        convexity:
+          description: Convexity, which is a measure for the change of the modified
+            duration as the prevailing market interest rate changes.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - basePointValue
+      - modifiedDuration
+      - elasticity
+      - convexity
+    inline_response_200_3_tradedValue_days30:
+      description: Cash flow for the time range 30 trading days.
+      example:
+        average: 8.762042012749001
+        sum: 6.683562403749608
+      properties:
+        sum:
+          description: Sum of the cash flow.
+          format: real
+          type: number
+          x-sortable: true
+        average:
+          description: Average daily cash flow.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - sum
+      - average
+    inline_response_200_3_tradedValue:
+      description: Cash flow for all transactions over a certain time range. The currency
+        is the currency of denomination (see attribute `issue.volume.currency`), thus
+        the values are not comparable if debt instruments with different currencies
+        of denomination are among the results.
+      example:
+        days30:
+          average: 8.762042012749001
+          sum: 6.683562403749608
+      properties:
+        days30:
+          $ref: '#/components/schemas/inline_response_200_3_tradedValue_days30'
+      type: object
+      x-property-sort:
+      - days30
+    inline_response_200_3_data:
+      example:
+        market:
+          name: name
+          id: 6.027456183070403
+        symbol: symbol
+        fsym:
+          regional:
+            isPrimary: true
+            tickerRegion: tickerRegion
+            permanentIdentifier: permanentIdentifier
+          listing:
+            tickerExchange: tickerExchange
+            isPrimary: true
+            permanentIdentifier: permanentIdentifier
+        macaulayDuration: 1.1730742509559433
+        yield:
+          current: 1.4894159098541704
+          toMaturity: 6.84685269835264
+          spread: 7.457744773683766
+        valueUnit:
+          code: code
+          id: 0.8008281904610115
+        nsin:
+          sedol: sedol
+        instrument:
+          subordinated: true
+          categorization:
+            level1:
+              name: name
+              id: 1.4658129805029452
+            level3:
+              name: name
+              id: 5.637376656633329
+            level2:
+              name: name
+              id: 5.962133916683182
+          issue:
+            volume:
+              currency:
+                isoCode: isoCode
+                id: 2.027123023002322
+          coupon:
+            occurrence:
+              type: never
+              frequency:
+                name: name
+                id: 7.386281948385884
+            currentInterestRate:
+              type:
+                name: name
+                id: 1.2315135367772556
+              value: 1.0246457001441578
+          tradingVolume:
+            otc:
+              minimum: 4.145608029883936
+          issuer:
+            country:
+              name: name
+              id: 3.616076749251911
+            name: name
+            id: 9.301444243932576
+          fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          ratingSystem1:
+            rating:
+              grade: grade
+              id: 7.061401241503109
+          ratingSystem2:
+            rating:
+              grade: grade
+              id: 7.061401241503109
+          compliance:
+            germany:
+              trusteeEligible: true
+          name: name
+          nsin:
+            cusip: cusip
+            valor: valor
+            wkn: wkn
+          id: id
+          shortName: shortName
+          lifeCycle:
+            callable: true
+            issue: 2000-01-23
+            maturity:
+              date: 2000-01-23
+              remainingTermYears: 2.3021358869347655
+              perpetual: true
+          isin: isin
+        id: id
+        sensitivities:
+          elasticity: 9.965781217890562
+          basePointValue: 4.965218492984954
+          modifiedDuration: 5.025004791520295
+          convexity: 9.369310271410669
+        tradedValue:
+          days30:
+            average: 8.762042012749001
+            sum: 6.683562403749608
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        valueUnit:
+          $ref: '#/components/schemas/inline_response_200_3_valueUnit'
+        market:
+          $ref: '#/components/schemas/inline_response_200_3_market'
+        symbol:
+          description: The symbol of the notation. It is a market-specific code to
+            identify the notation. Which characters can be part of a symbol depends
+            on the market. If a market does not define a proprietary symbol, but uses
+            a different identifier (for example, the ISIN or the WKN) to identify
+            instruments, no symbol will be set for the notations of that market.
+          type: string
+          x-sortable: true
+        nsin:
+          $ref: '#/components/schemas/inline_response_200_3_nsin'
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_3_fsym'
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_3_instrument'
+        yield:
+          $ref: '#/components/schemas/inline_response_200_3_yield'
+        macaulayDuration:
+          description: Macaulay duration, which is the average period (in years) of
+            capital commitment.
+          format: real
+          type: number
+          x-sortable: true
+        sensitivities:
+          $ref: '#/components/schemas/inline_response_200_3_sensitivities'
+        tradedValue:
+          $ref: '#/components/schemas/inline_response_200_3_tradedValue'
+      type: object
+      x-property-sort:
+      - id
+      - valueUnit
+      - market
+      - symbol
+      - nsin
+      - fsym
+      - instrument
+      - yield
+      - macaulayDuration
+      - sensitivities
+      - tradedValue
+    inline_response_200_3_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          total: 9.018348186070783
+          isEstimatedTotal: true
+        partial:
+          isPartial: true
+        status:
+          code: 1.2315135367772556
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/OffsetBasedPaginationOutputObject'
+        partial:
+          $ref: '#/components/schemas/PartialOutputObject'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+      - partial
+    inline_response_200_3:
+      example:
+        data:
+        - market:
+            name: name
+            id: 6.027456183070403
+          symbol: symbol
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
+          macaulayDuration: 1.1730742509559433
+          yield:
+            current: 1.4894159098541704
+            toMaturity: 6.84685269835264
+            spread: 7.457744773683766
+          valueUnit:
+            code: code
+            id: 0.8008281904610115
+          nsin:
+            sedol: sedol
+          instrument:
+            subordinated: true
+            categorization:
+              level1:
+                name: name
+                id: 1.4658129805029452
+              level3:
+                name: name
+                id: 5.637376656633329
+              level2:
+                name: name
+                id: 5.962133916683182
+            issue:
+              volume:
+                currency:
+                  isoCode: isoCode
+                  id: 2.027123023002322
+            coupon:
+              occurrence:
+                type: never
+                frequency:
+                  name: name
+                  id: 7.386281948385884
+              currentInterestRate:
+                type:
+                  name: name
+                  id: 1.2315135367772556
+                value: 1.0246457001441578
+            tradingVolume:
+              otc:
+                minimum: 4.145608029883936
+            issuer:
+              country:
+                name: name
+                id: 3.616076749251911
+              name: name
+              id: 9.301444243932576
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            ratingSystem1:
+              rating:
+                grade: grade
+                id: 7.061401241503109
+            ratingSystem2:
+              rating:
+                grade: grade
+                id: 7.061401241503109
+            compliance:
+              germany:
+                trusteeEligible: true
+            name: name
+            nsin:
+              cusip: cusip
+              valor: valor
+              wkn: wkn
+            id: id
+            shortName: shortName
+            lifeCycle:
+              callable: true
+              issue: 2000-01-23
+              maturity:
+                date: 2000-01-23
+                remainingTermYears: 2.3021358869347655
+                perpetual: true
+            isin: isin
+          id: id
+          sensitivities:
+            elasticity: 9.965781217890562
+            basePointValue: 4.965218492984954
+            modifiedDuration: 5.025004791520295
+            convexity: 9.369310271410669
+          tradedValue:
+            days30:
+              average: 8.762042012749001
+              sum: 6.683562403749608
+        - market:
+            name: name
+            id: 6.027456183070403
+          symbol: symbol
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
+          macaulayDuration: 1.1730742509559433
+          yield:
+            current: 1.4894159098541704
+            toMaturity: 6.84685269835264
+            spread: 7.457744773683766
+          valueUnit:
+            code: code
+            id: 0.8008281904610115
+          nsin:
+            sedol: sedol
+          instrument:
+            subordinated: true
+            categorization:
+              level1:
+                name: name
+                id: 1.4658129805029452
+              level3:
+                name: name
+                id: 5.637376656633329
+              level2:
+                name: name
+                id: 5.962133916683182
+            issue:
+              volume:
+                currency:
+                  isoCode: isoCode
+                  id: 2.027123023002322
+            coupon:
+              occurrence:
+                type: never
+                frequency:
+                  name: name
+                  id: 7.386281948385884
+              currentInterestRate:
+                type:
+                  name: name
+                  id: 1.2315135367772556
+                value: 1.0246457001441578
+            tradingVolume:
+              otc:
+                minimum: 4.145608029883936
+            issuer:
+              country:
+                name: name
+                id: 3.616076749251911
+              name: name
+              id: 9.301444243932576
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            ratingSystem1:
+              rating:
+                grade: grade
+                id: 7.061401241503109
+            ratingSystem2:
+              rating:
+                grade: grade
+                id: 7.061401241503109
+            compliance:
+              germany:
+                trusteeEligible: true
+            name: name
+            nsin:
+              cusip: cusip
+              valor: valor
+              wkn: wkn
+            id: id
+            shortName: shortName
+            lifeCycle:
+              callable: true
+              issue: 2000-01-23
+              maturity:
+                date: 2000-01-23
+                remainingTermYears: 2.3021358869347655
+                perpetual: true
+            isin: isin
+          id: id
+          sensitivities:
+            elasticity: 9.965781217890562
+            basePointValue: 4.965218492984954
+            modifiedDuration: 5.025004791520295
+            convexity: 9.369310271410669
+          tradedValue:
+            days30:
+              average: 8.762042012749001
+              sum: 6.683562403749608
+        meta:
+          pagination:
+            total: 9.018348186070783
+            isEstimatedTotal: true
+          partial:
+            isPartial: true
+          status:
+            code: 1.2315135367772556
+      properties:
+        data:
+          description: List of notations.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data'
+          type: array
+          x-partial: true
+        meta:
+          $ref: '#/components/schemas/inline_response_200_3_meta'
+      type: object
+    _debtInstrument_notation_screener_valueRanges_get_data_rating_system:
+      description: Rating system. The parameter allows to specify the rating system
+        (up to two) from which the available ratings of the restricted set of debt
+        instruments are retrieved without limiting the debt instrument selection to
+        only debt instruments with a rating in that rating system.
+      properties:
+        ids:
+          description: List of identifiers of rating systems. The sequence of the
+            provided identifiers corresponds to the response attributes `ratingSystem1`
+            and `ratingSystem2` respectively, i.e. the rating grades of the selected
+            debt instruments in the rating system of which the first identifier in
+            the provided list is a member, is represented by the attribute `ratingSystem1.rating.grade`
+            (and `ratingSystem1.rating.id` for the identifier of the rating grade).
+          items:
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 2
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - ids
+    _debtInstrument_notation_screener_valueRanges_get_data_rating:
+      description: Parameters related to a rating of a debt instrument. If a rating
+        system is not selected by either specifying it directly (see parameter `rating.system.ids`)
+        or by implying it via the minimum rating grade (see parameter `rating.grade.minimum.ids`)
+        the result contains no data on ratings.
+      properties:
+        system:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_data_rating_system'
+        grade:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_rating_grade'
+      type: object
+      x-property-sort:
+      - system
+      - grade
+      x-atMostOne: true
+    _debtInstrument_notation_screener_valueRanges_get_data:
+      description: The data member contains the request's primary data.
+      properties:
+        validation:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_validation'
+        lifeCycle:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle'
+        subordinated:
+          description: Restricts the result to debt instruments that are subordinated
+            (`true`) or are not subordinated (`false`). In case of default, subordinated
+            debt instruments are redeemed with a lower priority than non-subordinated.
+          type: boolean
+        rating:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_data_rating'
+        issuer:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issuer'
+        issue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_issue'
+        tradingVolume:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradingVolume'
+        compliance:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_compliance'
+        coupon:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon'
+        yield:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_yield'
+        macaulayDuration:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_macaulayDuration'
+        sensitivities:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_sensitivities'
+        tradedValue:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_tradedValue'
+      type: object
+      x-property-sort:
+      - validation
+      - lifeCycle
+      - subordinated
+      - rating
+      - issuer
+      - issue
+      - tradingVolume
+      - compliance
+      - coupon
+      - yield
+      - macaulayDuration
+      - sensitivities
+      - tradedValue
+    _debtInstrument_notation_screener_valueRanges_get_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        language:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      type: object
+      x-property-sort:
+      - attributes
+      - language
+    inline_object_2:
+      properties:
+        data:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_data'
+        meta:
+          $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_meta'
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_4_data_valueUnit:
+      example:
+        code: code
+        count: 1.4658129805029452
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifer of a value unit.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: 'Code of the value unit: If assigned, a code according to ISO
+            4217, otherwise a local code, for a main currency; a code such as GBp
+            (for British pence) for a fractional currency; or a code such as PT (points)
+            for non-currency value units.'
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - code
+      - count
+    inline_response_200_4_data_market:
+      example:
+        name: name
+        count: 5.637376656633329
+        id: 5.962133916683182
+      properties:
+        id:
+          description: Identifier of a market.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the market.
+          format: localizedString
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - count
+    inline_response_200_4_data_level:
+      description: Category level.
+      example:
+        number: 2.3021358869347655
+      properties:
+        number:
+          description: Number of the category level, indicating the distance to the
+            root of the category hierarchy.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - number
+    inline_response_200_4_data_parent:
+      description: Parent category or `null` if this category is on the first level.
+      example:
+        id: 9.301444243932576
+      properties:
+        id:
+          description: Identifier of the category.
+          format: id32
+          type: number
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_4_data_categories:
+      example:
+        parent:
+          id: 9.301444243932576
+        name: name
+        count: 3.616076749251911
+        id: 7.061401241503109
+      properties:
+        id:
+          description: Identifier of a category.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the category.
+          format: localizedString
+          type: string
+        parent:
+          $ref: '#/components/schemas/inline_response_200_4_data_parent'
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - parent
+      - count
+    inline_response_200_4_data_categorization:
+      example:
+        level:
+          number: 2.3021358869347655
+        categories:
+        - parent:
+            id: 9.301444243932576
+          name: name
+          count: 3.616076749251911
+          id: 7.061401241503109
+        - parent:
+            id: 9.301444243932576
+          name: name
+          count: 3.616076749251911
+          id: 7.061401241503109
+      properties:
+        level:
+          $ref: '#/components/schemas/inline_response_200_4_data_level'
+        categories:
+          description: List of categories for the given level of the debt instruments'
+            categorization.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_categories'
+          type: array
+      type: object
+      x-property-sort:
+      - level
+      - categories
+    inline_response_200_4_data_lifeCycle_issue:
+      description: Date range of the issue date.
+      example:
+        maximum: 2000-01-23
+        minimum: 2000-01-23
+      properties:
+        minimum:
+          description: Minimum date.
+          format: date
+          type: string
+        maximum:
+          description: Maximum date.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_lifeCycle_maturity_date:
+      description: Date range of the maturity date.
+      example:
+        maximum: 2000-01-23
+        minimum: 2000-01-23
+      properties:
+        minimum:
+          description: Minimum date.
+          format: date
+          type: string
+        maximum:
+          description: Maximum date.
+          format: date
+          type: string
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_lifeCycle_maturity_remainingTermYears:
+      description: Value range for the remaining term to maturity expressed in years.
+      example:
+        maximum: 4.145608029883936
+        minimum: 2.027123023002322
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_lifeCycle_maturity_perpetual:
+      example:
+        count: 7.386281948385884
+        value: true
+      properties:
+        value:
+          description: Attribute value.
+          type: boolean
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - value
+      - count
+    inline_response_200_4_data_lifeCycle_maturity:
+      description: Ranges related to the maturity.
+      example:
+        date:
+          maximum: 2000-01-23
+          minimum: 2000-01-23
+        remainingTermYears:
+          maximum: 4.145608029883936
+          minimum: 2.027123023002322
+        perpetual:
+        - count: 7.386281948385884
+          value: true
+        - count: 7.386281948385884
+          value: true
+      properties:
+        date:
+          $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_date'
+        remainingTermYears:
+          $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_remainingTermYears'
+        perpetual:
+          description: Indicates whether perpetual and non-perpetual debt instruments
+            are among the results. A perpetual debt instrument is one that does not
+            mature.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_perpetual'
+          type: array
+      type: object
+      x-property-sort:
+      - date
+      - remainingTermYears
+      - perpetual
+    inline_response_200_4_data_lifeCycle:
+      description: Values and value ranges related to important dates.
+      example:
+        callable:
+        - count: 7.386281948385884
+          value: true
+        - count: 7.386281948385884
+          value: true
+        issue:
+          maximum: 2000-01-23
+          minimum: 2000-01-23
+        maturity:
+          date:
+            maximum: 2000-01-23
+            minimum: 2000-01-23
+          remainingTermYears:
+            maximum: 4.145608029883936
+            minimum: 2.027123023002322
+          perpetual:
+          - count: 7.386281948385884
+            value: true
+          - count: 7.386281948385884
+            value: true
+      properties:
+        issue:
+          $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_issue'
+        maturity:
+          $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity'
+        callable:
+          description: Indicates whether callable and non-callable debt instruments
+            are among the results. A callable debt instrument is one that may be redeemed
+            by the issuer prior to maturity.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_perpetual'
+          type: array
+      type: object
+      x-property-sort:
+      - issue
+      - maturity
+      - callable
+    inline_response_200_4_data_ratingSystem1_rating:
+      example:
+        grade: grade
+        count: 1.0246457001441578
+        id: 1.2315135367772556
+      properties:
+        id:
+          description: Identifier of a rating grade.
+          format: id32
+          type: number
+          x-positive: true
+        grade:
+          description: Rating grade.
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - grade
+      - count
+    inline_response_200_4_data_ratingSystem1:
+      description: Ratings of the debt instruments according to the rating system
+        specified by either the first identifier provided in the parameter `rating.system.ids`,
+        or of the rating system implied by the first identifier provided in the parameter
+        `rating.minimum.grade.ids`. Not available, if a rating system has not been
+        specified via the mentioned parameters.
+      example:
+        rating:
+        - grade: grade
+          count: 1.0246457001441578
+          id: 1.2315135367772556
+        - grade: grade
+          count: 1.0246457001441578
+          id: 1.2315135367772556
+      properties:
+        rating:
+          description: List of rating grades.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_ratingSystem1_rating'
+          type: array
+      type: object
+      x-property-sort:
+      - rating
+    inline_response_200_4_data_ratingSystem2:
+      description: Ratings of the debt instruments according to the rating system
+        specified by either the second identifier provided in the parameter `rating.system.ids`,
+        or of the rating system implied by the second identifier provided in the parameter
+        `rating.minimum.grade.ids`. Not available, if a rating system has not been
+        specified via the mentioned parameters.
+      example:
+        rating:
+        - grade: grade
+          count: 1.0246457001441578
+          id: 1.2315135367772556
+        - grade: grade
+          count: 1.0246457001441578
+          id: 1.2315135367772556
+      properties:
+        rating:
+          description: List of rating grades.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_ratingSystem1_rating'
+          type: array
+      type: object
+      x-property-sort:
+      - rating
+    inline_response_200_4_data_issuer_juristicPerson:
+      example:
+        name: name
+        count: 6.84685269835264
+        id: 1.4894159098541704
+      properties:
+        id:
+          description: Identifier of an issuer.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the issuer.
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - count
+    inline_response_200_4_data_issuer:
+      description: Values and value ranges related to the issuer of the debt instruments.
+      example:
+        country:
+        - name: name
+          count: 6.84685269835264
+          id: 1.4894159098541704
+        - name: name
+          count: 6.84685269835264
+          id: 1.4894159098541704
+        juristicPerson:
+        - name: name
+          count: 6.84685269835264
+          id: 1.4894159098541704
+        - name: name
+          count: 6.84685269835264
+          id: 1.4894159098541704
+      properties:
+        juristicPerson:
+          description: List of juristic persons in the role of an issuer. See endpoint
+            `/debtInstrument/issuer/search` for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_issuer_juristicPerson'
+          type: array
+        country:
+          description: List of countries where the issuers of the debt instruments
+            are registered. See endpoint `/basic/region/country/list` for possible
+            values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_issuer_juristicPerson'
+          type: array
+      type: object
+      x-property-sort:
+      - juristicPerson
+      - country
+    inline_response_200_4_data_issue_volume_currency:
+      example:
+        isoCode: isoCode
+        count: 1.1730742509559433
+        id: 7.457744773683766
+      properties:
+        id:
+          description: Identifier of a currency.
+          format: id32
+          type: number
+          x-positive: true
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - isoCode
+      - count
+    inline_response_200_4_data_issue_volume:
+      description: Values and value ranges related to the issue volumes of the debt
+        instruments.
+      example:
+        currency:
+        - isoCode: isoCode
+          count: 1.1730742509559433
+          id: 7.457744773683766
+        - isoCode: isoCode
+          count: 1.1730742509559433
+          id: 7.457744773683766
+      properties:
+        currency:
+          description: List of main currencies of denomination of the the issue volumes.
+            See endpoint `/basic/valueUnit/currency/main/list` for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_issue_volume_currency'
+          type: array
+      type: object
+      x-property-sort:
+      - currency
+    inline_response_200_4_data_issue:
+      description: Values and value ranges related to the issue of the debt instruments.
+      example:
+        volume:
+          currency:
+          - isoCode: isoCode
+            count: 1.1730742509559433
+            id: 7.457744773683766
+          - isoCode: isoCode
+            count: 1.1730742509559433
+            id: 7.457744773683766
+      properties:
+        volume:
+          $ref: '#/components/schemas/inline_response_200_4_data_issue_volume'
+      type: object
+      x-property-sort:
+      - volume
+    inline_response_200_4_data_tradingVolume_otc_minimum:
+      description: Minimum trading volume.
+      example:
+        maximum: 5.025004791520295
+        minimum: 4.965218492984954
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_tradingVolume_otc:
+      description: Value ranges of the volume applicable to the over-the-counter (non-exchange
+        based) trading.
+      example:
+        minimum:
+          maximum: 5.025004791520295
+          minimum: 4.965218492984954
+      properties:
+        minimum:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradingVolume_otc_minimum'
+      type: object
+      x-property-sort:
+      - minimum
+    inline_response_200_4_data_tradingVolume:
+      description: Value ranges regarding requirements related to the trading volume.
+        The currency is the currency of denomination (see attribute `issue.volume.currency`).
+        Not available, if the parameter `issue.volume.currency.restrict.ids` has not
+        been set to a single currency.
+      example:
+        otc:
+          minimum:
+            maximum: 5.025004791520295
+            minimum: 4.965218492984954
+      properties:
+        otc:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradingVolume_otc'
+      type: object
+      x-property-sort:
+      - otc
+    inline_response_200_4_data_compliance_germany:
+      description: Compliance properties in accordance with the German law.
+      example:
+        trusteeEligible:
+        - count: 7.386281948385884
+          value: true
+        - count: 7.386281948385884
+          value: true
+      properties:
+        trusteeEligible:
+          description: Indicates whether debt instruments eligible for investments
+            by trustees according to §§1806ff of the BGB (German Civil Code) are among
+            the results. The German legislative has declared it to be virtually free
+            of the risk of loss, such as government and state bonds. Eligible are
+            primarily German debt instruments.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_perpetual'
+          type: array
+      type: object
+      x-property-sort:
+      - trusteeEligible
+    inline_response_200_4_data_compliance:
+      description: Compliance properties.
+      example:
+        germany:
+          trusteeEligible:
+          - count: 7.386281948385884
+            value: true
+          - count: 7.386281948385884
+            value: true
+      properties:
+        germany:
+          $ref: '#/components/schemas/inline_response_200_4_data_compliance_germany'
+      type: object
+      x-property-sort:
+      - germany
+    inline_response_200_4_data_coupon_occurrence_type:
+      example:
+        count: 9.965781217890562
+        value: never
+      properties:
+        value:
+          description: Attribute value.
+          enum:
+          - never
+          - once
+          - repeated
+          type: string
+          x-enum-description:
+          - The debt instrument does not pay out a coupon.
+          - The debt instrument pays out a coupon only once.
+          - The debt instrument pays out a coupon on a repeated basis.
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - value
+      - count
+    inline_response_200_4_data_coupon_occurrence_frequency:
+      example:
+        name: name
+        count: 6.683562403749608
+        id: 9.369310271410669
+      properties:
+        id:
+          description: Identifier of a frequency.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the frequency.
+          format: localizedString
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - count
+    inline_response_200_4_data_coupon_occurrence:
+      description: Occurrence and frequency of the coupon payments.
+      example:
+        type:
+        - count: 9.965781217890562
+          value: never
+        - count: 9.965781217890562
+          value: never
+        frequency:
+        - name: name
+          count: 6.683562403749608
+          id: 9.369310271410669
+        - name: name
+          count: 6.683562403749608
+          id: 9.369310271410669
+      properties:
+        type:
+          description: Occurrence types of the coupon payments.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_coupon_occurrence_type'
+          type: array
+        frequency:
+          description: Frequency of the coupon payments; applicable only to debt instruments
+            with an occurrence type `repeated`. See endpoint `/basic/frequency/type/list`
+            for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_coupon_occurrence_frequency'
+          type: array
+      type: object
+      x-property-sort:
+      - type
+      - frequency
+    inline_response_200_4_data_coupon_currentInterestRate_type:
+      example:
+        name: name
+        count: 9.018348186070783
+        id: 8.762042012749001
+      properties:
+        id:
+          description: Identifier of a type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the type.
+          format: localizedString
+          type: string
+        count:
+          description: Number of notations.
+          format: int32
+          type: number
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - count
+    inline_response_200_4_data_coupon_currentInterestRate_value:
+      description: Value range of the interest rate; annualized if the payment frequency
+        is not annually.
+      example:
+        maximum: 3.5571952270680973
+        minimum: 6.438423552598547
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_coupon_currentInterestRate:
+      description: Values and value ranges applicable to the current coupon period.
+      example:
+        type:
+        - name: name
+          count: 9.018348186070783
+          id: 8.762042012749001
+        - name: name
+          count: 9.018348186070783
+          id: 8.762042012749001
+        value:
+          maximum: 3.5571952270680973
+          minimum: 6.438423552598547
+      properties:
+        type:
+          description: Interest rate types. See endpoint `/instrument/coupon/interestRate/type/list`
+            for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_coupon_currentInterestRate_type'
+          type: array
+        value:
+          $ref: '#/components/schemas/inline_response_200_4_data_coupon_currentInterestRate_value'
+      type: object
+      x-property-sort:
+      - type
+      - value
+    inline_response_200_4_data_coupon:
+      description: Values and value ranges related to the interest rate.
+      example:
+        occurrence:
+          type:
+          - count: 9.965781217890562
+            value: never
+          - count: 9.965781217890562
+            value: never
+          frequency:
+          - name: name
+            count: 6.683562403749608
+            id: 9.369310271410669
+          - name: name
+            count: 6.683562403749608
+            id: 9.369310271410669
+        currentInterestRate:
+          type:
+          - name: name
+            count: 9.018348186070783
+            id: 8.762042012749001
+          - name: name
+            count: 9.018348186070783
+            id: 8.762042012749001
+          value:
+            maximum: 3.5571952270680973
+            minimum: 6.438423552598547
+      properties:
+        occurrence:
+          $ref: '#/components/schemas/inline_response_200_4_data_coupon_occurrence'
+        currentInterestRate:
+          $ref: '#/components/schemas/inline_response_200_4_data_coupon_currentInterestRate'
+      type: object
+      x-property-sort:
+      - occurrence
+      - currentInterestRate
+    inline_response_200_4_data_yield_current:
+      description: Current yield, which is the next annual interest payment divided
+        by the price. If the coupon period is different than a year, the interest
+        payment is annualized.
+      example:
+        maximum: 1.284659006116532
+        minimum: 6.965117697638846
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_yield_toMaturity:
+      description: Yield to maturity, which is the annual rate of return, assuming
+        the instrument is held until maturity.
+      example:
+        maximum: 6.778324963048013
+        minimum: 2.8841621266687802
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_yield_spread:
+      description: Credit spread, which is the difference in yield to maturity between
+        a highest-quality debt instrument, also called a benchmark bond, and the debt
+        instrument.
+      example:
+        maximum: 5.944895607614016
+        minimum: 6.878052220127876
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_yield:
+      description: Value ranges of the yield-related key figures.
+      example:
+        current:
+          maximum: 1.284659006116532
+          minimum: 6.965117697638846
+        toMaturity:
+          maximum: 6.778324963048013
+          minimum: 2.8841621266687802
+        spread:
+          maximum: 5.944895607614016
+          minimum: 6.878052220127876
+      properties:
+        current:
+          $ref: '#/components/schemas/inline_response_200_4_data_yield_current'
+        toMaturity:
+          $ref: '#/components/schemas/inline_response_200_4_data_yield_toMaturity'
+        spread:
+          $ref: '#/components/schemas/inline_response_200_4_data_yield_spread'
+      type: object
+      x-property-sort:
+      - current
+      - toMaturity
+      - spread
+    inline_response_200_4_data_macaulayDuration:
+      description: Value range of the Macaulay duration, which is the average period
+        (in years) of capital commitment.
+      example:
+        maximum: 3.353193347011243
+        minimum: 6.704019297950036
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_sensitivities_basePointValue:
+      description: Base point value, which is the change of the debt instrument's
+        price for a one base point change (nominally, not relatively) of the prevailing
+        market interest rate. One base point is equivalent to 0.01 percent (1/100
+        of a percent). The unit of the base point value is the value unit of the notation
+        (see attribute `valueUnit`). Not available, if the parameter `validation.valueUnit.restrict.ids`
+        has not been set to a single value unit.
+      example:
+        maximum: 7.143538047012306
+        minimum: 3.0937452626664474
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_sensitivities_modifiedDuration:
+      description: Modified duration, which is the percentage change of the debt instrument's
+        price for a one percent change (nominally, not relatively) of the prevailing
+        market interest rate.
+      example:
+        maximum: 7.058770351582356
+        minimum: 0.8851374739011653
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_sensitivities_elasticity:
+      description: Yield elasticity, which is the ratio of the percentage change of
+        the debt instrument's price for a one percent change (relatively, not nominally)
+        of the prevailing market interest rate.
+      example:
+        maximum: 0.10263654006109402
+        minimum: 6.519180951018382
+      properties:
+        minimum:
+          description: Minimum value.
+          format: relativeValue
+          type: number
+        maximum:
+          description: Maximum value.
+          format: relativeValue
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_sensitivities_convexity:
+      description: Convexity, which is a measure for the change of the modified duration
+        as the prevailing market interest rate changes.
+      example:
+        maximum: 8.969578798196912
+        minimum: 4.652396432933246
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_sensitivities:
+      description: Value ranges of the price sensitivities of the debt instruments
+        with respect to the prevailing market interest rate.
+      example:
+        elasticity:
+          maximum: 0.10263654006109402
+          minimum: 6.519180951018382
+        basePointValue:
+          maximum: 7.143538047012306
+          minimum: 3.0937452626664474
+        modifiedDuration:
+          maximum: 7.058770351582356
+          minimum: 0.8851374739011653
+        convexity:
+          maximum: 8.969578798196912
+          minimum: 4.652396432933246
+      properties:
+        basePointValue:
+          $ref: '#/components/schemas/inline_response_200_4_data_sensitivities_basePointValue'
+        modifiedDuration:
+          $ref: '#/components/schemas/inline_response_200_4_data_sensitivities_modifiedDuration'
+        elasticity:
+          $ref: '#/components/schemas/inline_response_200_4_data_sensitivities_elasticity'
+        convexity:
+          $ref: '#/components/schemas/inline_response_200_4_data_sensitivities_convexity'
+      type: object
+      x-property-sort:
+      - basePointValue
+      - modifiedDuration
+      - elasticity
+      - convexity
+    inline_response_200_4_data_tradedValue_days30_sum:
+      description: Sum of the cash flow.
+      example:
+        maximum: 3.0205796992916243
+        minimum: 7.740351818741173
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_tradedValue_days30_average:
+      description: Average daily cash flow.
+      example:
+        maximum: 7.04836565559697
+        minimum: 3.0576100241049344
+      properties:
+        minimum:
+          description: Minimum value.
+          format: real
+          type: number
+        maximum:
+          description: Maximum value.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    inline_response_200_4_data_tradedValue_days30:
+      description: Cash flow for the time range 30 trading days.
+      example:
+        average:
+          maximum: 7.04836565559697
+          minimum: 3.0576100241049344
+        sum:
+          maximum: 3.0205796992916243
+          minimum: 7.740351818741173
+      properties:
+        sum:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradedValue_days30_sum'
+        average:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradedValue_days30_average'
+      type: object
+      x-property-sort:
+      - sum
+      - average
+    inline_response_200_4_data_tradedValue:
+      description: Value ranges of the cash flow for all transactions over a given
+        time range. The currency is the currency of denomination (see attribute `issue.volume.currency`).
+        Not available, if the parameter `issue.volume.currency.restrict.ids` has not
+        been set to a single currency.
+      example:
+        days30:
+          average:
+            maximum: 7.04836565559697
+            minimum: 3.0576100241049344
+          sum:
+            maximum: 3.0205796992916243
+            minimum: 7.740351818741173
+      properties:
+        days30:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradedValue_days30'
+      type: object
+      x-property-sort:
+      - days30
+    inline_response_200_4_data:
+      description: Possible values and value ranges of the parameters.
+      example:
+        subordinated:
+        - count: 7.386281948385884
+          value: true
+        - count: 7.386281948385884
+          value: true
+        categorization:
+        - level:
+            number: 2.3021358869347655
+          categories:
+          - parent:
+              id: 9.301444243932576
+            name: name
+            count: 3.616076749251911
+            id: 7.061401241503109
+          - parent:
+              id: 9.301444243932576
+            name: name
+            count: 3.616076749251911
+            id: 7.061401241503109
+        - level:
+            number: 2.3021358869347655
+          categories:
+          - parent:
+              id: 9.301444243932576
+            name: name
+            count: 3.616076749251911
+            id: 7.061401241503109
+          - parent:
+              id: 9.301444243932576
+            name: name
+            count: 3.616076749251911
+            id: 7.061401241503109
+        issue:
+          volume:
+            currency:
+            - isoCode: isoCode
+              count: 1.1730742509559433
+              id: 7.457744773683766
+            - isoCode: isoCode
+              count: 1.1730742509559433
+              id: 7.457744773683766
+        coupon:
+          occurrence:
+            type:
+            - count: 9.965781217890562
+              value: never
+            - count: 9.965781217890562
+              value: never
+            frequency:
+            - name: name
+              count: 6.683562403749608
+              id: 9.369310271410669
+            - name: name
+              count: 6.683562403749608
+              id: 9.369310271410669
+          currentInterestRate:
+            type:
+            - name: name
+              count: 9.018348186070783
+              id: 8.762042012749001
+            - name: name
+              count: 9.018348186070783
+              id: 8.762042012749001
+            value:
+              maximum: 3.5571952270680973
+              minimum: 6.438423552598547
+        valueUnit:
+        - code: code
+          count: 1.4658129805029452
+          id: 6.027456183070403
+        - code: code
+          count: 1.4658129805029452
+          id: 6.027456183070403
+        sensitivities:
+          elasticity:
+            maximum: 0.10263654006109402
+            minimum: 6.519180951018382
+          basePointValue:
+            maximum: 7.143538047012306
+            minimum: 3.0937452626664474
+          modifiedDuration:
+            maximum: 7.058770351582356
+            minimum: 0.8851374739011653
+          convexity:
+            maximum: 8.969578798196912
+            minimum: 4.652396432933246
+        totalCount: 0.8008281904610115
+        tradingVolume:
+          otc:
+            minimum:
+              maximum: 5.025004791520295
+              minimum: 4.965218492984954
+        tradedValue:
+          days30:
+            average:
+              maximum: 7.04836565559697
+              minimum: 3.0576100241049344
+            sum:
+              maximum: 3.0205796992916243
+              minimum: 7.740351818741173
+        issuer:
+          country:
+          - name: name
+            count: 6.84685269835264
+            id: 1.4894159098541704
+          - name: name
+            count: 6.84685269835264
+            id: 1.4894159098541704
+          juristicPerson:
+          - name: name
+            count: 6.84685269835264
+            id: 1.4894159098541704
+          - name: name
+            count: 6.84685269835264
+            id: 1.4894159098541704
+        market:
+        - name: name
+          count: 5.637376656633329
+          id: 5.962133916683182
+        - name: name
+          count: 5.637376656633329
+          id: 5.962133916683182
+        ratingSystem1:
+          rating:
+          - grade: grade
+            count: 1.0246457001441578
+            id: 1.2315135367772556
+          - grade: grade
+            count: 1.0246457001441578
+            id: 1.2315135367772556
+        ratingSystem2:
+          rating:
+          - grade: grade
+            count: 1.0246457001441578
+            id: 1.2315135367772556
+          - grade: grade
+            count: 1.0246457001441578
+            id: 1.2315135367772556
+        macaulayDuration:
+          maximum: 3.353193347011243
+          minimum: 6.704019297950036
+        compliance:
+          germany:
+            trusteeEligible:
+            - count: 7.386281948385884
+              value: true
+            - count: 7.386281948385884
+              value: true
+        yield:
+          current:
+            maximum: 1.284659006116532
+            minimum: 6.965117697638846
+          toMaturity:
+            maximum: 6.778324963048013
+            minimum: 2.8841621266687802
+          spread:
+            maximum: 5.944895607614016
+            minimum: 6.878052220127876
+        lifeCycle:
+          callable:
+          - count: 7.386281948385884
+            value: true
+          - count: 7.386281948385884
+            value: true
+          issue:
+            maximum: 2000-01-23
+            minimum: 2000-01-23
+          maturity:
+            date:
+              maximum: 2000-01-23
+              minimum: 2000-01-23
+            remainingTermYears:
+              maximum: 4.145608029883936
+              minimum: 2.027123023002322
+            perpetual:
+            - count: 7.386281948385884
+              value: true
+            - count: 7.386281948385884
+              value: true
+      properties:
+        totalCount:
+          description: Number of notations that satisfy the request parameters, hence
+            have been used to retrieve the possible values and value ranges.
+          format: int32
+          type: number
+        valueUnit:
+          description: List of value unit identifiers. See endpoint `/basic/valueUnit/list`
+            for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_valueUnit'
+          type: array
+        market:
+          description: List of market identifiers. See endpoint `/basic/market/list`
+            for possible values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_market'
+          type: array
+        categorization:
+          description: Lists of categories of the debt instruments' categorization.
+            Starting with the most coarse level (one), for each level of the category
+            system, the list of categories of the debt instruments, matching the parameters,
+            is returned. See endpoint `/category/listBySystem` with `id=18` for possible
+            values.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_categorization'
+          type: array
+        lifeCycle:
+          $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle'
+        subordinated:
+          description: Indicates whether subordinated and non-subordinated are among
+            the results. In case of default, subordinated debt instruments are redeemed
+            with a lower priority than non-subordinated.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data_lifeCycle_maturity_perpetual'
+          type: array
+        ratingSystem1:
+          $ref: '#/components/schemas/inline_response_200_4_data_ratingSystem1'
+        ratingSystem2:
+          $ref: '#/components/schemas/inline_response_200_4_data_ratingSystem2'
+        issuer:
+          $ref: '#/components/schemas/inline_response_200_4_data_issuer'
+        issue:
+          $ref: '#/components/schemas/inline_response_200_4_data_issue'
+        tradingVolume:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradingVolume'
+        compliance:
+          $ref: '#/components/schemas/inline_response_200_4_data_compliance'
+        coupon:
+          $ref: '#/components/schemas/inline_response_200_4_data_coupon'
+        yield:
+          $ref: '#/components/schemas/inline_response_200_4_data_yield'
+        macaulayDuration:
+          $ref: '#/components/schemas/inline_response_200_4_data_macaulayDuration'
+        sensitivities:
+          $ref: '#/components/schemas/inline_response_200_4_data_sensitivities'
+        tradedValue:
+          $ref: '#/components/schemas/inline_response_200_4_data_tradedValue'
+      type: object
+      x-property-sort:
+      - totalCount
+      - valueUnit
+      - market
+      - categorization
+      - lifeCycle
+      - subordinated
+      - ratingSystem1
+      - ratingSystem2
+      - issuer
+      - issue
+      - tradingVolume
+      - compliance
+      - coupon
+      - yield
+      - macaulayDuration
+      - sensitivities
+      - tradedValue
+    inline_response_200_4:
+      example:
+        data:
+          subordinated:
+          - count: 7.386281948385884
+            value: true
+          - count: 7.386281948385884
+            value: true
+          categorization:
+          - level:
+              number: 2.3021358869347655
+            categories:
+            - parent:
+                id: 9.301444243932576
+              name: name
+              count: 3.616076749251911
+              id: 7.061401241503109
+            - parent:
+                id: 9.301444243932576
+              name: name
+              count: 3.616076749251911
+              id: 7.061401241503109
+          - level:
+              number: 2.3021358869347655
+            categories:
+            - parent:
+                id: 9.301444243932576
+              name: name
+              count: 3.616076749251911
+              id: 7.061401241503109
+            - parent:
+                id: 9.301444243932576
+              name: name
+              count: 3.616076749251911
+              id: 7.061401241503109
+          issue:
+            volume:
+              currency:
+              - isoCode: isoCode
+                count: 1.1730742509559433
+                id: 7.457744773683766
+              - isoCode: isoCode
+                count: 1.1730742509559433
+                id: 7.457744773683766
+          coupon:
+            occurrence:
+              type:
+              - count: 9.965781217890562
+                value: never
+              - count: 9.965781217890562
+                value: never
+              frequency:
+              - name: name
+                count: 6.683562403749608
+                id: 9.369310271410669
+              - name: name
+                count: 6.683562403749608
+                id: 9.369310271410669
+            currentInterestRate:
+              type:
+              - name: name
+                count: 9.018348186070783
+                id: 8.762042012749001
+              - name: name
+                count: 9.018348186070783
+                id: 8.762042012749001
+              value:
+                maximum: 3.5571952270680973
+                minimum: 6.438423552598547
+          valueUnit:
+          - code: code
+            count: 1.4658129805029452
+            id: 6.027456183070403
+          - code: code
+            count: 1.4658129805029452
+            id: 6.027456183070403
+          sensitivities:
+            elasticity:
+              maximum: 0.10263654006109402
+              minimum: 6.519180951018382
+            basePointValue:
+              maximum: 7.143538047012306
+              minimum: 3.0937452626664474
+            modifiedDuration:
+              maximum: 7.058770351582356
+              minimum: 0.8851374739011653
+            convexity:
+              maximum: 8.969578798196912
+              minimum: 4.652396432933246
+          totalCount: 0.8008281904610115
+          tradingVolume:
+            otc:
+              minimum:
+                maximum: 5.025004791520295
+                minimum: 4.965218492984954
+          tradedValue:
+            days30:
+              average:
+                maximum: 7.04836565559697
+                minimum: 3.0576100241049344
+              sum:
+                maximum: 3.0205796992916243
+                minimum: 7.740351818741173
+          issuer:
+            country:
+            - name: name
+              count: 6.84685269835264
+              id: 1.4894159098541704
+            - name: name
+              count: 6.84685269835264
+              id: 1.4894159098541704
+            juristicPerson:
+            - name: name
+              count: 6.84685269835264
+              id: 1.4894159098541704
+            - name: name
+              count: 6.84685269835264
+              id: 1.4894159098541704
+          market:
+          - name: name
+            count: 5.637376656633329
+            id: 5.962133916683182
+          - name: name
+            count: 5.637376656633329
+            id: 5.962133916683182
+          ratingSystem1:
+            rating:
+            - grade: grade
+              count: 1.0246457001441578
+              id: 1.2315135367772556
+            - grade: grade
+              count: 1.0246457001441578
+              id: 1.2315135367772556
+          ratingSystem2:
+            rating:
+            - grade: grade
+              count: 1.0246457001441578
+              id: 1.2315135367772556
+            - grade: grade
+              count: 1.0246457001441578
+              id: 1.2315135367772556
+          macaulayDuration:
+            maximum: 3.353193347011243
+            minimum: 6.704019297950036
+          compliance:
+            germany:
+              trusteeEligible:
+              - count: 7.386281948385884
+                value: true
+              - count: 7.386281948385884
+                value: true
+          yield:
+            current:
+              maximum: 1.284659006116532
+              minimum: 6.965117697638846
+            toMaturity:
+              maximum: 6.778324963048013
+              minimum: 2.8841621266687802
+            spread:
+              maximum: 5.944895607614016
+              minimum: 6.878052220127876
+          lifeCycle:
+            callable:
+            - count: 7.386281948385884
+              value: true
+            - count: 7.386281948385884
+              value: true
+            issue:
+              maximum: 2000-01-23
+              minimum: 2000-01-23
+            maturity:
+              date:
+                maximum: 2000-01-23
+                minimum: 2000-01-23
+              remainingTermYears:
+                maximum: 4.145608029883936
+                minimum: 2.027123023002322
+              perpetual:
+              - count: 7.386281948385884
+                value: true
+              - count: 7.386281948385884
+                value: true
+        meta:
+          status:
+            code: 1.2315135367772556
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_4_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.38.0
+x-api-version: 2.9.0
+x-original-swagger-version: "2.0"
+

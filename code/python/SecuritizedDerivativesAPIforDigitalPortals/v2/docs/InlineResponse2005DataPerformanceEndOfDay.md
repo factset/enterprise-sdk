@@ -1,0 +1,21 @@
+# InlineResponse2005DataPerformanceEndOfDay
+
+Value ranges related to the end-of-day (EOD) relative performance for different time ranges.
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**day1** | [**InlineResponse2005DataPerformanceEndOfDayDay1**](InlineResponse2005DataPerformanceEndOfDayDay1.md) |  | [optional] 
+**week1** | [**InlineResponse2005DataPerformanceEndOfDayWeek1**](InlineResponse2005DataPerformanceEndOfDayWeek1.md) |  | [optional] 
+**month1** | [**InlineResponse2005DataPerformanceEndOfDayMonth1**](InlineResponse2005DataPerformanceEndOfDayMonth1.md) |  | [optional] 
+**months3** | [**InlineResponse2005DataPerformanceEndOfDayMonths3**](InlineResponse2005DataPerformanceEndOfDayMonths3.md) |  | [optional] 
+**months6** | [**InlineResponse2005DataPerformanceEndOfDayMonths6**](InlineResponse2005DataPerformanceEndOfDayMonths6.md) |  | [optional] 
+**year1** | [**InlineResponse2005DataPerformanceEndOfDayYear1**](InlineResponse2005DataPerformanceEndOfDayYear1.md) |  | [optional] 
+**years3** | [**InlineResponse2005DataPerformanceEndOfDayYears3**](InlineResponse2005DataPerformanceEndOfDayYears3.md) |  | [optional] 
+**years5** | [**InlineResponse2005DataPerformanceEndOfDayYears5**](InlineResponse2005DataPerformanceEndOfDayYears5.md) |  | [optional] 
+**year_to_date** | [**InlineResponse2005DataPerformanceEndOfDayYearToDate**](InlineResponse2005DataPerformanceEndOfDayYearToDate.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

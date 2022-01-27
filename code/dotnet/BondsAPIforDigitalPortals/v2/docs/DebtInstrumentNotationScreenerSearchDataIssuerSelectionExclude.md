@@ -1,0 +1,11 @@
+# FactSet.SDK.BondsAPIforDigitalPortals.Model.DebtInstrumentNotationScreenerSearchDataIssuerSelectionExclude
+Exclusion list. Debt instruments issued by an issuer in the provided list are not returned.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Ids** | **List&lt;decimal&gt;** | Set of identifiers of legal entities in the role of an issuer. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetTickHistory",
+  "projectName": "fds.sdk.FactSetTickHistory",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet Tick History",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetTickHistory",
+  "httpUserAgent": "fds-sdk/python/FactSetTickHistory/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

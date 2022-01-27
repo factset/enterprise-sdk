@@ -1,0 +1,2854 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: vendor endpoints
+  name: vendor
+- description: prices endpoints
+  name: prices
+paths:
+  /vendor/chartIQ/timeSeries/eod/list:
+    post:
+      description: End-of-day time series data for a notation. The resulting time
+        series is always adjusted for currency changes.
+      operationId: post/vendor/chartIQ/timeSeries/eod/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: End-of-day time series data for a notation.
+      tags:
+      - vendor
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /vendor/chartIQ/timeSeries/eod/subsample/get:
+    post:
+      description: Single subsample end-of-day data for a notation. The sample is
+        always adjusted for currency changes. The subsample may exceed the entitled
+        date range, but will be based only on days that are in the entitled range.
+      operationId: post/vendor/chartIQ/timeSeries/eod/subsample/get
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: Single subsample end-of-day data for a notation.
+      tags:
+      - vendor
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /vendor/chartIQ/timeSeries/eod/subsample/list:
+    post:
+      description: Subsampled end-of-day time series data for a notation. The resulting
+        time series is always adjusted for currency changes. If a subsample's date
+        range is not entirely within the maximally entitled date range, the subsample
+        is excluded from the response.
+      operationId: post/vendor/chartIQ/timeSeries/eod/subsample/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_2'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: Subsampled end-of-day time series data for a notation.
+      tags:
+      - vendor
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /vendor/chartIQ/timeSeries/intraday/subsample/get:
+    get:
+      description: Single subsample intraday data for a notation. The subsample may
+        exceed the entitled time range, but will be based only on ticks that are in
+        the entitled range.
+      operationId: get/vendor/chartIQ/timeSeries/intraday/subsample/get
+      parameters:
+      - description: Identifier of the notation.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Type of the price as configured for the customer.
+        in: query
+        name: type
+        schema:
+          default: trade
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+        x-enum-description:
+        - Trade price (ordinary, auction, pre or post-trading).
+        - Bid price.
+        - Ask price.
+        - Yield price.
+      - description: Quality of the price.
+        in: query
+        name: quality
+        schema:
+          default: DLY
+          enum:
+          - RLT
+          - DLY
+          - BST
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        x-enum-description:
+        - 'Real-time: intraday prices with minimal technical processing delays.'
+        - 'Delayed: intraday prices with an exchange-imposed delay of usually 15 to
+          30 minutes.'
+        - 'Best: choose the price quality with the least delay, as entitled for the
+          client.'
+      - description: Date and time of the start point of the subsample (inclusive).
+          `from` must be aligned to `granularity`. That is, the numerical value is
+          an integral multiple of the time span value represented by `granularity`.
+          The data accessible in the past is limited to a few weeks at most. Dates
+          in the future are not allowed.
+        in: query
+        name: from
+        required: true
+        schema:
+          format: datetime
+          type: string
+      - description: Subsample granularities suitable for intraday data.
+        in: query
+        name: granularity
+        schema:
+          default: 1h
+          enum:
+          - 1s
+          - 5s
+          - 10s
+          - 30s
+          - 1m
+          - 5m
+          - 10m
+          - 15m
+          - 30m
+          - 1h
+          type: string
+          x-enum-description:
+          - Each subsample interval encompasses 1 second.
+          - Each subsample interval encompasses 5 seconds.
+          - Each subsample interval encompasses 10 seconds.
+          - Each subsample interval encompasses 30 seconds.
+          - Each subsample interval encompasses 1 minute.
+          - Each subsample interval encompasses 5 minutes.
+          - Each subsample interval encompasses 10 minutes.
+          - Each subsample interval encompasses 15 minutes.
+          - Each subsample interval encompasses 30 minutes.
+          - Each subsample interval encompasses 1 hour.
+        x-enum-description:
+        - Each subsample interval encompasses 1 second.
+        - Each subsample interval encompasses 5 seconds.
+        - Each subsample interval encompasses 10 seconds.
+        - Each subsample interval encompasses 30 seconds.
+        - Each subsample interval encompasses 1 minute.
+        - Each subsample interval encompasses 5 minutes.
+        - Each subsample interval encompasses 10 minutes.
+        - Each subsample interval encompasses 15 minutes.
+        - Each subsample interval encompasses 30 minutes.
+        - Each subsample interval encompasses 1 hour.
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: Single subsample intraday data for a notation.
+      tags:
+      - vendor
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /vendor/chartIQ/timeSeries/intraday/subsample/list:
+    post:
+      description: Subsampled intraday time series data for a notation. If a subsample's
+        time range is not entirely within the maximally entitled time range, the subsample
+        is excluded from the response.
+      operationId: post/vendor/chartIQ/timeSeries/intraday/subsample/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_3'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_intraday_subsample_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful Response
+      summary: Subsampled intraday time series data for a notation.
+      tags:
+      - vendor
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices/timeSeries/eod/list:
+    post:
+      description: End-of-day time series data for a notation. The resulting time
+        series is always adjusted for currency changes.
+      operationId: post/prices/timeSeries/eod/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_4'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: Successful Response
+      summary: End-of-day time series data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices/timeSeries/eod/subsample/get:
+    post:
+      description: Single subsample end-of-day data for a notation. The sample is
+        always adjusted for currency changes. The subsample may exceed the entitled
+        date range, but will be based only on days that are in the entitled range.
+      operationId: post/prices/timeSeries/eod/subsample/get
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_5'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_prices_timeSeries_eod_subsample_get_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_6'
+          description: Successful Response
+      summary: Single subsample end-of-day data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices/timeSeries/eod/subsample/list:
+    post:
+      description: Subsampled end-of-day time series data for a notation. The resulting
+        time series is always adjusted for currency changes. If a subsample's date
+        range is not entirely within the maximally entitled date range, the subsample
+        is excluded from the response.
+      operationId: post/prices/timeSeries/eod/subsample/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_6'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_prices_timeSeries_eod_subsample_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: Successful Response
+      summary: Subsampled end-of-day time series data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices/timeSeries/intraday/list:
+    post:
+      description: Intraday time series data for a notation.
+      operationId: post/prices/timeSeries/intraday/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_7'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_prices_timeSeries_intraday_list_data'
+                meta:
+                  $ref: '#/components/schemas/_prices_timeSeries_intraday_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_8'
+          description: Successful Response
+      summary: Intraday time series data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices/timeSeries/intraday/subsample/get:
+    get:
+      description: Single subsample intraday data for a notation. The subsample may
+        exceed the entitled time range, but will be based only on ticks that are in
+        the entitled range.
+      operationId: get/prices/timeSeries/intraday/subsample/get
+      parameters:
+      - description: Identifier of the notation.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Type of the price as configured for the customer.
+        in: query
+        name: type
+        schema:
+          default: trade
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+        x-enum-description:
+        - Trade price (ordinary, auction, pre or post-trading).
+        - Bid price.
+        - Ask price.
+        - Yield price.
+      - description: Quality of the price.
+        in: query
+        name: quality
+        schema:
+          default: DLY
+          enum:
+          - RLT
+          - DLY
+          - BST
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        x-enum-description:
+        - 'Real-time: intraday prices with minimal technical processing delays.'
+        - 'Delayed: intraday prices with an exchange-imposed delay of usually 15 to
+          30 minutes.'
+        - 'Best: choose the price quality with the least delay, as entitled for the
+          client.'
+      - description: Date and time of the start point of the subsample (inclusive).
+          `from` must be aligned to `granularity`. That is, the numerical value is
+          an integral multiple of the time span value represented by `granularity`.
+          The data accessible in the past is limited to a few weeks at most. Dates
+          in the future are not allowed.
+        in: query
+        name: from
+        required: true
+        schema:
+          format: datetime
+          type: string
+      - description: Subsample granularities suitable for intraday data.
+        in: query
+        name: granularity
+        schema:
+          default: 1h
+          enum:
+          - 1s
+          - 5s
+          - 10s
+          - 30s
+          - 1m
+          - 5m
+          - 10m
+          - 15m
+          - 30m
+          - 1h
+          type: string
+          x-enum-description:
+          - Each subsample interval encompasses 1 second.
+          - Each subsample interval encompasses 5 seconds.
+          - Each subsample interval encompasses 10 seconds.
+          - Each subsample interval encompasses 30 seconds.
+          - Each subsample interval encompasses 1 minute.
+          - Each subsample interval encompasses 5 minutes.
+          - Each subsample interval encompasses 10 minutes.
+          - Each subsample interval encompasses 15 minutes.
+          - Each subsample interval encompasses 30 minutes.
+          - Each subsample interval encompasses 1 hour.
+        x-enum-description:
+        - Each subsample interval encompasses 1 second.
+        - Each subsample interval encompasses 5 seconds.
+        - Each subsample interval encompasses 10 seconds.
+        - Each subsample interval encompasses 30 seconds.
+        - Each subsample interval encompasses 1 minute.
+        - Each subsample interval encompasses 5 minutes.
+        - Each subsample interval encompasses 10 minutes.
+        - Each subsample interval encompasses 15 minutes.
+        - Each subsample interval encompasses 30 minutes.
+        - Each subsample interval encompasses 1 hour.
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_9'
+          description: Successful Response
+      summary: Single subsample intraday data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /prices/timeSeries/intraday/subsample/list:
+    post:
+      description: Subsampled intraday time series data for a notation. If a subsample's
+        time range is not entirely within the maximally entitled time range, the subsample
+        is excluded from the response.
+      operationId: post/prices/timeSeries/intraday/subsample/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_8'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_intraday_subsample_list_data'
+                meta:
+                  $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_10'
+          description: Successful Response
+      summary: Subsampled intraday time series data for a notation.
+      tags:
+      - prices
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: true
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+      required: true
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: true
+    inline_object_8:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_8'
+      required: true
+    inline_object_7:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_7'
+      required: true
+    inline_object_6:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_6'
+      required: true
+    inline_object_5:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_5'
+      required: true
+    inline_object_4:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_4'
+      required: true
+    inline_object_3:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_3'
+      required: true
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
+      required: true
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 6.027456183070403
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    CursorBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the cursor-based pagination strategy;
+        a total element count is not supported.
+      example:
+        next: next
+        previous: previous
+      properties:
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - next
+      - previous
+      type: object
+      x-property-sort:
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    OffsetBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the offset-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        hasNext:
+          description: Flag indicating that a subsequent request with the same parameters,
+            except that the parameter `pagination.offset` is incremented by `pagination.limit`,
+            would yield additional results.
+          type: boolean
+      required:
+      - hasNext
+      type: object
+      x-property-sort:
+      - hasNext
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If `true`, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    _vendor_chartIQ_timeSeries_eod_list_data_range:
+      description: Date range for the time series. A valid date range is between 1900-01-01
+        and the day after the current day.
+      properties:
+        start:
+          description: The starting point of the date range (inclusive).
+          format: date
+          type: string
+        end:
+          description: The ending point of the date range (exclusive).
+          format: date
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+      x-isClosedInterval: false
+    _vendor_chartIQ_timeSeries_eod_list_data_adjustments:
+      description: Adjustments values returned.
+      properties:
+        payout:
+          default: false
+          description: Adjustments are applied for corporate action effects due to
+            dividends, payouts, or other cash disbursements.
+          type: boolean
+        split:
+          default: true
+          description: Adjustments are applied for corporate action effects due to
+            the notation having a split, a reverse split, or a similar factor-based
+            corporate action.
+          type: boolean
+      type: object
+      x-property-sort:
+      - payout
+      - split
+    _vendor_chartIQ_timeSeries_eod_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          - estimate
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+          - Estimated price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          - BST
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        range:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_range'
+        adjustments:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_adjustments'
+      required:
+      - id
+      - range
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - range
+      - adjustments
+    _vendor_chartIQ_timeSeries_eod_list_meta_pagination:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        cursor:
+          description: Starting point as returned in the attributes `pagination.next`
+            or `pagination.previous` by a prior invocation of this endpoint, or undefined
+            (default).
+          maxLength: 50
+          type: string
+        limit:
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+3
+          minimum: 0
+          type: number
+      type: object
+      x-property-sort:
+      - cursor
+      - limit
+    _vendor_chartIQ_timeSeries_eod_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - pagination
+    inline_object:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_data_range:
+      description: Date range for the returned time series.
+      example:
+        start: 2000-01-23
+        end: 2000-01-23
+      properties:
+        start:
+          description: The starting point of the date range (inclusive).
+          format: date
+          type: string
+        end:
+          description: The ending point of the date range (exclusive).
+          format: date
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    inline_response_200_data:
+      description: Time series data for the notation.
+      example:
+        range:
+          start: 2000-01-23
+          end: 2000-01-23
+        prices:
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        quality: DLY
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        prices:
+          description: 'Time series of prices as an array of arrays. One record is
+            represented as an array and consists of a timestamp, four price values,
+            and the trading volume. For the unit of the price values, see attribute
+            `valueUnit` in endpoint `/prices/get`, except for price type yield, where
+            the `valueUnit` is always `percent` (id=258). The order is as follows:
+            timestamp seconds since epoch in UTC; first price; highest price; lowest
+            price; last price; number of units (e.g. shares) traded (price type trade
+            and estimate), offered (price type ask), solicited (price type bid), or
+            empty (price type yield).'
+          items:
+            description: ""
+            items:
+              description: ""
+              format: real
+              type: number
+            type: array
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - prices
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          next: next
+          previous: previous
+        status:
+          code: 6.027456183070403
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200:
+      example:
+        data:
+          range:
+            start: 2000-01-23
+            end: 2000-01-23
+          prices:
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          quality: DLY
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _vendor_chartIQ_timeSeries_eod_subsample_get_data_interval:
+      description: Non-empty interval of days specifying a single subsample period.
+        The starting point `start` of the single subsample is usually the attribute
+        `range.end` of a previously received `/vendor/chartIQ/timeSeries/eod/subsample/list`
+        request. A valid range is between 1900-01-01 and a day that is less than or
+        equal to the maximum allowed day determined from the delay period (if any).
+        The ending point `end` may exceed the maximally entitled date range.
+      properties:
+        start:
+          description: 'The starting point of the interval (inclusive). '
+          format: date
+          type: string
+        end:
+          description: The ending point of the interval (exclusive).
+          format: date
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+      x-isClosedInterval: false
+    _vendor_chartIQ_timeSeries_eod_subsample_get_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          - estimate
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+          - Estimated price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          - BST
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        interval:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_data_interval'
+        adjustments:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_adjustments'
+      required:
+      - id
+      - interval
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - interval
+      - adjustments
+    _vendor_chartIQ_timeSeries_eod_subsample_get_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+      type: object
+      x-property-sort:
+      - attributes
+    inline_object_1:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_1_data:
+      description: Subsample data for the notation.
+      example:
+        subsample:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        quality: DLY
+      properties:
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        subsample:
+          description: 'Single summary record. The record consists of a timestamp,
+            four price values, and the trading volume. For the unit of the price values,
+            see attribute `valueUnit` in endpoint `/prices/get`, except for price
+            type yield, where the `valueUnit` is always `percent` (id=258). The order
+            is as follows: timestamp of the start of the subsample (seconds since
+            epoch in UTC); first price of the subsample; highest price of the subsample;
+            lowest price of the subsample; last price of the subsample; accumulated
+            number of units (e.g. shares) traded of the subsample. If the requested
+            type of the price is ask, bid, or yield, the accumulated number of units
+            is empty.'
+          items:
+            description: ""
+            format: real
+            type: number
+          type: array
+      type: object
+      x-property-sort:
+      - quality
+      - subsample
+    inline_response_200_1_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 6.027456183070403
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200_1:
+      example:
+        data:
+          subsample:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          quality: DLY
+        meta:
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_1_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    _vendor_chartIQ_timeSeries_eod_subsample_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          - estimate
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+          - Estimated price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          - BST
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        intervals:
+          description: Non-empty intervals of days to consider for the request. The
+            array contains a list of at least two days in increasing order. Each pair
+            of adjacent entries day_n and day_(n+1) specifies a half-open interval,
+            that is a range of days d where day_n <= d < day_(n+1). A subsample is
+            computed for each interval. The valid range of intervals is between 1900-01-01
+            and the day after the current day.
+          items:
+            format: date
+            type: string
+          maxItems: 500
+          minItems: 2
+          type: array
+        adjustments:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_adjustments'
+      required:
+      - id
+      - intervals
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - intervals
+      - adjustments
+    inline_object_2:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_2_data:
+      description: Subsampled time series data for the notation.
+      example:
+        subsamples:
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        range:
+          start: 2000-01-23
+          end: 2000-01-23
+        quality: DLY
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        subsamples:
+          description: 'List of summary records as an array of arrays. One record
+            is represented as an array and consists of a timestamp, four price values,
+            and the trading volume. For the unit of the price values, see attribute
+            `valueUnit` in endpoint `/prices/get`, except for price type yield, where
+            the `valueUnit` is always `percent` (id=258). The order is as follows:
+            timestamp of the start of the subsample (seconds since epoch in UTC);
+            first price of the subsample; highest price of the subsample; lowest price
+            of the subsample; last price of the subsample; accumulated number of units
+            (e.g. shares) traded of the subsample. If the requested type of the price
+            is ask, bid, or yield, the accumulated number of units is empty.'
+          items:
+            description: ""
+            items:
+              description: ""
+              format: real
+              type: number
+            type: array
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - subsamples
+    inline_response_200_2:
+      example:
+        data:
+          subsamples:
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          range:
+            start: 2000-01-23
+            end: 2000-01-23
+          quality: DLY
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_3_data:
+      description: Subsample data for the notation.
+      example:
+        subsample:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        quality: RLT
+      properties:
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+        subsample:
+          description: 'Single summary record. The record consists of a timestamp,
+            four price values, and the trading volume. For the unit of the price values,
+            see attribute `valueUnit` in endpoint `/prices/get`, except for price
+            type yield, where the `valueUnit` is always `percent` (id=258). The order
+            is as follows: timestamp of the start of the subsample (seconds since
+            epoch in UTC); first price of the subsample; highest price of the subsample;
+            lowest price of the subsample; last price of the subsample; accumulated
+            number of units (e.g. shares) traded of the subsample. If the requested
+            type of the price is ask, bid, or yield, the accumulated number of units
+            is empty.'
+          items:
+            description: ""
+            format: real
+            type: number
+          type: array
+      type: object
+      x-property-sort:
+      - quality
+      - subsample
+    inline_response_200_3:
+      example:
+        data:
+          subsample:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          quality: RLT
+        meta:
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_3_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    _vendor_chartIQ_timeSeries_intraday_subsample_list_data_range:
+      description: Date and time range for the time series. The `start` and `end`
+        boundaries must be aligned to `granularity`. That is, the numerical value
+        is an integral multiple of the time span value represented by `granularity`.
+      properties:
+        start:
+          description: The starting point of the time range (inclusive). The data
+            accessible in the past is limited to a few weeks at most.
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive). Dates in the
+            future are not allowed.
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    _vendor_chartIQ_timeSeries_intraday_subsample_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          - BST
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        range:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_intraday_subsample_list_data_range'
+        granularity:
+          default: 1h
+          description: Subsample granularities suitable for intraday data.
+          enum:
+          - 1s
+          - 5s
+          - 10s
+          - 30s
+          - 1m
+          - 5m
+          - 10m
+          - 15m
+          - 30m
+          - 1h
+          type: string
+          x-enum-description:
+          - Each subsample interval encompasses 1 second.
+          - Each subsample interval encompasses 5 seconds.
+          - Each subsample interval encompasses 10 seconds.
+          - Each subsample interval encompasses 30 seconds.
+          - Each subsample interval encompasses 1 minute.
+          - Each subsample interval encompasses 5 minutes.
+          - Each subsample interval encompasses 10 minutes.
+          - Each subsample interval encompasses 15 minutes.
+          - Each subsample interval encompasses 30 minutes.
+          - Each subsample interval encompasses 1 hour.
+      required:
+      - id
+      - range
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - range
+      - granularity
+    inline_object_3:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_intraday_subsample_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_4_data_range:
+      description: Time range for the returned time series.
+      example:
+        start: start
+        end: end
+      properties:
+        start:
+          description: The starting point of the time range (inclusive).
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive).
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    inline_response_200_4_data:
+      description: Subsampled time series data for the notation.
+      example:
+        subsamples:
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        range:
+          start: start
+          end: end
+        quality: RLT
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_4_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+        subsamples:
+          description: 'List of summary records as an array of arrays. One record
+            is represented as an array and consists of a timestamp, four price values,
+            and the trading volume. For the unit of the price values, see attribute
+            `valueUnit` in endpoint `/prices/get`, except for price type yield, where
+            the `valueUnit` is always `percent` (id=258). The order is as follows:
+            timestamp of the start of the subsample (seconds since epoch in UTC);
+            first price of the subsample; highest price of the subsample; lowest price
+            of the subsample; last price of the subsample; accumulated number of units
+            (e.g. shares) traded of the subsample. If the requested type of the price
+            is ask, bid, or yield, the accumulated number of units is empty.'
+          items:
+            description: ""
+            items:
+              description: ""
+              format: real
+              type: number
+            type: array
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - subsamples
+    inline_response_200_4:
+      example:
+        data:
+          subsamples:
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          range:
+            start: start
+            end: end
+          quality: RLT
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_4_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_object_4:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_5_data_prices:
+      example:
+        date: 2000-01-23
+        high: 5.962133916683182
+        last: 6.027456183070403
+        low: 1.4658129805029452
+        tradingValue: 2.3021358869347655
+        tradingVolume: 5.637376656633329
+        first: 0.8008281904610115
+      properties:
+        date:
+          description: Date.
+          format: date
+          type: string
+        first:
+          description: First price.
+          format: real
+          type: number
+        last:
+          description: Last price.
+          format: real
+          type: number
+        low:
+          description: Lowest price.
+          format: real
+          type: number
+        high:
+          description: Highest price.
+          format: real
+          type: number
+        tradingVolume:
+          description: Number of units (e.g. shares) traded (price type trade and
+            estimate), offered (price type ask), solicited (price type bid), or empty
+            (price type yield).
+          format: real
+          type: number
+        tradingValue:
+          description: Monetary equivalent (cash value) of the trade. See attribute
+            `currency` in endpoint `/prices/get` for its unit. Empty for price type
+            yield.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - date
+      - first
+      - last
+      - low
+      - high
+      - tradingVolume
+      - tradingValue
+    inline_response_200_5_data:
+      description: Time series data for the notation.
+      example:
+        range:
+          start: 2000-01-23
+          end: 2000-01-23
+        prices:
+        - date: 2000-01-23
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        - date: 2000-01-23
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        quality: DLY
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        prices:
+          description: Time series of prices. For the attributes first, last, low,
+            high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
+            except for price type yield, where the `valueUnit` is always `percent`
+            (id=258).
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_data_prices'
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - prices
+    inline_response_200_5:
+      example:
+        data:
+          range:
+            start: 2000-01-23
+            end: 2000-01-23
+          prices:
+          - date: 2000-01-23
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          - date: 2000-01-23
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          quality: DLY
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_5_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _prices_timeSeries_eod_subsample_get_data_interval:
+      description: Non-empty interval of days specifying a single subsample period.
+        The starting point `start` of the single subsample is usually the attribute
+        `range.end` of a previously received `/prices/timeSeries/eod/subsample/list`
+        request. A valid range is between 1900-01-01 and a day that is less than or
+        equal to the maximum allowed day determined from the delay period (if any).
+        The ending point `end` may exceed the maximally entitled date range.
+      properties:
+        start:
+          description: 'The starting point of the interval (inclusive). '
+          format: date
+          type: string
+        end:
+          description: The ending point of the interval (exclusive).
+          format: date
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+      x-isClosedInterval: false
+    _prices_timeSeries_eod_subsample_get_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          - estimate
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+          - Estimated price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          - BST
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        interval:
+          $ref: '#/components/schemas/_prices_timeSeries_eod_subsample_get_data_interval'
+        adjustments:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_adjustments'
+      required:
+      - id
+      - interval
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - interval
+      - adjustments
+    inline_object_5:
+      properties:
+        data:
+          $ref: '#/components/schemas/_prices_timeSeries_eod_subsample_get_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_subsample_get_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_6_data_subsample:
+      description: Single summary record. For the attributes first, last, low, high,
+        see attribute `valueUnit` in endpoint `/prices/get` for their unit, except
+        for price type yield, where the `valueUnit` is always `percent` (id=258).
+      example:
+        date: 2000-01-23
+        high: 5.962133916683182
+        last: 6.027456183070403
+        low: 1.4658129805029452
+        tradingValue: 2.3021358869347655
+        tradingVolume: 5.637376656633329
+        first: 0.8008281904610115
+      properties:
+        date:
+          description: Date of the start of the subsample.
+          format: date
+          type: string
+        first:
+          description: First price of the subsample.
+          format: real
+          type: number
+        last:
+          description: Last price of the subsample.
+          format: real
+          type: number
+        low:
+          description: Lowest price of the subsample.
+          format: real
+          type: number
+        high:
+          description: Highest price of the subsample.
+          format: real
+          type: number
+        tradingVolume:
+          description: Accumulated number of units (e.g. shares) traded of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty.
+          format: real
+          type: number
+        tradingValue:
+          description: Accumulated monetary equivalent (cash value) of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty. See attribute `currency` in endpoint `/prices/get` for its unit.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - date
+      - first
+      - last
+      - low
+      - high
+      - tradingVolume
+      - tradingValue
+    inline_response_200_6_data:
+      description: Subsample data for the notation.
+      example:
+        subsample:
+          date: 2000-01-23
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        quality: DLY
+      properties:
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        subsample:
+          $ref: '#/components/schemas/inline_response_200_6_data_subsample'
+      type: object
+      x-property-sort:
+      - quality
+      - subsample
+    inline_response_200_6:
+      example:
+        data:
+          subsample:
+            date: 2000-01-23
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          quality: DLY
+        meta:
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_6_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    _prices_timeSeries_eod_subsample_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          - estimate
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+          - Estimated price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          - BST
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        intervals:
+          description: Non-empty intervals of days to consider for the request. The
+            array contains a list of at least two days in increasing order. Each pair
+            of adjacent entries day_n and day_(n+1) specifies a half-open interval,
+            that is a range of days d where day_n <= d < day_(n+1). A subsample is
+            computed for each interval. The valid range of intervals is between 1900-01-01
+            and the day after the current day.
+          items:
+            format: date
+            type: string
+          maxItems: 600
+          minItems: 2
+          type: array
+        adjustments:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_data_adjustments'
+      required:
+      - id
+      - intervals
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - intervals
+      - adjustments
+    inline_object_6:
+      properties:
+        data:
+          $ref: '#/components/schemas/_prices_timeSeries_eod_subsample_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_7_data_subsamples:
+      example:
+        date: 2000-01-23
+        high: 5.962133916683182
+        last: 6.027456183070403
+        low: 1.4658129805029452
+        tradingValue: 2.3021358869347655
+        tradingVolume: 5.637376656633329
+        first: 0.8008281904610115
+      properties:
+        date:
+          description: Date of the start of the subsample.
+          format: date
+          type: string
+        first:
+          description: First price of the subsample.
+          format: real
+          type: number
+        last:
+          description: Last price of the subsample.
+          format: real
+          type: number
+        low:
+          description: Lowest price of the subsample.
+          format: real
+          type: number
+        high:
+          description: Highest price of the subsample.
+          format: real
+          type: number
+        tradingVolume:
+          description: Accumulated number of units (e.g. shares) traded of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty.
+          format: real
+          type: number
+        tradingValue:
+          description: Accumulated monetary equivalent (cash value) of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty. See attribute `currency` in endpoint `/prices/get` for its unit.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - date
+      - first
+      - last
+      - low
+      - high
+      - tradingVolume
+      - tradingValue
+    inline_response_200_7_data:
+      description: Subsampled time series data for the notation.
+      example:
+        subsamples:
+        - date: 2000-01-23
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        - date: 2000-01-23
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        range:
+          start: 2000-01-23
+          end: 2000-01-23
+        quality: DLY
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - DLY
+          - EOD
+          type: string
+          x-enum-description:
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'End-of-day: prices updated once per day after the close of trading, possibly
+            with an exchange-imposed delay of several hours or days.'
+        subsamples:
+          description: List of summary records. For the attributes first, last, low,
+            high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
+            except for price type yield, where the `valueUnit` is always `percent`
+            (id=258).
+          items:
+            $ref: '#/components/schemas/inline_response_200_7_data_subsamples'
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - subsamples
+    inline_response_200_7:
+      example:
+        data:
+          subsamples:
+          - date: 2000-01-23
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          - date: 2000-01-23
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          range:
+            start: 2000-01-23
+            end: 2000-01-23
+          quality: DLY
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_7_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _prices_timeSeries_intraday_list_data_range:
+      description: Date and time range for the time series.
+      properties:
+        start:
+          description: The starting point of the time range (inclusive). The data
+            accessible in the past is limited to a few weeks at most.
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive). Dates in the
+            future are not allowed.
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    _prices_timeSeries_intraday_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          default: trade
+          description: Type of the price as configured for the customer.
+          enum:
+          - trade
+          - bid
+          - ask
+          - yield
+          type: string
+          x-enum-description:
+          - Trade price (ordinary, auction, pre or post-trading).
+          - Bid price.
+          - Ask price.
+          - Yield price.
+        quality:
+          default: DLY
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          - BST
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+          - 'Best: choose the price quality with the least delay, as entitled for
+            the client.'
+        range:
+          $ref: '#/components/schemas/_prices_timeSeries_intraday_list_data_range'
+        applyTickCorrections:
+          default: none
+          description: |-
+            This attribute represents the choice whether to apply insert, update, and delete corrections for individual ticks sent by the exchange or devised by FactSet Digital Solutions GmbH.
+
+             If the exchange or FactSet Digital Solutions GmbH decides to correct data, a correction instruction tick is sent shortly (usually on the same trading day) after dissemination of the corresponding original tick (if any). The correction instruction is then applied, yielding a corrected view. For "insert" corrections, there is no original tick, and the corrected view contains the inserted tick. For "update" corrections, the corrected view contains the updated original tick. For "delete" corrections, the original tick is removed from the corrected view.
+          enum:
+          - none
+          - all
+          type: string
+          x-enum-description:
+          - Select original tick data without applying any corrections.
+          - Select corrected view.
+      required:
+      - id
+      - range
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - quality
+      - range
+      - applyTickCorrections
+    _prices_timeSeries_intraday_list_meta_pagination:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        cursor:
+          description: Starting point as returned in the attributes `pagination.next`
+            or `pagination.previous` by a prior invocation of this endpoint, or undefined
+            (default).
+          maxLength: 50
+          type: string
+        limit:
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5E+2
+          minimum: 0
+          type: number
+      type: object
+      x-property-sort:
+      - cursor
+      - limit
+    _prices_timeSeries_intraday_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_prices_timeSeries_intraday_list_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - pagination
+    inline_object_7:
+      properties:
+        data:
+          $ref: '#/components/schemas/_prices_timeSeries_intraday_list_data'
+        meta:
+          $ref: '#/components/schemas/_prices_timeSeries_intraday_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_8_data_prices:
+      example:
+        price: 0.8008281904610115
+        time: time
+        quoteCondition: quoteCondition
+        tradingValue: 1.4658129805029452
+        tradingVolume: 6.027456183070403
+      properties:
+        time:
+          description: Date and time.
+          format: datetime
+          type: string
+        price:
+          description: Price value. See attribute `valueUnit` in endpoint `/prices/get`
+            for its unit, except for price type yield, where the `valueUnit` is always
+            `percent` (id=258).
+          format: real
+          type: number
+        quoteCondition:
+          description: Quote condition. Possible values depend on the values delivered
+            by the supplier of the price information.
+          type: string
+        tradingVolume:
+          description: Number of units (e.g. shares) traded, offered (price type ask),
+            solicited (price type bid), or empty (price type yield).
+          format: real
+          type: number
+        tradingValue:
+          description: Monetary equivalent (cash value) of the trade. See attribute
+            `currency` in endpoint `/prices/get` for its unit. Empty for price type
+            yield.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - time
+      - price
+      - quoteCondition
+      - tradingVolume
+      - tradingValue
+    inline_response_200_8_data:
+      description: Time series data for the notation.
+      example:
+        range:
+          start: start
+          end: end
+        prices:
+        - price: 0.8008281904610115
+          time: time
+          quoteCondition: quoteCondition
+          tradingValue: 1.4658129805029452
+          tradingVolume: 6.027456183070403
+        - price: 0.8008281904610115
+          time: time
+          quoteCondition: quoteCondition
+          tradingValue: 1.4658129805029452
+          tradingVolume: 6.027456183070403
+        quality: RLT
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_4_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+        prices:
+          description: Time series of prices.
+          items:
+            $ref: '#/components/schemas/inline_response_200_8_data_prices'
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - prices
+    inline_response_200_8:
+      example:
+        data:
+          range:
+            start: start
+            end: end
+          prices:
+          - price: 0.8008281904610115
+            time: time
+            quoteCondition: quoteCondition
+            tradingValue: 1.4658129805029452
+            tradingVolume: 6.027456183070403
+          - price: 0.8008281904610115
+            time: time
+            quoteCondition: quoteCondition
+            tradingValue: 1.4658129805029452
+            tradingVolume: 6.027456183070403
+          quality: RLT
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_8_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_9_data_subsample:
+      description: Single summary record. For the attributes first, last, low, high,
+        see attribute `valueUnit` in endpoint `/prices/get` for their unit, except
+        for price type yield, where the `valueUnit` is always `percent` (id=258).
+      example:
+        high: 5.962133916683182
+        last: 6.027456183070403
+        low: 1.4658129805029452
+        time: time
+        tradingValue: 2.3021358869347655
+        tradingVolume: 5.637376656633329
+        first: 0.8008281904610115
+      properties:
+        time:
+          description: Date and time of the start of the subsample.
+          format: datetime
+          type: string
+        first:
+          description: First price of the subsample.
+          format: real
+          type: number
+        last:
+          description: Last price of the subsample.
+          format: real
+          type: number
+        low:
+          description: Lowest price of the subsample.
+          format: real
+          type: number
+        high:
+          description: Highest price of the subsample.
+          format: real
+          type: number
+        tradingVolume:
+          description: Accumulated number of units (e.g. shares) traded of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty.
+          format: real
+          type: number
+        tradingValue:
+          description: Accumulated monetary equivalent (cash value) of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty. See attribute `currency` in endpoint `/prices/get` for its unit.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - time
+      - first
+      - last
+      - low
+      - high
+      - tradingVolume
+      - tradingValue
+    inline_response_200_9_data:
+      description: Subsample data for the notation.
+      example:
+        subsample:
+          high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          time: time
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        quality: RLT
+      properties:
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+        subsample:
+          $ref: '#/components/schemas/inline_response_200_9_data_subsample'
+      type: object
+      x-property-sort:
+      - quality
+      - subsample
+    inline_response_200_9:
+      example:
+        data:
+          subsample:
+            high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            time: time
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          quality: RLT
+        meta:
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_9_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_object_8:
+      properties:
+        data:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_intraday_subsample_list_data'
+        meta:
+          $ref: '#/components/schemas/_vendor_chartIQ_timeSeries_eod_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_10_data_subsamples:
+      example:
+        high: 5.962133916683182
+        last: 6.027456183070403
+        low: 1.4658129805029452
+        time: time
+        tradingValue: 2.3021358869347655
+        tradingVolume: 5.637376656633329
+        first: 0.8008281904610115
+      properties:
+        time:
+          description: Date and time of the start of the subsample.
+          format: datetime
+          type: string
+        first:
+          description: First price of the subsample.
+          format: real
+          type: number
+        last:
+          description: Last price of the subsample.
+          format: real
+          type: number
+        low:
+          description: Lowest price of the subsample.
+          format: real
+          type: number
+        high:
+          description: Highest price of the subsample.
+          format: real
+          type: number
+        tradingVolume:
+          description: Accumulated number of units (e.g. shares) traded of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty.
+          format: real
+          type: number
+        tradingValue:
+          description: Accumulated monetary equivalent (cash value) of the subsample.
+            If the requested type of the price is ask, bid, or yield, the value is
+            empty. See attribute `currency` in endpoint `/prices/get` for its unit.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - time
+      - first
+      - last
+      - low
+      - high
+      - tradingVolume
+      - tradingValue
+    inline_response_200_10_data:
+      description: Subsampled time series data for the notation.
+      example:
+        subsamples:
+        - high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          time: time
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        - high: 5.962133916683182
+          last: 6.027456183070403
+          low: 1.4658129805029452
+          time: time
+          tradingValue: 2.3021358869347655
+          tradingVolume: 5.637376656633329
+          first: 0.8008281904610115
+        range:
+          start: start
+          end: end
+        quality: RLT
+      properties:
+        range:
+          $ref: '#/components/schemas/inline_response_200_4_data_range'
+        quality:
+          description: Quality of the price.
+          enum:
+          - RLT
+          - DLY
+          type: string
+          x-enum-description:
+          - 'Real-time: intraday prices with minimal technical processing delays.'
+          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
+            to 30 minutes.'
+        subsamples:
+          description: List of summary records. For the attributes first, last, low,
+            high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
+            except for price type yield, where the `valueUnit` is always `percent`
+            (id=258).
+          items:
+            $ref: '#/components/schemas/inline_response_200_10_data_subsamples'
+          type: array
+      type: object
+      x-property-sort:
+      - range
+      - quality
+      - subsamples
+    inline_response_200_10:
+      example:
+        data:
+          subsamples:
+          - high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            time: time
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          - high: 5.962133916683182
+            last: 6.027456183070403
+            low: 1.4658129805029452
+            time: time
+            tradingValue: 2.3021358869347655
+            tradingVolume: 5.637376656633329
+            first: 0.8008281904610115
+          range:
+            start: start
+            end: end
+          quality: RLT
+        meta:
+          pagination:
+            next: next
+            previous: previous
+          status:
+            code: 6.027456183070403
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_10_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.38.0
+x-api-version: 2.9.0
+x-original-swagger-version: "2.0"
+

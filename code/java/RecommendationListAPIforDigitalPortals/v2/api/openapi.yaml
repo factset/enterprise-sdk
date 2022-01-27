@@ -1,0 +1,1534 @@
+openapi: 3.0.1
+info:
+  title: Prime Developer Trial
+  version: v1
+servers:
+- url: //api.factset.com/wealth/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: recommendationList endpoints
+  name: recommendationList
+paths:
+  /recommendationList/get:
+    get:
+      description: Attributes of a single list, including data about its active revision.
+      operationId: get/recommendationList/get
+      parameters:
+      - description: Identifier of the list.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id32
+          type: number
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Attributes of a single list.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /recommendationList/search:
+    get:
+      description: Search for recommendation lists, delivering an array of recommendation
+        lists matching the specified filter criteria. The data provided for each recommendation
+        list includes the currently active revision (or null in case no active revision
+        exists).
+      operationId: get/recommendationList/search
+      parameters:
+      - description: Restricts the search to recommendation lists, which contain the
+          provided string in their name attribute. The filter is a case-insensitive
+          substring match.
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: Restrict the search to recommendation lists, which are currently
+          active (e.g., current date is before the recommendation list's activeRange.end
+          date). If set to false, recommendation lists will be returned regardless
+          of their state.
+        in: query
+        name: onlyActive
+        schema:
+          type: boolean
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: Search for recommendation lists.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /recommendationList/revision/get:
+    get:
+      description: Attributes of a single revision.
+      operationId: get/recommendationList/revision/get
+      parameters:
+      - description: Identifier of the revision.
+        in: query
+        name: id
+        required: true
+        schema:
+          format: id32
+          type: number
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: Attributes of a single revision.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /recommendationList/revision/list:
+    post:
+      description: List of revisions of a recommendation list, excluding the elements
+        of each revision.
+      operationId: post/recommendationList/revision/list
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_recommendationList_revision_list_data'
+                meta:
+                  $ref: '#/components/schemas/_recommendationList_revision_list_meta'
+              required:
+              - data
+              type: object
+              x-property-sort:
+              - data
+              - meta
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: List of revisions of a recommendation list.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /recommendationList/revision/search:
+    get:
+      description: Search for revisions of a recommendation list.
+      operationId: get/recommendationList/revision/search
+      parameters:
+      - description: Restrict the search to revisions containing an element associated
+          with the identified notation.
+        in: query
+        name: idNotation
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Restrict the search to revisions pointing to the identified instrument.
+        in: query
+        name: idInstrument
+        schema:
+          format: id64
+          type: string
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful Response
+      summary: Search for revisions of a recommendation list.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /recommendationList/revision/element/list:
+    get:
+      description: List of elements of a given revision.
+      operationId: get/recommendationList/revision/element/list
+      parameters:
+      - description: Identifier of the revision.
+        in: query
+        name: idRevision
+        required: true
+        schema:
+          format: id32
+          type: number
+          x-positive: true
+        x-positive: true
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: ISO 639-1 code of the language.
+        in: query
+        name: _language
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: Successful Response
+      summary: List of elements of a given revision.
+      tags:
+      - recommendationList
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: false
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+components:
+  requestBodies:
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: true
+  responses:
+    ErrorResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              meta:
+                $ref: '#/components/schemas/ErrorMetaObject'
+              errors:
+                $ref: '#/components/schemas/ErrorObject'
+            type: object
+      description: Generic error response for all errors (400 ... 599 error codes)
+  schemas:
+    ErrorMetaObject:
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    ErrorObject:
+      description: The errors member contains additional information about a failed
+        request.
+      items:
+        properties:
+          details:
+            description: A human-readable, unstructured explanation specific to this
+              occurrence of the failure.
+            type: string
+          encryptedDetails:
+            description: Base64-encoded, internal details about the error, in addition
+              to "details".
+            type: string
+          type:
+            description: Internal error type of the Foundation API protocol.
+            format: int32
+            type: number
+          attribute:
+            description: For a validation error, a reference to the request parameter
+              that failed validation; otherwise, an empty array.
+            items:
+              properties:
+                name:
+                  description: Element of the path denoting the request parameter.
+                  type: string
+                index:
+                  description: If the attribute "name" designates an array, index
+                    of the array element; otherwise the special value -1.
+                  format: int32
+                  type: number
+              type: object
+              x-property-sort:
+              - name
+              - index
+            type: array
+        type: object
+        x-property-sort:
+        - detail
+        - encryptedDetails
+        - type
+        - attribute
+      type: array
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 50
+      type: array
+      uniqueItems: true
+    LanguageMember:
+      description: ISO 639-1 code of the language.
+      exclusiveMaximum: false
+      exclusiveMinimum: false
+      format: isoLanguage
+      maxLength: 2
+      minLength: 2
+      type: string
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 5.962133916683182
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - isEstimatedTotal
+      - next
+      - previous
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+      - next
+      - previous
+    CursorBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the cursor-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        next:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the next page of results, if any, otherwise null.
+          type: string
+        previous:
+          description: Cursor position to use in the attribute `pagination.cursor`
+            to retrieve the previous page of results, if any, otherwise null.
+          type: string
+      required:
+      - next
+      - previous
+      type: object
+      x-property-sort:
+      - next
+      - previous
+    OffsetBasedPaginationOutputObject:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          format: int32
+          type: number
+        isEstimatedTotal:
+          description: Flag indicating that the value of "total" is estimated.
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+      x-property-sort:
+      - total
+      - isEstimatedTotal
+    OffsetBasedPaginationOutputObjectWithoutTotal:
+      description: Pagination attributes for the offset-based pagination strategy;
+        a total element count is not supported.
+      properties:
+        hasNext:
+          description: Flag indicating that a subsequent request with the same parameters,
+            except that the parameter `pagination.offset` is incremented by `pagination.limit`,
+            would yield additional results.
+          type: boolean
+      required:
+      - hasNext
+      type: object
+      x-property-sort:
+      - hasNext
+    PartialOutputObject:
+      description: Object denoting that the endpoint response is possibly incomplete.
+      properties:
+        isPartial:
+          description: Flag indicating that the response is a possibly incomplete
+            array or an object containing a possibly incomplete array, due to hitting
+            a processing time limit. If `true`, some matching results might be missing
+            from the array, or elements for matching results might be incorrectly
+            included (for example, when priority sorting would have removed the element).
+            Depending on the use case, such a response may be unsuitable.
+          type: boolean
+      required:
+      - isPartial
+      type: object
+      x-property-sort:
+      - isPartial
+    inline_response_200_data_activeRange:
+      description: Time range during which the recommendation list is, was, or will
+        be active.
+      example:
+        start: start
+        end: end
+      properties:
+        start:
+          description: The starting point of the time range (inclusive), or `null`
+            to indicate that the time range extends indefinitely into the past.
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive), or `null` to
+            indicate that the time range extends indefinitely into the future.
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    inline_response_200_data_activeRevision_activeRange:
+      description: Time range during which the revision is, was, or will be active.
+      example:
+        start: start
+        end: end
+      properties:
+        start:
+          description: The starting point of the time range (inclusive), or `null`
+            to indicate that the time range extends indefinitely into the past.
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive), or `null` to
+            indicate that the time range extends indefinitely into the future.
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    inline_response_200_data_activeRevision:
+      description: Information on the active revision of this recommendation list,
+        or null.
+      example:
+        activeRange:
+          start: start
+          end: end
+        id: 1.4658129805029452
+        title: title
+      properties:
+        id:
+          description: Identifier of the currently active revision.
+          format: id32
+          type: number
+          x-positive: true
+        title:
+          description: The language specific name assigned to the recommendation list
+            as of the given revision.
+          format: localizedString
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision_activeRange'
+      type: object
+      x-property-sort:
+      - id
+      - title
+      - activeRange
+    inline_response_200_data:
+      description: Details about the recommendation list.
+      example:
+        activeRange:
+          start: start
+          end: end
+        name: name
+        id: 0.8008281904610115
+        activeRevision:
+          activeRange:
+            start: start
+            end: end
+          id: 1.4658129805029452
+          title: title
+        numberRevisions: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the recommendation list.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the recommendation list.
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_data_activeRange'
+        numberRevisions:
+          description: Number of all revisions of this recommendation list.
+          format: int32
+          type: number
+          x-positive: true
+        activeRevision:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - activeRange
+      - numberRevisions
+      - activeRevision
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 5.962133916683182
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+      x-property-sort:
+      - status
+    inline_response_200:
+      example:
+        data:
+          activeRange:
+            start: start
+            end: end
+          name: name
+          id: 0.8008281904610115
+          activeRevision:
+            activeRange:
+              start: start
+              end: end
+            id: 1.4658129805029452
+            title: title
+          numberRevisions: 6.027456183070403
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_1_activeRange:
+      description: Time range during which the recommendation list is active or has
+        been active.
+      example:
+        start: start
+        end: end
+      properties:
+        start:
+          description: The starting point of the time range (inclusive), or `null`
+            to indicate that the time range extends indefinitely into the past.
+          format: datetime
+          type: string
+        end:
+          description: The ending point of the time range (exclusive), or `null` to
+            indicate that the time range extends indefinitely into the future.
+          format: datetime
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    inline_response_200_1_data:
+      description: Recommendation list.
+      example:
+        activeRange:
+          start: start
+          end: end
+        name: name
+        id: 0.8008281904610115
+        activeRevision:
+          activeRange:
+            start: start
+            end: end
+          id: 1.4658129805029452
+          title: title
+        numberRevisions: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the recommendation list.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the recommendation list.
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_1_activeRange'
+        numberRevisions:
+          description: Number of all revisions of this recommendation list.
+          format: int32
+          type: number
+          x-positive: true
+        activeRevision:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision'
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - activeRange
+      - numberRevisions
+      - activeRevision
+    inline_response_200_1:
+      example:
+        data:
+        - activeRange:
+            start: start
+            end: end
+          name: name
+          id: 0.8008281904610115
+          activeRevision:
+            activeRange:
+              start: start
+              end: end
+            id: 1.4658129805029452
+            title: title
+          numberRevisions: 6.027456183070403
+        - activeRange:
+            start: start
+            end: end
+          name: name
+          id: 0.8008281904610115
+          activeRevision:
+            activeRange:
+              start: start
+              end: end
+            id: 1.4658129805029452
+            title: title
+          numberRevisions: 6.027456183070403
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: List of recommendation lists.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_2_data_recommendationList:
+      description: The recommendation list to which this revision belongs.
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the recommendation list.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the recommendation list.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_2_data_types:
+      description: Type assigned to the recommendation list as of the given revision.
+      example:
+        name: name
+        id: 1.4658129805029452
+      properties:
+        id:
+          description: Identifier of the type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the type.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_2_data_instrument:
+      description: Instrument to which the recommendation list points, as of the given
+        revision.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_2_data:
+      description: Details about the revision.
+      example:
+        activeRange:
+          start: start
+          end: end
+        types:
+        - name: name
+          id: 1.4658129805029452
+        - name: name
+          id: 1.4658129805029452
+        description: description
+        instrument:
+          id: id
+        id: 0.8008281904610115
+        recommendationList:
+          name: name
+          id: 6.027456183070403
+        title: title
+      properties:
+        id:
+          description: Identifier of the revision.
+          format: id32
+          type: number
+          x-positive: true
+        recommendationList:
+          $ref: '#/components/schemas/inline_response_200_2_data_recommendationList'
+        types:
+          description: Set of types assigned to the recommendation list as of the
+            given revision. The customer maintains a list of valid types for all of
+            its recommendation lists.
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data_types'
+          type: array
+        title:
+          description: Title assigned to the recommendation list as of the given revision.
+          format: localizedString
+          type: string
+        description:
+          description: Description assigned to the recommendation list as of the given
+            revision.
+          format: localizedString
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision_activeRange'
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_2_data_instrument'
+      type: object
+      x-property-sort:
+      - id
+      - recommendationList
+      - types
+      - title
+      - description
+      - activeRange
+      - instrument
+    inline_response_200_2:
+      example:
+        data:
+          activeRange:
+            start: start
+            end: end
+          types:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          description: description
+          instrument:
+            id: id
+          id: 0.8008281904610115
+          recommendationList:
+            name: name
+            id: 6.027456183070403
+          title: title
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    _recommendationList_revision_list_data_activeRange:
+      description: Restrict the result list to revisions which have been active during
+        the specified time range.
+      properties:
+        start:
+          description: The starting point of the time range (inclusive), or `null`
+            to indicate that the time range extends indefinitely into the past.
+          format: datetime
+          type: string
+          x-allowNullValue: true
+        end:
+          description: The ending point of the time range (exclusive), or `null` to
+            indicate that the time range extends indefinitely into the future.
+          format: datetime
+          type: string
+          x-allowNullValue: true
+      required:
+      - end
+      - start
+      type: object
+      x-property-sort:
+      - start
+      - end
+    _recommendationList_revision_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        idList:
+          description: Identifier of the recommendation list.
+          format: id32
+          type: number
+          x-positive: true
+        idRevision:
+          items:
+            description: Restrict the result list to specific revisions. Each identifier
+              refers to a revision of the recommendation list referenced by idList.
+            format: id32
+            type: number
+            x-positive: true
+          maxItems: 100
+          type: array
+        activeRange:
+          $ref: '#/components/schemas/_recommendationList_revision_list_data_activeRange'
+      required:
+      - idList
+      type: object
+      x-property-sort:
+      - idList
+      - idRevision
+      - activeRange
+    _recommendationList_revision_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        language:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+      type: object
+      x-property-sort:
+      - attributes
+      - language
+    inline_object:
+      properties:
+        data:
+          $ref: '#/components/schemas/_recommendationList_revision_list_data'
+        meta:
+          $ref: '#/components/schemas/_recommendationList_revision_list_meta'
+      required:
+      - data
+      type: object
+      x-property-sort:
+      - data
+      - meta
+    inline_response_200_3_data:
+      description: Revision
+      example:
+        activeRange:
+          start: start
+          end: end
+        types:
+        - name: name
+          id: 1.4658129805029452
+        - name: name
+          id: 1.4658129805029452
+        description: description
+        instrument:
+          id: id
+        id: 0.8008281904610115
+        title: title
+      properties:
+        id:
+          description: Identifier of the revision.
+          format: id32
+          type: number
+          x-positive: true
+        types:
+          description: Set of types assigned to the recommendation list as of the
+            given revision. The customer maintains a list of valid types for all of
+            its recommendation lists.
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data_types'
+          type: array
+        title:
+          description: Title assigned to the recommendation list as of the given revision.
+          format: localizedString
+          type: string
+        description:
+          description: Description assigned to the recommendation list as of the given
+            revision.
+          format: localizedString
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision_activeRange'
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_2_data_instrument'
+      type: object
+      x-property-sort:
+      - id
+      - types
+      - title
+      - description
+      - activeRange
+      - instrument
+    inline_response_200_3:
+      example:
+        data:
+        - activeRange:
+            start: start
+            end: end
+          types:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          description: description
+          instrument:
+            id: id
+          id: 0.8008281904610115
+          title: title
+        - activeRange:
+            start: start
+            end: end
+          types:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          description: description
+          instrument:
+            id: id
+          id: 0.8008281904610115
+          title: title
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: An unordered list of revisions.
+          items:
+            $ref: '#/components/schemas/inline_response_200_3_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_4_data:
+      description: Revision
+      example:
+        activeRange:
+          start: start
+          end: end
+        types:
+        - name: name
+          id: 1.4658129805029452
+        - name: name
+          id: 1.4658129805029452
+        description: description
+        instrument:
+          id: id
+        id: 0.8008281904610115
+        recommendationList:
+          name: name
+          id: 6.027456183070403
+        title: title
+      properties:
+        id:
+          description: Identifier of the revision.
+          format: id32
+          type: number
+          x-positive: true
+        recommendationList:
+          $ref: '#/components/schemas/inline_response_200_2_data_recommendationList'
+        types:
+          description: Set of types assigned to the recommendation list as of the
+            given revision. The customer maintains a list of valid types for all of
+            its recommendation lists.
+          items:
+            $ref: '#/components/schemas/inline_response_200_2_data_types'
+          type: array
+        title:
+          description: Title assigned to the recommendation list as of the given revision.
+          format: localizedString
+          type: string
+        description:
+          description: Description assigned to the recommendation list as of the given
+            revision.
+          format: localizedString
+          type: string
+        activeRange:
+          $ref: '#/components/schemas/inline_response_200_data_activeRevision_activeRange'
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_2_data_instrument'
+      type: object
+      x-property-sort:
+      - id
+      - recommendationList
+      - types
+      - title
+      - description
+      - activeRange
+      - instrument
+    inline_response_200_4:
+      example:
+        data:
+        - activeRange:
+            start: start
+            end: end
+          types:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          description: description
+          instrument:
+            id: id
+          id: 0.8008281904610115
+          recommendationList:
+            name: name
+            id: 6.027456183070403
+          title: title
+        - activeRange:
+            start: start
+            end: end
+          types:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          description: description
+          instrument:
+            id: id
+          id: 0.8008281904610115
+          recommendationList:
+            name: name
+            id: 6.027456183070403
+          title: title
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: List of revisions.
+          items:
+            $ref: '#/components/schemas/inline_response_200_4_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_5_notation_market:
+      description: Market of the notation.
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the market.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the market.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_5_notation_instrument_type:
+      example:
+        name: name
+        id: 1.4658129805029452
+      properties:
+        id:
+          description: Identifier of the instrument type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the instrument type.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_5_notation_instrument:
+      description: Instrument data of the notation.
+      example:
+        name: name
+        customName: customName
+        id: id
+        type:
+        - name: name
+          id: 1.4658129805029452
+        - name: name
+          id: 1.4658129805029452
+        isin: isin
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+        isin:
+          description: International Securities Identification Number of the instrument.
+          format: isin
+          type: string
+        name:
+          description: Name of the instrument.
+          type: string
+        customName:
+          description: Customer specific name of the instrument.
+          format: localizedString
+          type: string
+        type:
+          description: Instrument type as defined by FactSet Digital Solutions. Instrument
+            types are arranged in a hierarchy, with level 1 representing the most
+            coarse granularity and further levels successively refining the granularity
+            (see MDG category system 18).
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_notation_instrument_type'
+          type: array
+      type: object
+      x-property-sort:
+      - id
+      - isin
+      - name
+      - customName
+      - type
+    inline_response_200_5_notation:
+      description: Notation data of the element.
+      example:
+        market:
+          name: name
+          id: 6.027456183070403
+        symbol: symbol
+        instrument:
+          name: name
+          customName: customName
+          id: id
+          type:
+          - name: name
+            id: 1.4658129805029452
+          - name: name
+            id: 1.4658129805029452
+          isin: isin
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        symbol:
+          description: The symbol of the notation. It is a market-specific code to
+            identify the notation. Which characters can be part of a symbol depends
+            on the market. If a market does not define a proprietary symbol, but uses
+            a different identifier (for example, the ISIN or the WKN) to identify
+            notations, no symbol will be set for the notations of that market.
+          type: string
+        market:
+          $ref: '#/components/schemas/inline_response_200_5_notation_market'
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_5_notation_instrument'
+      type: object
+      x-property-sort:
+      - id
+      - symbol
+      - market
+      - instrument
+    inline_response_200_5_description:
+      description: Description of the element.
+      example:
+        short: short
+        long: long
+      properties:
+        short:
+          description: Short description of the element.
+          format: localizedString
+          type: string
+        long:
+          description: Long description of the element.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - short
+      - long
+    inline_response_200_5_recommendationClass:
+      description: Customer-defined recommendation class of the element.
+      example:
+        code: code
+        description: description
+        id: 5.637376656633329
+      properties:
+        id:
+          description: Identifier of the recommendation class.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: Code of the recommendation class.
+          type: string
+        description:
+          description: Description of the recommendation class.
+          format: localizedString
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - code
+      - description
+    inline_response_200_5_data:
+      example:
+        hasNotationData: true
+        notation:
+          market:
+            name: name
+            id: 6.027456183070403
+          symbol: symbol
+          instrument:
+            name: name
+            customName: customName
+            id: id
+            type:
+            - name: name
+              id: 1.4658129805029452
+            - name: name
+              id: 1.4658129805029452
+            isin: isin
+          id: id
+        description:
+          short: short
+          long: long
+        weight: 5.962133916683182
+        position: 0.8008281904610115
+        recommendationClass:
+          code: code
+          description: description
+          id: 5.637376656633329
+      properties:
+        hasNotationData:
+          description: |-
+            Attributes referred to by the notation identifier, beyond notation.instrument.customName, are available.
+
+            If this flag is false, it indicates that some notation data for this element is no longer available because the notation may have expired. For answers without notation data, the members position, instrument.customName, weight, description and recommendationClass are retained.
+          type: boolean
+        position:
+          description: Position of the element.
+          format: id32
+          type: number
+          x-positive: true
+        notation:
+          $ref: '#/components/schemas/inline_response_200_5_notation'
+        description:
+          $ref: '#/components/schemas/inline_response_200_5_description'
+        weight:
+          description: Weight of this list element. If set for at least one list element,
+            the sum off all weights of an element list must be 1.
+          format: real
+          type: number
+        recommendationClass:
+          $ref: '#/components/schemas/inline_response_200_5_recommendationClass'
+      type: object
+      x-property-sort:
+      - hasNotationData
+      - position
+      - notation
+      - description
+      - weight
+      - recommendationClass
+    inline_response_200_5:
+      example:
+        data:
+        - hasNotationData: true
+          notation:
+            market:
+              name: name
+              id: 6.027456183070403
+            symbol: symbol
+            instrument:
+              name: name
+              customName: customName
+              id: id
+              type:
+              - name: name
+                id: 1.4658129805029452
+              - name: name
+                id: 1.4658129805029452
+              isin: isin
+            id: id
+          description:
+            short: short
+            long: long
+          weight: 5.962133916683182
+          position: 0.8008281904610115
+          recommendationClass:
+            code: code
+            description: description
+            id: 5.637376656633329
+        - hasNotationData: true
+          notation:
+            market:
+              name: name
+              id: 6.027456183070403
+            symbol: symbol
+            instrument:
+              name: name
+              customName: customName
+              id: id
+              type:
+              - name: name
+                id: 1.4658129805029452
+              - name: name
+                id: 1.4658129805029452
+              isin: isin
+            id: id
+          description:
+            short: short
+            long: long
+          weight: 5.962133916683182
+          position: 0.8008281904610115
+          recommendationClass:
+            code: code
+            description: description
+            id: 5.637376656633329
+        meta:
+          status:
+            code: 5.962133916683182
+      properties:
+        data:
+          description: List of elements sorted by position.
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-interface-version: 1
+x-documenter-version: 5.38.0
+x-api-version: 2.9.0
+x-original-swagger-version: "2.0"
+

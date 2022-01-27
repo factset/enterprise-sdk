@@ -1,0 +1,1391 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: FactSet Ownership API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    FactSet’s Fund Ownership API gives access to both **Holdings** and
+    **Holders** data.<p> Factset's Holdings endpoints gives access to all the
+    underlying securities and their position detils held within a given fund.
+    Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds,
+    and Exchange Traded Funds. Security Holders information retrieves all
+    "holder types" and their positions across institutions, funds, insiders, and
+    stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects
+    global equity ownership data for approximately 50,000 institutions, 60,000
+    unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around
+    110 countries.  For more details review our [Data
+    Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079)
+    methodology. </p>
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /factset-ownership/v1/fund-holdings:
+    get:
+      tags:
+        - Fund Holdings
+      summary: Get underlying holdings information for a requested fund identifer.
+      operationId: getOwnershipHoldings
+      description: >
+        Gets holdings information for list of fund identifiers. The service
+        allows you to filter by the TopN holdings and Asset Type.
+      parameters:
+        - $ref: '#/components/parameters/idFundHoldings'
+        - $ref: '#/components/parameters/requestedDate'
+        - $ref: '#/components/parameters/topn'
+        - $ref: '#/components/parameters/assetType'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Fund Holdings Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundHoldingsResponse'
+              examples:
+                VTI-US Top 5 Equities Held as of 2019-12-31:
+                  $ref: '#/components/examples/singleIdentifer'
+                Top 5 Equity Holdings for VTI-USA, MABAX, and NZF as of 2019-12-31:
+                  $ref: '#/components/examples/multipleIdentifiers'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Fund Holdings
+      summary: Get holdings for a list of funds.
+      description: Gets Holding information for a long list of Fund objects.
+      operationId: postOwnershipHoldings
+      requestBody:
+        required: true
+        description: Requesting Underlying Holdings for a list of Fund Identifiers.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fundHoldingsRequest'
+            examples:
+              Request to fetch the VTI-US Equity Fund-Holdings Details:
+                $ref: '#/components/examples/singleIdentiferPostRequest'
+              Request to fetch the Equity Fund-Holdings Details:
+                $ref: '#/components/examples/MultipleIdentifiersPostRequest'
+      responses:
+        '200':
+          description: Fund Holdings Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fundHoldingsResponse'
+              examples:
+                Single identifier request for Top 5 Equity holdings as of 2019-12-31:
+                  $ref: '#/components/examples/singleIdentifer'
+                Multiple identifier request for Top 5 Equity holdings as of 2019-12-31:
+                  $ref: '#/components/examples/multipleIdentifiers'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-ownership/v1/security-holders:
+    get:
+      tags:
+        - Security Holders
+      summary: Get security ownership data for requested security identifers.
+      operationId: getSecurityHolders
+      description: >
+        Gets security ownership details and activity for the requested security
+        identifiers. The services allows filtering by "Topn" holders and by
+        holder "type", such as Institutions, Insiders, and Stakeholders.
+      parameters:
+        - $ref: '#/components/parameters/idHolders'
+        - $ref: '#/components/parameters/holderType'
+        - $ref: '#/components/parameters/topn'
+        - $ref: '#/components/parameters/requestedDate'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Security Holders Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/securityHoldersResponse'
+              examples:
+                Single identifier request for Top 1 holder of FDS-US securities as of 2020-06-31:
+                  $ref: '#/components/examples/singleSecurityHolder'
+                Top 5 Insiders and Stakeholders of TSLA-US as of 2020-02-14:
+                  $ref: '#/components/examples/insiderTop5Holders'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Security Holders
+      summary: Get security ownership data for a list of requested securities.
+      description: >
+        Gets security ownership details and activity for the requested security
+        identifiers. The services allows filtering by "Topn" holders and by
+        holder "type", such as Institutions, Insiders, and Stakeholders.
+      operationId: postSecurityHolders
+      requestBody:
+        required: true
+        description: Requesting Security Holders for a list of Fund Identifiers.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/securityHoldersRequest'
+            examples:
+              Request the Top Institutional holder of FDS-US as of 2020-06-30:
+                $ref: '#/components/examples/singleSecurityHolderPostRequest'
+              Request Latest Top 5 Insiders for TSLA-US:
+                $ref: '#/components/examples/top5InsidersRequest'
+      responses:
+        '200':
+          description: Security Holders Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/securityHoldersResponse'
+              examples:
+                Single identifier request for Top 1 holder of FDS-US securities as of 2020-06-30:
+                  $ref: '#/components/examples/singleSecurityHolder'
+                Top 5 Insiders and Stakeholders of TSLA-US as of 2020-02-14:
+                  $ref: '#/components/examples/insiderTop5Holders'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    idFundHoldings:
+      name: ids
+      description: >-
+        List of requested fund identifiers. <p>***ids limit** =  10 per
+        request*</p>
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 10
+      required: true
+      explode: false
+      examples:
+        singleIdentifer:
+          summary: One identifier to know the fund holding details
+          value:
+            - VTI-USA
+        multipleIdentifers:
+          summary: Multiple identifiers to know the fund holding details
+          value:
+            - VTI-USA
+            - MABAX
+            - NZF
+    requestedDate:
+      name: date
+      in: query
+      schema:
+        type: string
+      required: false
+      description: >-
+        Date of holdings expressed in YYYY-MM-DD format. The fund-holdings
+        endpoint will default to latest month-end close.
+      example: '2019-12-31'
+    topn:
+      name: topn
+      description: >-
+        Limits number of holdings or holders displayed by the top *n* securities
+        based on positions Market Value. Default is ALL, otherwise use number to
+        limit number.
+      in: query
+      required: false
+      schema:
+        type: string
+        default: ALL
+      example: 5
+    assetType:
+      name: assetType
+      schema:
+        type: string
+        default: EQ
+        enum:
+          - ALL
+          - EQ
+          - FI
+      description: |
+        Filter holdings by the following major asset classes -
+          * **EQ**  = Equity
+          * **FI** = Fixed Income
+          * **ALL** = ALL
+      in: query
+      required: false
+      example: EQ
+    idHolders:
+      name: ids
+      description: >-
+        Requested list of security identifiers. <p>***ids limit** =  1 per
+        request*</p>.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1
+      required: true
+      explode: false
+      examples:
+        singleSecurityIdentifer:
+          summary: Requesting Holders information for FDS-US
+          value:
+            - FDS-US
+    frequency:
+      name: frequency
+      in: query
+      schema:
+        type: string
+        enum:
+          - M
+          - MTD
+          - CQ
+          - CQTD
+          - CY
+          - CYTD
+        default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **MTD** = Month-to-date
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **CQTD** =  Calendar quarter-to-date
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **CYTD** = Calendar Year-to-date.
+      examples:
+        Monthly:
+          summary: M - Monthly - based on the last trading day of the month.
+          value: M
+        Month To Date:
+          summary: MTD - Month-to-date
+          value: MTD
+        Calendar Quarterly:
+          summary: >-
+            CQ - Calendar Quarterly - based on the last day of the week of the
+            startDate
+          value: CQ
+        Calendar quarter-to-date:
+          summary: CQTD - Calendar quarter-to-date
+          value: CQTD
+        Calendar Annual:
+          summary: >-
+            CY - Calendar Annual - based on the last trading day of the calendar
+            year.
+          value: CY
+        Calendar Year-to-date:
+          summary: CYTD - Calendar Year-to-date
+          value: CYTD
+    currency:
+      name: currency
+      in: query
+      schema:
+        type: string
+      description: >-
+        Currency code for adjusting prices. Default is Local. For a list of
+        currency ISO codes, visit [Online Assistant Page
+        1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+    holderType:
+      name: holderType
+      in: query
+      schema:
+        type: string
+        enum:
+          - F
+          - M
+          - S
+          - FS
+          - B
+        default: F
+      description: >
+        Controls the Holder Type of the data returned. By default, the service
+        will return Institutional Holders. Requesting All Holders is not
+        currently supported. Only a single Holder Type is allowed per request.
+          * **F** = Institutions
+          * **M** = Mutual Funds
+          * **S** =  Insiders/Stakeholders
+          * **FS** = Institutions/Insiders
+          * **B** = Beneficial Owners
+  schemas:
+    fundHoldingsRequest:
+      title: Holdings Request
+      description: Holdings Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idFundHoldings'
+        date:
+          $ref: '#/components/schemas/requestedDate'
+        topn:
+          $ref: '#/components/schemas/topn'
+        assetType:
+          $ref: '#/components/schemas/assetType'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    securityHoldersRequest:
+      title: Security Holders Request
+      description: Security Holders Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idHolders'
+        holderType:
+          $ref: '#/components/schemas/holderType'
+        date:
+          $ref: '#/components/schemas/requestedDate'
+        topn:
+          $ref: '#/components/schemas/topn'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    fundHolding:
+      title: Fund Holding
+      description: fundHolding response object
+      type: object
+      properties:
+        requestId:
+          description: Fund Identifier that was used in the request.
+          type: string
+          example: VTI-US
+        fsymId:
+          description: >-
+            FactSet Security Identifier of Fund. Identifies the security level
+            id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix
+            (XXXXXX-S). All equity and fixed income securities that exist on
+            FactSet are allocated a security-level permanent identifier.
+          type: string
+          example: K7ZVMR-S
+        date:
+          description: >-
+            Date of the reported holding in YYYY-MM-DD format. For more details,
+            visit [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: string
+          format: date
+          example: '2018-06-30'
+        currency:
+          description: >-
+            Currency code. The service will default to the funds local currency.
+            For a list of currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        adjHolding:
+          description: >-
+            Adjusted number of shares held. All positions and prices are
+            adjusted for splits and name changes, but they are not adjusted for
+            spinoffs or mergers. If a given company announces a split today,
+            FactSet's Ownership data will reflect that split either tomorrow or
+            the day after, depending upon the time in which the FactSet
+            Symbology team makes record of the change. For more details, visit
+            [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: number
+          format: double
+          example: 60036157
+        adjMarketValue:
+          description: >-
+            Adjusted market values of shares held. Market Value. All positions
+            and prices are adjusted for splits and name changes, but they are
+            not adjusted for spinoffs or mergers. If a given company announces a
+            split today, FactSet's Ownership data will reflect that split either
+            tomorrow or the day after, depending upon the time in which the
+            FactSet Symbology team makes record of the change. For more details,
+            visit [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: number
+          format: double
+          example: 120078159
+        weightClose:
+          description: >-
+            Closing weight of security in the fund for the requested asset type
+            (percent).
+          type: number
+          format: double
+          example: 1.6639
+        issueType:
+          description: >-
+            Issue type of held security. For more details, visit [Online
+            Assistant Page #11262](https://oa.apps.factset.com/pages/11262).
+          type: string
+          example: Equity
+        fsymSecurityId:
+          description: >-
+            Represents the security id for the underlying holding, not the
+            parent holding. Six alpha-numeric characters, excluding vowels, with
+            an -S suffix (XXXXXX-S). All equity and fixed income securities that
+            exist on FactSet are allocated a security-level permanent
+            identifier.
+          type: string
+          example: BHM9TN-S
+        fsymRegionalId:
+          description: >-
+            FactSet Regional Security identifier of the security held in the
+            fund.
+          type: string
+          example: QLGSL2-R
+        securityName:
+          description: Name of held security.
+          type: string
+          example: FACEBOOK INC  CL A
+        securityTicker:
+          description: Ticker of held security.
+          type: string
+          example: FB-US
+    securityHolders:
+      title: Security Holders
+      description: Security Holders response object
+      type: object
+      properties:
+        holderId:
+          description: >-
+            FactSet Ownership Holders ID that corresponds to the requested
+            security holder.
+          type: string
+          example: M4004630
+        fsymId:
+          description: >-
+            FactSet Security Identifier of security requested. This does not
+            represent the FactSet permanent identifier for the holder, but
+            rather the requested id. Six alpha-numeric characters, excluding
+            vowels, with an -S suffix (XXXXXX-S). All equity and fixed income
+            securities that exist on FactSet are allocated a security-level
+            permanent identifier.
+          type: string
+          example: SQFMK3-R
+        holderEntityId:
+          description: FactSet Entity ID that corresponds to the specified holder ID.
+          type: string
+          example: 07JGQN-E
+        holderName:
+          description: Name of the holder for the requested security identifier.
+          type: string
+          example: Vanguard Total Stock Market Index Fund
+        date:
+          description: >-
+            Date of the reported holding in YYYY-MM-DD format. For more details
+            regarding date resolution, visit [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: string
+          format: date
+          example: '2020-06-30'
+        currency:
+          description: >-
+            Currency code. The service will default to the local currency if the
+            currency is not requested. For a list of currency ISO codes, visit
+            [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+        investorType:
+          description: >-
+            FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder
+            investor types. To learn more about the different investor types,
+            visit [Online Assistant Page
+            #11656](https://my.apps.factset.com/oa/pages/11656).
+          type: string
+          example: Open-End Fund
+        holderType:
+          description: >-
+            Holder Type name of the respective holder object. The name will
+            align to the holderType requested. 
+          type: string
+          example: Mutual Fund
+        adjHolding:
+          description: >-
+            Adjusted number of shares held. All positions and prices are
+            adjusted for splits and name changes, but they are not adjusted for
+            spinoffs or mergers. If a given company announces a split today,
+            FactSet's Ownership data will reflect that split either tomorrow or
+            the day after, depending upon the time in which the FactSet
+            Symbology team makes record of the change. For more details, visit
+            [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: number
+          format: double
+          example: 1066876
+        adjMarketValue:
+          description: >-
+            Adjusted market values of shares held. Market Value. All positions
+            and prices are adjusted for splits and name changes, but they are
+            not adjusted for spinoffs or mergers. If a given company announces a
+            split today, FactSet's Ownership data will reflect that split either
+            tomorrow or the day after, depending upon the time in which the
+            FactSet Symbology team makes record of the change. For more details,
+            visit [Online Assistant Page
+            #11262](https://oa.apps.factset.com/pages/11262).
+          type: number
+          format: double
+          example: 373833350.4
+        weightClose:
+          description: >
+            "Closing weight of the security for the holders of the requested
+            security (percent). To learn more about how ownership weight is
+            calculated please visit [Online Assistant Page
+            #11247](https://my.apps.factset.com/oa/pages/11247)."
+          type: number
+          format: double
+          example: 0.0356
+        percentOutstanding:
+          description: >-
+            The percent of the outstanding common shares held by a particular
+            filing institution. To learn more, visit [Online Assistant Page
+            #11041](https://my.apps.factset.com/oa/pages/11041).
+          type: number
+          format: double
+          example: 2.808
+        source:
+          description: >-
+            Either the 13F Form or ND-30D report filed where the security
+            holdings data was sourced from. To learn more about source, please
+            visit https://my.apps.factset.com/oa/pages/11260
+          type: string
+          example: US Fund (N-30D)
+        requestId:
+          description: |
+            Security Identifier that was used in the request.
+          type: string
+          example: FDS-US
+    fundHoldingsResponse:
+      title: Fund Holding Response
+      type: object
+      description: fundHolding response
+      properties:
+        data:
+          description: Array of Fund holdings
+          type: array
+          items:
+            $ref: '#/components/schemas/fundHolding'
+    securityHoldersResponse:
+      title: Security Holders Response
+      type: object
+      description: securityHolders response
+      properties:
+        data:
+          description: Array of Security Holders
+          type: array
+          items:
+            $ref: '#/components/schemas/securityHolders'
+    errorResponse:
+      type: object
+      description: error description
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-ownership/v1/{end-point}
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+    idFundHoldings:
+      description: List of Fund identifiers.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 10
+      example:
+        - FDIVX-US
+    requestedDate:
+      description: Date of holdings expressed in YYYY-MM-DD format.
+      type: string
+      example: '2019-09-30'
+    topn:
+      description: >-
+        Limits number of holdings or holders displayed by the top *n*
+        securities. Default is ALL, or use integer to limit number.
+      type: string
+      default: ALL
+      example: 5
+    assetType:
+      description: >-
+        Select type of assets returned, whereby EQ = Equity, FI = Fixed Income,
+        and ALL = all asset types.
+      type: string
+      enum:
+        - ALL
+        - EQ
+        - FI
+      default: EQ
+    idHolders:
+      description: Security Requested for Holders information.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1
+      example:
+        - FDS-US
+    currency:
+      description: >-
+        Currency code for adjusting prices. Default is Local. For a list of
+        currency ISO codes, visit [Online Assistant Page
+        1470](https://oa.apps.factset.com/pages/1470).
+      type: string
+      example: USD
+    holderType:
+      type: string
+      enum:
+        - F
+        - M
+        - S
+        - FS
+        - B
+      default: F
+      description: >
+        Controls the Holder Type of the data returned. By default, the service
+        will return Institutional Holders. Requesting All Holders is not
+        currently supported. Only a single Holder Type is allowed per request.
+          * **F** = Institutions
+          * **M** = Mutual Funds
+          * **S** =  Insiders/Stakeholders
+          * **FS** = Institutions/Insiders
+          * **B** = Beneficial Owners
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    singleIdentifer:
+      summary: VTI-US Top 5 Equities Held as of 2019-12-31
+      description: >-
+        Underlying Fund Holdings for the Vanguard Total Stock Index ETF (VTI-US)
+        filtered by the Top 5 Equities Held as of 2020-01-01.
+      value:
+        data:
+          - requestId: VTI-US
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 214894399
+            adjMarketValue: 33888846722.3
+            weightClose: 3.78696130582374
+            issueType: Equity
+            fsymSecurityId: DF3K29-S
+            fsymRegionalId: P8R3C2-R
+            securityName: MICROSOFT CORP  COM
+            securityTicker: MSFT-US
+          - requestId: VTI-US
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 112647486
+            adjMarketValue: 33078934263.9
+            weightClose: 3.6964563923282
+            issueType: Equity
+            fsymSecurityId: R85KLC-S
+            fsymRegionalId: MH33D6-R
+            securityName: APPLE INC  COM
+            securityTicker: AAPL-US
+          - requestId: VTI-US
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 11871374
+            adjMarketValue: 21936399732.16
+            weightClose: 2.45131673129814
+            issueType: Equity
+            fsymSecurityId: RMCVZ9-S
+            fsymRegionalId: MCNYYL-R
+            securityName: AMAZON COM INC  COM
+            securityTicker: AMZN-US
+          - requestId: VTI-US
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 67790793
+            adjMarketValue: 13914060263.25
+            weightClose: 1.55484806714164
+            issueType: Equity
+            fsymSecurityId: BHM9TN-S
+            fsymRegionalId: QLGSL2-R
+            securityName: FACEBOOK INC  CL A
+            securityTicker: FB-US
+          - requestId: VTI-US
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 53368129
+            adjMarketValue: 12087881218.5
+            weightClose: 1.35077888070268
+            issueType: Equity
+            fsymSecurityId: N138TY-S
+            fsymRegionalId: DBNXVB-R
+            securityName: BERKSHIRE HATHAWAY INC  CL B
+            securityTicker: BRK.B-US
+    multipleIdentifiers:
+      summary: Top 5 Equity Holdings for VTI-US, MABAX, and NZF as of 2019-12-31
+      description: The Top 5 Equity Holdings of VTI-US, MABAX, and NZF as of 2019-12-31.
+      value:
+        data:
+          - requestId: VTI-USA
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 214894399
+            adjMarketValue: 33888846722.3
+            weightClose: 3.78696130582374
+            issueType: Equity
+            fsymSecurityId: DF3K29-S
+            fsymRegionalId: P8R3C2-R
+            securityName: MICROSOFT CORP  COM
+            securityTicker: MSFT-US
+          - requestId: VTI-USA
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 112647486
+            adjMarketValue: 33078934263.9
+            weightClose: 3.6964563923282
+            issueType: Equity
+            fsymSecurityId: R85KLC-S
+            fsymRegionalId: MH33D6-R
+            securityName: APPLE INC  COM
+            securityTicker: AAPL-US
+          - requestId: VTI-USA
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 11871374
+            adjMarketValue: 21936399732.16
+            weightClose: 2.45131673129814
+            issueType: Equity
+            fsymSecurityId: RMCVZ9-S
+            fsymRegionalId: MCNYYL-R
+            securityName: AMAZON COM INC  COM
+            securityTicker: AMZN-US
+          - requestId: VTI-USA
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 67790793
+            adjMarketValue: 13914060263.25
+            weightClose: 1.55484806714164
+            issueType: Equity
+            fsymSecurityId: BHM9TN-S
+            fsymRegionalId: QLGSL2-R
+            securityName: FACEBOOK INC  CL A
+            securityTicker: FB-US
+          - requestId: VTI-USA
+            fsymId: K7ZVMR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 53368129
+            adjMarketValue: 12087881218.5
+            weightClose: 1.35077888070268
+            issueType: Equity
+            fsymSecurityId: N138TY-S
+            fsymRegionalId: DBNXVB-R
+            securityName: BERKSHIRE HATHAWAY INC  CL B
+            securityTicker: BRK.B-US
+          - requestId: MABAX
+            fsymId: FNK7XP-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 625648
+            adjMarketValue: 87215331.2
+            weightClose: 4.44864700626477
+            issueType: Equity
+            fsymSecurityId: N5N6M6-S
+            fsymRegionalId: NNKD2Y-R
+            securityName: JPMORGAN CHASE & CO  COM
+            securityTicker: JPM-US
+          - requestId: MABAX
+            fsymId: FNK7XP-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 1557832
+            adjMarketValue: 83811361.6
+            weightClose: 4.27501859756526
+            issueType: Equity
+            fsymSecurityId: G4G3T4-S
+            fsymRegionalId: VWF970-R
+            securityName: WELLS FARGO & CO  COM
+            securityTicker: WFC-US
+          - requestId: MABAX
+            fsymId: FNK7XP-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 1283579
+            adjMarketValue: 78811750.6
+            weightClose: 4.02000030890412
+            issueType: Equity
+            fsymSecurityId: RGW4H5-S
+            fsymRegionalId: FT8FQW-R
+            securityName: VERIZON COMMUNICATIONS INC  COM
+            securityTicker: VZ-US
+          - requestId: MABAX
+            fsymId: FNK7XP-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 865327
+            adjMarketValue: 69130974.03
+            weightClose: 3.52620687701667
+            issueType: Equity
+            fsymSecurityId: T6BMPP-S
+            fsymRegionalId: RK3DL5-R
+            securityName: CITIGROUP INC  COM
+            securityTicker: C-US
+          - requestId: MABAX
+            fsymId: FNK7XP-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 1588034
+            adjMarketValue: 62219172.12
+            weightClose: 3.1736522693376
+            issueType: Equity
+            fsymSecurityId: JDQZCY-S
+            fsymRegionalId: VK7M4R-R
+            securityName: PFIZER INC  COM
+            securityTicker: PFE-US
+          - requestId: NZF
+            fsymId: WHX5ZR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 43420
+            adjMarketValue: 689075.4
+            weightClose: 35.5351354424324
+            issueType: Closed-End Mutual Fund
+            fsymSecurityId: DXZPQ5-S
+            fsymRegionalId: KHSMRN-R
+            securityName: PIMCO MUNICIPAL INCOME FD II  COM
+            securityTicker: PML-US
+          - requestId: NZF
+            fsymId: WHX5ZR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 43020
+            adjMarketValue: 552807
+            weightClose: 28.5078695575618
+            issueType: Closed-End Mutual Fund
+            fsymSecurityId: L8RGHS-S
+            fsymRegionalId: HJLD94-R
+            securityName: INVESCO TRUST INVMT GRADE MUNICIPALS
+            securityTicker: VGM-US
+          - requestId: NZF
+            fsymId: WHX5ZR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 30000
+            adjMarketValue: 370800
+            weightClose: 19.1218961263948
+            issueType: Closed-End Mutual Fund
+            fsymSecurityId: TG4L4R-S
+            fsymRegionalId: W13K8B-R
+            securityName: INVESCO MUNICIPAL OPPORTUNITY TRUST
+            securityTicker: VMO-US
+          - requestId: NZF
+            fsymId: WHX5ZR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 26880
+            adjMarketValue: 228748.8
+            weightClose: 11.796415298375
+            issueType: Closed-End Mutual Fund
+            fsymSecurityId: J997TS-S
+            fsymRegionalId: NK4SPV-R
+            securityName: BNY MELLON STRATEGIC MUNICIPALS  COM
+            securityTicker: LEO-US
+          - requestId: NZF
+            fsymId: WHX5ZR-S
+            date: '2019-12-31'
+            currency: USD
+            adjHolding: 6266
+            adjMarketValue: 106146.04
+            weightClose: 5.47387689079867
+            issueType: Closed-End Mutual Fund
+            fsymSecurityId: V3L197-S
+            fsymRegionalId: Q9MW50-R
+            securityName: BLACKROCK MUNIHOLDINGS FUND INC
+            securityTicker: MHD-US
+    singleIdentiferPostRequest:
+      summary: >-
+        Request body to fetch the Top 5 Equity Holdings in VTI-US as of 2019
+        Year-End.
+      description: >-
+        The given post request body fetches the Top 5 Equity Holdings in the
+        Vanguard Total Stock Index ETF as of 2019-12-31.
+      value:
+        ids:
+          - VTI-US
+        date: '2019-12-31'
+        topn: 5
+        assetType: EQ
+    MultipleIdentifiersPostRequest:
+      summary: Request body to fetch the Equity Fund-Holdings Details
+      description: >-
+        The given post request body help to fetch the VTI-US,FDIVX-US top 5
+        Equity type fund-holding details till the date 2020-01-01.
+      value:
+        ids:
+          - VTI-US
+          - FDIVX-US
+        date: '2019-12-31'
+        topn: 5
+        assetType: EQ
+    insiderTop5Holders:
+      summary: Top 5 Institution holders for FDS-US as of 2020-06-30.
+      description: Top 5 Institution holders for FDS-US as of 2020-06-30.
+      value:
+        data:
+          - adjHolding: 3757653,
+            adjMarketValue: 1258362836.64,
+            currency: USD
+            date: '2020-06-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 002FYS-E
+            holderId: F72998
+            holderName: The Vanguard Group, Inc.
+            holderType: Institution
+            investorType: Mutual Fund Manager
+            percentOutstanding: 9.8903
+            requestId: FDS-US
+            source: 13F Form
+            weightClose: 0.035
+          - adjHolding: 3631561
+            adjMarketValue: 1216137147.68
+            currency: USD
+            date: '2020-06-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 08D3XB-E
+            holderId: F7749421
+            holderName: BlackRock Fund Advisors
+            holderType: Institution
+            investorType: Investment Adviser
+            percentOutstanding: 9.5584
+            requestId: FDS-US
+            source: 13F Form
+            weightClose: 0.054
+          - adjHolding: 2763901
+            adjMarketValue: 925575166.88
+            currency: USD
+            date: '2020-06-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 0024SV-E
+            holderId: F64196
+            holderName: BAMCO, Inc.
+            holderType: Institution
+            investorType: Investment Adviser
+            percentOutstanding: 7.2747
+            requestId: FDS-US
+            source: 13F Form
+            weightClose: 2.4906
+          - adjHolding: 2703592
+            adjMarketValue: 905378888.96
+            currency: USD
+            date: '2020-06-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 000P8J-E
+            holderId: F20445
+            holderName: Loomis, Sayles & Co. LP
+            holderType: Institution
+            investorType: Investment Adviser
+            percentOutstanding: 7.1159
+            requestId: FDS-US
+            source: 13F Form
+            weightClose: 1.2433
+          - adjHolding: 1617050
+            adjMarketValue: 541517704
+            currency: USD
+            date: '2020-06-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 002HTZ-E
+            holderId: F74802
+            holderName: Kayne Anderson Rudnick Investment Management LLC
+            holderType: Institution
+            investorType: Investment Adviser
+            percentOutstanding: 4.2561
+            requestId: FDS-US
+            source: 13F Form
+            weightClose: 1.8401
+    singleSecurityHolder:
+      summary: The Top 5 Mutual Fund holder of FDS-US as of 2020-06-30.
+      description: >-
+        The Top 5 Mutual Fund Holder of FDS-US as of 2020-06-30. Since the
+        request specified mutual fund as the holder type, the response will
+        include the mutual fund and its related mutual funds. To request other
+        holder types change the holderType parameter.
+      value:
+        data:
+          - adjHolding: 1240000,
+            adjMarketValue: 415251200,
+            currency: USD
+            date: '2020-08-31'
+            fsymId: SQFMK3-R
+            holderEntityId: 04B8QD-E
+            holderId: M4000376
+            holderName: Baron Growth Fund
+            holderType: Mutual Fund
+            investorType: Open-End Fund
+            percentOutstanding: 3.2637
+            requestId: FDS-US
+            source: US Fund (N-30D)
+            weightClose: 5.6182
+          - adjHolding: 1064539
+            adjMarketValue: 356492820.32
+            currency: USD
+            date: '2020-09-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 04BF4M-E
+            holderId: M4004630
+            holderName: Vanguard Total Stock Market Index Fund
+            holderType: Mutual Fund
+            investorType: Open-End Fund
+            percentOutstanding: 2.8019
+            requestId: FDS-US
+            source: US Fund (N-30D)
+            weightClose: 0.0382
+          - adjHolding: 998453
+            adjMarketValue: 334361940.64
+            currency: USD
+            date: '2020-09-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 04BHCW-E
+            holderId: M4006777
+            holderName: iShares Core S&P Mid Cap ETF
+            holderType: Mutual Fund
+            investorType: Exchange Traded Fund
+            percentOutstanding: 2.628
+            requestId: FDS-US
+            source: US Fund (N-30D)
+            weightClose: 0.7701
+          - adjHolding: 876793
+            adjMarketValue: 293620439.84
+            currency: USD
+            date: '2020-09-30'
+            fsymId: SQFMK3-R
+            holderEntityId: 04BFYD-E
+            holderId: M4005398
+            holderName: Vanguard Mid Cap Index Fund
+            holderType: Mutual Fund
+            investorType: Open-End Fund
+            percentOutstanding: 2.3077
+            requestId: FDS-US
+            source: US Fund (N-30D)
+            weightClose: 0.2607
+          - adjHolding: 728381
+            adjMarketValue: 243920229.28
+            currency: USD
+            date: '2020-03-31'
+            fsymId: SQFMK3-R
+            holderEntityId: 04BSJN-E
+            holderId: M4015574
+            holderName: Morgan Stanley Invt. Fds. - Global Brands Fund
+            holderType: Mutual Fund
+            investorType: Open-End Fund
+            percentOutstanding: 1.9171
+            requestId: FDS-US
+            source: Non-US portfolio
+            weightClose: 1.4245
+    singleSecurityHolderPostRequest:
+      summary: Requesting the Top Institution Holder of FDS-US as of 2020-06-30.
+      description: Requesting the Top Institution Holder of FDS-US as of 2020-06-30.
+      value:
+        ids:
+          - FDS-US
+        date: '2020-06-30'
+        topn: 1
+        holderType: F
+        changePeriod: 1M
+        currency: USD
+    top5InsidersRequest:
+      summary: >-
+        Requesting the latest available top 5 insiders and stakeholders for
+        TSLA-US
+      description: >-
+        Requesting the latest available top 5 insiders and stakeholders for
+        TSLA-US
+      value:
+        ids:
+          - TSLA-US
+        topn: 5
+        holderType: S
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2020-08-03 12:00:31.777'
+        path: /factset-ownership/v1/{end-point}
+        message: >-
+          The date parameter(s) must be in the following date format:
+          YYYY-MM-DD. 
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-08-03 12:01:06.553'
+        path: /factset-ownership/v1/{end-point}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the date
+        parameters. Please revise your request to include dates as of today's
+        current date or any prior historical date.
+      value:
+        status: Bad Request
+        timestamp: '2020-08-03 12:02:06.097'
+        path: /factset-ownership/v1/{end-point}
+        message: >-
+          The use of future dates for date parameter(s) is not applicable.
+          Please revise your request to include dates up to today's current
+          date. 
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-08-03 12:02:47.804'
+        path: /factset-ownership/v1/{end-point}
+        message: >-
+          Invalid Parameter (s): dated. Please modify your request to use
+          parameters outlined in the specification for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2020-08-03 12:03:34.409'
+        path: /factset-ownership/v1/{end-point}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-ownership/v1/{end-point}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-ownership/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-ownership/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use
+          /factset-ownership/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-ownership/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-ownership/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-ownership/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

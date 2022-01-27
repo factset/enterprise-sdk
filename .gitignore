@@ -1,0 +1,14 @@
+# Build and test remnants
+node_modules
+build
+dist
+.env
+coverage
+.DS_Store
+sdk/code/java/**/target
+__pycache__/
+.pytest_cache/
+.tox
+
+# Editors
+.vscode

@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.IRNNotes",
+  "projectName": "fds.sdk.IRNNotes",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - IRN Notes",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/IRNNotes",
+  "httpUserAgent": "fds-sdk/python/IRNNotes/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

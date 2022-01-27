@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{b151fff7-ec02-5d89-885f-093a6e19e864}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Securitized Derivatives API for Digital Portals",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/SecuritizedDerivativesAPIforDigitalPortals/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

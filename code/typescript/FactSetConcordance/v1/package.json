@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-factsetconcordance",
+  "version": "0.8.0",
+  "description": "The_FactSet_Concordance_API_provides_the_ability_to_programmatically_look_up_several_types_of_entities_by_their_name_and_other_attributes__It_attempts_to_match_attributes_that_you_supply_for_the_entity_and_returns_as_many_match_candidates_as_it_can_find__The_result_is_a_concorded_FactSet_Entity_Permanent_identifier___The_Entity_Identifier_can_then_be_used_as_input_throughout_FactSets_Content_soultions_such_as_Content_APIs_and_Standard_DataFeeds_p_There_are_types_of_workflows_supported_in_the_API__The_first_workflow_type_follows_traditional_API_conventions_in_that_a_request_is_accepted_and_a_response_is_returned_synchronously__The_second_workflow_type_involves_a_background_task__With_this_workflow_a_task_is_created_for_uploading_a_set_of_queries_and_then_the_client_polls_for_the_task_to_complete__Once_the_task_has_completed_the_client_retrieves_the_concordance_results_throught_the_decisions_endpoint__p",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,601 @@
+openapi: 3.0.1
+info:
+  title: FactSet Procure to Pay API
+  version: 1S
+  description: |-
+    Allows for Provisioning and Entitlement of FactSet accounts. 
+     
+     Authentication is provided via FactSet's [API Key System](https://developer.factset.com/authentication)
+     
+     Please note that the on-page "Try it out" features do not function. You must authorize against our API and make requests directly againt the endpoints.
+     
+     
+servers:
+  - url: https://api.factset.com/procuretopay/provisioning/
+tags:
+  - name: Order Status
+    description: Determine status of specific order by transactionCode
+  - name: User Management
+    description: Create and manage individuals
+  - name: Entitlement Management
+    description: Manage individuals' entitlements
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /createIndividual:
+    post:
+      security:
+        - basicAuth: []
+      tags:
+        - User Management
+      summary: Provisions an individual for FactSet
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createIndividual'
+      responses:
+        '202':
+          $ref: '#/components/responses/202Accepted'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /transactionStatus:
+    get:
+      security:
+        - basicAuth: []
+      tags:
+        - Order Status
+      summary: Check status of order by transactionCode
+      description: ''
+      parameters:
+        - name: transactioncode
+          description: Transaction Code to query
+          required: true
+          in: query
+          schema:
+            type: string
+          example: 7B27AA857B664F18AB4886A08A9A3D9C
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              schema:
+                type: string
+              description: FactSet's request key header.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/transactionStatus'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '404':
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              schema:
+                type: string
+              description: FactSet's request key header.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /modifyIndividual:
+    post:
+      security:
+        - basicAuth: []
+      tags:
+        - User Management
+      summary: >-
+        Modifies an individual's attributes as determined by the uniqueId in the
+        body of the request. Please note that the uniqueId may not be changed.
+        Fields not changing may be passed as NULL but never empty.
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/modifyIndividual'
+      responses:
+        '202':
+          $ref: '#/components/responses/202Accepted'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /listIndividuals:
+    get:
+      security:
+        - basicAuth: []
+      tags:
+        - User Management
+      summary: Lists all individuals with details at all locations.
+      description: ''
+      parameters:
+        - name: includeProductIds
+          description: >-
+            <br>Optional, if =TRUE will return additional product array per
+            object with all productIds for all returned individuals.</br>
+          in: query
+          schema:
+            type: boolean
+          example: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              schema:
+                type: string
+              description: FactSet's request key header.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/listIndividuals'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /getIndividual:
+    get:
+      security:
+        - basicAuth: []
+      tags:
+        - User Management
+      summary: Returns an individual's details by uniqueId
+      description: ''
+      parameters:
+        - name: uniqueid
+          description: uniqueId to query
+          required: true
+          in: query
+          schema:
+            type: string
+          example: jdoe113901
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              schema:
+                type: string
+              description: FactSet's request key header.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/getIndividual'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /cancelIndividual:
+    post:
+      security:
+        - basicAuth: []
+      tags:
+        - User Management
+      summary: Cancels an individual's serial and all productIds
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cancelIndividual'
+      responses:
+        '202':
+          $ref: '#/components/responses/202Accepted'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /addProducts:
+    post:
+      security:
+        - basicAuth: []
+      tags:
+        - Entitlement Management
+      summary: Adds listed productIds to an individual
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/manageProductIds'
+      responses:
+        '202':
+          $ref: '#/components/responses/202Accepted'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+  /removeProducts:
+    post:
+      security:
+        - basicAuth: []
+      tags:
+        - Entitlement Management
+      summary: Removes listed productIds from an individual
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/manageProductIds'
+      responses:
+        '202':
+          $ref: '#/components/responses/202Accepted'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthenticated'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '429':
+          $ref: '#/components/responses/throttleControl'
+      servers:
+        - url: https://api.factset.com/procuretopay/provisioning/
+components:
+  responses:
+    AuthHeaders:
+      description: FactSet's request key header
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+    throttleControl:
+      description: Rate limit reached
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+      content:
+        text/plain:
+          schema:
+            type: string
+          example: Retry After X-Seconds
+    202Accepted:
+      description: Accepted
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            type: object
+            properties:
+              transactioncode:
+                type: string
+                example: 492c81b9af7c4b0196e10061786a3594
+    200Accepted:
+      description: OK
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            type: object
+            properties:
+              transactioncode:
+                type: string
+                example: 492c81b9af7c4b0196e10061786a3594
+    400BadRequest:
+      description: Bad Request
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+    401Unauthenticated:
+      description: Unauthenticated
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+    403Unauthorized:
+      description: Unauthorized
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet's request key header.
+  schemas:
+    createIndividual:
+      type: object
+      properties:
+        firstName:
+          type: string
+          format: nvarchar(250)
+        lastName:
+          type: string
+          format: nvarchar(250)
+        uniqueId:
+          type: string
+          format: nvarchar(250)
+          description: >-
+            A unique, constant reference to an individual/account. Used for
+            Future management of individual.
+        roleId:
+          type: string
+          format: nvarchar(250)
+        email:
+          type: string
+          format: nvarchar(100)
+        assertionField:
+          type: string
+          format: nvarchar(250)
+          description: A unique value passed as nameId in the SAML response
+        locationId:
+          type: string
+          format: nvarchar(250)
+          description: Your reference to a physical location.
+      example:
+        firstName: John
+        lastName: Doe
+        uniqueId: jdoe113901
+        roleId: '21'
+        email: jdoe@acme.com
+        assertionField: jdoe@acme.com
+        locationId: '1'
+    transactionStatus:
+      type: object
+      properties:
+        currentStatus:
+          type: integer
+          format: int
+        message:
+          type: string
+          format: nvarchar(500)
+        username:
+          type: string
+          format: nvarchar(20)
+        serialNumber:
+          type: string
+          format: nvarchar(20)
+        factsetId:
+          type: string
+          format: nvarchar(100)
+        errorId:
+          type: integer
+          format: int
+      example:
+        currentStatus: 2
+        message: ''
+        username: SSO_000012UBP
+        serialNumber: '12345'
+        factsetId: john.doe@factset.net
+        errorId: ''
+    modifyIndividual:
+      type: object
+      properties:
+        firstName:
+          type: string
+          format: nvarchar(250)
+        lastName:
+          type: string
+          format: nvarchar(250)
+        uniqueId:
+          type: string
+          format: nvarchar(250)
+        roleId:
+          type: string
+          format: nvarchar(250)
+        email:
+          type: string
+          format: nvarchar(100)
+        assertionField:
+          type: string
+          format: nvarchar(250)
+        locationId:
+          type: string
+          format: nvarchar(250)
+      example:
+        firstName: John
+        lastName: Doe
+        uniqueID: jdoe113901
+        roleId: '21'
+        email: jdoe@acme.com
+        assertionfield: jdoe@acme.com
+        locationId: '1'
+    listIndividuals:
+      type: array
+      items:
+        type: object
+        properties:
+          firstName:
+            type: string
+            format: nvarchar(250)
+          lastName:
+            type: string
+            format: nvarchar(250)
+          uniqueId:
+            type: string
+            format: nvarchar(250)
+          roleId:
+            type: string
+            format: nvarchar(100)
+          serialNumber:
+            type: string
+            format: nvarchar(20)
+          email:
+            type: string
+            format: nvarchar(100)
+          assertionField:
+            type: string
+            format: nvarchar(250)
+          locationId:
+            type: string
+            format: nvarchar(250)
+          productIds:
+            type: array
+            items:
+              type: string
+              format: nvarchar(20)
+      example:
+        - username: SSO_000012UBP
+          serialNumber: '12345'
+          factsetId: john.doe@factset.net
+          productIds:
+            - '123'
+            - '456'
+            - '789'
+          firstName: John
+          lastName: Doe
+          uniqueId: jdoe113901
+          roleId: '21'
+          email: jdoe@acme.com
+          assertionField: jdoe@acme.com
+          locationId: '1'
+        - username: SSO_000012UBP
+          serialNumber: '12346'
+          factsetId: al.doe@factset.net
+          productIds:
+            - '123'
+            - '456'
+            - '1101'
+          firstName: Al
+          lastName: Doe
+          uniqueId: adoe998621
+          roleId: '22'
+          email: adoe@acme.com
+          assertionField: adoe@acme.com
+          locationId: '2'
+    getIndividual:
+      type: object
+      properties:
+        firstName:
+          type: string
+          format: nvarchar(250)
+        lastName:
+          type: string
+          format: nvarchar(250)
+        uniqueId:
+          type: string
+          description: A constant reference to an individual/account
+          format: nvarchar(250)
+        roleId:
+          type: string
+          format: nvarchar(100)
+        serialNumber:
+          type: string
+          format: nvarchar(20)
+        email:
+          type: string
+          format: nvarchar(100)
+        assertionField:
+          type: string
+          format: nvarchar(250)
+        locationId:
+          type: string
+          description: Your reference to a physical location
+          format: nvarchar(250)
+        productIds:
+          type: array
+          items:
+            type: string
+            format: nvarchar(20)
+      example:
+        username: SSO_000012UBP
+        serialNumber: '12345'
+        factsetId: john.doe@factset.net
+        productIds:
+          - '123'
+          - '456'
+          - '789'
+        firstName: John
+        lastName: Doe
+        uniqueId: jdoe113901
+        roleId: '21'
+        email: jdoe@acme.com
+        assertionField: jdoe@acme.com
+        locationId: '1'
+    cancelIndividual:
+      type: object
+      properties:
+        uniqueId:
+          type: string
+          format: nvarchar(250)
+      example:
+        uniqueId: jdoe113901
+    manageProductIds:
+      type: object
+      properties:
+        uniqueId:
+          type: string
+          format: nvarchar(250)
+        productIds:
+          type: array
+          items:
+            type: string
+            format: nvarchar(20)
+      example:
+        uniqueId: jdoe113901
+        productIds:
+          - '123'
+          - '4379'
+          - '103'
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic

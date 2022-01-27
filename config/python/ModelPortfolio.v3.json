@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.ModelPortfolio",
+  "projectName": "fds.sdk.ModelPortfolio",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - Model Portfolio",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/ModelPortfolio",
+  "httpUserAgent": "fds-sdk/python/ModelPortfolio/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

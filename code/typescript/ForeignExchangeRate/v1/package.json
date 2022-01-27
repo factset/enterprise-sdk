@@ -1,0 +1,50 @@
+{
+  "name": "@factset/sdk-foreignexchangerate",
+  "version": "0.9.0",
+  "description": "Foreign_Exchange_Rates_API_in_which_retrieves_Spots_and_Forwards_for_a_given_currency_pair_and_date_range__pSpots_and_Forwards_rates_are_sourced_from_W_M_Reuters_The_WM_Company_calculates_daily_standardized_spot_rates_for_global_foreign_exchange_transactions_using_rates_provided_by_Reuters__These_rates_are_recognized_globally_as_the_standard_by_banks_fund_managers_and_index_compilers_increasingly_these_rates_are_also_being_used_for_benchmark_currency_trading__In_1994_WM_Company_began_calculating_closing_spot_rates__Closing_spot_rates_provide_a_standard_set_of_currency_rates_so_that_portfolio_valuations_can_be_compared_to_each_other_and_their_performances_measured_against_benchmarks_without_having_discrepancies_caused_by_exchange_rates__Closing_spot_rates_are_recorded_at_1600_GMT__p",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@factset/sdk-utils": "^0.9.0",
+    "superagent": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

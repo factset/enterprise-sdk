@@ -1,0 +1,161 @@
+swagger: '2.0'
+host: api-sandbox.factset.com
+schemes:
+  - https
+paths:
+  /cognitive/ner/v1/entities:
+    post:
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+        '500':
+          description: Server-side Error
+      description: Extract named entities from document text.
+      operationId: post_entities_/entities
+      parameters:
+        - name: payload
+          in: body
+          schema:
+            $ref: '#/definitions/Request'
+      tags:
+        - entities
+info:
+  title: NER API
+  version: 1.5.0
+  description: >-
+    Extract named entities and their FactSet entity IDs from given document
+    text.
+produces:
+  - application/json
+consumes:
+  - application/json
+securityDefinitions:
+  FactSetApiKey:
+    type: basic
+  FactSetOAuth2:
+    type: oauth2
+    flow: application
+    tokenUrl: https://auth.factset.com/as/token.oauth2
+    scopes: {}
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: entities
+    description: Named Entity Extraction
+definitions:
+  Request:
+    properties:
+      input:
+        $ref: '#/definitions/Input'
+    type: object
+  Input:
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        description: >-
+          Input-text (plain text (preferred) or HTML-formatted) of document to
+          extract named-entities from.
+        example: >-
+          As demand for the coronavirus vaccine plateaus, Ohio Governor Mike
+          DeWine is giving state residents a shot to win $1 million. Starting
+          May 26, the state will award $1 million each week to an adult who has
+          received at least the first dose of the COVID-19 vaccine, DeWine said.
+          There will be five total drawings. This will give anyone who has not
+          been vaccinated time to get the first dose of Pfizer or Moderna and be
+          well on the way to full immunity, DeWine said Wednesday. West Virginia
+          Governor Jim Justice wanted to give every vaccinated resident between
+          the ages of 16 and 35 a $100 savings bond. States and localities have
+          been given wide discretion by the Treasury Department in spending
+          federal aid.
+      characterOffset:
+        type: integer
+        description: >-
+          Offset to add to the returned named entity positions; useful if the
+          given text input is not from the beginning of the original document.
+        default: 0
+        minimum: 0
+      idType:
+        type: string
+        description: Format of the Ids to return for the extracted named entities.
+        default: iconum
+        example: entityId
+        enum:
+          - iconum
+          - entityId
+      filterTagsWithoutId:
+        type: boolean
+        description: >-
+          Boolean flag, set True [False] to [not] drop named entities for which
+          a matching Id could not be found.
+        default: true
+    type: object
+  Response:
+    properties:
+      namedEntity:
+        type: array
+        items:
+          $ref: '#/definitions/Tag'
+    type: object
+  Tag:
+    properties:
+      type:
+        type: string
+        description: Type of the extracted named-entity (NE).
+        example: NE_GPE
+        enum:
+          - NE_GPE
+          - NE_ORG
+          - NE_PERSON
+          - NE_PHARMACEUTICAL
+          - NE_DATETIME
+          - NE_NUMBER
+          - NE_MONEY
+      subType:
+        type: string
+        description: >-
+          More specific sub-type (e.g., NE_COUNTRY) of the named-entity (if
+          applicable).
+        example: NE_GPE
+        enum:
+          - NE_GENERIC_DRUG
+          - NE_BRANDED_DRUG
+          - NE_DRUG_CLASS
+          - NE_PIPELINE_DRUG
+          - NE_INDICATION
+      text:
+        type: string
+        description: Text for the named-entity (NE), as extracted from the given document.
+      score:
+        type: number
+        minimum: 0
+      startChar:
+        type: integer
+        description: >-
+          Starting character position of the named-entity text (relative to any
+          offset provided (default offset=0)).
+        minimum: 0
+      endChar:
+        type: integer
+        description: >-
+          Ending character position of the named-entity text (relative to any
+          offset provided (default offset=0))
+        minimum: 0
+      lookupText:
+        type: string
+        description: Best-matching (FactSet) looked-up name for the extracted named-entity.
+      neId:
+        type: string
+        description: Best-matching (FactSet) entity-id for the extracted named-entity
+    type: object
+responses:
+  ParseError:
+    description: When a mask can't be parsed
+  MaskError:
+    description: When any error occurs on mask

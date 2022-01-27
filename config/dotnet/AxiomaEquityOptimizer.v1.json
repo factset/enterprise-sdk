@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.AxiomaEquityOptimizer",
+  "packageVersion": "0.8.0",
+  "packageGuid": "{a3cc8a6d-d9e6-50e7-8eaf-13a895ba1d1d}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Axioma Equity Optimizer",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/AxiomaEquityOptimizer/0.8.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

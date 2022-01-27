@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetEstimatesReportBuilder",
+  "projectName": "fds.sdk.FactSetEstimatesReportBuilder",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet Estimates Report Builder",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetEstimatesReportBuilder",
+  "httpUserAgent": "fds-sdk/python/FactSetEstimatesReportBuilder/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

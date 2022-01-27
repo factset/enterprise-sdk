@@ -1,0 +1,11 @@
+# securitizedderivativesapifordigitalportals.InlineResponse2005DataKeyFiguresBonusYield
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**absolute** | [**InlineResponse2005DataKeyFiguresBonusYieldAbsolute**](InlineResponse2005DataKeyFiguresBonusYieldAbsolute.md) |  | [optional] 
+**relative** | [**InlineResponse2005DataKeyFiguresBonusYieldRelative**](InlineResponse2005DataKeyFiguresBonusYieldRelative.md) |  | [optional] 
+**annualized** | [**InlineResponse2005DataKeyFiguresBonusYieldAnnualized**](InlineResponse2005DataKeyFiguresBonusYieldAnnualized.md) |  | [optional] 
+
+

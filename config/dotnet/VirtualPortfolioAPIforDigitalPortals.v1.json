@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.VirtualPortfolioAPIforDigitalPortals",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{23980409-4074-51ba-9c1d-34c45c67dabd}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Virtual Portfolio API for Digital Portals",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/VirtualPortfolioAPIforDigitalPortals/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

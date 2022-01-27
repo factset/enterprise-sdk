@@ -1,0 +1,618 @@
+openapi: 3.0.0
+info:
+  description: TickHistory provides dynamic access to historical tick data for a specific
+    security for specific dates or date range.
+  title: TickHistory
+  version: 1.0.0
+servers:
+- url: https://api-sandbox.factset.com/bulk-documents/tickhistory
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/request-files:
+    get:
+      description: Try it Out - references a Sandbox environment to simulate live
+        reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current
+        date data is not available.</p> PROD has data from 20120101 to current date
+        &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA,
+        GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo
+        - 7203-TKS, 4307-TKS</p> Shenzhen OR Shanghai - 300782-SHE, 300792-SHE</p>
+        Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+      parameters:
+      - description: any ticker. <p>**Either ticker(s) + iso_code  (OR) product is
+          allowed**</p> **NOTE**:Only one identifier can be requested per request
+        examples:
+          fieldname1:
+            summary: US Equity
+            value: IBM,F,AAPL,GOOG
+          fieldname2:
+            summary: ASX
+            value: CBA,BHP
+          fieldname3:
+            summary: LSE
+            value: HSBA,VOD
+          fieldname4:
+            summary: Tokyo
+            value: 7203,4307
+          fieldname5:
+            summary: Shenzhen Or Shanghai
+            value: 300782,300792
+          fieldname6:
+            summary: Swiss
+            value: NESN,COTN
+          fieldname7:
+            summary: Singapore
+            value: J36
+          fieldname8:
+            summary: HongKong
+            value: 700
+        explode: true
+        in: query
+        name: ticker
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple
+          iso_codes**</p>
+        examples:
+          fieldname1:
+            summary: US Equity
+            value: USA
+          fieldname2:
+            summary: ASX
+            value: AUS
+          fieldname3:
+            summary: LSE
+            value: LON
+          fieldname4:
+            summary: Tokyo
+            value: TKS
+          fieldname5:
+            summary: Shenzhen Or Shanghai
+            value: SHE
+          fieldname6:
+            summary: Swiss
+            value: SWX
+          fieldname7:
+            summary: Singapore
+            value: SES
+          fieldname8:
+            summary: HongKong
+            value: HKG
+        explode: true
+        in: query
+        name: iso_code
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Fields for which data is requested. Refer <a href= "https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation">Output
+          fileds list</a>. for available fields.</p> **In trial default=all fields**
+        examples:
+          fieldname1:
+            summary: all fields
+            value: '*'
+          fieldname2:
+            summary: single field
+            value: ask
+          fieldname3:
+            summary: multiple fields
+            value: ticker,ask,msgtype
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          default: '*'
+          type: string
+        style: form
+      - description: The date for (or from which) the data is required</p> **In Sandbox,
+          data available from 1st to 31st Jan'21 only**
+        examples:
+          exactDate:
+            summary: Files from Jan 1,2021
+            value: 2021-01-01
+        explode: true
+        in: query
+        name: start_date
+        required: true
+        schema:
+          format: date
+          minimum: -30
+          type: string
+        style: form
+      - description: The date to which data is required</p> **In Sandbox, data available
+          from 1st to 31st Jan'21 only**
+        examples:
+          exactDate:
+            summary: Files until Jan 31,2021
+            value: 2021-01-31
+        explode: true
+        in: query
+        name: end_date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleRequest-FilesResponse'
+              schema:
+                $ref: '#/components/schemas/Request-FilesResponse'
+          description: Successs
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ReponseExample:
+                  $ref: '#/components/examples/Request-FileErrorDetails'
+              schema:
+                $ref: '#/components/schemas/Request-Filestatus'
+          description: Bad Request
+      summary: Returns the requestId and status
+      tags:
+      - Request-files
+      x-accepts: application/json
+  /v1/get-files:
+    get:
+      parameters:
+      - description: RequestId returned by request-files endpoint to poll and collect
+          results of the query
+        explode: true
+        in: query
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Specifies the maximum number of results to return per response
+          page
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleGet-FilesResponse'
+              schema:
+                $ref: '#/components/schemas/Get-FilesResponse'
+          description: Success</p> **To download the output file copy the response
+            url in a browser**
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ReponseExample:
+                  $ref: '#/components/examples/Get-FileErrorDetails'
+              schema:
+                $ref: '#/components/schemas/Get-FilesStatus'
+          description: Bad Request
+      summary: Returns the files from tickhistory endpoint for the specified date
+        range
+      tags:
+      - Get-files
+      x-accepts: application/json
+components:
+  examples:
+    sampleRequest-FilesResponse:
+      summary: sample Response
+      value:
+        requestId: '**(Example)** 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 **(Example)**'
+        status: Submitted
+    sampleGet-FilesResponse:
+      summary: sample Response
+      value:
+        status: Completed    **(Example)**
+        request: type=fetch&fields=*,date&filter=date:20190220,ticker:FDS&user=XXXXXXXX&serial=XXXXX
+        requestTimestamp: 2020-10-23 03:38:02
+        updateTimestamp: 2020-10-23 03:41:39
+        data:
+        - filename: data_0_0_0.csv.gz
+          url: https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+            limit: 20
+            offset: 20
+          partial:
+            isPartial: true
+    Request-FileErrorDetails:
+      summary: sample error response
+      value:
+        id: '**(Example)** 559eae17-4a0a-4091-b29f-3d797018bc3e **(Example)**'
+        error_message: 'You are not subscribed to this product: tick history'
+    Get-FileErrorDetails:
+      summary: sample error response
+      value:
+        status: Completed    **(Example)**
+        requestTimestamp: 2020-10-20 14:06:22
+        updateTimestamp: 2020-10-20 14:14:00
+        not_authorized_tickers:
+        - BNGO-USA!MSFT-USA!RIOT-USA
+  parameters:
+    ticker:
+      description: any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p>
+        **NOTE**:Only one identifier can be requested per request
+      examples:
+        fieldname1:
+          summary: US Equity
+          value: IBM,F,AAPL,GOOG
+        fieldname2:
+          summary: ASX
+          value: CBA,BHP
+        fieldname3:
+          summary: LSE
+          value: HSBA,VOD
+        fieldname4:
+          summary: Tokyo
+          value: 7203,4307
+        fieldname5:
+          summary: Shenzhen Or Shanghai
+          value: 300782,300792
+        fieldname6:
+          summary: Swiss
+          value: NESN,COTN
+        fieldname7:
+          summary: Singapore
+          value: J36
+        fieldname8:
+          summary: HongKong
+          value: 700
+      explode: true
+      in: query
+      name: ticker
+      required: false
+      schema:
+        type: string
+      style: form
+    iso_code:
+      description: iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple
+        iso_codes**</p>
+      examples:
+        fieldname1:
+          summary: US Equity
+          value: USA
+        fieldname2:
+          summary: ASX
+          value: AUS
+        fieldname3:
+          summary: LSE
+          value: LON
+        fieldname4:
+          summary: Tokyo
+          value: TKS
+        fieldname5:
+          summary: Shenzhen Or Shanghai
+          value: SHE
+        fieldname6:
+          summary: Swiss
+          value: SWX
+        fieldname7:
+          summary: Singapore
+          value: SES
+        fieldname8:
+          summary: HongKong
+          value: HKG
+      explode: true
+      in: query
+      name: iso_code
+      required: false
+      schema:
+        type: string
+      style: form
+    fields:
+      description: Fields for which data is requested. Refer <a href= "https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation">Output
+        fileds list</a>. for available fields.</p> **In trial default=all fields**
+      examples:
+        fieldname1:
+          summary: all fields
+          value: '*'
+        fieldname2:
+          summary: single field
+          value: ask
+        fieldname3:
+          summary: multiple fields
+          value: ticker,ask,msgtype
+      explode: true
+      in: query
+      name: fields
+      required: false
+      schema:
+        default: '*'
+        type: string
+      style: form
+    start_date:
+      description: The date for (or from which) the data is required</p> **In Sandbox,
+        data available from 1st to 31st Jan'21 only**
+      examples:
+        exactDate:
+          summary: Files from Jan 1,2021
+          value: 2021-01-01
+      explode: true
+      in: query
+      name: start_date
+      required: true
+      schema:
+        format: date
+        minimum: -30
+        type: string
+      style: form
+    end_date:
+      description: The date to which data is required</p> **In Sandbox, data available
+        from 1st to 31st Jan'21 only**
+      examples:
+        exactDate:
+          summary: Files until Jan 31,2021
+          value: 2021-01-31
+      explode: true
+      in: query
+      name: end_date
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    requestId:
+      description: RequestId returned by request-files endpoint to poll and collect
+        results of the query
+      explode: true
+      in: query
+      name: requestId
+      required: true
+      schema:
+        type: string
+      style: form
+    _paginationLimit:
+      description: Specifies the maximum number of results to return per response
+        page
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 20
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        type: integer
+      style: form
+  schemas:
+    Request-FilesResponse:
+      example:
+        requestId: requestId
+        status: status
+      properties:
+        requestId:
+          description: a unique identification# for the query requested
+          type: string
+        status:
+          description: The status of the query
+          type: string
+      type: object
+    Get-FilesResponse:
+      example:
+        request: request
+        data:
+        - fileName: fileName
+          url: url
+        - fileName: fileName
+          url: url
+        requestTimestamp: 2000-01-23T04:56:07.000+00:00
+        meta:
+        - pagination:
+            total: 0
+            offset: 1
+            is EstimatedTotal: true
+            limit: 6
+          partial:
+            isPartial: true
+        - pagination:
+            total: 0
+            offset: 1
+            is EstimatedTotal: true
+            limit: 6
+          partial:
+            isPartial: true
+        updateTimestamp: 2000-01-23T04:56:07.000+00:00
+        status: status
+      properties:
+        status:
+          description: The status of the request
+          type: string
+        request:
+          description: Returns the query parameters, user credentials (name & serial
+            number)
+          type: string
+        requestTimestamp:
+          description: Timestamp of when request was made
+          format: date-time
+          type: string
+        updateTimestamp:
+          description: :"Timestamp when the file was last updated"
+          format: date-time
+          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/data'
+          type: array
+        meta:
+          items:
+            $ref: '#/components/schemas/meta'
+          type: array
+      type: object
+    data:
+      description: Array of data objects
+      example:
+        fileName: fileName
+        url: url
+      properties:
+        fileName:
+          description: Name of the file(s) generated for the query requested
+          type: string
+        url:
+          description: Download link for the TickHistory file with requested parameters
+          type: string
+      title: Data
+      type: object
+    meta:
+      description: Array of metadata objects
+      example:
+        pagination:
+          total: 0
+          offset: 1
+          is EstimatedTotal: true
+          limit: 6
+        partial:
+          isPartial: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        partial:
+          $ref: '#/components/schemas/partial'
+      title: Meta
+      type: object
+    pagination:
+      description: List of pagination objects
+      example:
+        total: 0
+        offset: 1
+        is EstimatedTotal: true
+        limit: 6
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query
+          type: integer
+        is EstimatedTotal:
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to  “False” as the
+            API should always return the exact count
+          type: boolean
+        limit:
+          description: Number of results returned per page
+          type: integer
+        offset:
+          description: The flag indicating the position in the results array if additional
+            results are available beyond the default value or the value in paginationLimit
+            parameter (if used). This value is passed in the _paginationOffset parameter
+            to retreieve subsequent results
+          type: integer
+      title: Pagination
+      type: object
+    partial:
+      description: If the value is true, it indicates additional results are available.
+        False represents that this is the last set of results for this request.
+      example:
+        isPartial: true
+      properties:
+        isPartial:
+          type: boolean
+      title: IsPartial
+      type: object
+    Request-Filestatus:
+      description: status of request or Error response object returned in status property
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/Request-FileErrorDetails'
+      title: Request-FileStatus
+      type: object
+    Request-FileErrorDetails:
+      properties:
+        Permission Error:
+          description: Error message when user is not subscribed to the TickHistory
+            product
+          items:
+            type: string
+          type: array
+        Param Error:
+          description: when the parameters passed in the query are incorrect or missing
+          items:
+            type: string
+          type: array
+        startDate:
+          description: startDate must be < 0
+          items:
+            type: string
+          type: array
+        endDate:
+          description: endDate must be < 0
+          items:
+            type: string
+          type: array
+      title: Request-Files Error Messages
+      type: object
+    Get-FilesStatus:
+      description: status of request or Error response object returned in status property
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/Get-FilesErrorDetail'
+      title: Get-FilesStatus
+      type: object
+    Get-FilesErrorDetail:
+      properties:
+        not_authorized_tickers:
+          description: query with partial tickers, products or exchanges not subscribed
+            to
+          items:
+            type: string
+          type: array
+        _paginationLimit:
+          description: _paginationLimit must be <=500
+          items:
+            type: string
+          type: array
+        _paginationOffset:
+          description: _paginationoffset must be an integer
+          items:
+            type: string
+          type: array
+      title: Get-Files Error Messages
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

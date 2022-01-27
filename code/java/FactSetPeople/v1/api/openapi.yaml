@@ -1,0 +1,2706 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    The FactSet People API exposes FactSet data for individuals and their jobs.
+  title: FactSet People API
+  version: 1.0.0
+servers:
+- description: Production Server
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Return information about the person with the specified entity ID.
+  name: Profiles
+- description: Returns the job history of the person
+  name: Job History
+- description: Returns a list of associated people for a requested company
+  name: Company
+paths:
+  /factset-people/v1/profiles:
+    get:
+      description: |
+        Returns a summary of basic information about the person referenced by the entityId specified in the URI.
+      operationId: getPeopleProfiles
+      parameters:
+      - description: List of FactSet Person Entity identifier.
+        example:
+        - 0DPHLH-E
+        - 07MZV9-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleProfilesResponse'
+          description: Array of Profile Ojects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Return information about the person with the specified entity ID.
+      tags:
+      - Profiles
+      x-accepts: application/json
+    post:
+      operationId: getPeopleProfilesForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/peopleProfilesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleProfilesResponse'
+          description: Array of People Profile Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns profile information for a large list of people.
+      tags:
+      - Profiles
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-people/v1/jobs:
+    get:
+      description: |
+        Returns the `Job` history of the person referenced by the entityId specified in the request.
+      operationId: getPeopleJobs
+      parameters:
+      - description: List of FactSet Person Entity identifier.
+        example:
+        - 0DPHLH-E
+        - 07MZV9-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: Select only Jobs with a certain status primary, active, or inactive.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - PRIMARY
+          - ACTIVE
+          - INACTIVE
+          type: string
+        style: form
+      - description: Select the level of detail only main Jobs or include other Jobs
+          at a company.
+        explode: true
+        in: query
+        name: level
+        required: false
+        schema:
+          default: DETAIL
+          enum:
+          - SUMMARY
+          - DETAIL
+          type: string
+        style: form
+      - description: Select only Jobs of a certain type board member or employee.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - BRD
+          - EMP
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleJobsResponse'
+          description: Array of Job objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the Job history of the person.
+      tags:
+      - Job History
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the `Job` history of the person referenced by the entityId specified in the request.
+      operationId: getPeopleJobsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/peopleJobsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/peopleJobsResponse'
+          description: Array of Job objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the Job history for the large list of people.
+      tags:
+      - Job History
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-people/v1/company-people:
+    get:
+      description: |
+        Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the `/profiles` endpoint to learn more about the given person.
+      operationId: getCompanyPeople
+      parameters:
+      - description: |
+          The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
+        example:
+        - AAPL-US
+        - IBM-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: "Controls the types of people returned based on high-level job\
+          \ functions. Filter by - \n  |function|description|\n  |---|---|\n  |PEOPLE|Retrieve\
+          \ **ALL** Executives of a requested company|\n  |OFFICER|Retrieve only the\
+          \ Officers of a requested company|\n  |DIRECTOR|Retrieve only the Directors\
+          \ of a requested company|\n"
+        explode: true
+        in: query
+        name: function
+        required: false
+        schema:
+          default: PEOPLE
+          enum:
+          - PEOPLE
+          - OFFICER
+          - DIRECTOR
+          example: PEOPLE
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPeopleResponse'
+          description: Array of Company People objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the list of people for the specified company identifiers
+      tags:
+      - Company
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the /profiles endpoint to learn more about the given person.
+      operationId: getCompanyPeopleForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyPeopleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPeopleResponse'
+          description: Array of Company People objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the list of people associated for a large list of company identitifers
+      tags:
+      - Company
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-people/v1/company-positions:
+    get:
+      description: |
+        Returns the list of people, name, and title for a list of company ids and requested position. Positions include-
+          * Chairman
+          * Chief Executive Officer
+          * President
+          * Chief Operating Officer
+          * Chief Financial Officer
+          * Chief Technology Officer
+          * Chief Investment Officer
+          * Founder(s)
+          * Compliance Officer
+          * Admin
+          * Independent Director
+          * Directors/Board Members
+          * Investor Relations
+          * Legal Counsel
+          * Treasurer
+          * Sales and Marketing Managers
+          * Human Resources
+      operationId: getCompanyPositions
+      parameters:
+      - description: |
+          The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
+        example:
+        - AAPL-US
+        - IBM-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.
+            |position|description|
+            |---|---|
+            |CHAIR|Chairman|
+            |CEO|Chief Executive Officer|
+            |PRES|President|
+            |COO|Chief Operating Officer|
+            |CFO|Chief Financial Officer|
+            |CTO|Chief Technology Officer|
+            |CIO|Chief Investment Officer|
+            |FOU|Founder(s)|
+            |CMP|Compliance Officer|
+            |ADM|Admin|
+            |IND|Independent Director|
+            |BRD|Directors/Board Members|
+            |IR|Investor Relations|
+            |LEG|Legal Counsel|
+            |TREAS|Treasurer|
+            |MKT|Sales and Marketing Managers|
+            |HR|Human Resources|
+        explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: CEO
+          enum:
+          - CHAIR
+          - CEO
+          - PRES
+          - COO
+          - CFO
+          - CTO
+          - CIO
+          - FOU
+          - CMP
+          - ADM
+          - IND
+          - BRD
+          - IR
+          - LEG
+          - TREAS
+          - MKT
+          - HR
+          example: FOU
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPositionsResponse'
+          description: Array of Company Positions objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the list of people for the specified company identifiers and
+        position
+      tags:
+      - Company
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the list of people, name, and title for a list of company ids and requested position. Positions include-
+          * Chairman
+          * Chief Executive Officer
+          * President
+          * Chief Operating Officer
+          * Chief Financial Officer
+          * Chief Technology Officer
+          * Chief Investment Officer
+          * Founder(s)
+          * Compliance Officer
+          * Admin
+          * Independent Director
+          * Directors/Board Members
+          * Investor Relations
+          * Legal Counsel
+          * Treasurer
+          * Sales and Marketing Managers
+          * Human Resources
+      operationId: getCompanyPositionsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyPositionsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyPositionsResponse'
+          description: Array of Company Positions objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the list of people associated for a large list of company identitifers
+        and position
+      tags:
+      - Company
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-people/v1/company-compensation:
+    get:
+      description: "Returns the list of company-level executive compensation data\
+        \ items for the top executives listed in annual filings.The coverage of the\
+        \ compensation details for the executives are limited to US region. All the\
+        \ compensation figures are expressed in raw units. \n"
+      operationId: getCompanyCompensation
+      parameters:
+      - description: |
+          The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
+        example:
+        - AAPL-US
+        - IBM-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyCompensationResponse'
+          description: Array of Company Compensation objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the compensation details of the people for the specified company
+        identifier
+      tags:
+      - Company
+      x-accepts: application/json
+    post:
+      description: "Returns the list of company-level executive compensation data\
+        \ items for the top executives listed in annual filings for the most recent\
+        \ fiscal year. The coverage of the compensation details for the executives\
+        \ are limited to US region. All the compensation figures are expressed in\
+        \ raw units. \n"
+      operationId: getCompanyCompensationForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyCompensationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyCompensationResponse'
+          description: Array of Company Positions objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the compensation details for the people for the specified company
+        identifier
+      tags:
+      - Company
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-people/v1/company-stats:
+    get:
+      description: |
+        Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company's board and management.
+      operationId: getCompanyStats
+      parameters:
+      - description: |
+          The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
+        example:
+        - AAPL-US
+        - IBM-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: "Search based on the management and board types. The types include\
+          \ - \n|type|description|\n|---|---|\n|MB|Management & Board|\n|MGMT|Management|\n\
+          |BRD|Board|\n"
+        explode: true
+        in: query
+        name: mbType
+        required: false
+        schema:
+          default: MB
+          enum:
+          - MB
+          - MGMT
+          - BRD
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyStatsResponse'
+          description: Array of Company Stats objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns statistics about top leadership of a company.
+      tags:
+      - Company
+      x-accepts: application/json
+    post:
+      description: "Returns the statistics such as the average age, tenure, compensation\
+        \ of leadership, number of executives, and the gender diversity of leadership.\
+        \ We can utilize the data for analyzing a company's board and management.\
+        \ \n"
+      operationId: getCompanyStatsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companyStatsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companyStatsResponse'
+          description: Array of Company Positions objects.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns statistics about top leadership of a company.
+      tags:
+      - Company
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-people/v1/{endpoint}
+        message: 'The date parameter ''startDate'' must be in the following date format:
+          YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /factset-people/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /factset-people/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-people/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /factset-people/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-people/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /factset-people/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-people /v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /factset-people/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-people/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-people/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    entityId:
+      description: List of FactSet Person Entity identifier.
+      example:
+      - 0DPHLH-E
+      - 07MZV9-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        minItems: 1
+        type: array
+      style: form
+    profileEntityId:
+      description: List of FactSet Person Entity identifier.
+      example:
+      - 0DPHLH-E
+      - 07MZV9-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 500
+        minItems: 1
+        type: array
+      style: form
+    status:
+      description: Select only Jobs with a certain status primary, active, or inactive.
+      explode: true
+      in: query
+      name: status
+      required: false
+      schema:
+        default: ALL
+        enum:
+        - ALL
+        - PRIMARY
+        - ACTIVE
+        - INACTIVE
+        type: string
+      style: form
+    level:
+      description: Select the level of detail only main Jobs or include other Jobs
+        at a company.
+      explode: true
+      in: query
+      name: level
+      required: false
+      schema:
+        default: DETAIL
+        enum:
+        - SUMMARY
+        - DETAIL
+        type: string
+      style: form
+    type:
+      description: Select only Jobs of a certain type board member or employee.
+      explode: true
+      in: query
+      name: type
+      required: false
+      schema:
+        default: ALL
+        enum:
+        - ALL
+        - BRD
+        - EMP
+        type: string
+      style: form
+    companyId:
+      description: |
+        The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for thousands
+        of ids, which may lead to exceeding this request line limit of 8KB, its
+        advised for any requests with large request lines to be requested through
+        the respective "POST" method.</p>*
+      example:
+      - AAPL-US
+      - IBM-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        minItems: 1
+        type: array
+      style: form
+    jobFunction:
+      description: "Controls the types of people returned based on high-level job\
+        \ functions. Filter by - \n  |function|description|\n  |---|---|\n  |PEOPLE|Retrieve\
+        \ **ALL** Executives of a requested company|\n  |OFFICER|Retrieve only the\
+        \ Officers of a requested company|\n  |DIRECTOR|Retrieve only the Directors\
+        \ of a requested company|\n"
+      explode: true
+      in: query
+      name: function
+      required: false
+      schema:
+        default: PEOPLE
+        enum:
+        - PEOPLE
+        - OFFICER
+        - DIRECTOR
+        example: PEOPLE
+        type: string
+      style: form
+    position:
+      description: |
+        Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.
+          |position|description|
+          |---|---|
+          |CHAIR|Chairman|
+          |CEO|Chief Executive Officer|
+          |PRES|President|
+          |COO|Chief Operating Officer|
+          |CFO|Chief Financial Officer|
+          |CTO|Chief Technology Officer|
+          |CIO|Chief Investment Officer|
+          |FOU|Founder(s)|
+          |CMP|Compliance Officer|
+          |ADM|Admin|
+          |IND|Independent Director|
+          |BRD|Directors/Board Members|
+          |IR|Investor Relations|
+          |LEG|Legal Counsel|
+          |TREAS|Treasurer|
+          |MKT|Sales and Marketing Managers|
+          |HR|Human Resources|
+      explode: true
+      in: query
+      name: position
+      required: false
+      schema:
+        default: CEO
+        enum:
+        - CHAIR
+        - CEO
+        - PRES
+        - COO
+        - CFO
+        - CTO
+        - CIO
+        - FOU
+        - CMP
+        - ADM
+        - IND
+        - BRD
+        - IR
+        - LEG
+        - TREAS
+        - MKT
+        - HR
+        example: FOU
+        type: string
+      style: form
+    mbType:
+      description: "Search based on the management and board types. The types include\
+        \ - \n|type|description|\n|---|---|\n|MB|Management & Board|\n|MGMT|Management|\n\
+        |BRD|Board|\n"
+      explode: true
+      in: query
+      name: mbType
+      required: false
+      schema:
+        default: MB
+        enum:
+        - MB
+        - MGMT
+        - BRD
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    peopleProfilesRequest:
+      properties:
+        ids:
+          description: |
+            FactSet People Entity Ids.
+          example:
+          - 0DPHLH-E
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+      required:
+      - ids
+      title: Profiles Request
+      type: object
+    peopleProfilesResponse:
+      example:
+        data:
+        - primaryTitle: Chief Executive Officer & Director
+          lastName: Snow
+          factsetName: Philip Snow
+          formalName: Frederick Philip Snow
+          highestDegree: GRD
+          gender: Male
+          properName: Snow Frederick Philip CFA
+          biography: Frederick Philip Snow is Chief Executive Officer & Director at
+            FactSet Research Systems, Inc. He is also on the board of FactSet Systems
+            India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member
+            of CFA Institute. Mr. Snow received an undergraduate degree from the University
+            of California, Berkeley and a graduate degree from Thunderbird School
+            of Global Management.
+          suffix: CFA
+          salary: 525846
+          primaryCompanyName: FactSet Research Systems, Inc.
+          firstName: Frederick
+          highestDegreeInst: Thunderbird School of Global Management
+          requestId: 0DPHLH-E
+          primaryCompanyId: 0016YD-E
+          personId: 0DPHLH-E
+          middleName: Philip
+          salutation: Mr.
+          age: 57
+          totalCompensation: 4719062
+        - primaryTitle: Chief Executive Officer & Director
+          lastName: Snow
+          factsetName: Philip Snow
+          formalName: Frederick Philip Snow
+          highestDegree: GRD
+          gender: Male
+          properName: Snow Frederick Philip CFA
+          biography: Frederick Philip Snow is Chief Executive Officer & Director at
+            FactSet Research Systems, Inc. He is also on the board of FactSet Systems
+            India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member
+            of CFA Institute. Mr. Snow received an undergraduate degree from the University
+            of California, Berkeley and a graduate degree from Thunderbird School
+            of Global Management.
+          suffix: CFA
+          salary: 525846
+          primaryCompanyName: FactSet Research Systems, Inc.
+          firstName: Frederick
+          highestDegreeInst: Thunderbird School of Global Management
+          requestId: 0DPHLH-E
+          primaryCompanyId: 0016YD-E
+          personId: 0DPHLH-E
+          middleName: Philip
+          salutation: Mr.
+          age: 57
+          totalCompensation: 4719062
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/profile'
+          type: array
+      title: Profiles Response
+      type: object
+    profile:
+      description: Basic information about a person entity.
+      example:
+        primaryTitle: Chief Executive Officer & Director
+        lastName: Snow
+        factsetName: Philip Snow
+        formalName: Frederick Philip Snow
+        highestDegree: GRD
+        gender: Male
+        properName: Snow Frederick Philip CFA
+        biography: Frederick Philip Snow is Chief Executive Officer & Director at
+          FactSet Research Systems, Inc. He is also on the board of FactSet Systems
+          India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member
+          of CFA Institute. Mr. Snow received an undergraduate degree from the University
+          of California, Berkeley and a graduate degree from Thunderbird School of
+          Global Management.
+        suffix: CFA
+        salary: 525846
+        primaryCompanyName: FactSet Research Systems, Inc.
+        firstName: Frederick
+        highestDegreeInst: Thunderbird School of Global Management
+        requestId: 0DPHLH-E
+        primaryCompanyId: 0016YD-E
+        personId: 0DPHLH-E
+        middleName: Philip
+        salutation: Mr.
+        age: 57
+        totalCompensation: 4719062
+      properties:
+        requestId:
+          description: Person identifier used in the request.
+          example: 0DPHLH-E
+          type: string
+        personId:
+          description: FactSet Entity Identifier for the Person
+          example: 0DPHLH-E
+          type: string
+        lastName:
+          description: Last Name
+          example: Snow
+          type: string
+          x-fds-fql-formula: FPD_PERSON('LAST_NAME')
+        factsetName:
+          description: Name
+          example: Philip Snow
+          type: string
+          x-fds-fql-formula: FPD_PERSON('NAME')
+        firstName:
+          description: First Name
+          example: Frederick
+          type: string
+          x-fds-fql-formula: FPD_PERSON('FIRST_NAME')
+        middleName:
+          description: Middle Name
+          example: Philip
+          type: string
+          x-fds-fql-formula: FPD_PERSON('MIDDLE_NAME')
+        formalName:
+          description: Formal Name
+          example: Frederick Philip Snow
+          type: string
+          x-fds-fql-formula: FPD_PERSON('FORMAL_NAME')
+        properName:
+          description: Proper Name
+          example: Snow Frederick Philip CFA
+          type: string
+          x-fds-fql-formula: PROPER_NAME
+        salutation:
+          description: Primary Salutation of Name
+          example: Mr.
+          type: string
+          x-fds-fql-formula: FPD_PERSON(SALUTATION)
+        highestDegree:
+          description: The Highest Held Degree Code.
+          example: GRD
+          type: string
+          x-fds-fql-formula: FPD_PERSON('EDU_DEGREE_CODE')
+        highestDegreeInst:
+          description: The Highest Degree Institution Name.
+          example: Thunderbird School of Global Management
+          type: string
+          x-fds-fql-formula: FPD_PERSON('EDU_INST')
+        suffix:
+          description: Suffix of Name
+          example: CFA
+          type: string
+          x-fds-fql-formula: FPD_PERSON('SUFFIX')
+        age:
+          description: Person's age in years.
+          example: 57
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_PERSON('AGE')
+        gender:
+          description: Person's Gender.
+          example: Male
+          type: string
+          x-fds-fql-formula: FPD_PERSON('GENDER')
+        salary:
+          description: Most Recent Salary
+          example: 525846
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_PERSON('SALARY')
+        totalCompensation:
+          description: Most Recent Total Compensation
+          example: 4719062
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_PERSON(TOTAL_COMP)
+        primaryCompanyId:
+          description: Entity identifier of primary `Company` of employment.
+          example: 0016YD-E
+          type: string
+        primaryCompanyName:
+          description: Name of primary company of employment
+          example: FactSet Research Systems, Inc.
+          type: string
+          x-fds-fql-formula: FPD_PERSON('PRIMARY_CO_NAME')
+        primaryTitle:
+          description: Title at primary `Company` of employment
+          example: Chief Executive Officer & Director
+          type: string
+          x-fds-fql-formula: FPD_PERSON(PRIMARY_TITLE)
+        biography:
+          description: Brief biography of the person requested.
+          example: Frederick Philip Snow is Chief Executive Officer & Director at
+            FactSet Research Systems, Inc. He is also on the board of FactSet Systems
+            India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member
+            of CFA Institute. Mr. Snow received an undergraduate degree from the University
+            of California, Berkeley and a graduate degree from Thunderbird School
+            of Global Management.
+          type: string
+          x-fds-fql-formula: FPD_PERSON('BIO')
+      title: Profile
+      type: object
+    peopleJobsRequest:
+      properties:
+        ids:
+          description: |
+            FactSet People Entity Ids.
+          example:
+          - 0DPHLH-E
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        status:
+          $ref: '#/components/schemas/status'
+        level:
+          $ref: '#/components/schemas/level'
+        type:
+          $ref: '#/components/schemas/type'
+      required:
+      - ids
+      title: Jobs Request
+      type: object
+    peopleJobsResponse:
+      example:
+        data:
+        - jobEndDate: 0001-01-01T00:00:00.000+0000
+          companyCity: Norwalk
+          companyId: 0016YD-E
+          jobStartDate: 2015-07-01T00:00:00.000+0000
+          requestId: 0DPHLH-E
+          companyName: FactSet Research Systems, Inc.
+          jobTitle: Chief Executive Officer & Director
+          jobFunctionCode: CEO
+          personId: 0DPHLH-E
+          jobFunctionName: Chief Executive Officer
+        - jobEndDate: 0001-01-01T00:00:00.000+0000
+          companyCity: Norwalk
+          companyId: 0016YD-E
+          jobStartDate: 2015-07-01T00:00:00.000+0000
+          requestId: 0DPHLH-E
+          companyName: FactSet Research Systems, Inc.
+          jobTitle: Chief Executive Officer & Director
+          jobFunctionCode: CEO
+          personId: 0DPHLH-E
+          jobFunctionName: Chief Executive Officer
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/job'
+          type: array
+      title: Jobs Response
+      type: object
+    job:
+      description: Basic information about a person's `Job`.
+      example:
+        jobEndDate: 0001-01-01T00:00:00.000+0000
+        companyCity: Norwalk
+        companyId: 0016YD-E
+        jobStartDate: 2015-07-01T00:00:00.000+0000
+        requestId: 0DPHLH-E
+        companyName: FactSet Research Systems, Inc.
+        jobTitle: Chief Executive Officer & Director
+        jobFunctionCode: CEO
+        personId: 0DPHLH-E
+        jobFunctionName: Chief Executive Officer
+      properties:
+        companyCity:
+          description: City the job is located in.
+          example: Norwalk
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(CITY)
+        companyId:
+          description: FactSet Identifier for the company.
+          example: 0016YD-E
+          type: string
+        companyName:
+          description: Name of the company.
+          example: FactSet Research Systems, Inc.
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(CO_NAME)
+        jobEndDate:
+          description: Ending date for the Job.
+          example: 0001-01-01
+          format: date
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(EDATE)
+        jobFunctionCode:
+          description: Job function code.
+          example: CEO
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_CODE)
+        jobFunctionName:
+          description: Description of the job.
+          example: Chief Executive Officer
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(JOB_FUNC_DESC)
+        jobStartDate:
+          description: Starting date for the Job.
+          example: 2015-07-01
+          format: date
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(SDATE)
+        jobTitle:
+          description: Job Title
+          example: Chief Executive Officer & Director
+          type: string
+          x-fds-fql-formula: FPD_PERSON_JOBS(TITLE)
+        personId:
+          description: FactSet Entity Identifier for the Person.
+          example: 0DPHLH-E
+          type: string
+        requestId:
+          description: Original identifier used for the request.
+          example: 0DPHLH-E
+          type: string
+      title: Job
+      type: object
+    companyPeopleRequest:
+      properties:
+        ids:
+          description: |
+            The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+          example:
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        function:
+          $ref: '#/components/schemas/function'
+      required:
+      - ids
+      title: Company People Request
+      type: object
+    companyPeopleResponse:
+      example:
+        data:
+        - mainPhone: 1.408.996.1010
+          phone: phone
+          requestId: AAPL-US
+          fsymId: 000C7F-E
+          name: Tim Cook
+          jobFunction3: jobFunction3
+          jobFunction4: jobFunction4
+          jobFunction1: Chief Executive Officer
+          personId: 05F520-E
+          jobFunction2: Director/Board Member
+          title: Chief Executive officer & Director
+          email: email
+        - mainPhone: 1.408.996.1010
+          phone: phone
+          requestId: AAPL-US
+          fsymId: 000C7F-E
+          name: Tim Cook
+          jobFunction3: jobFunction3
+          jobFunction4: jobFunction4
+          jobFunction1: Chief Executive Officer
+          personId: 05F520-E
+          jobFunction2: Director/Board Member
+          title: Chief Executive officer & Director
+          email: email
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/companyPeople'
+          type: array
+      title: Company People Response
+      type: object
+    companyPeople:
+      description: List of executives for the specified company identifier.
+      example:
+        mainPhone: 1.408.996.1010
+        phone: phone
+        requestId: AAPL-US
+        fsymId: 000C7F-E
+        name: Tim Cook
+        jobFunction3: jobFunction3
+        jobFunction4: jobFunction4
+        jobFunction1: Chief Executive Officer
+        personId: 05F520-E
+        jobFunction2: Director/Board Member
+        title: Chief Executive officer & Director
+        email: email
+      properties:
+        fsymId:
+          description: FactSet Identifier for the company requested.
+          example: 000C7F-E
+          type: string
+        email:
+          description: Email of the person
+          type: string
+        name:
+          description: FactSet Name of the person
+          example: Tim Cook
+          type: string
+        jobFunction1:
+          description: Job Function1
+          example: Chief Executive Officer
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        jobFunction2:
+          description: Job Function2
+          example: Director/Board Member
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        jobFunction3:
+          description: Job Function3
+          type: string
+        jobFunction4:
+          description: Job Function4
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_JOBFUNC
+        mainPhone:
+          description: Main Phone Numbers of the executives.
+          example: 1.408.996.1010
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_PHONE_MAIN
+        personId:
+          description: FactSet Entity Identifier for the Person.
+          example: 05F520-E
+          type: string
+        phone:
+          description: Phone number of the executives.
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_PHONE
+        requestId:
+          description: Original identifier used for the request.
+          example: AAPL-US
+          type: string
+        title:
+          description: Executive titles for a specified company.
+          example: Chief Executive officer & Director
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_TITLES
+      title: Company People
+      type: object
+    companyPositionsRequest:
+      properties:
+        ids:
+          description: |
+            The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+          example:
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        position:
+          $ref: '#/components/schemas/position'
+      required:
+      - ids
+      title: Company Positions Request
+      type: object
+    companyPositionsResponse:
+      example:
+        data:
+        - gender: Male
+          yearsAtFirm: 17.78
+          requestId: TSLA-US
+          fsymId: 006XY7-E
+          name: Elon Reeve Musk
+          personId: 05H8B8-E
+          requestPosition: CEO
+          title: Technoking of Tesla
+          age: 48
+        - gender: Male
+          yearsAtFirm: 17.78
+          requestId: TSLA-US
+          fsymId: 006XY7-E
+          name: Elon Reeve Musk
+          personId: 05H8B8-E
+          requestPosition: CEO
+          title: Technoking of Tesla
+          age: 48
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/companyPositions'
+          type: array
+      title: Company Positions Response
+      type: object
+    companyPositions:
+      description: List of executives for the specified company identifier.
+      example:
+        gender: Male
+        yearsAtFirm: 17.78
+        requestId: TSLA-US
+        fsymId: 006XY7-E
+        name: Elon Reeve Musk
+        personId: 05H8B8-E
+        requestPosition: CEO
+        title: Technoking of Tesla
+        age: 48
+      properties:
+        fsymId:
+          description: FactSet Identifier for the company.
+          example: 006XY7-E
+          type: string
+        personId:
+          description: Factset Entity Identifier for the Person
+          example: 05H8B8-E
+          type: string
+        name:
+          description: FactSet Name of the person
+          example: Elon Reeve Musk
+          type: string
+        title:
+          description: The requested Position Title
+          example: Technoking of Tesla
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(TITLE)
+        yearsAtFirm:
+          description: The number of years individual is at firm. For founders, this
+            is since inception.
+          example: 17.78
+          format: double
+          type: number
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(YRS_FIRM))
+        age:
+          description: The age of the person requested.
+          example: 48
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(AGE))
+        gender:
+          description: The Gender of the person requested.
+          example: Male
+          type: string
+          x-fds-fql-formula: FPD_CO_PEOPLE_BY_POSITION(GENDER))
+        requestPosition:
+          description: The requested position code.
+          example: CEO
+          type: string
+        requestId:
+          description: Original identifier used for the request.
+          example: TSLA-US
+          type: string
+      title: Company Positions
+      type: object
+    companyCompensationRequest:
+      properties:
+        ids:
+          description: |
+            The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+          example:
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+      required:
+      - ids
+      title: Company Compensation Request
+      type: object
+    companyCompensationResponse:
+      example:
+        data:
+        - otherCompensation: 11200
+          nonQualifiedCompEarnings: 1.4658129805029452
+          nonEquityIncentivePlanComp: 10731000
+          bonus: 48
+          stockAwards: 0.8008281904610115
+          title: Chief Executive Officer & Director
+          salary: 525846
+          requestId: TSLA-US
+          name: Tim Cook
+          personId: 05F520-E
+          compensationYear: "2020"
+          optionsAwards: 6.027456183070403
+          totalCompensation: 4719062
+        - otherCompensation: 11200
+          nonQualifiedCompEarnings: 1.4658129805029452
+          nonEquityIncentivePlanComp: 10731000
+          bonus: 48
+          stockAwards: 0.8008281904610115
+          title: Chief Executive Officer & Director
+          salary: 525846
+          requestId: TSLA-US
+          name: Tim Cook
+          personId: 05F520-E
+          compensationYear: "2020"
+          optionsAwards: 6.027456183070403
+          totalCompensation: 4719062
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/companyCompensation'
+          type: array
+      title: Company Compensation Response
+      type: object
+    companyCompensation:
+      description: List of executives and their compensation details for the specified
+        company identifier.
+      example:
+        otherCompensation: 11200
+        nonQualifiedCompEarnings: 1.4658129805029452
+        nonEquityIncentivePlanComp: 10731000
+        bonus: 48
+        stockAwards: 0.8008281904610115
+        title: Chief Executive Officer & Director
+        salary: 525846
+        requestId: TSLA-US
+        name: Tim Cook
+        personId: 05F520-E
+        compensationYear: "2020"
+        optionsAwards: 6.027456183070403
+        totalCompensation: 4719062
+      properties:
+        name:
+          description: FactSet Name of the person
+          example: Tim Cook
+          type: string
+        personId:
+          description: Factset Entity Identifier for the Person
+          example: 05F520-E
+          type: string
+        title:
+          description: The requested Position Title
+          example: Chief Executive Officer & Director
+          type: string
+          x-fds-fql-formula: FPD_CO_COMPENSATION(EXEC_TITLE)
+        salary:
+          description: Salary of the person. Expressed in USD and raw units.
+          example: 525846
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(SALARY)
+        bonus:
+          description: Bonus of the executive during the fiscal year. Expressed in
+            USD and raw units.
+          example: 48
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(BONUS)
+        stockAwards:
+          description: Stock awards for the person. Expressed in USD and raw units.
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(STOCK_AWARDS)
+        optionsAwards:
+          description: Option Awards for the person. Expressed in USD and raw units.
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(OPTION_AWARDS)
+        otherCompensation:
+          description: All the other compensations which are not explicitly defined
+            as salary, bonus, stock awards, or options awards. Expressed in USD and
+            raw units.
+          example: 11200
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(ALL_OTHER_COMP)
+        totalCompensation:
+          description: The sum of all compensation for the requested person as reported
+            by the company. Expressed in USD and raw units.
+          example: 4719062
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(TOTAL_COMP)
+        nonEquityIncentivePlanComp:
+          description: All the earnings pursuant to awards under non-equity incentive
+            plans. Expressed in USD and raw units.
+          example: 10731000
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_COMPENSATION(NON_EQ_INCENTIVE_PLAN_COMP)
+        nonQualifiedCompEarnings:
+          description: All the other nonqualified defined contribution which are not
+            tax qualified and other contributions. Expressed in USD and raw units.
+          format: integer
+          type: number
+        compensationYear:
+          description: The most recent year of compensation is expressed as 'YYYY'
+            as opposed to 'YYYY-MM-DD' format.
+          example: "2020"
+          type: string
+          x-fds-fql-formula: FPD_CO_COMPENSATION(COMP_YEAR)
+        requestId:
+          description: Original identifier used for the request.
+          example: TSLA-US
+          type: string
+      title: Company Compensation
+      type: object
+    companyStatsRequest:
+      properties:
+        ids:
+          description: |
+            The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+          example:
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        mbType:
+          $ref: '#/components/schemas/mbType'
+      required:
+      - ids
+      title: Company Stats Request
+      type: object
+    companyStatsResponse:
+      example:
+        data:
+        - boardIndependentDirectors: 7
+          mbType: MB
+          averageTenure: 12.19
+          numberOfMembers: 25
+          medianAge: 56
+          medianTenure: 0.2
+          onOtherBoardsCorporate: 6
+          onOtherBoardsAll: 7
+          maxAge: 68
+          requestId: FDS
+          averageMgmtCompensation: 2267284
+          minimumAge: 53
+          femaleBoardMembers: 3
+          averageAge: 58.17
+        - boardIndependentDirectors: 7
+          mbType: MB
+          averageTenure: 12.19
+          numberOfMembers: 25
+          medianAge: 56
+          medianTenure: 0.2
+          onOtherBoardsCorporate: 6
+          onOtherBoardsAll: 7
+          maxAge: 68
+          requestId: FDS
+          averageMgmtCompensation: 2267284
+          minimumAge: 53
+          femaleBoardMembers: 3
+          averageAge: 58.17
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/companyStats'
+          type: array
+      title: Company Stats Response
+      type: object
+    companyStats:
+      description: List of the statistics such as the average age, tenure, compensation
+        of leadership, the number of executives, and the gender diversity of leadership
+        for the requested identifier.
+      example:
+        boardIndependentDirectors: 7
+        mbType: MB
+        averageTenure: 12.19
+        numberOfMembers: 25
+        medianAge: 56
+        medianTenure: 0.2
+        onOtherBoardsCorporate: 6
+        onOtherBoardsAll: 7
+        maxAge: 68
+        requestId: FDS
+        averageMgmtCompensation: 2267284
+        minimumAge: 53
+        femaleBoardMembers: 3
+        averageAge: 58.17
+      properties:
+        averageMgmtCompensation:
+          description: Average compensation for the executives
+          example: 2267284
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_COMP)
+        averageTenure:
+          description: Avergae tenure of the people
+          example: 12.19
+          format: double
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_TENURE)
+        medianTenure:
+          description: Median tenure
+          example: 0.2
+          format: double
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(MIN_TENURE)
+        averageAge:
+          description: Average of the executives on the management and board
+          example: 58.17
+          format: double
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(AVG_AGE)
+        maxAge:
+          description: Maximum age of the people on Management & Board
+          example: 68
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(MAX_AGE)
+        minimumAge:
+          description: Minimum age of the person on board
+          example: 53
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(MIN_AGE)
+        medianAge:
+          description: Median age of the people on board
+          example: 56
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(MED_AGE)
+        boardIndependentDirectors:
+          description: Independent directors on the board
+          example: 7
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,IND,NUM)
+        femaleBoardMembers:
+          description: Number of female members on the board
+          example: 3
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS((BRD,FEMALE_BRD,NUM)
+        numberOfMembers:
+          description: Number of people on board.
+          example: 25
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(NUM_MEMBERS)
+        onOtherBoardsAll:
+          description: On Other Boards All
+          example: 7
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_BRD,NUM)
+        onOtherBoardsCorporate:
+          description: On Other Boards Corporate
+          example: 6
+          format: integer
+          type: number
+          x-fds-fql-formula: FPD_CO_MB_STATS(BRD,OTH_CORP_BRD,NUM)
+        mbType:
+          description: Management and Board type, where MB = Management & Board, MGMT
+            = Management, and BRD = Board. This is a pass-through value from the input
+            used in the `mbType` query parameter.
+          example: MB
+          type: string
+        requestId:
+          description: Original identifier used for the request.
+          example: FDS
+          type: string
+      title: Company Statistics
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-people/v1/superRegion
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    ids:
+      description: |
+        FactSet People Entity Ids.
+      example:
+      - 0DPHLH-E
+      items:
+        type: string
+      maxItems: 1000
+      minItems: 1
+      type: array
+    companyIds:
+      description: |
+        The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+      example:
+      - AAPL-US
+      items:
+        type: string
+      maxItems: 1000
+      minItems: 1
+      type: array
+    function:
+      default: PEOPLE
+      description: "Controls the types of people returned based on high-level job\
+        \ functions. Filter by - \n  |function|description|\n  |---|---|\n  |PEOPLE|Retrieve\
+        \ **ALL** Executives of a requested company|\n  |OFFICER|Retrieve only the\
+        \ Officers of a requested company|\n  |DIRECTOR|Retrieve only the Directors\
+        \ of a requested company|\n"
+      enum:
+      - PEOPLE
+      - OFFICER
+      - DIRECTOR
+      example: DIRECTOR
+      type: string
+    status:
+      default: ALL
+      description: Select only Jobs with a certain status primary, active, or inactive.
+      enum:
+      - ALL
+      - PRIMARY
+      - ACTIVE
+      - INACTIVE
+      type: string
+    level:
+      default: DETAIL
+      description: Select the level of detail only main Jobs or include other Jobs
+        at a company.
+      enum:
+      - SUMMARY
+      - DETAIL
+      type: string
+    type:
+      default: ALL
+      description: Select only Jobs of a certain type board member or employee.
+      enum:
+      - ALL
+      - BRD
+      - EMP
+      type: string
+    position:
+      default: CEO
+      description: |
+        Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.
+          |position|description|
+          |---|---|
+          |CHAIR|Chairman|
+          |CEO|Chief Executive Officer|
+          |PRES|President|
+          |COO|Chief Operating Officer|
+          |CFO|Chief Financial Officer|
+          |CTO|Chief Technology Officer|
+          |CIO|Chief Investment Officer|
+          |FOU|Founder(s)|
+          |CMP|Compliance Officer|
+          |ADM|Admin|
+          |IND|Independent Director|
+          |BRD|Directors/Board Members|
+          |IR|Investor Relations|
+          |LEG|Legal Counsel|
+          |TREAS|Treasurer|
+          |MKT|Sales and Marketing Managers|
+          |HR|Human Resources|
+      enum:
+      - CHAIR
+      - CEO
+      - PRES
+      - COO
+      - CFO
+      - CTO
+      - CIO
+      - FOU
+      - CMP
+      - ADM
+      - IND
+      - BRD
+      - IR
+      - LEG
+      - TREAS
+      - MKT
+      - HR
+      example: FOU
+      type: string
+    mbType:
+      default: MB
+      description: "Search based on the management and board types. The types include\
+        \ - \n|type|description|\n|---|---|\n|MB|Management & Board|\n|MGMT|Management|\n\
+        |BRD|Board|\n"
+      enum:
+      - MB
+      - MGMT
+      - BRD
+      type: string
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

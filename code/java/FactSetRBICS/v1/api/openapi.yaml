@@ -1,0 +1,1118 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies' behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.
+
+    RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assitant Page #20710](https://oa.apps.factset.com/pages/20710).
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: FactSet RIBCS
+  version: 1.1.0
+servers:
+- url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Fetches the full 6 level classification taxonomy for a list of ids
+    and a date.
+  name: Entity Focus
+- description: Fetches the full RBICS Taxonomy Structure, ids, and descriptions
+  name: Structure
+paths:
+  /factset-rbics/v1/entity-focus:
+    get:
+      description: |
+        Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.
+      operationId: getRbicsEntityFocus
+      parameters:
+      - description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
+          \ Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such\
+          \ as -R, -L, or -E.<p>**ids limit = 2500 per request**</p> \n  Make note,\
+          \ GET Method URL request lines are also limited to a total length of 8192\
+          \ bytes (8KB). In cases where the service allows for thousands of ids, which\
+          \ may lead to exceeding this request line limit of 8KB, its advised for\
+          \ any requests with large request lines to be requested through the respective\
+          \ \"POST\" method.</p>\n"
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 2500
+          minItems: 1
+          type: array
+        style: form
+      - description: Effective date for data expressed in YYYY-MM-DD format. If no
+          date is requested, the default behavior is to return the full history for
+          the requested entity.
+        example: 2017-07-24
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: List of RBICS industry levels to include in the response. **By
+          default if left blank, all levels are returned.**
+        example:
+        - 1
+        - 3
+        - 6
+        explode: false
+        in: query
+        name: levels
+        required: false
+        schema:
+          items:
+            maximum: 6
+            minimum: 1
+            type: integer
+          maxItems: 6
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Option to include or exclude industry Names and the L6 Description.
+          true = Include Names; false = Exclude Names.
+        explode: true
+        in: query
+        name: includeNames
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                RBICS Classifications for Single Id with Names:
+                  $ref: '#/components/examples/rbicsAllLevels'
+              schema:
+                $ref: '#/components/schemas/entityFocusResponse'
+          description: Successful Response producing an array of Entity Focus Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get RBICS classification for the Focus industry
+      tags:
+      - Entity Focus
+      x-accepts: application/json
+    post:
+      description: |
+        Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.
+      operationId: getRbicsEntityFocusForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entityFocusRequest'
+        description: Request Body to request a list of RBICS Entity Focus objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                RBICS Classifications for Single Id with Names:
+                  $ref: '#/components/examples/rbicsAllLevels'
+              schema:
+                $ref: '#/components/schemas/entityFocusResponse'
+          description: Successful Response producing an array of Entity Focus Objects
+      summary: Get RBICS classification for the Focus industry
+      tags:
+      - Entity Focus
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-rbics/v1/structure:
+    get:
+      description: |
+        Understand the full RBICS Taxonomy Structure through time to help organize your analysis or facilitate the use of RBICS in application development.
+
+        Designed to overcome disparate and non-standardized company disclosures, the RBICS taxonomy is a normalized global industry classification consisting of a fourteen-by-six matrix. There are twelve economies with two specialty sectors, each with six incremental detailed layers, resulting in over 1,600 sector groups.
+
+        The top-levels' market-defined approach groups companies based on their behavioral similarities and stock price co-movement, while the patented product-based approach used in the lower levels enables the necessary precision to capture the specialty sectors of global markets.
+      operationId: getRbicsStructure
+      parameters:
+      - description: |
+          RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+        example:
+        - "101010000000"
+        - "55"
+        explode: false
+        in: query
+        name: rbicsIds
+        required: false
+        schema:
+          items:
+            maxLength: 12
+            minLength: 2
+            type: string
+          maxItems: 2500
+          type: array
+        style: form
+      - description: |
+          RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
+            |Level|Description|Number of Groups|
+            |---|---|---|
+            |1|Economomy|14|
+            |2|Sector|37
+            |3|Sub-Sector|109|
+            |4|Industry Group|366|
+            |5|Inudstry|901|
+            |6|Sub-Industry|1629|
+        example: 1
+        explode: false
+        in: query
+        name: level
+        required: false
+        schema:
+          maximum: 6
+          minimum: 1
+          type: integer
+        style: form
+      - description: Option to include or exclude industry Names and the L6 Description.
+          true = Include Names; false = Exclude Names.
+        explode: true
+        in: query
+        name: includeNames
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - description: Effective date for data expressed in YYYY-MM-DD format. If no
+          date is requested, the default behavior is to return the full history for
+          the requested entity.
+        example: 2017-07-24
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                RBICS Classifications for Single Level with Names:
+                  $ref: '#/components/examples/rbicsStructureLevel'
+              schema:
+                $ref: '#/components/schemas/structureResponse'
+          description: Successful Response producing an array of Entity Focus Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
+      tags:
+      - Structure
+      x-accepts: application/json
+    post:
+      description: |
+        Get the full RBICS Taxonomy Structure Ids, Names, and effective periods. POST method is optimal for requesting large lists of `rbicsIds`.
+      operationId: getRbicsStructureForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structureRequest'
+        description: Request Body to request a list of RBICS Structure objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                RBICS Classifications for Single Level with Names:
+                  $ref: '#/components/examples/rbicsStructureLevel'
+              schema:
+                $ref: '#/components/schemas/structureResponse'
+          description: Successful Response producing an array of RBICS Structure Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
+      tags:
+      - Structure
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    rbicsAllLevels:
+      description: Fetch the full historical RBICS Classifications Ids for Apple,
+        with Names and Description.
+      summary: All Levels and Name for Single Id
+      value:
+        data:
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2003-04-03T00:00:00.0000000+00:00
+          lastDate: 2004-10-23T00:00:00.0000000+00:00
+          l1Id: "55"
+          l1Name: Technology
+          l2Id: "5515"
+          l2Name: Hardware
+          l3Id: "551520"
+          l3Name: Computer Hardware and Storage
+          l4Id: "55152015"
+          l4Name: Computer Systems
+          l5Id: "5515201520"
+          l5Name: Other Computer Systems
+          l6Id: "551520152010"
+          l6Name: Other Computer Systems
+          l6Description: The Systems subsector consists of very small to large-scale
+            computer systems. These systems include a CPU and utilize either, or both,
+            internal and/or external input and output peripherals.
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2004-10-23T00:00:00.0000000+00:00
+          lastDate: 2008-08-26T00:00:00.0000000+00:00
+          l1Id: "55"
+          l1Name: Technology
+          l2Id: "5515"
+          l2Name: Hardware
+          l3Id: "551520"
+          l3Name: Computer Hardware and Storage
+          l4Id: "55152015"
+          l4Name: Computer Systems
+          l5Id: "5515201515"
+          l5Name: Multi-Type Business and Personal Systems
+          l6Id: "551520151510"
+          l6Name: Multi-Type Business and Personal Systems
+          l6Description: Computer systems designed for personal, home and office use.
+            This sector is comprised of the complete spectrum of common computing
+            systems, from desktop systems, notebooks and handhelds, to workstations
+            and servers.
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2008-08-26T00:00:00.0000000+00:00
+          lastDate: 2016-09-07T14:00:00.0000000+00:00
+          l1Id: "55"
+          l1Name: Technology
+          l2Id: "5515"
+          l2Name: Hardware
+          l3Id: "551520"
+          l3Name: Computer Hardware and Storage
+          l4Id: "55152025"
+          l4Name: General Computer Hardware
+          l5Id: "5515202515"
+          l5Name: Diversified Technology Hardware
+          l6Id: "551520251510"
+          l6Name: Diversified Technology Hardware
+          l6Description: The Hardware sector is comprised of all electronic system
+            products. In general
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2016-09-07T14:00:00.0000000+00:00
+          lastDate: null
+          l1Id: "55"
+          l1Name: Technology
+          l2Id: "5515"
+          l2Name: Hardware
+          l3Id: "551515"
+          l3Name: Communications Equipment
+          l4Id: "55151545"
+          l4Name: Wireless Mobile Equipment
+          l5Id: "5515154530"
+          l5Name: Smart Phone Manufacturing
+          l6Id: "551515453010"
+          l6Name: Smart Phone Manufacturing
+          l6Description: Integrated cellular communications devices with features
+            such as advanced messaging, built-in camera and/or video recorder, web
+            browsing, multimedia playback.
+    rbicsStructureLevel:
+      description: Fetch the Full RBICS Taxonomy Structure based on the levels requested.
+        Names and description optionally included in the response.
+      summary: The Full RBICS Taxonomy
+      value:
+        data:
+        - startDate: 1945-01-01T14:00:00.0000000+00:00
+          endDate: null
+          rbicsId: "10"
+          name: Business Services
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:52:36.464
+        path: /factset-rbics/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-30 13:22:09.053
+        path: /factset-rbics/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when user is passing an Invalid Parameter
+      summary: Bad Request - Passing Invalid Parameter
+      value:
+        status: Bad Request
+        timestamp: 2020-07-23 11:03:40.765
+        path: /factset-rbics/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameter. Please modify your request
+          to use parameters outlined in the specification for this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON. But is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:59:09.649
+        path: /factset-rbics/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 16:18:38.949
+        path: /factset-rbics/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2020-07-02 16:08:07.945
+        path: /factset-rbics/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint/ID which
+        is not authorized to access. The request was a legal request, but the server
+        is refusing to respond. Please reach out to FactSet Account Team for assistance
+        with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-07-02 17:21:52.197
+        path: /factset-rbics/v1/{endpoint}
+        message: User is not authorized for the id requested, please reach out to
+          FactSet for support
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2020-07-02 09:42:27.237
+        path: /factset-rbics/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 09:48:29.18
+        path: /factset-rbics/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 10:36:01.944
+        path: /factset-rbics/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    ids:
+      description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
+        \ Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as\
+        \ -R, -L, or -E.<p>**ids limit = 2500 per request**</p> \n  Make note, GET\
+        \ Method URL request lines are also limited to a total length of 8192 bytes\
+        \ (8KB). In cases where the service allows for thousands of ids, which may\
+        \ lead to exceeding this request line limit of 8KB, its advised for any requests\
+        \ with large request lines to be requested through the respective \"POST\"\
+        \ method.</p>\n"
+      example:
+      - AAPL-US
+      - 0FPWZZ-E
+      - TSLA-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: IBM-US
+          type: string
+        maxItems: 2500
+        minItems: 1
+        type: array
+      style: form
+    rbicsIds:
+      description: |
+        RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+      example:
+      - "101010000000"
+      - "55"
+      explode: false
+      in: query
+      name: rbicsIds
+      required: false
+      schema:
+        items:
+          maxLength: 12
+          minLength: 2
+          type: string
+        maxItems: 2500
+        type: array
+      style: form
+    date:
+      description: Effective date for data expressed in YYYY-MM-DD format. If no date
+        is requested, the default behavior is to return the full history for the requested
+        entity.
+      example: 2017-07-24
+      explode: true
+      in: query
+      name: date
+      required: false
+      schema:
+        type: string
+      style: form
+    levels:
+      description: List of RBICS industry levels to include in the response. **By
+        default if left blank, all levels are returned.**
+      example:
+      - 1
+      - 3
+      - 6
+      explode: false
+      in: query
+      name: levels
+      required: false
+      schema:
+        items:
+          maximum: 6
+          minimum: 1
+          type: integer
+        maxItems: 6
+        type: array
+        uniqueItems: true
+      style: form
+    includeNames:
+      description: Option to include or exclude industry Names and the L6 Description.
+        true = Include Names; false = Exclude Names.
+      explode: true
+      in: query
+      name: includeNames
+      required: false
+      schema:
+        default: true
+        type: boolean
+      style: form
+    levelStructure:
+      description: |
+        RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
+          |Level|Description|Number of Groups|
+          |---|---|---|
+          |1|Economomy|14|
+          |2|Sector|37
+          |3|Sub-Sector|109|
+          |4|Industry Group|366|
+          |5|Inudstry|901|
+          |6|Sub-Industry|1629|
+      example: 1
+      explode: false
+      in: query
+      name: level
+      required: false
+      schema:
+        maximum: 6
+        minimum: 1
+        type: integer
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    entityFocusRequest:
+      description: Entity Focus Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 2500
+          minItems: 1
+          title: ids
+          type: array
+        date:
+          description: |
+            Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
+          example: 2020-09-30
+          type: string
+        levels:
+          description: |
+            List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.**
+          example:
+          - 1
+          - 3
+          - 6
+          items:
+            maxItems: 6
+            maximum: 6
+            minItems: 0
+            minimum: 1
+            type: integer
+            uniqueItems: true
+          type: array
+        includeNames:
+          default: true
+          description: |
+            Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names.
+          example: true
+          type: boolean
+      title: Entity Focus Request
+      type: object
+    entityFocusResponse:
+      description: Entity Focus Response
+      example:
+        data:
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2008-08-26T00:00:00.000
+          lastDate: 2016-09-07T14:00:00.000
+        - requestId: AAPL
+          fsymId: 000C7F-E
+          firstDate: 2008-08-26T00:00:00.000
+          lastDate: 2016-09-07T14:00:00.000
+      properties:
+        data:
+          description: Array of Entity Focus Objects
+          items:
+            $ref: '#/components/schemas/entityFocus'
+          type: array
+      title: Entity Focus Response
+      type: object
+    entityFocus:
+      additionalProperties: true
+      example:
+        requestId: AAPL
+        fsymId: 000C7F-E
+        firstDate: 2008-08-26T00:00:00.000
+        lastDate: 2016-09-07T14:00:00.000
+      properties:
+        requestId:
+          description: Company identifier used in request.
+          example: AAPL
+          type: string
+        fsymId:
+          description: FactSet Company identifier being classified.
+          example: 000C7F-E
+          type: string
+        firstDate:
+          description: First date of the classification.
+          example: 2008-08-26T00:00:00.000
+          format: datetime
+          type: string
+        lastDate:
+          description: Date when the classification became no longer valid.
+          example: 2016-09-07T14:00:00.000
+          format: datetime
+          type: string
+      required:
+      - firstDate
+      - fsymId
+      - lastDate
+      - requestId
+      title: Entity Focus
+      type: object
+    structureRequest:
+      description: Structure Request Body
+      properties:
+        rbicsIds:
+          description: |
+            RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+          example:
+          - "101010000000"
+          - "55"
+          items:
+            maxLength: 12
+            minLength: 2
+            type: string
+          maxItems: 2500
+          title: ids
+          type: array
+        level:
+          description: |
+            RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
+              |Level|Description|Number of Groups|
+              |---|---|---|
+              |1|Economomy|14|
+              |2|Sector|37
+              |3|Sub-Sector|109|
+              |4|Industry Group|366|
+              |5|Inudstry|901|
+              |6|Sub-Industry|1629|
+          example: 3
+          maximum: 6
+          minimum: 1
+          type: integer
+        includeNames:
+          default: true
+          description: |
+            Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names.
+          example: true
+          type: boolean
+        date:
+          description: |
+            Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
+          example: 2020-09-30
+          type: string
+      title: Structure Request
+      type: object
+    structureResponse:
+      description: Structure Response Array
+      example:
+        data:
+        - rbicsId: "101010101010"
+          firstDate: 1945-01-01T00:00:00.000
+          lastDate: lastDate
+        - rbicsId: "101010101010"
+          firstDate: 1945-01-01T00:00:00.000
+          lastDate: lastDate
+      properties:
+        data:
+          description: Array of Structure Objects
+          items:
+            $ref: '#/components/schemas/structure'
+          type: array
+      title: Structure Response
+      type: object
+    structure:
+      additionalProperties: true
+      example:
+        rbicsId: "101010101010"
+        firstDate: 1945-01-01T00:00:00.000
+        lastDate: lastDate
+      properties:
+        rbicsId:
+          description: RBICS Code for the classification.
+          example: "101010101010"
+          type: string
+        firstDate:
+          description: First date of the classification.
+          example: 1945-01-01T00:00:00.000
+          format: datetime
+          type: string
+        lastDate:
+          description: Date when the classification became no longer valid. If `null`,
+            the classification is still valid.
+          format: datetime
+          type: string
+      title: Structure
+      type: object
+    ids:
+      description: |
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500.
+      example:
+      - FDS-US
+      - 0FPWZZ-E
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 2500
+      minItems: 1
+      title: ids
+      type: array
+    rbicsIds:
+      description: |
+        RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+      example:
+      - "101010000000"
+      - "55"
+      items:
+        maxLength: 12
+        minLength: 2
+        type: string
+      maxItems: 2500
+      title: ids
+      type: array
+    date:
+      description: |
+        Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
+      example: 2020-09-30
+      type: string
+    levels:
+      description: |
+        List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.**
+      example:
+      - 1
+      - 3
+      - 6
+      items:
+        maxItems: 6
+        maximum: 6
+        minItems: 0
+        minimum: 1
+        type: integer
+        uniqueItems: true
+      type: array
+    levelStructure:
+      description: |
+        RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
+          |Level|Description|Number of Groups|
+          |---|---|---|
+          |1|Economomy|14|
+          |2|Sector|37
+          |3|Sub-Sector|109|
+          |4|Industry Group|366|
+          |5|Inudstry|901|
+          |6|Sub-Industry|1629|
+      example: 3
+      maximum: 6
+      minimum: 1
+      type: integer
+    includeNames:
+      default: true
+      description: |
+        Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names.
+      example: true
+      type: boolean
+    errorResponse:
+      description: error description
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-rbics/v1/{end-point}
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

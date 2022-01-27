@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.WatchlistAPIforDigitalPortals",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{9bf8589c-ae1a-5d6b-81c1-3443cf7f176f}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Watchlist API for Digital Portals",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/WatchlistAPIforDigitalPortals/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

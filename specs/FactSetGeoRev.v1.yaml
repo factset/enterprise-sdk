@@ -1,0 +1,1204 @@
+openapi: 3.0.0
+info:
+  version: 1.0.1
+  title: FactSet GeoRev API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    FactSet Revere Geographic Revenue ("GeoRev") Exposure data provides a highly
+    structured and normalized display of companies’ revenues by geography. Using
+    a four level taxonomy structure, understand the companies'
+    Super-Region-->Region-->Area-->Country revenue breakdowns. Quickly
+    understand a company’s revenue exposure in countries impacted by
+    geopolitical, macroeconomic, and market risk. Understand the geographic
+    footprint of a company based on sources of revenue versus country of
+    domicile, and analyze global revenue exposures at the company, index, or
+    portfolio level.<p> Geographic revenue has historically been difficult to
+    analyze due to companies’ non-standard and incomplete reporting. Investors
+    relying solely on this as-reported data are limited in their ability to
+    compare, aggregate or screen exposures across a universe or portfolio of
+    companies. To achieve normalization, FactSet GeoRev captures data through a
+    proprietary four-level geographic classification structure. An estimation
+    algorithm based on GDP weighting and accounting logic is then applied to
+    solve for any non-explicit disclosures. The result is a consistent,
+    accurate, and flexible dataset that can take a company’s revenues and break
+    them down into any geographic country or region categories.</p><p>As markets
+    become more integrated and companies expand operations beyond their domestic
+    markets, GeoRev provides a new and valuable country factor to help investors
+    discover alpha, model risk exposure, optimize portfolio weighting, and
+    improve fund administration and reporting.</p><p>Data Frequency -  Annual;
+    Update Frequency - Daily. 49,000+ Publically Listed Companies. All Russell
+    3000 and MSCI ACWI Index Consituents. U.S. Data is available from 2003, with
+    Non-US data from 2007. For more details, visit [OA
+    17555](https://my.apps.factset.com/oa/pages/17555)</p>
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Regions
+    description: >-
+      Get the Super-Regions, Regions, and Area Revenue breakdowns for a
+      requested list of symbols.
+  - name: Countries
+    description: Get the Country Revenue breakdown for all countries
+paths:
+  /factset-georev/v1/regions:
+    get:
+      tags:
+        - Regions
+      summary: Gets the revenue details for the requested Regions
+      operationId: getRegions
+      description: >
+        Gets the Geographic Revenue, Percents, Confidence, and Ranks for a
+        requested list of ids and Regions, for a given start-date and end-date.
+        Regions represent a taxonomy of Super Regions, Regions, and Areas, with
+        Super Regions being the largest collection. *Country specific revenue
+        can be requested in the /countries endpoint.*
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/regionIds'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: >-
+            The Region response object, including the Revenue, Percent,
+            Certainty Ranks, Certainty Class, and other meta data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/regionResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Regions
+      summary: >-
+        Gets the revenue details for the requested Regions. Use for large lists
+        of company ids.
+      description: >
+        Gets the Geographic Revenue, Percents, Confidence, and Ranks for a
+        requested list of ids and Regions, for a given start-date and end-date.
+        Regions represent a taxonomy of Super Regions, Regions, and Areas, with
+        Super Regions being the largest collection. *Country specific revenue
+        can be requested in the /countries endpoint.*
+      operationId: getRegionsForList
+      requestBody:
+        required: true
+        description: >-
+          The Region request body, allowing the user to specify a list of ids,
+          time range, and regionIds.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/regionRequest'
+      responses:
+        '200':
+          description: >-
+            The Region response object, including the Revenue, Percent,
+            Certainty Ranks, Certainty Class, and other meta data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/regionResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-georev/v1/countries:
+    get:
+      tags:
+        - Countries
+      summary: Gets the revenue details for the requested Countries.
+      operationId: getCountries
+      description: >
+        Gets the **Countries'** Geographic Revenue, Percents, Confidence, and
+        Ranks for a requested list of ids and country ISO codes, for a given
+        start-date and end-date. 300 countries are supported. Countries
+        represent the fourth and bottom level of the GeoRev taxonomy. Visit [OA
+        8754](https://my.apps.factset.com/oa/pages/8754) for a list of ISO2
+        Country Codes. By default, the service will return all Countries for the
+        requested security.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/countryIds'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: >-
+            The Country response object, including the Revenue, Percent,
+            Certainty Ranks, Certainty Class, and other meta data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/countryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Countries
+      summary: >-
+        Gets the revenue details for the requested Countries. Use for large
+        lists of ids.
+      description: >
+        Gets the **Countries'** Geographic Revenue, Percents, Confidence, and
+        Ranks for a requested list of ids and country ISO codes, for a given
+        start-date and end-date. Nearly 300 countries are supported. Countries
+        represent the fourth and bottom level of the GeoRev taxonomy. The full
+        list of countries and their related regional mappings can be found by
+        using the /country-mappings endpoint or visit [OA
+        8754](https://my.apps.factset.com/oa/pages/8754) for a list of ISO2
+        Country codes.
+      operationId: getCountriesForList
+      requestBody:
+        required: true
+        description: >-
+          The Country request body, allowing the user to specify a list of ids,
+          time range, and regionIds.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/countryRequest'
+      responses:
+        '200':
+          description: >-
+            The Country response object, including the Revenue, Percent,
+            Certainty Ranks, Certainty Class, and other meta data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/countryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 300
+      required: true
+      explode: false
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  300 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of ids, which may lead to exceeding this request line limit of
+        8KB, its advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      examples:
+        oneId:
+          summary: One Market Identifier
+          value:
+            - AAPL-USA
+        multipleIds:
+          summary: Multiple Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    startDate:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. Data is available on a Fiscal Annual periodicity and updated
+        Daily. If left blank, the API will default to latest available fiscal
+        period. Future dates (T+1) are not accepted in this endpoint.
+      example: '2018-12-31'
+    endDate:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        Data is available on a Fiscal Annual periodicity and updated daily. If
+        left blank, the API will default to latest available fiscal period.
+        Future dates (T+1) are not accepted in this endpoint.
+      example: '2019-12-31'
+    currency:
+      name: currency
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >-
+        Currency code for adjusting the data. For a list of currency ISO codes,
+        visit [Online Assistant Page
+        #1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+    regionIds:
+      name: regionIds
+      in: query
+      schema:
+        type: array
+        default:
+          - SUPER_REGIONS
+        items:
+          type: string
+        minItems: 1
+        maxItems: 15
+      required: false
+      explode: false
+      description: >
+        The Regional Identifier or Regional Group. Groups include
+        "SUPER_REGIONS", "REGIONS", and "AREAS". When requesting a group, all
+        regionIds within that group will be requested. To limit or specify
+        select regions returned in the response, provide a comma-separated list
+        of the below regionIds.
+
+        |Regional Group|regionId|Descriptions|
+
+        |---|---|---|
+
+        |Group|SUPER_REGIONS|Fetchs all regionIds for Super Regions|
+
+        |Group|REGIONS|Fetchs all regionIds for Regions|
+
+        |Group|AREAS|Fetchs all regionIds for Areas|
+
+
+        |Level|regionId|Parent|Description|Level|regionId|Parent|Description|
+
+        |---|---|---|---|---|---|---|---|
+
+        |__**Super Region**__||||__**Area**__||||
+
+        |Super Region|R1|R100|Africa and Middle East|Area|R3|R2|Eastern Africa|
+
+        |Super Region|R101|R100|Americas|Area|R18|R2|Southern Africa|
+
+        |Super Region|R170|R100|Asia/Pacific|Area|R45|R2|Western Africa|
+
+        |Super Region|R274|R100|Europe|Area|R69|R68|Central Middle East|
+
+        |Super Region|R349|R100|Non-Disclosed Revenue|Area|R87|R68|Eastern
+        Middle East|
+
+        |Super Region|R354|R100|No Operations|Area|R97|R68|Western Middle East|
+
+        |Super Region|R393|R100|Non-Geographic Revenue|Area|R103|R102|Caribbean|
+
+        |__**Region**__||||Area|R135|R102|Central America|
+
+        |Region|R2|R1|Africa|Area|R145|R102|South America|
+
+        |Region|R68|R1|Middle East|Area|R165|R164|Other North America|
+
+        |Region|R102|R101|Latin America|Area|R167|R164|United States and Canada|
+
+        |Region|R164|R101|North America|Area|R172|R171|Far East|
+
+        |Region|R171|R170|Asia|Area|R219|R171|Indian Region|
+
+        |Region|R233|R170|Oceania|Area|R234|R233|Australia and New Zealand|
+
+        |Region|R275|R274|European Union|Area|R237|R233|Pacific Islands|
+
+        |Region|R314|R274|Non-European Union|Area|R276|R275|Eastern European
+        Union|
+
+        |Region|R350|R349|Region Unspecified|Area|R286|R275|Northern European
+        Union|
+
+        |Region|R355|R354|Non-Operating Region|Area|R292|R275|Southern European
+        Union|
+
+        |Region|R394|R393|Non-Geographic Revenue Region|Area|R298|R275|Western
+        European Union|
+
+        |Region|R398|R1|Africa and Middle East Unallocated
+        Region|Area|R315|R314|Eastern Non-European Union|
+
+        |Region|R401|R170|Asia/Pacific Unallocated
+        Region|Area|R323|R314|Northern Non-European Union|
+
+        |Region|R404|R101|Americas Unallocated Revenue
+        Region|Area|R328|R314|Southern Non-European Union|
+
+        |Region|R407|R274|Europe Unallocated Region|Area|R340|R314|Western
+        Non-European Union|
+
+        |||||Area|R351|R350|Area Unspecified|
+
+        |||||Area|R356|R355|Non-Operating Area|
+
+        |||||Area|R395|R394|Non-Geographic Revenue Area|
+
+        |||||Area|R399|R398|Africa and Middle East Unallocated Area|
+      example:
+        - R101
+        - R171
+        - R167
+    countryIds:
+      name: countryIds
+      in: query
+      schema:
+        type: array
+        default:
+          - ALL
+        items:
+          type: string
+        minItems: 1
+        maxItems: 300
+      required: false
+      explode: false
+      description: >
+        The Country ISO2 Codes representing the Country requested. By default,
+        the service will request *ALL* Countries. To limit the Countries
+        returned in the response, provide a comma-separated list of the ISO2
+        Country Codes. Visit [OA
+        8754](https://my.apps.factset.com/oa/pages/8754) for a full list of ISO2
+        codes.
+      example:
+        - US
+        - CN
+    frequency:
+      name: frequency
+      in: query
+      schema:
+        type: string
+        enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - FQ
+          - AY
+          - CY
+          - FY
+          - ''
+        default: FY
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **FQ** = Fiscal Quarter of the company.
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+          
+  schemas:
+    regionRequest:
+      title: Region Request Body
+      description: Region Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        regionIds:
+          $ref: '#/components/schemas/regionIds'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    regionResponse:
+      type: object
+      title: Region Response
+      properties:
+        data:
+          description: Array of Region Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/region'
+    region:
+      title: Region Object
+      type: object
+      properties:
+        date:
+          description: Ending date for the period requested expressed in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2020-09-30'
+        fsymId:
+          description: >-
+            FactSet Entity Identifier. Six alpha-numeric characters, excluding
+            vowels, with a -E suffix (XXXXXX-E).
+          type: string
+          example: 000C7F-E
+        regionId:
+          description: Identifier representing the geographic Region.
+          type: string
+          example: R164
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-US
+        regionCertaintyClass:
+          description: >
+            Designated classes from A (highest) to E (lowest) based on
+            `regionCertaintyRank`, where --> 
+
+            |Class|Minimum Certainty Rank|Maximum Certainty Rank|
+
+            |---|---|---|
+
+            |A|71|80|
+
+            |B|57|70|
+
+            |C|42|56|
+
+            |D|24|41|
+
+            |E|1|23|
+          type: string
+          example: A
+        regionCertaintyRank:
+          description: >
+            Indicates the relative reliability of estimates. Ranks are based on
+            multiple factors related to the reported information and the
+            algorithmic estimation. Ranks range from 1 to 80, with 1 indicating
+            the lowest certainty in the estimate, and 80 indicating a reported
+            exposure. Certainty Rank factors include - 
+
+            * Reporting standards of the country where the source annual
+            report/filing was filed
+
+            * A company’s previous years’ country-level reporting
+
+            * Reliability of country GDP data
+
+            * Proportion of total report value that must be estimated
+          type: integer
+          example: 78
+        regionConfidence:
+          description: >
+            Returns the confidence score for the company percentage revenue for
+            the selected geographic area. Confidence score is a measure of how
+            confident we are that our algorithm has done a good job in
+            estimating geographic revenue given the estimation parameters ( GDP,
+            accounting standards, details of data that a company has
+            disclosed,...). Confidence Factors are calculated for all estimated
+            country values, then weighted and aggregated up the geographic tree
+            for areas, regions, and super regions. The confidence factor should
+            not be interpreted as the equivalent of a confidence interval from a
+            statistical sense. The confidence factor is ordinal by nature, and
+            its current range of 0.5000 to 1.0000. A confidence factor of 1.000
+            indicates that the revenue is an actual, reported, or declared
+            value. **Please see OA page 17555 for more details **.
+          type: number
+          format: double
+          example: 0.999924
+        regionName:
+          description: The Region Name in proper format, describing the regionId.
+          type: string
+          example: North America
+        regionPercent:
+          description: >
+            Returns the company percentage revenue for the selected geographic
+            region. Conventional geographic revenue data are difficult to
+            interpret and compare between companies because they are not
+            normalized. Furthermore, these non-normalized geographic revenue
+            data do not provide any exposure estimates on countries and regions
+            that are not explicitly disclosed by the companies. GeoRev answers
+            these two challenges by first mapping companies’ revenues to a
+            normalized geographic taxonomy, and then applying a proprietary
+            algorithm to estimate % revenue exposure to countries and regions
+            that are not explicitly disclosed. Estimates are accompanied by a
+            Confidence Factor, which offers an easy way to distinguish them from
+            actual disclosed values. Please see OA page 17555 for more details.
+          type: number
+          format: double
+          example: 41.129925
+        regionRevenue:
+          description: >
+            Returns the company revenue for the selected geographic region in
+            Millions for the requested currency. Conventional geographic revenue
+            data are difficult to interpret and compare between companies
+            because they are not normalized. Furthermore, these non-normalized
+            geographic revenue data do not provide any exposure estimates on
+            countries and regions that are not explicitly disclosed by the
+            companies. GeoRev answers these two challenges by first mapping
+            companies’ revenues to a normalized geographic taxonomy, and then
+            applying a proprietary algorithm to estimate % revenue exposure to
+            countries and regions that are not explicitly disclosed. Estimates
+            are accompanied by a Confidence Factor, which offers an easy way to
+            distinguish them from actual disclosed values. Please see OA page
+            17555 for more details. 
+          type: number
+          format: double
+          example: 112757.6893875
+        currency:
+          description: The Currency Code representing the Revenue values in the response.
+          type: string
+          example: USD
+        fiscalEndDate:
+          description: >-
+            The latest fully reported fiscal annual period date in YYYY-MM-DD
+            format as of the dates requested.
+          type: string
+          format: date
+          example: '2019-09-30'
+        reportDate:
+          description: >-
+            The Report Date for the latest fully reported fiscal year in
+            YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2019-09-28'
+    countryRequest:
+      title: Country Request Body
+      description: Country Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        countryIds:
+          $ref: '#/components/schemas/countryIds'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+    countryResponse:
+      type: object
+      title: Country Response
+      properties:
+        data:
+          description: Array of Country Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/country'
+    country:
+      title: Country Object
+      type: object
+      properties:
+        date:
+          description: Ending date for the period requested expressed in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2020-09-30'
+        fsymId:
+          description: >-
+            FactSet Permanent Entity Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -E suffix (XXXXXX-E).
+          type: string
+          example: 000C7F-E
+        countryId:
+          description: The ISO2 Country Code.
+          type: string
+          example: US
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-US
+        countryCertaintyClass:
+          description: >
+            Designated classes from A (highest) to E (lowest) based on
+            `countryCertaintyRank`, where --> 
+
+            |Class|Minimum Certainty Rank|Maximum Certainty Rank|
+
+            |---|---|---|
+
+            |A|71|80|
+
+            |B|57|70|
+
+            |C|42|56|
+
+            |D|24|41|
+
+            |E|1|23|
+          type: string
+          example: A
+        countryCertaintyRank:
+          description: >
+            Indicates the relative reliability of estimates. Ranks are based on
+            multiple factors related to the reported information and the
+            algorithmic estimation. Ranks range from 1 to 80, with 1 indicating
+            the lowest certainty in the estimate, and 80 indicating a reported
+            exposure. Certainty Rank factors include - 
+
+            * Reporting standards of the country where the source annual
+            report/filing was filed
+
+            * A company’s previous years’ country-level reporting
+
+            * Reliability of country GDP data
+
+            * Proportion of total report value that must be estimated
+          type: integer
+          example: 80
+        countryConfidence:
+          description: >
+            Returns the confidence score for the company percentage revenue for
+            the selected geographic area. Confidence score is a measure of how
+            confident we are that our algorithm has done a good job in
+            estimating geographic revenue given the estimation parameters ( GDP,
+            accounting standards, details of data that a company has
+            disclosed,...). Confidence Factors are calculated for all estimated
+            country values, then weighted and aggregated up the geographic tree
+            for areas, regions, and super regions. The confidence factor should
+            not be interpreted as the equivalent of a confidence interval from a
+            statistical sense. The confidence factor is ordinal by nature, and
+            its current range of 0.5000 to 1.0000. A confidence factor of 1.000
+            indicates that the revenue is an actual, reported, or declared
+            value. **Please see OA page 17555 for more details **.
+          type: number
+          format: double
+          example: 1
+        countryName:
+          description: The Country Name in proper format, describing the ISO2 Country Code.
+          type: string
+          example: United States
+        countryPercent:
+          description: >
+            Returns the company percentage revenue for the selected geographic
+            region. Conventional geographic revenue data are difficult to
+            interpret and compare between companies because they are not
+            normalized. Furthermore, these non-normalized geographic revenue
+            data do not provide any exposure estimates on countries and regions
+            that are not explicitly disclosed by the companies. GeoRev answers
+            these two challenges by first mapping companies’ revenues to a
+            normalized geographic taxonomy, and then applying a proprietary
+            algorithm to estimate % revenue exposure to countries and regions
+            that are not explicitly disclosed. Estimates are accompanied by a
+            Confidence Factor, which offers an easy way to distinguish them from
+            actual disclosed values. Please see OA page 17555 for more details.
+          type: number
+          format: double
+          example: 9.878022
+        countryRevenue:
+          description: >
+            Returns the company revenue for the selected geographic region.
+            Conventional geographic revenue data are difficult to interpret and
+            compare between companies because they are not normalized.
+            Furthermore, these non-normalized geographic revenue data do not
+            provide any exposure estimates on countries and regions that are not
+            explicitly disclosed by the companies. GeoRev answers these two
+            challenges by first mapping companies’ revenues to a normalized
+            geographic taxonomy, and then applying a proprietary algorithm to
+            estimate % revenue exposure to countries and regions that are not
+            explicitly disclosed. Estimates are accompanied by a Confidence
+            Factor, which offers an easy way to distinguish them from actual
+            disclosed values. Please see OA page 17555 for more details.
+          type: number
+          format: double
+          example: 15943.32506844
+        currency:
+          description: The Currency Code representing the Revenue values in the response.
+          type: string
+          example: USD
+        fiscalEndDate:
+          description: >-
+            The latest fully reported fiscal annual period date in YYYY-MM-DD
+            format as of the dates requested.
+          type: string
+          format: date
+          example: '2019-09-30'
+        reportDate:
+          description: >-
+            The Report Date for the latest fully reported fiscal year in
+            YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2019-09-28'
+    ids:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 300
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input. <p>***ids limit** =  300 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of ids, which may lead to exceeding this request line limit of
+        8KB, its advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      example:
+        - AAPL-USA
+    startDate:
+      type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. Data is available on a Fiscal Annual periodicity, but updated
+        Daily. If left blank, the API will default to previous close. Future
+        dates (T+1) are not accepted in this endpoint.
+      example: '2019-01-01'
+    endDate:
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        Data is available on a Fical Annual periodicity, but updated Daily. If
+        left blank, the API will default to previous close. Future dates (T+1)
+        are not accepted in this endpoint.
+      example: '2019-12-31'
+    currency:
+      type: string
+      description: >-
+        Currency code for adjusting the revenue data. For a list of currency ISO
+        codes, visit [Online Assistant Page
+        #1470](https://oa.apps.factset.com/pages/1470).
+      example: USD
+    regionIds:
+      type: array
+      default:
+        - SUPER_REGIONS
+      items:
+        type: string
+      minItems: 1
+      maxItems: 15
+      description: >
+        The Regional Identifier or Regional Group. Groups include
+        "SUPER_REGIONS", "REGIONS", and "AREAS". When requesting a group, all
+        regionIds within that group will be requested. To limit or specify
+        select regions returned in the response, provide a comma-separated list
+        of the below regionIds.
+
+        |Regional Group|regionId|Descriptions|
+
+        |---|---|---|
+
+        |Group|SUPER_REGIONS|Fetchs all regionIds for Super Regions|
+
+        |Group|REGIONS|Fetchs all regionIds for Regions|
+
+        |Group|AREAS|Fetchs all regionIds for Areas|
+
+
+        |Level|regionId|Parent|Description|Level|regionId|Parent|Description|
+
+        |---|---|---|---|---|---|---|---|
+
+        |__**Super Region**__||||__**Area**__||||
+
+        |Super Region|R1|R100|Africa and Middle East|Area|R3|R2|Eastern Africa|
+
+        |Super Region|R101|R100|Americas|Area|R18|R2|Southern Africa|
+
+        |Super Region|R170|R100|Asia/Pacific|Area|R45|R2|Western Africa|
+
+        |Super Region|R274|R100|Europe|Area|R69|R68|Central Middle East|
+
+        |Super Region|R349|R100|Non-Disclosed Revenue|Area|R87|R68|Eastern
+        Middle East|
+
+        |Super Region|R354|R100|No Operations|Area|R97|R68|Western Middle East|
+
+        |Super Region|R393|R100|Non-Geographic Revenue|Area|R103|R102|Caribbean|
+
+        |__**Region**__||||Area|R135|R102|Central America|
+
+        |Region|R2|R1|Africa|Area|R145|R102|South America|
+
+        |Region|R68|R1|Middle East|Area|R165|R164|Other North America|
+
+        |Region|R102|R101|Latin America|Area|R167|R164|United States and Canada|
+
+        |Region|R164|R101|North America|Area|R172|R171|Far East|
+
+        |Region|R171|R170|Asia|Area|R219|R171|Indian Region|
+
+        |Region|R233|R170|Oceania|Area|R234|R233|Australia and New Zealand|
+
+        |Region|R275|R274|European Union|Area|R237|R233|Pacific Islands|
+
+        |Region|R314|R274|Non-European Union|Area|R276|R275|Eastern European
+        Union|
+
+        |Region|R350|R349|Region Unspecified|Area|R286|R275|Northern European
+        Union|
+
+        |Region|R355|R354|Non-Operating Region|Area|R292|R275|Southern European
+        Union|
+
+        |Region|R394|R393|Non-Geographic Revenue Region|Area|R298|R275|Western
+        European Union|
+
+        |Region|R398|R1|Africa and Middle East Unallocated
+        Region|Area|R315|R314|Eastern Non-European Union|
+
+        |Region|R401|R170|Asia/Pacific Unallocated
+        Region|Area|R323|R314|Northern Non-European Union|
+
+        |Region|R404|R101|Americas Unallocated Revenue
+        Region|Area|R328|R314|Southern Non-European Union|
+
+        |Region|R407|R274|Europe Unallocated Region|Area|R340|R314|Western
+        Non-European Union|
+
+        |||||Area|R351|R350|Area Unspecified|
+
+        |||||Area|R356|R355|Non-Operating Area|
+
+        |||||Area|R395|R394|Non-Geographic Revenue Area|
+
+        |||||Area|R399|R398|Africa and Middle East Unallocated Area|
+      example:
+        - R101
+        - R101
+        - R167
+    countryIds:
+      type: array
+      default:
+        - ALL
+      items:
+        type: string
+      minItems: 1
+      maxItems: 300
+      description: >
+        The Country ISO2 Codes representing the Country requested. By default,
+        the service will request *ALL* Countries. To limit the Countries
+        returned in the response, provide a comma-separated list of the ISO2
+        Country Codes. Visit [OA
+        8754](https://my.apps.factset.com/oa/pages/8754) for a full list of ISO2
+        codes.
+      example:
+        - US
+        - CN
+    frequency:
+      type: string
+      enum:
+        - D
+        - W
+        - M
+        - AM
+        - CQ
+        - FQ
+        - AY
+        - CY
+        - FY
+        - ''
+      default: FY
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **FQ** = Fiscal Quarter of the company.
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-georev/v1/superRegion
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-georev/v1/{endpoint}
+        message: >-
+          The date parameter 'startDate' must be in the following date format:
+          YYYY-MM-DD
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:48:42.016'
+        path: /factset-georev/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:52:48.091'
+        path: /factset-georev/v1/{endpoint}
+        message: >-
+          The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /factset-georev/v1/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-georev/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /factset-georev/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /factset-georev/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /factset-georev/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use /factset-georev
+          /v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /factset-georev/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /factset-georev/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /factset-georev/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

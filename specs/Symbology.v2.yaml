@@ -1,0 +1,3088 @@
+openapi: 3.0.0
+info:
+  version: 2.1.1
+  title: FactSet Symbology API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    The FactSet Symbology API provides symbol resolution services, allowing
+    clients to translate market identifiers into various symbology types such
+    as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and
+    Bloomberg FIGIs. <p>Factset's Symbology API sits at the center of its
+    hub-and-spoke data model, enabling you to quickly harmonize the expanding
+    catalog of Content APIs. Translate market IDs into CUSIP, SEDOL, ISIN,
+    Tickers as of a point in time or for the entire history of the requested id
+    allowing Data Management workflows to normalize ids over time.</p>
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /symbology/v2/factset:
+    get:
+      tags:
+        - FactSet
+      summary: Translate market security symbols into FactSet Permanent Identifiers.
+      operationId: translateFactset
+      description: >
+        Translate market security symbols into FactSet Permanent Security
+        Identifiers. The permanent identifier provides a unique record key and a
+        convenient way to link across content sets. Additionally, if your firm
+        does not have licenses for the symbol systems (e.g., CUSIP, SEDOL,
+        ISIN), the permanent identifier provides a way to deliver security and
+        listing-level data.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+      responses:
+        '200':
+          description: >-
+            Successful response of Market IDs translated into FactSet Permanent
+            Identifiers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/factsetTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleFactsetTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleFactsetTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - FactSet
+      summary: Translate market security symbols into FactSet Permanent Identifiers
+      description: >-
+        Translate market security symbols into FactSet Permanent Security
+        Identifiers. The permanent identifier provides a unique record key and a
+        convenient way to link across content sets. Additionally, if your firm
+        does not have licenses for the symbol systems (e.g., CUSIP, SEDOL,
+        ISIN), the permanent identifier provides a way to deliver security and
+        listing-level data.
+      operationId: batchTranslateFactSet
+      requestBody:
+        description: Request Body for FactSet Symbology Translation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/factsetTranslationRequest'
+            examples:
+              Translate Single Market ID to FactSet ID:
+                $ref: '#/components/examples/singleFactsetTranslationPost'
+              Translate Multiple Market IDs to FactSet IDs:
+                $ref: '#/components/examples/multipleFactsetTranslationPost'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/factsetTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleFactsetTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleFactsetTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/factset-advanced:
+    get:
+      tags:
+        - FactSet
+      summary: Translate advanced symbol types into FactSet Permanent Identifiers
+      operationId: translateFactsetAdvanced
+      description: >
+        FactSet Advanced Symbology gives your enhanced resolution capabilities
+        to translate a wider variety of input ids 
+
+        Using the `symbolType` parameter, you are able to resolve from the below
+        list of advanced identifier types into FactSet Permanent Identifiers.
+        Any symbol types within this category MUST be declared by themseleves to
+        appropriately resolve. 
+
+        * BIC - Bank Identification Code (e.g. ABXXHKH1)
+
+        * CIK - Edgar Central Index Keys (e.g. 0000100331)
+
+        * CRD - Central Registration Depository (e.g. 149722)
+
+        * DUNS - Dun & Bradstreet Data Universal Numbering System (e.g.
+        621513451)
+
+        * EIN - Employer Identification Number (e.g. 953540776)
+
+        * FITCH - Fitch Ratings Identifier (e.g. 47504)
+
+        * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)
+
+        * MD - Moody's Ratings Identifier (e.g. 0823736553)
+
+        * SPR - S&P Ratings Identifier (e.g. 301939)
+
+        * VALOREN - Valoren ("Valor") Identification (e.g. 685558)
+
+        * WKN - German Securities Identification ("Wert") (e.g. A0MU9T)
+
+        Not providing a symbolType will use FactSet Advanced Unknown logic,
+        allowing you to resolve a mix of ids across various input id types and
+        asset classes (Equities, Debt Instruments, Companies, Portfolios, Market
+        Listings, and more). Input Id Types include - 
+
+        * FactSet Ticker, Ticker-Region, Ticker-Exchange
+
+        * FactSet Permanent Identifiers (-R, -S, -L, -E)
+
+        * CUSIP
+
+        * SEDOL
+
+        * ISIN
+
+        * Bloomberg FIGI - Regional/Security/Listing Level
+
+        * Bloomberg Ticker - Regional/Listing Level
+          
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getSymbolType'
+      responses:
+        '200':
+          description: >-
+            Successful response of ids translated into FactSet Permanent
+            Identifiers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/factsetTranslationAdvancedResponse'
+              examples:
+                From Unknown Logic:
+                  $ref: '#/components/examples/fromUnknownResponse'
+                Bloomberg Translation:
+                  $ref: '#/components/examples/fromUnknownResponseBloomberg'
+                DUNS Translation Response:
+                  $ref: '#/components/examples/dunsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - FactSet
+      summary: Translate advanced symbol types into FactSet Permanent Identifiers
+      description: >
+        FactSet Advanced Symbology gives your enhanced resolution capabilities
+        to translate a wider variety of input ids.
+
+        Using the `symbolType` parameter, you are able to resolve from the below
+        list of advanced identifier types into FactSet Permanent Identifiers.
+        Any symbol types within this category MUST be declared by themseleves to
+        appropriately resolve. 
+
+        * BIC - Bank Identification Code (e.g. ABXXHKH1)
+
+        * CIK - Edgar Central Index Keys (e.g. 0000100331)
+
+        * CRD - Central Registration Depository (e.g. 149722)
+
+        * DUNS - Dun & Bradstreet Data Universal Numbering System (e.g.
+        621513451)
+
+        * EIN - Employer Identification Number (e.g. 953540776)
+
+        * FITCH - Fitch Ratings Identifier (e.g. 47504)
+
+        * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)
+
+        * MD - Moody's Ratings Identifier (e.g. 0823736553)
+
+        * SPR - S&P Ratings Identifier (e.g. 301939)
+
+        * VALOREN - Valoren ("Valor") Identification (e.g. 685558)
+
+        * WKN - German Securities Identification ("Wert") (e.g. A0MU9T)
+
+        Not providing a symbolType will use FactSet Advanced Unknown logic,
+        allowing you to resolve a mix of ids across various input id types and
+        asset classes (Equities, Debt Instruments, Companies, Portfolios, Market
+        Listings, and more). Input Id Types include - 
+
+        * FactSet Ticker, Ticker-Region, Ticker-Exchange
+
+        * FactSet Permanent Identifiers (-R, -S, -L, -E)
+
+        * CUSIP
+
+        * SEDOL
+
+        * ISIN
+
+        * Bloomberg FIGI - Regional/Security/Listing Level
+
+        * Bloomberg Ticker - Regional/Listing Level
+      operationId: batchTranslateFactSetAdvanced
+      requestBody:
+        description: Request Body for FactSet Symbology Translation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/factsetTranslationAdvancedRequest'
+            examples:
+              From Unknown Request:
+                $ref: '#/components/examples/fromUnknownRequest'
+              DUNS Id Resolution:
+                $ref: '#/components/examples/dunsRequest'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/factsetTranslationAdvancedResponse'
+              examples:
+                From Unknown Logic:
+                  $ref: '#/components/examples/fromUnknownResponse'
+                Bloomberg Translation:
+                  $ref: '#/components/examples/fromUnknownResponseBloomberg'
+                DUNS Translation Response:
+                  $ref: '#/components/examples/dunsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/cusip:
+    get:
+      tags:
+        - CUSIP
+      summary: Translate market security symbols into CUSIPs - Current Only
+      operationId: translateCusip
+      description: >-
+        Translate market security symbols into CUSIP and FactSet Permanent
+        Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094)
+        for more details regarding the CUSIP numbering system.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+      responses:
+        '200':
+          description: Successful response of Market IDs translated into CUSIPs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cusipTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleCusipTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleCusipTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - CUSIP
+      summary: Translate market security symbols into CUSIP - Current Only
+      description: >-
+        Translate market security symbols into CUSIP and FactSet Permanent
+        Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094)
+        for more details regarding the CUSIP numbering system. <p>This method is
+        best for requesting **large universes** of `ids`.</p>
+      operationId: batchTranslateCusips
+      requestBody:
+        description: Request Body for current only CUSIP Symbology Translation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cusipTranslationRequest'
+            examples:
+              Translate Single Market Identifier to CUSIP:
+                $ref: '#/components/examples/singleCusipTranslationPost'
+              Translate Multiple Market Identifiers CUSIP:
+                $ref: '#/components/examples/multipleCusipTranslationPost'
+      responses:
+        '200':
+          description: Symbol Translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cusipTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleCusipTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleCusipTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/cusip-history:
+    get:
+      tags:
+        - CUSIP
+      summary: >-
+        Retrieve the full history or as of a requested date of CUSIP changes for
+        the requested ID(s).
+      operationId: cusipHistory
+      description: >
+        Return the full history of CUSIP changes or as of a requested date for a
+        given market security or FactSet Permanent Id. Visit [OA
+        9094](https://my.apps.factset.com/oa/pages/9094) for more details
+        regarding the CUSIP numbering system. If no asOfDate is requested, the
+        service will default to returning the entire history.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getAsOfDate'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cusipHistoryResponse'
+              examples:
+                CUSIP History for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistory'
+                CUSIP History for GOOGL, AAPL, and MSFT:
+                  $ref: '#/components/examples/multipleCusipHistory'
+                CUSIP Translation as of Jan. 1st 2014 for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistoryAsOf'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - CUSIP
+      summary: >-
+        Retrieve the full history or as of a specific date of CUSIP changes for
+        the requested ID(s).
+      description: >-
+        Return the full history of CUSIP changes for a given market security or
+        FactSet Permanent Id.
+      operationId: batchCusipHistory
+      requestBody:
+        description: Request Body for CUSIP History
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cusipHistoryTranslationRequest'
+            examples:
+              CUSIP History since Jan. 1st 2010 for Single Market ID:
+                $ref: '#/components/examples/singleCusipHistoryPost'
+              CUSIP History since Jan. 1st 2010 for Multiple Market IDs:
+                $ref: '#/components/examples/multipleCusipHistoryPost'
+              CUSIP Translation for GOOGL as of 2014-01-01:
+                $ref: '#/components/examples/singleCusipHistoryPostAsOf'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cusipHistoryResponse'
+              examples:
+                CUSIP History for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistory'
+                CUSIP History for GOOGL, AAPL, and MSFT:
+                  $ref: '#/components/examples/multipleCusipHistory'
+                CUSIP Translation as of Jan. 1st 2014 for GOOGL:
+                  $ref: '#/components/examples/singleCusipHistoryAsOf'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/sedol:
+    get:
+      tags:
+        - SEDOL
+      summary: Translate market security symbols into SEDOL. - Current Only
+      operationId: translateSedol
+      description: >
+        Translate market security symbols into SEDOL and FactSet Permanent
+        Identifiers. Visit [OA
+        3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more
+        details regarding the SEDOL numbering system.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+      responses:
+        '200':
+          description: Successful response of Market IDs translated into SEDOL.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sedolTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleSedolTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleSedolTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - SEDOL
+      summary: Translate market security symbols into SEDOL. - Current Only
+      description: >
+        Translate market security symbols into SEDOL and FactSet Permanent
+        Identifiers. Visit [OA
+        3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more
+        details regarding the SEDOL numbering system.
+      operationId: batchTranslateSedol
+      requestBody:
+        description: Request Body for SEDOL Symbology Translation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sedolTranslationRequest'
+            examples:
+              Translate Single Market Identifier to SEDOL:
+                $ref: '#/components/examples/singleSedolTranslationPost'
+              Translate Multiple Market Identifiers SEDOL:
+                $ref: '#/components/examples/multipleSedolTranslationPost'
+      responses:
+        '200':
+          description: Symbol Translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sedolTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleSedolTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleSedolTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/sedol-history:
+    get:
+      tags:
+        - SEDOL
+      summary: >-
+        Retrieve the full history or as of a specific date of SEDOL changes for
+        the requested ID(s).
+      operationId: sedolHistory
+      description: >
+        Returns the full history of SEDOL changes for a given security or as of
+        a requested date. The service will default to returning the full history
+        if no asOfDate is requested. Visit [OA
+        3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more
+        details.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getAsOfDate'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sedolHistoryTranslationResponse'
+              examples:
+                SEDOL History since Jan. 1st 2010 for GOOGL:
+                  $ref: '#/components/examples/singleSedolHistory'
+                SEDOL history for GOOGL as of 2014-01-01:
+                  $ref: '#/components/examples/singleSedolHistoryAsOf'
+                SEDOL History since Jan. 1st 2010 for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleSedolHistory'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - SEDOL
+      summary: >-
+        Retrieve the full history or as of a specific date of SEDOL changes for
+        a requested ID.
+      description: >
+        Return the full history of SEDOL changes for a given market security or
+        FactSet Permanent Id. The service will default to returning the full
+        history if no asOfDate is requested. Visit [OA
+        3938](https://my.apps.factset.com/oa/pages/3938%23sedol) for more
+        details regarding the SEDOL numbering system.
+      operationId: batchSedolHistory
+      requestBody:
+        required: true
+        description: Response Body for SEDOL History
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sedolHistoryTranslationRequest'
+            examples:
+              Full SEDOL History for Single Market ID:
+                $ref: '#/components/examples/singleSedolHistoryPost'
+              SEDOL translation for GOOGL-US as of 2014-01-01:
+                $ref: '#/components/examples/singleSedolHistoryPostAsOf'
+              Full SEDOL History for Multiple Market IDs:
+                $ref: '#/components/examples/multipleSedolHistoryPost'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sedolHistoryTranslationResponse'
+              examples:
+                SEDOL History for GOOGL:
+                  $ref: '#/components/examples/singleSedolHistory'
+                SEDOL history for GOOGL as of 2014-01-01:
+                  $ref: '#/components/examples/singleSedolHistoryAsOf'
+                SEDOL History for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleSedolHistory'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/isin:
+    get:
+      tags:
+        - ISIN
+      summary: Translate market security symbols into ISIN. - Current Only
+      operationId: translateIsin
+      description: >
+        Translate market security symbols into ISIN and FactSet Permanent
+        Identifiers.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+      responses:
+        '200':
+          description: Successful response of Market IDs translated into ISIN.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/isinTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleIsinTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleIsinTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - ISIN
+      summary: Translate market security symbols into ISIN. - Current Only
+      description: >
+        Translate market security symbols into ISIN and FactSet Permanent
+        Identifiers.
+      operationId: batchTranslateIsin
+      requestBody:
+        required: true
+        description: Request Body for ISIN Symbology Translation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/isinTranslationRequest'
+            examples:
+              Translate Single Market Identifier to ISIN:
+                $ref: '#/components/examples/singleIsinTranslationPost'
+              Translate Multiple Market Identifiers ISIN:
+                $ref: '#/components/examples/multipleIsinTranslationPost'
+      responses:
+        '200':
+          description: Symbol Translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/isinTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleIsinTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleIsinTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/isin-history:
+    get:
+      tags:
+        - ISIN
+      summary: >-
+        Translate Market IDs into ISINS as of a specific date or receive the
+        full history of changes.
+      operationId: isinHistory
+      description: >
+        Returns the full history of ISIN changes for a given security or as of a
+        requested date.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getAsOfDate'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/isinHistoryTranslationResponse'
+              examples:
+                Full ISIN History for GOOGL:
+                  $ref: '#/components/examples/singleIsinHistory'
+                ISIN History for GOOGL-US as of 2014-01-01:
+                  $ref: '#/components/examples/singleIsinHistoryAsOf'
+                Full ISIN History for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleIsinHistory'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - ISIN
+      summary: >-
+        Translate Market IDs into ISINS as of a specific date or receive the
+        full history of changes.
+      description: >
+        Returns the full history of ISIN changes for a given security or as of a
+        requested date.
+      operationId: batchIsinHistory
+      requestBody:
+        required: true
+        description: Response Body for ISIN History
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/isinHistoryTranslationRequest'
+            examples:
+              Requesting full ISIN History for Single Market ID:
+                $ref: '#/components/examples/singleIsinHistoryPost'
+              Requesting full ISIN History for Multiple Market IDs:
+                $ref: '#/components/examples/multipleIsinHistoryPost'
+              Requesting ISIN Translation for a single security as of 2014-01-01:
+                $ref: '#/components/examples/singleIsinHistoryPostAsOf'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/isinHistoryTranslationResponse'
+              examples:
+                Full ISIN history for GOOGL-US:
+                  $ref: '#/components/examples/singleIsinHistory'
+                ISIN History for GOOGL-US as of 2014-01-01:
+                  $ref: '#/components/examples/singleIsinHistoryAsOf'
+                Full ISIN history for GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleIsinHistory'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/ticker:
+    get:
+      tags:
+        - Ticker
+      summary: >-
+        Returns the Ticker-Exchange or Ticker-Region for a given security. -
+        Current Only
+      operationId: translateTicker
+      description: |
+        Returns the Ticker-Exchange or Ticker-Region for a given security.\
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getTickerType'
+      responses:
+        '200':
+          description: >-
+            Successful response of Ticker-Exchange or Ticker-Region for a given
+            security.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tickerTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleTickerTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleTickerTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Ticker
+      summary: Returns the Ticker-Exchange or Ticker-Region for a given security.
+      description: >-
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for
+        a requested security. <p> This method is best for requesting **large
+        universes** of `ids`.</p><p>**This endpoint is included with all other
+        Content API packages.**</p>
+      operationId: batchTranslateTicker
+      requestBody:
+        required: true
+        description: Request Body for Ticker History
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tickerTranslationRequest'
+            examples:
+              Translate Single Market Identifier to Ticker:
+                $ref: '#/components/examples/singleTickerTranslationPost'
+              Translate Multiple Market Identifiers Ticker:
+                $ref: '#/components/examples/multipleTickerTranslationPost'
+      responses:
+        '200':
+          description: Symbol Translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tickerTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleTickerTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleTickerTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/ticker-history:
+    get:
+      tags:
+        - Ticker
+      summary: >-
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for
+        a requested security.
+      operationId: tickerHistory
+      description: >-
+        Return the full history of Ticker changes for a given market security or
+        FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048
+        characters. If a large universe of symbols is requested, it's advised to
+        use POST method to retrieve the same response model.*</p>
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+        - $ref: '#/components/parameters/getTickerType'
+        - $ref: '#/components/parameters/getAsOfDate'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tickerHistoryTranslationResponse'
+              examples:
+                Full Ticker History for GOOGL:
+                  $ref: '#/components/examples/singleTickerHistory'
+                Full Ticker History for GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleTickerHistory'
+                Single ID Translation as of 2014-01-01:
+                  $ref: '#/components/examples/singleTickerHistoryAsOf'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Ticker
+      summary: >-
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for
+        a requested security.
+      description: >-
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for
+        a requested security. <p> This method is best for requesting **large
+        universes** of `ids`.</p><p>**This endpoint is included with all other
+        Content API packages.**</p>
+      operationId: batchTickerHistory
+      requestBody:
+        required: true
+        description: Response Body for Ticker History
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tickerHistoryTranslationRequest'
+            examples:
+              Full Ticker history Translations for a Single ID:
+                $ref: '#/components/examples/singleTickerHistoryPost'
+              Full Ticker History for Multiple IDs:
+                $ref: '#/components/examples/multipleTickerHistoryPost'
+              Single Ticker History Request As Of a specific date:
+                $ref: '#/components/examples/singleTickerHistoryPostAsOf'
+      responses:
+        '200':
+          description: Symbol translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tickerHistoryTranslationResponse'
+              examples:
+                Ticker History since Jan. 1st 2010 for GOOGL:
+                  $ref: '#/components/examples/singleTickerHistory'
+                Ticker History since Jan. 1st 2010 for multiple GOOGL, AAPL, MSFT:
+                  $ref: '#/components/examples/multipleTickerHistory'
+                Single ID Translation as of 2014-01-01:
+                  $ref: '#/components/examples/singleTickerHistoryAsOf'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /symbology/v2/bloomberg:
+    get:
+      tags:
+        - Bloomberg FIGI
+      summary: Translate market security symbols into Bloomberg Identifiers.
+      operationId: translateBloomberg
+      description: >-
+        Returns the current security, composite, regional Bloomberg (FIGI)
+        unique identifiers.
+      parameters:
+        - $ref: '#/components/parameters/getIds'
+      responses:
+        '200':
+          description: >-
+            Successful response of Ticker-Exchange or Ticker-Region for a given
+            security.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bloombergTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleBloombergTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleBloombergTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Bloomberg FIGI
+      summary: Translate market security symbols into Bloomberg Identifiers.
+      description: >-
+        Returns the current security, composite, and regional identifiers from
+        Bloomberg. <p>This method is best for requesting **large universes** of
+        `ids`.</p><p>**This endpoint is included with all other Content API
+        packages.**</p>
+      operationId: batchTranslateBloomberg
+      requestBody:
+        required: true
+        description: Request Body for Bloomberg FIGIs.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bloombergTranslationRequest'
+            examples:
+              Translate Single Market Identifier to Bloomberg:
+                $ref: '#/components/examples/singleBloombergTranslationPost'
+              Translate Multiple Market Identifiers Bloomberg:
+                $ref: '#/components/examples/multipleBloombergTranslationPost'
+      responses:
+        '200':
+          description: Symbol Translation objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bloombergTranslationResponse'
+              examples:
+                Translate Single Market Identifier:
+                  $ref: '#/components/examples/singleBloombergTranslation'
+                Translate Multiple Market Identifiers:
+                  $ref: '#/components/examples/multipleBloombergTranslation'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    getIds:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 3000
+      required: true
+      explode: false
+      description: >-
+        Requested market securities or entities. Accepted identifiers include
+        all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+        Tickers. This request value is sent back in the response as,
+        `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note,
+        GET Method URL request lines are also limited to a total length of 8192
+        bytes (8KB). In cases where the service allows for thousands of ids,
+        which may lead to exceeding this request line limit of 8KB, its advised
+        for any requests with large request lines to be requested through the
+        respective "POST" method.</p>*
+      examples:
+        singleMarketId:
+          summary: One Market Identifier
+          value:
+            - GOOGL-US
+        multipleMarketIds:
+          summary: Multiple Market Identifiers
+          value:
+            - GOOGL-US
+            - AAPL-US
+            - MSFT-US
+    getAsOfDate:
+      name: asOfDate
+      in: query
+      schema:
+        type: string
+      required: false
+      description: >-
+        As-Of date for historical symbol request in YYYY-MM-DD format. This is
+        the date requested in the service. If no asOfDate was requested, the
+        response will be null.
+      example: '2010-01-01'
+    getTickerType:
+      name: tickerType
+      in: query
+      schema:
+        type: string
+        enum:
+          - REGION
+          - EXCHANGE
+        default: REGION
+      description: >
+        Controls the Ticker Type returned. The only accepted parameter values
+        are REGION or EXCHANGE.
+          * **REGION** = Ticker-Regional (e.g. GOOGL-US)
+          * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)
+      examples:
+        Regional:
+          summary: REGION - Ticker-Regional ID
+          value: REGION
+        Exchange:
+          summary: EXCHANGE - Ticker-Exchange ID
+          value: EXCHANGE
+    getSymbolType:
+      name: symbolType
+      in: query
+      description: >
+        Specifies the type of symbol being requested in the `ids` parameter.
+        **This is only required when requesting to translate from the given
+        symbolType to a FactSet Permanent Identifier. Only one symbolType is
+        permitted per request, and all ids passed in request must be of the same
+        type.** It is expected that not all fsym* types respond with values.
+        Every response for valid translations will include at a minimum the
+        fsymId and requestId.
+          |symbolType|Description|fsymId Default Perm Type|
+          |---|---|---|
+          |BIC|Bank Identification Codes|Entity (-E)|
+          |CIK|Edgar Central Index Key|Entity (-E)|
+          |CRD|Central Registration Depository|Entity (-E)|
+          |DUNS|Dun & Bradstreet Data Universal Numbering System|Entity (-E)|
+          |EIN|Employer Identification Number|Entity (-E)|
+          |FITCH|Fitch Ratings Identifier|Entity (-E)|
+          |LEI|Legal Entity Identifier|Entity (-E)|
+          |MD|Moody's Ratings Identifier|Entity (-E)|
+          |SPR|S&P Ratings Identifier|Entity (-E)|
+          |VALOREN|Valoren ("Valor") Identification|Security (-S)|
+          |WKN|German Securities Identification ("Wert")|Security (-S)|
+          |CRN|UK Company House Identifier|Entity(-E)|
+          |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|
+      schema:
+        type: string
+        enum:
+          - BIC
+          - CIK
+          - CRD
+          - DUNS
+          - EIN
+          - FITCH
+          - LEI
+          - MD
+          - SPR
+          - VALOREN
+          - WKN
+          - CRN
+          - RSSD
+          - ''
+        default: ''
+        example: ''
+  schemas:
+    factsetTranslationRequest:
+      title: FactSet Translation Request
+      description: Request object for FactSet endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+      required:
+        - ids
+    factsetTranslationResponse:
+      title: FactSet Translation Response
+      description: Response object for FactSet endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/factsetTranslation'
+    factsetTranslation:
+      title: FactSet Translation
+      description: FactSet Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+        fsymSecurityId:
+          type: string
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with an -S suffix (XXXXXX-S). All equity and fixed income
+            securities that exist on FactSet are allocated a security-level
+            permanent identifier. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: X0MHD2-S
+        fsymRegionalId:
+          type: string
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: BL5KVX-R
+        fsymListingId:
+          type: string
+          description: >-
+            FactSet Listing Security Identifier. Six alpha-numeric characters,
+            vowels excluded, with an -L suffix (XXXXXX-L). The listing-level
+            permanent identifier will be available prior to the end of trading
+            on the first day of trading. Does not populate for composite ids
+            (i.e. '-USA') since these are not specified listing exchanges.
+            [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+        fsymEntityId:
+          type: string
+          description: >-
+            FactSet Entity Identifier (-E). For more information on Entity Ids,
+            visit [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: 000F9X-E
+        fsymTickerExchange:
+          type: string
+          description: >-
+            FactSet exchange ticker symbol. For definitions of Exchange Codes,
+            visit [Online Assistant Page
+            #12544](https://oa.apps.factset.com/pages/12544).
+          example: COST-USA
+        fsymTickerRegion:
+          type: string
+          description: >-
+            FactSet region ticker symbol. For details on Global Region Codes,
+            visit [Online Assistant Page
+            #13258](https://oa.apps.factset.com/pages/13258)
+          example: COST-US
+        frefListingExchange:
+          type: string
+          description: >-
+            Primary Listing Exchange Code. For details on Exchange Code
+            Definitions, visit [Online Assistant Page
+            #12544](https://oa.apps.factset.com/pages/12544) 
+          example: NAS
+        currency:
+          type: string
+          description: >-
+            Three character ISO Currency code. For details on ISO Currency Code
+            definitions, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470)
+          example: USD
+        securityType:
+          type: string
+          description: >
+            The generic securityType for Equities and Fixed Income. Reach out to
+            FactSet if more detailed security types or terms & conditions are
+            needed. The available codes returned are as follows - 
+
+            |securityType|Description|
+
+            |---|---|
+
+            |ABS|Asset Backed Security |
+
+            |ADR|American Depositary Receipt- An ADR is issued by a U.S.
+            depositary bank and represents shares of a foreign corporation held
+            by the bank. ADRs provide foreign companies with an access to U.S.
+            capital markets. The instruments typically trade in U.S. dollars.|
+
+            |ALIEN|Alien/Foreign- Shares that foreign investors can purchase
+            from countries where they issue shares, such as Thailand. Foreigners
+            can register these shares under their own name using the Foreign
+            Board and receive all benefits offered by the company, such as
+            rights offerings and dividends. Such securities have no floor or
+            ceiling limits, so share prices respond to the demand and supply.|
+
+            |BDNT|Bond/Note|
+
+            |BLDN|Bill/Discount Note |
+
+            |CONV|Convertible/Exchangeable|
+
+            |COVR|Covered Bond |
+
+            |DR|Depositary Receipts/Certificates- This security type represents
+            all other depository receipts not mentioned above. Depositary
+            Receipts (DR) are negotiable certificates that enable domestic
+            investors to own shares in foreign companies. Each DR represents a
+            given number of a company's shares.|
+
+            |ETF_ETF|Exchange Traded Fund (ETF_ETF)- A security that is created
+            to track the performance of an index or a basket of assets. ETFs are
+            traded on organized exchanges.|
+
+            |ETF_NAV|Exchange Traded Fund (ETF_NAV)- The Net Asset Value (NAV)
+            is calculated by taking the total assets of the ETF, less
+            liabilities, divided by the number of ETF shares outstanding.|
+
+            |ETF_UVI|Exchange Traded Fund (ETF_UVI)- The Intraday Indicative
+            Value is designed to give investors a sense of the relationship
+            between a basket of securities that are representative of those
+            owned in the ETF and the share price of the ETF on an intraday
+            basis. An Intraday Indicative Value is published as a reference
+            value to be used in conjunction with other ETF market information.|
+
+            |GDR|Global Depositary Receipt- Certificate that represents
+            ownership of a given number of a company's shares and can be listed
+            and traded independently from the underlying shares. Provide issuers
+            with an access to foreign capital markets.|
+
+            |LKS|Linked Securities|
+
+            |MF_C|Closed-ended Fund- These funds have a fixed number of shares,
+            which are listed on the stock exchange. The market price of the
+            shares is determined by demand and supply factors. These are readily
+            transferable in the open market and are bought and sold like other
+            stock. These funds do not accept new contributions from investors,
+            but only reinvest the return on the existing portfolio.|
+
+            |MF_O|Open-ended Fund- These funds have no limit to the number of
+            units (or shares) they can issue. The price of the units (or shares)
+            remains closely aligned to the NAV of the fund. Open-end funds sell
+            their own new shares to investors, stand ready to buy back their old
+            shares, and are not listed on exchanges. Open-end funds are so
+            called because their capitalization is not fixed.|
+
+            |MM|Bill/Discount Note |
+
+            |MM|Money Market|
+
+            |NVDR|Non-Voting Depositary Receipt- A Non-Voting Depository Receipt
+            (NVDR) is a trading instrument issued by the Thai NVDR Company
+            Limited, a subsidiary wholly owned by the Stock Exchange of Thailand
+            (SET). Investment in NVDR eliminates foreign investment barriers.
+            The only difference between investing in NVDRs and the company's
+            shares is the voting right. NVDRs are automatically regarded as
+            listed securities in the SET.|
+
+            |PASS|Pass-Through |
+
+            |PFD|Preferred |
+
+            |PREF|Preferred- A type of stock that pays a fixed dividend
+            regardless of corporate earnings, and which has priority over common
+            stock in the payment of dividends. The main characteristics of
+            preferred stocks is the fixed income stream and priority of payment
+            at liquidation.|
+
+            |PREFEQ|Preferred Equity- A security that has equity characteristics
+            (i.e., ownership at liquidation, share in the profits in the
+            company) rather than fixed redemption and trades as a common equity
+            (i.e., is very liquid and its prices are quoted in a currency rather
+            than percentage of par, which is a common characteristic of
+            preferred stock). These securities are most commonly issued in
+            Brazil, Canada, and many European markets (i.e., Russia, Germany,
+            and Italy). Preferred equity has some priority rights over common
+            stock. This category also includes Italian savings shares.|
+
+            |RIGHT|Right- A right gives the holder an option to purchase
+            additional shares of an underlying instrument at a pre-determined
+            price on a specified date (typically at a discount from the market
+            price). In most cases, right instruments must be exercised within a
+            relatively short period.|
+
+            |SHARE|Share/Common/Ordinary- Securities that represent an ownership
+            interest in a corporation. If the company has also issued preferred
+            stock, both common and preferred stockholders have ownership rights.
+            Common stockholders assume the greater risk, but generally exercise
+            greater control and may gain a larger award in the form of dividends
+            and capital appreciation.|
+
+            |STRUCT|Structured Products- Investment products that are based on
+            an underlying security such as a single equity, a basket of stocks,
+            an index, a commodity, a debt issuance, or a foreign currency.|
+
+            |TEMP|Temporary- Securities that trade for a limited period of time
+            (typically less than a year) and trade alongside the mainline
+            security. Also included are securities that trade alongside the
+            mainline and then assimilate to the mainline security after trading
+            for few days/months. Examples of temporary instruments are parallel
+            lines and assented lines.|
+
+            |UNIT|Unit- An equity that consists of more than one equity
+            instrument (i.e., security consisting of class A and B; 1 share and
+            1 warrant).|
+
+            |WARRANT|Warrant- An instrument giving the holder a right to
+            subscribe to an underlying instrument at a given price and date.|
+          example: SHARE
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Costco Wholesale Corporation
+        requestId:
+          type: string
+          description: Identifier specified in the `ids` parameter of the request.
+          example: COST
+    factsetTranslationAdvancedRequest:
+      title: FactSet Translation Request
+      description: Request object for FactSet endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        symbolType:
+          $ref: '#/components/schemas/getSymbolType'
+      required:
+        - ids
+    factsetTranslationAdvancedResponse:
+      title: FactSet Translation Response
+      description: Response object for FactSet endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/factsetTranslationAdvanced'
+    factsetTranslationAdvanced:
+      title: FactSet Translation
+      description: FactSet Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+        fsymSecurityId:
+          type: string
+          description: >-
+            FactSet Security Identifier. Six alpha-numeric characters, excluding
+            vowels, with an -S suffix (XXXXXX-S). All equity and fixed income
+            securities that exist on FactSet are allocated a security-level
+            permanent identifier. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: X0MHD2-S
+        fsymRegionalId:
+          type: string
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: BL5KVX-R
+        fsymListingId:
+          type: string
+          description: >-
+            FactSet Listing Security Identifier. Six alpha-numeric characters,
+            vowels excluded, with an -L suffix (XXXXXX-L). The listing-level
+            permanent identifier will be available prior to the end of trading
+            on the first day of trading. Does not populate for composite ids
+            (i.e. '-USA') since these are not specified listing exchanges.
+            [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+        fsymEntityId:
+          type: string
+          description: >-
+            FactSet Entity Identifier (-E). For more information on Entity Ids,
+            visit [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: 000F9X-E
+        fsymTickerExchange:
+          type: string
+          description: >-
+            FactSet exchange ticker symbol. For definitions of Exchange Codes,
+            visit [Online Assistant Page
+            #12544](https://oa.apps.factset.com/pages/12544).
+          example: COST-USA
+        fsymTickerRegion:
+          type: string
+          description: >-
+            FactSet region ticker symbol. For details on Global Region Codes,
+            visit [Online Assistant Page
+            #13258](https://oa.apps.factset.com/pages/13258)
+          example: COST-US
+        requestId:
+          type: string
+          description: Identifier specified in the `ids` parameter of the request.
+          example: COST
+    cusipTranslationRequest:
+      title: CUSIP Translation Request
+      description: Request object for CUSIP Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+      required:
+        - ids
+    cusipTranslationResponse:
+      title: CUSIP Translation Response
+      description: Response object for CUISP Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/cusipTranslation'
+    cusipTranslation:
+      title: CUSIP Translation
+      description: CUISP Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        cusip:
+          type: string
+          description: CUSIP with Check Digit
+          example: 38259P508
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    cusipHistoryTranslationRequest:
+      title: CUSIP history Translation Request
+      description: Request object for CUSIP Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        asOfDate:
+          $ref: '#/components/schemas/getAsOfDate'
+      required:
+        - ids
+    cusipHistoryResponse:
+      title: CUSIP history Translation Response
+      description: Response object for CUISP Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/cusipHistoryTranslation'
+    cusipHistoryTranslation:
+      title: CUSIP history Translation
+      description: CUISP history Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        cusip:
+          type: string
+          description: CUSIP with Check Digit
+          example: 38259P508
+        cusipEffectiveStartDate:
+          type: string
+          format: date
+          description: CUSIP effective start date in YYYY-MM-DD format.
+          example: '2004-08-19'
+        cusipEffectiveEndDate:
+          type: string
+          format: date
+          description: CUSIP effective end date in YYYY-MM-DD format. Null if still active.
+          example: '2015-10-05'
+        asOfDate:
+          type: string
+          format: date
+          description: As of Date in YYYY-MM-DD format.
+          example: '2010-12-31'
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    sedolTranslationRequest:
+      title: SEDOL Translation Request
+      description: Request object for SEDOL Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+      required:
+        - ids
+    sedolTranslationResponse:
+      title: SEDOL Translation Response
+      description: Response object for SEDOL Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/sedolTranslation'
+    sedolTranslation:
+      title: SEDOL Translation
+      description: SEDOL Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: JBP9Z6-L
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        sedol:
+          type: string
+          description: SEDOL
+          example: BYZ5YB6
+        sedolPrimary:
+          type: string
+          description: >-
+            The SEDOL for the Primary Listing of the requested security. If you
+            request a specific exchange (e.g. -MEX), the SEDOL will translate
+            for that listing, while the SEDOL Primary will always resolve back
+            to the primary region (e.g. -US).
+          example: BYVY8G0
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL-MEX
+    sedolHistoryTranslationRequest:
+      title: SEDOL History Translation Request
+      description: Request object for SEDOL Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        asOfDate:
+          $ref: '#/components/schemas/getAsOfDate'
+      required:
+        - ids
+    sedolHistoryTranslationResponse:
+      title: SEDOL Translation Response
+      description: Response object for SEDOL Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/sedolHistoryTranslation'
+    sedolHistoryTranslation:
+      title: SEDOL History Translation
+      description: SEDOL History Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        sedol:
+          type: string
+          description: SEDOL
+          example: B020QX2
+        sedolEffectiveStartDate:
+          type: string
+          format: date
+          description: SEDOL effective start date in YYYY-MM-DD format.
+          example: '2004-08-19'
+        sedolEffectiveEndDate:
+          type: string
+          format: date
+          description: SEDOL effective end date in YYYY-MM-DD format. Null if still active.
+          example: '2015-10-05'
+        asOfDate:
+          type: string
+          format: date
+          description: As of Date in YYYY-MM-DD format.
+          example: '2010-12-31'
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    isinTranslationRequest:
+      title: ISIN Translation Request
+      description: Request object for ISIN Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+      required:
+        - ids
+    isinTranslationResponse:
+      title: ISIN Translation Response
+      description: Response object for ISIN Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/isinTranslation'
+    isinTranslation:
+      title: ISIN Translation
+      description: ISIN Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        isin:
+          type: string
+          description: ISIN
+          example: US38259P5089
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    isinHistoryTranslationRequest:
+      title: ISIN History Translation Request
+      description: Request object for ISIN History endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        asOfDate:
+          $ref: '#/components/schemas/getAsOfDate'
+      required:
+        - ids
+    isinHistoryTranslationResponse:
+      title: ISIN History Translation Response
+      description: Response object for ISIN Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/isinHistoryTranslation'
+    isinHistoryTranslation:
+      title: ISIN History Translation
+      description: ISIN History Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        isin:
+          type: string
+          description: ISIN
+          example: US38259P5089
+        isinEffectiveStartDate:
+          type: string
+          format: date
+          description: ISIN effective start date in YYYY-MM-DD format.
+          example: '2004-08-19'
+        isinEffectiveEndDate:
+          type: string
+          format: date
+          description: ISIN effective end date in YYYY-MM-DD format. Null if still active.
+          example: '2015-10-05'
+        asOfDate:
+          type: string
+          format: date
+          description: As of Date in YYYY-MM-DD format.
+          example: '2010-12-31'
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    tickerTranslationRequest:
+      title: Ticker Translation Request
+      description: Request object for Ticker endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        tickerType:
+          $ref: '#/components/schemas/getTickerType'
+      required:
+        - ids
+        - tickerType
+    tickerTranslationResponse:
+      title: Ticker Translation Response
+      description: Response object for Ticker Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/tickerTranslation'
+    tickerTranslation:
+      title: Ticker Translation
+      description: Ticker Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        ticker:
+          type: string
+          description: Region or Exchange Ticker
+          example: GOOGL-US
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    tickerHistoryTranslationRequest:
+      title: Ticker History Translation Request
+      description: Request object for Ticker endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+        tickerType:
+          $ref: '#/components/schemas/getTickerType'
+        asOfDate:
+          $ref: '#/components/schemas/getAsOfDate'
+      required:
+        - ids
+        - tickerType
+    tickerHistoryTranslationResponse:
+      title: Ticker History Translation Response
+      description: Response object for Ticker History endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/tickerHistoryTranslation'
+    tickerHistoryTranslation:
+      title: Ticker History Translation
+      description: Ticker History Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: HTM0LK-R
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Alphabet Inc. Class A
+        ticker:
+          type: string
+          description: Region or Exchange Ticker
+          example: GOOGL-US
+        tickerEffectiveStartDate:
+          type: string
+          format: date
+          description: Ticker effective start date in YYYY-MM-DD format.
+          example: '2014-04-03'
+        asOfDate:
+          type: string
+          format: date
+          description: As of Date in YYYY-MM-DD format.
+          example: '2010-12-31'
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: GOOGL
+    bloombergTranslationRequest:
+      title: Bloomberg Translation Request
+      description: Request object for Bloomberg Translation endpoint.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/getIds'
+      required:
+        - ids
+    bloombergTranslationResponse:
+      title: Bloomberg Translation Response
+      description: Response object for Symbol Translation endpoint.
+      type: object
+      properties:
+        data:
+          description: Array of symbol translation objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/bloombergTranslation'
+    bloombergTranslation:
+      title: Bloomberg Translation
+      description: Symbol Translation data object.
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            FactSet Default Permanent Identifier. Regional and Composite (-USA)
+            request `ids` will use a Regional ID '-R', Listing specific ids
+            '-NYS' will use Listing ids '-L', Entities will use '-E', and FI
+            will use security '-S' ids. [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: NSXGVV-L
+        name:
+          type: string
+          description: Proper Name of company or issuer.
+          example: Costco Wholesale Corporation
+        bbgSecurityId:
+          type: string
+          description: Bloomberg Security Identifier.
+          example: BBG001S9KRQ7
+        bbgCompositeId:
+          type: string
+          description: Bloomberg Security Identifier.
+          example: BBG000F6H8W8
+        bbgListingId:
+          type: string
+          description: Bloomberg Security Identifier.
+          example: BBG000F6HLL1
+        bbgTickerListing:
+          type: string
+          description: Bloomberg Security Identifier.
+          example: COST UW
+        bbgTickerComposite:
+          type: string
+          description: Bloomberg Security Identifier.
+          example: COST US
+        requestId:
+          type: string
+          description: Identifier specified in the request
+          example: COST
+    errorResponse:
+      type: object
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /symbology/v2/{endpoint}
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+    getIds:
+      title: Identifier List
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 3000
+      description: >-
+        Requested market securities or entities. Accepted identifiers include
+        all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
+        Tickers. This request value is sent back in the response as,
+        `requestId'.
+      example:
+        - GOOGL-US
+    getAsOfDate:
+      title: As Of Date
+      type: string
+      description: As-Of date for historical symbol request in YYYY-MM-DD format.
+      example: '2010-01-01'
+    getTickerType:
+      title: Ticker Type
+      type: string
+      description: |
+        Controls the Ticker Type returned.
+          * **REGION** = Ticker-Regional
+          * **EXCHANGE** = Ticker-Exchange
+      example: REGION
+    getSymbolType:
+      title: Symbol Type
+      type: string
+      maxItems: 1
+      description: >
+        Specifies the type of symbol being requested in the `ids` parameter.
+        **This is only required when requesting to translate from the given
+        symbolType to a FactSet Permanent Identifier. Only one symbolType is
+        permitted per request, and all ids passed in request must be of the same
+        type.**
+          |symbolType|Description|
+          |---|---|
+          |BIC|Bank Identification Codes|
+          |CIK|Edgar Central Index Key|
+          |CRD|Central Registration Depository|
+          |DUNS|Dun & Bradstreet Data Universal Numbering System|
+          |EIN|Employer Identification Number|
+          |FITCH|Fitch Ratings Identifier|
+          |LEI|Legal Entity Identifier|
+          |MD|Moody's Ratings Identifier|
+          |SPR|S&P Ratings Identifier|
+          |VALOREN|Valoren ("Valor") Identification|
+          |WKN|German Securities Identification ("Wert")|
+          |CRN|UK Company House Identifier|Entity(-E)|
+          |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|
+      enum:
+        - BIC
+        - CIK
+        - CRD
+        - DUNS
+        - EIN
+        - FITCH
+        - LEI
+        - MD
+        - SPR
+        - VALOREN
+        - WKN
+        - CRN
+        - RSSD
+        - ''
+      default: ''
+      example: BIC
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivty 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    singleFactsetTranslation:
+      summary: Translating a single market identifier into a Factset Permanent ID.
+      description: >-
+        Translating a single market identifier (IBM-US) into a Factset Permanent
+        ID.
+      value:
+        data:
+          - fsymId: SJY281-R
+            fsymSecurityId: MCPQD9-S
+            fsymRegionalId: SJY281-R
+            fsymListingId: NM6QRZ-L
+            fsymEntityId: 000N1N-E
+            fsymTickerExchange: IBM-USA
+            fsymTickerRegion: IBM-US
+            frefListingExchange: NYS
+            currency: USD
+            securityType: SHARE
+            name: International Business Machines Corporation
+            requestId: IBM-US
+    multipleFactsetTranslation:
+      summary: Translating multiple market identifiers into Factset Permanent IDs.
+      description: >-
+        Translating multiple market identifiers (IBM-US, FDS-US, APPL-US) into
+        Factset Permanent IDs.
+      value:
+        data:
+          - fsymId: SJY281-R
+            fsymSecurityId: MCPQD9-S
+            fsymRegionalId: SJY281-R
+            fsymListingId: NM6QRZ-L
+            fsymEntityId: 000N1N-E
+            fsymTickerExchange: IBM-USA
+            fsymTickerRegion: IBM-US
+            frefListingExchange: NYS
+            currency: USD
+            securityType: SHARE
+            name: International Business Machines Corporation
+            requestId: IBM-US
+          - fsymId: SQFMK3-R
+            fsymSecurityId: DJC0PL-S
+            fsymRegionalId: SQFMK3-R
+            fsymListingId: MFRPJG-L
+            fsymEntityId: 0016YD-E
+            fsymTickerExchange: FDS-USA
+            fsymTickerRegion: FDS-US
+            frefListingExchange: NYS
+            currency: USD
+            securityType: SHARE
+            name: FactSet Research Systems Inc.
+            requestId: FDS-US
+          - fsymId: SND8QN-R
+            fsymSecurityId: BZW5K9-S
+            fsymRegionalId: SND8QN-R
+            fsymListingId: MT8YXR-L
+            fsymEntityId: 0B5JXL-E
+            fsymTickerExchange: APPL-USA
+            fsymTickerRegion: APPL-US
+            frefListingExchange: OTC
+            currency: null
+            securityType: SHARE
+            name: Appell Petroleum Corp.
+            requestId: APPL-US
+    singleFactsetTranslationPost:
+      summary: >-
+        Translating a single market identifier into a Factset Permanent ID from
+        a Post Body.
+      description: >-
+        Translating a single market identifier (IBM-US) into a FactSet Permanent
+        ID from a Post Body.
+      value:
+        ids:
+          - IBM-US
+    multipleFactsetTranslationPost:
+      summary: >-
+        Translating multiple market identifier into Factset Permanent IDs from a
+        Post Body.
+      description: >-
+        Translating multiple market identifiers (IBM-US,FDS-US,APPL-US) into
+        Factset Permanent IDs from a Post Body.
+      value:
+        ids:
+          - IBM-US
+          - FDS-US
+          - APPL-US
+    fromUnknownRequest:
+      summary: Translating Market Tickers
+      description: Translating Market Tickers into applicable FactSet Permanent Identifier
+      value:
+        ids:
+          - AAPL
+          - FDS
+          - TSLA
+    fromUnknownResponse:
+      summary: Translated Market Identifiers into a FactSet Permanent Identifiers
+      description: Translated Market Identifiers into FactSet Permanent Symbology.
+      value:
+        data:
+          - fsymId: MH33D6-R
+            fsymSecurityId: R85KLC-S
+            fsymRegionalId: MH33D6-R
+            fsymListingId: C0S0SK-L
+            fsymEntityId: 000C7F-E
+            fsymTickerExchange: AAPL-USA
+            fsymTickerRegion: AAPL-US
+            requestId: AAPL
+          - fsymId: SQFMK3-R
+            fsymSecurityId: DJC0PL-S
+            fsymRegionalId: SQFMK3-R
+            fsymListingId: MFRPJG-L
+            fsymEntityId: 0016YD-E
+            fsymTickerExchange: FDS-USA
+            fsymTickerRegion: FDS-US
+            requestId: FDS
+          - fsymId: Q2YN1N-R
+            fsymSecurityId: WWDPYB-S
+            fsymRegionalId: Q2YN1N-R
+            fsymListingId: PTT03G-L
+            fsymEntityId: 006XY7-E
+            fsymTickerExchange: TSLA-USA
+            fsymTickerRegion: TSLA-US
+            requestId: TSLA
+    fromUnknownResponseBloomberg:
+      summary: Translated Bloomberg ids into a FactSet Permanent Identifiers
+      description: >-
+        Translated Bloomberg Tickers and Bloomberg FIGI into FactSet Permanent
+        Identifiers.
+      value:
+        data:
+          - fsymId: Q2YN1N-R
+            fsymSecurityId: WWDPYB-S
+            fsymRegionalId: Q2YN1N-R
+            fsymListingId: PTT03G-L
+            fsymEntityId: 006XY7-E
+            fsymTickerExchange: TSLA-USA
+            fsymTickerRegion: TSLA-US
+            requestId: BBG000N9P426
+          - fsymId: MH33D6-R
+            fsymSecurityId: R85KLC-S
+            fsymRegionalId: MH33D6-R
+            fsymListingId: C0S0SK-L
+            fsymEntityId: 000C7F-E
+            fsymTickerExchange: AAPL-USA
+            fsymTickerRegion: AAPL-US
+            requestId: AAPL US
+    dunsRequest:
+      summary: Translating a DUNS Identifier into a FactSet Permanent Identifier
+      description: >-
+        Translating a DUNS Identifier using the symbolType parameter into a
+        FactSet Permanent Identifier.
+      value:
+        ids:
+          - 152874004
+        symbolType: DUNS
+    dunsResponse:
+      summary: Translated DUNS Id into a FactSet Permanent Entity Identifier
+      description: >-
+        Translated DUNS id into a FactSet Permanent Entity Identifer. Depending
+        on the ID type, not all fsym* response items will return values. All
+        responses should if available return fsymId and requestId.
+      value:
+        data:
+          - fsymId: 05L5M0-E
+            fsymSecurityId: null
+            fsymRegionalId: null
+            fsymListingId: null
+            fsymEntityId: null
+            fsymTickerExchange: null
+            fsymTickerRegion: null
+            requestId: '152874004'
+    singleCusipTranslation:
+      summary: Translating a single market identifier into CUSIP.
+      description: Translating Single Market Identifier (GOOGL-US) into CUSIP.
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            cusip: 02079K305
+            requestId: GOOGL-US
+    multipleCusipTranslation:
+      summary: Translating Multiple Market Identifiers into CUSIPs.
+      description: >-
+        Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into CUSIPs.
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            cusip: 02079K305
+            requestId: GOOGL-US
+          - fsymId: R85KLC-S
+            name: Apple Inc.
+            cusip: '037833100'
+            requestId: AAPL-US
+          - fsymId: DF3K29-S
+            name: Microsoft Corporation
+            cusip: '594918104'
+            requestId: MSFT-US
+    singleCusipTranslationPost:
+      summary: Translating a single market identifier into CUSIP from a Post Body.
+      description: Translating a market identifier (GOOGL-US) into CUSIP from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+    multipleCusipTranslationPost:
+      summary: Translating a multiple market identifiers into CUSIPs from a Post Body.
+      description: >-
+        Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into CUSIP
+        from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleCusipHistory:
+      summary: Full history of CUSIP for a single market identifier.
+      description: Full history of CUSIP for a single market identifier (GOOGL-US).
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            cusip: 38259P508
+            cusipEffectiveStartDate: '2004-08-19'
+            cusipEffectiveEndDate: '2015-10-05'
+            asOfDate: null
+            requestId: GOOGL-US
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            cusip: 02079K305
+            cusipEffectiveStartDate: '2015-10-05'
+            cusipEffectiveEndDate: null
+            asOfDate: null
+            requestId: GOOGL-US
+    singleCusipHistoryAsOf:
+      summary: CUSIP Translation for GOOGL as of 2014-01-01
+      description: CUSIP Translation for GOOGL as of 2014-01-01
+      value:
+        data:
+          - asOfDate: '2014-01-01'
+            cusip: 38259P508
+            cusipEffectiveEndDate: '2015-10-05'
+            cusipEffectiveStartDate: '2004-08-19'
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL
+    multipleCusipHistory:
+      summary: Full history of CUSIPs for multiple market identifiers.
+      description: >-
+        Full history of CUSIPs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      value:
+        data:
+          - asOfDate: null
+            cusip: 38259P508
+            cusipEffectiveEndDate: '2015-10-05'
+            cusipEffectiveStartDate: '2004-08-19'
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL
+          - asOfDate: null
+            cusip: 02079K305
+            cusipEffectiveEndDate: null
+            cusipEffectiveStartDate: '2015-10-05'
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL
+          - asOfDate: null
+            cusip: 37833100
+            cusipEffectiveEndDate: null
+            cusipEffectiveStartDate: '1980-12-12'
+            fsymId: MH33D6-R
+            name: Apple Inc.
+            requestId: AAPL
+          - asOfDate: null
+            cusip: '594918104'
+            cusipEffectiveEndDate: null
+            cusipEffectiveStartDate: '1986-03-13'
+            fsymId: P8R3C2-R
+            name: Microsoft Corporation
+            requestId: MSFT
+    singleCusipHistoryPost:
+      summary: Full history of CUSIP for a single market identifier.
+      description: Full history of CUSIP for a single market identifier (GOOGL-US).
+      value:
+        ids:
+          - GOOGL-US
+    multipleCusipHistoryPost:
+      summary: Full history of CUSIPs for multiple market identifiers.
+      description: >-
+        Full history of CUSIPs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleCusipHistoryPostAsOf:
+      summary: CUSIP History for GOOGL as of 2014-01-01
+      description: CUSIP History for GOOGL as of 2014-01-01.
+      value:
+        ids:
+          - GOOGL-US
+        asOfDate: '2014-01-01'
+    singleSedolTranslation:
+      summary: Translating a single market identifier into SEDOL
+      description: >-
+        Translating Single Market Identifier (GOOGL-MEX) into its listing SEDOL
+        and primary exchange SEDOL.
+      value:
+        data:
+          - fsymId: JBP9Z6-L
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-MEX
+            sedol: BYZ5YB6
+            sedolPrimary: BYVY8G0
+    multipleSedolTranslation:
+      summary: Translating Multiple Market Identifiers into SEDOLs.
+      description: >-
+        Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into SEDOLs.
+      value:
+        data:
+          - fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL
+            sedol: BYVY8G0
+            sedolPrimary: BYVY8G0
+          - fsymId: MH33D6-R
+            name: Apple Inc.
+            requestId: AAPL
+            sedol: '2046251'
+            sedolPrimary: '2046251'
+          - fsymId: P8R3C2-R
+            name: Microsoft Corporation
+            requestId: MSFT
+            sedol: '2588173'
+            sedolPrimary: '2588173'
+    singleSedolTranslationPost:
+      summary: Translating a single market identifier into SEDOL from a Post Body.
+      description: Translating a market identifier (GOOGL-US) into SEDOL from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+    multipleSedolTranslationPost:
+      summary: Translating a multiple market identifiers into SEDOLs from a Post Body.
+      description: >-
+        Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into SEDOLs
+        from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleSedolHistory:
+      summary: Full history of SEDOL for a single market identifier.
+      description: >-
+        Full history of SEDOL for a single market identifier (GOOGL-US). No
+        asOfDate requested.
+      value:
+        data:
+          - asOfDate: null
+            fsymId: JBP9Z6-L
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-MEX
+            sedol: B043K04
+            sedolEffectiveEndDate: '2015-10-05'
+            sedolEffectiveStartDate: '2007-04-16'
+          - asOfDate: null
+            fsymId: JBP9Z6-L
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-MEX
+            sedol: BYZ5YB6
+            sedolEffectiveEndDate: null
+            sedolEffectiveStartDate: '2015-10-05'
+    singleSedolHistoryAsOf:
+      summary: Single SEDOL history request as of a specific date.
+      description: >
+        SEDOL of GOOGL-US as of 2014-01-01. Note, asOfDate was originally
+        requested, and therefore the entire history of translations was not
+        provided; only the SEDOL in which was effictive during the requested
+        asOfDate.
+      value:
+        data:
+          - asOfDate: '2014-01-01'
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-US
+            sedol: B020QX2
+            sedolEffectiveEndDate: '2015-10-05'
+            sedolEffectiveStartDate: '2004-08-19'
+    multipleSedolHistory:
+      summary: Full history of SEDOLs for multiple market identifiers.
+      description: >-
+        Full history of SEDOLs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US). No asOfDate Requested.
+      value:
+        data:
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-US
+            sedol: B020QX2
+            sedolEffectiveEndDate: '2015-10-05'
+            sedolEffectiveStartDate: '2004-08-19'
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-US
+            sedol: BYVY8G0
+            sedolEffectiveEndDate: null
+            sedolEffectiveStartDate: '2015-10-05'
+          - asOfDate: null
+            fsymId: MH33D6-R
+            name: Apple Inc.
+            requestId: AAPL-US
+            sedol: '2046251'
+            sedolEffectiveEndDate: null
+            sedolEffectiveStartDate: '1980-12-12'
+          - asOfDate: null
+            fsymId: P8R3C2-R
+            name: Microsoft Corporation
+            requestId: MSFT-US
+            sedol: '2588173'
+            sedolEffectiveEndDate: null
+            sedolEffectiveStartDate: '1986-03-13'
+    singleSedolHistoryPost:
+      summary: Full history of SEDOL for a single market identifier.
+      description: Full history of SEDOL for a single market identifier (GOOGL-US).
+      value:
+        ids:
+          - GOOGL-US
+    singleSedolHistoryPostAsOf:
+      summary: Requesting the SEDOL for GOOGL-US as of 2014-01-01.
+      description: Requesting the SEDOL for GOOGL-US as of 2014-01-01.
+      value:
+        ids:
+          - GOOGL-US
+        asOfDate: '2014-01-01'
+    multipleSedolHistoryPost:
+      summary: Full history of SEDOLs for multiple market identifiers.
+      description: >-
+        Full history of SEDOLs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleIsinTranslation:
+      summary: Translating a single market identifier into ISIN.
+      description: Translating Single Market Identifier (GOOGL-US) into ISIN.
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US02079K305
+            requestId: GOOGL-US
+    multipleIsinTranslation:
+      summary: Translating Multiple Market Identifiers into ISINs.
+      description: >-
+        Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into ISINs.
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US02079K305
+            requestId: GOOGL-US
+          - fsymId: R85KLC-S
+            name: Apple Inc.
+            isin: US0378331005
+            requestId: AAPL-US
+          - fsymId: DF3K29-S
+            name: Microsoft Corporation
+            isin: US5949181045
+            requestId: MSFT-US
+    singleIsinTranslationPost:
+      summary: Translating a single market identifier into ISIN from a Post Body.
+      description: Translating a market identifier (GOOGL-US) into ISIN from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+    multipleIsinTranslationPost:
+      summary: Translating a multiple market identifiers into ISINs from a Post Body.
+      description: >-
+        Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into ISINs
+        from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleIsinHistory:
+      summary: Full history of ISIN for a single market identifier.
+      description: Full history of ISIN for a single market identifier (GOOGL-US).
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US38259P5089
+            isinEffectiveStartDate: '2004-08-19'
+            isinEffectiveEndDate: '2015-10-05'
+            requestId: GOOGL-US
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US02079K3059
+            isinEffectiveStartDate: '2015-10-05'
+            isinEffectiveEndDate: null
+            requestId: GOOGL-US
+    multipleIsinHistory:
+      summary: Full history of ISINs for multiple market identifiers.
+      description: >-
+        Full history of ISINs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      value:
+        data:
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US38259P5089
+            isinEffectiveStartDate: '2004-08-19'
+            isinEffectiveEndDate: '2015-10-05'
+            requestId: GOOGL-US
+          - fsymId: XF9TK6-S
+            name: Alphabet Inc. Class A
+            isin: US02079K3059
+            isinEffectiveStartDate: '2015-10-05'
+            isinEffectiveEndDate: null
+            requestId: GOOGL-US
+          - fsymId: R85KLC-S
+            name: Apple Inc.
+            isin: US0378331005
+            isinEffectiveStartDate: '1980-12-12'
+            isinEffectiveEndDate: null
+            requestId: AAPL-US
+          - fsymId: DF3K29-S
+            name: Microsoft Corporation
+            isin: US5949181045
+            isinEffectiveStartDate: '1986-03-13'
+            isinEffectiveEndDate: null
+            requestId": MSFT-US
+    singleIsinHistoryAsOf:
+      summary: Single Security ISIN Translation as of a requested date
+      description: Translating GOOGL-US into ISIN as of 2014-01-01.
+      value:
+        data:
+          - asOfDate: '2014-01-01'
+            fsymId: HTM0LK-R
+            isin: US38259P5089
+            isinEffectiveEndDate: '2015-10-05'
+            isinEffectiveStartDate: '2004-08-19'
+            name: Alphabet Inc. Class A
+            requestId: GOOGL-US
+    singleIsinHistoryPost:
+      summary: Full history for ISIN for a single market identifier.
+      description: Full history for ISIN for a single market identifier (GOOGL-US).
+      value:
+        ids:
+          - GOOGL-US
+    multipleIsinHistoryPost:
+      summary: Full history for ISINs for multiple market identifiers.
+      description: >-
+        Full history for ISINs for multiple market identifiers (GOOGL-US,
+        AAPL-US, MSFT-US).
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    singleIsinHistoryPostAsOf:
+      summary: Requesting the ISIN for GOOGL-US as of 2014-01-01.
+      description: Requesting the ISIN for GOOGL-US as of 2014-01-01.
+      value:
+        ids:
+          - GOOGL-US
+        asOfDate: '2014-01-01'
+    singleTickerTranslation:
+      summary: Translating a single market identifier into Ticker.
+      description: Translating Single Market Identifier (HTM0LK-R) into Ticker.
+      value:
+        data:
+          - fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOGL-US
+    multipleTickerTranslation:
+      summary: Translating Multiple Market Identifiers into Tickers.
+      description: >-
+        Translating Multiple Market Identifiers (HTM0LK-R, US0378331005,
+        '2588173') into Tickers.
+      value:
+        data:
+          - fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOGL-US
+          - fsymId: MH33D6-R
+            name: Apple Inc.
+            requestId: US0378331005
+            ticker: AAPL-US
+          - fsymId: P8R3C2-R
+            name: Microsoft Corporation
+            requestId: '2588173'
+            ticker: MSFT-US
+    singleTickerTranslationPost:
+      summary: Translating a single market identifier into Ticker from a Post Body.
+      description: Translating a market identifier (HTM0LK-R) into Ticker from a Post Body.
+      value:
+        ids:
+          - HTM0LK-R
+        tickerType: REGION
+    multipleTickerTranslationPost:
+      summary: Translating multiple market identifiers into Tickers from a Post Body.
+      description: >-
+        Translating market identifiers (HTM0LK-R, US0378331005, '2588173') into
+        corresponding Tickers.
+      value:
+        ids:
+          - HTM0LK-R
+          - US0378331005
+          - '2588173'
+        tickertype: REGION
+    singleTickerHistory:
+      summary: Full history of Ticker for a single market identifier.
+      description: Full history of Ticker for a single market identifier (HTM0LK-R).
+      value:
+        data:
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOG-US
+            tickerEffectiveStartDate: '2004-08-19'
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOGL-US
+            tickerEffectiveStartDate: '2014-04-03'
+    singleTickerHistoryAsOf:
+      summary: Translate market ids to tickers As of requested date.
+      description: Full history of Ticker for a single market identifier (HTM0LK-R).
+      value:
+        data:
+          - asOfDate: '2014-12-29'
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOGL-US
+            tickerEffectiveStartDate: '2014-04-03'
+    multipleTickerHistory:
+      summary: Full history of Tickers for multiple market identifiers.
+      description: >-
+        Full history of Tickers for multiple market identifiers (HTM0LK-R,
+        US0378331005, '2588173').
+      value:
+        data:
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOG-US
+            tickerEffectiveStartDate: '2004-08-19'
+          - asOfDate: null
+            fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            requestId: HTM0LK-R
+            ticker: GOOGL-US
+            tickerEffectiveStartDate: '2014-04-03'
+          - asOfDate: null
+            fsymId: MH33D6-R
+            name: Apple Inc.
+            requestId: US0378331005
+            ticker: AAPL-US
+            tickerEffectiveStartDate: '1980-12-12'
+          - asOfDate: null
+            fsymId: P8R3C2-R
+            name: Microsoft Corporation
+            requestId: '2588173'
+            ticker: MSFT-US
+            tickerEffectiveStartDate: '1986-03-13'
+    singleTickerHistoryPost:
+      summary: Full history of Ticker for a single market identifier.
+      description: Full history of Ticker for a single market identifier (HTM0LK-R).
+      value:
+        ids:
+          - HTM0LK-R
+        tickerType: REGION
+    singleTickerHistoryPostAsOf:
+      summary: Single Market Identifier Translation request to Ticker as of 2014-01-01
+      description: >-
+        Single Market Identifier Translation request to Ticker as of 2014-01-01
+        (HTM0LK-R).
+      value:
+        ids:
+          - HTM0LK-R
+        tickerType: REGION
+        asOfDate: '2014-01-01'
+    multipleTickerHistoryPost:
+      summary: Full history of Tickers for multiple market identifiers.
+      description: >-
+        Full history of Tickers for multiple market identifiers (HTM0LK-R,
+        US0378331005, '2588173').
+      value:
+        ids:
+          - HTM0LK-R
+          - US0378331005
+          - '2588173'
+        tickertype: REGION
+    singleBloombergTranslation:
+      summary: Translating a single market identifier into Bloomberg FIGI.
+      description: Translating Single Market Identifier (GOOGL-US) into Bloomberg FIGI.
+      value:
+        data:
+          - fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            bbgSecurityId: BBG009S39JY5
+            bbgCompositeId: BBG009S39JX6
+            bbgListingId: BBG009S4MT03
+            bbgTickerListing: GOOGL UW
+            bbgTickerComposite: GOOGL US
+            requestId: GOOGL-US
+    multipleBloombergTranslation:
+      summary: Translating Multiple Market Identifiers into Bloomberg FIGIs.
+      description: >-
+        Translating Multiple Market Identifiers (GOOGL-US, AAPL-US, MSFT-US)
+        into Bloomberg FIGIs.
+      value:
+        data:
+          - fsymId: HTM0LK-R
+            name: Alphabet Inc. Class A
+            bbgSecurityId: BBG009S39JY5
+            bbgCompositeId: BBG009S39JX6
+            bbgListingId: BBG009S4MT03
+            bbgTickerListing: GOOGL UW
+            bbgTickerComposite: GOOGL US
+            requestId: GOOGL-US
+          - fsymId: MH33D6-R
+            name: Apple Inc.
+            bbgSecurityId: BBG001S5N8V8
+            bbgCompositeId: BBG000B9XRY4
+            bbgListingId: BBG000B9Y5X2
+            bbgTickerListing: AAPL UW
+            bbgTickerComposite: AAPL US
+            requestId: AAPL-US
+          - fsymId: 8R3C2-R
+            name: Microsoft Corporation
+            bbgSecurityId: BBG001S5TD05
+            bbgCompositeId: BBG000BPH459
+            bbgListingId: BBG000BPHFS9
+            bbgTickerListing: MSFT UW
+            bbgTickerComposite: MSFT US
+            requestId: MSFT-US
+    singleBloombergTranslationPost:
+      summary: Translating a single market identifier into Bloomberg from a Post Body.
+      description: >-
+        Translating a market identifier (GOOGL-US) into Bloomberg from a Post
+        Body.
+      value:
+        ids:
+          - GOOGL-US
+    multipleBloombergTranslationPost:
+      summary: >-
+        Translating a multiple market identifiers into Bloomberg from a Post
+        Body.
+      description: >-
+        Translating a market identifier (GOOGL-US, AAPL-US, MSFT-US) into
+        Bloomberg from a Post Body.
+      value:
+        ids:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-24 17:19:26.237'
+        path: /symbology/v2/{endpoint}
+        message: >-
+          The asOfDate parameter(s) must be in the following date format:
+          YYYY-MM-DD. 
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-24 17:17:24.963'
+        path: /symbology/v2/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      summary: Bad Request - Future Date
+      description: >-
+        This error message occurs when a future date is requested in the
+        startDate and endDate parameters. Please revise your request to include
+        dates as of today's current date or any prior historical date.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:52:48.091'
+        path: /symbology/v2/{endpoint}
+        message: >-
+          The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Invalid Parameters
+      description: >-
+        This error message occurs when a request parameter is used in which is
+        not recognized by the service. Please revise your request to include
+        only the parameters listed in the specification. Typical causes are
+        spelling mistakes and use of improper casing.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-12 15:58:54.068'
+        path: /symbology/v2/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification
+          for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-24 17:14:57.32'
+        path: /symbology/v2/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2019-11-04 16:18:38.949'
+        path: /symbology/v2/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2019-10-31 16:08:07.945'
+        path: /symbology/v2/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-06-12 16:08:51.731'
+        path: /symbology/v2/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use
+          /symbology/v2/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2019-11-05 09:42:27.237'
+        path: /symbology/v2/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-05 09:48:29.18'
+        path: /symbology/v2/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2019-11-01 10:36:01.944'
+        path: /symbology/v2/{endpoint}
+        message: Unexpected error
+        subErrors: null

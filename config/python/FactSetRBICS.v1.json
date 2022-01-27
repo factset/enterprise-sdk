@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetRBICS",
+  "projectName": "fds.sdk.FactSetRBICS",
+  "packageVersion": "0.9.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet SDK - FactSet RBICS",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetRBICS",
+  "httpUserAgent": "fds-sdk/python/FactSetRBICS/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

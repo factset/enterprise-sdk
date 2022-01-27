@@ -1,0 +1,14 @@
+{
+  "projectName": "@factset/sdk-exchangedatafeedsnapshotapisymbollist",
+  "projectVersion": "0.9.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "exchangedatafeedsnapshotapisymbollist",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/ExchangeDataFeedSnapshotAPISymbolList/0.9.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

@@ -1,0 +1,513 @@
+openapi: 3.0.0
+info:
+  description: |
+    The Factset Identifier Lookup API provides the ability to search for various identifier types based on keyword. The API returns tickers, entity names and other identifiers that Factset supports. In addition, the API offers filters that allows users to refine the results.
+  title: ID Lookup API
+  version: 1.0.0
+servers:
+- url: https://api.factset.com/idsearch
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/idsearch:
+    post:
+      description: |
+        Service will accept request in JSON formatted request body. The request is sent by passing a query which is an array conitaining search query objects with parameters. The parameters contain search term and filters defined by the end user. This would display a specific set of identifiers based on the request.
+      operationId: search companyname
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ID search Basic Example (equities):
+                $ref: '#/components/examples/lookup_basicrequest_equities'
+              ID search Basic Example (bonds):
+                $ref: '#/components/examples/lookup_basicrequest_bonds'
+              ID search Basic Example (private companies):
+                $ref: '#/components/examples/lookup_basicrequest_private_companies'
+              ID search Example using Filters:
+                $ref: '#/components/examples/lookup_filtersrequest'
+              Sample query using OR logic:
+                $ref: '#/components/examples/lookup_orlogicrequest'
+              Sample query using both OR & AND:
+                $ref: '#/components/examples/lookup_orandlogicrequest'
+            schema:
+              $ref: '#/components/schemas/lookup_request'
+        description: Post body to lookup any FactSet identifiers
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ID search Basic Response (equities):
+                  $ref: '#/components/examples/lookup_basicresponse_equities'
+                ID search Basic Response (bonds):
+                  $ref: '#/components/examples/lookup_basicresponse_bonds'
+                ID search Basic Response (private companies):
+                  $ref: '#/components/examples/lookup_basicresponse_private_companies'
+                ID search Response using filters:
+                  $ref: '#/components/examples/lookup_filtersresponse'
+                Sample response using OR logic:
+                  $ref: '#/components/examples/lookup_orlogicresponse'
+                Sample response using both OR & AND:
+                  $ref: '#/components/examples/lookup_orandlogicresponse'
+              schema:
+                $ref: '#/components/schemas/lookup_response'
+          description: A list of securities
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequest'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Authentication:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Authentication issue
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Authorization:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Search funtionality to return tickers, company names and unique identifiers
+        for FactSet data
+      tags:
+      - FactSet ID Lookup
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    lookup_basicrequest_equities:
+      description: ID search Basic Example for entity type as equities
+      summary: ID search Basic Example for entity type as equities
+      value:
+        query:
+          pattern: A
+          entities:
+          - equities
+        settings:
+          result_limit: 25
+    lookup_basicrequest_bonds:
+      description: ID search Basic Example for entity type as bonds
+      summary: ID search Basic Example for entity type as  bonds
+      value:
+        query:
+          pattern: Bank
+          entities:
+          - bonds
+        settings:
+          result_limit: 25
+    lookup_basicrequest_private_companies:
+      description: ID search Basic Example for entity type as private_companies
+      summary: ID search Basic Example for entity type as private_companies
+      value:
+        query:
+          pattern: group
+          entities:
+          - private_companies
+        settings:
+          result_limit: 25
+    lookup_filtersrequest:
+      description: ID search Example using Filters
+      summary: ID search Example using Filters
+      value:
+        query:
+          pattern: us
+          entities:
+          - bonds
+          filters:
+            include:
+            - field: maturity_year
+              entity: bonds
+              values:
+              - 2021
+            exclude: []
+        settings:
+          result_limit: 25
+    lookup_orlogicrequest:
+      description: Sample query using OR logic
+      summary: Sample query using OR logic
+      value:
+        query:
+          pattern: air
+          entities:
+          - equities
+          - private_companies
+    lookup_orandlogicrequest:
+      description: Sample query using both OR & And logic
+      summary: Sample query using both OR & AND logic
+      value:
+        query:
+          pattern: group
+          entities:
+          - equities
+          filters:
+            include:
+            - field: equity_type
+              entity: equities
+              values:
+              - EQ_DR_GDR
+            - field: region
+              values:
+              - GB
+              - DE
+            exclude: []
+    lookup_basicresponse_equities:
+      description: ID search Basic Response for entity type as equities
+      summary: ID search Basic Response for entity type as equities
+      value:
+        typehead:
+          result_count:
+            equities: 25
+          error: "null"
+          is_success: 1
+          results:
+          - index: equities
+            symbol: A-US
+            name: Agilent Technologies,Inc.
+            entity_id: 002LV5-E
+          - index: equities
+            symbol: AAPL-US
+            name: Apple Inc.
+            entity_id: 000C7F-E
+    lookup_basicresponse_bonds:
+      description: ID search Basic Response for entity type as bonds
+      summary: ID search Basic Response for entity type as bonds
+      value:
+        typehead:
+          result_count:
+            bonds: 25
+          error: "null"
+          is_success: 1
+          results:
+          - index: bonds
+            symbol: XS2027359756
+            name: Vietnam Prosperity Joint-Stock Commercial Bank 6.25% 17-JUL-2022
+            ticker: XS2027359756
+          - index: bonds
+            symbol: XS2058731717
+            name: Shinhan Bank Co., Ltd. 0.25% 16-OCT-2024
+            ticker: XS2058731717
+    lookup_basicresponse_private_companies:
+      description: ID search Basic Response for entity type as private_companies
+      summary: ID search Basic Response for entity type as private_companies
+      value:
+        typehead:
+          result_count:
+            private_companies: 25
+          error: "null"
+          is_success: 1
+          results:
+          - index: private_companies
+            symbol: 0DRWHW-E
+            name: BEWiSynbra Group AB
+            fds_id: 0DRWHW-E
+          - index: private_companies
+            symbol: 0DD45D-E
+            name: Shawbrook Group Plc
+            fds_id: 0DD45D-E
+    lookup_filtersresponse:
+      description: ID search response using Filters
+      summary: ID search response using Filters
+      value:
+        typehead:
+          result_count:
+            bonds: 10
+          error: "null"
+          is_succes: 1
+          results:
+          - index: bonds
+            symbol: FDS-US
+            name: Factset Research Systems Inc
+            entity_id: 00BDWZ-E
+    lookup_orlogicresponse:
+      description: sample response using OR logic
+      summary: sample response using OR logic
+      value:
+        typehead:
+          result_count:
+            private_companies: 10
+            equities: 10
+          error: "null"
+          is_success: 1
+          results:
+          - index: equities
+            symbol: AIR-US
+            name: AAR CORP
+            entity_id: 000BFS-E
+          - index: private_companies
+            name: Air Products GmbH
+            entity_id: 05MR9R-E
+    lookup_orandlogicresponse:
+      description: sample response using both OR & AND logic
+      summary: sample response using both OR & AND logic
+      value:
+        typehead:
+          result_count:
+            equities: 10
+          error: "null"
+          is_succes: 1
+          results:
+          - index: equities
+            symbol: CPIC-GB
+            name: China pacific Insurance (Group) co.,Ltd.Sponsored GDR Class A RegS
+            entity_id: 06BF43-E
+          - index: equities
+            symbol: PJP-DE
+            name: XS Retail Group N.V. Sponsored GDR RegS
+            entity_id: 06L75Z-E
+    badRequest:
+      summary: Bad Request
+      value:
+        description: Bad Request. Please check your query again.
+    unauthenticated:
+      summary: User Authentication Failed
+      value:
+        description: User Authentication Failed
+    forbidden:
+      summary: Forbidden
+      value:
+        description: The user does not have permission to search. Please try again.
+    generalException:
+      summary: Internal Server Error
+      value:
+        description: The service you have requested has encountered an error. If the
+          problem persists, please contact the FactSet support representative with
+          the following request key
+        Requestkey: ACBL05BJKLYNBGY-L
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request:
+              $ref: '#/components/examples/badRequest'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Authentication:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Authentication issue
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Authorization:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Forbidden
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    lookup_request:
+      description: Lookup Request comprised of a single lookup object
+      properties:
+        query:
+          $ref: '#/components/schemas/lookup_object'
+        settings:
+          $ref: '#/components/schemas/lookup_limit'
+      title: Lookup Request
+      type: object
+    lookup_object:
+      properties:
+        pattern:
+          description: |
+            The string or keyword being searched on. Concurrent searches for multiple patterns is NOT supported
+          example: US
+          title: Search term
+          type: string
+        entities:
+          description: Asset class that is being searched against
+          example:
+          - bonds
+          items:
+            type: string
+          title: Asset Class
+          type: array
+        filters:
+          $ref: '#/components/schemas/filter_params'
+      title: Lookup Object
+      type: object
+    lookup_limit:
+      description: |
+        This parameters takes the value for number of results to be returnedby search. Maximum number of results returned are 25 and default value is 10.
+      properties:
+        result_limit:
+          example: 25
+          type: integer
+      title: Lookup Limit
+      type: object
+    filter_params:
+      description: |
+        The filters parameter (if used) must contain one or both of theinlcude and exclude filters
+      properties:
+        include:
+          description: This parameter filter objects to be included in the results
+          items:
+            $ref: '#/components/schemas/include_exclude_object'
+          type: array
+        exclude:
+          description: This parameter filter objects to be excluded from the results
+          example: []
+          items:
+            $ref: '#/components/schemas/include_exclude_object'
+          type: array
+      title: Filter Parameters
+      type: object
+    include_exclude_object:
+      description: |
+        Filters securities based on asset classes and other fields depending on the asset classes.
+      properties:
+        field:
+          description: |
+            String containing the field name to filter on. Each asset class has its own set of field (i.e. “equity_type”, “is_primary”, “region”,etc)
+          example: maturity_year
+          type: string
+        entity:
+          description: |
+            String containing the asset class for the filter to be applied on. If not included or left empty, it will apply the filter against all asset classes
+          example: bonds
+          type: string
+        values:
+          description: |
+            Values you wish to filter on, as a comma-separated list. The values within this list are tied by an OR operation.
+          items:
+            example: "2021"
+            type: object
+          type: array
+      title: Include Exclude Object
+      type: object
+    lookup_response:
+      description: Response object for a lookup request
+      example:
+        typehead:
+          result_count:
+            people: 10
+        error: error
+        is_success: 1
+        results:
+        - symbol: FDS-US
+          name: Factset Research Systems Inc
+          index: equities
+          entity_id: 00BDWZ-E
+        - symbol: FDS-US
+          name: Factset Research Systems Inc
+          index: equities
+          entity_id: 00BDWZ-E
+      properties:
+        typehead:
+          $ref: '#/components/schemas/lookup_count'
+        error:
+          type: string
+        is_success:
+          example: 1
+          type: integer
+        results:
+          description: Array of Lookup details for the query
+          items:
+            $ref: '#/components/schemas/response_details'
+          type: array
+      title: Lookup Response
+      type: object
+    lookup_count:
+      description: Returns the count of on entities
+      example:
+        result_count:
+          people: 10
+      properties:
+        result_count:
+          $ref: '#/components/schemas/lookup_assettype'
+      title: Lookup Count
+      type: object
+    lookup_assettype:
+      description: returns the count of assest classes
+      example:
+        people: 10
+      properties:
+        people:
+          example: 10
+          type: integer
+      title: Lookup Asset Type
+      type: object
+    response_details:
+      example:
+        symbol: FDS-US
+        name: Factset Research Systems Inc
+        index: equities
+        entity_id: 00BDWZ-E
+      properties:
+        index:
+          description: Type of Asset Class
+          example: equities
+          type: string
+        symbol:
+          description: |
+            Symbol is the only value that should be passed back to any FactSet services to retrieve data
+          example: FDS-US
+          type: string
+        name:
+          description: Name of the related entity
+          example: Factset Research Systems Inc
+          type: string
+        entity_id:
+          description: |
+            Displays Entity ID's for public companies and only if the asset class is equities
+          example: 00BDWZ-E
+          type: string
+      title: Response Details
+      type: object
+    errorResponse:
+      properties:
+        description:
+          type: string
+        RequestKey:
+          type: string
+      title: Error Response
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

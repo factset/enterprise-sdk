@@ -1,0 +1,3815 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: |
+    FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.
+  title: FactSet Benchmarks API
+  version: 1.4.0
+servers:
+- description: Production
+  url: https://api.factset.com/content
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /factset-benchmarks/v1/constituents:
+    get:
+      description: "Returns the requested Benchmark Constituents and respective Weights,\
+        \ Price and Market Value. You must be authorized for the `ids` requested.\
+        \ Use the helper endpoint **/id-list** for valid identifiers.  \n"
+      operationId: getBenchmarkConstituents
+      parameters:
+      - description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+          to get a sample list of  valid identifiers. You must be authorized for the
+          `ids` requested, otherwise you will receive an error. <p>***ids limit**
+          =  1 per request*</p>
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          minItems: 1
+          type: array
+        style: form
+      - description: Date of holding expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Currency for response.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Benchmark Constituent id SPY-US:
+                  $ref: '#/components/examples/resultofBenchmarkIDSPY-US'
+              schema:
+                $ref: '#/components/schemas/benchmarkConstituentsResponse'
+          description: Benchmark data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the requested Benchmark Constituents and respective Weights,
+        Price and Market Value.
+      tags:
+      - Benchmark Constituents
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. Use the helper endpoint **/id-list** for valid identifiers.
+      operationId: getBenchmarkConstituentsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/benchmarkConstituentsRequest'
+        description: Requests Benchmark Constituents for the given identifier and
+          date.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Benchmark Constituent SPY-US:
+                  $ref: '#/components/examples/resultofBenchmarkIDSPY-US'
+              schema:
+                $ref: '#/components/schemas/benchmarkConstituentsResponse'
+          description: Benchmark data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the requested Benchmark Constituents and respective Weights,
+        Price and Market Value.
+      tags:
+      - Benchmark Constituents
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-benchmarks/v1/fixed-income-constituents:
+    get:
+      description: |
+        Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested.
+      operationId: getFIBenchmarkConstituents
+      parameters:
+      - description: Fixed Income Benchmark Identifiers. You must be authorized for
+          the `ids` requested, otherwise you will receive an error. <p>***ids limit**
+          =  1 per request*</p>
+        example: LHMN0001
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          minItems: 1
+          type: array
+        style: form
+      - description: Date of holding expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Currency for response.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
+          description: Fixed Income Constituent data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the requested Fixed Income Benchmark Constituents and respective
+        Weights, Price and Market Value.
+      tags:
+      - Benchmark Constituents
+      x-accepts: application/json
+    post:
+      description: |
+        Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested.
+      operationId: getFIBenchmarkConstituentsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsRequest'
+        description: Requests Fixed Income Benchmark Constituents for the given identifier
+          and date.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fixedIncomeBenchmarkConstituentsResponse'
+          description: Fixed Income Constituent data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the requested Benchmark Constituents and respective Weights,
+        Price and Market Value.
+      tags:
+      - Benchmark Constituents
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-benchmarks/v1/index-snapshot:
+    get:
+      description: |
+        Retrieves Index Level Prices and Returns information as of a specific date. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.
+      operationId: getIndexSnapshot
+      parameters:
+      - description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+          to get a sample list of  valid identifiers. <p>***ids limit** =  500 per
+          request*</p> *<p>Make note, GET Method URL request lines are also limited
+          to a total length of 8192 bytes (8KB). In cases where the service allows
+          for thousands of ids, which may lead to exceeding this request line limit
+          of 8KB, its advised for any requests with large request lines to be requested
+          through the respective "POST" method.</p>*
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        style: form
+      - description: Date of holding expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The return type adjustment used in returns response items. Adjustment
+          can be made for GROSS and NET dividends that will be included in the return
+          calculation. The service will default to GROSS.
+        explode: true
+        in: query
+        name: returnType
+        required: false
+        schema:
+          default: GROSS
+          enum:
+          - GROSS
+          - NET
+          type: string
+        style: form
+      - description: Currency for response.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: FIVEDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level Prices and Returns snapshot for S&P 500 and Russell 3000 as of 2020-08-06:
+                  $ref: '#/components/examples/resultofIndexSnapshotMultiple'
+              schema:
+                $ref: '#/components/schemas/indexSnapshotResponse'
+          description: An array of Index Level Prices and Returns information as of
+            a single date
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Index Level Prices, Returns, and related information as of a single
+        date.
+      tags:
+      - Index Level
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.
+      operationId: getIndexSnapshotForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/indexSnapshotRequest'
+        description: Requests the Index Level Snapshot for a requested list of identifiers
+          and specified date.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level Prices and Returns snapshot for S&P 500 and Russell 3000 as of 2020-08-06:
+                  $ref: '#/components/examples/resultofIndexSnapshotMultiple'
+              schema:
+                $ref: '#/components/schemas/indexSnapshotResponse'
+          description: An array of Index Level Prices and Returns information as of
+            a single date.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieves the Index Level Snapshot of Prices and Returns information
+        for a given identifier and single date.
+      tags:
+      - Index Level
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-benchmarks/v1/index-history:
+    get:
+      description: |
+        Retrieves Index Level Prices and Returns information as of a date range requested. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date range to retrieve Index Level Prices, Returns, and related information.
+      operationId: getIndexHistory
+      parameters:
+      - description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+          to get a sample list of  valid identifiers. <p>***ids limit** =  500 per
+          request*</p> *<p>Make note, GET Method URL request lines are also limited
+          to a total length of 8192 bytes (8KB). In cases where the service allows
+          for thousands of ids, which may lead to exceeding this request line limit
+          of 8KB, its advised for any requests with large request lines to be requested
+          through the respective "POST" method.</p>*
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        style: form
+      - description: Requested start date expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Requested End Date for Range expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Controls the display frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **M** = Monthly, based on the last trading day of the month.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+            * **AY** = Actual Annual, based on the start date.
+            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+        examples:
+          Daily:
+            summary: D - Daily frequency display based on trading calendar
+            value: D
+          Weekly:
+            summary: W - Weekly - based on the last day of the week of the start date
+            value: W
+          Monthly:
+            summary: M - Monthly - based on the last trading day of the month.
+            value: M
+          Actual Month:
+            summary: AM - Actual Month - based on the startDate (e.g., if the start
+              date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            value: AM
+          Calendar Quarterly:
+            summary: CQ - Calendar Quarterly - based on the last day of the week of
+              the startDate
+            value: CQ
+          Actual Annual:
+            summary: AY - Actual Annual - based on the startDate
+            value: AY
+          Calendar Annual:
+            summary: CY - Calendar Annual - based on the last trading day of the calendar
+              year.
+            value: CY
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - AY
+          - CY
+          type: string
+        style: form
+      - description: The return type adjustment used in returns response items. Adjustment
+          can be made for GROSS and NET dividends that will be included in the return
+          calculation. The service will default to GROSS.
+        explode: true
+        in: query
+        name: returnType
+        required: false
+        schema:
+          default: GROSS
+          enum:
+          - GROSS
+          - NET
+          type: string
+        style: form
+      - description: Currency for response.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Calendar of data returned. SEVENDAY includes weekends.
+        example: FIVEDAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: FIVEDAY
+          enum:
+          - FIVEDAY
+          - SEVENDAY
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level Prices and Returns snapshot for S&P 500 and Russell 3000 from 2020-08-05 to 2020-08-06:
+                  $ref: '#/components/examples/resultofIndexHistoryMultiple'
+              schema:
+                $ref: '#/components/schemas/indexHistoryResponse'
+          description: An array of Index Level Prices and Returns information for
+            a requested date range.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieves Index Level Prices and Returns information for a list of
+        identifiers and historical date range.
+      tags:
+      - Index Level
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.
+      operationId: getIndexHistoryForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/indexHistoryRequest'
+        description: Requests Index Level History Prices and Returns for a list of
+          identifiers and specified date range.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level Prices and Returns snapshot for S&P 500 and Russell 3000 from 2020-08-05 to 2020-08-06:
+                  $ref: '#/components/examples/resultofIndexHistoryMultiple'
+              schema:
+                $ref: '#/components/schemas/indexHistoryResponse'
+          description: An array of Index Level Prices and Returns information for
+            a requested date range.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieves Index Level Prices and Returns information for a list of
+        identifiers and historical date range.
+      tags:
+      - Index Level
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-benchmarks/v1/ratios:
+    get:
+      description: |
+        Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines fundamental, estimates, and pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p>
+      operationId: getBenchmarkRatios
+      parameters:
+      - description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+          to get a sample list of  valid identifiers. <p>***ids limit** =  500 per
+          request*</p> *<p>Make note, GET Method URL request lines are also limited
+          to a total length of 8192 bytes (8KB). In cases where the service allows
+          for thousands of ids, which may lead to exceeding this request line limit
+          of 8KB, its advised for any requests with large request lines to be requested
+          through the respective "POST" method.</p>*
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Requested List of  FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.
+          |metric item|Description|category|periodicity
+          |:---|:---|:---|:---|
+          |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
+          |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |ROA|Return on Assets|Profitability (%)|LTM
+          |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
+          |ROIC|Return on Invested Capital|Profitability (%)| LTM
+          |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
+          |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |PEX|Price/Earnings (excl negatives)|Valuation|LTM
+          |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+          |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
+          |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+          |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
+          |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
+          |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
+          |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
+          |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
+          |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
+          |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
+          |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
+          |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
+          |LTD_FFO|LT Debt/FFO|Coverage|LTM
+          |FCF_DEBT|FCF/Total Debt|Coverage|LTM
+          |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
+          |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
+          |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
+          |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
+          |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
+          |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
+          |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
+          |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
+          |<p>***metrics limit** =  38 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
+        examples:
+          Single Metric:
+            summary: LTD_EQ
+            value:
+            - LTD_EQ
+          Multiple Metrics:
+            summary: PEX, LTD_EQ, DEBT_EQ
+            value:
+            - PEX
+            - LTD_EQ
+            - DEBT_EQ
+        explode: false
+        in: query
+        name: metrics
+        required: true
+        schema:
+          example:
+          - PEX
+          - LTD_EQ
+          - DEBT_EQ
+          items:
+            type: string
+          maxItems: 38
+          minItems: 1
+          type: array
+        style: form
+      - description: Requested start date expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Requested End Date for Range expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Controls the display frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **M** = Monthly, based on the last trading day of the month.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+            * **AY** = Actual Annual, based on the start date.
+            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+        examples:
+          Daily:
+            summary: D - Daily frequency display based on trading calendar
+            value: D
+          Weekly:
+            summary: W - Weekly - based on the last day of the week of the start date
+            value: W
+          Monthly:
+            summary: M - Monthly - based on the last trading day of the month.
+            value: M
+          Actual Month:
+            summary: AM - Actual Month - based on the startDate (e.g., if the start
+              date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            value: AM
+          Calendar Quarterly:
+            summary: CQ - Calendar Quarterly - based on the last day of the week of
+              the startDate
+            value: CQ
+          Actual Annual:
+            summary: AY - Actual Annual - based on the startDate
+            value: AY
+          Calendar Annual:
+            summary: CY - Calendar Annual - based on the last trading day of the calendar
+              year.
+            value: CY
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - W
+          - M
+          - AM
+          - CQ
+          - AY
+          - CY
+          type: string
+        style: form
+      - description: |
+          The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric.
+          |Periodicity| Description|
+          |:---|:---|
+          |LTM| Last Twelve Months
+          |LTMA| Last Twelve Months using Broker Actuals for Estimated Items
+          |STMA| Second Twelve Month Forward
+          |NTMA| 12 Month Forward
+          |0| Latest Reported Calendar Year
+          |1| Current Unreported Year
+          |2| Following Year
+          |QTR| Quarterly - Reported by companies
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: LTM
+          enum:
+          - LTM
+          - LTMA
+          - STMA
+          - NTMA
+          - "0"
+          - "1"
+          - "2"
+          - QTR
+          type: string
+        style: form
+      - description: Currency for response.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                All Index Level Ratios for S&P 500 as of latest year end:
+                  $ref: '#/components/examples/allRatiosSP50'
+              schema:
+                $ref: '#/components/schemas/benchmarkRatiosResponse'
+          description: Benchmark Ratio data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the aggregated ratios of a requested benchmark
+      tags:
+      - Index Level
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines FactSet Fundamental, FactSet Estimates, and FactSet Pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p>
+      operationId: getBenchmarkRatiosForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Requesting all Index Level Ratios:
+                $ref: '#/components/examples/allRatiosRequest'
+            schema:
+              $ref: '#/components/schemas/benchmarkRatiosRequest'
+        description: Requests benchmark ratios for a given id
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                All Index Level Ratios for S&P 500 as of latest year end:
+                  $ref: '#/components/examples/allRatiosSP50'
+              schema:
+                $ref: '#/components/schemas/benchmarkRatiosResponse'
+          description: Benchmark Ratio Response Items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the aggregated ratios of a requested benchmark
+      tags:
+      - Index Level
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-benchmarks/v1/id-list:
+    get:
+      description: Returns a **sample** list of Benchmark Identifiers to use in other
+        Benchmark API endpoints. This is a supporting API to be use alongside the
+        other Benchmark API endpoints. For example, use the fsymID value returned
+        in this response as the input to your `ids` parameter in the /constituents
+        endpoint to return constituents for that id.<p> *This is not the full list
+        of benchmark ids allowed in this service, but rather a representation of the
+        most commonly requested. For complete assistance with ID lookup or concordance
+        services, please reach out to FactSet Support. *</p>
+      operationId: getBenchmarkIds
+      parameters:
+      - description: |
+          Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
+          * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
+          * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+          * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
+          * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
+          * **GLOBAL INDICES** - A mix of major indices across the globe.
+          * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
+          * **RUSSELL** - US, Global, and Nomura.
+          * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+          * **STOXX** - Total Market, Europe, and Nordic
+          * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+        explode: true
+        in: query
+        name: familyFilter
+        required: false
+        schema:
+          enum:
+          - CHINA_HK_INDICES
+          - DOW_JONES
+          - FACTSET_MARKET_INDICES
+          - FTSE
+          - GLOBAL_INDICES
+          - MSCI
+          - RUSSELL
+          - SP
+          - STOXX
+          - TOPIX
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Benchmark Constituent SPY-US:
+                  $ref: '#/components/examples/resultofBenchmarkID-TOPIX'
+              schema:
+                $ref: '#/components/schemas/benchmarkIdListResponse'
+          description: List of sample Benchmark Ids
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns a sample list of Benchmark Identifiers and the benchmark categorization
+        to use in other Benchmark API endpoints.
+      tags:
+      - Helper
+      x-accepts: application/json
+    post:
+      description: Returns a **sample** list of Benchmark Identifiers to use in other
+        Benchmark API endpoints. This is a supporting API to be use alongside the
+        other Benchmark API endpoints. For example, use the fsymID value returned
+        in this response as the input to your `ids` parameter in the /constituents
+        endpoint to return constituents for that id.<p> *This is not the full list
+        of benchmark ids allowed in this service, but rather a representation of the
+        most commonly requested. For complete assistance with ID lookup or concordance
+        services, please reach out to FactSet Support.*</p>
+      operationId: getBenchmarkIdsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/benchmarkIdListRequest'
+        description: Requests a sample list of identifiers that can be used in other
+          Benchmarks API endpoints.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Benchmark Constituent SPY-US:
+                  $ref: '#/components/examples/resultofBenchmarkID-TOPIX'
+              schema:
+                $ref: '#/components/schemas/benchmarkIdListResponse'
+          description: List of sample Benchmark Ids
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns a sample list of Benchmark Identifiers and the benchmark categorization
+        to use in other Benchmark API endpoints.
+      tags:
+      - Helper
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    resultofBenchmarkIDSPY-US:
+      description: |
+        This is the list of all constituents that make up the SPDR S&P 500 ETF (SPY-US) as of 2020-07-01. The ETF is used as a proxy for S&P 500 Benchmark. To limit the response size of specification file, only first 10 items are shown.
+      summary: Result of Benchmark Constituent Id SPY-US (only first 10 records for
+        example purpose).
+      value:
+        data:
+        - adjHolding: 0.89521
+          adjMarketValue: 304.908526
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: F07Q7W-R
+          fsymSecurityId: TKPJVY-S
+          price: 340.6
+          requestId: SPY-US
+          unadjHolding: 0.89521
+          weightClose: 0.092687242574555
+        - adjHolding: 15.456894
+          adjMarketValue: 1168.69575534
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: MKC1SV-R
+          fsymSecurityId: K6TLGQ-S
+          price: 75.61
+          requestId: SPY-US
+          unadjHolding: 15.456894
+          weightClose: 0.355264539145919
+        - adjHolding: 3.212757
+          adjMarketValue: 277.35731181
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: RFPMVX-R
+          fsymSecurityId: C8QZP6-S
+          price: 86.33
+          requestId: SPY-US
+          unadjHolding: 3.212757
+          weightClose: 0.084312120677006
+        - adjHolding: 1.164754
+          adjMarketValue: 156.34492942
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: JWH12W-R
+          fsymSecurityId: TLPSG8-S
+          price: 134.23
+          requestId: SPY-US
+          unadjHolding: 1.164754
+          weightClose: 0.047526320724968
+        - adjHolding: 6.780214
+          adjMarketValue: 178.18402392
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: LY653H-R
+          fsymSecurityId: Q0KPX4-S
+          price: 26.28
+          requestId: SPY-US
+          unadjHolding: 6.780214
+          weightClose: 0.0541650509569
+        - adjHolding: 5.847468
+          adjMarketValue: 261.14792088
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: FS32CR-R
+          fsymSecurityId: D1QS87-S
+          price: 44.66
+          requestId: SPY-US
+          unadjHolding: 5.847468
+          weightClose: 0.079384728948003
+        - adjHolding: 0.874856
+          adjMarketValue: 256.8139788
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: CN7T72-R
+          fsymSecurityId: C0SZHB-S
+          price: 293.55
+          requestId: SPY-US
+          unadjHolding: 0.874856
+          weightClose: 0.078067280905002
+        - adjHolding: 3.484578
+          adjMarketValue: 242.178171
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: X0N4MP-R
+          fsymSecurityId: D506QF-S
+          price: 69.5
+          requestId: SPY-US
+          unadjHolding: 3.484578
+          weightClose: 0.073618232904839
+        - adjHolding: 0.90688
+          adjMarketValue: 539.5210496
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: V9977J-R
+          fsymSecurityId: JPYYTB-S
+          price: 594.92
+          requestId: SPY-US
+          unadjHolding: 0.90688
+          weightClose: 0.164005641476728
+        - adjHolding: 2.505859
+          adjMarketValue: 855.62555555
+          currency: USD
+          date: 2021-03-08
+          fsymId: SPY-US
+          fsymRegionalId: KC6WDM-R
+          fsymSecurityId: BV8916-S
+          price: 341.45
+          requestId: SPY-US
+          unadjHolding: 2.505859
+          weightClose: 0.260096280220945
+    resultofBenchmarkID-TOPIX:
+      description: Result of requesting a sample list of using familyFilter set to
+        TOPIX. Each fsymId represents a unique Benchmark Id that can be used in other
+        benchmark endpoints.
+      summary: The list of Benchmark Ids under the family TOPIX
+      value:
+        data:
+        - fsymId: "180511"
+          name: Tokyo Stock Exchange 2nd Section
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "152470"
+          name: Tokyo Stock Exchange Mothers
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "152471"
+          name: Tokyo Stock Exchange REIT
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "180460"
+          name: TOPIX
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182297"
+          name: TOPIX 100
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "152469"
+          name: TOPIX 1000
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182301"
+          name: TOPIX 500
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182295"
+          name: TOPIX Core 30
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182296"
+          name: TOPIX Large 70
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "180710"
+          name: TOPIX Large Cap
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182300"
+          name: TOPIX Mid 400
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "180711"
+          name: TOPIX Mid Cap
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "182302"
+          name: TOPIX Small
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+        - fsymId: "180712"
+          name: TOPIX Small Cap
+          familyName: TOPIX
+          market: TOPIX Indices
+          categoryDescription: TOPIX Indices
+    resultofIndexSnapshotMultiple:
+      description: The Price and Returns of S&P 500 and Russell 3000 as of 2020-08-06
+      summary: Index Snapshot of Prices and Returns for Two Companies as of 2020-08-06
+      value:
+        data:
+        - constituentNumber: 505
+          currency: LOCAL
+          date: 2020-08-06
+          fsymId: SP50
+          marketValue: 2.7696158012077E7
+          name: S&P 500
+          price: 3349.15600690205
+          priceReturnPercent1D: 0.642620385795123
+          priceReturnPercentQTD: 8.02735451465131
+          priceReturnPercentYTD: 3.66394447660916
+          requestId: SP50
+          returnType: GROSS
+          totalReturnLevel: 6870.86168040129
+          totalReturnPercent1D: 0.653957589855003
+          totalReturnPercentQTD: 8.17415047623613
+          totalReturnPercentYTD: 4.84152796547426
+        - constituentNumber: 3000
+          currency: LOCAL
+          date: 2020-08-06
+          fsymId: R.3000
+          marketValue: 3.29544097735481E7
+          name: Russell 3000
+          price: 3596.989378
+          priceReturnPercent1D: 0.502392266457519
+          priceReturnPercentQTD: 8.22378331718046
+          priceReturnPercentYTD: 3.47683663855225
+          requestId: R.3000
+          returnType: GROSS
+          totalReturnLevel: 10597.086657
+          totalReturnPercent1D: 0.513265793869122
+          totalReturnPercentQTD: 8.35826463942657
+          totalReturnPercentYTD: 4.59191053652597
+    resultofIndexHistoryMultiple:
+      description: The Price and Returns history for the S&P 500 and Russell 3000
+        from 2020-08-05 to 2020-08-06
+      summary: Index History Prices and Returns for Two Companies over two days
+      value:
+        data:
+        - currency: LOCAL
+          date: 2020-08-05
+          fsymId: SP50
+          marketValue: 2.75193132948137E7
+          name: S&P 500
+          price: 3327.77107160334
+          priceReturnPercent: 0.643080929116979
+          requestId: SP50
+          returnType: GROSS
+          totalReturnLevel: 6826.22108948631
+          totalReturnPercent: 0.643080929117001
+        - currency: LOCAL
+          date: 2020-08-06
+          fsymId: SP50
+          marketValue: 2.7696158012077E7
+          name: S&P 500
+          price: 3349.15600690205
+          priceReturnPercent: 0.642620385795123
+          requestId: SP50
+          returnType: GROSS
+          totalReturnLevel: 6870.86168040129
+          totalReturnPercent: 0.653957589855003
+        - currency: LOCAL
+          date: 2020-08-05
+          fsymId: R.3000
+          marketValue: 3.27887607030179E7
+          name: Russell 3000
+          price: 3579.008715
+          priceReturnPercent: 0.751585489130235
+          requestId: R.3000
+          returnType: GROSS
+          totalReturnLevel: 10542.973182
+          totalReturnPercent: 0.751900743100942
+        - currency: LOCAL
+          date: 2020-08-06
+          fsymId: R.3000
+          marketValue: 3.29544097735481E7
+          name: Russell 3000
+          price: 3596.989378
+          priceReturnPercent: 0.502392266457519
+          requestId: R.3000
+          returnType: GROSS
+          totalReturnLevel: 10597.086657
+          totalReturnPercent: 0.513265793869122
+    allRatiosRequest:
+      description: |
+        Requesting all available index level ratios for S&P 500 on LTM basis as of latest calendar year end
+      summary: Requesting all available index level ratios for S&P 500 on LTM basis
+        as of latest calendar year end
+      value:
+        ids:
+        - SP50
+        periodicity: LTM
+        metrics:
+        - GROSS_MARGIN
+        - OPER_INC_SALES
+        - NET_MGN
+        - EBIT_MARGIN
+        - EBITDA_MARGIN
+        - ROA
+        - ROE
+        - ROIC
+        - FCF_MGN
+        - PE
+        - PEX
+        - PSALES
+        - PBK
+        - PCF
+        - PCFX
+        - PFCF
+        - EVAL_EBIT
+        - EVAL_EBITDA
+        - EVAL_SALES
+        - NDEBT_EBITDA
+        - NDEBT_EBITDA_MIN_CAPEX
+        - DEBT_EBITDA
+        - DEBT_EBIT
+        - EBIT_INT_EXP
+        - EBITDA_INT_EXP
+        - OPER_CF_INT_EXP
+        - LTD_EBITDA
+        - NDEBT_FFO
+        - LTD_FFO
+        - FCF_DEBT
+        - OPER_CF_DEBT
+        - LTD_EQ
+        - LTD_TCAP
+        - LTD_ASSETS
+        - DEBT_ASSETS
+        - DEBT_EQ
+        - NDEBT_TCAP
+        - DEBT_TCAP
+        frequency: CY
+    allRatiosSP50:
+      description: |
+        The response of requesting all available Index Level Ratios on a Last Twelve-Month basis as of latest calendar year end.
+      summary: Result of Fetching all avialable Index Level LTM Ratios for the S&P
+        500
+      value:
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: GROSS_MARGIN
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 31.9792508103446
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: OPER_INC_SALES
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 14.1443835805019
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: NET_MGN
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 10.6712678960164
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EBIT_MARGIN
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 13.9233219620531
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EBITDA_MARGIN
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 20.2564469882192
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: ROA
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 3.57523339824615
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: ROE
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 16.4002812973854
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: ROIC
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 8.89427850180667
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: FCF_MGN
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 11.7909348774282
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PE
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 21.5977805004107
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PEX
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 21.0620470124885
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PSALES
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 2.30475701679242
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PBK
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 3.54209675605922
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PCF
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 12.9919258671496
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PCFX
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 12.7987467084674
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: PFCF
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 19.6190668285358
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EVAL_EBIT
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 20.6321659086833
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EVAL_EBITDA
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 14.0500792506603
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EVAL_SALES
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 2.80945955717182
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: NDEBT_EBITDA
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 1.79159020571431
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: NDEBT_EBITDA_MIN_CAPEX
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 2.7472833444278
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: DEBT_EBITDA
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 2.56510943570962
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: DEBT_EBIT
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 3.76679465697695
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EBIT_INT_EXP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 7.11304856820085
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: EBITDA_INT_EXP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 10.4497127870097
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: OPER_CF_INT_EXP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 8.84109224468855
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: LTD_EBITDA
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 2.25145309045414
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: NDEBT_FFO
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 208.398439260982
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: LTD_FFO
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 262.009129565082
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: FCF_DEBT
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 18.426933255696
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: OPER_CF_DEBT
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 31.8745985665069
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: LTD_EQ
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 81.639940142797
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: LTD_TCAP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 42.2975432060763
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: LTD_ASSETS
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 27.8191040539674
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: DEBT_ASSETS
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 31.6946627066638
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: DEBT_EQ
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 93.0134328265381
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: NDEBT_TCAP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 33.6582025424296
+      - currency: USD
+        date: 2019-12-31
+        fsymId: SP50
+        metric: DEBT_TCAP
+        name: S&P 500
+        periodicity: LTM
+        requestId: SP50
+        value: 48.1901344711744
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:52:36.464
+        path: /factset-benchmarks/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-30 13:22:09.053
+        path: /factset-benchmarks/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestFutureDate:
+      description: This error message occurs when a future date is requested in the
+        date parameters. Please revise your request to include dates as of today's
+        current date or any prior historical date.
+      summary: Bad Request - Future Date
+      value:
+        status: Bad Request
+        timestamp: 2020-06-30 13:38:36.528
+        path: /factset-benchmarks/v1/{endpoint}
+        message: The use of future dates is not applicable in this endpoint. Please
+          revise your request to include dates up to today's current date.
+        subErrors: null
+    badRequestMoreThanOneBenchmarkIdentifier:
+      description: This error message occurs when user is passing more than one identifier
+        as an input.
+      summary: Bad Request - More Than One Benchmark Identifier
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 12:37:52.731
+        path: /factset-benchmarks/v1/constituents
+        message: You submitted 2 ids. The max number of ids you may submit is 1. Please
+          try again with fewer ids.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when user is passing Invalid Identifier.
+        Please use the helper endpoint */id-list* for sample Benchmark Identifiers.
+      summary: Bad Request - Passing invalid Benchmark Identifier
+      value:
+        status: Forbidden
+        timestamp: 2020-07-10 15:01:43.634
+        path: /factset-benchmarks/v1/constituents
+        message: User is not authorized for the id requested, please reach out to
+          FactSet for support
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON. But is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:59:09.649
+        path: /factset-benchmarks/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 16:18:38.949
+        path: /factset-benchmarks/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2020-07-02 16:08:07.945
+        path: /factset-benchmarks/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint/ID which
+        is not authorized to access. The request was a legal request, but the server
+        is refusing to respond. Please reach out to FactSet Account Team for assistance
+        with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-07-02 17:21:52.197
+        path: /factset-benchmarks/v1/{endpoint}
+        message: User is not authorized for the id requested, please reach out to
+          FactSet for support
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2020-07-02 09:42:27.237
+        path: /factset-benchmarks/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-benchmarks/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-benchmarks/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    constituentIds:
+      description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+        to get a sample list of  valid identifiers. You must be authorized for the
+        `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1
+        per request*</p>
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1
+        minItems: 1
+        type: array
+      style: form
+    fIConstituentIds:
+      description: Fixed Income Benchmark Identifiers. You must be authorized for
+        the `ids` requested, otherwise you will receive an error. <p>***ids limit**
+        =  1 per request*</p>
+      example: LHMN0001
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1
+        minItems: 1
+        type: array
+      style: form
+    indexIds:
+      description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+        to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total length
+        of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+        which may lead to exceeding this request line limit of 8KB, its advised for
+        any requests with large request lines to be requested through the respective
+        "POST" method.</p>*
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 500
+        minItems: 1
+        type: array
+      style: form
+    requestedDate:
+      description: Date of holding expressed in YYYY-MM-DD format.
+      explode: true
+      in: query
+      name: date
+      required: false
+      schema:
+        type: string
+      style: form
+    startDate:
+      description: Requested start date expressed in YYYY-MM-DD format.
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    endDate:
+      description: Requested End Date for Range expressed in YYYY-MM-DD format.
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: string
+      style: form
+    returnType:
+      description: The return type adjustment used in returns response items. Adjustment
+        can be made for GROSS and NET dividends that will be included in the return
+        calculation. The service will default to GROSS.
+      explode: true
+      in: query
+      name: returnType
+      required: false
+      schema:
+        default: GROSS
+        enum:
+        - GROSS
+        - NET
+        type: string
+      style: form
+    calendar:
+      description: Calendar of data returned. SEVENDAY includes weekends.
+      example: FIVEDAY
+      explode: true
+      in: query
+      name: calendar
+      required: false
+      schema:
+        default: FIVEDAY
+        enum:
+        - FIVEDAY
+        - SEVENDAY
+        type: string
+      style: form
+    currency:
+      description: Currency for response.
+      explode: true
+      in: query
+      name: currency
+      required: false
+      schema:
+        type: string
+      style: form
+    frequency:
+      description: |
+        Controls the display frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **AY** = Actual Annual, based on the start date.
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      examples:
+        Daily:
+          summary: D - Daily frequency display based on trading calendar
+          value: D
+        Weekly:
+          summary: W - Weekly - based on the last day of the week of the start date
+          value: W
+        Monthly:
+          summary: M - Monthly - based on the last trading day of the month.
+          value: M
+        Actual Month:
+          summary: AM - Actual Month - based on the startDate (e.g., if the start
+            date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          value: AM
+        Calendar Quarterly:
+          summary: CQ - Calendar Quarterly - based on the last day of the week of
+            the startDate
+          value: CQ
+        Actual Annual:
+          summary: AY - Actual Annual - based on the startDate
+          value: AY
+        Calendar Annual:
+          summary: CY - Calendar Annual - based on the last trading day of the calendar
+            year.
+          value: CY
+      explode: true
+      in: query
+      name: frequency
+      required: false
+      schema:
+        default: D
+        enum:
+        - D
+        - W
+        - M
+        - AM
+        - CQ
+        - AY
+        - CY
+        type: string
+      style: form
+    periodicity:
+      description: |
+        The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric.
+        |Periodicity| Description|
+        |:---|:---|
+        |LTM| Last Twelve Months
+        |LTMA| Last Twelve Months using Broker Actuals for Estimated Items
+        |STMA| Second Twelve Month Forward
+        |NTMA| 12 Month Forward
+        |0| Latest Reported Calendar Year
+        |1| Current Unreported Year
+        |2| Following Year
+        |QTR| Quarterly - Reported by companies
+      explode: true
+      in: query
+      name: periodicity
+      required: false
+      schema:
+        default: LTM
+        enum:
+        - LTM
+        - LTMA
+        - STMA
+        - NTMA
+        - "0"
+        - "1"
+        - "2"
+        - QTR
+        type: string
+      style: form
+    metrics:
+      description: |
+        Requested List of  FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.
+        |metric item|Description|category|periodicity
+        |:---|:---|:---|:---|
+        |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
+        |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |ROA|Return on Assets|Profitability (%)|LTM
+        |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
+        |ROIC|Return on Invested Capital|Profitability (%)| LTM
+        |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
+        |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |PEX|Price/Earnings (excl negatives)|Valuation|LTM
+        |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
+        |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
+        |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
+        |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
+        |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
+        |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
+        |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
+        |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
+        |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
+        |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
+        |LTD_FFO|LT Debt/FFO|Coverage|LTM
+        |FCF_DEBT|FCF/Total Debt|Coverage|LTM
+        |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
+        |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
+        |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
+        |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
+        |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
+        |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
+        |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
+        |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
+        |<p>***metrics limit** =  38 per request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for thousands
+        of ids, which may lead to exceeding this request line limit of 8KB, its
+        advised for any requests with large request lines to be requested through
+        the respective "POST" method.</p>*
+      examples:
+        Single Metric:
+          summary: LTD_EQ
+          value:
+          - LTD_EQ
+        Multiple Metrics:
+          summary: PEX, LTD_EQ, DEBT_EQ
+          value:
+          - PEX
+          - LTD_EQ
+          - DEBT_EQ
+      explode: false
+      in: query
+      name: metrics
+      required: true
+      schema:
+        example:
+        - PEX
+        - LTD_EQ
+        - DEBT_EQ
+        items:
+          type: string
+        maxItems: 38
+        minItems: 1
+        type: array
+      style: form
+    familyFilter:
+      description: |
+        Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
+        * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
+        * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
+        * **GLOBAL INDICES** - A mix of major indices across the globe.
+        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
+        * **RUSSELL** - US, Global, and Nomura.
+        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+        * **STOXX** - Total Market, Europe, and Nordic
+        * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+      explode: true
+      in: query
+      name: familyFilter
+      required: false
+      schema:
+        enum:
+        - CHINA_HK_INDICES
+        - DOW_JONES
+        - FACTSET_MARKET_INDICES
+        - FTSE
+        - GLOBAL_INDICES
+        - MSCI
+        - RUSSELL
+        - SP
+        - STOXX
+        - TOPIX
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Future Date:
+              $ref: '#/components/examples/badRequestFutureDate'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - More Than One Benchmark Identifier:
+              $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    benchmarkConstituentsRequest:
+      properties:
+        ids:
+          description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+            to get a sample list of  valid identifiers. You must be authorized for
+            the `ids` requested, otherwise you will receive an error.
+          example:
+          - SP50
+          items:
+            type: string
+          maxItems: 1
+          minItems: 1
+          title: Constituent Ids
+          type: array
+        date:
+          description: Date of holding expressed in YYYY-MM-DD format.
+          example: 2020-08-06
+          title: Date
+          type: string
+        currency:
+          description: Currency for response.
+          example: USD
+          title: Currency
+          type: string
+      required:
+      - ids
+      title: Benchmark Constituents Request
+      type: object
+    benchmarkConstituentsResponse:
+      example:
+        data:
+        - date: 2020-07-01T00:00:00.000+0000
+          weightClose: 0.085717610340781
+          adjMarketValue: 237.07895434
+          price: 267.97
+          requestId: SPY-US
+          fsymId: SPY-US
+          fsymSecurityId: TKPJVY-S
+          unadjHolding: 0.884722
+          currency: USD
+          adjHolding: 0.884722
+          fsymRegionalId: F07Q7W-R
+        - date: 2020-07-01T00:00:00.000+0000
+          weightClose: 0.085717610340781
+          adjMarketValue: 237.07895434
+          price: 267.97
+          requestId: SPY-US
+          fsymId: SPY-US
+          fsymSecurityId: TKPJVY-S
+          unadjHolding: 0.884722
+          currency: USD
+          adjHolding: 0.884722
+          fsymRegionalId: F07Q7W-R
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the metrics that can be requested
+            from the estimates APIs.
+          items:
+            $ref: '#/components/schemas/benchmarkConstituent'
+          type: array
+      title: Benchmark Constituents Response
+      type: object
+    benchmarkConstituent:
+      example:
+        date: 2020-07-01T00:00:00.000+0000
+        weightClose: 0.085717610340781
+        adjMarketValue: 237.07895434
+        price: 267.97
+        requestId: SPY-US
+        fsymId: SPY-US
+        fsymSecurityId: TKPJVY-S
+        unadjHolding: 0.884722
+        currency: USD
+        adjHolding: 0.884722
+        fsymRegionalId: F07Q7W-R
+      properties:
+        fsymId:
+          description: Benchmark Id
+          example: SPY-US
+          type: string
+        date:
+          description: Date of weight and shares.
+          example: 2020-07-01
+          format: date
+          type: string
+        fsymSecurityId:
+          description: FactSet Security Identifier (-S). If Cash or Generic Id holding,
+            response will just pass through generic id (e.g. CASH_USD).
+          example: TKPJVY-S
+          type: string
+        fsymRegionalId:
+          description: FactSet Regional Identifier (-R). If Cash or Generic Id holding,
+            response will just pass through generic id (e.g. CASH_USD).
+          example: F07Q7W-R
+          type: string
+        currency:
+          description: Currency code for prices.
+          example: USD
+          type: string
+        weightClose:
+          description: Weight of Security in benchmark (percent).
+          example: 0.085717610340781
+          format: double
+          type: number
+        adjHolding:
+          description: Shares held adjusted. Units in Millions.
+          example: 0.884722
+          format: double
+          type: number
+        unadjHolding:
+          description: Shares held unadjusted. Units in Millions.
+          example: 0.884722
+          format: double
+          type: number
+        price:
+          description: Price of shares held.
+          example: 267.97
+          format: double
+          type: number
+        adjMarketValue:
+          description: Market value adjusted. Market Value represented in Millions.
+          example: 237.07895434
+          format: double
+          type: number
+        requestId:
+          description: Identifier specified in the request
+          example: SPY-US
+          type: string
+      title: Benchmark Constituent
+      type: object
+    fixedIncomeBenchmarkConstituentsRequest:
+      properties:
+        ids:
+          description: Fixed Income Benchmark Identifiers. Reference the helper endpoint
+            **/id-list** to get a sample list of  valid identifiers. You must be authorized
+            for the `ids` requested, otherwise you will receive an error.
+          example:
+          - LHMN0001
+          items:
+            type: string
+          maxItems: 1
+          minItems: 1
+          title: Fixed Income Constituent Ids
+          type: array
+        date:
+          description: Date of holding expressed in YYYY-MM-DD format.
+          example: 2020-08-06
+          title: Date
+          type: string
+        currency:
+          description: Currency for response.
+          example: USD
+          title: Currency
+          type: string
+      required:
+      - ids
+      title: Fixed Income Benchmark Constituents Request
+      type: object
+    fixedIncomeBenchmarkConstituentsResponse:
+      example:
+        data:
+        - date: 2021-04-12T00:00:00.000+0000
+          weightClose: 0.00303380596473456
+          adjMarketValue: 757.233375
+          amountOutstanding: 700000
+          price: 106.976
+          requestId: LHMN0001
+          fsymId: LHMN0001
+          fsymSecurityId: FV4SC0-S
+        - date: 2021-04-12T00:00:00.000+0000
+          weightClose: 0.00303380596473456
+          adjMarketValue: 757.233375
+          amountOutstanding: 700000
+          price: 106.976
+          requestId: LHMN0001
+          fsymId: LHMN0001
+          fsymSecurityId: FV4SC0-S
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the metrics that can be requested
+            from the estimates APIs.
+          items:
+            $ref: '#/components/schemas/fixedIncomeBenchmarkConstituent'
+          type: array
+      title: Fixed Income Benchmark Constituents Response
+      type: object
+    fixedIncomeBenchmarkConstituent:
+      example:
+        date: 2021-04-12T00:00:00.000+0000
+        weightClose: 0.00303380596473456
+        adjMarketValue: 757.233375
+        amountOutstanding: 700000
+        price: 106.976
+        requestId: LHMN0001
+        fsymId: LHMN0001
+        fsymSecurityId: FV4SC0-S
+      properties:
+        fsymId:
+          description: Benchmark Id
+          example: LHMN0001
+          type: string
+        date:
+          description: Date of weight and shares.
+          example: 2021-04-12
+          format: date
+          type: string
+        fsymSecurityId:
+          description: FactSet Security Identifier (-S).
+          example: FV4SC0-S
+          type: string
+        weightClose:
+          description: Weight of Security in benchmark (percent).
+          example: 0.00303380596473456
+          format: double
+          type: number
+        amountOutstanding:
+          description: Amount Outstanding for the Fixed Income Security.
+          example: 700000
+          format: double
+          type: number
+        price:
+          description: Fixed Income Price of security held.
+          example: 106.976
+          format: double
+          type: number
+        adjMarketValue:
+          description: Market value adjusted. Market Value represented in Millions.
+          example: 757.233375
+          format: double
+          type: number
+        requestId:
+          description: Identifier specified in the request
+          example: LHMN0001
+          type: string
+      title: Benchmark Constituent
+      type: object
+    indexSnapshotRequest:
+      properties:
+        ids:
+          description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+            to get a sample list of  valid identifiers.
+          example:
+          - SP50
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          title: Index Ids
+          type: array
+        date:
+          description: Date of holding expressed in YYYY-MM-DD format.
+          example: 2020-08-06
+          title: Date
+          type: string
+        returnType:
+          $ref: '#/components/schemas/returnType'
+        currency:
+          description: Currency for response.
+          example: USD
+          title: Currency
+          type: string
+        calendar:
+          $ref: '#/components/schemas/calendar'
+      required:
+      - ids
+      title: Index Snapshot Request
+      type: object
+    indexSnapshotResponse:
+      example:
+        data:
+        - date: 2020-07-01T00:00:00.000+0000
+          totalReturnLevel: 6870.86168040129
+          totalReturnPercent1D: 0.653957589855003
+          priceReturnPercentYTD: 3.66394447660916
+          fsymId: SP50
+          marketValue: 27696158.012077
+          priceReturnPercentQTD: 8.02735451465131
+          priceReturnPercent1D: 0.642620385795123
+          totalReturnPercentYTD: 4.84152796547426
+          constituentNumber: 502
+          price: 3349.15600690205
+          requestId: SP50
+          name: S&P 500
+          currency: USD
+          totalReturnPercentQTD: 8.17415047623613
+          returnType: GROSS
+        - date: 2020-07-01T00:00:00.000+0000
+          totalReturnLevel: 6870.86168040129
+          totalReturnPercent1D: 0.653957589855003
+          priceReturnPercentYTD: 3.66394447660916
+          fsymId: SP50
+          marketValue: 27696158.012077
+          priceReturnPercentQTD: 8.02735451465131
+          priceReturnPercent1D: 0.642620385795123
+          totalReturnPercentYTD: 4.84152796547426
+          constituentNumber: 502
+          price: 3349.15600690205
+          requestId: SP50
+          name: S&P 500
+          currency: USD
+          totalReturnPercentQTD: 8.17415047623613
+          returnType: GROSS
+      properties:
+        data:
+          description: |
+            Array of index snapshot response objects.
+          items:
+            $ref: '#/components/schemas/indexSnapshot'
+          type: array
+      title: Index Snapshot Response
+      type: object
+    indexSnapshot:
+      example:
+        date: 2020-07-01T00:00:00.000+0000
+        totalReturnLevel: 6870.86168040129
+        totalReturnPercent1D: 0.653957589855003
+        priceReturnPercentYTD: 3.66394447660916
+        fsymId: SP50
+        marketValue: 27696158.012077
+        priceReturnPercentQTD: 8.02735451465131
+        priceReturnPercent1D: 0.642620385795123
+        totalReturnPercentYTD: 4.84152796547426
+        constituentNumber: 502
+        price: 3349.15600690205
+        requestId: SP50
+        name: S&P 500
+        currency: USD
+        totalReturnPercentQTD: 8.17415047623613
+        returnType: GROSS
+      properties:
+        fsymId:
+          description: Requested Identifier. Must be a valid Benchmark Identifier
+            recognized by FactSet.
+          example: SP50
+          type: string
+        date:
+          description: The respective date for values as of the date requested in
+            YYYY-MM-DD format.
+          example: 2020-07-01
+          format: date
+          type: string
+        name:
+          description: Proper Name of Index.
+          example: S&P 500
+          type: string
+        constituentNumber:
+          description: The total number of constituents as of the date requested.
+          example: 502
+          type: integer
+        currency:
+          description: Currency Code used in adjustments. If no Currency was requested,
+            the service will default to the local Calendar.
+          example: USD
+          type: string
+        marketValue:
+          description: Index Level Market Capitalization as of the date requested
+            expressed in millions.
+          example: 27696158.012077
+          format: double
+          type: number
+        price:
+          description: Index Level Price
+          example: 3349.15600690205
+          format: double
+          type: number
+        priceReturnPercent1D:
+          description: Index Level Price - 1 Day percent change
+          example: 0.642620385795123
+          format: double
+          type: number
+        priceReturnPercentQTD:
+          description: Index Level Price - Quarter-to-Date percent change
+          example: 8.02735451465131
+          format: double
+          type: number
+        priceReturnPercentYTD:
+          description: Index Level Price - Year-to-Date percent change
+          example: 3.66394447660916
+          format: double
+          type: number
+        totalReturnLevel:
+          description: Index Level Total Return Amount. (Gross or Net depends on requested
+            returnType)
+          example: 6870.86168040129
+          format: double
+          type: number
+        totalReturnPercent1D:
+          description: Index Level Total Return - 1 Day percent change. (Gross or
+            Net depends on requested returnType)
+          example: 0.653957589855003
+          format: double
+          type: number
+        totalReturnPercentQTD:
+          description: Index Level Total Return - Quarter-to-Date percent change.
+            (Gross or Net depends on requested returnType)
+          example: 8.17415047623613
+          format: double
+          type: number
+        totalReturnPercentYTD:
+          description: Index Level Total Return - Year-to-Date percent change. (Gross
+            or Net depends on requested returnType)
+          example: 4.84152796547426
+          format: double
+          type: number
+        returnType:
+          description: The requested Return Type - GROSS or NET
+          example: GROSS
+          type: string
+        requestId:
+          description: Benchmark Identifier specified in the request
+          example: SP50
+          type: string
+      title: Index Snapshot Object
+      type: object
+    indexHistoryRequest:
+      properties:
+        ids:
+          description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+            to get a sample list of  valid identifiers.
+          example:
+          - SP50
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          title: Index Ids
+          type: array
+        startDate:
+          description: Requested start date expressed in YYYY-MM-DD format.
+          example: 2018-12-31
+          title: Start Date
+          type: string
+        endDate:
+          description: Requested end date for Range expressed in YYYY-MM-DD format.
+          example: 2019-12-31
+          title: End Date
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        returnType:
+          $ref: '#/components/schemas/returnType'
+        currency:
+          description: Currency for response.
+          example: USD
+          title: Currency
+          type: string
+        calendar:
+          $ref: '#/components/schemas/calendar'
+      required:
+      - ids
+      title: Index History Request
+      type: object
+    indexHistoryResponse:
+      example:
+        data:
+        - date: 2020-07-01T00:00:00.000+0000
+          totalReturnLevel: 6870.86168040129
+          constituentNumber: 502
+          price: 3349.15600690205
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          marketValue: 27696158.012077
+          currency: USD
+          totalReturnPercent: 0.653957589855003
+          priceReturnPercent: 0.642620385795123
+          returnType: GROSS
+        - date: 2020-07-01T00:00:00.000+0000
+          totalReturnLevel: 6870.86168040129
+          constituentNumber: 502
+          price: 3349.15600690205
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          marketValue: 27696158.012077
+          currency: USD
+          totalReturnPercent: 0.653957589855003
+          priceReturnPercent: 0.642620385795123
+          returnType: GROSS
+      properties:
+        data:
+          description: |
+            Array of Index History response objects.
+          items:
+            $ref: '#/components/schemas/indexHistory'
+          type: array
+      title: Index History Response
+      type: object
+    indexHistory:
+      example:
+        date: 2020-07-01T00:00:00.000+0000
+        totalReturnLevel: 6870.86168040129
+        constituentNumber: 502
+        price: 3349.15600690205
+        requestId: SP50
+        fsymId: SP50
+        name: S&P 500
+        marketValue: 27696158.012077
+        currency: USD
+        totalReturnPercent: 0.653957589855003
+        priceReturnPercent: 0.642620385795123
+        returnType: GROSS
+      properties:
+        fsymId:
+          description: Requested Identifier. Must be a valid Benchmark Identifier
+            recognized by FactSet.
+          example: SP50
+          type: string
+        date:
+          description: The respective date for values as of the date requested in
+            YYYY-MM-DD format.
+          example: 2020-07-01
+          format: date
+          type: string
+        name:
+          description: Proper Name of Index.
+          example: S&P 500
+          type: string
+        constituentNumber:
+          description: The total number of constituents as of the date requested.
+          example: 502
+          type: integer
+        currency:
+          description: Currency Code used in adjustments. If no Currency was requested,
+            the service will default to LOCAL ('LOC').
+          example: USD
+          type: string
+        marketValue:
+          description: Index Level Market Capitalization as of the date requested
+            expressed in millions.
+          example: 27696158.012077
+          format: double
+          type: number
+        price:
+          description: Index Level Price
+          example: 3349.15600690205
+          format: double
+          type: number
+        priceReturnPercent:
+          description: Index Level Price Percent Change
+          example: 0.642620385795123
+          format: double
+          type: number
+        totalReturnLevel:
+          description: Index Level Total Return Amount
+          example: 6870.86168040129
+          format: double
+          type: number
+        totalReturnPercent:
+          description: Index Level Total Return Percent Change
+          example: 0.653957589855003
+          format: double
+          type: number
+        returnType:
+          description: The requested Return Type - GROSS or NET
+          example: GROSS
+          type: string
+        requestId:
+          description: Benchmark Identifier specified in the request
+          example: SP50
+          type: string
+      title: Index History Object
+      type: object
+    benchmarkRatiosRequest:
+      properties:
+        ids:
+          description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+            to get a sample list of  valid identifiers.
+          example:
+          - SP50
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          title: Index Ids
+          type: array
+        startDate:
+          description: Requested start date expressed in YYYY-MM-DD format.
+          example: 2018-12-31
+          title: Start Date
+          type: string
+        endDate:
+          description: Requested end date for Range expressed in YYYY-MM-DD format.
+          example: 2019-12-31
+          title: End Date
+          type: string
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        metrics:
+          description: |
+            Requested List of FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.
+            |metric item|Description|category|periodicity
+            |:---|:---|:---|:---|
+            |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
+            |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |ROA|Return on Assets|Profitability (%)|LTM
+            |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
+            |ROIC|Return on Invested Capital|Profitability (%)| LTM
+            |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
+            |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |PEX|Price/Earnings (excl negatives)|Valuation|LTM
+            |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+            |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
+            |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+            |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
+            |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
+            |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
+            |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
+            |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
+            |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
+            |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
+            |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
+            |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
+            |LTD_FFO|LT Debt/FFO|Coverage|LTM
+            |FCF_DEBT|FCF/Total Debt|Coverage|LTM
+            |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
+            |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
+            |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
+            |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
+            |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
+            |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
+            |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
+            |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
+          example:
+          - PE
+          items:
+            type: string
+          maxItems: 38
+          minItems: 1
+          title: Metrics
+          type: array
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        currency:
+          description: Currency for response.
+          example: USD
+          title: Currency
+          type: string
+      required:
+      - ids
+      - metrics
+      title: Benchamrk Ratios Request
+      type: object
+    benchmarkRatiosResponse:
+      example:
+        data:
+        - date: 2020-12-31T00:00:00.000+0000
+          metric: GROSS_MARGIN
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          periodicity: LTM
+          currency: USD
+          value: 35.4094680290153
+        - date: 2020-12-31T00:00:00.000+0000
+          metric: GROSS_MARGIN
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          periodicity: LTM
+          currency: USD
+          value: 35.4094680290153
+      properties:
+        data:
+          description: |
+            Array of Index History response objects.
+          items:
+            $ref: '#/components/schemas/benchmarkRatios'
+          type: array
+      title: Benchmark Ratios Response
+      type: object
+    benchmarkRatios:
+      example:
+        date: 2020-12-31T00:00:00.000+0000
+        metric: GROSS_MARGIN
+        requestId: SP50
+        fsymId: SP50
+        name: S&P 500
+        periodicity: LTM
+        currency: USD
+        value: 35.4094680290153
+      properties:
+        fsymId:
+          description: Requested Identifier. Must be a valid Benchmark Identifier
+            recognized by FactSet.
+          example: SP50
+          type: string
+        date:
+          description: The respective date for values as of the date requested in
+            YYYY-MM-DD format.
+          example: 2020-12-31
+          format: date
+          type: string
+        name:
+          description: Proper Name of Index.
+          example: S&P 500
+          type: string
+        requestId:
+          description: Benchmark Identifier specified in the request.
+          example: SP50
+          type: string
+        metric:
+          description: Metric requested
+          example: GROSS_MARGIN
+          type: string
+        periodicity:
+          description: The periodicity submitted in the request.
+          example: LTM
+          type: string
+        currency:
+          description: The currency submitted in the request.
+          example: USD
+          type: string
+        value:
+          description: Ratio value based on the metric requested.
+          example: 35.4094680290153
+          format: double
+          type: number
+      title: Benchmark Ratios Object
+      type: object
+    benchmarkIdListRequest:
+      properties:
+        familyFilter:
+          $ref: '#/components/schemas/familyFilter'
+      title: Benchmark Id List Request
+      type: object
+    benchmarkIdListResponse:
+      example:
+        data:
+        - market: Developed
+          fsymId: "990100"
+          familyName: MSCI
+          name: MSCI World Index
+          categoryDescription: International Indices
+        - market: Developed
+          fsymId: "990100"
+          familyName: MSCI
+          name: MSCI World Index
+          categoryDescription: International Indices
+      properties:
+        data:
+          description: |
+            Array of Benchmark Ids and their respective categorizations.
+          items:
+            $ref: '#/components/schemas/benchmarkIdList'
+          type: array
+      title: Benchmark Id List Response
+      type: object
+    benchmarkIdList:
+      example:
+        market: Developed
+        fsymId: "990100"
+        familyName: MSCI
+        name: MSCI World Index
+        categoryDescription: International Indices
+      properties:
+        fsymId:
+          description: Benchmark Id
+          example: "990100"
+          type: string
+        name:
+          description: Name of the Benchmark ID
+          example: MSCI World Index
+          type: string
+        familyName:
+          description: Name of the Benchmarks Family
+          example: MSCI
+          type: string
+        market:
+          description: Market grouping related to the Benchmark Family
+          example: Developed
+          type: string
+        categoryDescription:
+          description: Extended name or description of Benchmark Family & Market
+          example: International Indices
+          type: string
+      title: Benchmark Id List Object
+      type: object
+    constituentIds:
+      description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+        to get a sample list of  valid identifiers. You must be authorized for the
+        `ids` requested, otherwise you will receive an error.
+      example:
+      - SP50
+      items:
+        type: string
+      maxItems: 1
+      minItems: 1
+      title: Constituent Ids
+      type: array
+    fIConstituentIds:
+      description: Fixed Income Benchmark Identifiers. Reference the helper endpoint
+        **/id-list** to get a sample list of  valid identifiers. You must be authorized
+        for the `ids` requested, otherwise you will receive an error.
+      example:
+      - LHMN0001
+      items:
+        type: string
+      maxItems: 1
+      minItems: 1
+      title: Fixed Income Constituent Ids
+      type: array
+    indexIds:
+      description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+        to get a sample list of  valid identifiers.
+      example:
+      - SP50
+      items:
+        type: string
+      maxItems: 500
+      minItems: 1
+      title: Index Ids
+      type: array
+    requestedDate:
+      description: Date of holding expressed in YYYY-MM-DD format.
+      example: 2020-08-06
+      title: Date
+      type: string
+    startDate:
+      description: Requested start date expressed in YYYY-MM-DD format.
+      example: 2018-12-31
+      title: Start Date
+      type: string
+    endDate:
+      description: Requested end date for Range expressed in YYYY-MM-DD format.
+      example: 2019-12-31
+      title: End Date
+      type: string
+    returnType:
+      default: GROSS
+      description: The return type adjustment used in returns response items. Adjustment
+        can be made for GROSS and NET dividends that will be included in the return
+        calculation. The service will default to GROSS.
+      enum:
+      - GROSS
+      - NET
+      example: GROSS
+      title: Return Type
+      type: string
+    calendar:
+      default: FIVEDAY
+      description: Calendar of data returned. SEVENDAY includes weekends.
+      enum:
+      - FIVEDAY
+      - SEVENDAY
+      example: FIVEDAY
+      title: Calendar
+      type: string
+    currency:
+      description: Currency for response.
+      example: USD
+      title: Currency
+      type: string
+    frequency:
+      default: CY
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
+        \ date.\n  * **M** = Monthly, based on the last trading day of the month.\n\
+        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
+        \ June 16, data is displayed for June 16, May 16, April 16 etc.). \n  * **CQ**\
+        \ = Quarterly based on the last trading day of the calendar quarter (March,\
+        \ June, September, or December).\n  * **AY** = Actual Annual, based on the\
+        \ start date.\n  * **CY** = Calendar Annual, based on the last trading day\
+        \ of the calendar year.\n"
+      enum:
+      - D
+      - W
+      - M
+      - AM
+      - CQ
+      - AY
+      - CY
+      example: CY
+      title: Frequency
+      type: string
+    metrics:
+      description: |
+        Requested List of FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.
+        |metric item|Description|category|periodicity
+        |:---|:---|:---|:---|
+        |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
+        |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |ROA|Return on Assets|Profitability (%)|LTM
+        |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
+        |ROIC|Return on Invested Capital|Profitability (%)| LTM
+        |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
+        |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |PEX|Price/Earnings (excl negatives)|Valuation|LTM
+        |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
+        |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
+        |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
+        |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
+        |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
+        |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
+        |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
+        |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
+        |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
+        |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
+        |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
+        |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
+        |LTD_FFO|LT Debt/FFO|Coverage|LTM
+        |FCF_DEBT|FCF/Total Debt|Coverage|LTM
+        |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
+        |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
+        |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
+        |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
+        |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
+        |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
+        |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
+        |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
+      example:
+      - PE
+      items:
+        type: string
+      maxItems: 38
+      minItems: 1
+      title: Metrics
+      type: array
+    periodicity:
+      default: LTM
+      description: |
+        The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric.
+        |Periodicity|Description|
+        |:---|:---|
+        |LTM|Last Twelve Months
+        |LTMA|Last Twelve Months using Broker Actuals for Estimated Items
+        |STMA| Second Twelve Month Forward
+        |NTMA| 12 Month Forward
+        |0| Latest Reported Calendar Year
+        |1| Current Unreported Year
+        |2| Following Year
+        |QTR| Quarterly - Reported by companies
+      enum:
+      - LTM
+      - LTMA
+      - STMA
+      - NTMA
+      - "0"
+      - "1"
+      - "2"
+      - QTR
+      example: LTM
+      title: Periodicity
+      type: string
+    familyFilter:
+      description: |
+        Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-
+        * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)
+        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans.
+        * **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet
+        * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices
+        * **GLOBAL INDICES** - A mix of major indices across the globe.
+        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US.
+        * **RUSSELL** - US, Global, and Nomura.
+        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX.
+        * **STOXX** - Total Market, Europe, and Nordic
+        * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
+      enum:
+      - CHINA_HK_INDICES
+      - DOW_JONES
+      - FACTSET_MARKET_INDICES
+      - FTSE
+      - GLOBAL_INDICES
+      - MSCI
+      - RUSSELL
+      - SP
+      - STOXX
+      - TOPIX
+      example: MSCI
+      title: Family Filter
+      type: string
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-benchmarks/v1/{endpoint}
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+
