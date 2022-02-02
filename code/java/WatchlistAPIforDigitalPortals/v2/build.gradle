@@ -74,24 +74,89 @@ if(hasProperty('target') && target == 'android') {
 
 } else {
 
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-
-    publishing {
-        publications {
-            maven(MavenPublication) {
-               artifactId = 'watchlistapifordigitalportals'
-
-               from components.java
-            }
-        }
-    }
 
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
        classpath = sourceSets.main.runtimeClasspath
+    }
+
+    task sourcesJar(type: Jar) {
+        archiveClassifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar) {
+        archiveClassifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives jar
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = 'watchlistapifordigitalportals'
+
+                from components.java
+
+                artifact sourcesJar
+                artifact javadocJar
+
+                pom {
+                    name = 'FactSet SDK for Java - watchlistapifordigitalportals'
+                    description = 'FactSet SDK for Java - watchlistapifordigitalportals'
+                    url = 'https://github.com/factset/enterprise-sdk'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'enterprisesdk'
+                            organization = 'FactSet'
+                            organizationUrl = 'https://developer.factset.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/factset/enterprise-sdk.git'
+                        developerConnection = 'scm:git:ssh://factset/enterprise-sdk.git'
+                        url = 'https://github.com/factset/enterprise-sdk/'
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                url = version.endsWith('SNAPSHOT') ? System.getenv('MAVEN_SNAPSHOTS_URL') : System.getenv('MAVEN_RELEASES_URL')
+
+                credentials {
+                    username = System.getenv('MAVEN_USERNAME')
+                    password = System.getenv('MAVEN_PASSWORD')
+                }
+
+                authentication {
+                    digest(BasicAuthentication)
+                }
+            }
+        }
+    }
+
+
+
+    signing {
+        sign publishing.publications.mavenJava
     }
 }
 
