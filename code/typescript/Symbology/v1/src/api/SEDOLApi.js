@@ -22,7 +22,7 @@ import SedolTranslationResponse from '../model/SedolTranslationResponse';
 /**
 * SEDOL service.
 * @module api/SEDOLApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class SEDOLApi {
 

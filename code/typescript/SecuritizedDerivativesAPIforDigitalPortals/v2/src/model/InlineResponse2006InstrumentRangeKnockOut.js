@@ -20,7 +20,7 @@ import InlineResponse2006InstrumentRangeKnockOutUpper from './InlineResponse2006
 /**
  * The InlineResponse2006InstrumentRangeKnockOut model module.
  * @module model/InlineResponse2006InstrumentRangeKnockOut
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentRangeKnockOut {
     /**

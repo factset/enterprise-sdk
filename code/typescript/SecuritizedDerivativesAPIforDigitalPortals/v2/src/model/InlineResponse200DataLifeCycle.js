@@ -20,7 +20,7 @@ import InlineResponse200DataLifeCycleTradingPeriod from './InlineResponse200Data
 /**
  * The InlineResponse200DataLifeCycle model module.
  * @module model/InlineResponse200DataLifeCycle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataLifeCycle {
     /**

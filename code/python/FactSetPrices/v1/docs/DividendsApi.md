@@ -21,32 +21,30 @@ Get the dividend amounts, dates, types, and flags over a specified date range. Y
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import dividends_api
 from fds.sdk.FactSetPrices.model.dividends_response import DividendsResponse
 from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetPrices.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPrices.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetPrices.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -131,7 +129,6 @@ Get the dividend amounts, dates, types, and flags over a specified date range
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import dividends_api
@@ -139,25 +136,24 @@ from fds.sdk.FactSetPrices.model.dividends_response import DividendsResponse
 from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
 from fds.sdk.FactSetPrices.model.dividends_request import DividendsRequest
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetPrices.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPrices.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetPrices.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

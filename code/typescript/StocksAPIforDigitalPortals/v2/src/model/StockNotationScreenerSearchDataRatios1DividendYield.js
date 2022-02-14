@@ -17,7 +17,7 @@ import StockNotationScreenerSearchDataReturnOnAssets1Mean from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataRatios1DividendYield model module.
  * @module model/StockNotationScreenerSearchDataRatios1DividendYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRatios1DividendYield {
     /**

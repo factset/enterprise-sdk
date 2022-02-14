@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentIndustryClassificationRbics from './InlineRes
 /**
  * The InlineResponse2003InstrumentIndustryClassification model module.
  * @module model/InlineResponse2003InstrumentIndustryClassification
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003InstrumentIndustryClassification {
     /**

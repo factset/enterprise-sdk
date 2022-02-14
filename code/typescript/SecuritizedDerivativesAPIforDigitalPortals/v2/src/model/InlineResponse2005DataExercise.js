@@ -18,7 +18,7 @@ import InlineResponse2005DataExerciseStyle from './InlineResponse2005DataExercis
 /**
  * The InlineResponse2005DataExercise model module.
  * @module model/InlineResponse2005DataExercise
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataExercise {
     /**

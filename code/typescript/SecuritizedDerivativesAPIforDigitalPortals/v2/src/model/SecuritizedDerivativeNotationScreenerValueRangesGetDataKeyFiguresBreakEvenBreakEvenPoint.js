@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenBreakEvenPoint model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenBreakEvenPoint
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenBreakEvenPoint {
     /**

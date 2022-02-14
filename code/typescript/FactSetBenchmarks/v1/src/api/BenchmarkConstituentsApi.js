@@ -22,7 +22,7 @@ import FixedIncomeBenchmarkConstituentsResponse from '../model/FixedIncomeBenchm
 /**
 * BenchmarkConstituents service.
 * @module api/BenchmarkConstituentsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class BenchmarkConstituentsApi {
 

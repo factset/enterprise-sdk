@@ -24,10 +24,9 @@ The endpoint creates a new watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -36,48 +35,26 @@ namespace Example
 {
     public class WatchlistCreatePostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject(); // InlineObject |  (optional) 
@@ -86,13 +63,13 @@ namespace Example
             {
                 // Create watchlist.
                 InlineResponse200 result = apiInstance.WatchlistCreatePost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistCreatePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistCreatePost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -136,10 +113,9 @@ The endpoint deletes a watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -148,48 +124,26 @@ namespace Example
 {
     public class WatchlistDeletePostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
@@ -198,13 +152,13 @@ namespace Example
             {
                 // The endpoint deletes a watchlist.
                 InlineResponse2001 result = apiInstance.WatchlistDeletePost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistDeletePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistDeletePost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -248,10 +202,9 @@ The endpoint lists all watchlist of a user.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -260,48 +213,26 @@ namespace Example
 {
     public class WatchlistListGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -313,13 +244,13 @@ namespace Example
             {
                 // List watchlists.
                 InlineResponse2002 result = apiInstance.WatchlistListGet(attributes, sort, paginationOffset, paginationLimit);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistListGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistListGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -366,10 +297,9 @@ The endpoint renames a watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -378,48 +308,26 @@ namespace Example
 {
     public class WatchlistModifyPostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
@@ -428,13 +336,13 @@ namespace Example
             {
                 // Rename a watchlist.
                 InlineResponse200 result = apiInstance.WatchlistModifyPost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistModifyPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistModifyPost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -478,10 +386,9 @@ The endpoint adds a new position in a watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -490,48 +397,26 @@ namespace Example
 {
     public class WatchlistPositionCreatePostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
@@ -540,13 +425,13 @@ namespace Example
             {
                 // Add position in watchlist.
                 InlineResponse2003 result = apiInstance.WatchlistPositionCreatePost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistPositionCreatePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionCreatePost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -590,10 +475,9 @@ The endpoint deletes a position in a watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -602,48 +486,26 @@ namespace Example
 {
     public class WatchlistPositionDeletePostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject4(); // InlineObject4 |  (optional) 
@@ -652,13 +514,13 @@ namespace Example
             {
                 // Add position in watchlist.
                 InlineResponse200 result = apiInstance.WatchlistPositionDeletePost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistPositionDeletePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionDeletePost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -702,10 +564,9 @@ The endpoint lists the positions of a watchlist.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -714,48 +575,26 @@ namespace Example
 {
     public class WatchlistPositionListGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var name = name_example;  // string | Name of watchlist
@@ -768,13 +607,13 @@ namespace Example
             {
                 // List positions of watchlist.
                 InlineResponse2004 result = apiInstance.WatchlistPositionListGet(name, attributes, sort, paginationOffset, paginationLimit);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistPositionListGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionListGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -822,10 +661,9 @@ The endpoint modifies a position in a watchlist. All properties except the posit
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
 using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
@@ -834,48 +672,26 @@ namespace Example
 {
     public class WatchlistPositionModifyPostExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api-sandbox.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
             var body = new InlineObject5(); // InlineObject5 |  (optional) 
@@ -884,13 +700,13 @@ namespace Example
             {
                 // Add position in watchlist.
                 InlineResponse200 result = apiInstance.WatchlistPositionModifyPost(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WatchlistApi.WatchlistPositionModifyPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionModifyPost: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

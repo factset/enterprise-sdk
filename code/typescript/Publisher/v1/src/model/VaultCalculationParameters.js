@@ -18,7 +18,7 @@ import VaultIdentifier from './VaultIdentifier';
 /**
  * The VaultCalculationParameters model module.
  * @module model/VaultCalculationParameters
- * @version 0.8.0
+ * @version 0.8.1
  */
 class VaultCalculationParameters {
     /**

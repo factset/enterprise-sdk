@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareDividends model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareDividends
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareDividends {
     /**

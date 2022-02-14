@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataRangeUpperParticipationFactor model module.
  * @module model/InlineResponse2007DataRangeUpperParticipationFactor
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataRangeUpperParticipationFactor {
     /**

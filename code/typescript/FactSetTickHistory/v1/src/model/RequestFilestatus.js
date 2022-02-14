@@ -17,7 +17,7 @@ import RequestFileErrorDetails from './RequestFileErrorDetails';
 /**
  * The RequestFilestatus model module.
  * @module model/RequestFilestatus
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RequestFilestatus {
     /**

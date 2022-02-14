@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20079DataPreviousClose model module.
  * @module model/InlineResponse20079DataPreviousClose
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20079DataPreviousClose {
     /**

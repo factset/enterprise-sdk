@@ -18,7 +18,7 @@ import SPARBenchmark from '../model/SPARBenchmark';
 /**
 * SPARBenchmark service.
 * @module api/SPARBenchmarkApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class SPARBenchmarkApi {
 

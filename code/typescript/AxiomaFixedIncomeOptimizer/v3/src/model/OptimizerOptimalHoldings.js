@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerOptimalHoldings model module.
  * @module model/OptimizerOptimalHoldings
- * @version 0.9.0
+ * @version 0.9.1
  */
 class OptimizerOptimalHoldings {
     /**

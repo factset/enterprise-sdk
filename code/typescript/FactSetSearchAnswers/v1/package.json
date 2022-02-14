@@ -1,0 +1,32 @@
+{
+  "name": "@factset/sdk-factsetsearchanswers",
+  "version": "0.9.1",
+  "description": "FactSet Search Answers client library for JavaScript",
+  "license": "Apache-2.0",
+  "author": "FactSet Research Systems",
+  "keywords": ["FactSet", "API", "SDK"],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepare": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.0.1",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

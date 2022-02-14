@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerSearchDataValidationInstrumentRestrictionList model module.
  * @module model/SecuritizedDerivativeNotationScreenerSearchDataValidationInstrumentRestrictionList
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerSearchDataValidationInstrumentRestrictionList {
     /**

@@ -17,7 +17,7 @@ import UseOfProceeds from './UseOfProceeds';
 /**
  * The UseOfProceedsResponse model module.
  * @module model/UseOfProceedsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UseOfProceedsResponse {
     /**

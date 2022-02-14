@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Dividend model module.
  * @module model/Dividend
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Dividend {
     /**

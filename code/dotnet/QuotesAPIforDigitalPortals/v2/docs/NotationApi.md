@@ -45,10 +45,9 @@ Retrieve FactSet identifiers for a given notation.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -57,48 +56,26 @@ namespace Example
 {
     public class GetNotationCrossReferenceFactSetIdentifierGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of a notation.
@@ -108,13 +85,13 @@ namespace Example
             {
                 // Retrieve FactSet identifiers for a given notation.
                 InlineResponse20069 result = apiInstance.GetNotationCrossReferenceFactSetIdentifierGet(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationCrossReferenceFactSetIdentifierGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationCrossReferenceFactSetIdentifierGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -159,10 +136,9 @@ Translate a FactSet market symbol to a notation. This symbol is also known as TI
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -171,48 +147,26 @@ namespace Example
 {
     public class GetNotationCrossReferenceGetByFactSetMarketSymbolExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var factSetMarketSymbol = factSetMarketSymbol_example;  // string | Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
@@ -223,13 +177,13 @@ namespace Example
             {
                 // Translate a FactSet market symbol to a notation.
                 InlineResponse20066 result = apiInstance.GetNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, attributes, language);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationCrossReferenceGetByFactSetMarketSymbol: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationCrossReferenceGetByFactSetMarketSymbol: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -275,10 +229,9 @@ Basic data for a notation.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -287,48 +240,26 @@ namespace Example
 {
     public class GetNotationGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of a notation.
@@ -339,13 +270,13 @@ namespace Example
             {
                 // Basic data for a notation.
                 InlineResponse20064 result = apiInstance.GetNotationGet(id, attributes, language);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -391,10 +322,9 @@ End-of-day (EOD) key figures for the time range of one month.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -403,48 +333,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth1GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -454,13 +362,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one month.
                 InlineResponse20072 result = apiInstance.GetNotationKeyFiguresMonth1Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth1Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth1Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -505,10 +413,9 @@ End-of-day (EOD) key figures for the time range of one month, for a list of nota
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -517,48 +424,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth1ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -568,13 +453,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one month, for a list of notations.
                 InlineResponse20073 result = apiInstance.GetNotationKeyFiguresMonth1List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth1List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth1List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -619,10 +504,9 @@ End-of-day (EOD) key figures for the time range of three months.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -631,48 +515,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth3GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -682,13 +544,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of three months.
                 InlineResponse20074 result = apiInstance.GetNotationKeyFiguresMonth3Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth3Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth3Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -733,10 +595,9 @@ End-of-day (EOD) key figures for the time range of three months, for a list of n
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -745,48 +606,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth3ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -796,13 +635,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of three months, for a list of notations.
                 InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth3List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth3List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth3List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -847,10 +686,9 @@ End-of-day (EOD) key figures for the time range of six months.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -859,48 +697,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth6GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -910,13 +726,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of six months.
                 InlineResponse20074 result = apiInstance.GetNotationKeyFiguresMonth6Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth6Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth6Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -961,10 +777,9 @@ End-of-day (EOD) key figures for the time range of six months, for a list of not
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -973,48 +788,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresMonth6ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -1024,13 +817,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of six months, for a list of notations.
                 InlineResponse20075 result = apiInstance.GetNotationKeyFiguresMonth6List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresMonth6List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresMonth6List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1075,10 +868,9 @@ End-of-day (EOD) key figures for the time range of one week.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1087,48 +879,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresWeek1GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -1138,13 +908,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one week.
                 InlineResponse20072 result = apiInstance.GetNotationKeyFiguresWeek1Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresWeek1Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresWeek1Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1189,10 +959,9 @@ End-of-day (EOD) key figures for the time range of one week, for a list of notat
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1201,48 +970,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresWeek1ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -1252,13 +999,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one week, for a list of notations.
                 InlineResponse20073 result = apiInstance.GetNotationKeyFiguresWeek1List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresWeek1List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresWeek1List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1303,10 +1050,9 @@ End-of-day (EOD) key figures for the time range of one year.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1315,48 +1061,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear1GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -1366,13 +1090,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one year.
                 InlineResponse20072 result = apiInstance.GetNotationKeyFiguresYear1Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear1Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear1Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1417,10 +1141,9 @@ End-of-day (EOD) key figures for the time range of one year, for a list of notat
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1429,48 +1152,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear1ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -1480,13 +1181,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of one year, for a list of notations.
                 InlineResponse20073 result = apiInstance.GetNotationKeyFiguresYear1List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear1List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear1List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1531,10 +1232,9 @@ End-of-day (EOD) key figures for the time range of three years.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1543,48 +1243,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear3GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -1594,13 +1272,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of three years.
                 InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear3Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear3Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear3Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1645,10 +1323,9 @@ End-of-day (EOD) key figures for the time range of three years, for a list of no
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1657,48 +1334,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear3ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -1708,13 +1363,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of three years, for a list of notations.
                 InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear3List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear3List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear3List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1759,10 +1414,9 @@ End-of-day (EOD) key figures for the time range of five years.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1771,48 +1425,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear5GetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -1822,13 +1454,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of five years.
                 InlineResponse20074 result = apiInstance.GetNotationKeyFiguresYear5Get(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear5Get: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear5Get: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1873,10 +1505,9 @@ End-of-day (EOD) key figures for the time range of five years, for a list of not
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1885,48 +1516,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYear5ListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -1936,13 +1545,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range of five years, for a list of notations.
                 InlineResponse20075 result = apiInstance.GetNotationKeyFiguresYear5List(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYear5List: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYear5List: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1987,10 +1596,9 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD). The time ran
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -1999,48 +1607,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYearToDateGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of the notation.
@@ -2050,13 +1636,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range year-to-date (YTD)..
                 InlineResponse20076 result = apiInstance.GetNotationKeyFiguresYearToDateGet(id, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYearToDateGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYearToDateGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2101,10 +1687,9 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list o
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2113,48 +1698,26 @@ namespace Example
 {
     public class GetNotationKeyFiguresYearToDateListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -2164,13 +1727,13 @@ namespace Example
             {
                 // End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
                 InlineResponse20077 result = apiInstance.GetNotationKeyFiguresYearToDateList(ids, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationKeyFiguresYearToDateList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationKeyFiguresYearToDateList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2215,10 +1778,9 @@ Basic data for a list of notations.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2227,48 +1789,26 @@ namespace Example
 {
     public class GetNotationListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
@@ -2279,13 +1819,13 @@ namespace Example
             {
                 // Basic data for a list of notations.
                 InlineResponse20065 result = apiInstance.GetNotationList(ids, attributes, language);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2331,10 +1871,9 @@ Search for a notation whose ISIN, specified NSINs, name, or symbol match the sea
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2343,48 +1882,26 @@ namespace Example
 {
     public class GetNotationSearchBasicExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var searchValue = searchValue_example;  // string | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
@@ -2401,13 +1918,13 @@ namespace Example
             {
                 // Basic search for notations.
                 InlineResponse20088 result = apiInstance.GetNotationSearchBasic(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationSearchBasic: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationSearchBasic: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2459,10 +1976,9 @@ Search for notations whose ISIN, specified NSINs, name, or symbol match the sear
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2471,48 +1987,26 @@ namespace Example
 {
     public class GetNotationSearchByTextRankedByVolumeExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var searchValue = searchValue_example;  // string | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
@@ -2529,13 +2023,13 @@ namespace Example
             {
                 // Basic search for notations.
                 InlineResponse20090 result = apiInstance.GetNotationSearchByTextRankedByVolume(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationSearchByTextRankedByVolume: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationSearchByTextRankedByVolume: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2587,10 +2081,9 @@ Intraday trading status of a notation.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2599,48 +2092,26 @@ namespace Example
 {
     public class GetNotationStatusGetExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var id = id_example;  // string | Identifier of a notation.
@@ -2651,13 +2122,13 @@ namespace Example
             {
                 // Intraday trading status of a notation.
                 InlineResponse20078 result = apiInstance.GetNotationStatusGet(id, quality, attributes);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.GetNotationStatusGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.GetNotationStatusGet: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2703,10 +2174,9 @@ Retrieve a list of notations for a given FactSet identifier.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2715,48 +2185,26 @@ namespace Example
 {
     public class PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject19(); // InlineObject19 | 
@@ -2765,13 +2213,13 @@ namespace Example
             {
                 // Retrieve a list of notations for a given FactSet identifier.
                 InlineResponse20070 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2815,10 +2263,9 @@ Retrieve a list of FactSet identifiers for a given instrument.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2827,48 +2274,26 @@ namespace Example
 {
     public class PostNotationCrossReferenceFactSetIdentifierListByInstrumentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject20(); // InlineObject20 | 
@@ -2877,13 +2302,13 @@ namespace Example
             {
                 // Retrieve a list of FactSet identifiers for a given instrument.
                 InlineResponse20071 result = apiInstance.PostNotationCrossReferenceFactSetIdentifierListByInstrument(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationCrossReferenceFactSetIdentifierListByInstrument: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCrossReferenceFactSetIdentifierListByInstrument: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -2927,10 +2352,9 @@ List of entitled notations.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -2939,48 +2363,26 @@ namespace Example
 {
     public class PostNotationCrossReferenceListByISINExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject17(); // InlineObject17 |  (optional) 
@@ -2989,13 +2391,13 @@ namespace Example
             {
                 // List of entitled notations.
                 InlineResponse20067 result = apiInstance.PostNotationCrossReferenceListByISIN(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationCrossReferenceListByISIN: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCrossReferenceListByISIN: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -3039,10 +2441,9 @@ List of entitled notations.
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -3051,48 +2452,26 @@ namespace Example
 {
     public class PostNotationCrossReferenceListByInstrumentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject16(); // InlineObject16 |  (optional) 
@@ -3101,13 +2480,13 @@ namespace Example
             {
                 // List of entitled notations.
                 InlineResponse20067 result = apiInstance.PostNotationCrossReferenceListByInstrument(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationCrossReferenceListByInstrument: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCrossReferenceListByInstrument: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -3151,10 +2530,9 @@ List of entitled notations. Symbols are not globally unique; therefore, a given 
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -3163,48 +2541,26 @@ namespace Example
 {
     public class PostNotationCrossReferenceListBySymbolExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject18(); // InlineObject18 |  (optional) 
@@ -3213,13 +2569,13 @@ namespace Example
             {
                 // List of entitled notations.
                 InlineResponse20068 result = apiInstance.PostNotationCrossReferenceListBySymbol(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationCrossReferenceListBySymbol: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationCrossReferenceListBySymbol: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -3263,10 +2619,9 @@ Text-based search for notations in selected identifier and name attributes accor
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Api;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Client;
 using FactSet.SDK.QuotesAPIforDigitalPortals.Model;
@@ -3275,48 +2630,26 @@ namespace Example
 {
     public class PostNotationSearchByTextExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://api.factset.com/wealth/v1";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
             var body = new InlineObject22(); // InlineObject22 | 
@@ -3325,13 +2658,13 @@ namespace Example
             {
                 // Text-based search for notations.
                 InlineResponse20089 result = apiInstance.PostNotationSearchByText(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotationApi.PostNotationSearchByText: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling NotationApi.PostNotationSearchByText: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

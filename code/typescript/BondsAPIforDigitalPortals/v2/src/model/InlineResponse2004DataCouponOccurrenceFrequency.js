@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataCouponOccurrenceFrequency model module.
  * @module model/InlineResponse2004DataCouponOccurrenceFrequency
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataCouponOccurrenceFrequency {
     /**

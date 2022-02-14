@@ -17,7 +17,7 @@ import Classifications from './Classifications';
 /**
  * The ClassificationsResponse model module.
  * @module model/ClassificationsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ClassificationsResponse {
     /**

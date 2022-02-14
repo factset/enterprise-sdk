@@ -17,7 +17,7 @@ import BenchmarkDetails from './BenchmarkDetails';
 /**
  * The BenchmarkDetailsResponse model module.
  * @module model/BenchmarkDetailsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BenchmarkDetailsResponse {
     /**

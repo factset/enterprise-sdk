@@ -17,7 +17,7 @@ import NRTSnippets400ResponseDetails from './NRTSnippets400ResponseDetails';
 /**
  * The NRTSnippets400Response model module.
  * @module model/NRTSnippets400Response
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSnippets400Response {
     /**

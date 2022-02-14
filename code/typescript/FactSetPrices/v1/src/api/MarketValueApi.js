@@ -20,7 +20,7 @@ import MarketValueResponse from '../model/MarketValueResponse';
 /**
 * MarketValue service.
 * @module api/MarketValueApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class MarketValueApi {
 

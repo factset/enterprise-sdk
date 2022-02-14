@@ -17,7 +17,7 @@ import ValidParameterDetails from './ValidParameterDetails';
 /**
  * The ErrorDetail model module.
  * @module model/ErrorDetail
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ErrorDetail {
     /**

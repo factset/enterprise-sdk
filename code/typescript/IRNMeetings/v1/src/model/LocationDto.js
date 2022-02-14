@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationDto model module.
  * @module model/LocationDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LocationDto {
     /**

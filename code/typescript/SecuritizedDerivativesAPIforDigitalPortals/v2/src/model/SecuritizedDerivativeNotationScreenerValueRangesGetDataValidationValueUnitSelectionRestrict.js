@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelectionRestrict model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelectionRestrict
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelectionRestrict {
     /**

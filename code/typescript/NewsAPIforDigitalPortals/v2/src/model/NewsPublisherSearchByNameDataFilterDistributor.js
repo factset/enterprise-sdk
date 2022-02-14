@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsPublisherSearchByNameDataFilterDistributor model module.
  * @module model/NewsPublisherSearchByNameDataFilterDistributor
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsPublisherSearchByNameDataFilterDistributor {
     /**

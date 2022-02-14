@@ -27,7 +27,7 @@ import HelperApi from './api/HelperApi';
 
 
 /**
-* The_FactSet_FactSet_Quant_Factor_Library__QFL_API_helps_to_detect_investment_themes_across_global_equity_markets_incorporate_ideas_into_your_portfolio_construction_process_and_transform_raw_data_into_actionable_intelligence__Over_2000_items_spanning_Factor_Groups_in____Classification_and_Reference_Data___Asset_Data_Country_Industry_and_Size___Market___Liquidity_Market_Sensitivity_Momentum_Technical_Volatility___Core_Fundamentals___Efficiency_Growth_Management_Profitability_Quality_Solvency_Value___Macro_and_Cross_Asset___Commodity_FX_Sensitivity_Debt_Economic___Alternative___Analyst_Sentiment_Corporate_Governance_Crowding_Insider_Activity_.<br>
+* FactSet Quant Factor Library client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -55,7 +55,7 @@ import HelperApi from './api/HelperApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

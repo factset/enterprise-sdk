@@ -27,17 +27,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FundFlowsAUMApi();
 const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -105,17 +110,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FundFlowsAUMApi();
 const aumRequest = new factsetfunds.AumRequest(); // AumRequest | The AUM request body, allowing the user to specify a list of ids.
@@ -171,17 +181,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FundFlowsAUMApi();
 const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -247,17 +262,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FundFlowsAUMApi();
 const flowsRequest = new factsetfunds.FlowsRequest(); // FlowsRequest | The Fund Flows request body, allowing the user to specify a list of ids.

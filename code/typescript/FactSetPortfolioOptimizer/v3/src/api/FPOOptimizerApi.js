@@ -21,7 +21,7 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * FPOOptimizer service.
 * @module api/FPOOptimizerApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FPOOptimizerApi {
 

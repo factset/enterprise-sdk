@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AlertingPricesBasicTriggerListMetaPagination model module.
  * @module model/AlertingPricesBasicTriggerListMetaPagination
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AlertingPricesBasicTriggerListMetaPagination {
     /**

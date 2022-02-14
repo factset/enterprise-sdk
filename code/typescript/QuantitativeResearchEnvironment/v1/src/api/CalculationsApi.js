@@ -19,7 +19,7 @@ import CalculationStatus from '../model/CalculationStatus';
 /**
 * Calculations service.
 * @module api/CalculationsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CalculationsApi {
 

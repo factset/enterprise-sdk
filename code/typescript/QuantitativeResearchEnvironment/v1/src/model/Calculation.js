@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Calculation model module.
  * @module model/Calculation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Calculation {
     /**

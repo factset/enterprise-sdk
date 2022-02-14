@@ -21,7 +21,7 @@ import EtfReferenceDataResponse from '../model/EtfReferenceDataResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ReferenceApi {
 

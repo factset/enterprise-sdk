@@ -17,7 +17,7 @@ import IndexSnapshot from './IndexSnapshot';
 /**
  * The IndexSnapshotResponse model module.
  * @module model/IndexSnapshotResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IndexSnapshotResponse {
     /**

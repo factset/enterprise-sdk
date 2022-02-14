@@ -17,7 +17,7 @@ import BasicValueUnitListDataFilter from './BasicValueUnitListDataFilter';
 /**
  * The BasicValueUnitListData model module.
  * @module model/BasicValueUnitListData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BasicValueUnitListData {
     /**

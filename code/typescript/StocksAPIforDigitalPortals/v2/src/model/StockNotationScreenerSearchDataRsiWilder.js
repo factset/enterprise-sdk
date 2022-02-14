@@ -17,7 +17,7 @@ import StockNotationScreenerSearchDataRsiWilderDays14 from './StockNotationScree
 /**
  * The StockNotationScreenerSearchDataRsiWilder model module.
  * @module model/StockNotationScreenerSearchDataRsiWilder
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRsiWilder {
     /**

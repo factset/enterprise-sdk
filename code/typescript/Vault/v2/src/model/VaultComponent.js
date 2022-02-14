@@ -18,7 +18,7 @@ import VaultIdentifier from './VaultIdentifier';
 /**
  * The VaultComponent model module.
  * @module model/VaultComponent
- * @version 0.8.0
+ * @version 0.8.1
  */
 class VaultComponent {
     /**

@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataComplianceGermany from './DebtIns
 /**
  * The DebtInstrumentNotationScreenerSearchDataCompliance model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCompliance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataCompliance {
     /**

@@ -17,7 +17,7 @@ import InlineResponse2003DataExchanges from './InlineResponse2003DataExchanges';
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003Data {
     /**

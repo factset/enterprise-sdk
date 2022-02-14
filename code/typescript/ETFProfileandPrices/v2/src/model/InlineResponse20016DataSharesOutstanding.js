@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20016DataSharesOutstanding model module.
  * @module model/InlineResponse20016DataSharesOutstanding
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20016DataSharesOutstanding {
     /**

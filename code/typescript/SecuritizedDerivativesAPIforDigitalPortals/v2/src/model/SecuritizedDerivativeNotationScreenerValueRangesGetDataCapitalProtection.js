@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection {
     /**

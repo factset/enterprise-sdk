@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid {
     /**

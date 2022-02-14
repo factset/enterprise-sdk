@@ -18,10 +18,9 @@ Returns FactSet Estimates Consensus Data for the segments gathered from the Busi
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.FactSetEstimates.Api;
 using FactSet.SDK.FactSetEstimates.Client;
 using FactSet.SDK.FactSetEstimates.Model;
@@ -30,48 +29,26 @@ namespace Example
 {
     public class GetSegmentsExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com/content";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new SegmentsApi(config);
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> * Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
@@ -89,13 +66,13 @@ namespace Example
             {
                 // Retrieves product & geographic segment estimates for a requested list of ids and fiscal periods
                 SegmentsResponse result = apiInstance.GetSegments(ids, segmentType, metrics, startDate, endDate, relativeFiscalStart, relativeFiscalEnd, periodicity, frequency, currency);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.GetSegments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SegmentsApi.GetSegments: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -153,10 +130,9 @@ Returns FactSet Estimates Data for the segments gathered from the Business, Geog
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.FactSetEstimates.Api;
 using FactSet.SDK.FactSetEstimates.Client;
 using FactSet.SDK.FactSetEstimates.Model;
@@ -165,48 +141,26 @@ namespace Example
 {
     public class GetSegmentsForListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com/content";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new SegmentsApi(config);
             var segmentsRequest = new SegmentsRequest(); // SegmentsRequest | Request object for Product Segments estimates.
@@ -215,13 +169,13 @@ namespace Example
             {
                 // Retrieves product segment estimates for a requested list of ids and fiscal periods
                 SegmentsResponse result = apiInstance.GetSegmentsForList(segmentsRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SegmentsApi.GetSegmentsForList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SegmentsApi.GetSegmentsForList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

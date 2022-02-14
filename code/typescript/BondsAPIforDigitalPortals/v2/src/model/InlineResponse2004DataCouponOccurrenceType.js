@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataCouponOccurrenceType model module.
  * @module model/InlineResponse2004DataCouponOccurrenceType
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataCouponOccurrenceType {
     /**

@@ -10,9 +10,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetRBICS"
-VERSION = "0.9.0"
+VERSION = "0.9.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,22 +27,21 @@ VERSION = "0.9.0"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - FactSet RBICS",
+    description="FactSet RBICS client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetRBICS",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetRBICS/v1",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies&#39; behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.  RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assitant Page #20710](https://oa.apps.factset.com/pages/20710).   # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

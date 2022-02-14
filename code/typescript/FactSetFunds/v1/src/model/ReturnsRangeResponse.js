@@ -17,7 +17,7 @@ import ReturnsRange from './ReturnsRange';
 /**
  * The ReturnsRangeResponse model module.
  * @module model/ReturnsRangeResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ReturnsRangeResponse {
     /**

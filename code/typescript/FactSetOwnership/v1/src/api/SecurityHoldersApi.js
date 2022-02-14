@@ -20,7 +20,7 @@ import SecurityHoldersResponse from '../model/SecurityHoldersResponse';
 /**
 * SecurityHolders service.
 * @module api/SecurityHoldersApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SecurityHoldersApi {
 

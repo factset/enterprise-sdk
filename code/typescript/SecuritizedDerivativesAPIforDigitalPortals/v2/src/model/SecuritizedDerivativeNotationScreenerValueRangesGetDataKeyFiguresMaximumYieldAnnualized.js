@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldAnnualized model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldAnnualized
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldAnnualized {
     /**

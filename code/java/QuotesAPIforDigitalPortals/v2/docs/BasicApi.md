@@ -58,19 +58,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -133,19 +142,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -210,19 +228,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -288,19 +315,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a language.
@@ -367,19 +403,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         String code = "code_example"; // String | ISO 639-1 code of the language.
@@ -446,19 +491,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -526,19 +580,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a market.
@@ -605,19 +668,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -684,19 +756,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -763,19 +844,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -839,19 +929,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a continent.
@@ -918,19 +1017,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -998,19 +1106,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a country.
@@ -1077,19 +1194,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         String code = "code_example"; // String | ISO 3166-1 alpha-2 code of a country.
@@ -1156,19 +1282,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -1236,19 +1371,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a region.
@@ -1315,19 +1459,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -1395,19 +1548,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
@@ -1472,19 +1634,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         String name = "name_example"; // String | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
@@ -1549,19 +1720,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -1629,19 +1809,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a fractional currency.
@@ -1708,19 +1897,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -1788,19 +1986,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a value unit.
@@ -1867,19 +2074,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
@@ -1942,19 +2158,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject1 body = new InlineObject1(); // InlineObject1 | 
@@ -2017,19 +2242,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject2 body = new InlineObject2(); // InlineObject2 | 
@@ -2092,19 +2326,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject3 body = new InlineObject3(); // InlineObject3 | 
@@ -2167,19 +2410,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject4 body = new InlineObject4(); // InlineObject4 | 
@@ -2242,19 +2494,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject5 body = new InlineObject5(); // InlineObject5 | 
@@ -2317,19 +2578,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject7 body = new InlineObject7(); // InlineObject7 | 
@@ -2392,19 +2662,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject8 body = new InlineObject8(); // InlineObject8 | 
@@ -2467,19 +2746,28 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.BasicApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://api.factset.com/wealth/v1");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         BasicApi apiInstance = new BasicApi(defaultClient);
         InlineObject6 body = new InlineObject6(); // InlineObject6 | 

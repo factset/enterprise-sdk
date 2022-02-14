@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerSearchMetaPagination model module.
  * @module model/SecuritizedDerivativeNotationScreenerSearchMetaPagination
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerSearchMetaPagination {
     /**

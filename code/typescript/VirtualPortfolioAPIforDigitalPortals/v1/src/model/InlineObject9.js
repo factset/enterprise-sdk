@@ -18,7 +18,7 @@ import WatchlistCreateData from './WatchlistCreateData';
 /**
  * The InlineObject9 model module.
  * @module model/InlineObject9
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject9 {
     /**

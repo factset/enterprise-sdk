@@ -22,10 +22,9 @@ Create a comment to a Note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -34,48 +33,26 @@ namespace Example
 {
     public class CreateCommentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -85,13 +62,13 @@ namespace Example
             {
                 // Create a comment to a Note
                 NewItemDto result = apiInstance.CreateComment(noteId, createCommentDto);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.CreateComment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.CreateComment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -138,10 +115,9 @@ Create a comment attachment to a Note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -150,48 +126,26 @@ namespace Example
 {
     public class CreateCommentAttachmentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -202,13 +156,13 @@ namespace Example
             {
                 // Create a comment attachment to a Note
                 NewItemDto result = apiInstance.CreateCommentAttachment(noteId, commentId, file);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.CreateCommentAttachment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.CreateCommentAttachment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -256,10 +210,9 @@ Delete a Comment from a Note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -268,48 +221,26 @@ namespace Example
 {
     public class DeleteCommentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -322,9 +253,9 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.DeleteComment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.DeleteComment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -370,10 +301,9 @@ Download single attachment detail of a comment belonging to a note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -382,48 +312,26 @@ namespace Example
 {
     public class DownloadCommentAttachmentForCommentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -437,9 +345,9 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.DownloadCommentAttachmentForComment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.DownloadCommentAttachmentForComment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -486,10 +394,9 @@ Get details of a comment belonging to a note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -498,48 +405,26 @@ namespace Example
 {
     public class GetCommentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -549,13 +434,13 @@ namespace Example
             {
                 // Get details of a comment belonging to a note
                 CommentDto result = apiInstance.GetComment(noteId, commentId);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.GetComment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.GetComment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -601,10 +486,9 @@ Get attachments summary of a comment belonging to a note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -613,48 +497,26 @@ namespace Example
 {
     public class GetCommentAttachmentsExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -664,13 +526,13 @@ namespace Example
             {
                 // Get attachments summary of a comment belonging to a note
                 List<AttachmentSummaryDto> result = apiInstance.GetCommentAttachments(noteId, commentId);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.GetCommentAttachments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.GetCommentAttachments: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -716,10 +578,9 @@ Get all comments for a note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -728,48 +589,26 @@ namespace Example
 {
     public class GetCommentsExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -778,13 +617,13 @@ namespace Example
             {
                 // Get all comments for a note
                 List<CommentSummaryDto> result = apiInstance.GetComments(noteId);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.GetComments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.GetComments: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -829,10 +668,9 @@ Edit a comment for a note
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.IRNNotes.Api;
 using FactSet.SDK.IRNNotes.Client;
 using FactSet.SDK.IRNNotes.Model;
@@ -841,48 +679,26 @@ namespace Example
 {
     public class PatchCommentExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/research/irn";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
             var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
@@ -896,9 +712,9 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CommentsApi.PatchComment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CommentsApi.PatchComment: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

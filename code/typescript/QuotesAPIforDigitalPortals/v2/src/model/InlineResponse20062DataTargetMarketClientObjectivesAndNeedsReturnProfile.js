@@ -17,7 +17,7 @@ import InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileG
 /**
  * The InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile model module.
  * @module model/InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile {
     /**

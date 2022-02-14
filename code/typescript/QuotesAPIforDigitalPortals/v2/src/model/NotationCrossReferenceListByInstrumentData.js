@@ -17,7 +17,7 @@ import NotationCrossReferenceListByInstrumentDataFilter from './NotationCrossRef
 /**
  * The NotationCrossReferenceListByInstrumentData model module.
  * @module model/NotationCrossReferenceListByInstrumentData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationCrossReferenceListByInstrumentData {
     /**

@@ -23,7 +23,7 @@ import InlineResponse200DataTypes from './InlineResponse200DataTypes';
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200Data {
     /**

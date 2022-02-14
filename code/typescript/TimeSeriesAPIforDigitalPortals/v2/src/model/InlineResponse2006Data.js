@@ -17,7 +17,7 @@ import InlineResponse2006DataSubsample from './InlineResponse2006DataSubsample';
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006Data {
     /**

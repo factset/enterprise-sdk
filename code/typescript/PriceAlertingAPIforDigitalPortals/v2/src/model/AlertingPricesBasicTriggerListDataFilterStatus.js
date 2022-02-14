@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AlertingPricesBasicTriggerListDataFilterStatus model module.
  * @module model/AlertingPricesBasicTriggerListDataFilterStatus
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AlertingPricesBasicTriggerListDataFilterStatus {
     /**

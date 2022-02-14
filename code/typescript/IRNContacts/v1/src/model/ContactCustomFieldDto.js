@@ -18,7 +18,7 @@ import FormulaConfigDto from './FormulaConfigDto';
 /**
  * The ContactCustomFieldDto model module.
  * @module model/ContactCustomFieldDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactCustomFieldDto {
     /**

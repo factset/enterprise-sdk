@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataExerciseRight model module.
  * @module model/InlineResponse2005DataExerciseRight
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataExerciseRight {
     /**

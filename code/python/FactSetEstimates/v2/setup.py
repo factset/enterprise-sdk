@@ -10,9 +10,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetEstimates"
-VERSION = "0.9.0"
+VERSION = "0.9.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,22 +27,21 @@ VERSION = "0.9.0"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - FactSet Estimates",
+    description="FactSet Estimates client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetEstimates",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetEstimates/v2",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    Gain access to 20+ years of comprehensive estimates and statistics of over 250+ estimated metrics, including financial statement items, product segments, geosegments, and industry metrics. FactSet&#39;s consensus estimates are aggregated from a wide base of over 800+ contributors and cover over 19,000 active companies across 90+ countries. Data returned can be accessed on the data frequencies based on quarterly, fiscal years, and calendar years. FactSet Estimates updates on a real time basis intraday (every 5 minutes). Updating times vary based on earning season vs. non-earning season but the goal is to have the data available to the client within a few hours that FactSet receives updated information. Often times updates times can be much faster as FactSet has always been known as one of the fastest estimate providers in the market.   # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

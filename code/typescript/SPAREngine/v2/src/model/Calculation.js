@@ -20,7 +20,7 @@ import VaultCalculationParameters from './VaultCalculationParameters';
 /**
  * The Calculation model module.
  * @module model/Calculation
- * @version 0.8.0
+ * @version 0.8.1
  */
 class Calculation {
     /**

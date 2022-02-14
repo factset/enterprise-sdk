@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PubIdentifier model module.
  * @module model/PubIdentifier
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PubIdentifier {
     /**

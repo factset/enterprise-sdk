@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataCategorizationParent model module.
  * @module model/InlineResponse2005DataCategorizationParent
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCategorizationParent {
     /**

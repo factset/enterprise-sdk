@@ -18,7 +18,7 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * QuoteAtTime service.
 * @module api/QuoteAtTimeApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class QuoteAtTimeApi {
 

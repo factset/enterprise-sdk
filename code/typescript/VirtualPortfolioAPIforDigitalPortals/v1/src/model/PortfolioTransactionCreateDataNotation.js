@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioTransactionCreateDataNotation model module.
  * @module model/PortfolioTransactionCreateDataNotation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioTransactionCreateDataNotation {
     /**

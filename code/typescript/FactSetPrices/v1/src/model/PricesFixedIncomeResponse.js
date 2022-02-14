@@ -17,7 +17,7 @@ import FixedIncomePrice from './FixedIncomePrice';
 /**
  * The PricesFixedIncomeResponse model module.
  * @module model/PricesFixedIncomeResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PricesFixedIncomeResponse {
     /**

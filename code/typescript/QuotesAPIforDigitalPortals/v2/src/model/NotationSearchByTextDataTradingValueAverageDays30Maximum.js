@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataTradingValueAverageDays30Maximum model module.
  * @module model/NotationSearchByTextDataTradingValueAverageDays30Maximum
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataTradingValueAverageDays30Maximum {
     /**

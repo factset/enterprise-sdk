@@ -17,7 +17,7 @@ import LinkedPATemplate from './LinkedPATemplate';
 /**
  * The LinkedPATemplateRoot model module.
  * @module model/LinkedPATemplateRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LinkedPATemplateRoot {
     /**

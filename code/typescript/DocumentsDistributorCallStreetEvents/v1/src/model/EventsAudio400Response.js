@@ -17,7 +17,7 @@ import EventsAudio400ResponseDetails from './EventsAudio400ResponseDetails';
 /**
  * The EventsAudio400Response model module.
  * @module model/EventsAudio400Response
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EventsAudio400Response {
     /**

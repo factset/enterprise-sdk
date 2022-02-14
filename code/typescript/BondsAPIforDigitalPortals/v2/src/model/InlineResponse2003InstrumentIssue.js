@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentIssueVolume from './InlineResponse2003Instrum
 /**
  * The InlineResponse2003InstrumentIssue model module.
  * @module model/InlineResponse2003InstrumentIssue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003InstrumentIssue {
     /**

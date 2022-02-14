@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesPr
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPrices model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPrices
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPrices {
     /**

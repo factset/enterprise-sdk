@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConsensusEstimate model module.
  * @module model/ConsensusEstimate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ConsensusEstimate {
     /**

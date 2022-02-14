@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrency model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrency
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrency {
     /**

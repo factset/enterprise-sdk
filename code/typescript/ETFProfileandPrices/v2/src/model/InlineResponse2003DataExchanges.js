@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataExchanges model module.
  * @module model/InlineResponse2003DataExchanges
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataExchanges {
     /**

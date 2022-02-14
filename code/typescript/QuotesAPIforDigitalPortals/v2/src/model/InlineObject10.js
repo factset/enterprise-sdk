@@ -18,7 +18,7 @@ import InstrumentBenchmarkListData from './InstrumentBenchmarkListData';
 /**
  * The InlineObject10 model module.
  * @module model/InlineObject10
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject10 {
     /**

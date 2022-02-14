@@ -22,7 +22,7 @@ import UltimateEntityStructureResponse from '../model/UltimateEntityStructureRes
 /**
 * EntityStructure service.
 * @module api/EntityStructureApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EntityStructureApi {
 

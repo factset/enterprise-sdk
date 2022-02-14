@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ClientSalesRepresentativeDto model module.
  * @module model/ClientSalesRepresentativeDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ClientSalesRepresentativeDto {
     /**

@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatiosPriceCashFlow model module.
  * @module model/StockNotationScreenerSearchDataRatiosPriceCashFlow
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRatiosPriceCashFlow {
     /**

@@ -17,7 +17,7 @@ import Function from './Function';
 /**
  * The CompanyPeopleRequest model module.
  * @module model/CompanyPeopleRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CompanyPeopleRequest {
     /**

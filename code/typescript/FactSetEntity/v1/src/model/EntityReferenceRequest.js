@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityReferenceRequest model module.
  * @module model/EntityReferenceRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityReferenceRequest {
     /**

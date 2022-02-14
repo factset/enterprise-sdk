@@ -20,7 +20,7 @@ import PeopleJobsResponse from '../model/PeopleJobsResponse';
 /**
 * JobHistory service.
 * @module api/JobHistoryApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class JobHistoryApi {
 

@@ -22,7 +22,7 @@ import InlineResponse2006DataShares from './InlineResponse2006DataShares';
 /**
  * The InlineResponse2006DataPositions model module.
  * @module model/InlineResponse2006DataPositions
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006DataPositions {
     /**

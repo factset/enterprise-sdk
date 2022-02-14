@@ -48,31 +48,29 @@ Retrieve FactSet identifiers for a given notation.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20069 import InlineResponse20069
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -148,31 +146,29 @@ Translate a FactSet market symbol to a notation. This symbol is also known as TI
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20066 import InlineResponse20066
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -250,31 +246,29 @@ Basic data for a notation.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20064 import InlineResponse20064
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -352,31 +346,29 @@ End-of-day (EOD) key figures for the time range of one month.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -452,31 +444,29 @@ End-of-day (EOD) key figures for the time range of one month, for a list of nota
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -554,31 +544,29 @@ End-of-day (EOD) key figures for the time range of three months.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -654,31 +642,29 @@ End-of-day (EOD) key figures for the time range of three months, for a list of n
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -756,31 +742,29 @@ End-of-day (EOD) key figures for the time range of six months.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -856,31 +840,29 @@ End-of-day (EOD) key figures for the time range of six months, for a list of not
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -958,31 +940,29 @@ End-of-day (EOD) key figures for the time range of one week.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1058,31 +1038,29 @@ End-of-day (EOD) key figures for the time range of one week, for a list of notat
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1160,31 +1138,29 @@ End-of-day (EOD) key figures for the time range of one year.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1260,31 +1236,29 @@ End-of-day (EOD) key figures for the time range of one year, for a list of notat
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1362,31 +1336,29 @@ End-of-day (EOD) key figures for the time range of three years.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1462,31 +1434,29 @@ End-of-day (EOD) key figures for the time range of three years, for a list of no
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1564,31 +1534,29 @@ End-of-day (EOD) key figures for the time range of five years.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1664,31 +1632,29 @@ End-of-day (EOD) key figures for the time range of five years, for a list of not
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1766,31 +1732,29 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD). The time ran
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20076 import InlineResponse20076
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1866,31 +1830,29 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list o
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20077 import InlineResponse20077
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -1968,31 +1930,29 @@ Basic data for a list of notations.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20065 import InlineResponse20065
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2072,31 +2032,29 @@ Search for a notation whose ISIN, specified NSINs, name, or symbol match the sea
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088 import InlineResponse20088
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2188,31 +2146,29 @@ Search for notations whose ISIN, specified NSINs, name, or symbol match the sear
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090 import InlineResponse20090
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2308,31 +2264,29 @@ Intraday trading status of a notation.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20078 import InlineResponse20078
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2410,32 +2364,30 @@ Retrieve a list of notations for a given FactSet identifier.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object19 import InlineObject19
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20070 import InlineResponse20070
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2508,32 +2460,30 @@ Retrieve a list of FactSet identifiers for a given instrument.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object20 import InlineObject20
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20071 import InlineResponse20071
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2606,32 +2556,30 @@ List of entitled notations.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067 import InlineResponse20067
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object16 import InlineObject16
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2718,32 +2666,30 @@ List of entitled notations.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object17 import InlineObject17
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067 import InlineResponse20067
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2830,32 +2776,30 @@ List of entitled notations. Symbols are not globally unique; therefore, a given 
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object18 import InlineObject18
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068 import InlineResponse20068
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -2942,32 +2886,30 @@ Text-based search for notations in selected identifier and name attributes accor
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20089 import InlineResponse20089
 from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object22 import InlineObject22
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

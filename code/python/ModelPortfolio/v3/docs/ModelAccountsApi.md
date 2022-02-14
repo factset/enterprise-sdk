@@ -23,31 +23,29 @@ Create or update an existing model account
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from fds.sdk.ModelPortfolio.model.model_account_fields_root import ModelAccountFieldsRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -154,30 +152,28 @@ Delete model account, takes an account path and name and deletes it.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -242,30 +238,28 @@ Get account endpoint, takes an account name, date and returns underlying data fo
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -346,30 +340,28 @@ Get account endpoint, takes an account name and returns underlying data
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -452,30 +444,28 @@ Get account endpoint, takes an account name, symbol and returns underlying data 
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -556,30 +546,28 @@ Get account schema endpoint, takes an account name and returns its schema
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ModelPortfolio
 from fds.sdk.ModelPortfolio.api import model_accounts_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ModelPortfolio.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

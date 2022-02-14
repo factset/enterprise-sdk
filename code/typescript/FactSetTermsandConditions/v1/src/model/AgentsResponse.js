@@ -17,7 +17,7 @@ import Agent from './Agent';
 /**
  * The AgentsResponse model module.
  * @module model/AgentsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AgentsResponse {
     /**

@@ -28,17 +28,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
 const templatedPAComponentParametersRoot = {"data":{"directory":"Personal:TemplatedPAComponents/","parentTemplateId":"01234567890123456789012345678901","description":"This is a templated PA component","componentData":{"accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"currencyisocode":"USD","componentdetail":"GROUPS"}}}; // TemplatedPAComponentParametersRoot | Request Parameters
@@ -94,17 +99,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
 const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a templated PA component
@@ -159,17 +169,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
 const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a templated PA component
@@ -225,17 +240,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
 const directory = "'Personal:TemplatedPAComponents/'"; // String | Get templated PA components in path
@@ -291,17 +311,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
 const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a templated PA component

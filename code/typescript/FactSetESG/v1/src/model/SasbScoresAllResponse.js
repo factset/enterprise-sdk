@@ -17,7 +17,7 @@ import SasbScoresAll from './SasbScoresAll';
 /**
  * The SasbScoresAllResponse model module.
  * @module model/SasbScoresAllResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SasbScoresAllResponse {
     /**

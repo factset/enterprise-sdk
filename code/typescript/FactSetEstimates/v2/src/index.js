@@ -54,7 +54,7 @@ import SurpriseApi from './api/SurpriseApi';
 
 
 /**
-* Gain_access_to_20_years_of_comprehensive_estimates_and_statistics_of_over_250_estimated_metrics_including_financial_statement_items_product_segments_geosegments_and_industry_metrics__FactSets_consensus_estimates_are_aggregated_from_a_wide_base_of_over_800_contributors_and_cover_over_19000_active_companies_across_90_countries__Data_returned_can_be_accessed_on_the_data_frequencies_based_on_quarterly_fiscal_years_and_calendar_years__FactSet_Estimates_updates_on_a_real_time_basis_intraday__every_5_minutes__Updating_times_vary_based_on_earning_season_vs__non_earning_season_but_the_goal_is_to_have_the_data_available_to_the_client_within_a_few_hours_that_FactSet_receives_updated_information__Often_times_updates_times_can_be_much_faster_as_FactSet_has_always_been_known_as_one_of_the_fastest_estimate_providers_in_the_market_.<br>
+* FactSet Estimates client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -82,7 +82,7 @@ import SurpriseApi from './api/SurpriseApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

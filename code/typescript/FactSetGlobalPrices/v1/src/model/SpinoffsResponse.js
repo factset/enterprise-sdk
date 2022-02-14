@@ -17,7 +17,7 @@ import Distribution from './Distribution';
 /**
  * The SpinoffsResponse model module.
  * @module model/SpinoffsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SpinoffsResponse {
     /**

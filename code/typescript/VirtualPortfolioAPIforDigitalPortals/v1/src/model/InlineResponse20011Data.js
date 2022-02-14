@@ -17,7 +17,7 @@ import InlineResponse20011Notation from './InlineResponse20011Notation';
 /**
  * The InlineResponse20011Data model module.
  * @module model/InlineResponse20011Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20011Data {
     /**

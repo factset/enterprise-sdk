@@ -22,7 +22,7 @@ import ModifyIndividual from '../model/ModifyIndividual';
 /**
 * UserManagement service.
 * @module api/UserManagementApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class UserManagementApi {
 

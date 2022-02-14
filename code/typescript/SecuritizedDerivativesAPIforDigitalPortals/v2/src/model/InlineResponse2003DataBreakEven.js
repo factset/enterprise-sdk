@@ -17,7 +17,7 @@ import InlineResponse2003DataBreakEvenDistance from './InlineResponse2003DataBre
 /**
  * The InlineResponse2003DataBreakEven model module.
  * @module model/InlineResponse2003DataBreakEven
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataBreakEven {
     /**

@@ -1,0 +1,704 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: FactSearch.Team@factset.com
+    name: FactSet Search Team
+  description: The FactSet Search Answers API provides answers to search queries,
+    reflecting the data shown within FactSet Search Answers, and allowing you to easily
+    add financial data to your widgets, lookups, bots, and assistants. The API understands
+    a fixed amount of search terms and returns structured data from FactSet’s many
+    data sources. Possible answers include Price of a Company, Top 10 Year-to-Date
+    Gainers, Revenue per Passenger Mile, and many more.
+  title: FactSet Search Answers API
+  version: 1.0.0
+servers:
+- url: https://api.factset.com
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /search/answers/v1/data:
+    get:
+      description: Returns an answer to the specified query (if a valid answer exists).
+        Returns the answer data only (as JSON), without any markup information.
+      operationId: searchForDataAnswer
+      parameters:
+      - description: Query for desired answer (e.g., "fds price")
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataAnswerSuccessResponse'
+          description: Request was successful.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Missing or empty query.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Missing or invalid authentication.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Unhandled error occurred while processing the request.
+      summary: Fetch FactSet answer in data format
+      tags:
+      - answers
+      x-accepts: application/json
+  /search/answers/v1/adaptive-card:
+    get:
+      description: Returns an answer to the specified query (if valid answer exists)
+        in the Adaptive Card format (https://adaptivecards.io/).
+      operationId: searchForAdaptiveCardAnswer
+      parameters:
+      - description: Query for desired answer (e.g., "fds price")
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Includes thumbnail of Adaptive Card in response
+        explode: true
+        in: query
+        name: includeThumbnail
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: Disables no-result answer responses (no-results and answer without
+          data)
+        explode: true
+        in: query
+        name: disableNoAnswerResponses
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdaptiveCardAnswerSuccessResponse'
+          description: Request was successful.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Missing or empty query.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Missing or invalid authentication.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerFailureResponse'
+          description: Unhandled error occurred while processing the request.
+      summary: Fetch FactSet answer in Adaptive Card format
+      tags:
+      - answers
+      x-accepts: application/json
+components:
+  parameters:
+    Query:
+      description: Query for desired answer (e.g., "fds price")
+      explode: true
+      in: query
+      name: query
+      required: true
+      schema:
+        type: string
+      style: form
+    IncludeThumbnail:
+      description: Includes thumbnail of Adaptive Card in response
+      explode: true
+      in: query
+      name: includeThumbnail
+      required: false
+      schema:
+        default: false
+        type: boolean
+      style: form
+    DisableNoAnswerResponses:
+      description: Disables no-result answer responses (no-results and answer without
+        data)
+      explode: true
+      in: query
+      name: disableNoAnswerResponses
+      required: false
+      schema:
+        default: true
+        type: boolean
+      style: form
+  schemas:
+    DataAnswerSuccessResponse:
+      example: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/DataAnswerData'
+      required:
+      - data
+      type: object
+    DataAnswerData:
+      oneOf:
+      - $ref: '#/components/schemas/Answer'
+      - $ref: '#/components/schemas/AnswerWithoutData'
+      - $ref: '#/components/schemas/NoAnswersFound'
+    AnswerFailureResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      required:
+      - errors
+      type: object
+    Error:
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorLink'
+        detail:
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      required:
+      - code
+      - id
+      - title
+      type: object
+    ErrorLink:
+      properties:
+        about:
+          type: string
+      required:
+      - about
+      type: object
+    ErrorSource:
+      properties:
+        pointer:
+          type: string
+        parameter:
+          type: string
+      type: object
+    DataAnswer:
+      properties:
+        template:
+          type: string
+      required:
+      - template
+      type: object
+    Answer:
+      allOf:
+      - $ref: '#/components/schemas/DataAnswer'
+      - $ref: '#/components/schemas/Answer_allOf'
+    AnswerWithoutData:
+      allOf:
+      - $ref: '#/components/schemas/NoAnswersFound'
+      - $ref: '#/components/schemas/AnswerWithoutData_allOf'
+    NoAnswersFound:
+      allOf:
+      - $ref: '#/components/schemas/DataAnswer'
+      - $ref: '#/components/schemas/NoAnswersFound_allOf'
+    Fdc3Country:
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        id:
+          $ref: '#/components/schemas/CountryID'
+      required:
+      - name
+      - type
+      type: object
+    Fdc3Instrument:
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        exchangeMic:
+          type: string
+        exchangeMicFds:
+          type: string
+        id:
+          $ref: '#/components/schemas/InstrumentID'
+      required:
+      - name
+      - type
+      type: object
+    Fdc3Context:
+      oneOf:
+      - $ref: '#/components/schemas/Fdc3Instrument'
+      - $ref: '#/components/schemas/Fdc3Country'
+    CountryID:
+      properties:
+        ISOALPHA2:
+          type: string
+      type: object
+    InstrumentID:
+      properties:
+        BBG:
+          type: string
+        CUSIP:
+          type: string
+        FDS_ID:
+          type: string
+        FDS_TICKER_REGION:
+          type: string
+        FDS_TICKER_EXCHANGE:
+          type: string
+        FIGI:
+          type: string
+        ISIN:
+          type: string
+        PERMID:
+          type: string
+        RIC:
+          type: string
+        SEDOL:
+          type: string
+        ticker:
+          type: string
+      type: object
+    Template:
+      properties:
+        headline:
+          type: string
+        footer:
+          type: string
+        fdc3Context:
+          $ref: '#/components/schemas/Fdc3Context'
+      required:
+      - headline
+      type: object
+    TemplateWithLinks:
+      allOf:
+      - $ref: '#/components/schemas/Template'
+      - $ref: '#/components/schemas/TemplateWithLinks_allOf'
+    LinkTextBlockTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/LinkTextBlockTemplate_allOf'
+    TextBlockFootingTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/TextBlockFootingTemplate_allOf'
+    PercentChangeLabelTemplate:
+      allOf:
+      - $ref: '#/components/schemas/Template'
+      - $ref: '#/components/schemas/PercentChangeLabelTemplate_allOf'
+    ValueChangeDateLabelTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ValueChangeDateLabelTemplate_allOf'
+    RankedTableTemplate:
+      allOf:
+      - $ref: '#/components/schemas/Template'
+      - $ref: '#/components/schemas/RankedTableTemplate_allOf'
+    TableTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/TableTemplate_allOf'
+    TableTableTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/TableTableTemplate_allOf'
+    ValueLabelTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ValueLabelTemplate_allOf'
+    ValueLabelDateTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ValueLabelDateTemplate_allOf'
+    ColoredValueLabelDateTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ColoredValueLabelDateTemplate_allOf'
+    ValueLabelDateTextBlockTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ValueLabelDateTextBlockTemplate_allOf'
+    ValueLabelDateDataPairListTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/ValueLabelDateDataPairListTemplate_allOf'
+    LabelValueChangeLabelValueChangeTemplate:
+      allOf:
+      - $ref: '#/components/schemas/TemplateWithLinks'
+      - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeTemplate_allOf'
+    TemplateData:
+      discriminator:
+        propertyName: template
+      oneOf:
+      - $ref: '#/components/schemas/LinkTextBlockTemplate'
+      - $ref: '#/components/schemas/TextBlockFootingTemplate'
+      - $ref: '#/components/schemas/PercentChangeLabelTemplate'
+      - $ref: '#/components/schemas/ValueChangeDateLabelTemplate'
+      - $ref: '#/components/schemas/RankedTableTemplate'
+      - $ref: '#/components/schemas/TableTemplate'
+      - $ref: '#/components/schemas/TableTableTemplate'
+      - $ref: '#/components/schemas/ValueLabelTemplate'
+      - $ref: '#/components/schemas/ValueLabelDateTemplate'
+      - $ref: '#/components/schemas/ColoredValueLabelDateTemplate'
+      - $ref: '#/components/schemas/ValueLabelDateTextBlockTemplate'
+      - $ref: '#/components/schemas/ValueLabelDateDataPairListTemplate'
+      - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeTemplate'
+    TitledTextBlock:
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+      type: object
+    ValueChange:
+      properties:
+        absoluteChange:
+          type: string
+        percentageChange:
+          type: string
+        color:
+          $ref: '#/components/schemas/ChangeColor'
+      type: object
+    PercentChange:
+      properties:
+        change:
+          type: string
+        color:
+          $ref: '#/components/schemas/ChangeColor'
+      type: object
+    ChangeColor:
+      enum:
+      - colorNeutral
+      - colorPositive
+      - colorNegative
+      type: string
+    ColoredValue:
+      properties:
+        text:
+          type: string
+        color:
+          $ref: '#/components/schemas/ValueColor'
+      type: object
+    ValueColor:
+      enum:
+      - colorNone
+      - colorBuy
+      - colorHold
+      - colorSell
+      - colorOverweight
+      - colorUnderweight
+      type: string
+    Table:
+      properties:
+        tableHeaders:
+          items:
+            type: string
+          type: array
+        tableRows:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+        tableFooters:
+          items:
+            type: string
+          type: array
+      required:
+      - tableRows
+      type: object
+    RankedTable:
+      properties:
+        headers:
+          items:
+            type: string
+          type: array
+        rows:
+          items:
+            $ref: '#/components/schemas/RankedTableRow'
+          type: array
+      required:
+      - tableRows
+      type: object
+    RankedTableRow:
+      properties:
+        rank:
+          type: number
+        entity:
+          $ref: '#/components/schemas/RankedTableEntity'
+        applicationLink:
+          $ref: '#/components/schemas/ApplicationLink'
+        additionalData:
+          items:
+            type: string
+          type: array
+      required:
+      - rank
+      type: object
+    RankedTableEntity:
+      properties:
+        name:
+          type: string
+        identifier:
+          type: string
+      type: object
+    DataPair:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+      required:
+      - label
+      - value
+      type: object
+    ApplicationLink:
+      properties:
+        name:
+          type: string
+        workstationLink:
+          type: string
+        webLink:
+          type: string
+      required:
+      - name
+      - webLink
+      - workstationLink
+      type: object
+    AdaptiveCardAnswerSuccessResponse:
+      example:
+        data:
+        - null
+        - null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AdaptiveCardDataItem'
+          type: array
+      required:
+      - data
+      type: object
+    AdaptiveCardDataItem:
+      oneOf:
+      - $ref: '#/components/schemas/AdaptiveCard'
+      - $ref: '#/components/schemas/AdaptiveCardWithThumbnail'
+    AdaptiveCardWithThumbnail:
+      properties:
+        adaptiveCard:
+          description: JSON that matches [Adaptive Card](https://adaptivecards.io/explorer/)
+            format.
+          type: object
+        thumbnail:
+          description: JSON that matches [Thumbnail Card](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#thumbnail-card)
+            format.
+          nullable: true
+          type: object
+      type: object
+    AdaptiveCard:
+      description: JSON that matches [Adaptive Card](https://adaptivecards.io/explorer/)
+        format.
+      type: object
+    ThumbnailCard:
+      description: JSON that matches [Thumbnail Card](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#thumbnail-card)
+        format.
+      nullable: true
+      type: object
+    Answer_allOf:
+      properties:
+        templateData:
+          $ref: '#/components/schemas/TemplateData'
+        title:
+          type: string
+      required:
+      - templateData
+      - title
+      type: object
+    AnswerWithoutData_allOf_templateData:
+      properties:
+        fdc3Context:
+          $ref: '#/components/schemas/Fdc3Context'
+      type: object
+    AnswerWithoutData_allOf:
+      properties:
+        title:
+          type: string
+        templateData:
+          $ref: '#/components/schemas/AnswerWithoutData_allOf_templateData'
+      required:
+      - title
+      type: object
+    NoAnswersFound_allOf:
+      properties:
+        message:
+          type: string
+        querySuggestions:
+          items:
+            type: string
+          type: array
+      required:
+      - message
+      - querySuggestions
+      type: object
+    TemplateWithLinks_allOf:
+      properties:
+        applicationLinks:
+          items:
+            $ref: '#/components/schemas/ApplicationLink'
+          type: array
+      required:
+      - headline
+      type: object
+    LinkTextBlockTemplate_allOf:
+      properties:
+        link:
+          type: string
+        blurb:
+          type: string
+      type: object
+    TextBlockFootingTemplate_allOf:
+      properties:
+        body:
+          type: string
+        footing:
+          $ref: '#/components/schemas/TitledTextBlock'
+      type: object
+    PercentChangeLabelTemplate_allOf:
+      properties:
+        percentChange:
+          $ref: '#/components/schemas/PercentChange'
+        label:
+          type: string
+      type: object
+    ValueChangeDateLabelTemplate_allOf:
+      properties:
+        value:
+          type: string
+        valueChange:
+          $ref: '#/components/schemas/ValueChange'
+        date:
+          type: string
+        label:
+          type: string
+      type: object
+    RankedTableTemplate_allOf:
+      properties:
+        table:
+          $ref: '#/components/schemas/RankedTable'
+      type: object
+    TableTemplate_allOf:
+      properties:
+        table:
+          $ref: '#/components/schemas/Table'
+      type: object
+    TableTableTemplate_allOf:
+      properties:
+        table1:
+          $ref: '#/components/schemas/Table'
+        table2:
+          $ref: '#/components/schemas/Table'
+      type: object
+    ValueLabelTemplate_allOf:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+      type: object
+    ValueLabelDateTemplate_allOf:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+        date:
+          type: string
+      type: object
+    ColoredValueLabelDateTemplate_allOf:
+      properties:
+        value:
+          $ref: '#/components/schemas/ColoredValue'
+        label:
+          type: string
+        date:
+          type: string
+      type: object
+    ValueLabelDateTextBlockTemplate_allOf:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+        date:
+          type: string
+        blurb:
+          type: string
+      type: object
+    ValueLabelDateDataPairListTemplate_allOf:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+        date:
+          type: string
+        list:
+          items:
+            $ref: '#/components/schemas/DataPair'
+          type: array
+      type: object
+    LabelValueChangeLabelValueChangeTemplate_allOf:
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+        valueChange:
+          $ref: '#/components/schemas/ValueChange'
+        value2:
+          type: string
+        label2:
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -18,7 +18,7 @@ import NotationSearchByTextDataValidationValueUnitSelectionRestrict from './Nota
 /**
  * The NotationSearchByTextDataValidationValueUnitSelection model module.
  * @module model/NotationSearchByTextDataValidationValueUnitSelection
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataValidationValueUnitSelection {
     /**

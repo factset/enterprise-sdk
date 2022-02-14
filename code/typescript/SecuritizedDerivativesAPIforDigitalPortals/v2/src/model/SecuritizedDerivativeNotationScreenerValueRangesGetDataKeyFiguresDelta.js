@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDeltaUna
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDelta model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDelta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDelta {
     /**

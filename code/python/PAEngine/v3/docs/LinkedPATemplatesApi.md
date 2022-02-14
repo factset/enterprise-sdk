@@ -24,7 +24,6 @@ This endpoint creates a template from an **existing portfolio analysis tile**, a
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
@@ -32,25 +31,24 @@ from fds.sdk.PAEngine.model.linked_pa_template_post_summary_root import LinkedPA
 from fds.sdk.PAEngine.model.linked_pa_template_parameters_root import LinkedPATemplateParametersRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.PAEngine.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -139,31 +137,29 @@ This endpoint deletes an existing linked PA template.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.PAEngine.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -232,32 +228,30 @@ This endpoint returns the list of linked PA templates in given path.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
 from fds.sdk.PAEngine.model.linked_pa_template_summary_root import LinkedPATemplateSummaryRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.PAEngine.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -333,32 +327,30 @@ This endpoint fetches the linked PA template settings.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
 from fds.sdk.PAEngine.model.linked_pa_template_root import LinkedPATemplateRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.PAEngine.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -428,7 +420,6 @@ This endpoint allows the user to change the request body and description from an
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
@@ -436,25 +427,24 @@ from fds.sdk.PAEngine.model.linked_pa_template_update_parameters_root import Lin
 from fds.sdk.PAEngine.model.linked_pa_template_post_summary_root import LinkedPATemplatePostSummaryRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.PAEngine.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

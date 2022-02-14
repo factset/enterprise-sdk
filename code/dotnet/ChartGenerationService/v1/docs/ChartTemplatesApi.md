@@ -17,10 +17,9 @@ Get a list of chart categories
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.ChartGenerationService.Api;
 using FactSet.SDK.ChartGenerationService.Client;
 using FactSet.SDK.ChartGenerationService.Model;
@@ -29,48 +28,26 @@ namespace Example
 {
     public class GetCategoryListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/charting";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new ChartTemplatesApi(config);
 
@@ -78,13 +55,13 @@ namespace Example
             {
                 // Get a list of chart categories
                 List<string> result = apiInstance.GetCategoryList();
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ChartTemplatesApi.GetCategoryList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ChartTemplatesApi.GetCategoryList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -126,10 +103,9 @@ You can get all the charts present or can just get the information by categories
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.ChartGenerationService.Api;
 using FactSet.SDK.ChartGenerationService.Client;
 using FactSet.SDK.ChartGenerationService.Model;
@@ -138,48 +114,26 @@ namespace Example
 {
     public class GetChartListExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/charting";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new ChartTemplatesApi(config);
             var categories = categories_example;  // string | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional) 
@@ -189,13 +143,13 @@ namespace Example
             {
                 // Get a list of chart templates that can be used for getting the image from the service.
                 List<Object> result = apiInstance.GetChartList(categories, type);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ChartTemplatesApi.GetChartList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ChartTemplatesApi.GetChartList: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -239,10 +193,9 @@ Get chart image back in PNG or JPEG formats
 
 ### Example
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using FactSet.SDK.ChartGenerationService.Api;
 using FactSet.SDK.ChartGenerationService.Client;
 using FactSet.SDK.ChartGenerationService.Model;
@@ -251,48 +204,26 @@ namespace Example
 {
     public class ImagesExample
     {
-        public static void Main()
+        public static async Task Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api-sandbox.factset.com/charting";
-            // Configure HTTP basic authorization: FactSetApiKey
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: FactSetOAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            var config = new FactSet.SDK.PAEngine.Client.Configuration();
 
-            // Configure FactSet Authentication Client to automatically retrieve token for: FactSetOAuth2
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
 
-            // using path to configuration:
-            String pathToConfig = "";   // String contining absolute path to your configuration
-            config.OAuth2Client = new ConfidentialClient(pathToConfig);
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
 
-            // OR
-
-            // If your configuration information is not within a file, you will provide the following information to create a new configuration.
-            //   `name` - "Application Name registered with the FactSet Developer Portal",
-            //   `clientId` - "Client ID registered with the FactSet Developer Portal",
-            //   `clientAuthType` - For confidential client this will be "Confidential",
-            //   `owners` - new List<string>() { "Owner ID(s) of this configuration" },
-            //   `jwk` - new JsonWebKey(@"{
-            //                     'kty': 'RSA',
-            //                     'use': 'sig',
-            //                     'alg': 'RS256',
-            //                     'kid': 'Key ID',
-            //                     'd': 'ECC Private Key',
-            //                     'n': 'Modulus',
-            //                     'e': 'Exponent',
-            //                     'p': 'First Prime Factor',
-            //                     'q': 'Second Prime Factor',
-            //                     'dp': 'First Factor CRT Exponent',
-            //                     'dq': 'Second Factor CRT Exponent',
-            //                      'qi': 'First CRT Coefficient',
-            //           }");
-
-            // `NB`: Within the JWK parameters kty, alg, use, kid, n, e, d, p, q, dp, dq, qi are required for authorization.
-            
-            var config = new FactSet.SDK.Utils.Authentication.Configuration(name, clientId, clientAuthType, owners, jwk);
-            config.OAuth2Client = new ConfidentialClient(config);
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
 
             var apiInstance = new ChartTemplatesApi(config);
             var chart = Equity/RSI;  // string | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
@@ -315,13 +246,13 @@ namespace Example
             {
                 // Get chart image back in PNG or JPEG formats
                 string result = apiInstance.Images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
-                Debug.WriteLine(result);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ChartTemplatesApi.Images: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ChartTemplatesApi.Images: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

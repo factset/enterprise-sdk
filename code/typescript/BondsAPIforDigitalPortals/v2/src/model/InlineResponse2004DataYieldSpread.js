@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataYieldSpread model module.
  * @module model/InlineResponse2004DataYieldSpread
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataYieldSpread {
     /**

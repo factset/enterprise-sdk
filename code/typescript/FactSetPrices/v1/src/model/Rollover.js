@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Rollover model module.
  * @module model/Rollover
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Rollover {
     /**

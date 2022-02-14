@@ -18,7 +18,7 @@ import ResponseDetails from './ResponseDetails';
 /**
  * The LookupResponse model module.
  * @module model/LookupResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LookupResponse {
     /**

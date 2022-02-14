@@ -29,19 +29,28 @@ import com.factset.sdk.IRNContacts.auth.*;
 import com.factset.sdk.IRNContacts.model.*;
 import com.factset.sdk.IRNContacts.api.ContactRelationshipsApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-sandbox.factset.com/research/irn");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         ContactRelationshipsApi apiInstance = new ContactRelationshipsApi(defaultClient);
         java.util.UUID contactRelationshipId = new java.util.UUID(); // java.util.UUID | contactRelationshipId to delete associated record
@@ -104,19 +113,28 @@ import com.factset.sdk.IRNContacts.auth.*;
 import com.factset.sdk.IRNContacts.model.*;
 import com.factset.sdk.IRNContacts.api.ContactRelationshipsApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-sandbox.factset.com/research/irn");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         ContactRelationshipsApi apiInstance = new ContactRelationshipsApi(defaultClient);
         java.util.UUID contactRelationshipId = new java.util.UUID(); // java.util.UUID | contactRelationshipId to get associated record
@@ -179,19 +197,28 @@ import com.factset.sdk.IRNContacts.auth.*;
 import com.factset.sdk.IRNContacts.model.*;
 import com.factset.sdk.IRNContacts.api.ContactRelationshipsApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-sandbox.factset.com/research/irn");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         ContactRelationshipsApi apiInstance = new ContactRelationshipsApi(defaultClient);
         java.util.UUID contactRelationshipId = new java.util.UUID(); // java.util.UUID | contactRelationshipId to update associated record
@@ -256,19 +283,28 @@ import com.factset.sdk.IRNContacts.auth.*;
 import com.factset.sdk.IRNContacts.model.*;
 import com.factset.sdk.IRNContacts.api.ContactRelationshipsApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-sandbox.factset.com/research/irn");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         ContactRelationshipsApi apiInstance = new ContactRelationshipsApi(defaultClient);
         String symbol = "symbol_example"; // String | 
@@ -334,19 +370,28 @@ import com.factset.sdk.IRNContacts.auth.*;
 import com.factset.sdk.IRNContacts.model.*;
 import com.factset.sdk.IRNContacts.api.ContactRelationshipsApi;
 
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-sandbox.factset.com/research/irn");
-        
-        // Configure HTTP basic authorization: FactSetApiKey
-        HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        FactSetApiKey.setUsername("YOUR USERNAME");
-        FactSetApiKey.setPassword("YOUR PASSWORD");
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
 
-        // Configure OAuth2 access token for authorization: FactSetOAuth2
-        OAuth FactSetOAuth2 = (OAuth) defaultClient.getAuthentication("FactSetOAuth2");
-        FactSetOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient();
+        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
+        // FactSetApiKey.setUsername("YOUR USERNAME");
+        // FactSetApiKey.setPassword("YOUR PASSWORD");
 
         ContactRelationshipsApi apiInstance = new ContactRelationshipsApi(defaultClient);
         ContactRelationshipTwoSidedSaveDto contactRelationshipTwoSidedSaveDto = new ContactRelationshipTwoSidedSaveDto(); // ContactRelationshipTwoSidedSaveDto | contactRelationship object to save

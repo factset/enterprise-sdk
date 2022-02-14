@@ -9,9 +9,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.DocumentsDistributorDocuments"
-VERSION = "0.9.0"
+VERSION = "0.9.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -22,22 +26,21 @@ VERSION = "0.9.0"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - Documents Distributor - Documents",
+    description="Documents Distributor - Documents client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/DocumentsDistributorDocuments",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/DocumentsDistributorDocuments/v1",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. The API also provides relevant metadata such as document source, company identifiers and form type around each filings document. Filings providers currently include EDGAR and SYMEX WebDisclosure.      StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.   Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.    # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

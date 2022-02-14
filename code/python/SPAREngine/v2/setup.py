@@ -10,9 +10,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.SPAREngine"
-VERSION = "0.8.0"
+VERSION = "0.8.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -24,22 +28,21 @@ REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
   "fds.protobuf.stach.extensions == 1.0.1",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - SPAR Engine",
+    description="SPAR Engine client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/SPAREngine",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/SPAREngine/v2",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    Allow clients to fetch SPAR Engine Analytics through APIs.  # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

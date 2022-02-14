@@ -17,7 +17,7 @@ import SedolTranslation from './SedolTranslation';
 /**
  * The SedolTranslationResponse model module.
  * @module model/SedolTranslationResponse
- * @version 0.8.0
+ * @version 0.8.1
  */
 class SedolTranslationResponse {
     /**

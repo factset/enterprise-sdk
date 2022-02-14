@@ -22,7 +22,7 @@ import FlowsResponse from '../model/FlowsResponse';
 /**
 * FundFlowsAUM service.
 * @module api/FundFlowsAUMApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FundFlowsAUMApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubjectSettingsDto model module.
  * @module model/SubjectSettingsDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SubjectSettingsDto {
     /**

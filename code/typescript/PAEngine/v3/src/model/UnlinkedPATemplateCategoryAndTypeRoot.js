@@ -17,7 +17,7 @@ import UnlinkedPATemplateCategoryAndType from './UnlinkedPATemplateCategoryAndTy
 /**
  * The UnlinkedPATemplateCategoryAndTypeRoot model module.
  * @module model/UnlinkedPATemplateCategoryAndTypeRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UnlinkedPATemplateCategoryAndTypeRoot {
     /**

@@ -19,7 +19,7 @@ import DocumentDirectoriesRoot from '../model/DocumentDirectoriesRoot';
 /**
 * StrategyDocuments service.
 * @module api/StrategyDocumentsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class StrategyDocumentsApi {
 

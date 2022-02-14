@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMin
 /**
  * The DebtInstrumentNotationScreenerSearchDataSensitivitiesElasticity model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataSensitivitiesElasticity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataSensitivitiesElasticity {
     /**

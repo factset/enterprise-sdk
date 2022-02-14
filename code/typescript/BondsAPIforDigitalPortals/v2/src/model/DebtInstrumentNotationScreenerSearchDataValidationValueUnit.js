@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataValidationValueUnitRestrict from 
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationValueUnit model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationValueUnit
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataValidationValueUnit {
     /**

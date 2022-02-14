@@ -19,7 +19,7 @@ import InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios from './InlineR
 /**
  * The InlineResponse2004ReportedKeyFiguresThirdFiscalYear model module.
  * @module model/InlineResponse2004ReportedKeyFiguresThirdFiscalYear
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004ReportedKeyFiguresThirdFiscalYear {
     /**

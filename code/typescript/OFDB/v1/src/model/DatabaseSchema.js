@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DatabaseSchema model module.
  * @module model/DatabaseSchema
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DatabaseSchema {
     /**

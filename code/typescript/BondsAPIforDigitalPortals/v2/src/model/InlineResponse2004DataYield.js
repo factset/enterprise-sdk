@@ -19,7 +19,7 @@ import InlineResponse2004DataYieldToMaturity from './InlineResponse2004DataYield
 /**
  * The InlineResponse2004DataYield model module.
  * @module model/InlineResponse2004DataYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataYield {
     /**

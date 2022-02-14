@@ -19,7 +19,7 @@ import VaultConfigurationSummary from '../model/VaultConfigurationSummary';
 /**
 * Configurations service.
 * @module api/ConfigurationsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class ConfigurationsApi {
 

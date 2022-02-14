@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BenchmarkIdList model module.
  * @module model/BenchmarkIdList
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BenchmarkIdList {
     /**

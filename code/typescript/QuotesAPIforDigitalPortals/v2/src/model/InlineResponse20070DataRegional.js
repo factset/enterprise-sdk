@@ -17,7 +17,7 @@ import InlineResponse20070DataListing from './InlineResponse20070DataListing';
 /**
  * The InlineResponse20070DataRegional model module.
  * @module model/InlineResponse20070DataRegional
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20070DataRegional {
     /**

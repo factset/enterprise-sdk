@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataVega model module.
  * @module model/InlineResponse2003DataVega
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataVega {
     /**

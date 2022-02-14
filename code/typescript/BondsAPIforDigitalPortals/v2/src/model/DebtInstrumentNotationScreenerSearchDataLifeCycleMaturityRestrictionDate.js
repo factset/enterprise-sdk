@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionDate model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionDate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionDate {
     /**

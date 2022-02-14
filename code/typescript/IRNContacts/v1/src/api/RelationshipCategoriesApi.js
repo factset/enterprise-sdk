@@ -21,7 +21,7 @@ import RelationshipCategorySaveDto from '../model/RelationshipCategorySaveDto';
 /**
 * RelationshipCategories service.
 * @module api/RelationshipCategoriesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class RelationshipCategoriesApi {
 

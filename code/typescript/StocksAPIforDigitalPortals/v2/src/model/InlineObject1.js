@@ -18,7 +18,7 @@ import StockNotationRankingIntradayListMeta from './StockNotationRankingIntraday
 /**
  * The InlineObject1 model module.
  * @module model/InlineObject1
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject1 {
     /**

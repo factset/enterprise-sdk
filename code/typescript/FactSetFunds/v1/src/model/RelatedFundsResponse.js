@@ -17,7 +17,7 @@ import RelatedFunds from './RelatedFunds';
 /**
  * The RelatedFundsResponse model module.
  * @module model/RelatedFundsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RelatedFundsResponse {
     /**

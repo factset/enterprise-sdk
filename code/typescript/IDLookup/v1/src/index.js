@@ -27,7 +27,7 @@ import FactSetIDLookupApi from './api/FactSetIDLookupApi';
 
 
 /**
-* The_Factset_Identifier_Lookup_API_provides_the_ability_to_search_for_various_identifier_types_based_on_keyword__The_API_returns_tickers_entity_names_and_other_identifiers_that_Factset_supports__In_addition_the_API_offers_filters_that_allows_users_to_refine_the_results_.<br>
+* ID Lookup client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -55,7 +55,7 @@ import FactSetIDLookupApi from './api/FactSetIDLookupApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

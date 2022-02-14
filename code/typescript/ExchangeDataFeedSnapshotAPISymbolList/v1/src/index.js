@@ -22,7 +22,7 @@ import SnapshotApi from './api/SnapshotApi';
 
 
 /**
-* FactSets_Exchange_DataFeed_Snapshot_API_provides_cost_effective_access_to_real_time_and_delayed_global_exchange_data__Proprietary_technology_normalizes_over_200_global_exchanges_and_150_data_fields__Asset_types_integrated_include_equities_futures_options_warrants_fixed_income_mutual_funds_ETFs_indices_commodities_and_FX_rates__pCutting_edge_technology_ensures_reliability_and_provides_scalability_that_allow_applications_to_request_multiple_items_at_a_time__To_simplify_client_side_development_an_entire_response_can_be_placed_in_a_matrix_or_table_for_effortless_integration_into_internal_and_external_applications__Using_specified_output_formats__CSV_XML_JSON_receive_all_standard_fields_by_default_or_customize_the_list_based_on_specific_needs__p_pBelow_are_the_current_hosts_ppProduction_api_factset_compSandbox_api_sandbox_factset_com_p.<br>
+* Exchange DataFeed Snapshot API - Symbol List client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -50,7 +50,7 @@ import SnapshotApi from './api/SnapshotApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

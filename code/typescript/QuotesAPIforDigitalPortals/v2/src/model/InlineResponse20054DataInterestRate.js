@@ -19,7 +19,7 @@ import InlineResponse20054DataInterestRateInitial from './InlineResponse20054Dat
 /**
  * The InlineResponse20054DataInterestRate model module.
  * @module model/InlineResponse20054DataInterestRate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20054DataInterestRate {
     /**

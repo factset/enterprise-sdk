@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricEstimatesMetricEstimates model module.
  * @module model/MetricEstimatesMetricEstimates
- * @version 0.9.0
+ * @version 0.9.1
  */
 class MetricEstimatesMetricEstimates {
     /**

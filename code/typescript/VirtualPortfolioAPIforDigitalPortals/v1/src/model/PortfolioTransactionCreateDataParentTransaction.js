@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioTransactionCreateDataParentTransaction model module.
  * @module model/PortfolioTransactionCreateDataParentTransaction
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioTransactionCreateDataParentTransaction {
     /**

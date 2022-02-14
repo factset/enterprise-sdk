@@ -22,7 +22,7 @@ import TickerTranslationResponse from '../model/TickerTranslationResponse';
 /**
 * Ticker service.
 * @module api/TickerApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class TickerApi {
 

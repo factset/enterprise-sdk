@@ -18,7 +18,7 @@ import InlineResponse2004DataCouponOccurrenceType from './InlineResponse2004Data
 /**
  * The InlineResponse2004DataCouponOccurrence model module.
  * @module model/InlineResponse2004DataCouponOccurrence
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataCouponOccurrence {
     /**

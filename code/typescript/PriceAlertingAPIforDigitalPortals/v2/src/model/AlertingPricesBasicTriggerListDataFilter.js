@@ -17,7 +17,7 @@ import AlertingPricesBasicTriggerListDataFilterStatus from './AlertingPricesBasi
 /**
  * The AlertingPricesBasicTriggerListDataFilter model module.
  * @module model/AlertingPricesBasicTriggerListDataFilter
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AlertingPricesBasicTriggerListDataFilter {
     /**

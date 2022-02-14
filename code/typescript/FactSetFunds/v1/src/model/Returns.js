@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Returns model module.
  * @module model/Returns
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Returns {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IsPartialitems model module.
  * @module model/IsPartialitems
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IsPartialitems {
     /**

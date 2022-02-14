@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CusipHistoryTranslation model module.
  * @module model/CusipHistoryTranslation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CusipHistoryTranslation {
     /**

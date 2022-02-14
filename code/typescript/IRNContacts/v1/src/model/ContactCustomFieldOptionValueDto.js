@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactCustomFieldOptionValueDto model module.
  * @module model/ContactCustomFieldOptionValueDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactCustomFieldOptionValueDto {
     /**

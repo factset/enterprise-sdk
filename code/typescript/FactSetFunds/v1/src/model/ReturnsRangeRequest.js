@@ -17,7 +17,7 @@ import DividendAdjust from './DividendAdjust';
 /**
  * The ReturnsRangeRequest model module.
  * @module model/ReturnsRangeRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ReturnsRangeRequest {
     /**

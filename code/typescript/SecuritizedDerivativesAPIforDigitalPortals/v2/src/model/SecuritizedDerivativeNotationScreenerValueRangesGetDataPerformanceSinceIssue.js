@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIs
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue {
     /**

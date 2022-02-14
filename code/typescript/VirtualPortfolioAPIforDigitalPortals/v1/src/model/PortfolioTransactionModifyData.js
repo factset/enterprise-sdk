@@ -17,7 +17,7 @@ import PortfolioTransactionModifyDataTransaction from './PortfolioTransactionMod
 /**
  * The PortfolioTransactionModifyData model module.
  * @module model/PortfolioTransactionModifyData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioTransactionModifyData {
     /**

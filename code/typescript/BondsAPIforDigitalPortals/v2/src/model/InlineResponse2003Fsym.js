@@ -18,7 +18,7 @@ import InlineResponse2003FsymRegional from './InlineResponse2003FsymRegional';
 /**
  * The InlineResponse2003Fsym model module.
  * @module model/InlineResponse2003Fsym
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003Fsym {
     /**

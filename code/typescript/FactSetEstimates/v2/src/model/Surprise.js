@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Surprise model module.
  * @module model/Surprise
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Surprise {
     /**

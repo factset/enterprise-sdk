@@ -18,7 +18,7 @@ import TransactionStatus from '../model/TransactionStatus';
 /**
 * OrderStatus service.
 * @module api/OrderStatusApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class OrderStatusApi {
 

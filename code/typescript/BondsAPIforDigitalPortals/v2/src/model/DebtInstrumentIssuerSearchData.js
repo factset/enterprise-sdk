@@ -20,7 +20,7 @@ import DebtInstrumentIssuerSearchDataName from './DebtInstrumentIssuerSearchData
 /**
  * The DebtInstrumentIssuerSearchData model module.
  * @module model/DebtInstrumentIssuerSearchData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentIssuerSearchData {
     /**

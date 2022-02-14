@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReturnsSnapshot model module.
  * @module model/ReturnsSnapshot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ReturnsSnapshot {
     /**

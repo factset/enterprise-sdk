@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006InstrumentKnockOutDistance model module.
  * @module model/InlineResponse2006InstrumentKnockOutDistance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentKnockOutDistance {
     /**

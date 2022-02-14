@@ -28,7 +28,7 @@ import RequestFilesApi from './api/RequestFilesApi';
 
 
 /**
-* TickHistory_provides_dynamic_access_to_historical_tick_data_for_a_specific_security_for_specific_dates_or_date_range_.<br>
+* FactSet Tick History client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -56,7 +56,7 @@ import RequestFilesApi from './api/RequestFilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

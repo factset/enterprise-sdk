@@ -17,7 +17,7 @@ import InlineResponse20084DataAsks from './InlineResponse20084DataAsks';
 /**
  * The InlineResponse20084Data model module.
  * @module model/InlineResponse20084Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20084Data {
     /**

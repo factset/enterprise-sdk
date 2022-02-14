@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentSummaryDto model module.
  * @module model/AttachmentSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AttachmentSummaryDto {
     /**

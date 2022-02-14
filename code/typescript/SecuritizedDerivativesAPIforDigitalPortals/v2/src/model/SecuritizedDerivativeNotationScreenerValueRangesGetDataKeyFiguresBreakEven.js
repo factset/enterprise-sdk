@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEve
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven {
     /**

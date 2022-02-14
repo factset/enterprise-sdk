@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue {
     /**

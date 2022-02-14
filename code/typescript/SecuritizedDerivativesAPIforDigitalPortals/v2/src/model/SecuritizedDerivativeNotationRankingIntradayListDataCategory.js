@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListDataCategory model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListDataCategory
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationRankingIntradayListDataCategory {
     /**

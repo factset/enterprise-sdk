@@ -17,7 +17,7 @@ import TemplateContentTypes from './TemplateContentTypes';
 /**
  * The LinkedPATemplateUpdateParameters model module.
  * @module model/LinkedPATemplateUpdateParameters
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LinkedPATemplateUpdateParameters {
     /**

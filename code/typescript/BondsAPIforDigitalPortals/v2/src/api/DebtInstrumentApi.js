@@ -25,7 +25,7 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * DebtInstrument service.
 * @module api/DebtInstrumentApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class DebtInstrumentApi {
 

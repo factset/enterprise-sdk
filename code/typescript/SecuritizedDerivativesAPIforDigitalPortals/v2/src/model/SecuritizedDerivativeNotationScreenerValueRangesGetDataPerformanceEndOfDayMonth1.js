@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1 model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1 {
     /**

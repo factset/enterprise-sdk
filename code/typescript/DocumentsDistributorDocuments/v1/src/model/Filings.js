@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Filings model module.
  * @module model/Filings
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Filings {
     /**

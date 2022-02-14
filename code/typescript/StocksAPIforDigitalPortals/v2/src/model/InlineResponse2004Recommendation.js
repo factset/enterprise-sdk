@@ -17,7 +17,7 @@ import InlineResponse2004RecommendationCounts from './InlineResponse2004Recommen
 /**
  * The InlineResponse2004Recommendation model module.
  * @module model/InlineResponse2004Recommendation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004Recommendation {
     /**

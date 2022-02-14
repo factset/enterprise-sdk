@@ -20,7 +20,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleValuation
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle {
     /**

@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponOccurrence from './DebtInst
 /**
  * The DebtInstrumentNotationScreenerSearchDataCoupon model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCoupon
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataCoupon {
     /**

@@ -17,7 +17,7 @@ import UnlinkedPATemplatePostSummary from './UnlinkedPATemplatePostSummary';
 /**
  * The UnlinkedPATemplatePostSummaryRoot model module.
  * @module model/UnlinkedPATemplatePostSummaryRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UnlinkedPATemplatePostSummaryRoot {
     /**

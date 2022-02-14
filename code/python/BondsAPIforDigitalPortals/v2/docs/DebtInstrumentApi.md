@@ -24,31 +24,29 @@ Fundamental data for a debt instrument; any other instrument yields empty values
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_response200 import InlineResponse200
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -126,31 +124,29 @@ Key figures of a debt instrument. The key figures are calculated using delayed p
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -226,32 +222,30 @@ Search for issuers of debt instruments. FactSet does not consolidate the data pr
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_object import InlineObject
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -343,32 +337,30 @@ Screener for debt instruments' notations based on debt instrument-specific param
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_object1 import InlineObject1
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -764,32 +756,30 @@ The endpoint returns the possible values and value ranges for the parameters use
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_object2 import InlineObject2
 from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
 from pprint import pprint
-# Defining the host is optional and defaults to http://api.factset.com/wealth/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    host = "http://api.factset.com/wealth/v1"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

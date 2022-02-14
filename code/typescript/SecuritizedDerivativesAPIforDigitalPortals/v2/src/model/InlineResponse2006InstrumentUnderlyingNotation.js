@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentUnderlyingNotationInstrument from './InlineRe
 /**
  * The InlineResponse2006InstrumentUnderlyingNotation model module.
  * @module model/InlineResponse2006InstrumentUnderlyingNotation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentUnderlyingNotation {
     /**

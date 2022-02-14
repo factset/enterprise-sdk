@@ -20,7 +20,7 @@ import InlineResponse2001DataSummary from './InlineResponse2001DataSummary';
 /**
  * The InlineResponse2001Data model module.
  * @module model/InlineResponse2001Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2001Data {
     /**

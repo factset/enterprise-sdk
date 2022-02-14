@@ -17,7 +17,7 @@ import InlineResponse2004UnderlyingNotationInstrument from './InlineResponse2004
 /**
  * The InlineResponse2004UnderlyingNotation model module.
  * @module model/InlineResponse2004UnderlyingNotation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004UnderlyingNotation {
     /**

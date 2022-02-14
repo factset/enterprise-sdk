@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleSearchByTextDataTextCriteria model module.
  * @module model/NewsArticleSearchByTextDataTextCriteria
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleSearchByTextDataTextCriteria {
     /**

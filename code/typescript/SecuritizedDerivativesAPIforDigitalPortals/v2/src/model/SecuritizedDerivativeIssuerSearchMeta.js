@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeIssuerSearchMeta model module.
  * @module model/SecuritizedDerivativeIssuerSearchMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeIssuerSearchMeta {
     /**

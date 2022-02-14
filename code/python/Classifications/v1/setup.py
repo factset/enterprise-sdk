@@ -10,9 +10,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.Classifications"
-VERSION = "0.9.0"
+VERSION = "0.9.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,22 +27,21 @@ VERSION = "0.9.0"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - Classifications",
+    description="Classifications client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/Classifications",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Classifications/v1",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    The Classifications API gives access to various Industry Classifications for a given list of securities. Beginning first with GICS Direct, the service will then expand to offering NAICS, SIC, RBICS, and more.    # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

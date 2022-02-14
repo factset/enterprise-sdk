@@ -26,7 +26,7 @@ import StockNotationScreenerSearchDataRatiosPriceSales from './StockNotationScre
 /**
  * The StockNotationScreenerSearchDataRatios model module.
  * @module model/StockNotationScreenerSearchDataRatios
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRatios {
     /**

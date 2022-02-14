@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataRecommendationCounts from './StockNotation
 /**
  * The StockNotationScreenerSearchDataRecommendation model module.
  * @module model/StockNotationScreenerSearchDataRecommendation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRecommendation {
     /**

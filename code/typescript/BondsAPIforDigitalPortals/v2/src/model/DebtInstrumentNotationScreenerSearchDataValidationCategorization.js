@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataValidationCategorizationRestrict 
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationCategorization model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationCategorization
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataValidationCategorization {
     /**

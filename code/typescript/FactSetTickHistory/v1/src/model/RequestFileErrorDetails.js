@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RequestFileErrorDetails model module.
  * @module model/RequestFileErrorDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RequestFileErrorDetails {
     /**

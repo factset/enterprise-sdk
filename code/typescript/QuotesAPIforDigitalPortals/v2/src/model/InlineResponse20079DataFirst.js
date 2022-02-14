@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20079DataFirst model module.
  * @module model/InlineResponse20079DataFirst
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20079DataFirst {
     /**

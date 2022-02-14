@@ -18,7 +18,7 @@ import ReturnType from './ReturnType';
 /**
  * The IndexSnapshotRequest model module.
  * @module model/IndexSnapshotRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IndexSnapshotRequest {
     /**

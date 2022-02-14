@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FormulaConfigDto model module.
  * @module model/FormulaConfigDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FormulaConfigDto {
     /**

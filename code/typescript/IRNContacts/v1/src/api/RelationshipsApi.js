@@ -21,7 +21,7 @@ import RelationshipType from '../model/RelationshipType';
 /**
 * Relationships service.
 * @module api/RelationshipsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class RelationshipsApi {
 

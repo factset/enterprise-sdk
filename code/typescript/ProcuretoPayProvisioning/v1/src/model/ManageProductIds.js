@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ManageProductIds model module.
  * @module model/ManageProductIds
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ManageProductIds {
     /**

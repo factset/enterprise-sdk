@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityStructure model module.
  * @module model/EntityStructure
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityStructure {
     /**

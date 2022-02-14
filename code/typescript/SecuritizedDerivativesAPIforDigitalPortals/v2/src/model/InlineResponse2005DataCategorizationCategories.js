@@ -17,7 +17,7 @@ import InlineResponse2005DataCategorizationParent from './InlineResponse2005Data
 /**
  * The InlineResponse2005DataCategorizationCategories model module.
  * @module model/InlineResponse2005DataCategorizationCategories
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCategorizationCategories {
     /**

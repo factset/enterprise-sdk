@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityMatch model module.
  * @module model/EntityMatch
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityMatch {
     /**

@@ -20,7 +20,7 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PAComponentData model module.
  * @module model/PAComponentData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PAComponentData {
     /**

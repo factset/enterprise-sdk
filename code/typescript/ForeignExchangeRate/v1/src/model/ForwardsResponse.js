@@ -17,7 +17,7 @@ import Forward from './Forward';
 /**
  * The ForwardsResponse model module.
  * @module model/ForwardsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ForwardsResponse {
     /**

@@ -17,7 +17,7 @@ import Gics from './Gics';
 /**
  * The GicsResponse model module.
  * @module model/GicsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GicsResponse {
     /**

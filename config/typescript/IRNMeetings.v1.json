@@ -1,11 +1,12 @@
 {
   "projectName": "@factset/sdk-irnmeetings",
-  "projectVersion": "0.9.0",
+  "projectVersion": "0.9.1",
   "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "IRN Meetings client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "irnmeetings",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/IRNMeetings/0.9.0",
+  "httpUserAgent": "fds-sdk/javascript/IRNMeetings/0.9.1",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

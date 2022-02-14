@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20019DataSubdivisions model module.
  * @module model/InlineResponse20019DataSubdivisions
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20019DataSubdivisions {
     /**

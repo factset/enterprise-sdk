@@ -17,7 +17,7 @@ import Field from './Field';
 /**
  * The FieldsResponse model module.
  * @module model/FieldsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FieldsResponse {
     /**

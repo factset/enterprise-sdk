@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UnlinkedPATemplateCategoryAndType model module.
  * @module model/UnlinkedPATemplateCategoryAndType
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UnlinkedPATemplateCategoryAndType {
     /**

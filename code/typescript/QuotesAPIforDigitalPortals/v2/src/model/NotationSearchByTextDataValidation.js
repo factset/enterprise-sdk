@@ -19,7 +19,7 @@ import NotationSearchByTextDataValidationValueUnit from './NotationSearchByTextD
 /**
  * The NotationSearchByTextDataValidation model module.
  * @module model/NotationSearchByTextDataValidation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataValidation {
     /**

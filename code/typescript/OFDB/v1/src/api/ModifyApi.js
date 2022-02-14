@@ -21,7 +21,7 @@ import SuccessPostResponse from '../model/SuccessPostResponse';
 /**
 * Modify service.
 * @module api/ModifyApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ModifyApi {
 

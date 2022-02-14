@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactRelationshipTwoSidedSaveDto model module.
  * @module model/ContactRelationshipTwoSidedSaveDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactRelationshipTwoSidedSaveDto {
     /**

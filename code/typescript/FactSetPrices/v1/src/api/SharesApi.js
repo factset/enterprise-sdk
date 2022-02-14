@@ -20,7 +20,7 @@ import SharesResponse from '../model/SharesResponse';
 /**
 * Shares service.
 * @module api/SharesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SharesApi {
 

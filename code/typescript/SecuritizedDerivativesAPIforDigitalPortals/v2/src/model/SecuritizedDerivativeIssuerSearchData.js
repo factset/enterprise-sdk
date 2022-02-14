@@ -22,7 +22,7 @@ import SecuritizedDerivativeIssuerSearchDataUnderlying from './SecuritizedDeriva
 /**
  * The SecuritizedDerivativeIssuerSearchData model module.
  * @module model/SecuritizedDerivativeIssuerSearchData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeIssuerSearchData {
     /**

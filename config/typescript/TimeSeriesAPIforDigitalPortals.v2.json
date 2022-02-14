@@ -1,11 +1,12 @@
 {
   "projectName": "@factset/sdk-timeseriesapifordigitalportals",
-  "projectVersion": "0.9.0",
+  "projectVersion": "0.9.1",
   "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Time Series API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "timeseriesapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.9.0",
+  "httpUserAgent": "fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.9.1",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

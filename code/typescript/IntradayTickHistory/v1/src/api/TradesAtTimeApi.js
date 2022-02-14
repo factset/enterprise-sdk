@@ -18,7 +18,7 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * TradesAtTime service.
 * @module api/TradesAtTimeApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class TradesAtTimeApi {
 

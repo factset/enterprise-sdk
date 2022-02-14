@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20036FsymSecurity model module.
  * @module model/InlineResponse20036FsymSecurity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20036FsymSecurity {
     /**

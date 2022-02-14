@@ -27,7 +27,7 @@ import InlineResponse2005 from '../model/InlineResponse2005';
 /**
 * Stock service.
 * @module api/StockApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class StockApi {
 

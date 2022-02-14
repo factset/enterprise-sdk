@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Prices model module.
  * @module model/Prices
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Prices {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UltimateEntityStructureRequest model module.
  * @module model/UltimateEntityStructureRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UltimateEntityStructureRequest {
     /**

@@ -23,7 +23,7 @@ import SuccessPostResponse from '../model/SuccessPostResponse';
 /**
 * Create service.
 * @module api/CreateApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CreateApi {
 

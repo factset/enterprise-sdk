@@ -19,7 +19,7 @@ import VaultComponent from '../model/VaultComponent';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class ComponentsApi {
 

@@ -19,7 +19,7 @@ import InlineResponse2001Types from './InlineResponse2001Types';
 /**
  * The InlineResponse2002DataArticles model module.
  * @module model/InlineResponse2002DataArticles
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2002DataArticles {
     /**

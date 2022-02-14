@@ -17,7 +17,7 @@ import InlineResponse200DataIssuerGroup from './InlineResponse200DataIssuerGroup
 /**
  * The InlineResponse2004Issuer model module.
  * @module model/InlineResponse2004Issuer
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004Issuer {
     /**

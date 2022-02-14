@@ -18,7 +18,7 @@ import BasicValueUnitListMeta from './BasicValueUnitListMeta';
 /**
  * The InlineObject7 model module.
  * @module model/InlineObject7
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject7 {
     /**

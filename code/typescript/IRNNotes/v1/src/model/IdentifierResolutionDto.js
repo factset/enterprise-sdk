@@ -17,7 +17,7 @@ import ResolvedInstrumentDto from './ResolvedInstrumentDto';
 /**
  * The IdentifierResolutionDto model module.
  * @module model/IdentifierResolutionDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IdentifierResolutionDto {
     /**

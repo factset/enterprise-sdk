@@ -22,7 +22,7 @@ import ReturnsSnapshotResponse from '../model/ReturnsSnapshotResponse';
 /**
 * Returns service.
 * @module api/ReturnsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ReturnsApi {
 

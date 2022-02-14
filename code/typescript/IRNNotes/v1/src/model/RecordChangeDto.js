@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecordChangeDto model module.
  * @module model/RecordChangeDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RecordChangeDto {
     /**

@@ -41,7 +41,7 @@ import InlineResponse20090 from '../model/InlineResponse20090';
 /**
 * Notation service.
 * @module api/NotationApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class NotationApi {
 

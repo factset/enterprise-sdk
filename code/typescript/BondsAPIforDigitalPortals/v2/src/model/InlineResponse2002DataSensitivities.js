@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2002DataSensitivities model module.
  * @module model/InlineResponse2002DataSensitivities
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2002DataSensitivities {
     /**

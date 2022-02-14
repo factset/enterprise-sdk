@@ -19,7 +19,7 @@ import ManageProductIds from '../model/ManageProductIds';
 /**
 * EntitlementManagement service.
 * @module api/EntitlementManagementApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EntitlementManagementApi {
 

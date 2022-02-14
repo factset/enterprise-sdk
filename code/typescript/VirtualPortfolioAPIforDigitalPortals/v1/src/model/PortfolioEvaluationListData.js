@@ -17,7 +17,7 @@ import PortfolioEvaluationListDataRange from './PortfolioEvaluationListDataRange
 /**
  * The PortfolioEvaluationListData model module.
  * @module model/PortfolioEvaluationListData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioEvaluationListData {
     /**

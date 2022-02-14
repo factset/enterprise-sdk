@@ -5,9 +5,9 @@
     <artifactId>ofdb</artifactId>
     <packaging>jar</packaging>
     <name>ofdb</name>
-    <version>0.9.0</version>
+    <version>0.9.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
-    <description>FactSet SDK</description>
+    <description>OFDB client library for Java</description>
     <scm>
         <connection>scm:git:git@github.com:FactSet/enterprise-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:FactSet/enterprise-sdk.git</developerConnection>
@@ -313,7 +313,7 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sdk-utils-version>0.9.0</sdk-utils-version>
+        <sdk-utils-version>0.10.0</sdk-utils-version>
         <swagger-annotations-version>1.6.3</swagger-annotations-version>
         <jersey-version>2.35</jersey-version>
         <jackson-version>2.13.0</jackson-version>

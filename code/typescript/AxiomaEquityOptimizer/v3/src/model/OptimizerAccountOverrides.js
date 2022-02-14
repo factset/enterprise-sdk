@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerAccountOverrides model module.
  * @module model/OptimizerAccountOverrides
- * @version 0.9.0
+ * @version 0.9.1
  */
 class OptimizerAccountOverrides {
     /**

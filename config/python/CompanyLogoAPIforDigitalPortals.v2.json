@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.CompanyLogoAPIforDigitalPortals",
   "projectName": "fds.sdk.CompanyLogoAPIforDigitalPortals",
-  "packageVersion": "0.9.0",
+  "packageVersion": "0.9.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
-  "packageDescription": "FactSet SDK - Company Logo API for Digital Portals",
+  "packageDescription": "Company Logo API for Digital Portals client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
-  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/CompanyLogoAPIforDigitalPortals",
-  "httpUserAgent": "fds-sdk/python/CompanyLogoAPIforDigitalPortals/0.9.0",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/CompanyLogoAPIforDigitalPortals/v2",
+  "httpUserAgent": "fds-sdk/python/CompanyLogoAPIforDigitalPortals/0.9.1",
   "files": {
     "LICENSE": {}
   }

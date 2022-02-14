@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ComponentSummary model module.
  * @module model/ComponentSummary
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ComponentSummary {
     /**

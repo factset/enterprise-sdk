@@ -25,31 +25,29 @@ This is the endpoint to cancel a previously submitted optimization.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -117,32 +115,30 @@ This is the endpoint that returns the optimization parameters passed for an opti
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -211,32 +207,30 @@ This is the endpoint to get the result of a previously requested optimization.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -305,32 +299,30 @@ This is the endpoint to check on the progress of a previously requested optimiza
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -400,7 +392,6 @@ This endpoint creates and runs AFI optimization specified in the POST body param
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
@@ -409,25 +400,24 @@ from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.calculation_info_root import CalculationInfoRoot
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -552,7 +542,6 @@ This endpoint updates and run the AFI optimization specified in the PUT body par
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
@@ -561,25 +550,24 @@ from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.calculation_info_root import CalculationInfoRoot
 from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-    host = "https://api.factset.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.AxiomaFixedIncomeOptimizer.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

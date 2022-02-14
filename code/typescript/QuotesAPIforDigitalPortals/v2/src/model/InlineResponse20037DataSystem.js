@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20037DataSystem model module.
  * @module model/InlineResponse20037DataSystem
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20037DataSystem {
     /**

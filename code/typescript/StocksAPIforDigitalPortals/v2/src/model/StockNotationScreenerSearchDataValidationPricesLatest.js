@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataValidationPricesLatest model module.
  * @module model/StockNotationScreenerSearchDataValidationPricesLatest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataValidationPricesLatest {
     /**

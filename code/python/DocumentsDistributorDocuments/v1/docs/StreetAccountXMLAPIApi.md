@@ -22,32 +22,30 @@ Need to plug-in the jobID got from /request-files into /check-status endpoint
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
 from fds.sdk.DocumentsDistributorDocuments.model.checkstatus_response import CheckstatusResponse
 from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/bulk-documents
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    host = "https://api.factset.com/bulk-documents"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -111,32 +109,30 @@ Need to plug-in the jobID got from /request-files into /check-status endpoint
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
 from fds.sdk.DocumentsDistributorDocuments.model.getfiles_response import GetfilesResponse
 from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/bulk-documents
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    host = "https://api.factset.com/bulk-documents"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -200,32 +196,30 @@ Give the startDate and endDate parameters as request parameters in the /request-
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
 from fds.sdk.DocumentsDistributorDocuments.model.requestfiles_response import RequestfilesResponse
 from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/bulk-documents
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    host = "https://api.factset.com/bulk-documents"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

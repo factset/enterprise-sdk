@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GetResponse model module.
  * @module model/GetResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GetResponse {
     /**

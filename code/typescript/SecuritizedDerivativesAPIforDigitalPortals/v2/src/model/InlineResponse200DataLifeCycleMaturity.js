@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataLifeCycleMaturity model module.
  * @module model/InlineResponse200DataLifeCycleMaturity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataLifeCycleMaturity {
     /**

@@ -17,7 +17,7 @@ import PubCalculationParameters from './PubCalculationParameters';
 /**
  * The PubCalculationParametersRoot model module.
  * @module model/PubCalculationParametersRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PubCalculationParametersRoot {
     /**

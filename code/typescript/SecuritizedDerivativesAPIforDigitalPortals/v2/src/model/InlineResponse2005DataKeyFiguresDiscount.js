@@ -18,7 +18,7 @@ import InlineResponse2005DataKeyFiguresDiscountRelative from './InlineResponse20
 /**
  * The InlineResponse2005DataKeyFiguresDiscount model module.
  * @module model/InlineResponse2005DataKeyFiguresDiscount
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresDiscount {
     /**

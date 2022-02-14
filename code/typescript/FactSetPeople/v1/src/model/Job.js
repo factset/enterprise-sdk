@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Job model module.
  * @module model/Job
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Job {
     /**

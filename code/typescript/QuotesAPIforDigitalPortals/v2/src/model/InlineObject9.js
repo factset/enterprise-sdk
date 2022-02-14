@@ -18,7 +18,7 @@ import InstrumentBackgroundTextTypeListMeta from './InstrumentBackgroundTextType
 /**
  * The InlineObject9 model module.
  * @module model/InlineObject9
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject9 {
     /**

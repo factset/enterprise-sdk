@@ -17,7 +17,7 @@ import InterimAmtOutChgInterimAmtOutChg from './InterimAmtOutChgInterimAmtOutChg
 /**
  * The InterimAmtOutChg model module.
  * @module model/InterimAmtOutChg
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InterimAmtOutChg {
     /**

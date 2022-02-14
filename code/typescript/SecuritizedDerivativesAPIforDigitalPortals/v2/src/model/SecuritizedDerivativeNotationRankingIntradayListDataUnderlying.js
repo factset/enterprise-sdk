@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotation fr
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListDataUnderlying model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListDataUnderlying
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationRankingIntradayListDataUnderlying {
     /**

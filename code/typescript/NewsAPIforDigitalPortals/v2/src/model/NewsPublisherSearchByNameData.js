@@ -17,7 +17,7 @@ import NewsPublisherSearchByNameDataFilter from './NewsPublisherSearchByNameData
 /**
  * The NewsPublisherSearchByNameData model module.
  * @module model/NewsPublisherSearchByNameData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsPublisherSearchByNameData {
     /**

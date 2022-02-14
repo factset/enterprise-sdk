@@ -19,7 +19,7 @@ import DocumentDirectoriesRoot from '../model/DocumentDirectoriesRoot';
 /**
 * Documents service.
 * @module api/DocumentsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class DocumentsApi {
 

@@ -19,7 +19,7 @@ import InlineResponse2005DataCouponTriggerLevelValue from './InlineResponse2005D
 /**
  * The InlineResponse2005DataCouponTriggerLevel model module.
  * @module model/InlineResponse2005DataCouponTriggerLevel
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCouponTriggerLevel {
     /**

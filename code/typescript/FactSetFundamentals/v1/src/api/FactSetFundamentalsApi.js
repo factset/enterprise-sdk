@@ -20,7 +20,7 @@ import FundamentalsResponse from '../model/FundamentalsResponse';
 /**
 * FactSetFundamentals service.
 * @module api/FactSetFundamentalsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FactSetFundamentalsApi {
 

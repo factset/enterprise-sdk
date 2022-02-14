@@ -17,7 +17,7 @@ import NRTCalls400ResponseDetailsValidParameters from './NRTCalls400ResponseDeta
 /**
  * The NRTCalls400ResponseDetails model module.
  * @module model/NRTCalls400ResponseDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTCalls400ResponseDetails {
     /**

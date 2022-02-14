@@ -17,7 +17,7 @@ import InlineResponse200DataNominalCurrency from './InlineResponse200DataNominal
 /**
  * The InlineResponse200DataNominal model module.
  * @module model/InlineResponse200DataNominal
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataNominal {
     /**

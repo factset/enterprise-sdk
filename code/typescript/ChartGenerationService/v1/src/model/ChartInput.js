@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ChartInput model module.
  * @module model/ChartInput
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ChartInput {
     /**

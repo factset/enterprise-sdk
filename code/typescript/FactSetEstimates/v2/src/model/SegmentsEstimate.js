@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SegmentsEstimate model module.
  * @module model/SegmentsEstimate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SegmentsEstimate {
     /**

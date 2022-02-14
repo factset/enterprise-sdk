@@ -1,7 +1,7 @@
 {
   "name": "@factset/sdk-factsetestimates",
-  "version": "0.9.0",
-  "description": "Gain_access_to_20_years_of_comprehensive_estimates_and_statistics_of_over_250_estimated_metrics_including_financial_statement_items_product_segments_geosegments_and_industry_metrics__FactSets_consensus_estimates_are_aggregated_from_a_wide_base_of_over_800_contributors_and_cover_over_19000_active_companies_across_90_countries__Data_returned_can_be_accessed_on_the_data_frequencies_based_on_quarterly_fiscal_years_and_calendar_years__FactSet_Estimates_updates_on_a_real_time_basis_intraday__every_5_minutes__Updating_times_vary_based_on_earning_season_vs__non_earning_season_but_the_goal_is_to_have_the_data_available_to_the_client_within_a_few_hours_that_FactSet_receives_updated_information__Often_times_updates_times_can_be_much_faster_as_FactSet_has_always_been_known_as_one_of_the_fastest_estimate_providers_in_the_market_",
+  "version": "0.9.1",
+  "description": "FactSet Estimates client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
@@ -11,35 +11,17 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
-  "browser": {
-    "fs": false
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@factset/sdk-utils": "^0.9.0",
-    "superagent": "^5.3.0"
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"

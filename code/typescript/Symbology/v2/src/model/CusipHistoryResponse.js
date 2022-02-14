@@ -17,7 +17,7 @@ import CusipHistoryTranslation from './CusipHistoryTranslation';
 /**
  * The CusipHistoryResponse model module.
  * @module model/CusipHistoryResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CusipHistoryResponse {
     /**

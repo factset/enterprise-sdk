@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20016DataNavLast model module.
  * @module model/InlineResponse20016DataNavLast
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20016DataNavLast {
     /**

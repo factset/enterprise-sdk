@@ -18,7 +18,7 @@ import PaginationItems from './PaginationItems';
 /**
  * The Meta model module.
  * @module model/Meta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Meta {
     /**

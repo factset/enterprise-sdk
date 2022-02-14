@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.IRNMeetings",
   "projectName": "fds.sdk.IRNMeetings",
-  "packageVersion": "0.9.0",
+  "packageVersion": "0.9.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
-  "packageDescription": "FactSet SDK - IRN Meetings",
+  "packageDescription": "IRN Meetings client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
-  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/IRNMeetings",
-  "httpUserAgent": "fds-sdk/python/IRNMeetings/0.9.0",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/IRNMeetings/v1",
+  "httpUserAgent": "fds-sdk/python/IRNMeetings/0.9.1",
   "files": {
     "LICENSE": {}
   }

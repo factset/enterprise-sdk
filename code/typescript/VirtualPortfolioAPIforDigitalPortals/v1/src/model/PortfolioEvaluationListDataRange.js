@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioEvaluationListDataRange model module.
  * @module model/PortfolioEvaluationListDataRange
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioEvaluationListDataRange {
     /**

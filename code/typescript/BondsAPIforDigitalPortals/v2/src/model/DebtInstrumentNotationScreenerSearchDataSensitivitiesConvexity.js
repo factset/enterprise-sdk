@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity {
     /**

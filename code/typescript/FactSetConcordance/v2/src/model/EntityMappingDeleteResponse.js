@@ -17,7 +17,7 @@ import EntityMapping from './EntityMapping';
 /**
  * The EntityMappingDeleteResponse model module.
  * @module model/EntityMappingDeleteResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityMappingDeleteResponse {
     /**

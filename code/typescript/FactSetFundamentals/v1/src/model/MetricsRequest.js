@@ -18,7 +18,7 @@ import Subcategory from './Subcategory';
 /**
  * The MetricsRequest model module.
  * @module model/MetricsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class MetricsRequest {
     /**

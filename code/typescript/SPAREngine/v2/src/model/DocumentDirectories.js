@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DocumentDirectories model module.
  * @module model/DocumentDirectories
- * @version 0.8.0
+ * @version 0.8.1
  */
 class DocumentDirectories {
     /**

@@ -49,7 +49,7 @@ import UsersApi from './api/UsersApi';
 
 
 /**
-* Allows_users_to_create_update_and_configure_IRN_data_.<br>
+* IRN Configuration client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -77,7 +77,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

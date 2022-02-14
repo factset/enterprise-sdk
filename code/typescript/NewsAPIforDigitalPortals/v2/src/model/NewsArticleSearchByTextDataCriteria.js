@@ -25,7 +25,7 @@ import NewsArticleSearchByTextDataTypes from './NewsArticleSearchByTextDataTypes
 /**
  * The NewsArticleSearchByTextDataCriteria model module.
  * @module model/NewsArticleSearchByTextDataCriteria
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleSearchByTextDataCriteria {
     /**

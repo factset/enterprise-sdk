@@ -20,7 +20,7 @@ import InlineResponse2009Type from './InlineResponse2009Type';
 /**
  * The InlineResponse2009Data model module.
  * @module model/InlineResponse2009Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2009Data {
     /**

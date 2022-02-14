@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TickerTranslationRequest model module.
  * @module model/TickerTranslationRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class TickerTranslationRequest {
     /**

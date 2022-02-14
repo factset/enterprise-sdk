@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TeamConfigDto model module.
  * @module model/TeamConfigDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class TeamConfigDto {
     /**

@@ -18,7 +18,7 @@ import ModelAccountFieldsRoot from '../model/ModelAccountFieldsRoot';
 /**
 * ModelAccounts service.
 * @module api/ModelAccountsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ModelAccountsApi {
 

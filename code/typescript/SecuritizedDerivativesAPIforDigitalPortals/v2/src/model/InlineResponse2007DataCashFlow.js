@@ -19,7 +19,7 @@ import InlineResponse2007DataCashFlowRelative from './InlineResponse2007DataCash
 /**
  * The InlineResponse2007DataCashFlow model module.
  * @module model/InlineResponse2007DataCashFlow
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataCashFlow {
     /**

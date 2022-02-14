@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataTradedValueDays30 from './DebtIns
 /**
  * The DebtInstrumentNotationScreenerSearchDataTradedValue model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataTradedValue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataTradedValue {
     /**

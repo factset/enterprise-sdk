@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UseOfProceeds model module.
  * @module model/UseOfProceeds
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UseOfProceeds {
     /**

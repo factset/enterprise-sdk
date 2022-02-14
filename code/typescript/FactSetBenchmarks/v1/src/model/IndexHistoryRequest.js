@@ -19,7 +19,7 @@ import ReturnType from './ReturnType';
 /**
  * The IndexHistoryRequest model module.
  * @module model/IndexHistoryRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IndexHistoryRequest {
     /**

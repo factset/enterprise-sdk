@@ -1,11 +1,12 @@
 {
   "projectName": "@factset/sdk-companylogoapifordigitalportals",
-  "projectVersion": "0.9.0",
+  "projectVersion": "0.9.1",
   "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Company Logo API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "companylogoapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/CompanyLogoAPIforDigitalPortals/0.9.0",
+  "httpUserAgent": "fds-sdk/javascript/CompanyLogoAPIforDigitalPortals/0.9.1",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

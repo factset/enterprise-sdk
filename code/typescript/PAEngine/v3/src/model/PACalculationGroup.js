@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PACalculationGroup model module.
  * @module model/PACalculationGroup
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PACalculationGroup {
     /**

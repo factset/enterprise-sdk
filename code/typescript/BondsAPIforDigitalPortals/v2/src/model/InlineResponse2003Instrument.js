@@ -27,7 +27,7 @@ import InlineResponse2003InstrumentTradingVolume from './InlineResponse2003Instr
 /**
  * The InlineResponse2003Instrument model module.
  * @module model/InlineResponse2003Instrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003Instrument {
     /**

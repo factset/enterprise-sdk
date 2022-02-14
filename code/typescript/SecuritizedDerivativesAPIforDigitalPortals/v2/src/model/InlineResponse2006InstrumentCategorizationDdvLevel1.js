@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006InstrumentCategorizationDdvLevel1 model module.
  * @module model/InlineResponse2006InstrumentCategorizationDdvLevel1
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentCategorizationDdvLevel1 {
     /**

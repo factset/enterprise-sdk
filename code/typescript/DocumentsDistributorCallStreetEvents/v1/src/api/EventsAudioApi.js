@@ -20,7 +20,7 @@ import EventsAudio400Response from '../model/EventsAudio400Response';
 /**
 * EventsAudio service.
 * @module api/EventsAudioApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EventsAudioApi {
 

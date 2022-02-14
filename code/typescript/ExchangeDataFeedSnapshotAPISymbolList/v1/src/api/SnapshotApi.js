@@ -19,7 +19,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Snapshot service.
 * @module api/SnapshotApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SnapshotApi {
 

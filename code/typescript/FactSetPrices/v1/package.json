@@ -1,7 +1,7 @@
 {
   "name": "@factset/sdk-factsetprices",
-  "version": "0.9.0",
-  "description": "Gain_access_to_comprehensive_global_coverage_for_Equities__Fixed_Income__Perform_quick_analytics_by_controlling_the_date_ranges_currencies_and_rolling_periods_or_simply_request_Open_High_Low_and_Close_prices__Easily_connect_pricing_data_with_other_core_company_data_or_alternative_content_sets_using_FactSets_hub_and_spoke_symbology__pEquity_and_Fund_Security_types_include_Common_Stock_ADR_GDR_Preferred_Closed_ended_Fund_Exchange_Traded_Fund_Unit_Open_ended_Fund_Exchange_Traded_Fund_UVI_Exchange_Traded_Fund_NAV_Preferred_Equity_Non_Voting_Depositary_Receipt_Certificate_Alien_Foreign_Structured_Product_and_Temporary_Instruments__Reference_over_180000_active_and_inactive_securities__ppFixed_Income_Security_Types_include_Corporate_Bonds_Treasury_and_Agency_bonds_Government_Bonds_and_Municipals__p",
+  "version": "0.9.1",
+  "description": "FactSet Prices client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
@@ -11,35 +11,17 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
-  "browser": {
-    "fs": false
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@factset/sdk-utils": "^0.9.0",
-    "superagent": "^5.3.0"
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"

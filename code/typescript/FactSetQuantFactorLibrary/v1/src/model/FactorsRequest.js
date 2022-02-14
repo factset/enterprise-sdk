@@ -17,7 +17,7 @@ import Frequency from './Frequency';
 /**
  * The FactorsRequest model module.
  * @module model/FactorsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FactorsRequest {
     /**

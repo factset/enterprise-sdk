@@ -20,7 +20,7 @@ import StructureResponse from '../model/StructureResponse';
 /**
 * Structure service.
 * @module api/StructureApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class StructureApi {
 

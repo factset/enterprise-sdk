@@ -17,7 +17,7 @@ import ModelAccountFields from './ModelAccountFields';
 /**
  * The ModelAccountFieldsRoot model module.
  * @module model/ModelAccountFieldsRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ModelAccountFieldsRoot {
     /**

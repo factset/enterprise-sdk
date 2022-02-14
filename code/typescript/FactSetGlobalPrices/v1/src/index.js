@@ -37,7 +37,7 @@ import PricesApi from './api/PricesApi';
 
 
 /**
-* The_FactSet_Global_Prices_API_provides_end_of_day_market_pricing_content_using_cloud_and_microservices_technology_encompassing_both_pricing_as_well_as_corporate_actions_and_events_data__p.<br>
+* FactSet Global Prices client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -65,7 +65,7 @@ import PricesApi from './api/PricesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

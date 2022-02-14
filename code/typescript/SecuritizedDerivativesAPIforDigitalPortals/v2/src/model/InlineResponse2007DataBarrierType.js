@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataBarrierType model module.
  * @module model/InlineResponse2007DataBarrierType
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataBarrierType {
     /**

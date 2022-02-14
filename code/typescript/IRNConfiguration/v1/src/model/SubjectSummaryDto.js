@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubjectSummaryDto model module.
  * @module model/SubjectSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SubjectSummaryDto {
     /**

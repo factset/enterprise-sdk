@@ -23,7 +23,7 @@ import ChartTemplatesApi from './api/ChartTemplatesApi';
 
 
 /**
-* This_is_a_service_for_generating_charts_in_a_node_environment_that_were_created_using_web_charting_and_get_back_images_in_form_of_PNGs_and_JPEGs_as_response_.<br>
+* Chart Generation Service client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -51,7 +51,7 @@ import ChartTemplatesApi from './api/ChartTemplatesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

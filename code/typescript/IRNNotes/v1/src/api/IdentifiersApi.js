@@ -19,7 +19,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Identifiers service.
 * @module api/IdentifiersApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class IdentifiersApi {
 

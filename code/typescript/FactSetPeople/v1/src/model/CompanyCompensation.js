@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CompanyCompensation model module.
  * @module model/CompanyCompensation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CompanyCompensation {
     /**

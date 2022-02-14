@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001DataProfitLossPotential model module.
  * @module model/InlineResponse2001DataProfitLossPotential
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2001DataProfitLossPotential {
     /**

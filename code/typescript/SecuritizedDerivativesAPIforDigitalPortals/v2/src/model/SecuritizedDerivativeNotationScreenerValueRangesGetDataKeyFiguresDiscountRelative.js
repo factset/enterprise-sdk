@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionM
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative {
     /**

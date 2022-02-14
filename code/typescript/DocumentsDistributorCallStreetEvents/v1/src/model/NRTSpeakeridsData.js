@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSpeakeridsData model module.
  * @module model/NRTSpeakeridsData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSpeakeridsData {
     /**

@@ -17,7 +17,7 @@ import SdgFrequency from './SdgFrequency';
 /**
  * The SdgScoresRequest model module.
  * @module model/SdgScoresRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SdgScoresRequest {
     /**

@@ -10,9 +10,13 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
+
+def read(filename):
+  return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetConcordance"
-VERSION = "0.8.0"
+VERSION = "0.8.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,22 +27,21 @@ VERSION = "0.8.0"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils == 0.9.0",
+  "fds.sdk.utils >= 0.10.0",
 ]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="FactSet SDK - FactSet Concordance",
+    description="FactSet Concordance client library for Python",
     author="FactSet Research Systems",
-    url="https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FactSetConcordance",
+    url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetConcordance/v1",
     keywords=["FactSet", "API", "SDK"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    The FactSet Concordance API provides the ability to programmatically look up several types of entities by their name and other attributes. It attempts to match attributes that you supply for the entity and returns as many match candidates as it can find. The result is a \&quot;concorded\&quot; FactSet Entity Permanent identifier.  The Entity Identifier can then be used as input throughout FactSet&#39;s Content soultions, such as Content APIs and Standard DataFeeds.&lt;p&gt; There are types of workflows supported in the API. The first workflow type follows traditional API conventions in that a request is accepted and a response is returned synchronously. The second workflow type involves a background task. With this workflow, a task is created for uploading a set of queries, and then the client polls for the task to complete. Once the task has completed, the client retrieves the concordance results throught the decisions endpoint.&lt;/p&gt;   # noqa: E501
-    """
+    long_description_content_type="text/markdown",
+    long_description=read("README.md")
 )

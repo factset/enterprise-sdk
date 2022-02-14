@@ -19,7 +19,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * ContactRoles service.
 * @module api/ContactRolesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ContactRolesApi {
 

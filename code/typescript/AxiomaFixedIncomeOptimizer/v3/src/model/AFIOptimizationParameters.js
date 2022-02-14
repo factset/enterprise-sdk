@@ -20,7 +20,7 @@ import OptimizerOutputTypes from './OptimizerOutputTypes';
 /**
  * The AFIOptimizationParameters model module.
  * @module model/AFIOptimizationParameters
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AFIOptimizationParameters {
     /**

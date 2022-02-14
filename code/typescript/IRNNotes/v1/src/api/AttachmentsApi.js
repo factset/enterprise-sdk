@@ -20,7 +20,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Attachments service.
 * @module api/AttachmentsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class AttachmentsApi {
 

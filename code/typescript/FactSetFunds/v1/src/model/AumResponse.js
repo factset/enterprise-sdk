@@ -17,7 +17,7 @@ import Aum from './Aum';
 /**
  * The AumResponse model module.
  * @module model/AumResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AumResponse {
     /**

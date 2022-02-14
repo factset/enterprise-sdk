@@ -18,7 +18,7 @@ import AxiomaEquityOptimizationParameters from '../model/AxiomaEquityOptimizatio
 /**
 * Optimizations service.
 * @module api/OptimizationsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class OptimizationsApi {
 

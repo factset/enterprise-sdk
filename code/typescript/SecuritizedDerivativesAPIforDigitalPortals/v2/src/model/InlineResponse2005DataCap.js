@@ -19,7 +19,7 @@ import InlineResponse2005DataCapValue from './InlineResponse2005DataCapValue';
 /**
  * The InlineResponse2005DataCap model module.
  * @module model/InlineResponse2005DataCap
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCap {
     /**

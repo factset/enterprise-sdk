@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CalculationUnitStatus model module.
  * @module model/CalculationUnitStatus
- * @version 0.8.0
+ * @version 0.8.1
  */
 class CalculationUnitStatus {
     /**

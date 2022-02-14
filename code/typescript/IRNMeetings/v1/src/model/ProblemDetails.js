@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ProblemDetails model module.
  * @module model/ProblemDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ProblemDetails {
     /**

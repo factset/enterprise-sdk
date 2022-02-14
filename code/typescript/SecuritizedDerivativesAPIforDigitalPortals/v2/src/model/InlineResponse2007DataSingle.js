@@ -20,7 +20,7 @@ import InlineResponse2007DataSingleParticipationFactor from './InlineResponse200
 /**
  * The InlineResponse2007DataSingle model module.
  * @module model/InlineResponse2007DataSingle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataSingle {
     /**

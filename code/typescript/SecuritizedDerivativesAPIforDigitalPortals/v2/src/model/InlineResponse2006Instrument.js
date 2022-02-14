@@ -34,7 +34,7 @@ import InlineResponse200DataNsin from './InlineResponse200DataNsin';
 /**
  * The InlineResponse2006Instrument model module.
  * @module model/InlineResponse2006Instrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006Instrument {
     /**

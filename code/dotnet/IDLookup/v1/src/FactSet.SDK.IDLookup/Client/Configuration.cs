@@ -32,7 +32,7 @@ namespace FactSet.SDK.IDLookup.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.9.0";
+        public const string Version = "0.9.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,7 +104,7 @@ namespace FactSet.SDK.IDLookup.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/IDLookup/0.9.0";
+            UserAgent = "fds-sdk/dotnet/IDLookup/0.9.1";
             BasePath = "https://api.factset.com/idsearch";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -460,7 +460,7 @@ namespace FactSet.SDK.IDLookup.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.9.0\n";
+            report += "    SDK Package Version: 0.9.1\n";
 
             return report;
         }

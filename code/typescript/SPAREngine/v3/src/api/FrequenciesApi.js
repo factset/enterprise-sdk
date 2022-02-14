@@ -18,7 +18,7 @@ import FrequencyRoot from '../model/FrequencyRoot';
 /**
 * Frequencies service.
 * @module api/FrequenciesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FrequenciesApi {
 

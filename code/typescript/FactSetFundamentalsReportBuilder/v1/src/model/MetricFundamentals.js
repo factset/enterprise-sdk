@@ -17,7 +17,7 @@ import MetricFundamentalsMetricFundamentals from './MetricFundamentalsMetricFund
 /**
  * The MetricFundamentals model module.
  * @module model/MetricFundamentals
- * @version 0.9.0
+ * @version 0.9.1
  */
 class MetricFundamentals {
     /**

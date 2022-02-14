@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicMarketListDataFilterMarkets model module.
  * @module model/BasicMarketListDataFilterMarkets
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BasicMarketListDataFilterMarkets {
     /**

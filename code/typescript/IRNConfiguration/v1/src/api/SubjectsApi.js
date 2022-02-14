@@ -20,7 +20,7 @@ import SubjectSummaryDto from '../model/SubjectSummaryDto';
 /**
 * Subjects service.
 * @module api/SubjectsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SubjectsApi {
 

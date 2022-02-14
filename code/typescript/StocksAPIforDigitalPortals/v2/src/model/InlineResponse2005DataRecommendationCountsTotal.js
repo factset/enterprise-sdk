@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataRecommendationCountsTotal model module.
  * @module model/InlineResponse2005DataRecommendationCountsTotal
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataRecommendationCountsTotal {
     /**

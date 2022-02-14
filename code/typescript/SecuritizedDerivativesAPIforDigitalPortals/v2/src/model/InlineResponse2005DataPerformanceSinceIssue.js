@@ -18,7 +18,7 @@ import InlineResponse2005DataPerformanceSinceIssueBid from './InlineResponse2005
 /**
  * The InlineResponse2005DataPerformanceSinceIssue model module.
  * @module model/InlineResponse2005DataPerformanceSinceIssue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataPerformanceSinceIssue {
     /**

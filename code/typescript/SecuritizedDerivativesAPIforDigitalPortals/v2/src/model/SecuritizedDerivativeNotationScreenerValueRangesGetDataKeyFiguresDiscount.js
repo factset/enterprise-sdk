@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount {
     /**

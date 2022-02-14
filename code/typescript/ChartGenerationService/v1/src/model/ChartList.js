@@ -17,7 +17,7 @@ import ChartInput from './ChartInput';
 /**
  * The ChartList model module.
  * @module model/ChartList
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ChartList {
     /**

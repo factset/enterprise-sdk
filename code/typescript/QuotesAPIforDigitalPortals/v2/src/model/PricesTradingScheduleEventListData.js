@@ -17,7 +17,7 @@ import PricesTradingScheduleEventListDataFilter from './PricesTradingScheduleEve
 /**
  * The PricesTradingScheduleEventListData model module.
  * @module model/PricesTradingScheduleEventListData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PricesTradingScheduleEventListData {
     /**

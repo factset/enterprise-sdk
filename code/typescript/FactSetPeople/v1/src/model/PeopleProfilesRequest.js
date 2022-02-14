@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleProfilesRequest model module.
  * @module model/PeopleProfilesRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PeopleProfilesRequest {
     /**

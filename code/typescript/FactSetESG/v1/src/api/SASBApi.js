@@ -24,7 +24,7 @@ import SasbScoresResponse from '../model/SasbScoresResponse';
 /**
 * SASB service.
 * @module api/SASBApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SASBApi {
 

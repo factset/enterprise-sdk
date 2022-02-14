@@ -24,7 +24,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDa
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility {
     /**

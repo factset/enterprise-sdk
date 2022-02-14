@@ -17,7 +17,7 @@ import InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany from './
 /**
  * The InlineResponse20062DataTargetMarketKnowledgeAndExperience model module.
  * @module model/InlineResponse20062DataTargetMarketKnowledgeAndExperience
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketKnowledgeAndExperience {
     /**

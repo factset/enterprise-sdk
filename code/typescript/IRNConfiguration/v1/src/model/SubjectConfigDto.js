@@ -20,7 +20,7 @@ import RatingConfigDto from './RatingConfigDto';
 /**
  * The SubjectConfigDto model module.
  * @module model/SubjectConfigDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SubjectConfigDto {
     /**

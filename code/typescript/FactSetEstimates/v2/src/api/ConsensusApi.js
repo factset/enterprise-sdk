@@ -21,7 +21,7 @@ import RollingConsensusRequest from '../model/RollingConsensusRequest';
 /**
 * Consensus service.
 * @module api/ConsensusApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ConsensusApi {
 

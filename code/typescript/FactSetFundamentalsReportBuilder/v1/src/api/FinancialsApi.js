@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * Financials service.
 * @module api/FinancialsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FinancialsApi {
 

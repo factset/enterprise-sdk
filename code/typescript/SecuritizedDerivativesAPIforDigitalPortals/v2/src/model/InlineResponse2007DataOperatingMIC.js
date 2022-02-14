@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataOperatingMIC model module.
  * @module model/InlineResponse2007DataOperatingMIC
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataOperatingMIC {
     /**

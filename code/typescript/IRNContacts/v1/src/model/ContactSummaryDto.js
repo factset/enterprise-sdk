@@ -20,7 +20,7 @@ import ContactTypeDto from './ContactTypeDto';
 /**
  * The ContactSummaryDto model module.
  * @module model/ContactSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactSummaryDto {
     /**

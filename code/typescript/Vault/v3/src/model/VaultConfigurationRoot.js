@@ -17,7 +17,7 @@ import VaultConfiguration from './VaultConfiguration';
 /**
  * The VaultConfigurationRoot model module.
  * @module model/VaultConfigurationRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class VaultConfigurationRoot {
     /**

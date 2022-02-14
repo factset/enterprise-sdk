@@ -19,7 +19,7 @@ import ColumnSummary from '../model/ColumnSummary';
 /**
 * Columns service.
 * @module api/ColumnsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class ColumnsApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RequestfilesResponse model module.
  * @module model/RequestfilesResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RequestfilesResponse {
     /**

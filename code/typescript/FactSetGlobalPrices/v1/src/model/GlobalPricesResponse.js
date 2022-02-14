@@ -17,7 +17,7 @@ import Price from './Price';
 /**
  * The GlobalPricesResponse model module.
  * @module model/GlobalPricesResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GlobalPricesResponse {
     /**

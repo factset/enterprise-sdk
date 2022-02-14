@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecordPreviewDto model module.
  * @module model/RecordPreviewDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RecordPreviewDto {
     /**

@@ -18,7 +18,7 @@ import FrequencyAum from './FrequencyAum';
 /**
  * The AumRequest model module.
  * @module model/AumRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AumRequest {
     /**

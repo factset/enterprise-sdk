@@ -17,7 +17,7 @@ import BPMOptimizationParameters from './BPMOptimizationParameters';
 /**
  * The BPMOptimizationParametersRoot model module.
  * @module model/BPMOptimizationParametersRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BPMOptimizationParametersRoot {
     /**

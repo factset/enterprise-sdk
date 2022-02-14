@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketRecommendedHoldingPeriod model module.
  * @module model/InlineResponse20062DataTargetMarketRecommendedHoldingPeriod
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactPhoneSaveDto model module.
  * @module model/ContactPhoneSaveDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactPhoneSaveDto {
     /**

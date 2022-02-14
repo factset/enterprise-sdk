@@ -17,7 +17,7 @@ import NotationSearchByTextDataTradingValueAverage from './NotationSearchByTextD
 /**
  * The NotationSearchByTextDataTradingValue model module.
  * @module model/NotationSearchByTextDataTradingValue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataTradingValue {
     /**

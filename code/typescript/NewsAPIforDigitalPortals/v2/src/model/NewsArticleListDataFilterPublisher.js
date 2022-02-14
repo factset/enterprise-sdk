@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleListDataFilterPublisher model module.
  * @module model/NewsArticleListDataFilterPublisher
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleListDataFilterPublisher {
     /**

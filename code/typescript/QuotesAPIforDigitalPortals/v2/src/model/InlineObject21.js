@@ -18,7 +18,7 @@ import PricesTradingScheduleEventListMeta from './PricesTradingScheduleEventList
 /**
  * The InlineObject21 model module.
  * @module model/InlineObject21
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject21 {
     /**

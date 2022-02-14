@@ -17,7 +17,7 @@ import IncludeExcludeObject from './IncludeExcludeObject';
 /**
  * The FilterParams model module.
  * @module model/FilterParams
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FilterParams {
     /**

@@ -19,7 +19,7 @@ import InlineResponse2005DataKeyFiguresAgioRelative from './InlineResponse2005Da
 /**
  * The InlineResponse2005DataKeyFiguresAgio model module.
  * @module model/InlineResponse2005DataKeyFiguresAgio
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresAgio {
     /**

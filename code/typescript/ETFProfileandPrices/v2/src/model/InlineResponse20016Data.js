@@ -18,7 +18,7 @@ import InlineResponse20016DataSharesOutstanding from './InlineResponse20016DataS
 /**
  * The InlineResponse20016Data model module.
  * @module model/InlineResponse20016Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20016Data {
     /**

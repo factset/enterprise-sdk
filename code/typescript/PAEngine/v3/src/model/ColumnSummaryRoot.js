@@ -17,7 +17,7 @@ import ColumnSummary from './ColumnSummary';
 /**
  * The ColumnSummaryRoot model module.
  * @module model/ColumnSummaryRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ColumnSummaryRoot {
     /**

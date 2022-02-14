@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConvertibleDetails model module.
  * @module model/ConvertibleDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ConvertibleDetails {
     /**

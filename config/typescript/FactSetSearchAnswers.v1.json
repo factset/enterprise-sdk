@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-factsetsearchanswers",
+  "projectVersion": "0.9.1",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "FactSet Search Answers client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetsearchanswers",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetSearchAnswers/0.9.1",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

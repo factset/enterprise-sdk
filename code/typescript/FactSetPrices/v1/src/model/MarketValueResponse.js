@@ -17,7 +17,7 @@ import MarketValue from './MarketValue';
 /**
  * The MarketValueResponse model module.
  * @module model/MarketValueResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class MarketValueResponse {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListMetaPagination model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListMetaPagination
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationRankingIntradayListMetaPagination {
     /**

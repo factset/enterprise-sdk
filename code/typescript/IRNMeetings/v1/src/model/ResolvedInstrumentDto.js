@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResolvedInstrumentDto model module.
  * @module model/ResolvedInstrumentDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ResolvedInstrumentDto {
     /**

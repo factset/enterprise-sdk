@@ -17,7 +17,7 @@ import UniverseMeta from './UniverseMeta';
 /**
  * The UniversesResponse model module.
  * @module model/UniversesResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UniversesResponse {
     /**

@@ -21,7 +21,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * ManageMappings service.
 * @module api/ManageMappingsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class ManageMappingsApi {
 

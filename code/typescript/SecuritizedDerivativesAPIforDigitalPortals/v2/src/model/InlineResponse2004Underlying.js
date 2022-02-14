@@ -18,7 +18,7 @@ import InlineResponse2004UnderlyingNotation from './InlineResponse2004Underlying
 /**
  * The InlineResponse2004Underlying model module.
  * @module model/InlineResponse2004Underlying
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004Underlying {
     /**

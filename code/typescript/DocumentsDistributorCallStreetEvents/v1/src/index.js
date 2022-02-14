@@ -49,7 +49,7 @@ import NearRealTimeTranscriptsApi from './api/NearRealTimeTranscriptsApi';
 
 
 /**
-* CallStreet_Events_contains_all_the_Documents_Distributor_APIs_that_provide_events_data_such_as_Events_Audio_and_Near_Real_Time_TranscriptsThe__Events_Audio_API_provides_access_to_all_audio_recordings_to_various_company_events_covered_by_FactSet__The_events_include_but_are_not_limited_to_earnings_calls_conferences_and_investor_days__This_API_also_provides_relevant_metadata_such_as_timestamps_and_identifiers_around_each_audio_file_The_Documents_Distributor___Near_Real_time_Transcripts_API_enables_access_to_Near_Real_time_Transcripts_provided_by_CallStreet_to_time_sensitive_clients__This_API_also_provides_the_relevant_speaker_metadata_along_with_their_confidence_scores__This_data_caters_to_quant_clients_interested_in_building_machine_learning_models_Clients_can_leverage_this_API_to_perform_sentiment_analysis_through_natural_language_processing_or_machine_learning__It_can_also_be_used_to_complement_analysis_using_FactSets_transcripts_service_.<br>
+* Documents Distributor - CallStreet Events client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -77,7 +77,7 @@ import NearRealTimeTranscriptsApi from './api/NearRealTimeTranscriptsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

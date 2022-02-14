@@ -17,7 +17,7 @@ import InlineResponse200DataIssueVolumeCurrency from './InlineResponse200DataIss
 /**
  * The InlineResponse200DataIssueVolume model module.
  * @module model/InlineResponse200DataIssueVolume
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataIssueVolume {
     /**

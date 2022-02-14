@@ -26,7 +26,7 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * Vendor service.
 * @module api/VendorApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class VendorApi {
 

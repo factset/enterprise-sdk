@@ -18,7 +18,7 @@ import NewsArticleSearchByTextDataText from './NewsArticleSearchByTextDataText';
 /**
  * The NewsArticleSearchByTextData model module.
  * @module model/NewsArticleSearchByTextData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleSearchByTextData {
     /**

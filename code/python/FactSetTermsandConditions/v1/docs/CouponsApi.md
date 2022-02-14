@@ -23,32 +23,30 @@ Returns historical Coupon information for the Fixed Income security.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
 from fds.sdk.FactSetTermsandConditions.model.coupon_history_response import CouponHistoryResponse
 from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -116,7 +114,6 @@ Returns historical Coupon information for a list of Fixed Income securities.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
@@ -124,25 +121,24 @@ from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request
 from fds.sdk.FactSetTermsandConditions.model.coupon_history_response import CouponHistoryResponse
 from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -212,32 +208,30 @@ Returns Coupon Schedules information for the Fixed Income security.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
 from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
 from fds.sdk.FactSetTermsandConditions.model.coupon_schedules_response import CouponSchedulesResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -305,7 +299,6 @@ Returns historical Coupon Schedules information for a list of Fixed Income secur
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
@@ -313,25 +306,24 @@ from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request
 from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
 from fds.sdk.FactSetTermsandConditions.model.coupon_schedules_response import CouponSchedulesResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/content
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    host = "https://api.factset.com/content"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

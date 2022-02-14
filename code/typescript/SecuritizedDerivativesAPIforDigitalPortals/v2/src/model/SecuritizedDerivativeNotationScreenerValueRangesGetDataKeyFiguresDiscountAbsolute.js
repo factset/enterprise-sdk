@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountAbsolute model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountAbsolute
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountAbsolute {
     /**

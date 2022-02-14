@@ -17,7 +17,7 @@ import InlineResponse2002DataCalculationPriceValueUnit from './InlineResponse200
 /**
  * The InlineResponse2002DataCalculationPrice model module.
  * @module model/InlineResponse2002DataCalculationPrice
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2002DataCalculationPrice {
     /**

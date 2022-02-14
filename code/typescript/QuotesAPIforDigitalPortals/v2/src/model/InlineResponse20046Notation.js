@@ -17,7 +17,7 @@ import InlineResponse20046NotationInstrument from './InlineResponse20046Notation
 /**
  * The InlineResponse20046Notation model module.
  * @module model/InlineResponse20046Notation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20046Notation {
     /**

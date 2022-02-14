@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TickerHistoryTranslation model module.
  * @module model/TickerHistoryTranslation
- * @version 0.8.0
+ * @version 0.8.1
  */
 class TickerHistoryTranslation {
     /**

@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentLifeCycleMaturity from './InlineResponse2003I
 /**
  * The InlineResponse2003InstrumentLifeCycle model module.
  * @module model/InlineResponse2003InstrumentLifeCycle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003InstrumentLifeCycle {
     /**

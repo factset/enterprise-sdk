@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UnlinkedPATemplateColumnDetails model module.
  * @module model/UnlinkedPATemplateColumnDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UnlinkedPATemplateColumnDetails {
     /**

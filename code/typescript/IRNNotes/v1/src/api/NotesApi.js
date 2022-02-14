@@ -23,7 +23,7 @@ import UpdateNoteDto from '../model/UpdateNoteDto';
 /**
 * Notes service.
 * @module api/NotesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class NotesApi {
 

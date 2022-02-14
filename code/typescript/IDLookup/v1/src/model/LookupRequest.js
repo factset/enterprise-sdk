@@ -18,7 +18,7 @@ import LookupObject from './LookupObject';
 /**
  * The LookupRequest model module.
  * @module model/LookupRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LookupRequest {
     /**

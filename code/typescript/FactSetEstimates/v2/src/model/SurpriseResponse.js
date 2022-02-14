@@ -17,7 +17,7 @@ import Surprise from './Surprise';
 /**
  * The SurpriseResponse model module.
  * @module model/SurpriseResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SurpriseResponse {
     /**

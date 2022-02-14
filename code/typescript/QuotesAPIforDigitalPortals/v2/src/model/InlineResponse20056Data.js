@@ -18,7 +18,7 @@ import InlineResponse20056Status from './InlineResponse20056Status';
 /**
  * The InlineResponse20056Data model module.
  * @module model/InlineResponse20056Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20056Data {
     /**

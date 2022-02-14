@@ -17,7 +17,7 @@ import Distribution from './Distribution';
 /**
  * The RightsIssueResponse model module.
  * @module model/RightsIssueResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RightsIssueResponse {
     /**

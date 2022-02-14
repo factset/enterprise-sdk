@@ -17,7 +17,7 @@ import BenchmarkConstituent from './BenchmarkConstituent';
 /**
  * The BenchmarkConstituentsResponse model module.
  * @module model/BenchmarkConstituentsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BenchmarkConstituentsResponse {
     /**

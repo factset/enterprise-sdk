@@ -17,7 +17,7 @@ import InterimMatDateChgInterimMatDateChg from './InterimMatDateChgInterimMatDat
 /**
  * The InterimMatDateChg model module.
  * @module model/InterimMatDateChg
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InterimMatDateChg {
     /**

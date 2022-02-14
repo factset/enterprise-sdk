@@ -17,7 +17,7 @@ import IssueSize from './IssueSize';
 /**
  * The IssueSizeResponse model module.
  * @module model/IssueSizeResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IssueSizeResponse {
     /**

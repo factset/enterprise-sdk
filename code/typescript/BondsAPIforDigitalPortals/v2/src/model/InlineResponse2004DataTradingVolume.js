@@ -17,7 +17,7 @@ import InlineResponse2004DataTradingVolumeOtc from './InlineResponse2004DataTrad
 /**
  * The InlineResponse2004DataTradingVolume model module.
  * @module model/InlineResponse2004DataTradingVolume
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataTradingVolume {
     /**

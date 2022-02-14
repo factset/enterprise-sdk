@@ -23,7 +23,7 @@ import PricesResponse from '../model/PricesResponse';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class PricesApi {
 

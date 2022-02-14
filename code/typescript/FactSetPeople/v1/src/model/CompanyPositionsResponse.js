@@ -17,7 +17,7 @@ import CompanyPositions from './CompanyPositions';
 /**
  * The CompanyPositionsResponse model module.
  * @module model/CompanyPositionsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CompanyPositionsResponse {
     /**

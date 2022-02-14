@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Flows model module.
  * @module model/Flows
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Flows {
     /**

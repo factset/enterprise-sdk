@@ -19,7 +19,7 @@ import Type from './Type';
 /**
  * The PeopleJobsRequest model module.
  * @module model/PeopleJobsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PeopleJobsRequest {
     /**

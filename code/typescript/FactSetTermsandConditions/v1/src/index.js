@@ -58,7 +58,7 @@ import UseOfProceedsApi from './api/UseOfProceedsApi';
 
 
 /**
-* The_FactSet_Terms__Conditions_API_exposes_Terms__Conditions_data_for_Fixed_Income_Corporate_Governement__Agency_securities__The_FactSet_Corporate_Government__Agency_Terms__Conditions_library_provides_descriptive_data_on_the_issue_level_such_as_offering_details_redemption_information_and_coupon_schedules__Issuer_level_data_is_also_available__Coverage_is_global_and_includes_corporate_sovereign_and_agency_issues_.<br>
+* FactSet Terms and Conditions client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -86,7 +86,7 @@ import UseOfProceedsApi from './api/UseOfProceedsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

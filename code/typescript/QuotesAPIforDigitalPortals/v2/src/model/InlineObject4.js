@@ -18,7 +18,7 @@ import BasicMicOperatingListMeta from './BasicMicOperatingListMeta';
 /**
  * The InlineObject4 model module.
  * @module model/InlineObject4
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject4 {
     /**

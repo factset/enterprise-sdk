@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReturnsRange model module.
  * @module model/ReturnsRange
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ReturnsRange {
     /**

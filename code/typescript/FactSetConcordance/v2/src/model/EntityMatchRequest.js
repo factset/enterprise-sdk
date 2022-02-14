@@ -17,7 +17,7 @@ import EntityMatchRequestInput from './EntityMatchRequestInput';
 /**
  * The EntityMatchRequest model module.
  * @module model/EntityMatchRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityMatchRequest {
     /**

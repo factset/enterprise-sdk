@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAbsolute model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAbsolute
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAbsolute {
     /**

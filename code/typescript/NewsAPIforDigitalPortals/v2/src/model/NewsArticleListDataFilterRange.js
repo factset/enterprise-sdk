@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleListDataFilterRange model module.
  * @module model/NewsArticleListDataFilterRange
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleListDataFilterRange {
     /**

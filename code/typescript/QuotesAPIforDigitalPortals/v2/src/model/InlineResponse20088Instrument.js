@@ -18,7 +18,7 @@ import InlineResponse20088InstrumentNsin from './InlineResponse20088InstrumentNs
 /**
  * The InlineResponse20088Instrument model module.
  * @module model/InlineResponse20088Instrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20088Instrument {
     /**

@@ -20,7 +20,7 @@ import UserSerialDto from './UserSerialDto';
 /**
  * The UpdateNoteDto model module.
  * @module model/UpdateNoteDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class UpdateNoteDto {
     /**

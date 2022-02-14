@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataComplianceGermany model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataComplianceGermany
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataComplianceGermany {
     /**

@@ -18,7 +18,7 @@ import NRTSpeakeridsMeta from './NRTSpeakeridsMeta';
 /**
  * The NRTSpeakerids model module.
  * @module model/NRTSpeakerids
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSpeakerids {
     /**

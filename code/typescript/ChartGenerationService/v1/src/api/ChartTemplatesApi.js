@@ -21,7 +21,7 @@ import UnauthorizedResponse from '../model/UnauthorizedResponse';
 /**
 * ChartTemplates service.
 * @module api/ChartTemplatesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class ChartTemplatesApi {
 

@@ -20,7 +20,7 @@ import RecordEventSummaryDto from '../model/RecordEventSummaryDto';
 /**
 * Events service.
 * @module api/EventsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EventsApi {
 

@@ -22,7 +22,7 @@ import InlineResponse2003Trade from './InlineResponse2003Trade';
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003Data {
     /**

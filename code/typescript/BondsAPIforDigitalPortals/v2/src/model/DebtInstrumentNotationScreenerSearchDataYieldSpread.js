@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMin
 /**
  * The DebtInstrumentNotationScreenerSearchDataYieldSpread model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataYieldSpread
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataYieldSpread {
     /**

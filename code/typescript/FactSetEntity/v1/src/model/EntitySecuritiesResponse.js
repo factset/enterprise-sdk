@@ -17,7 +17,7 @@ import EntitySecurities from './EntitySecurities';
 /**
  * The EntitySecuritiesResponse model module.
  * @module model/EntitySecuritiesResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntitySecuritiesResponse {
     /**

@@ -17,7 +17,7 @@ import InlineResponse2004CategorizationDdv from './InlineResponse2004Categorizat
 /**
  * The InlineResponse2004Categorization model module.
  * @module model/InlineResponse2004Categorization
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004Categorization {
     /**

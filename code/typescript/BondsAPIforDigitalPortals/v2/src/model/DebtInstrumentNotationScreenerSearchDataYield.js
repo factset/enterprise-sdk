@@ -19,7 +19,7 @@ import DebtInstrumentNotationScreenerSearchDataYieldToMaturity from './DebtInstr
 /**
  * The DebtInstrumentNotationScreenerSearchDataYield model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataYield {
     /**

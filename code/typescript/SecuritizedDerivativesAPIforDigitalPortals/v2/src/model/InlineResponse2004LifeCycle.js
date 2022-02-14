@@ -17,7 +17,7 @@ import InlineResponse2004LifeCycleMaturity from './InlineResponse2004LifeCycleMa
 /**
  * The InlineResponse2004LifeCycle model module.
  * @module model/InlineResponse2004LifeCycle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004LifeCycle {
     /**

@@ -18,7 +18,7 @@ import InlineResponse2005DataKeyFiguresThetaOneWeekUnadjusted from './InlineResp
 /**
  * The InlineResponse2005DataKeyFiguresThetaOneWeek model module.
  * @module model/InlineResponse2005DataKeyFiguresThetaOneWeek
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresThetaOneWeek {
     /**

@@ -27,17 +27,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TickerApi();
 const tickerHistoryTranslationRequest = new symbology.TickerHistoryTranslationRequest(); // TickerHistoryTranslationRequest | Request Body for Ticker History
@@ -93,17 +98,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TickerApi();
 const tickerTranslationRequest = new symbology.TickerTranslationRequest(); // TickerTranslationRequest | Request Body for Ticker History
@@ -159,17 +169,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TickerApi();
 const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
@@ -229,17 +244,22 @@ const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
 
-// Configure HTTP basic authorization: FactSetApiKey
-const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-FactSetApiKey.username = 'YOUR USERNAME';
-FactSetApiKey.password = 'YOUR PASSWORD';
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
 
-// Configure OAuth2 access token for authorization: FactSetOAuth2
-const FactSetOAuth2 = apiClient.authentications['FactSetOAuth2'];
-FactSetOAuth2.accessToken = 'YOUR ACCESS TOKEN';
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
 
-// Configure OAuth2 access with ConfidentialClient
-apiClient.factsetOauth2Client = new ConfidentialClient('./config.json');
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TickerApi();
 const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.

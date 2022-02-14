@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentIssueVolumeCurrency from './InlineResponse200
 /**
  * The InlineResponse2003InstrumentIssueVolume model module.
  * @module model/InlineResponse2003InstrumentIssueVolume
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003InstrumentIssueVolume {
     /**

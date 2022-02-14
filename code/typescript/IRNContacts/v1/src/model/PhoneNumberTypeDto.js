@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PhoneNumberTypeDto model module.
  * @module model/PhoneNumberTypeDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PhoneNumberTypeDto {
     /**

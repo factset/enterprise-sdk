@@ -17,7 +17,7 @@ import InlineResponse2005DataComplianceFrance from './InlineResponse2005DataComp
 /**
  * The InlineResponse2005DataCompliance model module.
  * @module model/InlineResponse2005DataCompliance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCompliance {
     /**

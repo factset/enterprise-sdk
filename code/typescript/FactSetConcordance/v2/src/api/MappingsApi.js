@@ -24,7 +24,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Mappings service.
 * @module api/MappingsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class MappingsApi {
 

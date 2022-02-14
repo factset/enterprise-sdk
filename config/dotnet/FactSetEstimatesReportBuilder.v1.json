@@ -1,12 +1,12 @@
 {
   "packageName": "FactSet.SDK.FactSetEstimatesReportBuilder",
-  "packageVersion": "0.9.0",
+  "packageVersion": "0.9.1",
   "packageGuid": "{c832310b-348a-5660-a80c-a1c7982ed332}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
   "packageTitle": "FactSet SDK",
-  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageDescription": "FactSet Estimates Report Builder client library for .NET",
   "packageCompany": "FactSet Research Systems",
   "packageProductName": "FactSet SDK - FactSet Estimates Report Builder",
   "packageCopyright": "",
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimatesReportBuilder/0.9.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimatesReportBuilder/0.9.1",
   "files": {
     "LICENSE": {}
   }

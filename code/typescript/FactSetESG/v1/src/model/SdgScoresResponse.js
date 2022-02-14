@@ -17,7 +17,7 @@ import SdgScores from './SdgScores';
 /**
  * The SdgScoresResponse model module.
  * @module model/SdgScoresResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SdgScoresResponse {
     /**

@@ -17,7 +17,7 @@ import ComponentSummary from './ComponentSummary';
 /**
  * The ComponentSummaryRoot model module.
  * @module model/ComponentSummaryRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ComponentSummaryRoot {
     /**

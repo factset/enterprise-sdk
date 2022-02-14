@@ -17,7 +17,7 @@ import Error from './Error';
 /**
  * The CalculationUnitStatus model module.
  * @module model/CalculationUnitStatus
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CalculationUnitStatus {
     /**

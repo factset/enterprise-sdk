@@ -17,7 +17,7 @@ import SedolHistoryTranslation from './SedolHistoryTranslation';
 /**
  * The SedolHistoryTranslationResponse model module.
  * @module model/SedolHistoryTranslationResponse
- * @version 0.8.0
+ * @version 0.8.1
  */
 class SedolHistoryTranslationResponse {
     /**

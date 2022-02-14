@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20054DataInterestRateCurrentAccruedInterest model module.
  * @module model/InlineResponse20054DataInterestRateCurrentAccruedInterest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20054DataInterestRateCurrentAccruedInterest {
     /**

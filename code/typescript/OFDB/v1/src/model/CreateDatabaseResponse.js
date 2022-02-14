@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDatabaseResponse model module.
  * @module model/CreateDatabaseResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CreateDatabaseResponse {
     /**

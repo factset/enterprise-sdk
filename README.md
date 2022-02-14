@@ -4,11 +4,13 @@
 
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-This repository contains auto-generated client libraries in .NET, Java, Python and TypeScript/JavaScript for all of FactSet's APIs published on the [Developer Portal](https://developer.factset.com). The client library code is generated using the [openapi-generator](https://github.com/OpenAPITools/openapi-generator).
+The FactSet Enterprise SDK is a collection of client libraries designed to make it easier to use [FactSet's APIs](https://developer.factset.com/api-catalog) in .NET, Java, Python and TypeScript/JavaScript (Node.js). For more information on what APIs are available and how to subscribe, please see the [Developer Portal](https://developer.factset.com/).
 
 ## Overview
 
-All of the source code for the API client libraries can be found in the `code/` directory, which contains language-specific sub-directories and API-specific sub-directories under each language (e.g. `code/python/PAEngine`). Each API client library also depends on a shared utility library that provides common functionality, like authentication helpers.
+The FactSet Enterprise SDK is made up of two main components, API client libraries and utility libraries. The API client libraries are auto-generated for .NET, Java, Python and TypeScript/JavaScript using the [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) based on the OpenAPI specifications published on the [Developer Portal](https://developer.factset.com/). Whereas the utility libraries are handwritten and contain shared functionality that spans all APIs, such as authentication logic.
+
+The auto-generated source code for the API client libraries can be found in the `code/` directory of this repository, which contains language-specific sub-directories and API-specific sub-directories under each language (e.g. `code/python/PAEngine`).
 
 | **Language**          | **Client libraries**                                                                                  | **Utility library**                                                                |
 | --------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -31,12 +33,49 @@ All of the source code for the API client libraries can be found in the `code/` 
 
 Each API and utility library is published as its own package to the following package managers:
 
-* .NET - [NuGet](https://www.nuget.org/) (`FactSet.SDK` prefix)
-* Java - [Maven](https://search.maven.org/) (`com.factset.sdk` group ID)
-* Python - [PyPI](https://pypi.org/) (`fds.sdk` prefix)
-* TypeScript/JavaScript - [npm](https://www.npmjs.com/) (`@fds/sdk` prefix)
+* .NET - [NuGet](https://www.nuget.org/packages?q=FactSet.SDK) (`FactSet.SDK` prefix)
+* Java - [Maven](https://search.maven.org/search?q=com.factset.sdk) (`com.factset.sdk` group ID)
+* Python - [PyPI](https://pypi.org/search/?q=%22fds.sdk%22) (`fds.sdk` prefix)
+* TypeScript/JavaScript - [npm](https://www.npmjs.com/~enterprisesdk) (`@factset/sdk` prefix)
 
-The [samples repository](https://github.com/factset/enterprise-sdk-samples) contains sample code for working with the SDK in various languages and is a good starting point. Each library linked above in the [overview](#overview) section also contains embedded sample code to help with getting started.
+Each library linked above in the [overview](#overview) section also contains embedded sample code to help with getting started.
+
+## Authentication
+
+The FactSet Enterprise SDK supports two forms of authentication, both must be setup through [FactSet's Developer Portal](https://developer.factset.com).
+
+1. (preferred) OAuth 2.0 - client credentials flow
+2. API Key
+
+### OAuth 2.0
+
+[OAuth 2.0](https://github.com/factset/oauth2-guidelines) is the preferred authentication scheme when using FactSet's APIs and this SDK. Right now the SDK supports the client credentials flow, which can be used for machine-to-machine communication.
+
+#### Client Credentials Flow
+
+Follow these steps to register an application on FactSet's Developer Portal and create an OAuth 2.0 client:
+
+1. Open the [applications](https://developer.factset.com/applications) page on FactSet's Developer Portal.
+2. Click `Create Application` then `Confidential Client Application`. This will create a new OAuth 2.0 client that uses the client credentials flow.
+3. Enter the application details:
+   * Name: enter anything that you would like
+   * Description: enter anything that you would like
+   * Signing Key: select `Generate a key pair`
+      * **NOTE:** while FactSet does not store your generated private key, for production deployments you should generate your own key pair and only share the public key with FactSet by selecting the `Use my own public key` option to ensure that your private key remains secure.
+4. Click `Create`, then on the next screen click `Download` to download the configuration.
+5. Move the downloaded configuration file to somewhere that's accessible to your application and name it `app-config.json`.
+
+### API Key
+
+Follow these steps to create an API key on FactSet's Developer Portal:
+
+1. Open the [manage API keys](https://developer.factset.com/manage-api-keys) page on FactSet's Developer Portal.
+2. Click `Generate new API key`.
+3. Enter the API key details:
+   * Description: enter anything you would like
+   * IP Range: The `From IP` field will be populated with your current Internet-facing IP address. Click the `Add` button to add it to the list, or enter an alternate IP address range based on where your application is executed.
+4. Click `Create`.
+5. When the success message box pops up, copy your username (FactSet username-serial) and password (API key) somewhere safe to be used later.
 
 ## Contributing
 
@@ -44,7 +83,7 @@ Please refer to the [contributing guide](CONTRIBUTING.md).
 
 ## Copyright
 
-Copyright 2021 FactSet Research Systems Inc
+Copyright 2022 FactSet Research Systems Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

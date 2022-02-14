@@ -17,7 +17,7 @@ import InlineResponse2004DataIssueVolumeCurrency from './InlineResponse2004DataI
 /**
  * The InlineResponse2004DataIssueVolume model module.
  * @module model/InlineResponse2004DataIssueVolume
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataIssueVolume {
     /**

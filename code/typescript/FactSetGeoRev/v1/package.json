@@ -1,7 +1,7 @@
 {
   "name": "@factset/sdk-factsetgeorev",
-  "version": "0.9.0",
-  "description": "FactSet_Revere_Geographic_Revenue__GeoRev_Exposure_data_provides_a_highly_structured_and_normalized_display_of_companies_revenues_by_geography__Using_a_four_level_taxonomy_structure_understand_the_companies_Super_Region__Region__Area__Country_revenue_breakdowns__Quickly_understand_a_companys_revenue_exposure_in_countries_impacted_by_geopolitical_macroeconomic_and_market_risk__Understand_the_geographic_footprint_of_a_company_based_on_sources_of_revenue_versus_country_of_domicile_and_analyze_global_revenue_exposures_at_the_company_index_or_portfolio_level_p_Geographic_revenue_has_historically_been_difficult_to_analyze_due_to_companies_non_standard_and_incomplete_reporting__Investors_relying_solely_on_this_as_reported_data_are_limited_in_their_ability_to_compare_aggregate_or_screen_exposures_across_a_universe_or_portfolio_of_companies__To_achieve_normalization_FactSet_GeoRev_captures_data_through_a_proprietary_four_level_geographic_classification_structure__An_estimation_algorithm_based_on_GDP_weighting_and_accounting_logic_is_then_applied_to_solve_for_any_non_explicit_disclosures__The_result_is_a_consistent_accurate_and_flexible_dataset_that_can_take_a_companys_revenues_and_break_them_down_into_any_geographic_country_or_region_categories__ppAs_markets_become_more_integrated_and_companies_expand_operations_beyond_their_domestic_markets_GeoRev_provides_a_new_and_valuable_country_factor_to_help_investors_discover_alpha_model_risk_exposure_optimize_portfolio_weighting_and_improve_fund_administration_and_reporting__ppData_Frequency____Annual_Update_Frequency___Daily__49000_Publically_Listed_Companies__All_Russell_3000_and_MSCI_ACWI_Index_Consituents__U_S__Data_is_available_from_2003_with_Non_US_data_from_2007__For_more_details_visit__OA_17555_https__my_apps_factset_com_oa_pages_17555_p",
+  "version": "0.9.1",
+  "description": "FactSet GeoRev client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
@@ -11,35 +11,17 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
-  "browser": {
-    "fs": false
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@factset/sdk-utils": "^0.9.0",
-    "superagent": "^5.3.0"
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTCallsData model module.
  * @module model/NRTCallsData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTCallsData {
     /**

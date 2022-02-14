@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataRedemptionCurrency model module.
  * @module model/InlineResponse200DataRedemptionCurrency
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataRedemptionCurrency {
     /**

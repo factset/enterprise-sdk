@@ -24,7 +24,7 @@ import NRTSpeakerids400Response from '../model/NRTSpeakerids400Response';
 /**
 * NearRealTimeTranscripts service.
 * @module api/NearRealTimeTranscriptsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class NearRealTimeTranscriptsApi {
 

@@ -17,7 +17,7 @@ import EntityMapping from './EntityMapping';
 /**
  * The EntityUniverse model module.
  * @module model/EntityUniverse
- * @version 0.8.0
+ * @version 0.8.1
  */
 class EntityUniverse {
     /**

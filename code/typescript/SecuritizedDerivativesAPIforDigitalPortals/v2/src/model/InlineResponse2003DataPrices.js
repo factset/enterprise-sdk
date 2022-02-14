@@ -19,7 +19,7 @@ import InlineResponse2003DataPricesValueUnit from './InlineResponse2003DataPrice
 /**
  * The InlineResponse2003DataPrices model module.
  * @module model/InlineResponse2003DataPrices
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataPrices {
     /**

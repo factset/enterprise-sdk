@@ -20,7 +20,7 @@ import RedemptionPricesResponse from '../model/RedemptionPricesResponse';
 /**
 * Redemptions service.
 * @module api/RedemptionsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class RedemptionsApi {
 

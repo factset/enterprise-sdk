@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataSpread model module.
  * @module model/InlineResponse2003DataSpread
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataSpread {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SnowflakeEntityMatchRequest model module.
  * @module model/SnowflakeEntityMatchRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SnowflakeEntityMatchRequest {
     /**

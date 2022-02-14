@@ -18,7 +18,7 @@ import StockDividendListMeta from './StockDividendListMeta';
 /**
  * The InlineObject model module.
  * @module model/InlineObject
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject {
     /**

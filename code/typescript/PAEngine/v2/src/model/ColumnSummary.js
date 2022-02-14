@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ColumnSummary model module.
  * @module model/ColumnSummary
- * @version 0.8.0
+ * @version 0.8.1
  */
 class ColumnSummary {
     /**

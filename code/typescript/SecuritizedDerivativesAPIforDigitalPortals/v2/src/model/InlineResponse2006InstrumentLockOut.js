@@ -18,7 +18,7 @@ import InlineResponse2006InstrumentLockOutDistance from './InlineResponse2006Ins
 /**
  * The InlineResponse2006InstrumentLockOut model module.
  * @module model/InlineResponse2006InstrumentLockOut
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentLockOut {
     /**

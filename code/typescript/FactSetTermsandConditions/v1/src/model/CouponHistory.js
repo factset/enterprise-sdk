@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CouponHistory model module.
  * @module model/CouponHistory
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CouponHistory {
     /**

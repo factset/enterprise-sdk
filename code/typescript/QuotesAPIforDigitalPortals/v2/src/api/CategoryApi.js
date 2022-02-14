@@ -28,7 +28,7 @@ import InlineResponse20041 from '../model/InlineResponse20041';
 /**
 * Category service.
 * @module api/CategoryApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CategoryApi {
 

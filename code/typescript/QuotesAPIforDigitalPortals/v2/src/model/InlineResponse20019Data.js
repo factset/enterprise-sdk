@@ -17,7 +17,7 @@ import InlineResponse20019DataSubdivisions from './InlineResponse20019DataSubdiv
 /**
  * The InlineResponse20019Data model module.
  * @module model/InlineResponse20019Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20019Data {
     /**

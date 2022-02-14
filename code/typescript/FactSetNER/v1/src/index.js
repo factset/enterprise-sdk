@@ -21,7 +21,7 @@ import EntitiesApi from './api/EntitiesApi';
 
 
 /**
-* Extract_named_entities_and_their_FactSet_entity_IDs_from_given_document_text_.<br>
+* FactSet NER client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -49,7 +49,7 @@ import EntitiesApi from './api/EntitiesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.0
+* @version 0.8.1
 */
 export {
     /**

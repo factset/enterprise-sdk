@@ -17,7 +17,7 @@ import InlineResponse2005DataRangeKnockOutLowerValue from './InlineResponse2005D
 /**
  * The InlineResponse2005DataRangeKnockOutLower model module.
  * @module model/InlineResponse2005DataRangeKnockOutLower
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataRangeKnockOutLower {
     /**

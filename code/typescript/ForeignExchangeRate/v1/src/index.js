@@ -28,7 +28,7 @@ import SpotsApi from './api/SpotsApi';
 
 
 /**
-* Foreign_Exchange_Rates_API_in_which_retrieves_Spots_and_Forwards_for_a_given_currency_pair_and_date_range__pSpots_and_Forwards_rates_are_sourced_from_W_M_Reuters_The_WM_Company_calculates_daily_standardized_spot_rates_for_global_foreign_exchange_transactions_using_rates_provided_by_Reuters__These_rates_are_recognized_globally_as_the_standard_by_banks_fund_managers_and_index_compilers_increasingly_these_rates_are_also_being_used_for_benchmark_currency_trading__In_1994_WM_Company_began_calculating_closing_spot_rates__Closing_spot_rates_provide_a_standard_set_of_currency_rates_so_that_portfolio_valuations_can_be_compared_to_each_other_and_their_performances_measured_against_benchmarks_without_having_discrepancies_caused_by_exchange_rates__Closing_spot_rates_are_recorded_at_1600_GMT__p.<br>
+* Foreign Exchange Rate client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -56,7 +56,7 @@ import SpotsApi from './api/SpotsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataValidationPricesPrevious from './
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationPrices model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationPrices
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataValidationPrices {
     /**

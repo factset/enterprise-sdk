@@ -17,7 +17,7 @@ import CalculationStatus from './CalculationStatus';
 /**
  * The CalculationStatusRoot model module.
  * @module model/CalculationStatusRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CalculationStatusRoot {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerValueRangesGetMeta model module.
  * @module model/DebtInstrumentNotationScreenerValueRangesGetMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerValueRangesGetMeta {
     /**

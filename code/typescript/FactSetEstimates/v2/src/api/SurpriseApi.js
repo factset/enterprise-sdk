@@ -20,7 +20,7 @@ import SurpriseResponse from '../model/SurpriseResponse';
 /**
 * Surprise service.
 * @module api/SurpriseApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SurpriseApi {
 

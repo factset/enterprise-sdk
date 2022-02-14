@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * CapitalStructure service.
 * @module api/CapitalStructureApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CapitalStructureApi {
 

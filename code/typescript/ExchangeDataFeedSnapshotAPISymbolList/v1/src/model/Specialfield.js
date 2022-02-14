@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Specialfield model module.
  * @module model/Specialfield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Specialfield {
     /**

@@ -17,7 +17,7 @@ import InlineResponse2006DataGearingLeverage from './InlineResponse2006DataGeari
 /**
  * The InlineResponse2006DataGearing model module.
  * @module model/InlineResponse2006DataGearing
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006DataGearing {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentCrossReferenceListByWKNData model module.
  * @module model/InstrumentCrossReferenceListByWKNData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InstrumentCrossReferenceListByWKNData {
     /**

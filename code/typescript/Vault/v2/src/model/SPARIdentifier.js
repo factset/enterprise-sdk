@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SPARIdentifier model module.
  * @module model/SPARIdentifier
- * @version 0.8.0
+ * @version 0.8.1
  */
 class SPARIdentifier {
     /**

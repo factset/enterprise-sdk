@@ -30,7 +30,7 @@ import FactSetFundamentalsApi from './api/FactSetFundamentalsApi';
 
 
 /**
-* Gain_access_to_current_comprehensive_and_comparative_information_on_securities_in_worldwide_developed_and_emerging_markets__Composed_of_annual_and_interim_quarterly_data_detailed_historical_financial_statement_content_per_share_data_and_calculated_ratios_FactSet_Fundamentals_provides_you_with_the_information_you_need_for_a_global_investment_perspective_.<br>
+* FactSet Fundamentals client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -58,7 +58,7 @@ import FactSetFundamentalsApi from './api/FactSetFundamentalsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

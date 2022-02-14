@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactEventUpdateDto model module.
  * @module model/ContactEventUpdateDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactEventUpdateDto {
     /**

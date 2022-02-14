@@ -19,7 +19,7 @@ import SubjectSettingsDto from './SubjectSettingsDto';
 /**
  * The GroupFieldsDto model module.
  * @module model/GroupFieldsDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GroupFieldsDto {
     /**

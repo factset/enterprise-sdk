@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DetailEstimate model module.
  * @module model/DetailEstimate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DetailEstimate {
     /**

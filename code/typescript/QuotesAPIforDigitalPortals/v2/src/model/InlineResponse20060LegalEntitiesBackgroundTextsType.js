@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20060LegalEntitiesBackgroundTextsType model module.
  * @module model/InlineResponse20060LegalEntitiesBackgroundTextsType
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20060LegalEntitiesBackgroundTextsType {
     /**

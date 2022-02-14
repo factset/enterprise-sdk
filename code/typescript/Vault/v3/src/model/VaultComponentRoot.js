@@ -17,7 +17,7 @@ import VaultComponent from './VaultComponent';
 /**
  * The VaultComponentRoot model module.
  * @module model/VaultComponentRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class VaultComponentRoot {
     /**

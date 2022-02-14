@@ -17,7 +17,7 @@ import AssociatedOrganization from './AssociatedOrganization';
 /**
  * The Entity model module.
  * @module model/Entity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Entity {
     /**

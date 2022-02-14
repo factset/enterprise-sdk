@@ -17,7 +17,7 @@ import InstrumentCategoryListDataFilterDataset from './InstrumentCategoryListDat
 /**
  * The InstrumentCategoryListDataFilter model module.
  * @module model/InstrumentCategoryListDataFilter
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InstrumentCategoryListDataFilter {
     /**

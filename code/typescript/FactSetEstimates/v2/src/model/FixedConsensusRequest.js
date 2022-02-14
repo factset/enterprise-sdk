@@ -18,7 +18,7 @@ import Periodicity from './Periodicity';
 /**
  * The FixedConsensusRequest model module.
  * @module model/FixedConsensusRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FixedConsensusRequest {
     /**

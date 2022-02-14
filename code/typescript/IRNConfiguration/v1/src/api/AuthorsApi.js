@@ -19,7 +19,7 @@ import UserConfigDto from '../model/UserConfigDto';
 /**
 * Authors service.
 * @module api/AuthorsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class AuthorsApi {
 

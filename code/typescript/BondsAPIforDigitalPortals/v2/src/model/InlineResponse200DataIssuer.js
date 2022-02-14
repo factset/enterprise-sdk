@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataIssuer model module.
  * @module model/InlineResponse200DataIssuer
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataIssuer {
     /**

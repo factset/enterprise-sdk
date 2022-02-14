@@ -17,7 +17,7 @@ import InlineResponse2004DataIssuerJuristicPerson from './InlineResponse2004Data
 /**
  * The InlineResponse2004DataIssuer model module.
  * @module model/InlineResponse2004DataIssuer
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataIssuer {
     /**

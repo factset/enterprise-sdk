@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DetailRatings model module.
  * @module model/DetailRatings
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DetailRatings {
     /**

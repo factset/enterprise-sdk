@@ -29,7 +29,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 
 
 /**
-* Allow_clients_to_fetch_Engines_Analytics_through_APIs_.<br>
+* Axioma Equity Optimizer client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -57,7 +57,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.0
+* @version 0.8.1
 */
 export {
     /**

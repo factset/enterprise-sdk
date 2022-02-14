@@ -17,7 +17,7 @@ import SecuritizedDerivativeNotationScreenerSearchMetaPagination from './Securit
 /**
  * The SecuritizedDerivativeNotationScreenerSearchMeta model module.
  * @module model/SecuritizedDerivativeNotationScreenerSearchMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerSearchMeta {
     /**

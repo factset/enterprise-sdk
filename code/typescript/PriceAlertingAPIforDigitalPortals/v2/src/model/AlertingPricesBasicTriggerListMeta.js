@@ -17,7 +17,7 @@ import AlertingPricesBasicTriggerListMetaPagination from './AlertingPricesBasicT
 /**
  * The AlertingPricesBasicTriggerListMeta model module.
  * @module model/AlertingPricesBasicTriggerListMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AlertingPricesBasicTriggerListMeta {
     /**

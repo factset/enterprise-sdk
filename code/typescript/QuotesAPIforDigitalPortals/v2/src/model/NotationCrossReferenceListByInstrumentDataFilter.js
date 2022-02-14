@@ -18,7 +18,7 @@ import NotationCrossReferenceListByInstrumentDataFilterValueUnits from './Notati
 /**
  * The NotationCrossReferenceListByInstrumentDataFilter model module.
  * @module model/NotationCrossReferenceListByInstrumentDataFilter
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationCrossReferenceListByInstrumentDataFilter {
     /**

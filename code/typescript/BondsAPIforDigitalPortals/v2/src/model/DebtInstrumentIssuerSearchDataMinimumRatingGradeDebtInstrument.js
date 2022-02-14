@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument model module.
  * @module model/DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument {
     /**

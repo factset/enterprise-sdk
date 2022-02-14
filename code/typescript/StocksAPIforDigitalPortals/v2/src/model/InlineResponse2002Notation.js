@@ -17,7 +17,7 @@ import InlineResponse2002NotationInstrument from './InlineResponse2002NotationIn
 /**
  * The InlineResponse2002Notation model module.
  * @module model/InlineResponse2002Notation
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2002Notation {
     /**

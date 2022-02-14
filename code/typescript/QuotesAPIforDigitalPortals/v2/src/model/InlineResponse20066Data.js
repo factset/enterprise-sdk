@@ -19,7 +19,7 @@ import InlineResponse20066DataValueUnit from './InlineResponse20066DataValueUnit
 /**
  * The InlineResponse20066Data model module.
  * @module model/InlineResponse20066Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20066Data {
     /**

@@ -19,7 +19,7 @@ import GetFilesStatus from '../model/GetFilesStatus';
 /**
 * GetFiles service.
 * @module api/GetFilesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class GetFilesApi {
 

@@ -17,7 +17,7 @@ import Position from './Position';
 /**
  * The CompanyPositionsRequest model module.
  * @module model/CompanyPositionsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CompanyPositionsRequest {
     /**

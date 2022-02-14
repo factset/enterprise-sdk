@@ -18,7 +18,7 @@ import VendorChartIQTimeSeriesEodListDataRange from './VendorChartIQTimeSeriesEo
 /**
  * The VendorChartIQTimeSeriesEodListData model module.
  * @module model/VendorChartIQTimeSeriesEodListData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class VendorChartIQTimeSeriesEodListData {
     /**

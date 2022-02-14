@@ -17,7 +17,7 @@ import Dividend from './Dividend';
 /**
  * The CashDividendsResponse model module.
  * @module model/CashDividendsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CashDividendsResponse {
     /**

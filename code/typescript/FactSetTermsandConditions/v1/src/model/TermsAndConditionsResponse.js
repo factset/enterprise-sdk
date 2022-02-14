@@ -17,7 +17,7 @@ import TermsAndConditions from './TermsAndConditions';
 /**
  * The TermsAndConditionsResponse model module.
  * @module model/TermsAndConditionsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class TermsAndConditionsResponse {
     /**

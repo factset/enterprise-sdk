@@ -54,7 +54,7 @@ import TickerApi from './api/TickerApi';
 
 
 /**
-* The_FactSet_Symbology_API_provides_symbol_resolution_services_allowing_clients_to_translate_market_identifiers_into_various_symbologytypes__various_market_symbology_types_such_as_FactSet_Permanent_Identifiers_CUSIP_ISIN_SEDOL_Tickers_and_Bloomberg_FIGIs__Factsets_Symbology_API_sits_at_the_center_of_its_hub_and_spoke_data_model_enabling_you_to_quickly_harmonize_the_expanding_catalog_of_Content_APIs__Translate_market_IDs_into_CUSIP_SEDOL_ISIN_Tickers_as_a_point_in_time_or_for_the_entirehistory_of_the_requested_id_allowing_Data_Management_workflows_to_normalize_ids_over_time__Additionally_the_Symbology_API_provides_translation_of_market_ids_into_Bloomberg_FIGI_.<br>
+* Symbology client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -82,7 +82,7 @@ import TickerApi from './api/TickerApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.0
+* @version 0.8.1
 */
 export {
     /**

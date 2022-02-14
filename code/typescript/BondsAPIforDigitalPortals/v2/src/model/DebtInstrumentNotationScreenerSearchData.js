@@ -28,7 +28,7 @@ import DebtInstrumentNotationScreenerSearchDataYield from './DebtInstrumentNotat
 /**
  * The DebtInstrumentNotationScreenerSearchData model module.
  * @module model/DebtInstrumentNotationScreenerSearchData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchData {
     /**

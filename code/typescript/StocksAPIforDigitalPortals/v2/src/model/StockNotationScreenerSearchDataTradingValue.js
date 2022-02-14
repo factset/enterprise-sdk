@@ -17,7 +17,7 @@ import StockNotationScreenerSearchDataTradingValueAverage from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataTradingValue model module.
  * @module model/StockNotationScreenerSearchDataTradingValue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataTradingValue {
     /**

@@ -17,7 +17,7 @@ import Frequency from './Frequency';
 /**
  * The CountryRequest model module.
  * @module model/CountryRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CountryRequest {
     /**

@@ -20,7 +20,7 @@ import InlineResponse20073Status from './InlineResponse20073Status';
 /**
  * The InlineResponse20075Data model module.
  * @module model/InlineResponse20075Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20075Data {
     /**

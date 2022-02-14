@@ -18,7 +18,7 @@ import InlineResponse2003InstrumentCouponOccurrence from './InlineResponse2003In
 /**
  * The InlineResponse2003InstrumentCoupon model module.
  * @module model/InlineResponse2003InstrumentCoupon
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003InstrumentCoupon {
     /**

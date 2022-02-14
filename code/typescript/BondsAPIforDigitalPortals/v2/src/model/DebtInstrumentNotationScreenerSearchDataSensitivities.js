@@ -20,7 +20,7 @@ import DebtInstrumentNotationScreenerSearchDataSensitivitiesModifiedDuration fro
 /**
  * The DebtInstrumentNotationScreenerSearchDataSensitivities model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataSensitivities
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataSensitivities {
     /**

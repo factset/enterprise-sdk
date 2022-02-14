@@ -20,7 +20,7 @@ import RelationshipSymbolSummaryDto from './RelationshipSymbolSummaryDto';
 /**
  * The ContactRelationshipTwoSidedDto model module.
  * @module model/ContactRelationshipTwoSidedDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactRelationshipTwoSidedDto {
     /**

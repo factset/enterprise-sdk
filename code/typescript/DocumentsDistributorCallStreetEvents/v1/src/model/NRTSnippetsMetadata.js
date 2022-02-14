@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSnippetsMetadata model module.
  * @module model/NRTSnippetsMetadata
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSnippetsMetadata {
     /**

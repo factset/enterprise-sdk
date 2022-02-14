@@ -17,7 +17,7 @@ import InlineResponse20039DataType from './InlineResponse20039DataType';
 /**
  * The InlineResponse20040Data model module.
  * @module model/InlineResponse20040Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20040Data {
     /**

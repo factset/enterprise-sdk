@@ -17,7 +17,7 @@ import FPOOptimizationParameters from './FPOOptimizationParameters';
 /**
  * The FPOOptimizationParametersRoot model module.
  * @module model/FPOOptimizationParametersRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FPOOptimizationParametersRoot {
     /**

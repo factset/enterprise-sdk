@@ -21,7 +21,7 @@ import UserSerialDto from './UserSerialDto';
 /**
  * The CreateMeetingDto model module.
  * @module model/CreateMeetingDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CreateMeetingDto {
     /**

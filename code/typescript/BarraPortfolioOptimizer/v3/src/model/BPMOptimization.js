@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BPMOptimization model module.
  * @module model/BPMOptimization
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BPMOptimization {
     /**

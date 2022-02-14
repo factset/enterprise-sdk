@@ -17,7 +17,7 @@ import InterimStatusInterimStatus from './InterimStatusInterimStatus';
 /**
  * The InterimStatus model module.
  * @module model/InterimStatus
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InterimStatus {
     /**

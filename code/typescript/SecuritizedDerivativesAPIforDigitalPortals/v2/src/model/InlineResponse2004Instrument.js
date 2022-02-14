@@ -17,7 +17,7 @@ import InlineResponse200DataNsin from './InlineResponse200DataNsin';
 /**
  * The InlineResponse2004Instrument model module.
  * @module model/InlineResponse2004Instrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004Instrument {
     /**

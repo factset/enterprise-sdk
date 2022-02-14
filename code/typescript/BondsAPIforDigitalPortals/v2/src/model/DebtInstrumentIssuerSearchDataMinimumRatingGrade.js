@@ -17,7 +17,7 @@ import DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument from './De
 /**
  * The DebtInstrumentIssuerSearchDataMinimumRatingGrade model module.
  * @module model/DebtInstrumentIssuerSearchDataMinimumRatingGrade
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentIssuerSearchDataMinimumRatingGrade {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IncludeExcludeObject model module.
  * @module model/IncludeExcludeObject
- * @version 0.9.0
+ * @version 0.9.1
  */
 class IncludeExcludeObject {
     /**

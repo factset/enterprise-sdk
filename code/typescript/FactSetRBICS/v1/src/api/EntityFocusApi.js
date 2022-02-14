@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityFocus service.
 * @module api/EntityFocusApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EntityFocusApi {
 

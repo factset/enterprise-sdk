@@ -66,7 +66,7 @@ import ReferenceApi from './api/ReferenceApi';
 
 
 /**
-* FactSet_Mutual_Funds_data_offers_over_50_fund__and_share_class_specific_data_points_for_mutual_funds_listed_in_the_United_States__pFactSet_Mutual_Funds_Reference_provides_fund_specific_reference_information_as_well_as_FactSets_proprietary_classification_system__It_includes_but_is_not_limited_to_the_following_coverage____Fund_descriptions____A_seven_tier_classification_system___Leverage_information___Fees_and_expenses____Portfolio_managers_____FactSet_Mutual_Funds_Time_Series_provides_quantitative_data_items_on_a_historical_basis__It_includes_but_is_not_limited_to_the_following_coverage____Net_asset_value___Fund_flows____Assets_under_management___Total_return_.<br>
+* FactSet Funds client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -94,7 +94,7 @@ import ReferenceApi from './api/ReferenceApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

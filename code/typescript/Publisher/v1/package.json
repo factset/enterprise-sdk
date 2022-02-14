@@ -1,7 +1,7 @@
 {
   "name": "@factset/sdk-publisher",
-  "version": "0.8.0",
-  "description": "Allow_clients_to_fetch_Publisher_Analytics_through_APIs_",
+  "version": "0.8.1",
+  "description": "Publisher client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
@@ -11,35 +11,17 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
-  "browser": {
-    "fs": false
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@factset/sdk-utils": "^0.9.0",
-    "superagent": "^5.3.0"
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataValidationMarketSelectionRestrict model module.
  * @module model/StockNotationScreenerSearchDataValidationMarketSelectionRestrict
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataValidationMarketSelectionRestrict {
     /**

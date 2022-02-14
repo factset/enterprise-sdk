@@ -21,7 +21,7 @@ import InlineResponse20089InstrumentName from './InlineResponse20089InstrumentNa
 /**
  * The InlineResponse20089Instrument model module.
  * @module model/InlineResponse20089Instrument
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20089Instrument {
     /**

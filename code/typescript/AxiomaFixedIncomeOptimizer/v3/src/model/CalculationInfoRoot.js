@@ -17,7 +17,7 @@ import CalculationInfo from './CalculationInfo';
 /**
  * The CalculationInfoRoot model module.
  * @module model/CalculationInfoRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CalculationInfoRoot {
     /**

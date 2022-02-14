@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ValidParameterDetails model module.
  * @module model/ValidParameterDetails
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ValidParameterDetails {
     /**

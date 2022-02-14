@@ -17,7 +17,7 @@ import NPOOptimizationParameters from './NPOOptimizationParameters';
 /**
  * The NPOOptimizationParametersRoot model module.
  * @module model/NPOOptimizationParametersRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NPOOptimizationParametersRoot {
     /**

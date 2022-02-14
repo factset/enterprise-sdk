@@ -18,7 +18,7 @@ import InlineResponse2003DataPerformanceIssueBid from './InlineResponse2003DataP
 /**
  * The InlineResponse2003DataPerformanceIssue model module.
  * @module model/InlineResponse2003DataPerformanceIssue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003DataPerformanceIssue {
     /**

@@ -17,7 +17,7 @@ import InlineResponse20059DataInstrument from './InlineResponse20059DataInstrume
 /**
  * The InlineResponse20059Data model module.
  * @module model/InlineResponse20059Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20059Data {
     /**

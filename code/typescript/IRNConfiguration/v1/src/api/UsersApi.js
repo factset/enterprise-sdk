@@ -18,7 +18,7 @@ import UserConfigDto from '../model/UserConfigDto';
 /**
 * Users service.
 * @module api/UsersApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class UsersApi {
 

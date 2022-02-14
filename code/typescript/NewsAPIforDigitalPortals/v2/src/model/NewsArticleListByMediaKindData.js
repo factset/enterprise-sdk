@@ -17,7 +17,7 @@ import NewsArticleListDataFilter from './NewsArticleListDataFilter';
 /**
  * The NewsArticleListByMediaKindData model module.
  * @module model/NewsArticleListByMediaKindData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NewsArticleListByMediaKindData {
     /**

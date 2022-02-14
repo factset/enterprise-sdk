@@ -20,7 +20,7 @@ import RollingPeriod from './RollingPeriod';
 /**
  * The ReturnsRequest model module.
  * @module model/ReturnsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ReturnsRequest {
     /**

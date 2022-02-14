@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityTaskStatus model module.
  * @module model/EntityTaskStatus
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityTaskStatus {
     /**

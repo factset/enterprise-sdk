@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SasbScores model module.
  * @module model/SasbScores
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SasbScores {
     /**

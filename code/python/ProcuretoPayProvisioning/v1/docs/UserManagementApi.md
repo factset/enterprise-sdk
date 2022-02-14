@@ -22,32 +22,30 @@ Cancels an individual's serial and all productIds
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayProvisioning
 from fds.sdk.ProcuretoPayProvisioning.api import user_management_api
 from fds.sdk.ProcuretoPayProvisioning.model.cancel_individual import CancelIndividual
 from fds.sdk.ProcuretoPayProvisioning.model.inline_response202 import InlineResponse202
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/procuretopay/provisioning
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-    host = "https://api.factset.com/procuretopay/provisioning"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -115,32 +113,30 @@ Provisions an individual for FactSet
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayProvisioning
 from fds.sdk.ProcuretoPayProvisioning.api import user_management_api
 from fds.sdk.ProcuretoPayProvisioning.model.inline_response202 import InlineResponse202
 from fds.sdk.ProcuretoPayProvisioning.model.create_individual import CreateIndividual
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/procuretopay/provisioning
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-    host = "https://api.factset.com/procuretopay/provisioning"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -214,31 +210,29 @@ Returns an individual's details by uniqueId
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayProvisioning
 from fds.sdk.ProcuretoPayProvisioning.api import user_management_api
 from fds.sdk.ProcuretoPayProvisioning.model.get_individual import GetIndividual
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/procuretopay/provisioning
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-    host = "https://api.factset.com/procuretopay/provisioning"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -303,31 +297,29 @@ Lists all individuals with details at all locations.
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayProvisioning
 from fds.sdk.ProcuretoPayProvisioning.api import user_management_api
 from fds.sdk.ProcuretoPayProvisioning.model.list_individuals import ListIndividuals
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/procuretopay/provisioning
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-    host = "https://api.factset.com/procuretopay/provisioning"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'
@@ -393,32 +385,30 @@ Modifies an individual's attributes as determined by the uniqueId in the body of
 * OAuth Authentication (FactSetOAuth2):
 
 ```python
-import time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayProvisioning
 from fds.sdk.ProcuretoPayProvisioning.api import user_management_api
 from fds.sdk.ProcuretoPayProvisioning.model.inline_response202 import InlineResponse202
 from fds.sdk.ProcuretoPayProvisioning.model.modify_individual import ModifyIndividual
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.factset.com/procuretopay/provisioning
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-    host = "https://api.factset.com/procuretopay/provisioning"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
 
 # (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://developer.factset.com/applications
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
 configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
-     fds_oauth_client = ConfidentialClient('app-config.json')
+    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
-# See https://developer.factset.com/manage-api-keys
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
 # configuration = fds.sdk.ProcuretoPayProvisioning.Configuration(
 #     username = 'USERNAME-SERIAL',
 #     password = 'API-KEY'

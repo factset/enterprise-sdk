@@ -33,7 +33,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresVega fro
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures {
     /**

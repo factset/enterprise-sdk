@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Fundamental model module.
  * @module model/Fundamental
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Fundamental {
     /**

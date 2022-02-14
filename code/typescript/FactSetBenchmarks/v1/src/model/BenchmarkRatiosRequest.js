@@ -18,7 +18,7 @@ import Periodicity from './Periodicity';
 /**
  * The BenchmarkRatiosRequest model module.
  * @module model/BenchmarkRatiosRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BenchmarkRatiosRequest {
     /**

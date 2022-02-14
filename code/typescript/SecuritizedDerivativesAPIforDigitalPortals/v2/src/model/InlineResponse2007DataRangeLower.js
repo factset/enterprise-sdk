@@ -20,7 +20,7 @@ import InlineResponse2007DataRangeLowerParticipationFactor from './InlineRespons
 /**
  * The InlineResponse2007DataRangeLower model module.
  * @module model/InlineResponse2007DataRangeLower
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataRangeLower {
     /**

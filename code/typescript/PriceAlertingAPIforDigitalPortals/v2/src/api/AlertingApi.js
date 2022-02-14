@@ -22,7 +22,7 @@ import InlineResponse2003 from '../model/InlineResponse2003';
 /**
 * Alerting service.
 * @module api/AlertingApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class AlertingApi {
 

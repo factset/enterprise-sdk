@@ -21,7 +21,7 @@ import PubCalculationParametersRoot from '../model/PubCalculationParametersRoot'
 /**
 * PubCalculations service.
 * @module api/PubCalculationsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class PubCalculationsApi {
 

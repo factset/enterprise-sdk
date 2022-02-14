@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentCouponTriggerLevelDistance from './InlineResp
 /**
  * The InlineResponse2006InstrumentCouponTriggerLevel model module.
  * @module model/InlineResponse2006InstrumentCouponTriggerLevel
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentCouponTriggerLevel {
     /**

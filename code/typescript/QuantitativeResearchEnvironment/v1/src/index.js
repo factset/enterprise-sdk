@@ -21,7 +21,7 @@ import FilesApi from './api/FilesApi';
 
 
 /**
-* TBD.<br>
+* Quantitative Research Environment client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -49,7 +49,7 @@ import FilesApi from './api/FilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

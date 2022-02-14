@@ -17,7 +17,7 @@ import EntityUniverse from './EntityUniverse';
 /**
  * The EntityUniverseResponse model module.
  * @module model/EntityUniverseResponse
- * @version 0.8.0
+ * @version 0.8.1
  */
 class EntityUniverseResponse {
     /**

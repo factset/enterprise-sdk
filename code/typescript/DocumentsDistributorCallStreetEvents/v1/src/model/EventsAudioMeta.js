@@ -18,7 +18,7 @@ import NRTSnippetsMetaPartial from './NRTSnippetsMetaPartial';
 /**
  * The EventsAudioMeta model module.
  * @module model/EventsAudioMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EventsAudioMeta {
     /**

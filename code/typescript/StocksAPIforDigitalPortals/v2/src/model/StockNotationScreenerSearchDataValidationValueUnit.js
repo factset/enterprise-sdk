@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataValidationValueUnitRestrict from './StockN
 /**
  * The StockNotationScreenerSearchDataValidationValueUnit model module.
  * @module model/StockNotationScreenerSearchDataValidationValueUnit
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataValidationValueUnit {
     /**

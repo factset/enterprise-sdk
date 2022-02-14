@@ -17,7 +17,7 @@ import UniverseStatistics from './UniverseStatistics';
 /**
  * The EntityUniverseStatisticsResponse model module.
  * @module model/EntityUniverseStatisticsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityUniverseStatisticsResponse {
     /**

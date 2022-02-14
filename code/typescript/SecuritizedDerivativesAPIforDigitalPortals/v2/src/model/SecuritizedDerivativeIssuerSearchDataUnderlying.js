@@ -17,7 +17,7 @@ import SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument from './Securit
 /**
  * The SecuritizedDerivativeIssuerSearchDataUnderlying model module.
  * @module model/SecuritizedDerivativeIssuerSearchDataUnderlying
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeIssuerSearchDataUnderlying {
     /**

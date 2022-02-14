@@ -17,7 +17,7 @@ import InlineResponse2004DataRatingSystem1Rating from './InlineResponse2004DataR
 /**
  * The InlineResponse2004DataRatingSystem2 model module.
  * @module model/InlineResponse2004DataRatingSystem2
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataRatingSystem2 {
     /**

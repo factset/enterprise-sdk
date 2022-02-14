@@ -17,7 +17,7 @@ import InlineResponse2004DataComplianceGermany from './InlineResponse2004DataCom
 /**
  * The InlineResponse2004DataCompliance model module.
  * @module model/InlineResponse2004DataCompliance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataCompliance {
     /**

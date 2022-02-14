@@ -17,7 +17,7 @@ import Splits from './Splits';
 /**
  * The SplitsResponse model module.
  * @module model/SplitsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SplitsResponse {
     /**

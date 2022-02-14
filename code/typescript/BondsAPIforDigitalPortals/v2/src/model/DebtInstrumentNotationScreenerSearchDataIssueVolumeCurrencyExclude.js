@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyExclude model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyExclude
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyExclude {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTimeSeriesEodSubsampleGetDataInterval model module.
  * @module model/PricesTimeSeriesEodSubsampleGetDataInterval
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PricesTimeSeriesEodSubsampleGetDataInterval {
     /**

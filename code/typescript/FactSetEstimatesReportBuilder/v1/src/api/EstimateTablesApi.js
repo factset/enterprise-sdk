@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * EstimateTables service.
 * @module api/EstimateTablesApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class EstimateTablesApi {
 

@@ -17,7 +17,7 @@ import SubcommentSummaryDto from './SubcommentSummaryDto';
 /**
  * The CommentSummaryDto model module.
  * @module model/CommentSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CommentSummaryDto {
     /**

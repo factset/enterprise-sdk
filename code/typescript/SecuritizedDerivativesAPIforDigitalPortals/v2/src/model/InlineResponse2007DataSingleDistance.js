@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataSingleDistance model module.
  * @module model/InlineResponse2007DataSingleDistance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataSingleDistance {
     /**

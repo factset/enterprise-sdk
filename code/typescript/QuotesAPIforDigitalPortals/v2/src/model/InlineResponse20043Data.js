@@ -19,7 +19,7 @@ import InlineResponse20042DataType from './InlineResponse20042DataType';
 /**
  * The InlineResponse20043Data model module.
  * @module model/InlineResponse20043Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20043Data {
     /**

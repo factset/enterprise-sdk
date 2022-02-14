@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany model module.
  * @module model/InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany {
     /**

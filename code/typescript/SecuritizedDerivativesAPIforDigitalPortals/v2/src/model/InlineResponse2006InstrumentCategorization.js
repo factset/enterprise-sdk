@@ -18,7 +18,7 @@ import InlineResponse2006InstrumentCategorizationEusipa from './InlineResponse20
 /**
  * The InlineResponse2006InstrumentCategorization model module.
  * @module model/InlineResponse2006InstrumentCategorization
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentCategorization {
     /**

@@ -21,7 +21,7 @@ import RollingDetailRequest from '../model/RollingDetailRequest';
 /**
 * BrokerDetail service.
 * @module api/BrokerDetailApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class BrokerDetailApi {
 

@@ -18,7 +18,7 @@ import InlineResponse200DataRange from './InlineResponse200DataRange';
 /**
  * The InlineResponse2007Data model module.
  * @module model/InlineResponse2007Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007Data {
     /**

@@ -17,7 +17,7 @@ import InlineResponse2005DataCompanyCountry from './InlineResponse2005DataCompan
 /**
  * The InlineResponse2005DataCompany model module.
  * @module model/InlineResponse2005DataCompany
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCompany {
     /**

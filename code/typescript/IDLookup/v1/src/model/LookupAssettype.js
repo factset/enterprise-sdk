@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LookupAssettype model module.
  * @module model/LookupAssettype
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LookupAssettype {
     /**

@@ -18,7 +18,7 @@ import NotationSearchByTextDataTradingValueAverageDays30Minimum from './Notation
 /**
  * The NotationSearchByTextDataTradingValueAverageDays30 model module.
  * @module model/NotationSearchByTextDataTradingValueAverageDays30
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataTradingValueAverageDays30 {
     /**

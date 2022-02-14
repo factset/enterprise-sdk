@@ -17,7 +17,7 @@ import InlineResponse20016DataNavLast from './InlineResponse20016DataNavLast';
 /**
  * The InlineResponse20016DataNav model module.
  * @module model/InlineResponse20016DataNav
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20016DataNav {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20028DataMainCurrency model module.
  * @module model/InlineResponse20028DataMainCurrency
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20028DataMainCurrency {
     /**

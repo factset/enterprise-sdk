@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity from './DebtIns
 /**
  * The DebtInstrumentNotationScreenerSearchDataLifeCycle model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataLifeCycle
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataLifeCycle {
     /**

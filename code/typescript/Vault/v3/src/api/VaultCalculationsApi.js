@@ -21,7 +21,7 @@ import VaultCalculationParametersRoot from '../model/VaultCalculationParametersR
 /**
 * VaultCalculations service.
 * @module api/VaultCalculationsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class VaultCalculationsApi {
 

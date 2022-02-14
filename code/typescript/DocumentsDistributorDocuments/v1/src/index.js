@@ -31,7 +31,7 @@ import StreetAccountXMLAPIApi from './api/StreetAccountXMLAPIApi';
 
 
 /**
-* Documents_APIs_that_provide_filings_such_as_Global_Filings_and_XML_files_such_as_StreetAccount__Global_Filings_API_provides_the_capability_to_search_and_download_filings_documents_from_various_exchanges_around_the_world__The_API_also_provides_relevant_metadata_such_as_document_source_company_identifiers_and_form_type_around_each_filings_document__Filings_providers_currently_include_EDGAR_and_SYMEX_WebDisclosure_____StreetAccount_XML_API_provides_access_to_historical_StreetAccount__SA_news__SA_provides_a_summary_for_various_corporate_and_market_news_written_by_journalist_with_background_in_financial_markets___The_API_delivers_SA_stories_in_XML_format_based_on_user_specified_date_input_parameters__When_the_API_request_is_completed_output_files_will_be_made_available_back_to_the_users_through_a_secure_URL__This_API_has_three_endpoints__1_Request_Files__2_Check_Status__3_Get_Files__Files_delivered_contain_both_metadata_and_content_body_in_each_file__This_eliminates_the_need_to_make_multiple_requests_through_multiple_services_to_get_all_the_information__.<br>
+* Documents Distributor - Documents client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -59,7 +59,7 @@ import StreetAccountXMLAPIApi from './api/StreetAccountXMLAPIApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

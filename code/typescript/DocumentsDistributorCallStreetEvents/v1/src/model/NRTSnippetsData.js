@@ -17,7 +17,7 @@ import NRTSnippetsSnippetData from './NRTSnippetsSnippetData';
 /**
  * The NRTSnippetsData model module.
  * @module model/NRTSnippetsData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSnippetsData {
     /**

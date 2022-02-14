@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataIssuerSelection from './DebtInstr
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssuer model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssuer
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataIssuer {
     /**

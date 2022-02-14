@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CalculationUnitStatusMeta model module.
  * @module model/CalculationUnitStatusMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CalculationUnitStatusMeta {
     /**

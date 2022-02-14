@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.FixedIncomeCalculation",
   "projectName": "fds.sdk.FixedIncomeCalculation",
-  "packageVersion": "0.8.0",
+  "packageVersion": "0.8.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
-  "packageDescription": "FactSet SDK - Fixed Income Calculation",
+  "packageDescription": "Fixed Income Calculation client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
-  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/FixedIncomeCalculation",
-  "httpUserAgent": "fds-sdk/python/FixedIncomeCalculation/0.8.0",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FixedIncomeCalculation/v1",
+  "httpUserAgent": "fds-sdk/python/FixedIncomeCalculation/0.8.1",
   "files": {
     "LICENSE": {}
   }

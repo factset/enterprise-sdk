@@ -18,7 +18,7 @@ import NRTSnippetsMetaPartial from './NRTSnippetsMetaPartial';
 /**
  * The NRTCallsMeta model module.
  * @module model/NRTCallsMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTCallsMeta {
     /**

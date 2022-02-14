@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.Symbology",
   "projectName": "fds.sdk.Symbology",
-  "packageVersion": "0.8.0",
+  "packageVersion": "0.8.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
-  "packageDescription": "FactSet SDK - Symbology",
+  "packageDescription": "Symbology client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
-  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/master/code/python/Symbology",
-  "httpUserAgent": "fds-sdk/python/Symbology/0.8.0",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Symbology/v1",
+  "httpUserAgent": "fds-sdk/python/Symbology/0.8.1",
   "files": {
     "LICENSE": {}
   }

@@ -17,7 +17,7 @@ import Error from './Error';
 /**
  * The ClientErrorResponse model module.
  * @module model/ClientErrorResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ClientErrorResponse {
     /**

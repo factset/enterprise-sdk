@@ -17,7 +17,7 @@ import ColumnStatistic from './ColumnStatistic';
 /**
  * The ColumnStatisticRoot model module.
  * @module model/ColumnStatisticRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ColumnStatisticRoot {
     /**

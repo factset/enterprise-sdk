@@ -44,7 +44,7 @@ import IndexLevelApi from './api/IndexLevelApi';
 
 
 /**
-* FactSet_Benchmarks_API_gives_access_to_Index_Constituents_Prices_Returns_and_Ratios__For_a_sample_list_of_identifiers_use_the__metrics_endpoint__Equity_Only___Fixed_Income_Benchmark_support_coming_soon_.<br>
+* FactSet Benchmarks client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -72,7 +72,7 @@ import IndexLevelApi from './api/IndexLevelApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

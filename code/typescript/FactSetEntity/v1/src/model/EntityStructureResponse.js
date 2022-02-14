@@ -17,7 +17,7 @@ import EntityStructure from './EntityStructure';
 /**
  * The EntityStructureResponse model module.
  * @module model/EntityStructureResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EntityStructureResponse {
     /**

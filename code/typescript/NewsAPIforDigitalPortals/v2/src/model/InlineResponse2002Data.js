@@ -19,7 +19,7 @@ import InlineResponse2002DataDistributor from './InlineResponse2002DataDistribut
 /**
  * The InlineResponse2002Data model module.
  * @module model/InlineResponse2002Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2002Data {
     /**

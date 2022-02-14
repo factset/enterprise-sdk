@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConstraintAction model module.
  * @module model/ConstraintAction
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ConstraintAction {
     /**

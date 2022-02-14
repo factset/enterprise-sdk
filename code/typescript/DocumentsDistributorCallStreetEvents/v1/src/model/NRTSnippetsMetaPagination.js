@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSnippetsMetaPagination model module.
  * @module model/NRTSnippetsMetaPagination
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSnippetsMetaPagination {
     /**

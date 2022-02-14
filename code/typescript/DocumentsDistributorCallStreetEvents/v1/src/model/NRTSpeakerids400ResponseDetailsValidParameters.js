@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSpeakerids400ResponseDetailsValidParameters model module.
  * @module model/NRTSpeakerids400ResponseDetailsValidParameters
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NRTSpeakerids400ResponseDetailsValidParameters {
     /**

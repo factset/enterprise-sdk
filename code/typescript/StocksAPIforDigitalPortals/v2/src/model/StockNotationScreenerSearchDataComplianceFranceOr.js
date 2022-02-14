@@ -17,7 +17,7 @@ import StockNotationScreenerSearchDataComplianceFranceAnd from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataComplianceFranceOr model module.
  * @module model/StockNotationScreenerSearchDataComplianceFranceOr
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataComplianceFranceOr {
     /**

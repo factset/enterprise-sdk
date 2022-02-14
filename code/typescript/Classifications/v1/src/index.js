@@ -24,7 +24,7 @@ import GICSApi from './api/GICSApi';
 
 
 /**
-* The_Classifications_API_gives_access_to_various_Industry_Classifications_for_a_given_list_of_securities__Beginning_first_with_GICS_Direct_the_service_will_then_expand_to_offering_NAICS_SIC_RBICS_and_more__.<br>
+* Classifications client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -52,7 +52,7 @@ import GICSApi from './api/GICSApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

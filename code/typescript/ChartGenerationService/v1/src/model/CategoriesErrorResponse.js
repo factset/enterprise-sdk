@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CategoriesErrorResponse model module.
  * @module model/CategoriesErrorResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CategoriesErrorResponse {
     /**

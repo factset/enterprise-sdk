@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataIssuerCountryRestrict from './Deb
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssuerCountry model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssuerCountry
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataIssuerCountry {
     /**

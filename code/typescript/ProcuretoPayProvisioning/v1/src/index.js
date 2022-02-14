@@ -26,7 +26,7 @@ import UserManagementApi from './api/UserManagementApi';
 
 
 /**
-* Allows_for_Provisioning_and_Entitlement_of_FactSet_accounts____Authentication_is_provided_via_FactSets__API_Key_System_https__developer_factset_com_authentication__Please_note_that_the_on_page_Try_it_out_features_do_not_function__You_must_authorize_against_our_API_and_make_requests_directly_againt_the_endpoints___.<br>
+* Procure to Pay: Provisioning client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -54,7 +54,7 @@ import UserManagementApi from './api/UserManagementApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

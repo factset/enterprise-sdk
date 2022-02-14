@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponOccurrenceFrequency from '.
 /**
  * The DebtInstrumentNotationScreenerSearchDataCouponOccurrence model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCouponOccurrence
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataCouponOccurrence {
     /**

@@ -18,7 +18,7 @@ import InlineResponse200DataReferenceDebtorLegalEntity from './InlineResponse200
 /**
  * The InlineResponse200DataReferenceDebtor model module.
  * @module model/InlineResponse200DataReferenceDebtor
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataReferenceDebtor {
     /**

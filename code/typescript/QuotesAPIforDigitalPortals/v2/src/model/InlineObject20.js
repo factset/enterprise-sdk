@@ -18,7 +18,7 @@ import NotationCrossReferenceFactSetIdentifierListByInstrumentData from './Notat
 /**
  * The InlineObject20 model module.
  * @module model/InlineObject20
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject20 {
     /**

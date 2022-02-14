@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BenchmarkRatios model module.
  * @module model/BenchmarkRatios
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BenchmarkRatios {
     /**

@@ -28,7 +28,7 @@ import SecurityHoldersApi from './api/SecurityHoldersApi';
 
 
 /**
-* FactSets_Fund_Ownership_API_gives_access_to_both_Holdings_and_Holders_data_p_Factsets_Holdings_endpoints_gives_access_to_all_the_underlying_securities_and_their_position_detils_held_within_a_given_fund__Fund_Types_supported_include_Open_End_Mutual_Funds_Closed_end_Mutual_Funds_and_Exchange_Traded_Funds__Security_Holders_information_retrieves_all_holder_types_and_their_positions_across_institutions_funds_insiders_and_stakeholders__ppThe_FactSet_Ownership_and_Mutual_Funds_database_collects_global_equity_ownership_data_for_approximately_50000_institutions_60000_unique_Mutual_Fund_portfolios_and_400000_Insider_Stake_holders_from_around_110_countries___For_more_details_review_our__Data_Collection_https__my_apps_factset_com_oa_cms_oaAttachment_87e162be_f2d1_4f40_a85b_bfb1b020d270_20079_methodology___p.<br>
+* FactSet Ownership client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -56,7 +56,7 @@ import SecurityHoldersApi from './api/SecurityHoldersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

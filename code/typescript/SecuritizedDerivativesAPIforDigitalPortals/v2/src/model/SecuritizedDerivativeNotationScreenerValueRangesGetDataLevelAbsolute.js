@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolute model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolute
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolute {
     /**

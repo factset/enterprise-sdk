@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AccountDirectories model module.
  * @module model/AccountDirectories
- * @version 0.9.0
+ * @version 0.9.1
  */
 class AccountDirectories {
     /**

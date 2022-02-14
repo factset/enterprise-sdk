@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubcommentSummaryDto model module.
  * @module model/SubcommentSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SubcommentSummaryDto {
     /**

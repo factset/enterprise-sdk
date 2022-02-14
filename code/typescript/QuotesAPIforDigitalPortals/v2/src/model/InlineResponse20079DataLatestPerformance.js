@@ -17,7 +17,7 @@ import InlineResponse20079DataLatestPerformanceIntraday from './InlineResponse20
 /**
  * The InlineResponse20079DataLatestPerformance model module.
  * @module model/InlineResponse20079DataLatestPerformance
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20079DataLatestPerformance {
     /**

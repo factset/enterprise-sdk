@@ -57,7 +57,7 @@ import GroupsApi from './api/GroupsApi';
 
 
 /**
-* Allow_clients_to_fetch_PA_Engine_Analytics_through_APIs_.<br>
+* PA Engine client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -85,7 +85,7 @@ import GroupsApi from './api/GroupsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.0
+* @version 0.8.1
 */
 export {
     /**

@@ -17,7 +17,7 @@ import FundHolding from './FundHolding';
 /**
  * The FundHoldingsResponse model module.
  * @module model/FundHoldingsResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FundHoldingsResponse {
     /**

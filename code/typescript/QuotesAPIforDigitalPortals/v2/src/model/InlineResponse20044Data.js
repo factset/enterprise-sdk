@@ -17,7 +17,7 @@ import InlineResponse20044Type from './InlineResponse20044Type';
 /**
  * The InlineResponse20044Data model module.
  * @module model/InlineResponse20044Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20044Data {
     /**

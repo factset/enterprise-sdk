@@ -25,7 +25,7 @@ import TradesAtTimeApi from './api/TradesAtTimeApi';
 
 
 /**
-* pFactSets_Tick_History_provides_cost_effective_access_to_real_time_and_delayed_global_exchange_data__Proprietary_technology_normalizes_over_200_global_exchanges_and_19_tick_history_fields__Asset_types_integrated_include_equities_futures_options_fixed_income_mutual_funds_ETFs_indices_commodities_and_FX_rates__ppTick_History_provides_dynamic_access_to_tick_data_for_a_specific_security_intra_day_or_historically_via_standard_HTTPS_protocol__History_is_available_for_all_quotes_and_trades_for_a_trailing_6_months_or_1_year_respectively__Quotes_and_trade_data_for_Options_is_available_for_30_days__Tick_History_data_is_also_available_in_a_separate_end_of_day_feed__p_.<br>
+* Intraday Tick History client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -53,7 +53,7 @@ import TradesAtTimeApi from './api/TradesAtTimeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

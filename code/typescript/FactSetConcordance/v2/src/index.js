@@ -49,7 +49,7 @@ import UniversesApi from './api/UniversesApi';
 
 
 /**
-* The_FactSet_Concordance_API_provides_the_ability_to_programmatically_look_up_several_types_of_entities_by_their_name_and_other_attributes__It_attempts_to_match_attributes_that_you_supply_for_the_entity_and_returns_as_many_match_candidates_as_it_can_find__The_result_is_a_concorded_FactSet_Entity_Permanent_identifier___The_Entity_Identifier_can_then_be_used_as_input_throughout_FactSets_Content_soultions_such_as_Content_APIs_and_Standard_DataFeeds_p_There_are_two_types_of_workflows_supported_in_the_API__The_first_workflow_type_follows_traditional_API_conventions_in_that_a_request_is_accepted_and_a_response_is_returned_synchronously__The_second_workflow_type_involves_a_background_task__With_this_workflow_a_task_is_created_for_uploading_a_set_of_queries_and_then_the_client_polls_for_the_task_to_complete__Once_the_task_has_completed_the_client_retrieves_the_concordance_results_throught_the_decisions_endpoint__p.<br>
+* FactSet Concordance client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -77,7 +77,7 @@ import UniversesApi from './api/UniversesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

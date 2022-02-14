@@ -45,7 +45,7 @@ import ProfilesApi from './api/ProfilesApi';
 
 
 /**
-* The_FactSet_People_API_exposes_FactSet_data_for_individuals_and_their_jobs_.<br>
+* FactSet People client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -73,7 +73,7 @@ import ProfilesApi from './api/ProfilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

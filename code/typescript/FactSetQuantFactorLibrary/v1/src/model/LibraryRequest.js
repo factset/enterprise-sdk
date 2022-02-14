@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LibraryRequest model module.
  * @module model/LibraryRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LibraryRequest {
     /**

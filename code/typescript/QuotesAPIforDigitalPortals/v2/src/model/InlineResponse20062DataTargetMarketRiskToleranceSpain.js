@@ -17,7 +17,7 @@ import InlineResponse20062DataTargetMarketRiskToleranceSri from './InlineRespons
 /**
  * The InlineResponse20062DataTargetMarketRiskToleranceSpain model module.
  * @module model/InlineResponse20062DataTargetMarketRiskToleranceSpain
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketRiskToleranceSpain {
     /**

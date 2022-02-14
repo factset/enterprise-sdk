@@ -28,7 +28,7 @@ import DebtInstrumentNotationScreenerValueRangesGetDataRating from './DebtInstru
 /**
  * The DebtInstrumentNotationScreenerValueRangesGetData model module.
  * @module model/DebtInstrumentNotationScreenerValueRangesGetData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerValueRangesGetData {
     /**

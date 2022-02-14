@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockDividendListDataFilterPeriod model module.
  * @module model/StockDividendListDataFilterPeriod
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockDividendListDataFilterPeriod {
     /**

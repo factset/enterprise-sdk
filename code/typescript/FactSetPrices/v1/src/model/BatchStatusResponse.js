@@ -17,7 +17,7 @@ import BatchStatus from './BatchStatus';
 /**
  * The BatchStatusResponse model module.
  * @module model/BatchStatusResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BatchStatusResponse {
     /**

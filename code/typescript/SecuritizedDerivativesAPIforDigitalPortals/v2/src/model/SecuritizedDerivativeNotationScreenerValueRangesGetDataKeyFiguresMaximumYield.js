@@ -19,7 +19,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumY
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYield model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYield {
     /**

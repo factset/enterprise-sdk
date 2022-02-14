@@ -18,7 +18,7 @@ import ConstraintAction from './ConstraintAction';
 /**
  * The BPMOptimizerStrategyOverrides model module.
  * @module model/BPMOptimizerStrategyOverrides
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BPMOptimizerStrategyOverrides {
     /**

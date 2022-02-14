@@ -19,7 +19,7 @@ import InlineResponse2005DataKeyFiguresMaximumYieldRelative from './InlineRespon
 /**
  * The InlineResponse2005DataKeyFiguresMaximumYield model module.
  * @module model/InlineResponse2005DataKeyFiguresMaximumYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresMaximumYield {
     /**

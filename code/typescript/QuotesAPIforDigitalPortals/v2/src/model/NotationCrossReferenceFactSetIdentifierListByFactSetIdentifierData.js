@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData model module.
  * @module model/NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData {
     /**

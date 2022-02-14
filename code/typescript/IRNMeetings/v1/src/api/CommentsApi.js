@@ -24,7 +24,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Comments service.
 * @module api/CommentsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CommentsApi {
 

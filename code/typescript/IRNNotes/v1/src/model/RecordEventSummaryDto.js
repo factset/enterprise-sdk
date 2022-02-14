@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecordEventSummaryDto model module.
  * @module model/RecordEventSummaryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RecordEventSummaryDto {
     /**

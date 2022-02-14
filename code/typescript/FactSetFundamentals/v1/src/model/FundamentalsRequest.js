@@ -18,7 +18,7 @@ import Restated from './Restated';
 /**
  * The FundamentalsRequest model module.
  * @module model/FundamentalsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class FundamentalsRequest {
     /**

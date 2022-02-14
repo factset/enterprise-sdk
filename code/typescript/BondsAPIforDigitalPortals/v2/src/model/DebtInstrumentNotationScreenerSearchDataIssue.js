@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataIssueVolume from './DebtInstrumen
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssue model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataIssue {
     /**

@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotation fr
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlying model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlying
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlying {
     /**

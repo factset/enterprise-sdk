@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificatesConstantLeverage model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificatesConstantLeverage
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificatesConstantLeverage {
     /**

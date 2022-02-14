@@ -34,7 +34,7 @@ import SDGApi from './api/SDGApi';
 
 
 /**
-* FactSet_ESG__powered_by_FactSet_Truvalue_Labs_applies_machine_learning_to_uncover_risks_and_opportunities_from_companies_Environmental_Social_and_Governance__ESG_behavior_which_are_aggregated_and_categorized_into_continuously_updated_material_ESG_scores__The_service_focuses_on_company_ESG_behavior_from_external_sources_and_includes_both_positive_and_negative_events_that_go_beyond_traditional_sources_of_ESG_risk_data_p_FactSet_ESG_extracts_analyzes_and_generates_scores_from_millions_of_documents_each_month_collected_from_more_than_100000_data_sources_in_over_13_languages__Sources_include_news_trade_journals_NGOs_watchdog_groups_trade_blogs_industry_reports_and_social_media__Products_deliver_investable_insights_by_revealing_value_and_risk_factors_from_unstructured_data_at_the_speed_of_current_events__p.<br>
+* FactSet ESG client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -62,7 +62,7 @@ import SDGApi from './api/SDGApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

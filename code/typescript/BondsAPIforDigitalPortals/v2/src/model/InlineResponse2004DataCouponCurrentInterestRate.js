@@ -18,7 +18,7 @@ import InlineResponse2004DataCouponCurrentInterestRateValue from './InlineRespon
 /**
  * The InlineResponse2004DataCouponCurrentInterestRate model module.
  * @module model/InlineResponse2004DataCouponCurrentInterestRate
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataCouponCurrentInterestRate {
     /**

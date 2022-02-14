@@ -17,7 +17,7 @@ import InlineResponse2005DataParent from './InlineResponse2005DataParent';
 /**
  * The InlineResponse2005DataCategories model module.
  * @module model/InlineResponse2005DataCategories
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataCategories {
     /**

@@ -17,7 +17,7 @@ import ConvertibleTriggers from './ConvertibleTriggers';
 /**
  * The ConvertibleTriggersResponse model module.
  * @module model/ConvertibleTriggersResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ConvertibleTriggersResponse {
     /**

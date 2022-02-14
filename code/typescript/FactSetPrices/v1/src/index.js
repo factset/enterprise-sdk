@@ -72,7 +72,7 @@ import SplitsApi from './api/SplitsApi';
 
 
 /**
-* Gain_access_to_comprehensive_global_coverage_for_Equities__Fixed_Income__Perform_quick_analytics_by_controlling_the_date_ranges_currencies_and_rolling_periods_or_simply_request_Open_High_Low_and_Close_prices__Easily_connect_pricing_data_with_other_core_company_data_or_alternative_content_sets_using_FactSets_hub_and_spoke_symbology__pEquity_and_Fund_Security_types_include_Common_Stock_ADR_GDR_Preferred_Closed_ended_Fund_Exchange_Traded_Fund_Unit_Open_ended_Fund_Exchange_Traded_Fund_UVI_Exchange_Traded_Fund_NAV_Preferred_Equity_Non_Voting_Depositary_Receipt_Certificate_Alien_Foreign_Structured_Product_and_Temporary_Instruments__Reference_over_180000_active_and_inactive_securities__ppFixed_Income_Security_Types_include_Corporate_Bonds_Treasury_and_Agency_bonds_Government_Bonds_and_Municipals__p.<br>
+* FactSet Prices client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -100,7 +100,7 @@ import SplitsApi from './api/SplitsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

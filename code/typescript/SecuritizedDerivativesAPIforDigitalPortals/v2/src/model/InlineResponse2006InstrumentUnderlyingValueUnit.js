@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006InstrumentUnderlyingValueUnit model module.
  * @module model/InlineResponse2006InstrumentUnderlyingValueUnit
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentUnderlyingValueUnit {
     /**

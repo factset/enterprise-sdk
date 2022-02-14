@@ -20,7 +20,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Group service.
 * @module api/GroupApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class GroupApi {
 

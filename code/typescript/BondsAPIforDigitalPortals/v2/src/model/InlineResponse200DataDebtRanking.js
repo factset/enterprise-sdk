@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataDebtRanking model module.
  * @module model/InlineResponse200DataDebtRanking
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataDebtRanking {
     /**

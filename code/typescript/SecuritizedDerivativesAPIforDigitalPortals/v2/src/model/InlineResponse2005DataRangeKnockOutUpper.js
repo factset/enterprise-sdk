@@ -17,7 +17,7 @@ import InlineResponse2005DataRangeKnockOutUpperValue from './InlineResponse2005D
 /**
  * The InlineResponse2005DataRangeKnockOutUpper model module.
  * @module model/InlineResponse2005DataRangeKnockOutUpper
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataRangeKnockOutUpper {
     /**

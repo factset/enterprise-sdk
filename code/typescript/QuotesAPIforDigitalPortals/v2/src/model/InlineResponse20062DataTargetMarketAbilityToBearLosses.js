@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketAbilityToBearLosses model module.
  * @module model/InlineResponse20062DataTargetMarketAbilityToBearLosses
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20062DataTargetMarketAbilityToBearLosses {
     /**

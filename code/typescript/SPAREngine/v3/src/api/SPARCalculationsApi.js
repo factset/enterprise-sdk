@@ -21,7 +21,7 @@ import SPARCalculationParametersRoot from '../model/SPARCalculationParametersRoo
 /**
 * SPARCalculations service.
 * @module api/SPARCalculationsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class SPARCalculationsApi {
 

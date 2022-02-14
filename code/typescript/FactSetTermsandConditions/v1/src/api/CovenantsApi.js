@@ -20,7 +20,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Covenants service.
 * @module api/CovenantsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class CovenantsApi {
 

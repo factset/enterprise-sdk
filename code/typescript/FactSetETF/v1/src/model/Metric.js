@@ -17,7 +17,7 @@ import Category from './Category';
 /**
  * The Metric model module.
  * @module model/Metric
- * @version 0.9.0
+ * @version 0.9.1
  */
 class Metric {
     /**

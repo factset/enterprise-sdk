@@ -20,7 +20,7 @@ import FactorsResponse from '../model/FactorsResponse';
 /**
 * Factors service.
 * @module api/FactorsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class FactorsApi {
 

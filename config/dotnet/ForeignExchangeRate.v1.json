@@ -1,12 +1,12 @@
 {
   "packageName": "FactSet.SDK.ForeignExchangeRate",
-  "packageVersion": "0.9.0",
+  "packageVersion": "0.9.1",
   "packageGuid": "{6503a425-a1f2-5317-b4dc-5b5f17960ebe}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
   "packageAuthors": "FactSet Research Systems",
   "packageTitle": "FactSet SDK",
-  "packageDescription": "Allow clients to fetch data through the SDK.",
+  "packageDescription": "Foreign Exchange Rate client library for .NET",
   "packageCompany": "FactSet Research Systems",
   "packageProductName": "FactSet SDK - Foreign Exchange Rate",
   "packageCopyright": "",
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/0.9.0",
+  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/0.9.1",
   "files": {
     "LICENSE": {}
   }

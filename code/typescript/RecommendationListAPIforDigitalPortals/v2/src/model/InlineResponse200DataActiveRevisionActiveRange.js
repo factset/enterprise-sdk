@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataActiveRevisionActiveRange model module.
  * @module model/InlineResponse200DataActiveRevisionActiveRange
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse200DataActiveRevisionActiveRange {
     /**

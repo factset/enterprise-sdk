@@ -17,7 +17,7 @@ import CurrencyCodeCurrencyCode from './CurrencyCodeCurrencyCode';
 /**
  * The CurrencyCode model module.
  * @module model/CurrencyCode
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CurrencyCode {
     /**

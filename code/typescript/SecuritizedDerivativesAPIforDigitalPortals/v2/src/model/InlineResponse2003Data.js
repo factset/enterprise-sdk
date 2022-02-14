@@ -30,7 +30,7 @@ import InlineResponse2003DataVega from './InlineResponse2003DataVega';
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003Data {
     /**

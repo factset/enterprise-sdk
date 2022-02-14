@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EmployerDto model module.
  * @module model/EmployerDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class EmployerDto {
     /**

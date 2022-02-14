@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataRecommendationCountsTotalMinimum from './S
 /**
  * The StockNotationScreenerSearchDataRecommendationCountsTotal model module.
  * @module model/StockNotationScreenerSearchDataRecommendationCountsTotal
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRecommendationCountsTotal {
     /**

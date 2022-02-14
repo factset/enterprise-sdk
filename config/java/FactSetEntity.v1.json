@@ -5,9 +5,9 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetentity",
-  "artifactVersion": "0.9.0",
+  "artifactVersion": "0.9.1",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
-  "artifactDescription": "FactSet SDK",
+  "artifactDescription": "FactSet Entity client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
   "scmDeveloperConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
   "scmUrl": "http://github.com/FactSet/enterprise-sdk",
@@ -25,7 +25,7 @@
   "caseInsensitiveResponseHeaders": true,
   "library": "jersey2",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetEntity/0.9.0",
+  "httpUserAgent": "fds-sdk/java/FactSetEntity/0.9.1",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

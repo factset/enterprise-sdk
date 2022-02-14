@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioModifyData model module.
  * @module model/PortfolioModifyData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioModifyData {
     /**

@@ -19,7 +19,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSideways
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYield model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYield
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYield {
     /**

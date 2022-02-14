@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestriction from
 /**
  * The DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity {
     /**

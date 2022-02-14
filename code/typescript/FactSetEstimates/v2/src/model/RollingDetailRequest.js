@@ -18,7 +18,7 @@ import Periodicity from './Periodicity';
 /**
  * The RollingDetailRequest model module.
  * @module model/RollingDetailRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RollingDetailRequest {
     /**

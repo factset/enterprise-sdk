@@ -29,7 +29,7 @@ import InlineResponse2013 from '../model/InlineResponse2013';
 /**
 * Watchlist service.
 * @module api/WatchlistApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class WatchlistApi {
 

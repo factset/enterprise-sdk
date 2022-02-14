@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentIssuerGroup from './InlineResponse2006Instrum
 /**
  * The InlineResponse2006InstrumentIssuer model module.
  * @module model/InlineResponse2006InstrumentIssuer
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2006InstrumentIssuer {
     /**

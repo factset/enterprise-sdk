@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2008DataTimezone model module.
  * @module model/InlineResponse2008DataTimezone
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2008DataTimezone {
     /**

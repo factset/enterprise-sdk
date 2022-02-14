@@ -20,7 +20,7 @@ import InlineResponse2007DataOperatingMIC from './InlineResponse2007DataOperatin
 /**
  * The InlineResponse2007DataUnderlyings model module.
  * @module model/InlineResponse2007DataUnderlyings
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2007DataUnderlyings {
     /**

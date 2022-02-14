@@ -20,7 +20,7 @@ import TeamSummaryDto from '../model/TeamSummaryDto';
 /**
 * Teams service.
 * @module api/TeamsApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class TeamsApi {
 

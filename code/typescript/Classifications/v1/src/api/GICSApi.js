@@ -20,7 +20,7 @@ import GicsResponse from '../model/GicsResponse';
 /**
 * GICS service.
 * @module api/GICSApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class GICSApi {
 

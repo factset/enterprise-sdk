@@ -17,7 +17,7 @@ import WatchlistPositionDeleteDataPosition from './WatchlistPositionDeleteDataPo
 /**
  * The WatchlistPositionDeleteData model module.
  * @module model/WatchlistPositionDeleteData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class WatchlistPositionDeleteData {
     /**

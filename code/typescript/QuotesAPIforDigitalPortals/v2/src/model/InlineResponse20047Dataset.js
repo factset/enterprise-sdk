@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20047Dataset model module.
  * @module model/InlineResponse20047Dataset
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20047Dataset {
     /**

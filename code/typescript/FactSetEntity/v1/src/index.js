@@ -34,7 +34,7 @@ import EntityStructureApi from './api/EntityStructureApi';
 
 
 /**
-* Using_an_entity_centric_data_model_FactSets_Entity_API_provides_access_toFactSets_complete_security_and_entity_level_symbology_comprehensive_entity_reference_data_and_all_of_thenecessary_relationships_and_connections_to_create_a_foundation_that_tightly_correlates_disparate_sources_ofinformation_to_a_master_entity_identifier__Use_this_API_to_quickly_understand_the_full_entity_structure_and_related_securities_.<br>
+* FactSet Entity client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -62,7 +62,7 @@ import EntityStructureApi from './api/EntityStructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**

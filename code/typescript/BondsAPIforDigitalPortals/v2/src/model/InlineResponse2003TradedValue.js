@@ -17,7 +17,7 @@ import InlineResponse2003TradedValueDays30 from './InlineResponse2003TradedValue
 /**
  * The InlineResponse2003TradedValue model module.
  * @module model/InlineResponse2003TradedValue
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2003TradedValue {
     /**

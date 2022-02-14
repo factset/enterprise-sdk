@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean model module.
  * @module model/StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean
- * @version 0.9.0
+ * @version 0.9.1
  */
 class StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean {
     /**

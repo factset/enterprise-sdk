@@ -18,7 +18,7 @@ import WatchlistPositionCreateData from './WatchlistPositionCreateData';
 /**
  * The InlineObject12 model module.
  * @module model/InlineObject12
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject12 {
     /**

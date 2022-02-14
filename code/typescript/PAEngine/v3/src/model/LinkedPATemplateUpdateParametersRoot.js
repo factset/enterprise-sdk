@@ -17,7 +17,7 @@ import LinkedPATemplateUpdateParameters from './LinkedPATemplateUpdateParameters
 /**
  * The LinkedPATemplateUpdateParametersRoot model module.
  * @module model/LinkedPATemplateUpdateParametersRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LinkedPATemplateUpdateParametersRoot {
     /**

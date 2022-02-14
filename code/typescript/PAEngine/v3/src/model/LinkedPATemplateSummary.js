@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LinkedPATemplateSummary model module.
  * @module model/LinkedPATemplateSummary
- * @version 0.9.0
+ * @version 0.9.1
  */
 class LinkedPATemplateSummary {
     /**

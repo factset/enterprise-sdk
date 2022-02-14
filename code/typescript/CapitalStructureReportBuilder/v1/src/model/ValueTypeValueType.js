@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ValueTypeValueType model module.
  * @module model/ValueTypeValueType
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ValueTypeValueType {
     /**

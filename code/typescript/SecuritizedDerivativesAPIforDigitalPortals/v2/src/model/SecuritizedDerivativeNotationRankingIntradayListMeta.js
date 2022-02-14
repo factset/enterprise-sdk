@@ -17,7 +17,7 @@ import SecuritizedDerivativeNotationRankingIntradayListMetaPagination from './Se
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListMeta model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationRankingIntradayListMeta {
     /**

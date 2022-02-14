@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2009DataSubsample model module.
  * @module model/InlineResponse2009DataSubsample
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2009DataSubsample {
     /**

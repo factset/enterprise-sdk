@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CancelIndividual model module.
  * @module model/CancelIndividual
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CancelIndividual {
     /**

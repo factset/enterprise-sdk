@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinim
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeekUnadjusted model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeekUnadjusted
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeekUnadjusted {
     /**

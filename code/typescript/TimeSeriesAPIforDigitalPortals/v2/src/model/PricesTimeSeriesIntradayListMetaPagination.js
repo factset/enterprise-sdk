@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTimeSeriesIntradayListMetaPagination model module.
  * @module model/PricesTimeSeriesIntradayListMetaPagination
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PricesTimeSeriesIntradayListMetaPagination {
     /**

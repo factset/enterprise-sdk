@@ -19,7 +19,7 @@ import LibraryResponse from '../model/LibraryResponse';
 /**
 * Helper service.
 * @module api/HelperApi
-* @version 0.9.0
+* @version 0.9.1
 */
 export default class HelperApi {
 

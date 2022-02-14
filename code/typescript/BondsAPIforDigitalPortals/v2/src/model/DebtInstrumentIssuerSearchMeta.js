@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentIssuerSearchMeta model module.
  * @module model/DebtInstrumentIssuerSearchMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentIssuerSearchMeta {
     /**

@@ -2,4 +2,4 @@ python_dateutil >= 2.5.3
 setuptools >= 21.0.0
 urllib3 >= 1.25.3
 fds.protobuf.stach.extensions == 1.0.1
-fds.sdk.utils == 0.9.0
+fds.sdk.utils >= 0.10.0

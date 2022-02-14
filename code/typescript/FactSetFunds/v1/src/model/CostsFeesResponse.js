@@ -17,7 +17,7 @@ import CostsFees from './CostsFees';
 /**
  * The CostsFeesResponse model module.
  * @module model/CostsFeesResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class CostsFeesResponse {
     /**

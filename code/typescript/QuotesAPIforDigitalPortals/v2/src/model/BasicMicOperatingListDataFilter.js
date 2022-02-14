@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicMicOperatingListDataFilter model module.
  * @module model/BasicMicOperatingListDataFilter
- * @version 0.9.0
+ * @version 0.9.1
  */
 class BasicMicOperatingListDataFilter {
     /**

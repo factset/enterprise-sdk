@@ -17,7 +17,7 @@ import SasbRanks from './SasbRanks';
 /**
  * The SasbRanksResponse model module.
  * @module model/SasbRanksResponse
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SasbRanksResponse {
     /**

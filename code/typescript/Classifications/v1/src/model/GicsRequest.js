@@ -18,7 +18,7 @@ import Frequency from './Frequency';
 /**
  * The GicsRequest model module.
  * @module model/GicsRequest
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GicsRequest {
     /**

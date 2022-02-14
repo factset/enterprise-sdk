@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20042DataNsin model module.
  * @module model/InlineResponse20042DataNsin
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse20042DataNsin {
     /**

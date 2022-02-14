@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataKeyFiguresAgioAbsolute model module.
  * @module model/InlineResponse2005DataKeyFiguresAgioAbsolute
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresAgioAbsolute {
     /**

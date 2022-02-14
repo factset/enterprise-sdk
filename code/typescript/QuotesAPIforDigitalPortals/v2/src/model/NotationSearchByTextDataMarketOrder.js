@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataMarketOrder model module.
  * @module model/NotationSearchByTextDataMarketOrder
- * @version 0.9.0
+ * @version 0.9.1
  */
 class NotationSearchByTextDataMarketOrder {
     /**

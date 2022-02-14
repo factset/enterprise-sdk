@@ -17,7 +17,7 @@ import Group from './Group';
 /**
  * The GroupRoot model module.
  * @module model/GroupRoot
- * @version 0.9.0
+ * @version 0.9.1
  */
 class GroupRoot {
     /**

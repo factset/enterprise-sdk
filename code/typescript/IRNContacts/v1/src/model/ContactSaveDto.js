@@ -21,7 +21,7 @@ import ContactRelationshipSaveDto from './ContactRelationshipSaveDto';
 /**
  * The ContactSaveDto model module.
  * @module model/ContactSaveDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class ContactSaveDto {
     /**

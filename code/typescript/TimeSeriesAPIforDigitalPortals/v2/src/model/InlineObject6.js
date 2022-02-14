@@ -18,7 +18,7 @@ import VendorChartIQTimeSeriesEodListMeta from './VendorChartIQTimeSeriesEodList
 /**
  * The InlineObject6 model module.
  * @module model/InlineObject6
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineObject6 {
     /**

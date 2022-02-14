@@ -18,7 +18,7 @@ import InlineResponse2004DataProfitLoss from './InlineResponse2004DataProfitLoss
 /**
  * The InlineResponse2004DataKeyfigures model module.
  * @module model/InlineResponse2004DataKeyfigures
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2004DataKeyfigures {
     /**

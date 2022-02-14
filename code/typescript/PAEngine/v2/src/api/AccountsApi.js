@@ -18,7 +18,7 @@ import AccountDirectories from '../model/AccountDirectories';
 /**
 * Accounts service.
 * @module api/AccountsApi
-* @version 0.8.0
+* @version 0.8.1
 */
 export default class AccountsApi {
 

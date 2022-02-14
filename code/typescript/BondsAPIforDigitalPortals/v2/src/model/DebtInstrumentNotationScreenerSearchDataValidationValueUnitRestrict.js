@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationValueUnitRestrict model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationValueUnitRestrict
- * @version 0.9.0
+ * @version 0.9.1
  */
 class DebtInstrumentNotationScreenerSearchDataValidationValueUnitRestrict {
     /**

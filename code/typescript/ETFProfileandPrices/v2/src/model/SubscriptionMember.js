@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubscriptionMember model module.
  * @module model/SubscriptionMember
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SubscriptionMember {
     /**

@@ -29,7 +29,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataValueUnit from './Sec
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListData model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListData
- * @version 0.9.0
+ * @version 0.9.1
  */
 class SecuritizedDerivativeNotationRankingIntradayListData {
     /**

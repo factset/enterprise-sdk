@@ -17,7 +17,7 @@ import RelationshipDto from './RelationshipDto';
 /**
  * The RelationshipCategoryDto model module.
  * @module model/RelationshipCategoryDto
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RelationshipCategoryDto {
     /**

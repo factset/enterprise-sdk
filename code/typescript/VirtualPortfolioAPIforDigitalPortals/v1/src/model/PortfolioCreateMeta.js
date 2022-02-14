@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioCreateMeta model module.
  * @module model/PortfolioCreateMeta
- * @version 0.9.0
+ * @version 0.9.1
  */
 class PortfolioCreateMeta {
     /**

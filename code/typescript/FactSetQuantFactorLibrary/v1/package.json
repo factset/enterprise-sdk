@@ -1,7 +1,7 @@
 {
   "name": "@factset/sdk-factsetquantfactorlibrary",
-  "version": "0.9.0",
-  "description": "The_FactSet_FactSet_Quant_Factor_Library__QFL_API_helps_to_detect_investment_themes_across_global_equity_markets_incorporate_ideas_into_your_portfolio_construction_process_and_transform_raw_data_into_actionable_intelligence__Over_2000_items_spanning_Factor_Groups_in____Classification_and_Reference_Data___Asset_Data_Country_Industry_and_Size___Market___Liquidity_Market_Sensitivity_Momentum_Technical_Volatility___Core_Fundamentals___Efficiency_Growth_Management_Profitability_Quality_Solvency_Value___Macro_and_Cross_Asset___Commodity_FX_Sensitivity_Debt_Economic___Alternative___Analyst_Sentiment_Corporate_Governance_Crowding_Insider_Activity_",
+  "version": "0.9.1",
+  "description": "FactSet Quant Factor Library client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
@@ -11,35 +11,17 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
-  "browser": {
-    "fs": false
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@factset/sdk-utils": "^0.9.0",
-    "superagent": "^5.3.0"
+    "@factset/sdk-utils": "^0.10.0",
+    "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"

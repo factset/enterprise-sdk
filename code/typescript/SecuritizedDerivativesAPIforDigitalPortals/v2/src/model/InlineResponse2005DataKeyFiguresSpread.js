@@ -18,7 +18,7 @@ import InlineResponse2005DataKeyFiguresSpreadRelative from './InlineResponse2005
 /**
  * The InlineResponse2005DataKeyFiguresSpread model module.
  * @module model/InlineResponse2005DataKeyFiguresSpread
- * @version 0.9.0
+ * @version 0.9.1
  */
 class InlineResponse2005DataKeyFiguresSpread {
     /**

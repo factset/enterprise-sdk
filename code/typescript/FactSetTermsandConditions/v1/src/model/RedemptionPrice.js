@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RedemptionPrice model module.
  * @module model/RedemptionPrice
- * @version 0.9.0
+ * @version 0.9.1
  */
 class RedemptionPrice {
     /**

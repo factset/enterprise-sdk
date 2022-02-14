@@ -26,7 +26,7 @@ import StructureApi from './api/StructureApi';
 
 
 /**
-* FactSet_Revere_Business_Industry_Classification_System__RBICS_is_a_comprehensive_structured_taxonomy_to_classify_companies_by_what_they_primarily_do__It_delivers_a_granular_view_for_investors_by_classifying_companies_using_a_bottom_up_approach_according_to_the_products_and_services_they_provide__By_combining_this_approach_with_a_top_level_grouping_based_on_companies_behavior_similarities_and_stock_co_movement_FactSet_RBICS_delivers_unprecedented_precision_for_1400_sector_groups_RBICS_Focus_is_a_six_level_classification_which_highlights_the_companys_main_business__It_is_based_on_the_company_business_line_s_that_stand_for_majority_of_a_the_revenue_that_the_company_generates__Updated_monthly__For_more_details_visit__Online_Assitant_Page_20710_https__oa_apps_factset_com_pages_20710_.<br>
+* FactSet RBICS client library for JavaScript.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -54,7 +54,7 @@ import StructureApi from './api/StructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0
+* @version 0.9.1
 */
 export {
     /**
